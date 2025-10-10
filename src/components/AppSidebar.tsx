@@ -20,6 +20,11 @@ export function AppSidebar() {
 
   const handleAllToolsClick = () => {
     clearSearch();
+    // Scroll to top when clicking All Tools
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
   };
 
   return (

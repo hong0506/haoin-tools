@@ -425,16 +425,6 @@ export const tools: Tool[] = [
   },
   // New Calculator Tools
   {
-    id: "tip-calculator",
-    title: "Tip Calculator",
-    description: "Calculate tips and split bills easily",
-    category: "calculator",
-    badge: "Calculator",
-    badgeVariant: "cyan",
-    path: "/tools/tip-calculator",
-    icon: "Wallet",
-  },
-  {
     id: "discount-calculator",
     title: "Discount Calculator",
     description: "Calculate discounts and final prices",
@@ -443,37 +433,5 @@ export const tools: Tool[] = [
     badgeVariant: "cyan",
     path: "/tools/discount-calculator",
     icon: "BadgePercent",
-  },
-  // New Generator Tools
-  {
-    id: "random-number",
-    title: "Random Number Generator",
-    description: "Generate random numbers within a range",
-    category: "generator",
-    badge: "Generator",
-    badgeVariant: "orange",
-    path: "/tools/random-number",
-    icon: "Dices",
-  },
-  // New Code/Dev Tools
-  {
-    id: "jwt-decoder",
-    title: "JWT Decoder",
-    description: "Decode and inspect JWT tokens",
-    category: "code",
-    badge: "Developer",
-    badgeVariant: "purple",
-    path: "/tools/jwt-decoder",
-    icon: "KeyRound",
-  },
-  {
-    id: "sql-formatter",
-    title: "SQL Formatter",
-    description: "Format and beautify SQL queries",
-    category: "code",
-    badge: "Developer",
-    badgeVariant: "purple",
-    path: "/tools/sql-formatter",
-    icon: "Database",
   },
 ];

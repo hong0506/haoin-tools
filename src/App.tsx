@@ -48,11 +48,7 @@ import DuplicateRemover from "./pages/tools/DuplicateRemover";
 import JsonToCsv from "./pages/tools/JsonToCsv";
 import XmlToJson from "./pages/tools/XmlToJson";
 import MarkdownToHtml from "./pages/tools/MarkdownToHtml";
-import TipCalculator from "./pages/tools/TipCalculator";
 import DiscountCalculator from "./pages/tools/DiscountCalculator";
-import RandomNumber from "./pages/tools/RandomNumber";
-import JwtDecoder from "./pages/tools/JwtDecoder";
-import SqlFormatter from "./pages/tools/SqlFormatter";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import CookiePolicy from "./pages/CookiePolicy";
 import TermsOfService from "./pages/TermsOfService";
@@ -232,24 +228,8 @@ const App = () => (
                         element={<MarkdownToHtml />}
                       />
                       <Route
-                        path="/tools/tip-calculator"
-                        element={<TipCalculator />}
-                      />
-                      <Route
                         path="/tools/discount-calculator"
                         element={<DiscountCalculator />}
-                      />
-                      <Route
-                        path="/tools/random-number"
-                        element={<RandomNumber />}
-                      />
-                      <Route
-                        path="/tools/jwt-decoder"
-                        element={<JwtDecoder />}
-                      />
-                      <Route
-                        path="/tools/sql-formatter"
-                        element={<SqlFormatter />}
                       />
                       <Route path="/privacy" element={<PrivacyPolicy />} />
                       <Route path="/cookies" element={<CookiePolicy />} />
