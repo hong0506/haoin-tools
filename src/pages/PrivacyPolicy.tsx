@@ -34,7 +34,7 @@ const PrivacyPolicy = () => {
               Introduction
             </h2>
             <p className="text-foreground/80 leading-relaxed mb-4">
-              Welcome to haoin Tools! We respect your privacy and are committed
+              Welcome to Haoin Tools! We respect your privacy and are committed
               to protecting your personal data. This privacy policy will inform
               you about how we look after your personal data when you visit our
               website and tell you about your privacy rights.
@@ -52,14 +52,13 @@ const PrivacyPolicy = () => {
               We collect minimal data to provide you with the best service:
             </p>
             <ul className="space-y-2 text-foreground/80">
-              <li>
-                Usage Data: Information about how you use our tools
-              </li>
+              <li>Usage Data: Information about how you use our tools</li>
               <li>
                 Technical Data: IP address, browser type, and device information
               </li>
               <li>
-                No Personal Files: All file processing happens locally in your browser
+                No Personal Files: All file processing happens locally in your
+                browser
               </li>
             </ul>
           </div>
@@ -72,18 +71,12 @@ const PrivacyPolicy = () => {
               Your privacy and security are our top priorities:
             </p>
             <ul className="space-y-2 text-foreground/80">
-              <li>
-                Client-Side Processing: All tools run in your browser
-              </li>
+              <li>Client-Side Processing: All tools run in your browser</li>
               <li>
                 No Data Storage: We don't store your files or personal data
               </li>
-              <li>
-                No Tracking: We don't use invasive tracking technologies
-              </li>
-              <li>
-                HTTPS Secure: All connections are encrypted
-              </li>
+              <li>No Tracking: We don't use invasive tracking technologies</li>
+              <li>HTTPS Secure: All connections are encrypted</li>
             </ul>
           </div>
 
@@ -92,32 +85,35 @@ const PrivacyPolicy = () => {
               Third-Party Advertising
             </h2>
             <p className="text-foreground/80 leading-relaxed mb-4">
-              We may display third-party advertisements to support our free services:
+              We may display third-party advertisements to support our free
+              services:
             </p>
             <ul className="space-y-2 text-foreground/80">
               <li>
-                Ad networks: We work with third-party advertising partners who may collect anonymous usage data
+                Ad networks: We work with third-party advertising partners who
+                may collect anonymous usage data
               </li>
               <li>
-                Cookies: Advertisers may use cookies to show relevant ads (you can opt out via browser settings)
+                Cookies: Advertisers may use cookies to show relevant ads (you
+                can opt out via browser settings)
               </li>
               <li>
-                Data Sharing: We do not share your personal information with advertisers
+                Data Sharing: We do not share your personal information with
+                advertisers
               </li>
               <li>
-                Privacy Controls: You can use ad blockers or adjust privacy settings in your browser
+                Privacy Controls: You can use ad blockers or adjust privacy
+                settings in your browser
               </li>
             </ul>
             <p className="text-foreground/80 leading-relaxed mt-4">
-              Third-party advertisers have their own privacy policies. We recommend
-              reviewing their policies for detailed information.
+              Third-party advertisers have their own privacy policies. We
+              recommend reviewing their policies for detailed information.
             </p>
           </div>
 
           <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-lg mb-6">
-            <h2 className="text-2xl font-bold mb-4 gradient-text">
-              Cookies
-            </h2>
+            <h2 className="text-2xl font-bold mb-4 gradient-text">Cookies</h2>
             <p className="text-foreground/80 leading-relaxed">
               We use essential cookies only to ensure the website functions
               properly. We do not use advertising or tracking cookies. You can
@@ -145,14 +141,17 @@ const PrivacyPolicy = () => {
             <ul className="space-y-2 text-foreground/80 mb-4">
               <li>Right to know what personal information is collected</li>
               <li>Right to delete personal information</li>
-              <li>Right to opt-out of sale of personal information (we do not sell data)</li>
+              <li>
+                Right to opt-out of sale of personal information (we do not sell
+                data)
+              </li>
               <li>Right to non-discrimination for exercising your rights</li>
             </ul>
             <p className="text-foreground/80 leading-relaxed">
               <strong>For Users in China:</strong> We comply with Chinese data
-              protection laws including the Personal Information Protection Law (PIPL).
-              Your data is processed locally in your browser and not transferred
-              outside of China without consent.
+              protection laws including the Personal Information Protection Law
+              (PIPL). Your data is processed locally in your browser and not
+              transferred outside of China without consent.
             </p>
           </div>
 
@@ -161,10 +160,10 @@ const PrivacyPolicy = () => {
               Data Retention
             </h2>
             <p className="text-foreground/80 leading-relaxed">
-              Since all data processing happens locally in your browser, we do not
-              retain your personal data on our servers. Browser cookies and local
-              storage are under your control and can be cleared at any time through
-              your browser settings.
+              Since all data processing happens locally in your browser, we do
+              not retain your personal data on our servers. Browser cookies and
+              local storage are under your control and can be cleared at any
+              time through your browser settings.
             </p>
           </div>
 
@@ -173,9 +172,10 @@ const PrivacyPolicy = () => {
               Contact Us
             </h2>
             <p className="text-foreground/80 leading-relaxed">
-              If you have any questions about this Privacy Policy or wish to exercise
-              your data rights, please contact us through our social media channels
-              or email us at: <strong className="text-primary">contact@haoin.tech</strong>
+              If you have any questions about this Privacy Policy or wish to
+              exercise your data rights, please contact us through our social
+              media channels or email us at:{" "}
+              <strong className="text-primary">contact@haoin.tech</strong>
             </p>
             <p className="text-foreground/80 leading-relaxed mt-4">
               For privacy-related complaints or concerns, we will respond within
@@ -185,8 +185,9 @@ const PrivacyPolicy = () => {
 
           <div className="bg-gradient-to-r from-pink-50 to-purple-50 rounded-3xl p-8 shadow-lg">
             <p className="text-center text-foreground/70">
-              Your trust is important to us. We're committed to keeping your data safe and private.
-              We're committed to keeping your data safe and private.
+              Your trust is important to us. We're committed to keeping your
+              data safe and private. We're committed to keeping your data safe
+              and private.
             </p>
           </div>
         </div>

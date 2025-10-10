@@ -277,7 +277,7 @@ export const Footer = () => {
                 All rights reserved.
               </div>
               <div>
-                Legal inquiries:{" "}
+                Contact:{" "}
                 <a
                   href="mailto:contact@haoin.tech"
                   className="text-primary hover:underline font-medium"

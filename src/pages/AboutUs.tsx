@@ -167,14 +167,14 @@ const AboutUs = () => {
               across multiple categories:
             </p>
             <div className="grid md:grid-cols-3 gap-3 text-foreground/80">
-              <div>💻 Developer Tools</div>
-              <div>🎨 Image Tools</div>
-              <div>📝 Text Tools</div>
-              <div>🔄 Converters</div>
-              <div>🎲 Generators</div>
-              <div>🧮 Calculators</div>
-              <div>💰 Finance Tools</div>
-              <div>🛠️ Utilities</div>
+              <div>📝 Text Processing</div>
+              <div>🔄 Format Converters</div>
+              <div>🎲 Quick Generators</div>
+              <div>🧮 Smart Calculators</div>
+              <div>🖼️ Image Studio</div>
+              <div>💻 Dev Utilities</div>
+              <div>💰 Money Management</div>
+              <div>🛠️ Helper Tools</div>
               <div>...and more!</div>
             </div>
           </div>
