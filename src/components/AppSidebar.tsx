@@ -1,0 +1,85 @@
+import { NavLink } from "react-router-dom";
+import * as Icons from "lucide-react";
+import {
+  Sidebar,
+  SidebarContent,
+  SidebarGroup,
+  SidebarGroupContent,
+  SidebarGroupLabel,
+  SidebarMenu,
+  SidebarMenuButton,
+  SidebarMenuItem,
+  SidebarHeader,
+} from "@/components/ui/sidebar";
+import { categories } from "@/data/tools";
+import { Logo } from "@/components/Logo";
+
+export function AppSidebar() {
+  return (
+    <Sidebar className="border-r-0">
+      <SidebarHeader className="border-b border-sidebar-border px-6 py-6 bg-gradient-to-br from-pink-50 to-purple-50 dark:from-pink-950/20 dark:to-purple-950/20">
+        <NavLink to="/" className="flex items-center gap-3 group">
+          <div className="rounded-xl p-1 transition-transform group-hover:scale-110">
+            <Logo size="md" />
+          </div>
+          <div>
+            <h1 className="text-2xl font-black gradient-text">Haoin Tools</h1>
+            <p className="text-xs font-semibold text-primary/70">✨ All-in-One Toolkit</p>
+          </div>
+        </NavLink>
+      </SidebarHeader>
+
+      <SidebarContent className="px-3 py-4">
+        <SidebarGroup>
+          <SidebarGroupLabel className="text-xs font-bold text-muted-foreground uppercase tracking-wider mb-2">
+            📂 Categories
+          </SidebarGroupLabel>
+          <SidebarGroupContent>
+            <SidebarMenu className="space-y-1">
+              <SidebarMenuItem>
+                <SidebarMenuButton asChild>
+                  <NavLink
+                    to="/"
+                    end
+                    className={({ isActive }) =>
+                      isActive
+                        ? "flex items-center gap-3 rounded-xl bg-gradient-to-r from-pink-500 to-purple-500 px-4 py-3 text-white font-semibold shadow-lg transition-all"
+                        : "flex items-center gap-3 rounded-xl px-4 py-3 text-sidebar-foreground hover:bg-sidebar-accent transition-all font-medium hover:translate-x-1"
+                    }
+                  >
+                    <Icons.Home className="h-5 w-5" />
+                    <span className="text-[15px]">All Tools</span>
+                  </NavLink>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+              {categories.map((category) => {
+                const IconComponent = Icons[
+                  category.icon as keyof typeof Icons
+                ] as React.ComponentType<{
+                  className?: string;
+                }>;
+                return (
+                  <SidebarMenuItem key={category.id}>
+                    <SidebarMenuButton asChild>
+                      <NavLink
+                        to={category.path}
+                        className={({ isActive }) =>
+                          isActive
+                            ? "flex items-center gap-3 rounded-xl bg-gradient-to-r from-pink-500 to-purple-500 px-4 py-3 text-white font-semibold shadow-lg transition-all"
+                            : "flex items-center gap-3 rounded-xl px-4 py-3 text-sidebar-foreground hover:bg-sidebar-accent transition-all font-medium hover:translate-x-1"
+                        }
+                      >
+                        {IconComponent && <IconComponent className="h-5 w-5" />}
+                        <span className="text-[15px]">{category.name}</span>
+                      </NavLink>
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>
+                );
+              })}
+            </SidebarMenu>
+          </SidebarGroupContent>
+        </SidebarGroup>
+      </SidebarContent>
+    </Sidebar>
+  );
+}

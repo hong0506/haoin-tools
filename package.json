@@ -1,7 +1,15 @@
 {
-  "name": "vite_react_shadcn_ts",
+  "name": "haoin-tools",
+  "version": "1.0.0",
+  "description": "Free online tools for productivity - by Haoin Tech",
+  "author": "Haoin Tech Co., Ltd. (杭州皓萤科技有限公司)",
+  "homepage": "https://haointools.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hong0506/haoin-tools"
+  },
+  "license": "MIT",
   "private": true,
-  "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -73,7 +81,6 @@
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.20",
     "globals": "^15.15.0",
-    "lovable-tagger": "^1.1.10",
     "postcss": "^8.5.6",
     "tailwindcss": "^3.4.17",
     "typescript": "^5.8.3",

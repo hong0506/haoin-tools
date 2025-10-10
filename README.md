@@ -1,73 +1,125 @@
-# Welcome to your Lovable project
+# Haoin Tools
 
-## Project info
+A modern online tools collection website providing various practical utilities.
 
-**URL**: https://lovable.dev/projects/61a09235-9b08-490e-b543-699f68c0d64a
+## Project Overview
 
-## How can I edit this code?
+**Haoin Tools** (https://haointools.com) is a feature-rich online tools platform, providing convenient tool services for developers, designers and all users.
 
-There are several ways of editing your application.
+**Operated by:** 杭州皓萤科技有限公司 (Haoin Tech Co., Ltd.)  
+**Contact:** contact@haoin.tech  
+**Domains:** haointools.com | haoin.tech
 
-**Use Lovable**
+## 技术栈
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/61a09235-9b08-490e-b543-699f68c0d64a) and start prompting.
+本项目使用以下技术构建：
 
-Changes made via Lovable will be committed automatically to this repo.
+- **Vite** - 现代化的前端构建工具
+- **TypeScript** - 类型安全的 JavaScript 超集
+- **React** - 用户界面库
+- **shadcn/ui** - 精美的 UI 组件库
+- **Tailwind CSS** - 实用优先的 CSS 框架
 
-**Use your preferred IDE**
+## 安装和运行
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### 前置要求
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+- Node.js 16+ 
+- npm 或 yarn
 
-Follow these steps:
+### 本地开发
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
+# 1. 克隆仓库
 git clone <YOUR_GIT_URL>
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+# 2. 进入项目目录
+cd haoin-tools
 
-# Step 3: Install the necessary dependencies.
-npm i
+# 3. 安装依赖
+npm install
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# 4. 启动开发服务器
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+### 构建生产版本
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+```sh
+# 构建生产版本
+npm run build
 
-**Use GitHub Codespaces**
+# 预览生产版本
+npm run preview
+```
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## 功能特性
 
-## What technologies are used for this project?
+### 💰 金融工具
+- 贷款计算器
+- 利息计算器
+- 投资计算器
+- 货币转换器
+- 信用卡计算器
 
-This project is built with:
+### 🔧 实用工具
+- 单位转换器
+- 年龄计算器
+- 日期计算器
+- 随机选择器
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+### 🖼️ 图像工具
+- 图片压缩器
+- 图片大小调整
+- 颜色选择器
 
-## How can I deploy this project?
+### 📝 文本工具
+- 大小写转换
+- 字数统计
+- 文本对比
+- 文本排序
+- Markdown 预览
 
-Simply open [Lovable](https://lovable.dev/projects/61a09235-9b08-490e-b543-699f68c0d64a) and click on Share -> Publish.
+### 🔄 转换工具
+- Base64 编解码
+- URL 编解码
+- JSON 格式化
+- HTML 转文本
+- CSV 转 JSON
+- 时间戳转换
 
-## Can I connect a custom domain to my Lovable project?
+### 🎲 生成器工具
+- UUID 生成器
+- 密码生成器
+- 二维码生成器
+- Lorem Ipsum 生成器
+- 哈希生成器
 
-Yes, you can!
+### 🧮 计算器工具
+- 百分比计算器
+- BMI 计算器
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+### 💻 开发工具
+- 正则表达式测试器
+- JSON 格式化器
+- 哈希生成器
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+## 项目结构
+
+```
+src/
+├── components/     # 可复用组件
+├── pages/         # 页面组件
+│   └── tools/    # 各种工具页面
+├── data/          # 数据配置
+├── lib/           # 工具函数
+└── types/         # TypeScript 类型定义
+```
+
+## 贡献
+
+欢迎提交 Issue 和 Pull Request！
+
+## 许可证
+
+MIT License
