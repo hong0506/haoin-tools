@@ -13,8 +13,15 @@ import {
 } from "@/components/ui/sidebar";
 import { categories } from "@/data/tools";
 import { Logo } from "@/components/Logo";
+import { useSearch } from "@/contexts/SearchContext";
 
 export function AppSidebar() {
+  const { clearSearch } = useSearch();
+
+  const handleAllToolsClick = () => {
+    clearSearch();
+  };
+
   return (
     <Sidebar className="border-r-0">
       <SidebarHeader className="border-b border-sidebar-border px-6 py-6 bg-gradient-to-br from-pink-50 to-purple-50 dark:from-pink-950/20 dark:to-purple-950/20">
@@ -45,6 +52,7 @@ export function AppSidebar() {
                   <NavLink
                     to="/"
                     end
+                    onClick={handleAllToolsClick}
                     className={({ isActive }) =>
                       isActive
                         ? "flex items-center gap-3 rounded-xl bg-gradient-to-r from-pink-500 to-purple-500 px-4 py-3 text-white font-semibold shadow-lg transition-all"

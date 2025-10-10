@@ -10,96 +10,113 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Textarea } from "@/components/ui/textarea";
-import { Checkbox } from "@/components/ui/checkbox";
 import {
   ArrowLeft,
   RotateCcw,
   Lightbulb,
-  ListFilter,
-  Zap,
-  Info,
+  FileJson,
   Copy,
-  FileText,
+  Info,
+  Zap,
+  Code,
+  FileCode,
   Database,
-  Mail,
+  Settings,
 } from "lucide-react";
 import { toast } from "sonner";
 import { FavoriteButton } from "@/components/FavoriteButton";
-import { Badge } from "@/components/ui/badge";
 
-const DuplicateRemover = () => {
-  const [inputText, setInputText] = useState("");
-  const [resultText, setResultText] = useState("");
-  const [removeEmpty, setRemoveEmpty] = useState(true);
-  const [caseSensitive, setCaseSensitive] = useState(false);
-  const [stats, setStats] = useState({ original: 0, removed: 0, final: 0 });
+const XmlToJson = () => {
+  const [xmlInput, setXmlInput] = useState("");
+  const [jsonOutput, setJsonOutput] = useState("");
   const navigate = useNavigate();
 
-  const removeDuplicates = () => {
-    if (!inputText.trim()) {
-      toast.error("Please enter some text");
+  const parseXml = (xmlString: string): any => {
+    const parser = new DOMParser();
+    const xmlDoc = parser.parseFromString(xmlString, "text/xml");
+    
+    const parseError = xmlDoc.querySelector("parsererror");
+    if (parseError) {
+      throw new Error("Invalid XML");
+    }
+
+    const xmlToObject = (node: Element): any => {
+      const obj: any = {};
+      
+      if (node.attributes.length > 0) {
+        obj["@attributes"] = {};
+        for (let i = 0; i < node.attributes.length; i++) {
+          const attr = node.attributes[i];
+          obj["@attributes"][attr.name] = attr.value;
+        }
+      }
+      
+      if (node.children.length === 0) {
+        return node.textContent || "";
+      }
+      
+      for (let i = 0; i < node.children.length; i++) {
+        const child = node.children[i];
+        const childData = xmlToObject(child);
+        
+        if (obj[child.tagName]) {
+          if (!Array.isArray(obj[child.tagName])) {
+            obj[child.tagName] = [obj[child.tagName]];
+          }
+          obj[child.tagName].push(childData);
+        } else {
+          obj[child.tagName] = childData;
+        }
+      }
+      
+      return obj;
+    };
+
+    return { [xmlDoc.documentElement.tagName]: xmlToObject(xmlDoc.documentElement) };
+  };
+
+  const convertToJson = () => {
+    if (!xmlInput.trim()) {
+      toast.error("Please enter XML data");
       return;
     }
 
-    const lines = inputText.split("\n");
-    const originalCount = lines.length;
-    
-    let processedLines = lines;
-    
-    if (removeEmpty) {
-      processedLines = processedLines.filter(line => line.trim() !== "");
+    try {
+      const jsonObj = parseXml(xmlInput);
+      const formatted = JSON.stringify(jsonObj, null, 2);
+      setJsonOutput(formatted);
+      toast.success("Converted to JSON successfully!");
+    } catch (error) {
+      toast.error("Invalid XML format");
     }
-    
-    const seen = new Set<string>();
-    const uniqueLines = [];
-    
-    for (const line of processedLines) {
-      const key = caseSensitive ? line : line.toLowerCase();
-      if (!seen.has(key)) {
-        seen.add(key);
-        uniqueLines.push(line);
-      }
-    }
-    
-    const finalCount = uniqueLines.length;
-    const removedCount = originalCount - finalCount;
-    
-    setResultText(uniqueLines.join("\n"));
-    setStats({
-      original: originalCount,
-      removed: removedCount,
-      final: finalCount,
-    });
-    
-    toast.success(`Removed ${removedCount} duplicate/empty line(s)`);
   };
 
-  const copyResult = () => {
-    if (resultText) {
-      navigator.clipboard.writeText(resultText);
+  const copyToClipboard = () => {
+    if (jsonOutput) {
+      navigator.clipboard.writeText(jsonOutput);
       toast.success("Copied to clipboard!");
     }
   };
 
   const clearAll = () => {
-    setInputText("");
-    setResultText("");
-    setStats({ original: 0, removed: 0, final: 0 });
-    setRemoveEmpty(true);
-    setCaseSensitive(false);
+    setXmlInput("");
+    setJsonOutput("");
     toast.success("All fields cleared");
   };
 
   const loadExample = () => {
-    setInputText(`Apple
-Banana
-apple
-Cherry
-Banana
-
-Date
-Apple
-`);
+    const exampleXML = `<?xml version="1.0"?>
+<library>
+  <book id="1">
+    <title>The Great Gatsby</title>
+    <author>F. Scott Fitzgerald</author>
+  </book>
+  <book id="2">
+    <title>1984</title>
+    <author>George Orwell</author>
+  </book>
+</library>`;
+    setXmlInput(exampleXML);
     toast.success("Example loaded");
   };
 
@@ -116,7 +133,7 @@ Apple
             <ArrowLeft className="h-4 w-4" />
           </Button>
           <SidebarTrigger />
-          <h1 className="text-xl font-semibold">Duplicate Line Remover</h1>
+          <h1 className="text-xl font-semibold">XML to JSON</h1>
         </div>
       </header>
 
@@ -125,15 +142,12 @@ Apple
           <CardHeader>
             <div className="flex items-center justify-between">
               <div>
-                <CardTitle>Remove Duplicate Lines</CardTitle>
+                <CardTitle>Convert XML to JSON</CardTitle>
                 <CardDescription>
-                  Remove duplicate and empty lines from your text
+                  Convert XML data to JSON format
                 </CardDescription>
               </div>
-              <FavoriteButton
-                toolId="duplicate-remover"
-                toolName="Duplicate Line Remover"
-              />
+              <FavoriteButton toolId="xml-to-json" toolName="XML to JSON" />
             </div>
           </CardHeader>
           <CardContent className="space-y-4">
@@ -149,72 +163,36 @@ Apple
             </div>
 
             <div>
+              <div className="text-sm font-medium mb-2">XML Input</div>
               <Textarea
-                placeholder="Enter your text (one item per line)..."
-                value={inputText}
-                onChange={(e) => setInputText(e.target.value)}
+                placeholder='<?xml version="1.0"?><root>...</root>'
+                value={xmlInput}
+                onChange={(e) => setXmlInput(e.target.value)}
                 rows={8}
+                className="font-mono text-sm"
               />
             </div>
 
-            <div className="space-y-3">
-              <div className="flex items-center space-x-2">
-                <Checkbox
-                  id="remove-empty"
-                  checked={removeEmpty}
-                  onCheckedChange={(checked) => setRemoveEmpty(checked as boolean)}
-                />
-                <label
-                  htmlFor="remove-empty"
-                  className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                >
-                  Remove empty lines
-                </label>
-              </div>
-              
-              <div className="flex items-center space-x-2">
-                <Checkbox
-                  id="case-sensitive"
-                  checked={caseSensitive}
-                  onCheckedChange={(checked) => setCaseSensitive(checked as boolean)}
-                />
-                <label
-                  htmlFor="case-sensitive"
-                  className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                >
-                  Case sensitive comparison
-                </label>
-              </div>
-            </div>
-
-            <Button onClick={removeDuplicates} className="w-full">
-              <ListFilter className="h-4 w-4 mr-2" />
-              Remove Duplicates
+            <Button onClick={convertToJson} className="w-full">
+              <FileJson className="h-4 w-4 mr-2" />
+              Convert to JSON
             </Button>
 
-            {resultText && (
+            {jsonOutput && (
               <>
                 <div className="flex items-center justify-between">
-                  <div className="text-sm font-medium">Result</div>
-                  <Button variant="outline" size="sm" onClick={copyResult}>
+                  <div className="text-sm font-medium">JSON Output</div>
+                  <Button variant="outline" size="sm" onClick={copyToClipboard}>
                     <Copy className="h-4 w-4 mr-2" />
                     Copy
                   </Button>
                 </div>
-                
-                <Textarea value={resultText} readOnly rows={8} />
-                
-                <div className="flex gap-2">
-                  <Badge variant="secondary">
-                    Original: {stats.original} lines
-                  </Badge>
-                  <Badge variant="destructive">
-                    Removed: {stats.removed}
-                  </Badge>
-                  <Badge variant="default">
-                    Final: {stats.final} lines
-                  </Badge>
-                </div>
+                <Textarea
+                  value={jsonOutput}
+                  readOnly
+                  rows={8}
+                  className="font-mono text-sm"
+                />
               </>
             )}
           </CardContent>
@@ -224,9 +202,9 @@ Apple
           <CardContent className="pt-6">
             <p className="text-gray-700 leading-relaxed">
               <strong className="text-gray-900">
-                What is Duplicate Line Remover?
+                What is XML to JSON Converter?
               </strong>{" "}
-              This tool helps you clean up text by removing duplicate lines and empty lines. Perfect for cleaning lists, processing data, and organizing content! 🧹
+              This tool converts XML data to JSON format, making it easier to work with in modern web applications and APIs. Perfect for data transformation! 🔄
             </p>
           </CardContent>
         </Card>
@@ -242,12 +220,12 @@ Apple
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-blue-50 to-blue-100/50 border border-blue-200">
                 <div className="p-2 bg-white rounded-lg h-fit">
-                  <FileText className="h-5 w-5 text-blue-600" />
+                  <Code className="h-5 w-5 text-blue-600" />
                 </div>
                 <div>
-                  <div className="font-semibold text-blue-900">Clean Lists</div>
+                  <div className="font-semibold text-blue-900">API Migration</div>
                   <p className="text-sm text-blue-700">
-                    Remove duplicates from email lists, contact lists, or any text lists
+                    Convert legacy XML APIs to modern JSON format
                   </p>
                 </div>
               </div>
@@ -261,35 +239,35 @@ Apple
                     Data Processing
                   </div>
                   <p className="text-sm text-purple-700">
-                    Clean and deduplicate data before importing into databases
+                    Process XML data in JavaScript applications
                   </p>
                 </div>
               </div>
 
               <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-green-50 to-green-100/50 border border-green-200">
                 <div className="p-2 bg-white rounded-lg h-fit">
-                  <Mail className="h-5 w-5 text-green-600" />
+                  <Settings className="h-5 w-5 text-green-600" />
                 </div>
                 <div>
                   <div className="font-semibold text-green-900">
-                    Email Lists
+                    Config Files
                   </div>
                   <p className="text-sm text-green-700">
-                    Ensure unique email addresses for mail campaigns
+                    Convert XML config files to JSON format
                   </p>
                 </div>
               </div>
 
               <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-pink-50 to-pink-100/50 border border-pink-200">
                 <div className="p-2 bg-white rounded-lg h-fit">
-                  <ListFilter className="h-5 w-5 text-pink-600" />
+                  <FileCode className="h-5 w-5 text-pink-600" />
                 </div>
                 <div>
                   <div className="font-semibold text-pink-900">
-                    Log Cleaning
+                    Web Development
                   </div>
                   <p className="text-sm text-pink-700">
-                    Remove duplicate entries from log files
+                    Work with XML data in modern frameworks
                   </p>
                 </div>
               </div>
@@ -309,25 +287,25 @@ Apple
               <div className="flex gap-2 items-start">
                 <div className="text-amber-600 font-bold">→</div>
                 <p className="text-sm text-amber-900">
-                  <strong>Case Sensitive:</strong> "Apple" and "apple" treated differently
+                  <strong>Attributes:</strong> XML attributes become @attributes in JSON
                 </p>
               </div>
               <div className="flex gap-2 items-start">
                 <div className="text-amber-600 font-bold">→</div>
                 <p className="text-sm text-amber-900">
-                  <strong>Clean Lists:</strong> Perfect for cleaning up data
+                  <strong>Arrays:</strong> Multiple elements with same name become arrays
                 </p>
               </div>
               <div className="flex gap-2 items-start">
                 <div className="text-amber-600 font-bold">→</div>
                 <p className="text-sm text-amber-900">
-                  <strong>Empty Lines:</strong> Option to keep or remove blank lines
+                  <strong>Structure:</strong> Preserves XML hierarchy in JSON
                 </p>
               </div>
               <div className="flex gap-2 items-start">
                 <div className="text-amber-600 font-bold">→</div>
                 <p className="text-sm text-amber-900">
-                  <strong>Stats Display:</strong> See how many lines were removed
+                  <strong>Validation:</strong> Checks for valid XML before conversion
                 </p>
               </div>
             </div>
@@ -341,36 +319,36 @@ Apple
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
               <button
-                onClick={() => navigate("/tools/text-sorter")}
+                onClick={() => navigate("/tools/json-formatter")}
                 className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
               >
                 <div className="font-semibold text-gray-900 group-hover:text-primary">
-                  Text Sorter
+                  JSON Formatter
                 </div>
                 <div className="text-sm text-gray-600 mt-1">
-                  Sort lines alphabetically
+                  Format and validate JSON
                 </div>
               </button>
               <button
-                onClick={() => navigate("/tools/text-replacer")}
+                onClick={() => navigate("/tools/json-to-csv")}
                 className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
               >
                 <div className="font-semibold text-gray-900 group-hover:text-primary">
-                  Text Replacer
+                  JSON to CSV
                 </div>
                 <div className="text-sm text-gray-600 mt-1">
-                  Find and replace text
+                  Convert JSON to CSV
                 </div>
               </button>
               <button
-                onClick={() => navigate("/tools/word-counter")}
+                onClick={() => navigate("/tools/base64")}
                 className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
               >
                 <div className="font-semibold text-gray-900 group-hover:text-primary">
-                  Word Counter
+                  Base64 Encoder
                 </div>
                 <div className="text-sm text-gray-600 mt-1">
-                  Count words and lines
+                  Encode/decode Base64
                 </div>
               </button>
             </div>
@@ -381,4 +359,4 @@ Apple
   );
 };
 
-export default DuplicateRemover;
+export default XmlToJson;

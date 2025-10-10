@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { SidebarTrigger } from "@/components/ui/sidebar";
 import { SearchBar } from "@/components/SearchBar";
 import { ToolCard } from "@/components/ToolCard";
@@ -9,9 +9,10 @@ import { tools } from "@/data/tools";
 import { AnimatedBackground } from "@/components/AnimatedBackground";
 import { Sparkles, Zap, Heart } from "lucide-react";
 import { shouldShowAd } from "@/config/ads";
+import { useSearch } from "@/contexts/SearchContext";
 
 const Index = () => {
-  const [searchQuery, setSearchQuery] = useState("");
+  const { searchQuery, setSearchQuery } = useSearch();
 
   const filteredTools = tools.filter(
     (tool) =>
