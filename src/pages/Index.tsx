@@ -65,8 +65,8 @@ const Index = () => {
             <span className="font-bold text-primary">
               {tools.length} free online tools
             </span>{" "}
-            for text processing, image editing, code generation, calculators and
-            more.
+            for text processing, image editing, converters, generators,
+            calculators and more.
             <br />
             <span className="text-lg">
               No registration required. Instant access to all tools! ⚡

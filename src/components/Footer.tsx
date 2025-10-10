@@ -83,8 +83,8 @@ export const Footer = () => {
               </h3>
               <p className="text-sm text-muted-foreground leading-relaxed mb-4">
                 Access 30+ free online tools instantly - text processing, image
-                editing, code generation, calculators and more. No registration
-                required.
+                editing, converters, generators, calculators and more. No
+                registration required.
               </p>
               <div className="flex items-center gap-2 text-xs text-muted-foreground">
                 <Lock className="h-3.5 w-3.5" />

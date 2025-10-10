@@ -42,6 +42,16 @@ import TextDiff from "./pages/tools/TextDiff";
 import TextSorter from "./pages/tools/TextSorter";
 import HtmlToText from "./pages/tools/HtmlToText";
 import CsvToJson from "./pages/tools/CsvToJson";
+import TextReplacer from "./pages/tools/TextReplacer";
+import DuplicateRemover from "./pages/tools/DuplicateRemover";
+import JsonToCsv from "./pages/tools/JsonToCsv";
+import XmlToJson from "./pages/tools/XmlToJson";
+import MarkdownToHtml from "./pages/tools/MarkdownToHtml";
+import TipCalculator from "./pages/tools/TipCalculator";
+import DiscountCalculator from "./pages/tools/DiscountCalculator";
+import RandomNumber from "./pages/tools/RandomNumber";
+import JwtDecoder from "./pages/tools/JwtDecoder";
+import SqlFormatter from "./pages/tools/SqlFormatter";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import CookiePolicy from "./pages/CookiePolicy";
 import TermsOfService from "./pages/TermsOfService";
@@ -172,6 +182,16 @@ const App = () => (
                   <Route path="/tools/text-sorter" element={<TextSorter />} />
                   <Route path="/tools/html-to-text" element={<HtmlToText />} />
                   <Route path="/tools/csv-to-json" element={<CsvToJson />} />
+                  <Route path="/tools/text-replacer" element={<TextReplacer />} />
+                  <Route path="/tools/duplicate-remover" element={<DuplicateRemover />} />
+                  <Route path="/tools/json-to-csv" element={<JsonToCsv />} />
+                  <Route path="/tools/xml-to-json" element={<XmlToJson />} />
+                  <Route path="/tools/markdown-to-html" element={<MarkdownToHtml />} />
+                  <Route path="/tools/tip-calculator" element={<TipCalculator />} />
+                  <Route path="/tools/discount-calculator" element={<DiscountCalculator />} />
+                  <Route path="/tools/random-number" element={<RandomNumber />} />
+                  <Route path="/tools/jwt-decoder" element={<JwtDecoder />} />
+                  <Route path="/tools/sql-formatter" element={<SqlFormatter />} />
                   <Route path="/privacy" element={<PrivacyPolicy />} />
                   <Route path="/cookies" element={<CookiePolicy />} />
                   <Route path="/terms" element={<TermsOfService />} />

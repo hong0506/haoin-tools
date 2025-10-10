@@ -64,8 +64,9 @@ const AboutUs = () => {
               <p className="text-foreground/80 leading-relaxed">
                 To provide{" "}
                 <strong>free, accessible, and privacy-first tools</strong> that
-                empower people to work smarter and create better. All tools remain
-                free forever, with optional advertising support to maintain our services.
+                empower people to work smarter and create better. All tools
+                remain free forever, with optional advertising support to
+                maintain our services.
               </p>
             </div>
 
@@ -163,18 +164,18 @@ const AboutUs = () => {
             </h2>
             <p className="text-foreground/80 leading-relaxed text-lg mb-4">
               We currently offer{" "}
-              <strong className="text-primary">30+ powerful tools</strong>{" "}
+              <strong className="text-primary">40+ powerful tools</strong>{" "}
               across multiple categories:
             </p>
             <div className="grid md:grid-cols-3 gap-3 text-foreground/80">
               <div>📝 Text Processing</div>
-              <div>🔄 Format Converters</div>
-              <div>🎲 Quick Generators</div>
-              <div>🧮 Smart Calculators</div>
+              <div>🔄 Converters</div>
+              <div>🎲 Generators</div>
+              <div>🧮 Calculators</div>
               <div>🖼️ Image Studio</div>
-              <div>💻 Dev Utilities</div>
-              <div>💰 Money Management</div>
-              <div>🛠️ Helper Tools</div>
+              <div>💻 Dev Tools</div>
+              <div>💰 Finance</div>
+              <div>🛠️ Utilities</div>
               <div>...and more!</div>
             </div>
           </div>
