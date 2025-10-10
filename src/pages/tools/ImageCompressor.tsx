@@ -28,8 +28,12 @@ import { Badge } from "@/components/ui/badge";
 
 const ImageCompressor = () => {
   const [image, setImage] = useState<string | null>(null);
+  const [compressedImage, setCompressedImage] = useState<string | null>(null);
   const [quality, setQuality] = useState([80]);
   const [originalSize, setOriginalSize] = useState<number>(0);
+  const [compressedSize, setCompressedSize] = useState<number>(0);
+  const [format, setFormat] = useState<'jpeg' | 'png' | 'webp'>('jpeg');
+  const [originalFormat, setOriginalFormat] = useState<string>('');
   const [fileInputRef, setFileInputRef] = useState<HTMLInputElement | null>(
     null
   );
@@ -38,9 +42,34 @@ const ImageCompressor = () => {
   const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file) {
+      // Validate file type
+      if (!file.type.startsWith('image/')) {
+        toast.error("Please upload an image file");
+        return;
+      }
+      
+      // Validate file size (max 10MB)
+      if (file.size > 10 * 1024 * 1024) {
+        toast.error("Image size should be less than 10MB");
+        return;
+      }
+      
       setOriginalSize(file.size);
+      setOriginalFormat(file.type.split('/')[1]);
+      setCompressedImage(null);
+      setCompressedSize(0);
+      
       const reader = new FileReader();
-      reader.onload = (event) => setImage(event.target?.result as string);
+      reader.onload = (event) => {
+        const result = event.target?.result as string;
+        if (result) {
+          setImage(result);
+          toast.success(`Image loaded: ${(file.size / 1024).toFixed(2)} KB`);
+        }
+      };
+      reader.onerror = () => {
+        toast.error("Failed to read file");
+      };
       reader.readAsDataURL(file);
     }
   };
@@ -51,36 +80,57 @@ const ImageCompressor = () => {
       return;
     }
     const canvas = document.createElement("canvas");
-    const img = new Image();
+    const img = new window.Image();
     img.onload = () => {
       canvas.width = img.width;
       canvas.height = img.height;
       const ctx = canvas.getContext("2d");
       ctx?.drawImage(img, 0, 0);
+      
+      const mimeType = `image/${format}`;
       canvas.toBlob(
         (blob) => {
           if (blob) {
             const url = URL.createObjectURL(blob);
-            const a = document.createElement("a");
-            a.href = url;
-            a.download = `compressed-${Date.now()}.jpg`;
-            a.click();
+            setCompressedImage(url);
+            setCompressedSize(blob.size);
+            
+            const reduction = ((originalSize - blob.size) / originalSize * 100).toFixed(1);
             toast.success(
-              `Image compressed! Size: ${(blob.size / 1024).toFixed(2)} KB`
+              `Compressed! ${(blob.size / 1024).toFixed(2)} KB (${reduction}% reduction)`
             );
           }
         },
-        "image/jpeg",
+        mimeType,
         quality[0] / 100
       );
     };
+    img.onerror = () => {
+      toast.error("Failed to load image");
+    };
     img.src = image;
+  };
+  
+  const downloadCompressed = () => {
+    if (!compressedImage) {
+      toast.error("Please compress the image first");
+      return;
+    }
+    const a = document.createElement("a");
+    a.href = compressedImage;
+    a.download = `compressed-${Date.now()}.${format}`;
+    a.click();
+    toast.success("Image downloaded!");
   };
 
   const clearAll = () => {
     setImage(null);
+    setCompressedImage(null);
     setQuality([80]);
     setOriginalSize(0);
+    setCompressedSize(0);
+    setFormat('jpeg');
+    setOriginalFormat('');
     // Clear the file input value
     if (fileInputRef) {
       fileInputRef.value = "";
@@ -146,10 +196,6 @@ const ImageCompressor = () => {
                   Reduce image file size while maintaining quality
                 </CardDescription>
               </div>
-              <FavoriteButton
-                toolId="image-compressor"
-                toolName="Image Compressor"
-              />
             </div>
           </CardHeader>
           <CardContent className="space-y-4">
@@ -178,31 +224,112 @@ const ImageCompressor = () => {
             </div>
             {image && (
               <>
-                <div className="border rounded-lg p-4">
-                  <img
-                    src={image}
-                    alt="Preview"
-                    className="max-w-full h-auto"
-                  />
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label className="mb-2 block text-sm font-medium">Original</label>
+                    <div className="border rounded-lg p-4 bg-gray-50">
+                      <img
+                        src={image}
+                        alt="Original"
+                        className="max-w-full h-auto"
+                      />
+                    </div>
+                    <div className="mt-2 text-sm text-center">
+                      <Badge variant="secondary">
+                        {(originalSize / 1024).toFixed(2)} KB
+                      </Badge>
+                      {originalFormat && (
+                        <Badge variant="outline" className="ml-2">
+                          {originalFormat.toUpperCase()}
+                        </Badge>
+                      )}
+                    </div>
+                  </div>
+                  
+                  {compressedImage && (
+                    <div>
+                      <label className="mb-2 block text-sm font-medium">Compressed</label>
+                      <div className="border rounded-lg p-4 bg-green-50">
+                        <img
+                          src={compressedImage}
+                          alt="Compressed"
+                          className="max-w-full h-auto"
+                        />
+                      </div>
+                      <div className="mt-2 text-sm text-center">
+                        <Badge variant="default" className="bg-green-600">
+                          {(compressedSize / 1024).toFixed(2)} KB
+                        </Badge>
+                        <Badge variant="outline" className="ml-2">
+                          {format.toUpperCase()}
+                        </Badge>
+                        <Badge variant="secondary" className="ml-2">
+                          -{((originalSize - compressedSize) / originalSize * 100).toFixed(1)}%
+                        </Badge>
+                      </div>
+                    </div>
+                  )}
                 </div>
-                <div>
-                  <label className="mb-2 block text-sm font-medium">
-                    Quality: {quality[0]}%
-                  </label>
-                  <Slider
-                    value={quality}
-                    onValueChange={setQuality}
-                    min={1}
-                    max={100}
-                    step={1}
-                  />
+                
+                <div className="space-y-4 mt-4">
+                  <div>
+                    <label className="mb-2 block text-sm font-medium">
+                      Output Format
+                    </label>
+                    <div className="flex gap-2">
+                      <Button
+                        onClick={() => setFormat('jpeg')}
+                        variant={format === 'jpeg' ? 'default' : 'outline'}
+                        size="sm"
+                      >
+                        JPEG
+                      </Button>
+                      <Button
+                        onClick={() => setFormat('png')}
+                        variant={format === 'png' ? 'default' : 'outline'}
+                        size="sm"
+                      >
+                        PNG
+                      </Button>
+                      <Button
+                        onClick={() => setFormat('webp')}
+                        variant={format === 'webp' ? 'default' : 'outline'}
+                        size="sm"
+                      >
+                        WebP
+                      </Button>
+                    </div>
+                  </div>
+                  
+                  <div>
+                    <label className="mb-2 block text-sm font-medium">
+                      Quality: {quality[0]}%
+                    </label>
+                    <Slider
+                      value={quality}
+                      onValueChange={setQuality}
+                      min={1}
+                      max={100}
+                      step={1}
+                    />
+                    <div className="flex justify-between text-xs text-muted-foreground mt-1">
+                      <span>Low (Smaller file)</span>
+                      <span>High (Better quality)</span>
+                    </div>
+                  </div>
                 </div>
-                <div className="text-sm text-muted-foreground">
-                  Original size: {(originalSize / 1024).toFixed(2)} KB
+                
+                <div className="flex gap-2">
+                  <Button onClick={compressImage} className="flex-1">
+                    <ImageDown className="h-4 w-4 mr-2" />
+                    Compress Image
+                  </Button>
+                  {compressedImage && (
+                    <Button onClick={downloadCompressed} variant="default" className="flex-1">
+                      Download
+                    </Button>
+                  )}
                 </div>
-                <Button onClick={compressImage} className="w-full">
-                  Compress & Download
-                </Button>
               </>
             )}
           </CardContent>
