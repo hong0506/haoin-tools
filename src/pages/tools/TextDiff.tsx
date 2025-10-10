@@ -11,9 +11,20 @@ import {
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
-import { GitCompare, RotateCcw, Lightbulb, ArrowLeft } from "lucide-react";
-import { ToolDescription } from "@/components/ToolDescription";
+import {
+  GitCompare,
+  RotateCcw,
+  Lightbulb,
+  ArrowLeft,
+  Code2,
+  Zap,
+  Info,
+  FileCheck,
+  GitBranch,
+  ScrollText,
+} from "lucide-react";
 import { FavoriteButton } from "@/components/FavoriteButton";
+import { Badge } from "@/components/ui/badge";
 
 const TextDiff = () => {
   const [text1, setText1] = useState("");
@@ -77,10 +88,15 @@ const TextDiff = () => {
       <div className="container mx-auto max-w-4xl px-6 py-8">
         <Card>
           <CardHeader>
-            <CardTitle>Compare Text</CardTitle>
-            <CardDescription>
-              Find differences between two texts
-            </CardDescription>
+            <div className="flex items-center justify-between">
+              <div>
+                <CardTitle>Compare Text</CardTitle>
+                <CardDescription>
+                  Find differences between two texts
+                </CardDescription>
+              </div>
+              <FavoriteButton toolId="text-diff" toolName="Text Diff" />
+            </div>
           </CardHeader>
           <CardContent className="space-y-4">
             <div className="flex gap-2 mb-4">
@@ -147,34 +163,176 @@ const TextDiff = () => {
           </CardContent>
         </Card>
 
-        <ToolDescription
-          title="Text Diff Checker"
-          description="Text comparison is essential for tracking changes, reviewing edits, and identifying differences between versions of documents, code, or any text content. This tool helps you compare two text inputs and highlights the differences, making it easy to see what has changed."
-          features={[
-            "Compare two text inputs line by line",
-            "Highlight added, removed, and modified lines",
-            "Visual color coding for easy identification",
-            "Support for multi-line text comparison",
-            "Clear all fields with a single button",
-            "Load example texts for testing",
-          ]}
-          useCases={[
-            "Code review",
-            "Document version control",
-            "Content editing",
-            "Translation comparison",
-            "Configuration file changes",
-            "Data validation",
-            "Academic writing",
-            "Legal document review",
-          ]}
-          tips={[
-            "Use this tool to track changes between document versions",
-            "Perfect for reviewing edits and modifications",
-            "Compare configuration files before and after changes",
-            "Useful for identifying typos and inconsistencies",
-          ]}
-        />
+        {/* Tool Introduction */}
+        <Card className="mt-6 bg-gradient-to-r from-blue-50 via-purple-50 to-pink-50 border-blue-200">
+          <CardContent className="pt-6">
+            <p className="text-gray-700 leading-relaxed">
+              <strong className="text-gray-900">What is Text Diff?</strong> This
+              tool compares two texts line by line and highlights the
+              differences with color coding. Perfect for code review, document
+              comparison, and tracking changes! 🔍
+            </p>
+          </CardContent>
+        </Card>
+
+        {/* Quick Use Cases */}
+        <Card className="mt-6">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              <Zap className="h-5 w-5 text-primary" />
+              Common Use Cases
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-purple-50 to-purple-100/50 border border-purple-200">
+                <div className="p-2 bg-white rounded-lg h-fit">
+                  <Code2 className="h-5 w-5 text-purple-600" />
+                </div>
+                <div>
+                  <div className="font-semibold text-purple-900">
+                    Code Review
+                  </div>
+                  <p className="text-sm text-purple-700">
+                    Compare code versions to track{" "}
+                    <Badge variant="secondary" className="mx-1">
+                      changes
+                    </Badge>
+                    and updates
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-blue-50 to-blue-100/50 border border-blue-200">
+                <div className="p-2 bg-white rounded-lg h-fit">
+                  <GitBranch className="h-5 w-5 text-blue-600" />
+                </div>
+                <div>
+                  <div className="font-semibold text-blue-900">
+                    Version Control
+                  </div>
+                  <p className="text-sm text-blue-700">
+                    Compare different versions of documents and files
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-green-50 to-green-100/50 border border-green-200">
+                <div className="p-2 bg-white rounded-lg h-fit">
+                  <FileCheck className="h-5 w-5 text-green-600" />
+                </div>
+                <div>
+                  <div className="font-semibold text-green-900">
+                    Content Editing
+                  </div>
+                  <p className="text-sm text-green-700">
+                    Review edits and modifications in articles or documents
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-pink-50 to-pink-100/50 border border-pink-200">
+                <div className="p-2 bg-white rounded-lg h-fit">
+                  <ScrollText className="h-5 w-5 text-pink-600" />
+                </div>
+                <div>
+                  <div className="font-semibold text-pink-900">
+                    Legal Review
+                  </div>
+                  <p className="text-sm text-pink-700">
+                    Compare contract versions to identify clause changes
+                  </p>
+                </div>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Quick Tips */}
+        <Card className="mt-6 bg-gradient-to-br from-amber-50 via-orange-50 to-amber-50 border-amber-200">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2 text-amber-900">
+              <Info className="h-5 w-5 text-amber-600" />
+              💡 Pro Tips
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+              <div className="flex gap-2 items-start">
+                <div className="text-amber-600 font-bold">→</div>
+                <p className="text-sm text-amber-900">
+                  <strong>Color Coding:</strong> Red = removed, Green = added,
+                  Orange = modified
+                </p>
+              </div>
+              <div className="flex gap-2 items-start">
+                <div className="text-amber-600 font-bold">→</div>
+                <p className="text-sm text-amber-900">
+                  <strong>Line by Line:</strong> Each line is compared
+                  separately for precision
+                </p>
+              </div>
+              <div className="flex gap-2 items-start">
+                <div className="text-amber-600 font-bold">→</div>
+                <p className="text-sm text-amber-900">
+                  <strong>Config Files:</strong> Perfect for comparing .env,
+                  .config files
+                </p>
+              </div>
+              <div className="flex gap-2 items-start">
+                <div className="text-amber-600 font-bold">→</div>
+                <p className="text-sm text-amber-900">
+                  <strong>Copy-Paste:</strong> Works great with clipboard
+                  content
+                </p>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Related Tools */}
+        <Card className="mt-6">
+          <CardHeader>
+            <CardTitle>🔗 Related Tools You Might Like</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+              <button
+                onClick={() => navigate("/tools/word-counter")}
+                className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
+              >
+                <div className="font-semibold text-gray-900 group-hover:text-primary">
+                  Word Counter
+                </div>
+                <div className="text-sm text-gray-600 mt-1">
+                  Count words and characters
+                </div>
+              </button>
+              <button
+                onClick={() => navigate("/tools/text-sorter")}
+                className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
+              >
+                <div className="font-semibold text-gray-900 group-hover:text-primary">
+                  Text Sorter
+                </div>
+                <div className="text-sm text-gray-600 mt-1">
+                  Sort text lines alphabetically
+                </div>
+              </button>
+              <button
+                onClick={() => navigate("/tools/case-converter")}
+                className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
+              >
+                <div className="font-semibold text-gray-900 group-hover:text-primary">
+                  Case Converter
+                </div>
+                <div className="text-sm text-gray-600 mt-1">
+                  Convert text case formats
+                </div>
+              </button>
+            </div>
+          </CardContent>
+        </Card>
       </div>
     </div>
   );

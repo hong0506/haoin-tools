@@ -1,8 +1,11 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { X } from "lucide-react";
 import wechatQR from "@/assets/wechat-qr-code.jpg";
 import douyinQR from "@/assets/douyin-qr-code.jpg";
 import xiaohongshuQR from "@/assets/xiaohongshu-qr-code.jpg";
+import wechatIcon from "@/assets/wechat.svg";
+import instagramIcon from "@/assets/instagram.svg";
 
 interface SocialModal {
   platform: string;
@@ -20,31 +23,31 @@ export const Footer = () => {
     {
       name: "WeChat",
       displayName: "WeChat",
-      icon: "/icons/wechat.svg",
+      icon: wechatIcon,
       color: "from-green-500 to-emerald-500",
       account: "lumifiretech",
       qrCode: wechatQR,
     },
-    {
-      name: "Douyin",
-      displayName: "TikTok",
-      icon: "/icons/douyin.svg",
-      color: "from-black to-gray-800",
-      account: "69832710392",
-      qrCode: douyinQR,
-    },
-    {
-      name: "Xiaohongshu",
-      displayName: "Xiaohongshu",
-      icon: "/icons/xiaohongshu.svg",
-      color: "from-red-500 to-pink-500",
-      account: "2942406351",
-      qrCode: xiaohongshuQR,
-    },
+    // {
+    //   name: "Douyin",
+    //   displayName: "TikTok",
+    //   icon: "/icons/douyin.svg",
+    //   color: "from-black to-gray-800",
+    //   account: "69832710392",
+    //   qrCode: douyinQR,
+    // },
+    // {
+    //   name: "Xiaohongshu",
+    //   displayName: "Xiaohongshu",
+    //   icon: "/icons/xiaohongshu.svg",
+    //   color: "from-red-500 to-pink-500",
+    //   account: "2942406351",
+    //   qrCode: xiaohongshuQR,
+    // },
     {
       name: "Instagram",
       displayName: "Instagram",
-      icon: "/icons/instagram.svg",
+      icon: instagramIcon,
       color: "from-purple-500 via-pink-500 to-orange-500",
       account: "@haoin_tech",
     },
@@ -75,11 +78,12 @@ export const Footer = () => {
             {/* Brand Section */}
             <div>
               <h3 className="text-2xl font-black gradient-text mb-3">
-                Haoin Tools
+                Haoin Free Online Tools
               </h3>
               <p className="text-sm text-muted-foreground leading-relaxed">
-                Your all-in-one toolkit for productivity. Free, fast, and
-                privacy-first tools for everyone.
+                Access 30+ free online tools instantly - text processing, image
+                editing, code generation, calculators and more. No registration
+                required.
               </p>
               {/* <div className="flex items-center gap-2 mt-4 text-sm text-muted-foreground">
               <span>Made with</span>
@@ -93,33 +97,41 @@ export const Footer = () => {
               <h4 className="font-bold text-foreground mb-3">Quick Links</h4>
               <ul className="space-y-2 text-sm text-muted-foreground">
                 <li>
-                  <a href="/" className="hover:text-primary transition-colors">
+                  <Link to="/" className="hover:text-primary transition-colors">
                     🏠 Home
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
-                    href="/category/popular"
+                  <Link
+                    to="/category/favorites"
                     className="hover:text-primary transition-colors"
                   >
-                    🔥 Popular Tools
-                  </a>
+                    ⭐ Favorites
+                  </Link>
                 </li>
                 <li>
-                  <a
-                    href="/category/new"
+                  <Link
+                    to="/category/recent"
                     className="hover:text-primary transition-colors"
                   >
-                    ⚡ Latest Tools
-                  </a>
+                    🕒 Recently Used
+                  </Link>
                 </li>
                 <li>
-                  <a
-                    href="/category/code"
+                  <Link
+                    to="/category/generator"
                     className="hover:text-primary transition-colors"
                   >
-                    💻 Developer Tools
-                  </a>
+                    ⚡ Quick Generators
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/category/code"
+                    className="hover:text-primary transition-colors"
+                  >
+                    💻 Dev Utilities
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -143,7 +155,7 @@ export const Footer = () => {
                     <img
                       src={social.icon}
                       alt={social.name}
-                      className="w-6 h-6 text-white"
+                      className="w-6 h-6 filter brightness-0 invert"
                     />
                     {/* Tooltip on hover */}
                     <div className="absolute -top-10 left-1/2 -translate-x-1/2 bg-gray-900 text-white text-xs px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
@@ -187,44 +199,63 @@ export const Footer = () => {
 
               {/* Links */}
               <div className="flex flex-col gap-2 text-sm">
-                <a
-                  href="/legal"
+                <Link
+                  to="/legal"
                   className="hover:text-primary transition-colors w-fit font-semibold"
                 >
                   📜 Legal & Copyright
-                </a>
-                <a
-                  href="/privacy"
+                </Link>
+                <Link
+                  to="/privacy"
                   className="hover:text-primary transition-colors w-fit"
                 >
                   Privacy Policy
-                </a>
-                <a
-                  href="/cookies"
+                </Link>
+                <Link
+                  to="/cookies"
                   className="hover:text-primary transition-colors w-fit"
                 >
                   Cookie Policy
-                </a>
-                <a
-                  href="/terms"
+                </Link>
+                <Link
+                  to="/terms"
                   className="hover:text-primary transition-colors w-fit"
                 >
                   Terms of Service
-                </a>
-                <a
-                  href="/about"
+                </Link>
+                <Link
+                  to="/about"
                   className="hover:text-primary transition-colors w-fit"
                 >
                   About Us
-                </a>
+                </Link>
               </div>
             </div>
 
             {/* Additional Legal Info */}
-            <div className="text-center text-xs text-muted-foreground pt-4 border-t border-border/30">
+            <div className="text-center text-xs text-muted-foreground pt-4 border-t border-border/30 space-y-2">
               <p>
                 All tools process data locally in your browser for privacy and
                 security. We do not store your files or personal data.
+              </p>
+              <p className="font-medium">
+                <strong>Disclaimer:</strong> This website provides free tools
+                for educational and productivity purposes. All tools are
+                provided "as is" without warranty of any kind. Users are
+                responsible for the accuracy and legality of their data input
+                and usage.
+              </p>
+              <p>
+                <strong>No Liability:</strong> Haoin Tools shall not be liable
+                for any direct, indirect, incidental, special, or consequential
+                damages arising from the use of these tools or any errors in
+                calculations.
+              </p>
+              <p>
+                <strong>User Responsibility:</strong> Users must ensure
+                compliance with applicable laws and regulations when using these
+                tools. We reserve the right to modify or discontinue any tool
+                without notice.
               </p>
             </div>
           </div>

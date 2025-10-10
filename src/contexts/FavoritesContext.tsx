@@ -12,6 +12,7 @@ interface FavoritesContextType {
   isFavorited: (toolId: string) => boolean;
   addFavorite: (toolId: string) => void;
   removeFavorite: (toolId: string) => void;
+  clearAllFavorites: () => void;
 }
 
 const FavoritesContext = createContext<FavoritesContextType | undefined>(
@@ -71,12 +72,17 @@ export const FavoritesProvider = ({ children }: FavoritesProviderProps) => {
     setFavorites((prev) => prev.filter((id) => id !== toolId));
   };
 
+  const clearAllFavorites = () => {
+    setFavorites([]);
+  };
+
   const value: FavoritesContextType = {
     favorites,
     toggleFavorite,
     isFavorited,
     addFavorite,
     removeFavorite,
+    clearAllFavorites,
   };
 
   return (

@@ -18,9 +18,15 @@ import {
   RotateCcw,
   Lightbulb,
   ArrowLeft,
+  Link2,
+  Zap,
+  Info,
+  Globe,
+  Share2,
+  Database,
 } from "lucide-react";
-import { ToolDescription } from "@/components/ToolDescription";
 import { FavoriteButton } from "@/components/FavoriteButton";
+import { Badge } from "@/components/ui/badge";
 
 const UrlEncoder = () => {
   const [input, setInput] = useState("");
@@ -98,7 +104,18 @@ const UrlEncoder = () => {
       <div className="container mx-auto max-w-4xl px-6 py-8">
         <Card>
           <CardHeader>
-            <CardDescription>Convert URLs and query parameters</CardDescription>
+            <div className="flex items-center justify-between">
+              <div>
+                <CardTitle>URL Encoder/Decoder</CardTitle>
+                <CardDescription>
+                  Convert URLs and query parameters
+                </CardDescription>
+              </div>
+              <FavoriteButton
+                toolId="url-encoder"
+                toolName="URL Encoder/Decoder"
+              />
+            </div>
           </CardHeader>
           <CardContent className="space-y-4">
             <div className="flex gap-2 mb-4">
@@ -161,34 +178,177 @@ const UrlEncoder = () => {
           </CardContent>
         </Card>
 
-        <ToolDescription
-          title="URL Encoder & Decoder"
-          description="URL encoding (also known as percent encoding) is a mechanism for encoding information in a Uniform Resource Identifier (URI). It's used to represent characters that have special meaning in URLs or cannot be represented in ASCII. This tool helps you encode and decode URLs safely."
-          features={[
-            "Encode URLs and query parameters",
-            "Decode encoded URLs back to readable text",
-            "Handle special characters and Unicode",
-            "Real-time encoding and decoding",
-            "Copy results to clipboard with one click",
-            "Clear all fields with a single button",
-          ]}
-          useCases={[
-            "Web development",
-            "API integration",
-            "Form data handling",
-            "Query parameter encoding",
-            "Email links",
-            "Social media sharing",
-            "Database storage",
-            "Security applications",
-          ]}
-          tips={[
-            "Spaces are encoded as %20 or +",
-            "Special characters like &, ?, # need encoding",
-            "Use encoding when passing data in URLs",
-            "Always decode received URL parameters",
-          ]}
-        />
+        {/* Tool Introduction */}
+        <Card className="mt-6 bg-gradient-to-r from-blue-50 via-purple-50 to-pink-50 border-blue-200">
+          <CardContent className="pt-6">
+            <p className="text-gray-700 leading-relaxed">
+              <strong className="text-gray-900">
+                What is URL Encoder/Decoder?
+              </strong>{" "}
+              This tool encodes and decodes URLs (percent encoding). Perfect for
+              handling special characters, query parameters, and safe URL
+              transmission! 🔗
+            </p>
+          </CardContent>
+        </Card>
+
+        {/* Quick Use Cases */}
+        <Card className="mt-6">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              <Zap className="h-5 w-5 text-primary" />
+              Common Use Cases
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-blue-50 to-blue-100/50 border border-blue-200">
+                <div className="p-2 bg-white rounded-lg h-fit">
+                  <Globe className="h-5 w-5 text-blue-600" />
+                </div>
+                <div>
+                  <div className="font-semibold text-blue-900">
+                    Web Development
+                  </div>
+                  <p className="text-sm text-blue-700">
+                    Encode{" "}
+                    <Badge variant="secondary" className="mx-1">
+                      query params
+                    </Badge>
+                    for safe URL transmission
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-purple-50 to-purple-100/50 border border-purple-200">
+                <div className="p-2 bg-white rounded-lg h-fit">
+                  <Link2 className="h-5 w-5 text-purple-600" />
+                </div>
+                <div>
+                  <div className="font-semibold text-purple-900">
+                    API Integration
+                  </div>
+                  <p className="text-sm text-purple-700">
+                    Handle special characters in API requests and responses
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-green-50 to-green-100/50 border border-green-200">
+                <div className="p-2 bg-white rounded-lg h-fit">
+                  <Share2 className="h-5 w-5 text-green-600" />
+                </div>
+                <div>
+                  <div className="font-semibold text-green-900">
+                    Social Sharing
+                  </div>
+                  <p className="text-sm text-green-700">
+                    Encode URLs for social media share links and email
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-pink-50 to-pink-100/50 border border-pink-200">
+                <div className="p-2 bg-white rounded-lg h-fit">
+                  <Database className="h-5 w-5 text-pink-600" />
+                </div>
+                <div>
+                  <div className="font-semibold text-pink-900">
+                    Data Storage
+                  </div>
+                  <p className="text-sm text-pink-700">
+                    Safely store URLs with special characters in databases
+                  </p>
+                </div>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Quick Tips */}
+        <Card className="mt-6 bg-gradient-to-br from-amber-50 via-orange-50 to-amber-50 border-amber-200">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2 text-amber-900">
+              <Info className="h-5 w-5 text-amber-600" />
+              💡 Pro Tips
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+              <div className="flex gap-2 items-start">
+                <div className="text-amber-600 font-bold">→</div>
+                <p className="text-sm text-amber-900">
+                  <strong>Spaces:</strong> Encoded as %20 (or + in query
+                  strings)
+                </p>
+              </div>
+              <div className="flex gap-2 items-start">
+                <div className="text-amber-600 font-bold">→</div>
+                <p className="text-sm text-amber-900">
+                  <strong>Special Chars:</strong> &, ?, #, = need encoding in
+                  URLs
+                </p>
+              </div>
+              <div className="flex gap-2 items-start">
+                <div className="text-amber-600 font-bold">→</div>
+                <p className="text-sm text-amber-900">
+                  <strong>Always Encode:</strong> User input before adding to
+                  URLs
+                </p>
+              </div>
+              <div className="flex gap-2 items-start">
+                <div className="text-amber-600 font-bold">→</div>
+                <p className="text-sm text-amber-900">
+                  <strong>Decode First:</strong> Decode received URL parameters
+                </p>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Related Tools */}
+        <Card className="mt-6">
+          <CardHeader>
+            <CardTitle>🔗 Related Tools You Might Like</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+              <button
+                onClick={() => navigate("/tools/base64")}
+                className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
+              >
+                <div className="font-semibold text-gray-900 group-hover:text-primary">
+                  Base64 Tool
+                </div>
+                <div className="text-sm text-gray-600 mt-1">
+                  Encode/decode Base64
+                </div>
+              </button>
+              <button
+                onClick={() => navigate("/tools/json-formatter")}
+                className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
+              >
+                <div className="font-semibold text-gray-900 group-hover:text-primary">
+                  JSON Formatter
+                </div>
+                <div className="text-sm text-gray-600 mt-1">
+                  Format and validate JSON
+                </div>
+              </button>
+              <button
+                onClick={() => navigate("/tools/hash-generator")}
+                className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
+              >
+                <div className="font-semibold text-gray-900 group-hover:text-primary">
+                  Hash Generator
+                </div>
+                <div className="text-sm text-gray-600 mt-1">
+                  Create secure hashes
+                </div>
+              </button>
+            </div>
+          </CardContent>
+        </Card>
       </div>
     </div>
   );

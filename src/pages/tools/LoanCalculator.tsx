@@ -18,9 +18,20 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { toast } from "sonner";
-import { DollarSign, RotateCcw, Lightbulb, ArrowLeft } from "lucide-react";
-import { ToolDescription } from "@/components/ToolDescription";
+import {
+  DollarSign,
+  RotateCcw,
+  Lightbulb,
+  ArrowLeft,
+  Zap,
+  Info,
+  Home,
+  Car,
+  Briefcase,
+  TrendingDown,
+} from "lucide-react";
 import { FavoriteButton } from "@/components/FavoriteButton";
+import { Badge } from "@/components/ui/badge";
 
 const LoanCalculator = () => {
   const [principal, setPrincipal] = useState("");
@@ -201,34 +212,166 @@ const LoanCalculator = () => {
           </CardContent>
         </Card>
 
-        <ToolDescription
-          title="Loan Calculator"
-          description="Loan calculations are essential for understanding the financial implications of borrowing money. This tool helps you calculate monthly payments, total interest, and total amount paid for loans, making it easier to plan your finances and compare different loan options."
-          features={[
-            "Calculate monthly loan payments",
-            "Compute total interest over loan term",
-            "Calculate total amount paid",
-            "Support for different loan terms (years/months)",
-            "Clear all fields with a single button",
-            "Load example values for testing",
-          ]}
-          useCases={[
-            "Mortgage planning",
-            "Auto loan comparison",
-            "Personal loan evaluation",
-            "Business loan analysis",
-            "Financial planning",
-            "Investment decisions",
-            "Budget planning",
-            "Loan refinancing",
-          ]}
-          tips={[
-            "Lower interest rates significantly reduce total cost",
-            "Shorter loan terms mean higher monthly payments but less total interest",
-            "Consider your monthly budget when choosing loan terms",
-            "Always compare multiple loan offers before deciding",
-          ]}
-        />
+        {/* Tool Introduction */}
+        <Card className="mt-6 bg-gradient-to-r from-blue-50 via-purple-50 to-pink-50 border-blue-200">
+          <CardContent className="pt-6">
+            <p className="text-gray-700 leading-relaxed">
+              <strong className="text-gray-900">What is Loan Calculator?</strong>{" "}
+              This tool calculates monthly payments, total interest, and repayment
+              amounts for loans. Perfect for mortgage, auto, and personal loan
+              planning! 🏦
+            </p>
+          </CardContent>
+        </Card>
+
+        {/* Quick Use Cases */}
+        <Card className="mt-6">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              <Zap className="h-5 w-5 text-primary" />
+              Common Use Cases
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-blue-50 to-blue-100/50 border border-blue-200">
+                <div className="p-2 bg-white rounded-lg h-fit">
+                  <Home className="h-5 w-5 text-blue-600" />
+                </div>
+                <div>
+                  <div className="font-semibold text-blue-900">Mortgage Planning</div>
+                  <p className="text-sm text-blue-700">
+                    Calculate{" "}
+                    <Badge variant="secondary" className="mx-1">
+                      home loan
+                    </Badge>
+                    payments and affordability
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-purple-50 to-purple-100/50 border border-purple-200">
+                <div className="p-2 bg-white rounded-lg h-fit">
+                  <Car className="h-5 w-5 text-purple-600" />
+                </div>
+                <div>
+                  <div className="font-semibold text-purple-900">Auto Loans</div>
+                  <p className="text-sm text-purple-700">
+                    Compare car financing options and monthly payments
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-green-50 to-green-100/50 border border-green-200">
+                <div className="p-2 bg-white rounded-lg h-fit">
+                  <Briefcase className="h-5 w-5 text-green-600" />
+                </div>
+                <div>
+                  <div className="font-semibold text-green-900">Business Loans</div>
+                  <p className="text-sm text-green-700">
+                    Evaluate business financing and repayment schedules
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-pink-50 to-pink-100/50 border border-pink-200">
+                <div className="p-2 bg-white rounded-lg h-fit">
+                  <TrendingDown className="h-5 w-5 text-pink-600" />
+                </div>
+                <div>
+                  <div className="font-semibold text-pink-900">Refinancing</div>
+                  <p className="text-sm text-pink-700">
+                    Compare refinancing options to save on interest
+                  </p>
+                </div>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Quick Tips */}
+        <Card className="mt-6 bg-gradient-to-br from-amber-50 via-orange-50 to-amber-50 border-amber-200">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2 text-amber-900">
+              <Info className="h-5 w-5 text-amber-600" />
+              💡 Pro Tips
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+              <div className="flex gap-2 items-start">
+                <div className="text-amber-600 font-bold">→</div>
+                <p className="text-sm text-amber-900">
+                  <strong>Interest Rate:</strong> Lower rates reduce total cost
+                  significantly
+                </p>
+              </div>
+              <div className="flex gap-2 items-start">
+                <div className="text-amber-600 font-bold">→</div>
+                <p className="text-sm text-amber-900">
+                  <strong>Loan Term:</strong> Shorter terms = higher payments, less
+                  interest
+                </p>
+              </div>
+              <div className="flex gap-2 items-start">
+                <div className="text-amber-600 font-bold">→</div>
+                <p className="text-sm text-amber-900">
+                  <strong>Budget:</strong> Ensure monthly payments fit your budget
+                </p>
+              </div>
+              <div className="flex gap-2 items-start">
+                <div className="text-amber-600 font-bold">→</div>
+                <p className="text-sm text-amber-900">
+                  <strong>Compare:</strong> Always shop around for the best rates
+                </p>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Related Tools */}
+        <Card className="mt-6">
+          <CardHeader>
+            <CardTitle>🔗 Related Tools You Might Like</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+              <button
+                onClick={() => navigate("/tools/interest-calculator")}
+                className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
+              >
+                <div className="font-semibold text-gray-900 group-hover:text-primary">
+                  Interest Calculator
+                </div>
+                <div className="text-sm text-gray-600 mt-1">
+                  Calculate interest
+                </div>
+              </button>
+              <button
+                onClick={() => navigate("/tools/investment-calculator")}
+                className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
+              >
+                <div className="font-semibold text-gray-900 group-hover:text-primary">
+                  Investment Calculator
+                </div>
+                <div className="text-sm text-gray-600 mt-1">
+                  Calculate returns
+                </div>
+              </button>
+              <button
+                onClick={() => navigate("/tools/percentage-calculator")}
+                className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
+              >
+                <div className="font-semibold text-gray-900 group-hover:text-primary">
+                  Percentage Calculator
+                </div>
+                <div className="text-sm text-gray-600 mt-1">
+                  Calculate percentages
+                </div>
+              </button>
+            </div>
+          </CardContent>
+        </Card>
       </div>
     </div>
   );

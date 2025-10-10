@@ -11,9 +11,21 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { toast } from "sonner";
-import { Clock, Copy, RotateCcw, Lightbulb, ArrowLeft } from "lucide-react";
-import { ToolDescription } from "@/components/ToolDescription";
+import {
+  Clock,
+  Copy,
+  RotateCcw,
+  Lightbulb,
+  ArrowLeft,
+  Zap,
+  Info,
+  Database,
+  Code2,
+  Calendar,
+  Server,
+} from "lucide-react";
 import { FavoriteButton } from "@/components/FavoriteButton";
+import { Badge } from "@/components/ui/badge";
 
 const TimestampConverter = () => {
   const [timestamp, setTimestamp] = useState(
@@ -85,12 +97,6 @@ const TimestampConverter = () => {
           <SidebarTrigger />
           <div className="flex items-center gap-2">
             <h1 className="text-xl font-semibold">Timestamp Converter</h1>
-            <div className="ml-auto">
-              <FavoriteButton
-                toolId="timestamp-converter"
-                toolName="Timestamp Converter"
-              />
-            </div>
           </div>
         </div>
       </header>
@@ -175,34 +181,172 @@ const TimestampConverter = () => {
           </CardContent>
         </Card>
 
-        <ToolDescription
-          title="Timestamp Converter"
-          description="Unix timestamps are a way to represent dates and times as a single number - the number of seconds since January 1, 1970 UTC. This tool helps you convert between Unix timestamps and human-readable date formats, making it easy to work with dates in programming, databases, and APIs."
-          features={[
-            "Convert Unix timestamps to human-readable dates",
-            "Convert human-readable dates to Unix timestamps",
-            "Support for both seconds and milliseconds timestamps",
-            "Real-time conversion as you type",
-            "Copy converted values to clipboard",
-            "Clear all fields with a single button",
-          ]}
-          useCases={[
-            "Database queries",
-            "API development",
-            "Log file analysis",
-            "Data processing",
-            "Web development",
-            "System administration",
-            "Debugging applications",
-            "Data migration",
-          ]}
-          tips={[
-            "Unix timestamps count seconds since January 1, 1970 UTC",
-            "JavaScript uses milliseconds, Unix uses seconds",
-            "Timestamps are timezone-independent (always UTC)",
-            "Use timestamps for precise date/time calculations",
-          ]}
-        />
+        {/* Tool Introduction */}
+        <Card className="mt-6 bg-gradient-to-r from-blue-50 via-purple-50 to-pink-50 border-blue-200">
+          <CardContent className="pt-6">
+            <p className="text-gray-700 leading-relaxed">
+              <strong className="text-gray-900">
+                What is Timestamp Converter?
+              </strong>{" "}
+              This tool converts between Unix timestamps and human-readable dates.
+              Perfect for database queries, API development, and debugging! ⏰
+            </p>
+          </CardContent>
+        </Card>
+
+        {/* Quick Use Cases */}
+        <Card className="mt-6">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              <Zap className="h-5 w-5 text-primary" />
+              Common Use Cases
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-blue-50 to-blue-100/50 border border-blue-200">
+                <div className="p-2 bg-white rounded-lg h-fit">
+                  <Database className="h-5 w-5 text-blue-600" />
+                </div>
+                <div>
+                  <div className="font-semibold text-blue-900">
+                    Database Queries
+                  </div>
+                  <p className="text-sm text-blue-700">
+                    Convert timestamps for{" "}
+                    <Badge variant="secondary" className="mx-1">
+                      SQL
+                    </Badge>
+                    queries and date filters
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-purple-50 to-purple-100/50 border border-purple-200">
+                <div className="p-2 bg-white rounded-lg h-fit">
+                  <Code2 className="h-5 w-5 text-purple-600" />
+                </div>
+                <div>
+                  <div className="font-semibold text-purple-900">
+                    API Development
+                  </div>
+                  <p className="text-sm text-purple-700">
+                    Work with timestamp-based APIs and endpoints
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-green-50 to-green-100/50 border border-green-200">
+                <div className="p-2 bg-white rounded-lg h-fit">
+                  <Server className="h-5 w-5 text-green-600" />
+                </div>
+                <div>
+                  <div className="font-semibold text-green-900">
+                    Log Analysis
+                  </div>
+                  <p className="text-sm text-green-700">
+                    Parse and understand timestamps in server logs
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-pink-50 to-pink-100/50 border border-pink-200">
+                <div className="p-2 bg-white rounded-lg h-fit">
+                  <Calendar className="h-5 w-5 text-pink-600" />
+                </div>
+                <div>
+                  <div className="font-semibold text-pink-900">
+                    Data Processing
+                  </div>
+                  <p className="text-sm text-pink-700">
+                    Convert dates for data migration and ETL processes
+                  </p>
+                </div>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Quick Tips */}
+        <Card className="mt-6 bg-gradient-to-br from-amber-50 via-orange-50 to-amber-50 border-amber-200">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2 text-amber-900">
+              <Info className="h-5 w-5 text-amber-600" />
+              💡 Pro Tips
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+              <div className="flex gap-2 items-start">
+                <div className="text-amber-600 font-bold">→</div>
+                <p className="text-sm text-amber-900">
+                  <strong>Start Date:</strong> Unix epoch starts at Jan 1, 1970 UTC
+                </p>
+              </div>
+              <div className="flex gap-2 items-start">
+                <div className="text-amber-600 font-bold">→</div>
+                <p className="text-sm text-amber-900">
+                  <strong>Units:</strong> Unix uses seconds, JavaScript uses
+                  milliseconds
+                </p>
+              </div>
+              <div className="flex gap-2 items-start">
+                <div className="text-amber-600 font-bold">→</div>
+                <p className="text-sm text-amber-900">
+                  <strong>UTC:</strong> Timestamps are always in UTC (timezone-free)
+                </p>
+              </div>
+              <div className="flex gap-2 items-start">
+                <div className="text-amber-600 font-bold">→</div>
+                <p className="text-sm text-amber-900">
+                  <strong>Precision:</strong> Use timestamps for accurate date math
+                </p>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Related Tools */}
+        <Card className="mt-6">
+          <CardHeader>
+            <CardTitle>🔗 Related Tools You Might Like</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+              <button
+                onClick={() => navigate("/tools/date-calculator")}
+                className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
+              >
+                <div className="font-semibold text-gray-900 group-hover:text-primary">
+                  Date Calculator
+                </div>
+                <div className="text-sm text-gray-600 mt-1">
+                  Calculate date differences
+                </div>
+              </button>
+              <button
+                onClick={() => navigate("/tools/age-calculator")}
+                className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
+              >
+                <div className="font-semibold text-gray-900 group-hover:text-primary">
+                  Age Calculator
+                </div>
+                <div className="text-sm text-gray-600 mt-1">Calculate age</div>
+              </button>
+              <button
+                onClick={() => navigate("/tools/json-formatter")}
+                className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
+              >
+                <div className="font-semibold text-gray-900 group-hover:text-primary">
+                  JSON Formatter
+                </div>
+                <div className="text-sm text-gray-600 mt-1">
+                  Format and validate JSON
+                </div>
+              </button>
+            </div>
+          </CardContent>
+        </Card>
       </div>
     </div>
   );

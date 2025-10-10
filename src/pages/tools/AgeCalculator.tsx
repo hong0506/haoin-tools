@@ -10,10 +10,21 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Cake, RotateCcw, Lightbulb, ArrowLeft } from "lucide-react";
+import {
+  Cake,
+  RotateCcw,
+  Lightbulb,
+  ArrowLeft,
+  Zap,
+  Info,
+  Calendar,
+  FileText,
+  GraduationCap,
+  Users,
+} from "lucide-react";
 import { toast } from "sonner";
-import { ToolDescription } from "@/components/ToolDescription";
 import { FavoriteButton } from "@/components/FavoriteButton";
+import { Badge } from "@/components/ui/badge";
 
 const AgeCalculator = () => {
   const [birthDate, setBirthDate] = useState("");
@@ -138,34 +149,172 @@ const AgeCalculator = () => {
           </CardContent>
         </Card>
 
-        <ToolDescription
-          title="Age Calculator"
-          description="Calculate your exact age in years, months, and days based on your date of birth. This tool helps you find your precise age, total days lived, and provides detailed age breakdown for various purposes like documentation, birthday planning, and milestone tracking."
-          features={[
-            "Calculate exact age in years, months, and days",
-            "Show total days lived since birth",
-            "Real-time calculation from date of birth",
-            "Support for any valid date",
-            "Clear all fields with a single button",
-            "Load example date for testing",
-          ]}
-          useCases={[
-            "Birthday planning",
-            "Age verification",
-            "Milestone tracking",
-            "Documentation requirements",
-            "School enrollment",
-            "Insurance applications",
-            "Legal age verification",
-            "Personal records",
-          ]}
-          tips={[
-            "Use this to calculate exact age for official documents",
-            "Perfect for planning milestone birthdays",
-            "Calculate age at any specific date by adjusting your device date",
-            "Useful for determining eligibility for age-restricted activities",
-          ]}
-        />
+        {/* Tool Introduction */}
+        <Card className="mt-6 bg-gradient-to-r from-blue-50 via-purple-50 to-pink-50 border-blue-200">
+          <CardContent className="pt-6">
+            <p className="text-gray-700 leading-relaxed">
+              <strong className="text-gray-900">What is Age Calculator?</strong>{" "}
+              This tool calculates your exact age in years, months, and days from
+              your birthdate. Perfect for documentation, milestones, and birthday
+              planning! 🎂
+            </p>
+          </CardContent>
+        </Card>
+
+        {/* Quick Use Cases */}
+        <Card className="mt-6">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              <Zap className="h-5 w-5 text-primary" />
+              Common Use Cases
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-blue-50 to-blue-100/50 border border-blue-200">
+                <div className="p-2 bg-white rounded-lg h-fit">
+                  <Calendar className="h-5 w-5 text-blue-600" />
+                </div>
+                <div>
+                  <div className="font-semibold text-blue-900">
+                    Birthday Planning
+                  </div>
+                  <p className="text-sm text-blue-700">
+                    Calculate{" "}
+                    <Badge variant="secondary" className="mx-1">
+                      milestones
+                    </Badge>
+                    and plan special celebrations
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-purple-50 to-purple-100/50 border border-purple-200">
+                <div className="p-2 bg-white rounded-lg h-fit">
+                  <FileText className="h-5 w-5 text-purple-600" />
+                </div>
+                <div>
+                  <div className="font-semibold text-purple-900">
+                    Documentation
+                  </div>
+                  <p className="text-sm text-purple-700">
+                    Get exact age for official documents and applications
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-green-50 to-green-100/50 border border-green-200">
+                <div className="p-2 bg-white rounded-lg h-fit">
+                  <GraduationCap className="h-5 w-5 text-green-600" />
+                </div>
+                <div>
+                  <div className="font-semibold text-green-900">
+                    School Enrollment
+                  </div>
+                  <p className="text-sm text-green-700">
+                    Verify age requirements for educational admissions
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-pink-50 to-pink-100/50 border border-pink-200">
+                <div className="p-2 bg-white rounded-lg h-fit">
+                  <Users className="h-5 w-5 text-pink-600" />
+                </div>
+                <div>
+                  <div className="font-semibold text-pink-900">
+                    Age Verification
+                  </div>
+                  <p className="text-sm text-pink-700">
+                    Check eligibility for age-restricted activities
+                  </p>
+                </div>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Quick Tips */}
+        <Card className="mt-6 bg-gradient-to-br from-amber-50 via-orange-50 to-amber-50 border-amber-200">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2 text-amber-900">
+              <Info className="h-5 w-5 text-amber-600" />
+              💡 Pro Tips
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+              <div className="flex gap-2 items-start">
+                <div className="text-amber-600 font-bold">→</div>
+                <p className="text-sm text-amber-900">
+                  <strong>Exact Age:</strong> Shows years, months, and days
+                  precisely
+                </p>
+              </div>
+              <div className="flex gap-2 items-start">
+                <div className="text-amber-600 font-bold">→</div>
+                <p className="text-sm text-amber-900">
+                  <strong>Milestones:</strong> Perfect for planning special
+                  birthdays
+                </p>
+              </div>
+              <div className="flex gap-2 items-start">
+                <div className="text-amber-600 font-bold">→</div>
+                <p className="text-sm text-amber-900">
+                  <strong>Documents:</strong> Use for official age verification
+                </p>
+              </div>
+              <div className="flex gap-2 items-start">
+                <div className="text-amber-600 font-bold">→</div>
+                <p className="text-sm text-amber-900">
+                  <strong>Eligibility:</strong> Check age requirements easily
+                </p>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Related Tools */}
+        <Card className="mt-6">
+          <CardHeader>
+            <CardTitle>🔗 Related Tools You Might Like</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+              <button
+                onClick={() => navigate("/tools/date-calculator")}
+                className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
+              >
+                <div className="font-semibold text-gray-900 group-hover:text-primary">
+                  Date Calculator
+                </div>
+                <div className="text-sm text-gray-600 mt-1">
+                  Calculate date differences
+                </div>
+              </button>
+              <button
+                onClick={() => navigate("/tools/bmi-calculator")}
+                className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
+              >
+                <div className="font-semibold text-gray-900 group-hover:text-primary">
+                  BMI Calculator
+                </div>
+                <div className="text-sm text-gray-600 mt-1">Calculate BMI</div>
+              </button>
+              <button
+                onClick={() => navigate("/tools/timestamp-converter")}
+                className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
+              >
+                <div className="font-semibold text-gray-900 group-hover:text-primary">
+                  Timestamp Converter
+                </div>
+                <div className="text-sm text-gray-600 mt-1">
+                  Convert timestamps
+                </div>
+              </button>
+            </div>
+          </CardContent>
+        </Card>
       </div>
     </div>
   );

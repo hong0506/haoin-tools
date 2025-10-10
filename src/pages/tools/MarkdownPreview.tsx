@@ -19,8 +19,9 @@ import {
   Download,
 } from "lucide-react";
 import { toast } from "sonner";
-import { ToolDescription } from "@/components/ToolDescription";
 import { FavoriteButton } from "@/components/FavoriteButton";
+import { Badge } from "@/components/ui/badge";
+import { Zap, Info, FileText, Code2, BookOpen, Github } from "lucide-react";
 
 const MarkdownPreview = () => {
   const [markdown, setMarkdown] = useState(
@@ -171,119 +172,262 @@ Check out [GitHub](https://github.com) for more examples.
           <SidebarTrigger />
           <div className="flex items-center gap-2">
             <h1 className="text-xl font-semibold">Markdown Preview</h1>
-            <div className="ml-auto">
+          </div>
+        </div>
+      </header>
+
+      <div className="container mx-auto max-w-4xl px-6 py-8">
+        <Card className="animate-fade-in mb-6">
+          <CardHeader>
+            <div className="flex items-center justify-between">
+              <div>
+                <CardTitle>Markdown Preview</CardTitle>
+                <CardDescription>
+                  Write and preview Markdown in real-time
+                </CardDescription>
+              </div>
               <FavoriteButton
                 toolId="markdown-preview"
                 toolName="Markdown Preview"
               />
             </div>
-          </div>
-        </div>
-      </header>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            {/* Action Buttons */}
+            <div className="flex gap-2">
+              <Button onClick={clearText} variant="outline" size="sm">
+                <RotateCcw className="h-4 w-4 mr-2" />
+                Clear
+              </Button>
+              <Button onClick={loadExample} variant="ghost" size="sm">
+                <Lightbulb className="h-4 w-4 mr-1" />
+                Load Example
+              </Button>
+              <Button onClick={copyMarkdown} variant="ghost" size="sm">
+                <Copy className="h-4 w-4 mr-1" />
+                Copy Markdown
+              </Button>
+              <Button onClick={downloadMarkdown} variant="ghost" size="sm">
+                <Download className="h-4 w-4 mr-1" />
+                Download .md
+              </Button>
+              <Button onClick={downloadHtml} variant="ghost" size="sm">
+                <Download className="h-4 w-4 mr-1" />
+                Download .html
+              </Button>
+            </div>
 
-      <div className="container mx-auto max-w-6xl px-6 py-8">
-        {/* Action Buttons */}
-        <div className="flex gap-2 mb-6">
-          <Button onClick={clearText} variant="outline" size="sm">
-            <RotateCcw className="h-4 w-4 mr-2" />
-            Clear
-          </Button>
-          <Button onClick={loadExample} variant="ghost" size="sm">
-            <Lightbulb className="h-4 w-4 mr-1" />
-            Load Example
-          </Button>
-          <Button onClick={copyMarkdown} variant="ghost" size="sm">
-            <Copy className="h-4 w-4 mr-1" />
-            Copy Markdown
-          </Button>
-          <Button onClick={downloadMarkdown} variant="ghost" size="sm">
-            <Download className="h-4 w-4 mr-1" />
-            Download .md
-          </Button>
-          <Button onClick={downloadHtml} variant="ghost" size="sm">
-            <Download className="h-4 w-4 mr-1" />
-            Download .html
-          </Button>
-        </div>
+            {/* Word Count */}
+            <div className="text-sm text-muted-foreground">
+              Words:{" "}
+              {
+                markdown
+                  .trim()
+                  .split(/\s+/)
+                  .filter((word) => word.length > 0).length
+              }{" "}
+              | Characters: {markdown.length} | Lines:{" "}
+              {markdown.split("\n").length}
+            </div>
 
-        {/* Word Count */}
-        <div className="mb-4 text-sm text-muted-foreground">
-          Words:{" "}
-          {
-            markdown
-              .trim()
-              .split(/\s+/)
-              .filter((word) => word.length > 0).length
-          }{" "}
-          | Characters: {markdown.length} | Lines: {markdown.split("\n").length}
-        </div>
+            {/* Responsive layout: vertical on mobile, horizontal on desktop */}
+            <div className="flex flex-col md:grid md:grid-cols-2 gap-6">
+              <Card className="flex-1">
+                <CardHeader>
+                  <CardTitle>Editor</CardTitle>
+                  <CardDescription>Write your markdown here</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <Textarea
+                    value={markdown}
+                    onChange={(e) => setMarkdown(e.target.value)}
+                    className="min-h-[400px] md:min-h-[500px] font-mono resize-none"
+                    placeholder="# Start writing your Markdown here..."
+                  />
+                </CardContent>
+              </Card>
 
-        <div className="grid gap-6 lg:grid-cols-2">
-          <Card>
-            <CardHeader>
-              <CardTitle>Editor</CardTitle>
-              <CardDescription>Write your markdown here</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <Textarea
-                value={markdown}
-                onChange={(e) => setMarkdown(e.target.value)}
-                className="min-h-[500px] font-mono"
-                placeholder="# Start writing your Markdown here..."
-              />
-            </CardContent>
-          </Card>
+              <Card className="flex-1">
+                <CardHeader>
+                  <CardTitle>Preview</CardTitle>
+                  <CardDescription>Live markdown preview</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div
+                    className="min-h-[400px] md:min-h-[500px] overflow-auto prose prose-slate dark:prose-invert max-w-none border rounded-md p-4 bg-muted/20"
+                    dangerouslySetInnerHTML={{
+                      __html: renderMarkdown(markdown),
+                    }}
+                  />
+                </CardContent>
+              </Card>
+            </div>
+          </CardContent>
+        </Card>
 
-          <Card>
-            <CardHeader>
-              <CardTitle>Preview</CardTitle>
-              <CardDescription>Live markdown preview</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div
-                className="prose prose-slate dark:prose-invert min-h-[500px] max-w-none"
-                dangerouslySetInnerHTML={{ __html: renderMarkdown(markdown) }}
-              />
-            </CardContent>
-          </Card>
-        </div>
+        {/* Tool Introduction */}
+        <Card className="mt-6 bg-gradient-to-r from-blue-50 via-purple-50 to-pink-50 border-blue-200">
+          <CardContent className="pt-6">
+            <p className="text-gray-700 leading-relaxed">
+              <strong className="text-gray-900">
+                What is Markdown Preview?
+              </strong>{" "}
+              This tool provides real-time preview of Markdown text with
+              formatting. Perfect for README files, documentation, and blog
+              posts! 📝
+            </p>
+          </CardContent>
+        </Card>
 
-        <ToolDescription
-          title="Markdown Preview"
-          description="Markdown is a lightweight markup language that allows you to format text using simple syntax. This tool provides a real-time preview of your Markdown text, making it easy to write and format documents, README files, blog posts, and other content without needing to know HTML."
-          features={[
-            "Real-time Markdown preview as you type",
-            "Support for headers, bold, italic, strikethrough, and links",
-            "Code blocks and inline code syntax highlighting",
-            "Lists (ordered and unordered) and blockquotes",
-            "Side-by-side editor and preview layout",
-            "Word, character, and line count statistics",
-            "Export to Markdown (.md) and HTML (.html) files",
-            "Copy Markdown to clipboard functionality",
-            "Load example content to get started quickly",
-            "Perfect for documentation and content creation",
-          ]}
-          useCases={[
-            "README files",
-            "Blog posts",
-            "Documentation",
-            "GitHub repositories",
-            "Technical writing",
-            "Content management",
-            "Email formatting",
-            "Note taking",
-          ]}
-          tips={[
-            "Use # for headers (one # for H1, two ## for H2, etc.)",
-            "Wrap text in ** for bold and * for italic",
-            "Use ~~text~~ for strikethrough and `code` for inline code",
-            "Create links with [text](url) syntax",
-            "Use ``` for code blocks and > for blockquotes",
-            "Use * or - for unordered lists and 1. for ordered lists",
-            "Export your work as .md or .html files for sharing",
-            "Markdown is widely supported on GitHub, GitLab, and many platforms",
-          ]}
-        />
+        {/* Quick Use Cases */}
+        <Card className="mt-6">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              <Zap className="h-5 w-5 text-primary" />
+              Common Use Cases
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-blue-50 to-blue-100/50 border border-blue-200">
+                <div className="p-2 bg-white rounded-lg h-fit">
+                  <Github className="h-5 w-5 text-blue-600" />
+                </div>
+                <div>
+                  <div className="font-semibold text-blue-900">
+                    README Files
+                  </div>
+                  <p className="text-sm text-blue-700">
+                    Create{" "}
+                    <Badge variant="secondary" className="mx-1">
+                      GitHub
+                    </Badge>
+                    README and project documentation
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-purple-50 to-purple-100/50 border border-purple-200">
+                <div className="p-2 bg-white rounded-lg h-fit">
+                  <BookOpen className="h-5 w-5 text-purple-600" />
+                </div>
+                <div>
+                  <div className="font-semibold text-purple-900">
+                    Blog Posts
+                  </div>
+                  <p className="text-sm text-purple-700">
+                    Write and format blog content with Markdown syntax
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-green-50 to-green-100/50 border border-green-200">
+                <div className="p-2 bg-white rounded-lg h-fit">
+                  <FileText className="h-5 w-5 text-green-600" />
+                </div>
+                <div>
+                  <div className="font-semibold text-green-900">
+                    Documentation
+                  </div>
+                  <p className="text-sm text-green-700">
+                    Create technical docs and user guides
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-pink-50 to-pink-100/50 border border-pink-200">
+                <div className="p-2 bg-white rounded-lg h-fit">
+                  <Code2 className="h-5 w-5 text-pink-600" />
+                </div>
+                <div>
+                  <div className="font-semibold text-pink-900">Code Docs</div>
+                  <p className="text-sm text-pink-700">
+                    Document code with syntax highlighting
+                  </p>
+                </div>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Quick Tips */}
+        <Card className="mt-6 bg-gradient-to-br from-amber-50 via-orange-50 to-amber-50 border-amber-200">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2 text-amber-900">
+              <Info className="h-5 w-5 text-amber-600" />
+              💡 Pro Tips
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+              <div className="flex gap-2 items-start">
+                <div className="text-amber-600 font-bold">→</div>
+                <p className="text-sm text-amber-900">
+                  <strong>Headers:</strong> Use # for H1, ## for H2, etc.
+                </p>
+              </div>
+              <div className="flex gap-2 items-start">
+                <div className="text-amber-600 font-bold">→</div>
+                <p className="text-sm text-amber-900">
+                  <strong>Formatting:</strong> **bold**, *italic*,
+                  ~~strikethrough~~
+                </p>
+              </div>
+              <div className="flex gap-2 items-start">
+                <div className="text-amber-600 font-bold">→</div>
+                <p className="text-sm text-amber-900">
+                  <strong>Code:</strong> Use ``` for blocks, ` for inline code
+                </p>
+              </div>
+              <div className="flex gap-2 items-start">
+                <div className="text-amber-600 font-bold">→</div>
+                <p className="text-sm text-amber-900">
+                  <strong>Links:</strong> Create with [text](url) syntax
+                </p>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Related Tools */}
+        <Card className="mt-6">
+          <CardHeader>
+            <CardTitle>🔗 Related Tools You Might Like</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+              <button
+                onClick={() => navigate("/tools/html-to-text")}
+                className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
+              >
+                <div className="font-semibold text-gray-900 group-hover:text-primary">
+                  HTML to Text
+                </div>
+                <div className="text-sm text-gray-600 mt-1">Convert HTML</div>
+              </button>
+              <button
+                onClick={() => navigate("/tools/word-counter")}
+                className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
+              >
+                <div className="font-semibold text-gray-900 group-hover:text-primary">
+                  Word Counter
+                </div>
+                <div className="text-sm text-gray-600 mt-1">Count words</div>
+              </button>
+              <button
+                onClick={() => navigate("/tools/text-sorter")}
+                className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
+              >
+                <div className="font-semibold text-gray-900 group-hover:text-primary">
+                  Text Sorter
+                </div>
+                <div className="text-sm text-gray-600 mt-1">
+                  Sort text lines
+                </div>
+              </button>
+            </div>
+          </CardContent>
+        </Card>
       </div>
     </div>
   );

@@ -25,8 +25,16 @@ import {
   ArrowLeft,
 } from "lucide-react";
 import { toast } from "sonner";
-import { ToolDescription } from "@/components/ToolDescription";
 import { FavoriteButton } from "@/components/FavoriteButton";
+import { Badge } from "@/components/ui/badge";
+import {
+  Zap,
+  Info,
+  Plane,
+  ShoppingBag,
+  TrendingUp,
+  Globe2,
+} from "lucide-react";
 
 const CurrencyConverter = () => {
   const [amount, setAmount] = useState("");
@@ -117,8 +125,18 @@ const CurrencyConverter = () => {
       <div className="container mx-auto max-w-4xl px-6 py-8">
         <Card>
           <CardHeader>
-            <CardTitle>Convert Currency</CardTitle>
-            <CardDescription>Real-time currency exchange rates</CardDescription>
+            <div className="flex items-center justify-between">
+              <div>
+                <CardTitle>Convert Currency</CardTitle>
+                <CardDescription>
+                  Real-time currency exchange rates
+                </CardDescription>
+              </div>
+              <FavoriteButton
+                toolId="currency-converter"
+                toolName="Currency Converter"
+              />
+            </div>
           </CardHeader>
           <CardContent className="space-y-4">
             <div className="flex gap-2 mb-4">
@@ -196,34 +214,172 @@ const CurrencyConverter = () => {
           </CardContent>
         </Card>
 
-        <ToolDescription
-          title="Currency Converter"
-          description="Convert between different currencies using real-time exchange rates. This tool helps you quickly calculate currency conversions for travel, international business, shopping, and financial planning."
-          features={[
-            "Real-time currency exchange rates",
-            "Support for major world currencies",
-            "Swap currencies with one click",
-            "Clear and intuitive interface",
-            "Accurate conversion calculations",
-            "Load example conversions for testing",
-          ]}
-          useCases={[
-            "International travel",
-            "Online shopping",
-            "Business transactions",
-            "Financial planning",
-            "Investment analysis",
-            "Price comparisons",
-            "Expense tracking",
-            "Currency trading",
-          ]}
-          tips={[
-            "Exchange rates update in real-time",
-            "Consider fees when exchanging actual currency",
-            "Rates may vary between different exchange services",
-            "Use for quick estimates and comparisons",
-          ]}
-        />
+        {/* Tool Introduction */}
+        <Card className="mt-6 bg-gradient-to-r from-blue-50 via-purple-50 to-pink-50 border-blue-200">
+          <CardContent className="pt-6">
+            <p className="text-gray-700 leading-relaxed">
+              <strong className="text-gray-900">
+                What is Currency Converter?
+              </strong>{" "}
+              This tool converts between currencies using real-time rates.
+              Perfect for travel, shopping, and international business! 💱
+            </p>
+          </CardContent>
+        </Card>
+
+        {/* Quick Use Cases */}
+        <Card className="mt-6">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              <Zap className="h-5 w-5 text-primary" />
+              Common Use Cases
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-blue-50 to-blue-100/50 border border-blue-200">
+                <div className="p-2 bg-white rounded-lg h-fit">
+                  <Plane className="h-5 w-5 text-blue-600" />
+                </div>
+                <div>
+                  <div className="font-semibold text-blue-900">
+                    International Travel
+                  </div>
+                  <p className="text-sm text-blue-700">
+                    Convert{" "}
+                    <Badge variant="secondary" className="mx-1">
+                      currencies
+                    </Badge>
+                    for trips abroad
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-purple-50 to-purple-100/50 border border-purple-200">
+                <div className="p-2 bg-white rounded-lg h-fit">
+                  <ShoppingBag className="h-5 w-5 text-purple-600" />
+                </div>
+                <div>
+                  <div className="font-semibold text-purple-900">
+                    Online Shopping
+                  </div>
+                  <p className="text-sm text-purple-700">
+                    Calculate prices from international stores
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-green-50 to-green-100/50 border border-green-200">
+                <div className="p-2 bg-white rounded-lg h-fit">
+                  <Globe2 className="h-5 w-5 text-green-600" />
+                </div>
+                <div>
+                  <div className="font-semibold text-green-900">
+                    Business Transactions
+                  </div>
+                  <p className="text-sm text-green-700">
+                    Convert for international payments and invoices
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-pink-50 to-pink-100/50 border border-pink-200">
+                <div className="p-2 bg-white rounded-lg h-fit">
+                  <TrendingUp className="h-5 w-5 text-pink-600" />
+                </div>
+                <div>
+                  <div className="font-semibold text-pink-900">
+                    Investment Analysis
+                  </div>
+                  <p className="text-sm text-pink-700">
+                    Track foreign investments and returns
+                  </p>
+                </div>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Quick Tips */}
+        <Card className="mt-6 bg-gradient-to-br from-amber-50 via-orange-50 to-amber-50 border-amber-200">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2 text-amber-900">
+              <Info className="h-5 w-5 text-amber-600" />
+              💡 Pro Tips
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+              <div className="flex gap-2 items-start">
+                <div className="text-amber-600 font-bold">→</div>
+                <p className="text-sm text-amber-900">
+                  <strong>Real-time:</strong> Rates update automatically
+                </p>
+              </div>
+              <div className="flex gap-2 items-start">
+                <div className="text-amber-600 font-bold">→</div>
+                <p className="text-sm text-amber-900">
+                  <strong>Fees:</strong> Consider exchange fees for actual
+                  transactions
+                </p>
+              </div>
+              <div className="flex gap-2 items-start">
+                <div className="text-amber-600 font-bold">→</div>
+                <p className="text-sm text-amber-900">
+                  <strong>Variations:</strong> Rates vary between services
+                </p>
+              </div>
+              <div className="flex gap-2 items-start">
+                <div className="text-amber-600 font-bold">→</div>
+                <p className="text-sm text-amber-900">
+                  <strong>Estimates:</strong> Use for quick comparisons
+                </p>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Related Tools */}
+        <Card className="mt-6">
+          <CardHeader>
+            <CardTitle>🔗 Related Tools You Might Like</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+              <button
+                onClick={() => navigate("/tools/unit-converter")}
+                className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
+              >
+                <div className="font-semibold text-gray-900 group-hover:text-primary">
+                  Unit Converter
+                </div>
+                <div className="text-sm text-gray-600 mt-1">Convert units</div>
+              </button>
+              <button
+                onClick={() => navigate("/tools/percentage-calculator")}
+                className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
+              >
+                <div className="font-semibold text-gray-900 group-hover:text-primary">
+                  Percentage Calculator
+                </div>
+                <div className="text-sm text-gray-600 mt-1">
+                  Calculate percentages
+                </div>
+              </button>
+              <button
+                onClick={() => navigate("/tools/interest-calculator")}
+                className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
+              >
+                <div className="font-semibold text-gray-900 group-hover:text-primary">
+                  Interest Calculator
+                </div>
+                <div className="text-sm text-gray-600 mt-1">
+                  Calculate interest
+                </div>
+              </button>
+            </div>
+          </CardContent>
+        </Card>
       </div>
     </div>
   );

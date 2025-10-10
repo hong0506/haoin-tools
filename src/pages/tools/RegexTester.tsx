@@ -13,8 +13,18 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
-import { Search, RotateCcw, Lightbulb, ArrowLeft } from "lucide-react";
-import { ToolDescription } from "@/components/ToolDescription";
+import {
+  Search,
+  RotateCcw,
+  Lightbulb,
+  ArrowLeft,
+  Code2,
+  Zap,
+  Info,
+  CheckCircle,
+  FileSearch,
+  Terminal,
+} from "lucide-react";
 import { FavoriteButton } from "@/components/FavoriteButton";
 
 const RegexTester = () => {
@@ -157,34 +167,173 @@ const RegexTester = () => {
           </CardContent>
         </Card>
 
-        <ToolDescription
-          title="Regex Tester"
-          description="Regular expressions (regex) are powerful patterns used to match and manipulate text. This tool helps you test and debug regular expressions in real-time, making it easier to create, validate, and understand regex patterns for text processing, validation, and search operations."
-          features={[
-            "Test regular expressions against sample text",
-            "Real-time pattern matching and highlighting",
-            "Support for common regex flags (g, i, m, s)",
-            "Visual highlighting of matched text",
-            "Clear all fields with a single button",
-            "Load example patterns for learning",
-          ]}
-          useCases={[
-            "Text validation",
-            "Data extraction",
-            "Search and replace operations",
-            "Form input validation",
-            "Log file parsing",
-            "Data cleaning",
-            "Programming and scripting",
-            "Text processing automation",
-          ]}
-          tips={[
-            "Use ^ for start of string and $ for end of string",
-            "\\d matches digits, \\w matches word characters",
-            "Use parentheses () for grouping and capturing",
-            "Test with various inputs to ensure your pattern works correctly",
-          ]}
-        />
+        {/* Tool Introduction */}
+        <Card className="mt-6 bg-gradient-to-r from-blue-50 via-purple-50 to-pink-50 border-blue-200">
+          <CardContent className="pt-6">
+            <p className="text-gray-700 leading-relaxed">
+              <strong className="text-gray-900">What is Regex Tester?</strong>{" "}
+              This tool tests and debugs regular expressions in real-time. Perfect
+              for text validation, data extraction, and pattern matching! 🔍
+            </p>
+          </CardContent>
+        </Card>
+
+        {/* Quick Use Cases */}
+        <Card className="mt-6">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              <Zap className="h-5 w-5 text-primary" />
+              Common Use Cases
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-purple-50 to-purple-100/50 border border-purple-200">
+                <div className="p-2 bg-white rounded-lg h-fit">
+                  <CheckCircle className="h-5 w-5 text-purple-600" />
+                </div>
+                <div>
+                  <div className="font-semibold text-purple-900">
+                    Form Validation
+                  </div>
+                  <p className="text-sm text-purple-700">
+                    Validate{" "}
+                    <Badge variant="secondary" className="mx-1">
+                      email
+                    </Badge>
+                    addresses, phone numbers, and user input
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-blue-50 to-blue-100/50 border border-blue-200">
+                <div className="p-2 bg-white rounded-lg h-fit">
+                  <FileSearch className="h-5 w-5 text-blue-600" />
+                </div>
+                <div>
+                  <div className="font-semibold text-blue-900">
+                    Data Extraction
+                  </div>
+                  <p className="text-sm text-blue-700">
+                    Extract specific patterns from text and log files
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-green-50 to-green-100/50 border border-green-200">
+                <div className="p-2 bg-white rounded-lg h-fit">
+                  <Code2 className="h-5 w-5 text-green-600" />
+                </div>
+                <div>
+                  <div className="font-semibold text-green-900">
+                    Search & Replace
+                  </div>
+                  <p className="text-sm text-green-700">
+                    Find and replace text patterns in code and documents
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-pink-50 to-pink-100/50 border border-pink-200">
+                <div className="p-2 bg-white rounded-lg h-fit">
+                  <Terminal className="h-5 w-5 text-pink-600" />
+                </div>
+                <div>
+                  <div className="font-semibold text-pink-900">
+                    Programming
+                  </div>
+                  <p className="text-sm text-pink-700">
+                    Test regex patterns before using in code
+                  </p>
+                </div>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Quick Tips */}
+        <Card className="mt-6 bg-gradient-to-br from-amber-50 via-orange-50 to-amber-50 border-amber-200">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2 text-amber-900">
+              <Info className="h-5 w-5 text-amber-600" />
+              💡 Pro Tips
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+              <div className="flex gap-2 items-start">
+                <div className="text-amber-600 font-bold">→</div>
+                <p className="text-sm text-amber-900">
+                  <strong>Anchors:</strong> Use ^ for start and $ for end of string
+                </p>
+              </div>
+              <div className="flex gap-2 items-start">
+                <div className="text-amber-600 font-bold">→</div>
+                <p className="text-sm text-amber-900">
+                  <strong>Shortcuts:</strong> \d (digits), \w (word chars), \s
+                  (spaces)
+                </p>
+              </div>
+              <div className="flex gap-2 items-start">
+                <div className="text-amber-600 font-bold">→</div>
+                <p className="text-sm text-amber-900">
+                  <strong>Groups:</strong> Use () for capturing and grouping
+                </p>
+              </div>
+              <div className="flex gap-2 items-start">
+                <div className="text-amber-600 font-bold">→</div>
+                <p className="text-sm text-amber-900">
+                  <strong>Testing:</strong> Test with various inputs to ensure
+                  accuracy
+                </p>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Related Tools */}
+        <Card className="mt-6">
+          <CardHeader>
+            <CardTitle>🔗 Related Tools You Might Like</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+              <button
+                onClick={() => navigate("/tools/text-diff")}
+                className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
+              >
+                <div className="font-semibold text-gray-900 group-hover:text-primary">
+                  Text Diff
+                </div>
+                <div className="text-sm text-gray-600 mt-1">
+                  Compare two texts
+                </div>
+              </button>
+              <button
+                onClick={() => navigate("/tools/word-counter")}
+                className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
+              >
+                <div className="font-semibold text-gray-900 group-hover:text-primary">
+                  Word Counter
+                </div>
+                <div className="text-sm text-gray-600 mt-1">
+                  Count words and characters
+                </div>
+              </button>
+              <button
+                onClick={() => navigate("/tools/text-sorter")}
+                className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
+              >
+                <div className="font-semibold text-gray-900 group-hover:text-primary">
+                  Text Sorter
+                </div>
+                <div className="text-sm text-gray-600 mt-1">
+                  Sort text lines
+                </div>
+              </button>
+            </div>
+          </CardContent>
+        </Card>
       </div>
     </div>
   );

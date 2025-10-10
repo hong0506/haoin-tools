@@ -10,10 +10,21 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { PiggyBank, RotateCcw, Lightbulb, ArrowLeft } from "lucide-react";
+import {
+  PiggyBank,
+  RotateCcw,
+  Lightbulb,
+  ArrowLeft,
+  Zap,
+  Info,
+  TrendingUp,
+  GraduationCap,
+  Wallet,
+  Target,
+} from "lucide-react";
 import { toast } from "sonner";
-import { ToolDescription } from "@/components/ToolDescription";
 import { FavoriteButton } from "@/components/FavoriteButton";
+import { Badge } from "@/components/ui/badge";
 
 const InvestmentCalculator = () => {
   const [initialInvestment, setInitialInvestment] = useState("");
@@ -81,10 +92,18 @@ const InvestmentCalculator = () => {
       <div className="container mx-auto max-w-4xl px-6 py-8">
         <Card>
           <CardHeader>
-            <CardTitle>Calculate Investment Growth</CardTitle>
-            <CardDescription>
-              Estimate your investment returns over time
-            </CardDescription>
+            <div className="flex items-center justify-between">
+              <div>
+                <CardTitle>Calculate Investment Growth</CardTitle>
+                <CardDescription>
+                  Estimate your investment returns over time
+                </CardDescription>
+              </div>
+              <FavoriteButton
+                toolId="investment-calculator"
+                toolName="Investment Calculator"
+              />
+            </div>
           </CardHeader>
           <CardContent className="space-y-4">
             <div className="flex gap-2 mb-4">
@@ -177,34 +196,176 @@ const InvestmentCalculator = () => {
           </CardContent>
         </Card>
 
-        <ToolDescription
-          title="Investment Calculator"
-          description="Calculate the future value of your investments with regular monthly contributions. This tool helps you plan for retirement, education, or other long-term financial goals by showing how your investments can grow over time."
-          features={[
-            "Calculate future investment value",
-            "Include initial investment and monthly contributions",
-            "Customize annual return rate",
-            "Show total contributions and earnings separately",
-            "Plan for various investment periods",
-            "Clear visualization of growth potential",
-          ]}
-          useCases={[
-            "Retirement planning",
-            "Education savings",
-            "Wealth building",
-            "Financial goal setting",
-            "Investment strategy comparison",
-            "Savings plan evaluation",
-            "Portfolio growth projection",
-            "Long-term financial planning",
-          ]}
-          tips={[
-            "Start investing early to maximize compound growth",
-            "Regular monthly contributions add up significantly",
-            "Historical stock market returns average 8-10% annually",
-            "Consider your risk tolerance when estimating returns",
-          ]}
-        />
+        {/* Tool Introduction */}
+        <Card className="mt-6 bg-gradient-to-r from-blue-50 via-purple-50 to-pink-50 border-blue-200">
+          <CardContent className="pt-6">
+            <p className="text-gray-700 leading-relaxed">
+              <strong className="text-gray-900">
+                What is Investment Calculator?
+              </strong>{" "}
+              This tool calculates future investment value with monthly
+              contributions. Perfect for retirement planning, education savings,
+              and wealth building! 📈
+            </p>
+          </CardContent>
+        </Card>
+
+        {/* Quick Use Cases */}
+        <Card className="mt-6">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              <Zap className="h-5 w-5 text-primary" />
+              Common Use Cases
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-blue-50 to-blue-100/50 border border-blue-200">
+                <div className="p-2 bg-white rounded-lg h-fit">
+                  <Wallet className="h-5 w-5 text-blue-600" />
+                </div>
+                <div>
+                  <div className="font-semibold text-blue-900">
+                    Retirement Planning
+                  </div>
+                  <p className="text-sm text-blue-700">
+                    Calculate{" "}
+                    <Badge variant="secondary" className="mx-1">
+                      retirement
+                    </Badge>
+                    savings growth over decades
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-purple-50 to-purple-100/50 border border-purple-200">
+                <div className="p-2 bg-white rounded-lg h-fit">
+                  <GraduationCap className="h-5 w-5 text-purple-600" />
+                </div>
+                <div>
+                  <div className="font-semibold text-purple-900">
+                    Education Savings
+                  </div>
+                  <p className="text-sm text-purple-700">
+                    Plan for college funds and education expenses
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-green-50 to-green-100/50 border border-green-200">
+                <div className="p-2 bg-white rounded-lg h-fit">
+                  <TrendingUp className="h-5 w-5 text-green-600" />
+                </div>
+                <div>
+                  <div className="font-semibold text-green-900">
+                    Wealth Building
+                  </div>
+                  <p className="text-sm text-green-700">
+                    Track long-term portfolio growth and investment returns
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-pink-50 to-pink-100/50 border border-pink-200">
+                <div className="p-2 bg-white rounded-lg h-fit">
+                  <Target className="h-5 w-5 text-pink-600" />
+                </div>
+                <div>
+                  <div className="font-semibold text-pink-900">
+                    Financial Goals
+                  </div>
+                  <p className="text-sm text-pink-700">
+                    Set and achieve specific financial milestones
+                  </p>
+                </div>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Quick Tips */}
+        <Card className="mt-6 bg-gradient-to-br from-amber-50 via-orange-50 to-amber-50 border-amber-200">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2 text-amber-900">
+              <Info className="h-5 w-5 text-amber-600" />
+              💡 Pro Tips
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+              <div className="flex gap-2 items-start">
+                <div className="text-amber-600 font-bold">→</div>
+                <p className="text-sm text-amber-900">
+                  <strong>Start Early:</strong> Time maximizes compound growth
+                </p>
+              </div>
+              <div className="flex gap-2 items-start">
+                <div className="text-amber-600 font-bold">→</div>
+                <p className="text-sm text-amber-900">
+                  <strong>Regular Contributions:</strong> Monthly savings add up
+                  significantly
+                </p>
+              </div>
+              <div className="flex gap-2 items-start">
+                <div className="text-amber-600 font-bold">→</div>
+                <p className="text-sm text-amber-900">
+                  <strong>Returns:</strong> Stock market averages 8-10% annually
+                </p>
+              </div>
+              <div className="flex gap-2 items-start">
+                <div className="text-amber-600 font-bold">→</div>
+                <p className="text-sm text-amber-900">
+                  <strong>Risk:</strong> Consider tolerance when estimating
+                  returns
+                </p>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Related Tools */}
+        <Card className="mt-6">
+          <CardHeader>
+            <CardTitle>🔗 Related Tools You Might Like</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+              <button
+                onClick={() => navigate("/tools/interest-calculator")}
+                className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
+              >
+                <div className="font-semibold text-gray-900 group-hover:text-primary">
+                  Interest Calculator
+                </div>
+                <div className="text-sm text-gray-600 mt-1">
+                  Calculate interest
+                </div>
+              </button>
+              <button
+                onClick={() => navigate("/tools/loan-calculator")}
+                className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
+              >
+                <div className="font-semibold text-gray-900 group-hover:text-primary">
+                  Loan Calculator
+                </div>
+                <div className="text-sm text-gray-600 mt-1">
+                  Calculate loan payments
+                </div>
+              </button>
+              <button
+                onClick={() => navigate("/tools/percentage-calculator")}
+                className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
+              >
+                <div className="font-semibold text-gray-900 group-hover:text-primary">
+                  Percentage Calculator
+                </div>
+                <div className="text-sm text-gray-600 mt-1">
+                  Calculate percentages
+                </div>
+              </button>
+            </div>
+          </CardContent>
+        </Card>
       </div>
     </div>
   );

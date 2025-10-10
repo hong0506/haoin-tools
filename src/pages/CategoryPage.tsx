@@ -15,7 +15,7 @@ const CategoryPage = () => {
   const { categoryId } = useParams();
   const [searchQuery, setSearchQuery] = useState("");
   const { recentTools, clearRecentTools } = useRecentTools();
-  const { favorites } = useFavorites();
+  const { favorites, clearAllFavorites } = useFavorites();
 
   const category = categories.find((c) => c.id === categoryId);
   const IconComponent = category
@@ -109,6 +109,16 @@ const CategoryPage = () => {
                   className="mt-4 border-2 hover:bg-destructive hover:text-white hover:border-destructive transition-all"
                 >
                   🗑️ Clear Recent Tools
+                </Button>
+              )}
+              {categoryId === "favorites" && favorites.length > 0 && (
+                <Button
+                  onClick={clearAllFavorites}
+                  variant="outline"
+                  size="sm"
+                  className="mt-4 border-2 hover:bg-destructive hover:text-white hover:border-destructive transition-all"
+                >
+                  🗑️ Clear Favorites
                 </Button>
               )}
             </div>

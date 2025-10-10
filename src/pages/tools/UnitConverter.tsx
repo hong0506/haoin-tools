@@ -18,10 +18,21 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Ruler, RotateCcw, Lightbulb, ArrowLeft } from "lucide-react";
+import {
+  Ruler,
+  RotateCcw,
+  Lightbulb,
+  ArrowLeft,
+  Zap,
+  Info,
+  Globe,
+  Utensils,
+  Hammer,
+  Scale,
+} from "lucide-react";
 import { toast } from "sonner";
-import { ToolDescription } from "@/components/ToolDescription";
 import { FavoriteButton } from "@/components/FavoriteButton";
+import { Badge } from "@/components/ui/badge";
 
 const UnitConverter = () => {
   const [lengthValue, setLengthValue] = useState("");
@@ -103,20 +114,18 @@ const UnitConverter = () => {
           <SidebarTrigger />
           <div className="flex items-center gap-2">
             <h1 className="text-xl font-semibold">Unit Converter</h1>
-            <div className="ml-auto">
-              <FavoriteButton
-                toolId="unit-converter"
-                toolName="Unit Converter"
-              />
-            </div>
           </div>
         </div>
       </header>
       <div className="container mx-auto max-w-4xl px-6 py-8">
         <Tabs defaultValue="length">
-          <TabsList className="grid w-full grid-cols-2">
-            <TabsTrigger value="length">Length</TabsTrigger>
-          </TabsList>
+          <div className="flex items-center justify-between mb-6">
+            <TabsList className="grid w-full grid-cols-2 max-w-md">
+              <TabsTrigger value="length">Length</TabsTrigger>
+              <TabsTrigger value="weight">Weight</TabsTrigger>
+            </TabsList>
+            <FavoriteButton toolId="unit-converter" toolName="Unit Converter" />
+          </div>
           <TabsContent value="length">
             <Card>
               <CardHeader>
@@ -235,34 +244,165 @@ const UnitConverter = () => {
           </TabsContent>
         </Tabs>
 
-        <ToolDescription
-          title="Unit Converter"
-          description="Convert between different units of measurement for length and weight. This tool helps you quickly convert measurements for international travel, cooking, construction, and various professional applications."
-          features={[
-            "Convert length units (meters, feet, inches, etc.)",
-            "Convert weight units (kilograms, pounds, ounces, etc.)",
-            "Real-time conversion as you type",
-            "Support for metric and imperial systems",
-            "Load example conversions for testing",
-            "Simple and intuitive interface",
-          ]}
-          useCases={[
-            "International travel",
-            "Cooking and baking",
-            "Construction projects",
-            "Scientific calculations",
-            "Fitness tracking",
-            "Shipping and logistics",
-            "Education and learning",
-            "Engineering applications",
-          ]}
-          tips={[
-            "Metric system is used in most countries worldwide",
-            "1 kilogram = 2.20462 pounds",
-            "1 meter = 3.28084 feet",
-            "Double-check units when following recipes from other countries",
-          ]}
-        />
+        {/* Tool Introduction */}
+        <Card className="mt-6 bg-gradient-to-r from-blue-50 via-purple-50 to-pink-50 border-blue-200">
+          <CardContent className="pt-6">
+            <p className="text-gray-700 leading-relaxed">
+              <strong className="text-gray-900">What is Unit Converter?</strong>{" "}
+              This tool converts between metric and imperial units for length and
+              weight. Perfect for travel, cooking, and construction! 📏
+            </p>
+          </CardContent>
+        </Card>
+
+        {/* Quick Use Cases */}
+        <Card className="mt-6">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              <Zap className="h-5 w-5 text-primary" />
+              Common Use Cases
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-blue-50 to-blue-100/50 border border-blue-200">
+                <div className="p-2 bg-white rounded-lg h-fit">
+                  <Globe className="h-5 w-5 text-blue-600" />
+                </div>
+                <div>
+                  <div className="font-semibold text-blue-900">
+                    International Travel
+                  </div>
+                  <p className="text-sm text-blue-700">
+                    Convert{" "}
+                    <Badge variant="secondary" className="mx-1">
+                      metric/imperial
+                    </Badge>
+                    units across countries
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-purple-50 to-purple-100/50 border border-purple-200">
+                <div className="p-2 bg-white rounded-lg h-fit">
+                  <Utensils className="h-5 w-5 text-purple-600" />
+                </div>
+                <div>
+                  <div className="font-semibold text-purple-900">
+                    Cooking & Baking
+                  </div>
+                  <p className="text-sm text-purple-700">
+                    Convert recipe measurements from different regions
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-green-50 to-green-100/50 border border-green-200">
+                <div className="p-2 bg-white rounded-lg h-fit">
+                  <Hammer className="h-5 w-5 text-green-600" />
+                </div>
+                <div>
+                  <div className="font-semibold text-green-900">
+                    Construction
+                  </div>
+                  <p className="text-sm text-green-700">
+                    Convert measurements for building projects
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-pink-50 to-pink-100/50 border border-pink-200">
+                <div className="p-2 bg-white rounded-lg h-fit">
+                  <Scale className="h-5 w-5 text-pink-600" />
+                </div>
+                <div>
+                  <div className="font-semibold text-pink-900">Fitness Tracking</div>
+                  <p className="text-sm text-pink-700">
+                    Track weight and measurements in preferred units
+                  </p>
+                </div>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Quick Tips */}
+        <Card className="mt-6 bg-gradient-to-br from-amber-50 via-orange-50 to-amber-50 border-amber-200">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2 text-amber-900">
+              <Info className="h-5 w-5 text-amber-600" />
+              💡 Pro Tips
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+              <div className="flex gap-2 items-start">
+                <div className="text-amber-600 font-bold">→</div>
+                <p className="text-sm text-amber-900">
+                  <strong>Metric:</strong> Used in most countries worldwide
+                </p>
+              </div>
+              <div className="flex gap-2 items-start">
+                <div className="text-amber-600 font-bold">→</div>
+                <p className="text-sm text-amber-900">
+                  <strong>Weight:</strong> 1 kg = 2.20462 lbs
+                </p>
+              </div>
+              <div className="flex gap-2 items-start">
+                <div className="text-amber-600 font-bold">→</div>
+                <p className="text-sm text-amber-900">
+                  <strong>Length:</strong> 1 m = 3.28084 ft
+                </p>
+              </div>
+              <div className="flex gap-2 items-start">
+                <div className="text-amber-600 font-bold">→</div>
+                <p className="text-sm text-amber-900">
+                  <strong>Recipes:</strong> Double-check units from other countries
+                </p>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Related Tools */}
+        <Card className="mt-6">
+          <CardHeader>
+            <CardTitle>🔗 Related Tools You Might Like</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+              <button
+                onClick={() => navigate("/tools/currency-converter")}
+                className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
+              >
+                <div className="font-semibold text-gray-900 group-hover:text-primary">
+                  Currency Converter
+                </div>
+                <div className="text-sm text-gray-600 mt-1">Convert currencies</div>
+              </button>
+              <button
+                onClick={() => navigate("/tools/percentage-calculator")}
+                className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
+              >
+                <div className="font-semibold text-gray-900 group-hover:text-primary">
+                  Percentage Calculator
+                </div>
+                <div className="text-sm text-gray-600 mt-1">
+                  Calculate percentages
+                </div>
+              </button>
+              <button
+                onClick={() => navigate("/tools/bmi-calculator")}
+                className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
+              >
+                <div className="font-semibold text-gray-900 group-hover:text-primary">
+                  BMI Calculator
+                </div>
+                <div className="text-sm text-gray-600 mt-1">Calculate BMI</div>
+              </button>
+            </div>
+          </CardContent>
+        </Card>
       </div>
     </div>
   );

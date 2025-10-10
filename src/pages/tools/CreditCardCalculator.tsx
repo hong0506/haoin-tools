@@ -10,10 +10,21 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { CreditCard, RotateCcw, Lightbulb, ArrowLeft } from "lucide-react";
+import {
+  CreditCard,
+  RotateCcw,
+  Lightbulb,
+  ArrowLeft,
+  Zap,
+  Info,
+  Wallet,
+  TrendingDown,
+  DollarSign,
+  AlertTriangle,
+} from "lucide-react";
 import { toast } from "sonner";
-import { ToolDescription } from "@/components/ToolDescription";
 import { FavoriteButton } from "@/components/FavoriteButton";
+import { Badge } from "@/components/ui/badge";
 
 const CreditCardCalculator = () => {
   const [balance, setBalance] = useState("");
@@ -98,8 +109,18 @@ const CreditCardCalculator = () => {
       <div className="container mx-auto max-w-4xl px-6 py-8">
         <Card>
           <CardHeader>
-            <CardTitle>Calculate Credit Card Payoff</CardTitle>
-            <CardDescription>Estimate when you'll be debt-free</CardDescription>
+            <div className="flex items-center justify-between">
+              <div>
+                <CardTitle>Calculate Credit Card Payoff</CardTitle>
+                <CardDescription>
+                  Estimate when you'll be debt-free
+                </CardDescription>
+              </div>
+              <FavoriteButton
+                toolId="credit-card-calculator"
+                toolName="Credit Card Calculator"
+              />
+            </div>
           </CardHeader>
           <CardContent className="space-y-4">
             <div className="flex gap-2 mb-4">
@@ -181,34 +202,178 @@ const CreditCardCalculator = () => {
           </CardContent>
         </Card>
 
-        <ToolDescription
-          title="Credit Card Payoff Calculator"
-          description="Understanding how long it will take to pay off credit card debt is crucial for financial planning. This calculator helps you determine the payoff timeline, total interest paid, and total amount you'll pay based on your current balance, APR, and monthly payment amount."
-          features={[
-            "Calculate credit card payoff time",
-            "Compute total interest paid over time",
-            "Show total amount to be paid",
-            "Support for different APR rates",
-            "Handle various monthly payment amounts",
-            "Clear all fields with a single button",
-          ]}
-          useCases={[
-            "Debt management",
-            "Financial planning",
-            "Budget optimization",
-            "Payment strategy comparison",
-            "Interest cost analysis",
-            "Debt reduction planning",
-            "Credit counseling",
-            "Personal finance management",
-          ]}
-          tips={[
-            "Higher monthly payments reduce total interest significantly",
-            "Making minimum payments can take years to pay off debt",
-            "Consider paying more than the minimum when possible",
-            "Lower APR credit cards can save thousands in interest",
-          ]}
-        />
+        {/* Tool Introduction */}
+        <Card className="mt-6 bg-gradient-to-r from-blue-50 via-purple-50 to-pink-50 border-blue-200">
+          <CardContent className="pt-6">
+            <p className="text-gray-700 leading-relaxed">
+              <strong className="text-gray-900">
+                What is Credit Card Payoff Calculator?
+              </strong>{" "}
+              This tool calculates payoff time, total interest, and payments for
+              credit card debt. Perfect for debt management and financial
+              planning! 💳
+            </p>
+          </CardContent>
+        </Card>
+
+        {/* Quick Use Cases */}
+        <Card className="mt-6">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              <Zap className="h-5 w-5 text-primary" />
+              Common Use Cases
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-blue-50 to-blue-100/50 border border-blue-200">
+                <div className="p-2 bg-white rounded-lg h-fit">
+                  <TrendingDown className="h-5 w-5 text-blue-600" />
+                </div>
+                <div>
+                  <div className="font-semibold text-blue-900">
+                    Debt Management
+                  </div>
+                  <p className="text-sm text-blue-700">
+                    Plan{" "}
+                    <Badge variant="secondary" className="mx-1">
+                      debt payoff
+                    </Badge>
+                    strategies and timelines
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-purple-50 to-purple-100/50 border border-purple-200">
+                <div className="p-2 bg-white rounded-lg h-fit">
+                  <DollarSign className="h-5 w-5 text-purple-600" />
+                </div>
+                <div>
+                  <div className="font-semibold text-purple-900">
+                    Interest Analysis
+                  </div>
+                  <p className="text-sm text-purple-700">
+                    Calculate total interest costs over the payoff period
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-green-50 to-green-100/50 border border-green-200">
+                <div className="p-2 bg-white rounded-lg h-fit">
+                  <Wallet className="h-5 w-5 text-green-600" />
+                </div>
+                <div>
+                  <div className="font-semibold text-green-900">
+                    Budget Planning
+                  </div>
+                  <p className="text-sm text-green-700">
+                    Optimize monthly payments within your budget
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-pink-50 to-pink-100/50 border border-pink-200">
+                <div className="p-2 bg-white rounded-lg h-fit">
+                  <AlertTriangle className="h-5 w-5 text-pink-600" />
+                </div>
+                <div>
+                  <div className="font-semibold text-pink-900">
+                    Payment Strategy
+                  </div>
+                  <p className="text-sm text-pink-700">
+                    Compare different payment amounts and timelines
+                  </p>
+                </div>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Quick Tips */}
+        <Card className="mt-6 bg-gradient-to-br from-amber-50 via-orange-50 to-amber-50 border-amber-200">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2 text-amber-900">
+              <Info className="h-5 w-5 text-amber-600" />
+              💡 Pro Tips
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+              <div className="flex gap-2 items-start">
+                <div className="text-amber-600 font-bold">→</div>
+                <p className="text-sm text-amber-900">
+                  <strong>Higher Payments:</strong> Reduce total interest
+                  significantly
+                </p>
+              </div>
+              <div className="flex gap-2 items-start">
+                <div className="text-amber-600 font-bold">→</div>
+                <p className="text-sm text-amber-900">
+                  <strong>Minimum Payments:</strong> Can take years to pay off
+                  debt
+                </p>
+              </div>
+              <div className="flex gap-2 items-start">
+                <div className="text-amber-600 font-bold">→</div>
+                <p className="text-sm text-amber-900">
+                  <strong>Pay More:</strong> Always pay more than minimum when
+                  possible
+                </p>
+              </div>
+              <div className="flex gap-2 items-start">
+                <div className="text-amber-600 font-bold">→</div>
+                <p className="text-sm text-amber-900">
+                  <strong>Lower APR:</strong> Can save thousands in interest
+                  costs
+                </p>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Related Tools */}
+        <Card className="mt-6">
+          <CardHeader>
+            <CardTitle>🔗 Related Tools You Might Like</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+              <button
+                onClick={() => navigate("/tools/loan-calculator")}
+                className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
+              >
+                <div className="font-semibold text-gray-900 group-hover:text-primary">
+                  Loan Calculator
+                </div>
+                <div className="text-sm text-gray-600 mt-1">
+                  Calculate loan payments
+                </div>
+              </button>
+              <button
+                onClick={() => navigate("/tools/interest-calculator")}
+                className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
+              >
+                <div className="font-semibold text-gray-900 group-hover:text-primary">
+                  Interest Calculator
+                </div>
+                <div className="text-sm text-gray-600 mt-1">
+                  Calculate interest
+                </div>
+              </button>
+              <button
+                onClick={() => navigate("/tools/percentage-calculator")}
+                className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
+              >
+                <div className="font-semibold text-gray-900 group-hover:text-primary">
+                  Percentage Calculator
+                </div>
+                <div className="text-sm text-gray-600 mt-1">
+                  Calculate percentages
+                </div>
+              </button>
+            </div>
+          </CardContent>
+        </Card>
       </div>
     </div>
   );

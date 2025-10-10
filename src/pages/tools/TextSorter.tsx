@@ -18,9 +18,20 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { toast } from "sonner";
-import { ArrowDownAZ, RotateCcw, Lightbulb, ArrowLeft } from "lucide-react";
-import { ToolDescription } from "@/components/ToolDescription";
+import {
+  ArrowDownAZ,
+  RotateCcw,
+  Lightbulb,
+  ArrowLeft,
+  ListOrdered,
+  Zap,
+  Info,
+  FileSpreadsheet,
+  Database,
+  Users,
+} from "lucide-react";
 import { FavoriteButton } from "@/components/FavoriteButton";
+import { Badge } from "@/components/ui/badge";
 
 const TextSorter = () => {
   const [input, setInput] = useState("");
@@ -129,34 +140,187 @@ const TextSorter = () => {
           </CardContent>
         </Card>
 
-        <ToolDescription
-          title="Text Sorter"
-          description="Text sorting is a common task when organizing lists, data, or any text content. This tool helps you sort lines of text alphabetically in ascending or descending order, making it easy to organize and structure your content for better readability and management."
-          features={[
-            "Sort text lines alphabetically",
-            "Choose between ascending (A-Z) or descending (Z-A) order",
-            "Handle multiple lines of text",
-            "Preserve original formatting and spacing",
-            "Clear all fields with a single button",
-            "Load example text for testing",
-          ]}
-          useCases={[
-            "List organization",
-            "Data sorting",
-            "Name lists",
-            "Inventory management",
-            "Contact lists",
-            "Product catalogs",
-            "Academic references",
-            "Content organization",
-          ]}
-          tips={[
-            "Each line is treated as a separate item for sorting",
-            "Use ascending order for alphabetical lists",
-            "Use descending order for reverse alphabetical order",
-            "Perfect for organizing contact lists and directories",
-          ]}
-        />
+        {/* Compact Stats */}
+        {output && (
+          <div className="flex flex-wrap gap-4 mt-4 text-sm text-gray-600 animate-fade-in">
+            <div className="flex items-center gap-2">
+              <span className="font-semibold text-blue-600">
+                {output.split("\n").filter((line) => line.trim()).length}
+              </span>
+              <span>lines sorted</span>
+            </div>
+          </div>
+        )}
+
+        {/* Tool Introduction */}
+        <Card className="mt-6 bg-gradient-to-r from-blue-50 via-purple-50 to-pink-50 border-blue-200">
+          <CardContent className="pt-6">
+            <p className="text-gray-700 leading-relaxed">
+              <strong className="text-gray-900">What is Text Sorter?</strong>{" "}
+              This tool helps you sort lines of text alphabetically in ascending
+              (A→Z) or descending (Z→A) order. Perfect for organizing lists,
+              names, data, and any text content quickly! 📋
+            </p>
+          </CardContent>
+        </Card>
+
+        {/* Quick Use Cases */}
+        <Card className="mt-6">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              <Zap className="h-5 w-5 text-primary" />
+              Common Use Cases
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-blue-50 to-blue-100/50 border border-blue-200">
+                <div className="p-2 bg-white rounded-lg h-fit">
+                  <ListOrdered className="h-5 w-5 text-blue-600" />
+                </div>
+                <div>
+                  <div className="font-semibold text-blue-900">
+                    List Organization
+                  </div>
+                  <p className="text-sm text-blue-700">
+                    Sort names, items, or any list alphabetically for easy
+                    reference
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-purple-50 to-purple-100/50 border border-purple-200">
+                <div className="p-2 bg-white rounded-lg h-fit">
+                  <FileSpreadsheet className="h-5 w-5 text-purple-600" />
+                </div>
+                <div>
+                  <div className="font-semibold text-purple-900">
+                    Data Preparation
+                  </div>
+                  <p className="text-sm text-purple-700">
+                    Organize data before importing to{" "}
+                    <Badge variant="secondary" className="mx-1">
+                      spreadsheets
+                    </Badge>
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-green-50 to-green-100/50 border border-green-200">
+                <div className="p-2 bg-white rounded-lg h-fit">
+                  <Users className="h-5 w-5 text-green-600" />
+                </div>
+                <div>
+                  <div className="font-semibold text-green-900">
+                    Contact Lists
+                  </div>
+                  <p className="text-sm text-green-700">
+                    Sort names, emails, or phone numbers alphabetically
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-pink-50 to-pink-100/50 border border-pink-200">
+                <div className="p-2 bg-white rounded-lg h-fit">
+                  <Database className="h-5 w-5 text-pink-600" />
+                </div>
+                <div>
+                  <div className="font-semibold text-pink-900">
+                    Inventory Management
+                  </div>
+                  <p className="text-sm text-pink-700">
+                    Organize product names or SKU codes for catalogs
+                  </p>
+                </div>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Quick Tips */}
+        <Card className="mt-6 bg-gradient-to-br from-amber-50 via-orange-50 to-amber-50 border-amber-200">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2 text-amber-900">
+              <Info className="h-5 w-5 text-amber-600" />
+              💡 Pro Tips
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+              <div className="flex gap-2 items-start">
+                <div className="text-amber-600 font-bold">→</div>
+                <p className="text-sm text-amber-900">
+                  <strong>One per line:</strong> Each line is treated as a
+                  separate item
+                </p>
+              </div>
+              <div className="flex gap-2 items-start">
+                <div className="text-amber-600 font-bold">→</div>
+                <p className="text-sm text-amber-900">
+                  <strong>A→Z:</strong> Use ascending order for standard
+                  alphabetical sorting
+                </p>
+              </div>
+              <div className="flex gap-2 items-start">
+                <div className="text-amber-600 font-bold">→</div>
+                <p className="text-sm text-amber-900">
+                  <strong>Z→A:</strong> Use descending order for reverse sorting
+                </p>
+              </div>
+              <div className="flex gap-2 items-start">
+                <div className="text-amber-600 font-bold">→</div>
+                <p className="text-sm text-amber-900">
+                  <strong>Case-sensitive:</strong> Uppercase letters come before
+                  lowercase
+                </p>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Related Tools */}
+        <Card className="mt-6">
+          <CardHeader>
+            <CardTitle>🔗 Related Tools You Might Like</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+              <button
+                onClick={() => navigate("/tools/word-counter")}
+                className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
+              >
+                <div className="font-semibold text-gray-900 group-hover:text-primary">
+                  Word Counter
+                </div>
+                <div className="text-sm text-gray-600 mt-1">
+                  Count words and characters
+                </div>
+              </button>
+              <button
+                onClick={() => navigate("/tools/text-diff")}
+                className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
+              >
+                <div className="font-semibold text-gray-900 group-hover:text-primary">
+                  Text Diff
+                </div>
+                <div className="text-sm text-gray-600 mt-1">
+                  Compare two texts
+                </div>
+              </button>
+              <button
+                onClick={() => navigate("/tools/case-converter")}
+                className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
+              >
+                <div className="font-semibold text-gray-900 group-hover:text-primary">
+                  Case Converter
+                </div>
+                <div className="text-sm text-gray-600 mt-1">
+                  Convert text case formats
+                </div>
+              </button>
+            </div>
+          </CardContent>
+        </Card>
       </div>
     </div>
   );

@@ -10,9 +10,20 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { FileCode, RotateCcw, Lightbulb, ArrowLeft } from "lucide-react";
-import { ToolDescription } from "@/components/ToolDescription";
+import {
+  FileCode,
+  RotateCcw,
+  Lightbulb,
+  ArrowLeft,
+  Zap,
+  Info,
+  Mail,
+  Globe,
+  Database,
+  FileText,
+} from "lucide-react";
 import { FavoriteButton } from "@/components/FavoriteButton";
+import { Badge } from "@/components/ui/badge";
 import { toast } from "sonner";
 
 const HtmlToText = () => {
@@ -121,34 +132,163 @@ const HtmlToText = () => {
           </CardContent>
         </Card>
 
-        <ToolDescription
-          title="HTML to Text Converter"
-          description="HTML to text conversion is essential for extracting readable content from web pages, emails, and HTML documents. This tool strips away all HTML tags and formatting, leaving you with clean, plain text that's perfect for reading, processing, or further analysis."
-          features={[
-            "Convert HTML markup to plain text",
-            "Remove all HTML tags and attributes",
-            "Preserve text content and structure",
-            "Handle complex HTML documents",
-            "Clear all fields with a single button",
-            "Load example HTML for testing",
-          ]}
-          useCases={[
-            "Email content extraction",
-            "Web scraping",
-            "Content analysis",
-            "Text processing",
-            "Document conversion",
-            "Data cleaning",
-            "SEO analysis",
-            "Content migration",
-          ]}
-          tips={[
-            "Useful for extracting text from web pages",
-            "Perfect for cleaning HTML content for analysis",
-            "Helps with email content processing",
-            "Great for preparing content for text analysis tools",
-          ]}
-        />
+        {/* Tool Introduction */}
+        <Card className="mt-6 bg-gradient-to-r from-blue-50 via-purple-50 to-pink-50 border-blue-200">
+          <CardContent className="pt-6">
+            <p className="text-gray-700 leading-relaxed">
+              <strong className="text-gray-900">What is HTML to Text?</strong>{" "}
+              This tool converts HTML markup to plain text by stripping tags. Perfect
+              for web scraping, email extraction, and content analysis! 🌍
+            </p>
+          </CardContent>
+        </Card>
+
+        {/* Quick Use Cases */}
+        <Card className="mt-6">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              <Zap className="h-5 w-5 text-primary" />
+              Common Use Cases
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-blue-50 to-blue-100/50 border border-blue-200">
+                <div className="p-2 bg-white rounded-lg h-fit">
+                  <Mail className="h-5 w-5 text-blue-600" />
+                </div>
+                <div>
+                  <div className="font-semibold text-blue-900">
+                    Email Extraction
+                  </div>
+                  <p className="text-sm text-blue-700">
+                    Extract{" "}
+                    <Badge variant="secondary" className="mx-1">
+                      text
+                    </Badge>
+                    from HTML emails for processing
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-purple-50 to-purple-100/50 border border-purple-200">
+                <div className="p-2 bg-white rounded-lg h-fit">
+                  <Globe className="h-5 w-5 text-purple-600" />
+                </div>
+                <div>
+                  <div className="font-semibold text-purple-900">Web Scraping</div>
+                  <p className="text-sm text-purple-700">
+                    Extract content from web pages for analysis
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-green-50 to-green-100/50 border border-green-200">
+                <div className="p-2 bg-white rounded-lg h-fit">
+                  <Database className="h-5 w-5 text-green-600" />
+                </div>
+                <div>
+                  <div className="font-semibold text-green-900">Data Cleaning</div>
+                  <p className="text-sm text-green-700">
+                    Clean HTML content for data processing
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-pink-50 to-pink-100/50 border border-pink-200">
+                <div className="p-2 bg-white rounded-lg h-fit">
+                  <FileText className="h-5 w-5 text-pink-600" />
+                </div>
+                <div>
+                  <div className="font-semibold text-pink-900">
+                    Content Analysis
+                  </div>
+                  <p className="text-sm text-pink-700">
+                    Prepare text for analysis tools and processing
+                  </p>
+                </div>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Quick Tips */}
+        <Card className="mt-6 bg-gradient-to-br from-amber-50 via-orange-50 to-amber-50 border-amber-200">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2 text-amber-900">
+              <Info className="h-5 w-5 text-amber-600" />
+              💡 Pro Tips
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+              <div className="flex gap-2 items-start">
+                <div className="text-amber-600 font-bold">→</div>
+                <p className="text-sm text-amber-900">
+                  <strong>Clean Text:</strong> Removes all HTML tags and attributes
+                </p>
+              </div>
+              <div className="flex gap-2 items-start">
+                <div className="text-amber-600 font-bold">→</div>
+                <p className="text-sm text-amber-900">
+                  <strong>Web Pages:</strong> Extract readable content from websites
+                </p>
+              </div>
+              <div className="flex gap-2 items-start">
+                <div className="text-amber-600 font-bold">→</div>
+                <p className="text-sm text-amber-900">
+                  <strong>Email:</strong> Perfect for processing HTML email content
+                </p>
+              </div>
+              <div className="flex gap-2 items-start">
+                <div className="text-amber-600 font-bold">→</div>
+                <p className="text-sm text-amber-900">
+                  <strong>Analysis:</strong> Prepare content for text analysis tools
+                </p>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Related Tools */}
+        <Card className="mt-6">
+          <CardHeader>
+            <CardTitle>🔗 Related Tools You Might Like</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+              <button
+                onClick={() => navigate("/tools/markdown-preview")}
+                className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
+              >
+                <div className="font-semibold text-gray-900 group-hover:text-primary">
+                  Markdown Preview
+                </div>
+                <div className="text-sm text-gray-600 mt-1">
+                  Preview Markdown
+                </div>
+              </button>
+              <button
+                onClick={() => navigate("/tools/word-counter")}
+                className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
+              >
+                <div className="font-semibold text-gray-900 group-hover:text-primary">
+                  Word Counter
+                </div>
+                <div className="text-sm text-gray-600 mt-1">Count words</div>
+              </button>
+              <button
+                onClick={() => navigate("/tools/text-sorter")}
+                className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
+              >
+                <div className="font-semibold text-gray-900 group-hover:text-primary">
+                  Text Sorter
+                </div>
+                <div className="text-sm text-gray-600 mt-1">Sort text lines</div>
+              </button>
+            </div>
+          </CardContent>
+        </Card>
       </div>
     </div>
   );

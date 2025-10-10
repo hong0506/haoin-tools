@@ -23,8 +23,12 @@ export function AppSidebar() {
             <Logo size="md" />
           </div>
           <div>
-            <h1 className="text-2xl font-black gradient-text">Haoin Tools</h1>
-            <p className="text-xs font-semibold text-primary/70">✨ All-in-One Toolkit</p>
+            <h1 className="text-2xl font-black gradient-text">
+              Haoin Free Online Tools
+            </h1>
+            <p className="text-xs font-semibold text-primary/70">
+              ✨ 30+ Free Web Tools
+            </p>
           </div>
         </NavLink>
       </SidebarHeader>

@@ -10,9 +10,20 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { FileJson, RotateCcw, Lightbulb, ArrowLeft } from "lucide-react";
-import { ToolDescription } from "@/components/ToolDescription";
+import {
+  FileJson,
+  RotateCcw,
+  Lightbulb,
+  ArrowLeft,
+  Zap,
+  Info,
+  Database,
+  Code,
+  Table,
+  FileSpreadsheet,
+} from "lucide-react";
 import { FavoriteButton } from "@/components/FavoriteButton";
+import { Badge } from "@/components/ui/badge";
 import { toast } from "sonner";
 
 const CsvToJson = () => {
@@ -74,19 +85,21 @@ Alice Brown,28,Seattle,Developer`);
           <SidebarTrigger />
           <div className="flex items-center gap-2">
             <h1 className="text-xl font-semibold">CSV to JSON</h1>
-            <div className="ml-auto">
-              <FavoriteButton toolId="csv-to-json" toolName="CSV to JSON" />
-            </div>
           </div>
         </div>
       </header>
       <div className="container mx-auto max-w-4xl px-6 py-8">
         <Card>
           <CardHeader>
-            <CardTitle>Convert CSV to JSON</CardTitle>
-            <CardDescription>
-              Transform CSV data into JSON format
-            </CardDescription>
+            <div className="flex items-center justify-between">
+              <div>
+                <CardTitle>Convert CSV to JSON</CardTitle>
+                <CardDescription>
+                  Transform CSV data into JSON format
+                </CardDescription>
+              </div>
+              <FavoriteButton toolId="csv-to-json" toolName="CSV to JSON" />
+            </div>
           </CardHeader>
           <CardContent className="space-y-4">
             <div className="flex gap-2 mb-4">
@@ -133,34 +146,166 @@ Alice Brown,28,Seattle,Developer`);
           </CardContent>
         </Card>
 
-        <ToolDescription
-          title="CSV to JSON Converter"
-          description="CSV (Comma-Separated Values) and JSON (JavaScript Object Notation) are two popular data formats used in web development, data analysis, and API integration. This tool converts CSV data to JSON format, making it easy to work with tabular data in web applications and APIs."
-          features={[
-            "Convert CSV data to JSON format",
-            "Handle comma-separated values automatically",
-            "Preserve data structure and relationships",
-            "Support for headers and data rows",
-            "Clear all fields with a single button",
-            "Load example CSV data for testing",
-          ]}
-          useCases={[
-            "Data migration",
-            "API integration",
-            "Web development",
-            "Data analysis",
-            "Database import",
-            "Configuration files",
-            "Report generation",
-            "Data visualization",
-          ]}
-          tips={[
-            "First row is treated as headers/keys",
-            "Each subsequent row becomes a JSON object",
-            "Perfect for converting spreadsheet data to JSON",
-            "Useful for API data preparation",
-          ]}
-        />
+        {/* Tool Introduction */}
+        <Card className="mt-6 bg-gradient-to-r from-blue-50 via-purple-50 to-pink-50 border-blue-200">
+          <CardContent className="pt-6">
+            <p className="text-gray-700 leading-relaxed">
+              <strong className="text-gray-900">What is CSV to JSON?</strong>{" "}
+              This tool converts CSV (tabular) data to JSON format. Perfect for
+              API integration, data migration, and web development! 📊
+            </p>
+          </CardContent>
+        </Card>
+
+        {/* Quick Use Cases */}
+        <Card className="mt-6">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              <Zap className="h-5 w-5 text-primary" />
+              Common Use Cases
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-blue-50 to-blue-100/50 border border-blue-200">
+                <div className="p-2 bg-white rounded-lg h-fit">
+                  <Code className="h-5 w-5 text-blue-600" />
+                </div>
+                <div>
+                  <div className="font-semibold text-blue-900">
+                    API Integration
+                  </div>
+                  <p className="text-sm text-blue-700">
+                    Convert{" "}
+                    <Badge variant="secondary" className="mx-1">
+                      CSV
+                    </Badge>
+                    to JSON for API requests
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-purple-50 to-purple-100/50 border border-purple-200">
+                <div className="p-2 bg-white rounded-lg h-fit">
+                  <Database className="h-5 w-5 text-purple-600" />
+                </div>
+                <div>
+                  <div className="font-semibold text-purple-900">
+                    Data Migration
+                  </div>
+                  <p className="text-sm text-purple-700">
+                    Import CSV data into databases and applications
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-green-50 to-green-100/50 border border-green-200">
+                <div className="p-2 bg-white rounded-lg h-fit">
+                  <Table className="h-5 w-5 text-green-600" />
+                </div>
+                <div>
+                  <div className="font-semibold text-green-900">
+                    Data Analysis
+                  </div>
+                  <p className="text-sm text-green-700">
+                    Convert spreadsheet data for analysis tools
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-pink-50 to-pink-100/50 border border-pink-200">
+                <div className="p-2 bg-white rounded-lg h-fit">
+                  <FileSpreadsheet className="h-5 w-5 text-pink-600" />
+                </div>
+                <div>
+                  <div className="font-semibold text-pink-900">
+                    Web Development
+                  </div>
+                  <p className="text-sm text-pink-700">
+                    Use CSV data in web apps and visualizations
+                  </p>
+                </div>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Quick Tips */}
+        <Card className="mt-6 bg-gradient-to-br from-amber-50 via-orange-50 to-amber-50 border-amber-200">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2 text-amber-900">
+              <Info className="h-5 w-5 text-amber-600" />
+              💡 Pro Tips
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+              <div className="flex gap-2 items-start">
+                <div className="text-amber-600 font-bold">→</div>
+                <p className="text-sm text-amber-900">
+                  <strong>Headers:</strong> First row becomes JSON keys
+                </p>
+              </div>
+              <div className="flex gap-2 items-start">
+                <div className="text-amber-600 font-bold">→</div>
+                <p className="text-sm text-amber-900">
+                  <strong>Format:</strong> Each row becomes a JSON object
+                </p>
+              </div>
+              <div className="flex gap-2 items-start">
+                <div className="text-amber-600 font-bold">→</div>
+                <p className="text-sm text-amber-900">
+                  <strong>Spreadsheets:</strong> Perfect for Excel/Sheets
+                  exports
+                </p>
+              </div>
+              <div className="flex gap-2 items-start">
+                <div className="text-amber-600 font-bold">→</div>
+                <p className="text-sm text-amber-900">
+                  <strong>APIs:</strong> Prepare data for REST API calls
+                </p>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Related Tools */}
+        <Card className="mt-6">
+          <CardHeader>
+            <CardTitle>🔗 Related Tools You Might Like</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+              <button
+                onClick={() => navigate("/tools/json-formatter")}
+                className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
+              >
+                <div className="font-semibold text-gray-900 group-hover:text-primary">
+                  JSON Formatter
+                </div>
+                <div className="text-sm text-gray-600 mt-1">Format JSON</div>
+              </button>
+              <button
+                onClick={() => navigate("/tools/base64")}
+                className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
+              >
+                <div className="font-semibold text-gray-900 group-hover:text-primary">
+                  Base64 Tool
+                </div>
+                <div className="text-sm text-gray-600 mt-1">Encode/decode</div>
+              </button>
+              <button
+                onClick={() => navigate("/tools/html-to-text")}
+                className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
+              >
+                <div className="font-semibold text-gray-900 group-hover:text-primary">
+                  HTML to Text
+                </div>
+                <div className="text-sm text-gray-600 mt-1">Convert HTML</div>
+              </button>
+            </div>
+          </CardContent>
+        </Card>
       </div>
     </div>
   );

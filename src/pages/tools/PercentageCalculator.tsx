@@ -9,10 +9,21 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Percent, ArrowLeft, RotateCcw, Lightbulb } from "lucide-react";
+import {
+  Percent,
+  ArrowLeft,
+  RotateCcw,
+  Lightbulb,
+  Zap,
+  Info,
+  TrendingUp,
+  Calculator,
+  Receipt,
+  PiggyBank,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { ToolDescription } from "@/components/ToolDescription";
 import { FavoriteButton } from "@/components/FavoriteButton";
+import { Badge } from "@/components/ui/badge";
 
 const PercentageCalculator = () => {
   const [value, setValue] = useState("");
@@ -181,34 +192,164 @@ const PercentageCalculator = () => {
           </Card>
         </div>
 
-        <ToolDescription
-          title="Percentage Calculator"
-          description="Percentage calculations are essential in finance, statistics, business, and everyday life. This tool helps you quickly calculate percentages, find what percentage one number is of another, and calculate values from percentages."
-          features={[
-            "Calculate what percentage one number is of another",
-            "Calculate value from percentage and total",
-            "Real-time calculation as you type",
-            "Support for decimal numbers",
-            "Simple and intuitive interface",
-            "Two-way percentage calculations",
-          ]}
-          useCases={[
-            "Financial calculations",
-            "Sales discounts",
-            "Tax calculations",
-            "Grade calculations",
-            "Statistical analysis",
-            "Business metrics",
-            "Budget planning",
-            "Commission calculations",
-          ]}
-          tips={[
-            "Percentage means 'per hundred' - 50% = 50/100 = 0.5",
-            "Use for calculating tips, discounts, and taxes",
-            "Perfect for comparing values and ratios",
-            "Helpful for understanding data and statistics",
-          ]}
-        />
+        {/* Tool Introduction */}
+        <Card className="mt-6 bg-gradient-to-r from-blue-50 via-purple-50 to-pink-50 border-blue-200">
+          <CardContent className="pt-6">
+            <p className="text-gray-700 leading-relaxed">
+              <strong className="text-gray-900">
+                What is Percentage Calculator?
+              </strong>{" "}
+              This tool calculates percentages for discounts, taxes, grades, and
+              more. Perfect for financial calculations and everyday math! 📊
+            </p>
+          </CardContent>
+        </Card>
+
+        {/* Quick Use Cases */}
+        <Card className="mt-6">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              <Zap className="h-5 w-5 text-primary" />
+              Common Use Cases
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-blue-50 to-blue-100/50 border border-blue-200">
+                <div className="p-2 bg-white rounded-lg h-fit">
+                  <Receipt className="h-5 w-5 text-blue-600" />
+                </div>
+                <div>
+                  <div className="font-semibold text-blue-900">Sales Discounts</div>
+                  <p className="text-sm text-blue-700">
+                    Calculate{" "}
+                    <Badge variant="secondary" className="mx-1">
+                      discount
+                    </Badge>
+                    prices and savings instantly
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-purple-50 to-purple-100/50 border border-purple-200">
+                <div className="p-2 bg-white rounded-lg h-fit">
+                  <Calculator className="h-5 w-5 text-purple-600" />
+                </div>
+                <div>
+                  <div className="font-semibold text-purple-900">Tax Calculations</div>
+                  <p className="text-sm text-purple-700">
+                    Calculate sales tax, VAT, and other percentage-based taxes
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-green-50 to-green-100/50 border border-green-200">
+                <div className="p-2 bg-white rounded-lg h-fit">
+                  <TrendingUp className="h-5 w-5 text-green-600" />
+                </div>
+                <div>
+                  <div className="font-semibold text-green-900">Business Metrics</div>
+                  <p className="text-sm text-green-700">
+                    Track growth rates, margins, and performance percentages
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-pink-50 to-pink-100/50 border border-pink-200">
+                <div className="p-2 bg-white rounded-lg h-fit">
+                  <PiggyBank className="h-5 w-5 text-pink-600" />
+                </div>
+                <div>
+                  <div className="font-semibold text-pink-900">Budget Planning</div>
+                  <p className="text-sm text-pink-700">
+                    Calculate expense percentages and savings goals
+                  </p>
+                </div>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Quick Tips */}
+        <Card className="mt-6 bg-gradient-to-br from-amber-50 via-orange-50 to-amber-50 border-amber-200">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2 text-amber-900">
+              <Info className="h-5 w-5 text-amber-600" />
+              💡 Pro Tips
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+              <div className="flex gap-2 items-start">
+                <div className="text-amber-600 font-bold">→</div>
+                <p className="text-sm text-amber-900">
+                  <strong>Definition:</strong> Percentage means 'per hundred' (50% =
+                  50/100)
+                </p>
+              </div>
+              <div className="flex gap-2 items-start">
+                <div className="text-amber-600 font-bold">→</div>
+                <p className="text-sm text-amber-900">
+                  <strong>Tips:</strong> Easy to calculate gratuity (15-20% of bill)
+                </p>
+              </div>
+              <div className="flex gap-2 items-start">
+                <div className="text-amber-600 font-bold">→</div>
+                <p className="text-sm text-amber-900">
+                  <strong>Comparison:</strong> Perfect for comparing values and ratios
+                </p>
+              </div>
+              <div className="flex gap-2 items-start">
+                <div className="text-amber-600 font-bold">→</div>
+                <p className="text-sm text-amber-900">
+                  <strong>Decimals:</strong> Supports decimal numbers for precision
+                </p>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Related Tools */}
+        <Card className="mt-6">
+          <CardHeader>
+            <CardTitle>🔗 Related Tools You Might Like</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+              <button
+                onClick={() => navigate("/tools/interest-calculator")}
+                className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
+              >
+                <div className="font-semibold text-gray-900 group-hover:text-primary">
+                  Interest Calculator
+                </div>
+                <div className="text-sm text-gray-600 mt-1">
+                  Calculate interest
+                </div>
+              </button>
+              <button
+                onClick={() => navigate("/tools/loan-calculator")}
+                className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
+              >
+                <div className="font-semibold text-gray-900 group-hover:text-primary">
+                  Loan Calculator
+                </div>
+                <div className="text-sm text-gray-600 mt-1">
+                  Calculate loan payments
+                </div>
+              </button>
+              <button
+                onClick={() => navigate("/tools/bmi-calculator")}
+                className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
+              >
+                <div className="font-semibold text-gray-900 group-hover:text-primary">
+                  BMI Calculator
+                </div>
+                <div className="text-sm text-gray-600 mt-1">Calculate BMI</div>
+              </button>
+            </div>
+          </CardContent>
+        </Card>
       </div>
     </div>
   );

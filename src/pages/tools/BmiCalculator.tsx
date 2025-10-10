@@ -10,9 +10,20 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Activity, ArrowLeft, RotateCcw, Lightbulb } from "lucide-react";
-import { ToolDescription } from "@/components/ToolDescription";
+import {
+  Activity,
+  ArrowLeft,
+  RotateCcw,
+  Lightbulb,
+  Zap,
+  Info,
+  Heart,
+  TrendingUp,
+  Apple,
+  Scale,
+} from "lucide-react";
 import { FavoriteButton } from "@/components/FavoriteButton";
+import { Badge } from "@/components/ui/badge";
 
 const BmiCalculator = () => {
   const [height, setHeight] = useState("");
@@ -155,34 +166,168 @@ const BmiCalculator = () => {
           </CardContent>
         </Card>
 
-        <ToolDescription
-          title="BMI Calculator"
-          description="Body Mass Index (BMI) is a measure of body fat based on height and weight that applies to adult men and women. This tool helps you calculate your BMI quickly and categorize it according to standard health classifications."
-          features={[
-            "Calculate BMI from height and weight",
-            "Categorize BMI into health classifications",
-            "Support for metric units (cm and kg)",
-            "Color-coded results for easy interpretation",
-            "Health category indicators",
-            "Real-time calculation",
-          ]}
-          useCases={[
-            "Health assessment",
-            "Weight management",
-            "Fitness tracking",
-            "Medical consultations",
-            "Diet planning",
-            "Wellness programs",
-            "Personal health monitoring",
-            "Nutrition counseling",
-          ]}
-          tips={[
-            "BMI is a screening tool, not a diagnostic measure",
-            "Normal BMI range is 18.5-24.9",
-            "Consult healthcare professionals for personalized advice",
-            "BMI may not be accurate for athletes or elderly individuals",
-          ]}
-        />
+        {/* Tool Introduction */}
+        <Card className="mt-6 bg-gradient-to-r from-blue-50 via-purple-50 to-pink-50 border-blue-200">
+          <CardContent className="pt-6">
+            <p className="text-gray-700 leading-relaxed">
+              <strong className="text-gray-900">What is BMI Calculator?</strong>{" "}
+              This tool calculates your Body Mass Index (BMI) based on height and
+              weight. Perfect for health assessment, fitness tracking, and weight
+              management! 💪
+            </p>
+          </CardContent>
+        </Card>
+
+        {/* Quick Use Cases */}
+        <Card className="mt-6">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              <Zap className="h-5 w-5 text-primary" />
+              Common Use Cases
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-blue-50 to-blue-100/50 border border-blue-200">
+                <div className="p-2 bg-white rounded-lg h-fit">
+                  <Heart className="h-5 w-5 text-blue-600" />
+                </div>
+                <div>
+                  <div className="font-semibold text-blue-900">
+                    Health Assessment
+                  </div>
+                  <p className="text-sm text-blue-700">
+                    Monitor your{" "}
+                    <Badge variant="secondary" className="mx-1">
+                      BMI
+                    </Badge>
+                    for overall health evaluation
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-purple-50 to-purple-100/50 border border-purple-200">
+                <div className="p-2 bg-white rounded-lg h-fit">
+                  <Scale className="h-5 w-5 text-purple-600" />
+                </div>
+                <div>
+                  <div className="font-semibold text-purple-900">
+                    Weight Management
+                  </div>
+                  <p className="text-sm text-purple-700">
+                    Track progress during weight loss or gain journeys
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-green-50 to-green-100/50 border border-green-200">
+                <div className="p-2 bg-white rounded-lg h-fit">
+                  <TrendingUp className="h-5 w-5 text-green-600" />
+                </div>
+                <div>
+                  <div className="font-semibold text-green-900">
+                    Fitness Tracking
+                  </div>
+                  <p className="text-sm text-green-700">
+                    Monitor BMI changes as part of fitness goals
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-pink-50 to-pink-100/50 border border-pink-200">
+                <div className="p-2 bg-white rounded-lg h-fit">
+                  <Apple className="h-5 w-5 text-pink-600" />
+                </div>
+                <div>
+                  <div className="font-semibold text-pink-900">
+                    Diet Planning
+                  </div>
+                  <p className="text-sm text-pink-700">
+                    Use BMI as a reference for nutrition goals
+                  </p>
+                </div>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Quick Tips */}
+        <Card className="mt-6 bg-gradient-to-br from-amber-50 via-orange-50 to-amber-50 border-amber-200">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2 text-amber-900">
+              <Info className="h-5 w-5 text-amber-600" />
+              💡 Pro Tips
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+              <div className="flex gap-2 items-start">
+                <div className="text-amber-600 font-bold">→</div>
+                <p className="text-sm text-amber-900">
+                  <strong>Screening Tool:</strong> BMI is not a diagnostic measure
+                </p>
+              </div>
+              <div className="flex gap-2 items-start">
+                <div className="text-amber-600 font-bold">→</div>
+                <p className="text-sm text-amber-900">
+                  <strong>Normal Range:</strong> 18.5-24.9 is considered healthy
+                </p>
+              </div>
+              <div className="flex gap-2 items-start">
+                <div className="text-amber-600 font-bold">→</div>
+                <p className="text-sm text-amber-900">
+                  <strong>Consult Experts:</strong> Get personalized health advice
+                </p>
+              </div>
+              <div className="flex gap-2 items-start">
+                <div className="text-amber-600 font-bold">→</div>
+                <p className="text-sm text-amber-900">
+                  <strong>Limitations:</strong> May not suit athletes or elderly
+                </p>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Related Tools */}
+        <Card className="mt-6">
+          <CardHeader>
+            <CardTitle>🔗 Related Tools You Might Like</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+              <button
+                onClick={() => navigate("/tools/age-calculator")}
+                className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
+              >
+                <div className="font-semibold text-gray-900 group-hover:text-primary">
+                  Age Calculator
+                </div>
+                <div className="text-sm text-gray-600 mt-1">Calculate age</div>
+              </button>
+              <button
+                onClick={() => navigate("/tools/percentage-calculator")}
+                className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
+              >
+                <div className="font-semibold text-gray-900 group-hover:text-primary">
+                  Percentage Calculator
+                </div>
+                <div className="text-sm text-gray-600 mt-1">
+                  Calculate percentages
+                </div>
+              </button>
+              <button
+                onClick={() => navigate("/tools/unit-converter")}
+                className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
+              >
+                <div className="font-semibold text-gray-900 group-hover:text-primary">
+                  Unit Converter
+                </div>
+                <div className="text-sm text-gray-600 mt-1">Convert units</div>
+              </button>
+            </div>
+          </CardContent>
+        </Card>
       </div>
     </div>
   );

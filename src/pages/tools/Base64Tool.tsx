@@ -18,9 +18,15 @@ import {
   RotateCcw,
   Lightbulb,
   ArrowLeft,
+  FileCode,
+  Zap,
+  Info,
+  Mail,
+  Key,
+  Image,
 } from "lucide-react";
-import { ToolDescription } from "@/components/ToolDescription";
 import { FavoriteButton } from "@/components/FavoriteButton";
+import { Badge } from "@/components/ui/badge";
 
 const Base64Tool = () => {
   const [input, setInput] = useState("");
@@ -228,32 +234,177 @@ const Base64Tool = () => {
           </CardContent>
         </Card>
 
-        <ToolDescription
-          title="Base64 Encoder & Decoder"
-          description="Base64 is a binary-to-text encoding scheme that represents binary data in an ASCII string format. It's commonly used to encode data for transmission over text-based protocols like email, HTTP, and XML. This tool allows you to easily encode text to Base64 format or decode Base64 strings back to their original text."
-          features={[
-            "Encode any text string to Base64 format",
-            "Decode Base64 strings back to original text",
-            "Support for Unicode characters and special symbols",
-            "Real-time encoding and decoding",
-            "Copy results to clipboard with one click",
-            "Clear all fields with a single button",
-          ]}
-          useCases={[
-            "Email attachments",
-            "Data transmission",
-            "API authentication",
-            "Web development",
-            "Configuration files",
-            "Binary data storage",
-          ]}
-          tips={[
-            "Base64 encoding increases data size by approximately 33%",
-            "Useful for embedding binary data in JSON or XML",
-            "Commonly used in HTTP Basic Authentication",
-            "Perfect for storing images in databases as text",
-          ]}
-        />
+        {/* Tool Introduction */}
+        <Card className="mt-6 bg-gradient-to-r from-blue-50 via-purple-50 to-pink-50 border-blue-200">
+          <CardContent className="pt-6">
+            <p className="text-gray-700 leading-relaxed">
+              <strong className="text-gray-900">
+                What is Base64 Encoder/Decoder?
+              </strong>{" "}
+              This tool encodes text to Base64 format or decodes Base64 strings
+              back to original text. Base64 is essential for data transmission,
+              API authentication, and embedding binary data! 🔐
+            </p>
+          </CardContent>
+        </Card>
+
+        {/* Quick Use Cases */}
+        <Card className="mt-6">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              <Zap className="h-5 w-5 text-primary" />
+              Common Use Cases
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-blue-50 to-blue-100/50 border border-blue-200">
+                <div className="p-2 bg-white rounded-lg h-fit">
+                  <Key className="h-5 w-5 text-blue-600" />
+                </div>
+                <div>
+                  <div className="font-semibold text-blue-900">
+                    API Authentication
+                  </div>
+                  <p className="text-sm text-blue-700">
+                    Encode credentials for{" "}
+                    <Badge variant="secondary" className="mx-1">
+                      Basic Auth
+                    </Badge>
+                    headers
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-purple-50 to-purple-100/50 border border-purple-200">
+                <div className="p-2 bg-white rounded-lg h-fit">
+                  <Image className="h-5 w-5 text-purple-600" />
+                </div>
+                <div>
+                  <div className="font-semibold text-purple-900">
+                    Image Embedding
+                  </div>
+                  <p className="text-sm text-purple-700">
+                    Convert images to Base64 for embedding in HTML/CSS
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-green-50 to-green-100/50 border border-green-200">
+                <div className="p-2 bg-white rounded-lg h-fit">
+                  <Mail className="h-5 w-5 text-green-600" />
+                </div>
+                <div>
+                  <div className="font-semibold text-green-900">
+                    Email Attachments
+                  </div>
+                  <p className="text-sm text-green-700">
+                    Encode files for email transmission using MIME
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-pink-50 to-pink-100/50 border border-pink-200">
+                <div className="p-2 bg-white rounded-lg h-fit">
+                  <FileCode className="h-5 w-5 text-pink-600" />
+                </div>
+                <div>
+                  <div className="font-semibold text-pink-900">
+                    Data URLs
+                  </div>
+                  <p className="text-sm text-pink-700">
+                    Create data URLs for embedding resources inline
+                  </p>
+                </div>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Quick Tips */}
+        <Card className="mt-6 bg-gradient-to-br from-amber-50 via-orange-50 to-amber-50 border-amber-200">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2 text-amber-900">
+              <Info className="h-5 w-5 text-amber-600" />
+              💡 Pro Tips
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+              <div className="flex gap-2 items-start">
+                <div className="text-amber-600 font-bold">→</div>
+                <p className="text-sm text-amber-900">
+                  <strong>Size Increase:</strong> Base64 encoding increases data
+                  size by ~33%
+                </p>
+              </div>
+              <div className="flex gap-2 items-start">
+                <div className="text-amber-600 font-bold">→</div>
+                <p className="text-sm text-amber-900">
+                  <strong>HTTP Auth:</strong> Format is "username:password" then
+                  encode
+                </p>
+              </div>
+              <div className="flex gap-2 items-start">
+                <div className="text-amber-600 font-bold">→</div>
+                <p className="text-sm text-amber-900">
+                  <strong>JSON Safe:</strong> Perfect for embedding binary data in
+                  JSON
+                </p>
+              </div>
+              <div className="flex gap-2 items-start">
+                <div className="text-amber-600 font-bold">→</div>
+                <p className="text-sm text-amber-900">
+                  <strong>URL Safe:</strong> Replace + with - and / with _ for URLs
+                </p>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Related Tools */}
+        <Card className="mt-6">
+          <CardHeader>
+            <CardTitle>🔗 Related Tools You Might Like</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+              <button
+                onClick={() => navigate("/tools/url-encoder")}
+                className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
+              >
+                <div className="font-semibold text-gray-900 group-hover:text-primary">
+                  URL Encoder
+                </div>
+                <div className="text-sm text-gray-600 mt-1">
+                  Encode/decode URLs
+                </div>
+              </button>
+              <button
+                onClick={() => navigate("/tools/hash-generator")}
+                className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
+              >
+                <div className="font-semibold text-gray-900 group-hover:text-primary">
+                  Hash Generator
+                </div>
+                <div className="text-sm text-gray-600 mt-1">
+                  Create secure hashes
+                </div>
+              </button>
+              <button
+                onClick={() => navigate("/tools/json-formatter")}
+                className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
+              >
+                <div className="font-semibold text-gray-900 group-hover:text-primary">
+                  JSON Formatter
+                </div>
+                <div className="text-sm text-gray-600 mt-1">
+                  Format and validate JSON
+                </div>
+              </button>
+            </div>
+          </CardContent>
+        </Card>
       </div>
     </div>
   );

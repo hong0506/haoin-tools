@@ -11,9 +11,20 @@ import {
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
-import { Copy, RotateCcw, Lightbulb, ArrowLeft } from "lucide-react";
-import { ToolDescription } from "@/components/ToolDescription";
+import {
+  Copy,
+  RotateCcw,
+  Lightbulb,
+  ArrowLeft,
+  Code,
+  FileText,
+  Link as LinkIcon,
+  Database,
+  Zap,
+  Info,
+} from "lucide-react";
 import { FavoriteButton } from "@/components/FavoriteButton";
+import { Badge } from "@/components/ui/badge";
 
 const CaseConverter = () => {
   const [inputText, setInputText] = useState("");
@@ -224,36 +235,222 @@ const CaseConverter = () => {
           </CardContent>
         </Card>
 
-        <ToolDescription
-          title="Text Case Converter"
-          description="Text case conversion is essential for formatting text according to different writing standards and conventions. This tool provides multiple case conversion options to help you format text for various purposes, from academic writing to programming and content creation."
-          features={[
-            "Convert to UPPERCASE for emphasis or headers",
-            "Convert to lowercase for consistent formatting",
-            "Convert to Title Case for proper nouns and titles",
-            "Convert to camelCase for programming variables",
-            "Convert to PascalCase for class names and constants",
-            "Convert to snake_case for database fields and file names",
-            "Convert to kebab-case for URLs and CSS classes",
-            "Copy converted text to clipboard with one click",
-          ]}
-          useCases={[
-            "Programming",
-            "Content writing",
-            "Academic papers",
-            "Database design",
-            "URL formatting",
-            "CSS class naming",
-            "API documentation",
-            "Code refactoring",
-          ]}
-          tips={[
-            "Use Title Case for headings and proper nouns",
-            "camelCase is standard for JavaScript variables",
-            "snake_case is common in Python and databases",
-            "kebab-case is preferred for URLs and CSS classes",
-          ]}
-        />
+        {/* Compact Stats - Only show when there's text */}
+        {displayText && (
+          <div className="flex flex-wrap gap-4 mt-4 text-sm text-gray-600 animate-fade-in">
+            <div className="flex items-center gap-2">
+              <span className="font-semibold text-blue-600">
+                {displayText.length}
+              </span>
+              <span>characters</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="font-semibold text-purple-600">
+                {
+                  displayText
+                    .trim()
+                    .split(/\s+/)
+                    .filter((w) => w).length
+                }
+              </span>
+              <span>words</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="font-semibold text-green-600">
+                {displayText.split("\n").length}
+              </span>
+              <span>lines</span>
+            </div>
+          </div>
+        )}
+
+        {/* Tool Introduction */}
+        <Card className="mt-6 bg-gradient-to-r from-blue-50 via-purple-50 to-pink-50 border-blue-200">
+          <CardContent className="pt-6">
+            <p className="text-gray-700 leading-relaxed">
+              <strong className="text-gray-900">
+                What is Text Case Converter?
+              </strong>{" "}
+              This tool helps you instantly convert text between different
+              formats like UPPERCASE, lowercase, Title Case, camelCase,
+              snake_case, and kebab-case. Perfect for developers, writers, and
+              content creators who need quick text formatting! 🚀
+            </p>
+          </CardContent>
+        </Card>
+
+        {/* Quick Use Cases */}
+        <Card className="mt-6">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              <Zap className="h-5 w-5 text-primary" />
+              Common Use Cases
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-purple-50 to-purple-100/50 border border-purple-200">
+                <div className="p-2 bg-white rounded-lg h-fit">
+                  <Code className="h-5 w-5 text-purple-600" />
+                </div>
+                <div>
+                  <div className="font-semibold text-purple-900">
+                    Programming
+                  </div>
+                  <p className="text-sm text-purple-700">
+                    Use{" "}
+                    <Badge variant="secondary" className="mx-1">
+                      camelCase
+                    </Badge>{" "}
+                    for variables,
+                    <Badge variant="secondary" className="mx-1">
+                      snake_case
+                    </Badge>{" "}
+                    for Python
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-blue-50 to-blue-100/50 border border-blue-200">
+                <div className="p-2 bg-white rounded-lg h-fit">
+                  <LinkIcon className="h-5 w-5 text-blue-600" />
+                </div>
+                <div>
+                  <div className="font-semibold text-blue-900">URLs & CSS</div>
+                  <p className="text-sm text-blue-700">
+                    Use{" "}
+                    <Badge variant="secondary" className="mx-1">
+                      kebab-case
+                    </Badge>{" "}
+                    for clean, SEO-friendly URLs
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-green-50 to-green-100/50 border border-green-200">
+                <div className="p-2 bg-white rounded-lg h-fit">
+                  <Database className="h-5 w-5 text-green-600" />
+                </div>
+                <div>
+                  <div className="font-semibold text-green-900">
+                    Database Fields
+                  </div>
+                  <p className="text-sm text-green-700">
+                    Use{" "}
+                    <Badge variant="secondary" className="mx-1">
+                      snake_case
+                    </Badge>{" "}
+                    for database column names
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-pink-50 to-pink-100/50 border border-pink-200">
+                <div className="p-2 bg-white rounded-lg h-fit">
+                  <FileText className="h-5 w-5 text-pink-600" />
+                </div>
+                <div>
+                  <div className="font-semibold text-pink-900">
+                    Content Writing
+                  </div>
+                  <p className="text-sm text-pink-700">
+                    Use{" "}
+                    <Badge variant="secondary" className="mx-1">
+                      Title Case
+                    </Badge>{" "}
+                    for headings and titles
+                  </p>
+                </div>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Quick Tips */}
+        <Card className="mt-6 bg-gradient-to-br from-amber-50 via-orange-50 to-amber-50 border-amber-200">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2 text-amber-900">
+              <Info className="h-5 w-5 text-amber-600" />
+              💡 Pro Tips
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+              <div className="flex gap-2 items-start">
+                <div className="text-amber-600 font-bold">→</div>
+                <p className="text-sm text-amber-900">
+                  <strong>JavaScript:</strong> Use camelCase for variables
+                  (myVariable)
+                </p>
+              </div>
+              <div className="flex gap-2 items-start">
+                <div className="text-amber-600 font-bold">→</div>
+                <p className="text-sm text-amber-900">
+                  <strong>Python:</strong> Use snake_case for functions
+                  (my_function)
+                </p>
+              </div>
+              <div className="flex gap-2 items-start">
+                <div className="text-amber-600 font-bold">→</div>
+                <p className="text-sm text-amber-900">
+                  <strong>URLs:</strong> Use kebab-case for better SEO
+                  (my-page-url)
+                </p>
+              </div>
+              <div className="flex gap-2 items-start">
+                <div className="text-amber-600 font-bold">→</div>
+                <p className="text-sm text-amber-900">
+                  <strong>Headings:</strong> Use Title Case for proper
+                  formatting
+                </p>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Related Tools */}
+        <Card className="mt-6">
+          <CardHeader>
+            <CardTitle>🔗 Related Tools You Might Like</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+              <button
+                onClick={() => navigate("/tools/word-counter")}
+                className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
+              >
+                <div className="font-semibold text-gray-900 group-hover:text-primary">
+                  Word Counter
+                </div>
+                <div className="text-sm text-gray-600 mt-1">
+                  Count words and characters
+                </div>
+              </button>
+              <button
+                onClick={() => navigate("/tools/text-sorter")}
+                className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
+              >
+                <div className="font-semibold text-gray-900 group-hover:text-primary">
+                  Text Sorter
+                </div>
+                <div className="text-sm text-gray-600 mt-1">
+                  Sort text lines alphabetically
+                </div>
+              </button>
+              <button
+                onClick={() => navigate("/tools/text-diff")}
+                className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
+              >
+                <div className="font-semibold text-gray-900 group-hover:text-primary">
+                  Text Diff
+                </div>
+                <div className="text-sm text-gray-600 mt-1">
+                  Compare two texts
+                </div>
+              </button>
+            </div>
+          </CardContent>
+        </Card>
       </div>
     </div>
   );

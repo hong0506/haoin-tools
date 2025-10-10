@@ -14,9 +14,21 @@ import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Slider } from "@/components/ui/slider";
 import { toast } from "sonner";
-import { RefreshCw, Copy, RotateCcw, Lightbulb, ArrowLeft } from "lucide-react";
-import { ToolDescription } from "@/components/ToolDescription";
+import {
+  RefreshCw,
+  Copy,
+  RotateCcw,
+  Lightbulb,
+  ArrowLeft,
+  Shield,
+  Zap,
+  Info,
+  Lock,
+  Key,
+  Database,
+} from "lucide-react";
 import { FavoriteButton } from "@/components/FavoriteButton";
+import { Badge } from "@/components/ui/badge";
 
 const PasswordGenerator = () => {
   const [password, setPassword] = useState("");
@@ -221,37 +233,178 @@ const PasswordGenerator = () => {
           </CardContent>
         </Card>
 
-        <ToolDescription
-          title="Password Generator"
-          description="Strong passwords are essential for protecting your online accounts and sensitive information. This tool generates cryptographically secure passwords with customizable options to meet different security requirements and platform specifications."
-          features={[
-            "Generate cryptographically secure passwords",
-            "Customizable length from 4 to 128 characters",
-            "Include uppercase letters (A-Z)",
-            "Include lowercase letters (a-z)",
-            "Include numbers (0-9)",
-            "Include special symbols (!@#$%^&*)",
-            "Copy generated passwords to clipboard",
-            "Clear and regenerate with one click",
-          ]}
-          useCases={[
-            "Online account creation",
-            "Password updates",
-            "API key generation",
-            "Secure file encryption",
-            "Database credentials",
-            "Application secrets",
-            "WiFi passwords",
-            "System administration",
-          ]}
-          tips={[
-            "Use at least 12 characters for strong passwords",
-            "Include a mix of all character types for maximum security",
-            "Avoid using personal information in passwords",
-            "Use a password manager to store generated passwords",
-            "Change passwords regularly for critical accounts",
-          ]}
-        />
+        {/* Tool Introduction */}
+        <Card className="mt-6 bg-gradient-to-r from-blue-50 via-purple-50 to-pink-50 border-blue-200">
+          <CardContent className="pt-6">
+            <p className="text-gray-700 leading-relaxed">
+              <strong className="text-gray-900">
+                What is Password Generator?
+              </strong>{" "}
+              This tool generates cryptographically secure passwords with
+              customizable length and character types. Perfect for creating strong
+              passwords for accounts, APIs, and sensitive systems! 🔐
+            </p>
+          </CardContent>
+        </Card>
+
+        {/* Quick Use Cases */}
+        <Card className="mt-6">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              <Zap className="h-5 w-5 text-primary" />
+              Common Use Cases
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-blue-50 to-blue-100/50 border border-blue-200">
+                <div className="p-2 bg-white rounded-lg h-fit">
+                  <Lock className="h-5 w-5 text-blue-600" />
+                </div>
+                <div>
+                  <div className="font-semibold text-blue-900">
+                    Account Security
+                  </div>
+                  <p className="text-sm text-blue-700">
+                    Create strong passwords for{" "}
+                    <Badge variant="secondary" className="mx-1">
+                      email
+                    </Badge>
+                    and social media accounts
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-purple-50 to-purple-100/50 border border-purple-200">
+                <div className="p-2 bg-white rounded-lg h-fit">
+                  <Key className="h-5 w-5 text-purple-600" />
+                </div>
+                <div>
+                  <div className="font-semibold text-purple-900">
+                    API Keys
+                  </div>
+                  <p className="text-sm text-purple-700">
+                    Generate secure keys for application APIs and webhooks
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-green-50 to-green-100/50 border border-green-200">
+                <div className="p-2 bg-white rounded-lg h-fit">
+                  <Database className="h-5 w-5 text-green-600" />
+                </div>
+                <div>
+                  <div className="font-semibold text-green-900">
+                    Database Credentials
+                  </div>
+                  <p className="text-sm text-green-700">
+                    Create secure passwords for database users and connections
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-pink-50 to-pink-100/50 border border-pink-200">
+                <div className="p-2 bg-white rounded-lg h-fit">
+                  <Shield className="h-5 w-5 text-pink-600" />
+                </div>
+                <div>
+                  <div className="font-semibold text-pink-900">
+                    System Admin
+                  </div>
+                  <p className="text-sm text-pink-700">
+                    Generate secure passwords for server and admin accounts
+                  </p>
+                </div>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Quick Tips */}
+        <Card className="mt-6 bg-gradient-to-br from-amber-50 via-orange-50 to-amber-50 border-amber-200">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2 text-amber-900">
+              <Info className="h-5 w-5 text-amber-600" />
+              💡 Pro Tips
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+              <div className="flex gap-2 items-start">
+                <div className="text-amber-600 font-bold">→</div>
+                <p className="text-sm text-amber-900">
+                  <strong>Length:</strong> Use at least 12 characters for strong
+                  security
+                </p>
+              </div>
+              <div className="flex gap-2 items-start">
+                <div className="text-amber-600 font-bold">→</div>
+                <p className="text-sm text-amber-900">
+                  <strong>Mix Characters:</strong> Enable all options (upper,
+                  lower, numbers, symbols)
+                </p>
+              </div>
+              <div className="flex gap-2 items-start">
+                <div className="text-amber-600 font-bold">→</div>
+                <p className="text-sm text-amber-900">
+                  <strong>Password Manager:</strong> Use a manager to store
+                  generated passwords
+                </p>
+              </div>
+              <div className="flex gap-2 items-start">
+                <div className="text-amber-600 font-bold">→</div>
+                <p className="text-sm text-amber-900">
+                  <strong>Unique:</strong> Never reuse passwords across different
+                  accounts
+                </p>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Related Tools */}
+        <Card className="mt-6">
+          <CardHeader>
+            <CardTitle>🔗 Related Tools You Might Like</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+              <button
+                onClick={() => navigate("/tools/uuid-generator")}
+                className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
+              >
+                <div className="font-semibold text-gray-900 group-hover:text-primary">
+                  UUID Generator
+                </div>
+                <div className="text-sm text-gray-600 mt-1">
+                  Generate unique identifiers
+                </div>
+              </button>
+              <button
+                onClick={() => navigate("/tools/hash-generator")}
+                className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
+              >
+                <div className="font-semibold text-gray-900 group-hover:text-primary">
+                  Hash Generator
+                </div>
+                <div className="text-sm text-gray-600 mt-1">
+                  Create secure hashes
+                </div>
+              </button>
+              <button
+                onClick={() => navigate("/tools/base64")}
+                className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
+              >
+                <div className="font-semibold text-gray-900 group-hover:text-primary">
+                  Base64 Tool
+                </div>
+                <div className="text-sm text-gray-600 mt-1">
+                  Encode/decode Base64
+                </div>
+              </button>
+            </div>
+          </CardContent>
+        </Card>
       </div>
     </div>
   );

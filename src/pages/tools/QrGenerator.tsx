@@ -25,8 +25,16 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { ToolDescription } from "@/components/ToolDescription";
 import { FavoriteButton } from "@/components/FavoriteButton";
+import { Badge } from "@/components/ui/badge";
+import {
+  Zap,
+  Info,
+  Store,
+  Wifi,
+  Share2,
+  Smartphone,
+} from "lucide-react";
 
 const QrGenerator = () => {
   const [text, setText] = useState("");
@@ -137,12 +145,6 @@ const QrGenerator = () => {
           <SidebarTrigger />
           <div className="flex items-center gap-2">
             <h1 className="text-xl font-semibold">QR Code Generator</h1>
-            <div className="ml-auto">
-              <FavoriteButton
-                toolId="qr-generator"
-                toolTitle="QR Code Generator"
-              />
-            </div>
           </div>
         </div>
       </header>
@@ -215,36 +217,171 @@ const QrGenerator = () => {
           </CardContent>
         </Card>
 
-        <ToolDescription
-          title="QR Code Generator"
-          description="QR (Quick Response) codes are two-dimensional barcodes that can store various types of data including URLs, text, contact information, and more. This tool generates QR codes from your input text or URLs, making it easy to share information quickly and efficiently."
-          features={[
-            "Generate QR codes from text or URLs",
-            "High-quality 300x300 pixel QR codes",
-            "Support for any text content including Unicode",
-            "Instant QR code generation",
-            "Download QR codes in multiple formats (PNG, JPG)",
-            "Automatic PNG to JPG conversion with quality optimization",
-            "Clear and load example functionality",
-            "Copy QR code URLs for sharing",
-          ]}
-          useCases={[
-            "Business cards",
-            "Event promotion",
-            "WiFi sharing",
-            "Contact information",
-            "Website links",
-            "Social media profiles",
-            "Product information",
-            "Marketing campaigns",
-          ]}
-          tips={[
-            "QR codes work best with shorter text",
-            "Test QR codes with your phone before printing",
-            "Use high contrast colors for better scanning",
-            "Include instructions for users on how to scan",
-          ]}
-        />
+        {/* Tool Introduction */}
+        <Card className="mt-6 bg-gradient-to-r from-blue-50 via-purple-50 to-pink-50 border-blue-200">
+          <CardContent className="pt-6">
+            <p className="text-gray-700 leading-relaxed">
+              <strong className="text-gray-900">
+                What is QR Code Generator?
+              </strong>{" "}
+              This tool generates QR codes from text or URLs. Perfect for business
+              cards, event promotion, WiFi sharing, and marketing campaigns! 📱
+            </p>
+          </CardContent>
+        </Card>
+
+        {/* Quick Use Cases */}
+        <Card className="mt-6">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              <Zap className="h-5 w-5 text-primary" />
+              Common Use Cases
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-blue-50 to-blue-100/50 border border-blue-200">
+                <div className="p-2 bg-white rounded-lg h-fit">
+                  <Store className="h-5 w-5 text-blue-600" />
+                </div>
+                <div>
+                  <div className="font-semibold text-blue-900">
+                    Business Cards
+                  </div>
+                  <p className="text-sm text-blue-700">
+                    Add QR codes to{" "}
+                    <Badge variant="secondary" className="mx-1">
+                      business cards
+                    </Badge>
+                    for quick contact sharing
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-purple-50 to-purple-100/50 border border-purple-200">
+                <div className="p-2 bg-white rounded-lg h-fit">
+                  <Wifi className="h-5 w-5 text-purple-600" />
+                </div>
+                <div>
+                  <div className="font-semibold text-purple-900">WiFi Sharing</div>
+                  <p className="text-sm text-purple-700">
+                    Share WiFi credentials without typing passwords
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-green-50 to-green-100/50 border border-green-200">
+                <div className="p-2 bg-white rounded-lg h-fit">
+                  <Share2 className="h-5 w-5 text-green-600" />
+                </div>
+                <div>
+                  <div className="font-semibold text-green-900">
+                    Event Promotion
+                  </div>
+                  <p className="text-sm text-green-700">
+                    Create QR codes for event registrations and ticket sales
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-pink-50 to-pink-100/50 border border-pink-200">
+                <div className="p-2 bg-white rounded-lg h-fit">
+                  <Smartphone className="h-5 w-5 text-pink-600" />
+                </div>
+                <div>
+                  <div className="font-semibold text-pink-900">
+                    Contact Info
+                  </div>
+                  <p className="text-sm text-pink-700">
+                    Share social media profiles and contact details instantly
+                  </p>
+                </div>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Quick Tips */}
+        <Card className="mt-6 bg-gradient-to-br from-amber-50 via-orange-50 to-amber-50 border-amber-200">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2 text-amber-900">
+              <Info className="h-5 w-5 text-amber-600" />
+              💡 Pro Tips
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+              <div className="flex gap-2 items-start">
+                <div className="text-amber-600 font-bold">→</div>
+                <p className="text-sm text-amber-900">
+                  <strong>Keep it Short:</strong> QR codes work best with shorter text
+                </p>
+              </div>
+              <div className="flex gap-2 items-start">
+                <div className="text-amber-600 font-bold">→</div>
+                <p className="text-sm text-amber-900">
+                  <strong>Test First:</strong> Scan with your phone before printing
+                </p>
+              </div>
+              <div className="flex gap-2 items-start">
+                <div className="text-amber-600 font-bold">→</div>
+                <p className="text-sm text-amber-900">
+                  <strong>Contrast:</strong> Use high contrast for better scanning
+                </p>
+              </div>
+              <div className="flex gap-2 items-start">
+                <div className="text-amber-600 font-bold">→</div>
+                <p className="text-sm text-amber-900">
+                  <strong>Instructions:</strong> Add "Scan to" text near QR codes
+                </p>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Related Tools */}
+        <Card className="mt-6">
+          <CardHeader>
+            <CardTitle>🔗 Related Tools You Might Like</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+              <button
+                onClick={() => navigate("/tools/url-encoder")}
+                className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
+              >
+                <div className="font-semibold text-gray-900 group-hover:text-primary">
+                  URL Encoder
+                </div>
+                <div className="text-sm text-gray-600 mt-1">
+                  Encode/decode URLs
+                </div>
+              </button>
+              <button
+                onClick={() => navigate("/tools/base64")}
+                className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
+              >
+                <div className="font-semibold text-gray-900 group-hover:text-primary">
+                  Base64 Tool
+                </div>
+                <div className="text-sm text-gray-600 mt-1">
+                  Encode/decode Base64
+                </div>
+              </button>
+              <button
+                onClick={() => navigate("/tools/hash-generator")}
+                className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
+              >
+                <div className="font-semibold text-gray-900 group-hover:text-primary">
+                  Hash Generator
+                </div>
+                <div className="text-sm text-gray-600 mt-1">
+                  Create secure hashes
+                </div>
+              </button>
+            </div>
+          </CardContent>
+        </Card>
       </div>
     </div>
   );

@@ -1,0 +1,55 @@
+# 批量更新剩余27个工具
+
+由于每个工具需要大量定制化内容，我建议采用以下方式之一：
+
+## 选项1：让我继续逐个完成（推荐）
+我会继续像前4个工具一样，逐个完成剩余的27个工具。
+预计时间：需要多次对话完成
+
+## 选项2：创建通用模板
+创建一个可复用的React组件，减少重复代码
+
+## 选项3：分批完成
+每次完成5-6个工具，分4-5批完成
+
+---
+
+## 剩余工具清单及优先级：
+
+### 高优先级（常用工具）- 10个
+1. Password Generator - 密码生成器
+2. UUID Generator - UUID生成器  
+3. Base64 Tool - Base64编解码
+4. JSON Formatter - JSON格式化
+5. Hash Generator - 哈希生成器
+6. URL Encoder - URL编解码
+7. QR Code Generator - 二维码生成
+8. Lorem Ipsum - 占位文本
+9. Regex Tester - 正则测试
+10. Timestamp Converter - 时间戳转换
+
+### 中优先级（计算器）- 8个
+11. BMI Calculator
+12. Age Calculator
+13. Date Calculator
+14. Percentage Calculator
+15. Interest Calculator
+16. Investment Calculator
+17. Loan Calculator
+18. Credit Card Calculator
+
+### 低优先级（其他工具）- 9个
+19. HTML to Text
+20. CSV to JSON
+21. Random Picker
+22. Markdown Preview
+23. Color Picker
+24. Image Resizer
+25. Image Compressor
+26. Currency Converter
+27. Unit Converter
+
+请告诉我：
+1. 是否现在继续逐个完成所有27个工具？
+2. 还是先完成高优先级的10个常用工具？
+3. 或者采用其他方案？

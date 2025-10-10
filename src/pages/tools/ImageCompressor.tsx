@@ -10,10 +10,21 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Slider } from "@/components/ui/slider";
-import { ImageDown, RotateCcw, Lightbulb, ArrowLeft } from "lucide-react";
+import {
+  ImageDown,
+  RotateCcw,
+  Lightbulb,
+  ArrowLeft,
+  Zap,
+  Info,
+  Globe,
+  Mail,
+  ShoppingCart,
+  Smartphone,
+} from "lucide-react";
 import { toast } from "sonner";
-import { ToolDescription } from "@/components/ToolDescription";
 import { FavoriteButton } from "@/components/FavoriteButton";
+import { Badge } from "@/components/ui/badge";
 
 const ImageCompressor = () => {
   const [image, setImage] = useState<string | null>(null);
@@ -197,34 +208,158 @@ const ImageCompressor = () => {
           </CardContent>
         </Card>
 
-        <ToolDescription
-          title="Image Compressor"
-          description="Reduce image file sizes while maintaining visual quality. This tool helps you compress images for faster web loading, email attachments, and storage optimization. Adjust the quality slider to find the perfect balance between file size and image quality."
-          features={[
-            "Compress images while maintaining quality",
-            "Adjustable quality slider (1-100%)",
-            "Support for common image formats",
-            "Show original file size for comparison",
-            "Download compressed images instantly",
-            "Preview images before compression",
-          ]}
-          useCases={[
-            "Web optimization",
-            "Email attachments",
-            "Social media uploads",
-            "Storage management",
-            "Blog images",
-            "Mobile app assets",
-            "Portfolio websites",
-            "E-commerce product photos",
-          ]}
-          tips={[
-            "80% quality is often sufficient for web use",
-            "Higher compression = smaller file size but lower quality",
-            "Test different quality levels to find the right balance",
-            "Compressed images load faster on websites",
-          ]}
-        />
+        {/* Tool Introduction */}
+        <Card className="mt-6 bg-gradient-to-r from-blue-50 via-purple-50 to-pink-50 border-blue-200">
+          <CardContent className="pt-6">
+            <p className="text-gray-700 leading-relaxed">
+              <strong className="text-gray-900">What is Image Compressor?</strong>{" "}
+              This tool reduces image file sizes while maintaining quality. Perfect
+              for web optimization, email, and storage management! 🗜️
+            </p>
+          </CardContent>
+        </Card>
+
+        {/* Quick Use Cases */}
+        <Card className="mt-6">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              <Zap className="h-5 w-5 text-primary" />
+              Common Use Cases
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-blue-50 to-blue-100/50 border border-blue-200">
+                <div className="p-2 bg-white rounded-lg h-fit">
+                  <Globe className="h-5 w-5 text-blue-600" />
+                </div>
+                <div>
+                  <div className="font-semibold text-blue-900">Web Optimization</div>
+                  <p className="text-sm text-blue-700">
+                    Compress for{" "}
+                    <Badge variant="secondary" className="mx-1">
+                      faster
+                    </Badge>
+                    website loading speeds
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-purple-50 to-purple-100/50 border border-purple-200">
+                <div className="p-2 bg-white rounded-lg h-fit">
+                  <Mail className="h-5 w-5 text-purple-600" />
+                </div>
+                <div>
+                  <div className="font-semibold text-purple-900">Email Attachments</div>
+                  <p className="text-sm text-purple-700">
+                    Reduce file sizes for email sending limits
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-green-50 to-green-100/50 border border-green-200">
+                <div className="p-2 bg-white rounded-lg h-fit">
+                  <ShoppingCart className="h-5 w-5 text-green-600" />
+                </div>
+                <div>
+                  <div className="font-semibold text-green-900">E-commerce</div>
+                  <p className="text-sm text-green-700">
+                    Optimize product photos for online stores
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-pink-50 to-pink-100/50 border border-pink-200">
+                <div className="p-2 bg-white rounded-lg h-fit">
+                  <Smartphone className="h-5 w-5 text-pink-600" />
+                </div>
+                <div>
+                  <div className="font-semibold text-pink-900">Mobile Apps</div>
+                  <p className="text-sm text-pink-700">
+                    Reduce app asset sizes for better performance
+                  </p>
+                </div>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Quick Tips */}
+        <Card className="mt-6 bg-gradient-to-br from-amber-50 via-orange-50 to-amber-50 border-amber-200">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2 text-amber-900">
+              <Info className="h-5 w-5 text-amber-600" />
+              💡 Pro Tips
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+              <div className="flex gap-2 items-start">
+                <div className="text-amber-600 font-bold">→</div>
+                <p className="text-sm text-amber-900">
+                  <strong>Web Use:</strong> 80% quality is often sufficient
+                </p>
+              </div>
+              <div className="flex gap-2 items-start">
+                <div className="text-amber-600 font-bold">→</div>
+                <p className="text-sm text-amber-900">
+                  <strong>Trade-off:</strong> Higher compression = smaller size, lower
+                  quality
+                </p>
+              </div>
+              <div className="flex gap-2 items-start">
+                <div className="text-amber-600 font-bold">→</div>
+                <p className="text-sm text-amber-900">
+                  <strong>Testing:</strong> Try different levels for best balance
+                </p>
+              </div>
+              <div className="flex gap-2 items-start">
+                <div className="text-amber-600 font-bold">→</div>
+                <p className="text-sm text-amber-900">
+                  <strong>Performance:</strong> Smaller files load faster
+                </p>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Related Tools */}
+        <Card className="mt-6">
+          <CardHeader>
+            <CardTitle>🔗 Related Tools You Might Like</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+              <button
+                onClick={() => navigate("/tools/image-resizer")}
+                className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
+              >
+                <div className="font-semibold text-gray-900 group-hover:text-primary">
+                  Image Resizer
+                </div>
+                <div className="text-sm text-gray-600 mt-1">Resize images</div>
+              </button>
+              <button
+                onClick={() => navigate("/tools/color-picker")}
+                className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
+              >
+                <div className="font-semibold text-gray-900 group-hover:text-primary">
+                  Color Picker
+                </div>
+                <div className="text-sm text-gray-600 mt-1">Pick colors</div>
+              </button>
+              <button
+                onClick={() => navigate("/tools/base64")}
+                className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
+              >
+                <div className="font-semibold text-gray-900 group-hover:text-primary">
+                  Base64 Tool
+                </div>
+                <div className="text-sm text-gray-600 mt-1">Encode/decode</div>
+              </button>
+            </div>
+          </CardContent>
+        </Card>
       </div>
     </div>
   );

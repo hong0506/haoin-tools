@@ -11,9 +11,19 @@ import {
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
-import { RotateCcw, Lightbulb, ArrowLeft } from "lucide-react";
-import { ToolDescription } from "@/components/ToolDescription";
+import {
+  RotateCcw,
+  Lightbulb,
+  ArrowLeft,
+  FileText,
+  Zap,
+  Info,
+  MessageSquare,
+  Globe,
+  BookOpen,
+} from "lucide-react";
 import { FavoriteButton } from "@/components/FavoriteButton";
+import { Badge } from "@/components/ui/badge";
 
 const WordCounter = () => {
   const [text, setText] = useState("");
@@ -176,34 +186,176 @@ Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium dolor
           </CardContent>
         </Card>
 
-        <ToolDescription
-          title="Word Counter"
-          description="Word counting is essential for writers, students, and professionals who need to meet specific length requirements or analyze text content. This tool provides comprehensive text statistics including word count, character count, sentence count, paragraph count, and estimated reading time."
-          features={[
-            "Count words, characters, sentences, and paragraphs",
-            "Calculate estimated reading time",
-            "Real-time statistics as you type",
-            "Support for multiple languages and special characters",
-            "Clear text with a single button",
-            "Load example text for testing",
-          ]}
-          useCases={[
-            "Academic writing",
-            "Content creation",
-            "Social media posts",
-            "Email composition",
-            "SEO optimization",
-            "Translation projects",
-            "Blog writing",
-            "Report writing",
-          ]}
-          tips={[
-            "Average reading speed is 200-250 words per minute",
-            "Use word count to optimize content for different platforms",
-            "Character count is important for social media limits",
-            "Paragraph count helps structure long-form content",
-          ]}
-        />
+        {/* Tool Introduction */}
+        <Card className="mt-6 bg-gradient-to-r from-blue-50 via-purple-50 to-pink-50 border-blue-200">
+          <CardContent className="pt-6">
+            <p className="text-gray-700 leading-relaxed">
+              <strong className="text-gray-900">What is Word Counter?</strong>{" "}
+              This tool provides real-time text analytics including word count,
+              character count, sentences, paragraphs, and estimated reading time.
+              Perfect for writers, students, bloggers, and content creators who
+              need to meet specific length requirements! 📝
+            </p>
+          </CardContent>
+        </Card>
+
+        {/* Quick Use Cases */}
+        <Card className="mt-6">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              <Zap className="h-5 w-5 text-primary" />
+              Common Use Cases
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-blue-50 to-blue-100/50 border border-blue-200">
+                <div className="p-2 bg-white rounded-lg h-fit">
+                  <FileText className="h-5 w-5 text-blue-600" />
+                </div>
+                <div>
+                  <div className="font-semibold text-blue-900">
+                    Academic Writing
+                  </div>
+                  <p className="text-sm text-blue-700">
+                    Meet essay and thesis word count requirements with precision
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-purple-50 to-purple-100/50 border border-purple-200">
+                <div className="p-2 bg-white rounded-lg h-fit">
+                  <BookOpen className="h-5 w-5 text-purple-600" />
+                </div>
+                <div>
+                  <div className="font-semibold text-purple-900">
+                    Content Writing
+                  </div>
+                  <p className="text-sm text-purple-700">
+                    Optimize blog posts and articles for{" "}
+                    <Badge variant="secondary" className="mx-1">
+                      SEO
+                    </Badge>
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-pink-50 to-pink-100/50 border border-pink-200">
+                <div className="p-2 bg-white rounded-lg h-fit">
+                  <MessageSquare className="h-5 w-5 text-pink-600" />
+                </div>
+                <div>
+                  <div className="font-semibold text-pink-900">
+                    Social Media
+                  </div>
+                  <p className="text-sm text-pink-700">
+                    Stay within character limits for Twitter, LinkedIn, etc.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-green-50 to-green-100/50 border border-green-200">
+                <div className="p-2 bg-white rounded-lg h-fit">
+                  <Globe className="h-5 w-5 text-green-600" />
+                </div>
+                <div>
+                  <div className="font-semibold text-green-900">
+                    Translation Projects
+                  </div>
+                  <p className="text-sm text-green-700">
+                    Track word counts for pricing and project estimates
+                  </p>
+                </div>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Quick Tips */}
+        <Card className="mt-6 bg-gradient-to-br from-amber-50 via-orange-50 to-amber-50 border-amber-200">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2 text-amber-900">
+              <Info className="h-5 w-5 text-amber-600" />
+              💡 Pro Tips
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+              <div className="flex gap-2 items-start">
+                <div className="text-amber-600 font-bold">→</div>
+                <p className="text-sm text-amber-900">
+                  <strong>Reading Time:</strong> Average reading speed is 200-250
+                  words/minute
+                </p>
+              </div>
+              <div className="flex gap-2 items-start">
+                <div className="text-amber-600 font-bold">→</div>
+                <p className="text-sm text-amber-900">
+                  <strong>SEO:</strong> Blog posts perform best at 1,500-2,500
+                  words
+                </p>
+              </div>
+              <div className="flex gap-2 items-start">
+                <div className="text-amber-600 font-bold">→</div>
+                <p className="text-sm text-amber-900">
+                  <strong>Twitter:</strong> 280 character limit (use character
+                  count)
+                </p>
+              </div>
+              <div className="flex gap-2 items-start">
+                <div className="text-amber-600 font-bold">→</div>
+                <p className="text-sm text-amber-900">
+                  <strong>Readability:</strong> Keep paragraphs under 150 words for
+                  web content
+                </p>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Related Tools */}
+        <Card className="mt-6">
+          <CardHeader>
+            <CardTitle>🔗 Related Tools You Might Like</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+              <button
+                onClick={() => navigate("/tools/case-converter")}
+                className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
+              >
+                <div className="font-semibold text-gray-900 group-hover:text-primary">
+                  Case Converter
+                </div>
+                <div className="text-sm text-gray-600 mt-1">
+                  Convert text case formats
+                </div>
+              </button>
+              <button
+                onClick={() => navigate("/tools/text-sorter")}
+                className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
+              >
+                <div className="font-semibold text-gray-900 group-hover:text-primary">
+                  Text Sorter
+                </div>
+                <div className="text-sm text-gray-600 mt-1">
+                  Sort text lines alphabetically
+                </div>
+              </button>
+              <button
+                onClick={() => navigate("/tools/text-diff")}
+                className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
+              >
+                <div className="font-semibold text-gray-900 group-hover:text-primary">
+                  Text Diff
+                </div>
+                <div className="text-sm text-gray-600 mt-1">
+                  Compare two texts
+                </div>
+              </button>
+            </div>
+          </CardContent>
+        </Card>
       </div>
     </div>
   );

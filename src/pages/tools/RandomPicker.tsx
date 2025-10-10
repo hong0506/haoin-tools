@@ -10,10 +10,21 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Shuffle, RotateCcw, Lightbulb, ArrowLeft } from "lucide-react";
+import {
+  Shuffle,
+  RotateCcw,
+  Lightbulb,
+  ArrowLeft,
+  Gift,
+  Zap,
+  Info,
+  Users,
+  Trophy,
+  Dice5,
+} from "lucide-react";
 import { toast } from "sonner";
-import { ToolDescription } from "@/components/ToolDescription";
 import { FavoriteButton } from "@/components/FavoriteButton";
+import { Badge } from "@/components/ui/badge";
 
 const RandomPicker = () => {
   const [items, setItems] = useState("");
@@ -65,10 +76,15 @@ const RandomPicker = () => {
       <div className="container mx-auto max-w-4xl px-6 py-8">
         <Card>
           <CardHeader>
-            <CardTitle>Random Name/Item Picker</CardTitle>
-            <CardDescription>
-              Enter items (one per line) and pick a random winner
-            </CardDescription>
+            <div className="flex items-center justify-between">
+              <div>
+                <CardTitle>Random Name/Item Picker</CardTitle>
+                <CardDescription>
+                  Enter items (one per line) and pick a random winner
+                </CardDescription>
+              </div>
+              <FavoriteButton toolId="random-picker" toolName="Random Picker" />
+            </div>
           </CardHeader>
           <CardContent className="space-y-4">
             <div className="flex gap-2 mb-4">
@@ -101,34 +117,175 @@ const RandomPicker = () => {
           </CardContent>
         </Card>
 
-        <ToolDescription
-          title="Random Picker"
-          description="Randomly select a winner from a list of names or items. This tool is perfect for giveaways, raffles, decision making, and any situation where you need to pick something at random fairly."
-          features={[
-            "Pick random winners from a list",
-            "Enter items one per line",
-            "Fair and unbiased random selection",
-            "Animated winner reveal",
-            "Support for any number of items",
-            "Simple and intuitive interface",
-          ]}
-          useCases={[
-            "Contest giveaways",
-            "Raffle drawings",
-            "Team assignments",
-            "Decision making",
-            "Game selections",
-            "Prize distributions",
-            "Random sampling",
-            "Classroom activities",
-          ]}
-          tips={[
-            "Enter one item per line for best results",
-            "Use for fair and unbiased selections",
-            "Perfect for social media giveaways",
-            "Screenshot the result for transparency",
-          ]}
-        />
+        {/* Tool Introduction */}
+        <Card className="mt-6 bg-gradient-to-r from-blue-50 via-purple-50 to-pink-50 border-blue-200">
+          <CardContent className="pt-6">
+            <p className="text-gray-700 leading-relaxed">
+              <strong className="text-gray-900">What is Random Picker?</strong>{" "}
+              This tool randomly selects a winner from your list of names or
+              items. Perfect for giveaways, raffles, team assignments, and fair
+              decision making! 🎯
+            </p>
+          </CardContent>
+        </Card>
+
+        {/* Quick Use Cases */}
+        <Card className="mt-6">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              <Zap className="h-5 w-5 text-primary" />
+              Common Use Cases
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-pink-50 to-pink-100/50 border border-pink-200">
+                <div className="p-2 bg-white rounded-lg h-fit">
+                  <Gift className="h-5 w-5 text-pink-600" />
+                </div>
+                <div>
+                  <div className="font-semibold text-pink-900">
+                    Contest Giveaways
+                  </div>
+                  <p className="text-sm text-pink-700">
+                    Pick random{" "}
+                    <Badge variant="secondary" className="mx-1">
+                      winners
+                    </Badge>
+                    for social media contests
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-purple-50 to-purple-100/50 border border-purple-200">
+                <div className="p-2 bg-white rounded-lg h-fit">
+                  <Trophy className="h-5 w-5 text-purple-600" />
+                </div>
+                <div>
+                  <div className="font-semibold text-purple-900">
+                    Raffle Drawings
+                  </div>
+                  <p className="text-sm text-purple-700">
+                    Fair and unbiased random selection for prize drawings
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-blue-50 to-blue-100/50 border border-blue-200">
+                <div className="p-2 bg-white rounded-lg h-fit">
+                  <Users className="h-5 w-5 text-blue-600" />
+                </div>
+                <div>
+                  <div className="font-semibold text-blue-900">
+                    Team Assignments
+                  </div>
+                  <p className="text-sm text-blue-700">
+                    Randomly assign people to teams or groups
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-green-50 to-green-100/50 border border-green-200">
+                <div className="p-2 bg-white rounded-lg h-fit">
+                  <Dice5 className="h-5 w-5 text-green-600" />
+                </div>
+                <div>
+                  <div className="font-semibold text-green-900">
+                    Decision Making
+                  </div>
+                  <p className="text-sm text-green-700">
+                    Let randomness help you choose between options
+                  </p>
+                </div>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Quick Tips */}
+        <Card className="mt-6 bg-gradient-to-br from-amber-50 via-orange-50 to-amber-50 border-amber-200">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2 text-amber-900">
+              <Info className="h-5 w-5 text-amber-600" />
+              💡 Pro Tips
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+              <div className="flex gap-2 items-start">
+                <div className="text-amber-600 font-bold">→</div>
+                <p className="text-sm text-amber-900">
+                  <strong>One Per Line:</strong> Enter each name or item on a
+                  new line
+                </p>
+              </div>
+              <div className="flex gap-2 items-start">
+                <div className="text-amber-600 font-bold">→</div>
+                <p className="text-sm text-amber-900">
+                  <strong>Fair Selection:</strong> Uses true randomness for
+                  unbiased picks
+                </p>
+              </div>
+              <div className="flex gap-2 items-start">
+                <div className="text-amber-600 font-bold">→</div>
+                <p className="text-sm text-amber-900">
+                  <strong>Screenshot:</strong> Capture results for transparency
+                </p>
+              </div>
+              <div className="flex gap-2 items-start">
+                <div className="text-amber-600 font-bold">→</div>
+                <p className="text-sm text-amber-900">
+                  <strong>Social Media:</strong> Perfect for Instagram and
+                  Twitter giveaways
+                </p>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Related Tools */}
+        <Card className="mt-6">
+          <CardHeader>
+            <CardTitle>🔗 Related Tools You Might Like</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+              <button
+                onClick={() => navigate("/tools/uuid-generator")}
+                className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
+              >
+                <div className="font-semibold text-gray-900 group-hover:text-primary">
+                  UUID Generator
+                </div>
+                <div className="text-sm text-gray-600 mt-1">
+                  Generate unique IDs
+                </div>
+              </button>
+              <button
+                onClick={() => navigate("/tools/password-generator")}
+                className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
+              >
+                <div className="font-semibold text-gray-900 group-hover:text-primary">
+                  Password Generator
+                </div>
+                <div className="text-sm text-gray-600 mt-1">
+                  Generate secure passwords
+                </div>
+              </button>
+              <button
+                onClick={() => navigate("/tools/lorem-ipsum")}
+                className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
+              >
+                <div className="font-semibold text-gray-900 group-hover:text-primary">
+                  Lorem Ipsum
+                </div>
+                <div className="text-sm text-gray-600 mt-1">
+                  Generate placeholder text
+                </div>
+              </button>
+            </div>
+          </CardContent>
+        </Card>
       </div>
     </div>
   );
