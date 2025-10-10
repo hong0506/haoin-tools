@@ -3,9 +3,12 @@ import { SidebarTrigger } from "@/components/ui/sidebar";
 import { SearchBar } from "@/components/SearchBar";
 import { ToolCard } from "@/components/ToolCard";
 import { Footer } from "@/components/Footer";
+import { AdBanner } from "@/components/ads/AdBanner";
+import { SidebarAd } from "@/components/ads/SidebarAd";
 import { tools } from "@/data/tools";
 import { AnimatedBackground } from "@/components/AnimatedBackground";
 import { Sparkles, Zap, Heart } from "lucide-react";
+import { shouldShowAd } from "@/config/ads";
 
 const Index = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -95,6 +98,15 @@ const Index = () => {
           </div>
         </div>
 
+        {/* Top Ad Banner */}
+        {shouldShowAd("homepage", "top") && (
+          <AdBanner
+            size="medium"
+            position="top"
+            className="max-w-4xl mx-auto"
+          />
+        )}
+
         {/* Tools Grid */}
         <div>
           <div className="mb-8 flex items-center justify-between">
@@ -153,6 +165,15 @@ const Index = () => {
           )}
         </div>
       </div>
+
+      {/* Bottom Ad Banner */}
+      {shouldShowAd("homepage", "bottom") && (
+        <AdBanner
+          size="large"
+          position="bottom"
+          className="max-w-4xl mx-auto mt-12"
+        />
+      )}
 
       {/* Footer */}
       <Footer />

@@ -24,6 +24,7 @@ import {
 } from "lucide-react";
 import { FavoriteButton } from "@/components/FavoriteButton";
 import { Badge } from "@/components/ui/badge";
+import { AdBanner, AdSidebarStack, AdMediumRectangle } from "@/components/AdBanner";
 
 const WordCounter = () => {
   const [text, setText] = useState("");
@@ -78,6 +79,12 @@ Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium dolor
           <h1 className="text-xl font-semibold">Word Counter</h1>
         </div>
       </header>
+
+      {/* Left Sidebar - 2 Stacked Ads */}
+      <AdSidebarStack side="left" count={2} />
+
+      {/* Right Sidebar - 2 Stacked Ads */}
+      <AdSidebarStack side="right" count={2} />
 
       <div className="container mx-auto max-w-4xl px-6 py-8">
         <Card className="animate-fade-in">
@@ -185,6 +192,9 @@ Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium dolor
             </div>
           </CardContent>
         </Card>
+
+        {/* Medium Rectangle Ad - In Content */}
+        <AdMediumRectangle />
 
         {/* Tool Introduction */}
         <Card className="mt-6 bg-gradient-to-r from-blue-50 via-purple-50 to-pink-50 border-blue-200">
@@ -356,6 +366,9 @@ Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium dolor
             </div>
           </CardContent>
         </Card>
+
+        {/* Advertisement */}
+        <AdBanner />
       </div>
     </div>
   );

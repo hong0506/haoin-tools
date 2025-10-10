@@ -161,7 +161,7 @@ export const Footer = () => {
                 </li>
                 <li>
                   <Link
-                    to="/cookie"
+                    to="/cookies"
                     className="hover:text-primary transition-colors"
                   >
                     Cookie Policy
