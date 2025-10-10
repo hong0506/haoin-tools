@@ -20,7 +20,7 @@ import {
   Instagram,
   Monitor,
   Smartphone,
-  Image,
+  Image as ImageIcon,
 } from "lucide-react";
 import { toast } from "sonner";
 import { FavoriteButton } from "@/components/FavoriteButton";
@@ -38,15 +38,38 @@ const ImageResizer = () => {
   const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file) {
+      // Validate file type
+      if (!file.type.startsWith('image/')) {
+        toast.error("Please upload an image file");
+        return;
+      }
+      
+      // Validate file size (max 10MB)
+      if (file.size > 10 * 1024 * 1024) {
+        toast.error("Image size should be less than 10MB");
+        return;
+      }
+      
       const reader = new FileReader();
       reader.onload = (event) => {
-        const img = new Image();
-        img.onload = () => {
-          setWidth(img.width.toString());
-          setHeight(img.height.toString());
-        };
-        img.src = event.target?.result as string;
-        setImage(event.target?.result as string);
+        const result = event.target?.result as string;
+        if (result) {
+          const img = new Image();
+          img.onload = () => {
+            setWidth(img.width.toString());
+            setHeight(img.height.toString());
+            setImage(result);
+            toast.success(`Image loaded: ${img.width}x${img.height}px`);
+          };
+          img.onerror = () => {
+            toast.error("Failed to load image");
+            setImage(null);
+          };
+          img.src = result;
+        }
+      };
+      reader.onerror = () => {
+        toast.error("Failed to read file");
       };
       reader.readAsDataURL(file);
     }
@@ -283,7 +306,7 @@ const ImageResizer = () => {
 
               <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-pink-50 to-pink-100/50 border border-pink-200">
                 <div className="p-2 bg-white rounded-lg h-fit">
-                  <Image className="h-5 w-5 text-pink-600" />
+                  <ImageIcon className="h-5 w-5 text-pink-600" />
                 </div>
                 <div>
                   <div className="font-semibold text-pink-900">Thumbnails</div>
