@@ -64,8 +64,8 @@ const AboutUs = () => {
               <p className="text-foreground/80 leading-relaxed">
                 To provide{" "}
                 <strong>free, accessible, and privacy-first tools</strong> that
-                empower people to work smarter and create better. No ads, no
-                tracking, just pure functionality.
+                empower people to work smarter and create better. All tools remain
+                free forever, with optional advertising support to maintain our services.
               </p>
             </div>
 

@@ -60,7 +60,7 @@ const Index = () => {
           <p className="mx-auto max-w-3xl text-xl text-foreground/70 font-medium leading-relaxed mb-8">
             Access{" "}
             <span className="font-bold text-primary">
-              {tools.length}+ free online tools
+              {tools.length} free online tools
             </span>{" "}
             for text processing, image editing, code generation, calculators and
             more.

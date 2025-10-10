@@ -143,7 +143,7 @@ const Legal = () => {
           {/* Third-party Content */}
           <Card>
             <CardHeader>
-              <CardTitle>第三方内容声明</CardTitle>
+              <CardTitle>第三方内容声明 Third-Party Content</CardTitle>
               <CardDescription>
                 关于使用的第三方资源
               </CardDescription>
@@ -155,8 +155,9 @@ const Legal = () => {
                 </p>
                 <ul className="list-disc list-inside space-y-1">
                   <li><strong>货币汇率：</strong>使用第三方汇率API获取实时数据</li>
-                  <li><strong>图标：</strong>使用 Lucide Icons 开源图标库</li>
+                  <li><strong>图标：</strong>使用 Lucide Icons 开源图标库（MIT License）</li>
                   <li><strong>字体：</strong>使用系统默认字体或 Google Fonts</li>
+                  <li><strong>广告：</strong>可能显示第三方广告以支持免费服务</li>
                 </ul>
 
                 <p className="mt-4">
@@ -167,11 +168,82 @@ const Legal = () => {
             </CardContent>
           </Card>
 
+          {/* DMCA Notice */}
+          <Card>
+            <CardHeader>
+              <CardTitle>DMCA 侵权通知 Copyright Infringement Notice</CardTitle>
+              <CardDescription>
+                版权保护与侵权投诉处理程序（适用于美国数字千年版权法）
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <div className="prose prose-sm max-w-none dark:prose-invert">
+                <p>
+                  Haoin Tools 尊重知识产权，并遵守美国《数字千年版权法》(DMCA) 的规定。
+                  如果您认为本网站上的内容侵犯了您的版权，请按照以下程序通知我们。
+                </p>
+
+                <h3 className="font-semibold mt-4 mb-2">侵权通知要求 DMCA Takedown Notice</h3>
+                <p>您的通知必须包含以下信息：</p>
+                <ul className="list-disc list-inside space-y-1">
+                  <li>您的物理或电子签名（作为版权所有者或其授权代表）</li>
+                  <li>对涉嫌侵权材料的准确描述和位置</li>
+                  <li>您的联系信息（地址、电话号码、电子邮件）</li>
+                  <li>声明您善意相信该使用未经版权所有者授权</li>
+                  <li>声明通知中的信息准确，且您是版权所有者或其授权代表</li>
+                </ul>
+
+                <h3 className="font-semibold mt-4 mb-2">DMCA 代理联系方式 Designated Agent</h3>
+                <p className="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
+                  <strong>Copyright Agent - Haoin Tools</strong><br />
+                  Email: <strong>contact@haoin.tech</strong><br />
+                  Subject Line: "DMCA Takedown Notice"
+                </p>
+
+                <p className="mt-4 text-sm text-muted-foreground">
+                  请注意：根据 DMCA 规定，故意提供虚假侵权声明可能导致法律责任。
+                  我们将在收到有效通知后及时处理。
+                </p>
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* User Generated Content */}
+          <Card>
+            <CardHeader>
+              <CardTitle>用户内容责任 User Content Responsibility</CardTitle>
+              <CardDescription>
+                用户使用工具时的内容责任
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <div className="prose prose-sm max-w-none dark:prose-invert">
+                <p>
+                  本网站的所有工具仅提供处理功能，不存储用户数据。用户需对以下内容负责：
+                </p>
+                <ul className="list-disc list-inside space-y-1">
+                  <li>确保上传或处理的内容不侵犯他人的知识产权</li>
+                  <li>确保内容符合中国和美国的相关法律法规</li>
+                  <li>确保内容不包含非法、有害、威胁、诽谤或淫秽材料</li>
+                  <li>承担因使用本站工具处理非法内容而产生的一切法律责任</li>
+                </ul>
+
+                <p className="mt-4">
+                  <strong>重要提示：</strong>由于所有处理均在用户浏览器本地完成，
+                  我们无法监控或控制用户处理的内容。用户必须自行确保合法合规使用。
+                </p>
+              </div>
+            </CardContent>
+          </Card>
+
           {/* Footer Note */}
           <div className="text-center text-sm text-muted-foreground pt-4">
-            <p>本页面最后更新：2025年10月</p>
+            <p>本页面最后更新：2025年10月 | Last Updated: October 2025</p>
             <p className="mt-2">
-              HaoIn Tools © 2025 杭州皓萤科技有限公司 版权所有
+              Haoin Tools © 2025 All Rights Reserved.
+            </p>
+            <p className="mt-2 text-xs">
+              This website complies with applicable laws and regulations.
             </p>
           </div>
         </div>

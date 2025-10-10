@@ -77,19 +77,30 @@ const TermsOfService = () => {
               <li>❌ Attempt to harm or disrupt the service</li>
               <li>❌ Reverse engineer or copy our tools</li>
               <li>❌ Use automated systems to abuse the service</li>
+              <li>❌ Upload, transmit or distribute any content that infringes intellectual property rights</li>
+              <li>❌ Violate any applicable laws or regulations in your jurisdiction</li>
             </ul>
           </div>
 
           <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-lg mb-6">
             <h2 className="text-2xl font-bold mb-4 gradient-text">
-              🛡️ Disclaimer
+              🛡️ Disclaimer & Limitation of Liability
             </h2>
-            <p className="text-foreground/80 leading-relaxed">
+            <p className="text-foreground/80 leading-relaxed mb-4">
               The service is provided "as is" and "as available" without any
               warranties. We strive for accuracy and reliability, but we cannot
               guarantee that the tools will always be error-free or
               uninterrupted.
             </p>
+            <p className="text-foreground/80 leading-relaxed mb-4">
+              <strong>Important Disclaimers:</strong>
+            </p>
+            <ul className="space-y-2 text-foreground/80">
+              <li>• Financial calculators are for informational purposes only and do not constitute financial advice</li>
+              <li>• Health-related tools (BMI calculator, etc.) are not medical advice - consult professionals</li>
+              <li>• We are not liable for any losses or damages resulting from tool use or errors</li>
+              <li>• Maximum liability is limited to the amount you paid for the service (which is zero for free tools)</li>
+            </ul>
           </div>
 
           <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-lg mb-6">
@@ -105,12 +116,43 @@ const TermsOfService = () => {
 
           <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-lg mb-6">
             <h2 className="text-2xl font-bold mb-4 gradient-text">
+              📺 Advertising
+            </h2>
+            <p className="text-foreground/80 leading-relaxed mb-4">
+              To maintain our free services, we may display third-party advertisements:
+            </p>
+            <ul className="space-y-2 text-foreground/80">
+              <li>• Ads are provided by third-party advertising networks</li>
+              <li>• We do not endorse or take responsibility for advertised products/services</li>
+              <li>• Ad content is subject to advertisers' terms and privacy policies</li>
+              <li>• We are not liable for any transactions with advertisers</li>
+            </ul>
+          </div>
+
+          <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-lg mb-6">
+            <h2 className="text-2xl font-bold mb-4 gradient-text">
+              ⚖️ Governing Law & Dispute Resolution
+            </h2>
+            <p className="text-foreground/80 leading-relaxed mb-4">
+              These Terms are governed by the laws of the People's Republic of China.
+              For international users, local consumer protection laws may also apply.
+            </p>
+            <p className="text-foreground/80 leading-relaxed">
+              Any disputes shall be resolved through friendly negotiation first.
+              If negotiation fails, disputes shall be submitted to the courts with
+              jurisdiction in Hangzhou, Zhejiang Province, China.
+            </p>
+          </div>
+
+          <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-lg mb-6">
+            <h2 className="text-2xl font-bold mb-4 gradient-text">
               🔄 Changes to Terms
             </h2>
             <p className="text-foreground/80 leading-relaxed">
               We reserve the right to modify these terms at any time. We will
               notify users of any material changes by updating the "Last
-              updated" date at the top of this page.
+              updated" date at the top of this page. Continued use of the service
+              after changes constitutes acceptance of the new terms.
             </p>
           </div>
 

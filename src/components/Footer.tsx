@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { X } from "lucide-react";
+import { X, AlertCircle, Lock } from "lucide-react";
 import wechatQR from "@/assets/wechat-qr-code.jpg";
 import douyinQR from "@/assets/douyin-qr-code.jpg";
 import xiaohongshuQR from "@/assets/xiaohongshu-qr-code.jpg";
@@ -73,38 +73,41 @@ export const Footer = () => {
   return (
     <>
       <footer className="relative mt-20 border-t glass">
-        <div className="container mx-auto px-6 py-12">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-            {/* Brand Section */}
-            <div>
+        <div className="container mx-auto px-6 py-12 max-w-7xl">
+          {/* Main Footer Content */}
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mb-10">
+            {/* Brand Section - 40% width */}
+            <div className="md:col-span-5">
               <h3 className="text-2xl font-black gradient-text mb-3">
                 Haoin Free Online Tools
               </h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">
+              <p className="text-sm text-muted-foreground leading-relaxed mb-4">
                 Access 30+ free online tools instantly - text processing, image
                 editing, code generation, calculators and more. No registration
                 required.
               </p>
-              {/* <div className="flex items-center gap-2 mt-4 text-sm text-muted-foreground">
-              <span>Made with</span>
-              <Heart className="h-4 w-4 text-red-500 fill-red-500 animate-pulse" />
-              <span>for the community</span>
-            </div> */}
+              <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                <Lock className="h-3.5 w-3.5" />
+                <span>All data processed locally in your browser</span>
+              </div>
             </div>
 
-            {/* Quick Links */}
-            <div>
+            {/* Quick Links - 25% width */}
+            <div className="md:col-span-3">
               <h4 className="font-bold text-foreground mb-3">Quick Links</h4>
               <ul className="space-y-2 text-sm text-muted-foreground">
                 <li>
-                  <Link to="/" className="hover:text-primary transition-colors">
+                  <Link
+                    to="/"
+                    className="hover:text-primary transition-colors flex items-center gap-2"
+                  >
                     🏠 Home
                   </Link>
                 </li>
                 <li>
                   <Link
                     to="/category/favorites"
-                    className="hover:text-primary transition-colors"
+                    className="hover:text-primary transition-colors flex items-center gap-2"
                   >
                     ⭐ Favorites
                   </Link>
@@ -112,7 +115,7 @@ export const Footer = () => {
                 <li>
                   <Link
                     to="/category/recent"
-                    className="hover:text-primary transition-colors"
+                    className="hover:text-primary transition-colors flex items-center gap-2"
                   >
                     🕒 Recently Used
                   </Link>
@@ -120,47 +123,91 @@ export const Footer = () => {
                 <li>
                   <Link
                     to="/category/generator"
-                    className="hover:text-primary transition-colors"
+                    className="hover:text-primary transition-colors flex items-center gap-2"
                   >
-                    ⚡ Quick Generators
+                    ⚡ Generators
                   </Link>
                 </li>
                 <li>
                   <Link
                     to="/category/code"
-                    className="hover:text-primary transition-colors"
+                    className="hover:text-primary transition-colors flex items-center gap-2"
                   >
-                    💻 Dev Utilities
+                    💻 Dev Tools
                   </Link>
                 </li>
               </ul>
             </div>
 
-            {/* Connect */}
-            <div>
-              <h4 className="font-bold text-foreground mb-3">
-                Connect With Us
-              </h4>
-              <p className="text-sm text-muted-foreground mb-4">
-                Follow us for updates and new tools!
+            {/* Legal Links - 20% width */}
+            <div className="md:col-span-2">
+              <h4 className="font-bold text-foreground mb-3">Legal</h4>
+              <ul className="space-y-2 text-sm text-muted-foreground">
+                <li>
+                  <Link
+                    to="/privacy"
+                    className="hover:text-primary transition-colors"
+                  >
+                    Privacy Policy
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/terms"
+                    className="hover:text-primary transition-colors"
+                  >
+                    Terms of Service
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/cookie"
+                    className="hover:text-primary transition-colors"
+                  >
+                    Cookie Policy
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/legal"
+                    className="hover:text-primary transition-colors"
+                  >
+                    Copyright
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/about"
+                    className="hover:text-primary transition-colors"
+                  >
+                    About Us
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            {/* Connect - 15% width */}
+            <div className="md:col-span-2">
+              <h4 className="font-bold text-foreground mb-3">Connect</h4>
+              <p className="text-xs text-muted-foreground mb-3">
+                Follow us for updates!
               </p>
-              <div className="flex flex-wrap gap-3">
+              <div className="flex flex-wrap gap-2">
                 {socialLinks.map((social) => (
                   <button
                     key={social.name}
                     onClick={() => handleSocialClick(social)}
-                    className={`group relative p-3 rounded-xl bg-gradient-to-br ${social.color} text-white hover:shadow-xl transition-all hover:scale-110 cursor-pointer`}
+                    className={`group relative p-2.5 rounded-lg bg-gradient-to-br ${social.color} text-white hover:shadow-lg transition-all hover:scale-105 cursor-pointer`}
                     aria-label={social.name}
                   >
                     <img
                       src={social.icon}
                       alt={social.name}
-                      className="w-6 h-6 filter brightness-0 invert"
+                      className="w-5 h-5 filter brightness-0 invert"
                     />
-                    {/* Tooltip on hover */}
-                    <div className="absolute -top-10 left-1/2 -translate-x-1/2 bg-gray-900 text-white text-xs px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
+                    {/* Tooltip */}
+                    <div className="absolute -top-9 left-1/2 -translate-x-1/2 bg-gray-900 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
                       {social.displayName}
-                      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 rotate-45 w-2 h-2 bg-gray-900" />
                     </div>
                   </button>
                 ))}
@@ -168,95 +215,76 @@ export const Footer = () => {
             </div>
           </div>
 
-          {/* Bottom Bar */}
-          <div className="pt-8 border-t border-border/50 space-y-4">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              {/* Copyright */}
-              <div className="text-sm text-muted-foreground">
+          {/* Legal Disclaimer Section */}
+          <div className="pt-8 border-t border-border/30 space-y-4">
+            {/* Privacy First Banner */}
+            <div className="bg-gradient-to-r from-blue-50/80 to-cyan-50/80 dark:from-blue-950/30 dark:to-cyan-950/30 rounded-xl p-4 border border-blue-100/50 dark:border-blue-800/30">
+              <div className="flex items-start gap-3">
+                <div className="p-2 bg-blue-500 rounded-lg flex-shrink-0">
+                  <Lock className="h-4 w-4 text-white" />
+                </div>
+                <div className="flex-1">
+                  <h4 className="font-semibold text-sm text-foreground mb-1">
+                    Privacy First
+                  </h4>
+                  <p className="text-xs text-muted-foreground leading-relaxed">
+                    All tools process data locally in your browser. We do not
+                    store your files or personal data.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Disclaimer & Legal */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+              <div className="bg-white/50 dark:bg-gray-800/30 rounded-lg p-3 border border-border/50">
+                <div className="flex items-start gap-2">
+                  <AlertCircle className="h-3.5 w-3.5 text-orange-500 mt-0.5 flex-shrink-0" />
+                  <div className="flex-1">
+                    <h4 className="font-semibold text-xs text-foreground mb-1">
+                      Disclaimer
+                    </h4>
+                    <p className="text-[11px] text-muted-foreground leading-relaxed">
+                      Tools provided "as is" for educational purposes. Not
+                      intended to replace professional advice. Not liable for
+                      damages from tool use or errors.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-white/50 dark:bg-gray-800/30 rounded-lg p-3 border border-border/50">
+                <div className="text-[11px] text-muted-foreground leading-relaxed">
+                  <p className="mb-2">
+                    <span className="font-semibold text-foreground">
+                      Advertising:
+                    </span>{" "}
+                    May display third-party ads to support free services.
+                  </p>
+                  <p>
+                    Users bear all risks and must ensure compliance with
+                    applicable laws.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Copyright Bar */}
+            <div className="pt-4 flex flex-col md:flex-row justify-between items-center gap-3 text-xs text-muted-foreground">
+              <div>
                 © {currentYear}{" "}
                 <span className="font-semibold text-primary">Haoin Tools</span>.
                 All rights reserved.
               </div>
-
-              {/* Domain Info */}
-              <div className="text-xs text-muted-foreground">
-                <div className="space-y-1">
-                  <div>🌐 haointools.com</div>
-                  <div>📧 contact@haoin.tech</div>
-                  {/* ICP备案预留位置 - 获得备案号后取消注释 */}
-                  {/* <div>
-                  <a
-                    href="https://beian.miit.gov.cn/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hover:text-primary transition-colors"
-                  >
-                    浙ICP备xxxxxxxx号
-                  </a>
-                </div> */}
-                </div>
+              <div>
+                Legal inquiries:{" "}
+                <a
+                  href="mailto:contact@haoin.tech"
+                  className="text-primary hover:underline font-medium"
+                >
+                  contact@haoin.tech
+                </a>
               </div>
-
-              {/* Links */}
-              <div className="flex flex-col gap-2 text-sm">
-                <Link
-                  to="/legal"
-                  className="hover:text-primary transition-colors w-fit font-semibold"
-                >
-                  📜 Legal & Copyright
-                </Link>
-                <Link
-                  to="/privacy"
-                  className="hover:text-primary transition-colors w-fit"
-                >
-                  Privacy Policy
-                </Link>
-                <Link
-                  to="/cookies"
-                  className="hover:text-primary transition-colors w-fit"
-                >
-                  Cookie Policy
-                </Link>
-                <Link
-                  to="/terms"
-                  className="hover:text-primary transition-colors w-fit"
-                >
-                  Terms of Service
-                </Link>
-                <Link
-                  to="/about"
-                  className="hover:text-primary transition-colors w-fit"
-                >
-                  About Us
-                </Link>
-              </div>
-            </div>
-
-            {/* Additional Legal Info */}
-            <div className="text-center text-xs text-muted-foreground pt-4 border-t border-border/30 space-y-2">
-              <p>
-                All tools process data locally in your browser for privacy and
-                security. We do not store your files or personal data.
-              </p>
-              <p className="font-medium">
-                <strong>Disclaimer:</strong> This website provides free tools
-                for educational and productivity purposes. All tools are
-                provided "as is" without warranty of any kind. Users are
-                responsible for the accuracy and legality of their data input
-                and usage.
-              </p>
-              <p>
-                <strong>No Liability:</strong> Haoin Tools shall not be liable
-                for any direct, indirect, incidental, special, or consequential
-                damages arising from the use of these tools or any errors in
-                calculations.
-              </p>
-              <p>
-                <strong>User Responsibility:</strong> Users must ensure
-                compliance with applicable laws and regulations when using these
-                tools. We reserve the right to modify or discontinue any tool
-                without notice.
-              </p>
             </div>
           </div>
         </div>

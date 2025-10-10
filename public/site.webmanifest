@@ -1,16 +1,7 @@
 {
-  "name": "Haoin Tools - Free Online Productivity Tools",
+  "name": "Haoin Free Online Tools",
   "short_name": "Haoin Tools",
-  "description": "Free online tools for developers, designers and everyone. No registration required.",
-  "start_url": "/",
-  "display": "standalone",
-  "theme_color": "#ec4899",
-  "background_color": "#ffffff",
-  "orientation": "any",
-  "scope": "/",
-  "lang": "en",
-  "dir": "ltr",
-  "categories": ["productivity", "utilities", "tools"],
+  "description": "30+ free online tools for text processing, image editing, code generation, calculators and more",
   "icons": [
     {
       "src": "/favicon-16x16.png",
@@ -26,19 +17,11 @@
       "src": "/apple-touch-icon.png",
       "sizes": "180x180",
       "type": "image/png"
-    },
-    {
-      "src": "/android-chrome-192x192.png",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "any maskable"
-    },
-    {
-      "src": "/android-chrome-512x512.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "any maskable"
     }
-  ]
+  ],
+  "theme_color": "#FF6B9D",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "start_url": "/",
+  "scope": "/"
 }
-
