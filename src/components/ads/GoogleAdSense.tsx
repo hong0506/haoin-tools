@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { adSenseConfig } from "@/config/adsense-config";
 
 interface GoogleAdSenseProps {
   adSlot: string;
@@ -21,7 +22,7 @@ export const GoogleAdSense: React.FC<GoogleAdSenseProps> = ({
         script.async = true;
         script.src =
           "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js";
-        script.setAttribute("data-ad-client", "ca-pub-xxxxxxxxxx"); // 替换为你的AdSense ID
+        script.setAttribute("data-ad-client", adSenseConfig.publisherId);
         document.head.appendChild(script);
       }
     };
@@ -50,7 +51,7 @@ export const GoogleAdSense: React.FC<GoogleAdSenseProps> = ({
           display: "block",
           ...adStyle,
         }}
-        data-ad-client="ca-pub-xxxxxxxxxx" // 替换为你的AdSense ID
+        data-ad-client={adSenseConfig.publisherId}
         data-ad-slot={adSlot}
         data-ad-format={adFormat}
         data-full-width-responsive="true"

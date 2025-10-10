@@ -35,8 +35,8 @@ export const defaultAdConfig: AdConfig = {
     },
   },
   providers: {
-    googleAdsense: false, // 设置为true以启用Google AdSense
-    custom: true, // 自定义广告
+    googleAdsense: true, // 启用Google AdSense
+    custom: false, // 禁用自定义广告
   },
 };
 

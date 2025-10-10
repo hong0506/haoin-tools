@@ -3,6 +3,7 @@ import { AdBanner } from "./AdBanner";
 import { SidebarAd } from "./SidebarAd";
 import { GoogleAdSense, AdSenseBanner, AdSenseSidebar } from "./GoogleAdSense";
 import { defaultAdConfig, shouldShowAd } from "@/config/ads";
+import { adSenseConfig } from "@/config/adsense-config";
 
 interface AdManagerProps {
   page: "homepage" | "toolPage";
