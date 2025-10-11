@@ -49,6 +49,9 @@ import JsonToCsv from "./pages/tools/JsonToCsv";
 import XmlToJson from "./pages/tools/XmlToJson";
 import MarkdownToHtml from "./pages/tools/MarkdownToHtml";
 import DiscountCalculator from "./pages/tools/DiscountCalculator";
+import PasswordStrengthChecker from "./pages/tools/PasswordStrengthChecker";
+import EmailValidator from "./pages/tools/EmailValidator";
+import StopwatchTimer from "./pages/tools/StopwatchTimer";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import CookiePolicy from "./pages/CookiePolicy";
 import TermsOfService from "./pages/TermsOfService";
@@ -230,6 +233,18 @@ const App = () => (
                       <Route
                         path="/tools/discount-calculator"
                         element={<DiscountCalculator />}
+                      />
+                      <Route
+                        path="/tools/password-strength-checker"
+                        element={<PasswordStrengthChecker />}
+                      />
+                      <Route
+                        path="/tools/email-validator"
+                        element={<EmailValidator />}
+                      />
+                      <Route
+                        path="/tools/stopwatch-timer"
+                        element={<StopwatchTimer />}
                       />
                       <Route path="/privacy" element={<PrivacyPolicy />} />
                       <Route path="/cookies" element={<CookiePolicy />} />
