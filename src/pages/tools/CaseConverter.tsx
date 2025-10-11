@@ -149,11 +149,11 @@ const CaseConverter = () => {
           <CardHeader>
             <div className="flex items-center justify-between">
               <div>
-                <CardTitle>Text Case Converter</CardTitle>
-                <CardDescription>
+            <CardTitle>Text Case Converter</CardTitle>
+            <CardDescription>
                   Convert text between different cases: uppercase, lowercase,
                   title case, and more
-                </CardDescription>
+            </CardDescription>
               </div>
               <FavoriteButton
                 toolId="case-converter"

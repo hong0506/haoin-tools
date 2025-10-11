@@ -82,7 +82,7 @@ export const Footer = () => {
                 Haoin Free Online Tools
               </h3>
               <p className="text-sm text-muted-foreground leading-relaxed mb-4">
-                Access 30+ free online tools instantly - text processing, image
+                Access 50+ free online tools instantly - text processing, image
                 editing, converters, generators, calculators and more. No
                 registration required.
               </p>
@@ -275,7 +275,7 @@ export const Footer = () => {
                 <div className="text-center md:text-left">
                   © {currentYear}{" "}
                   <span className="font-semibold text-primary">
-                    杭州皓萤科技有限公司 (Hangzhou Haoin Technology Co., Ltd.)
+                    Haoin Technology Co., Ltd.
                   </span>
                   . All rights reserved.
                 </div>
@@ -289,16 +289,17 @@ export const Footer = () => {
                   </a>
                 </div>
               </div>
-              <div className="text-center text-xs text-muted-foreground/70">
-                <a 
-                  href="https://beian.miit.gov.cn" 
-                  target="_blank" 
+              {/* <div className="text-center text-xs text-muted-foreground/70">
+                <a
+                  href="https://beian.miit.gov.cn"
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-primary transition-colors"
                 >
-                  ICP备案号: [待补充] {/* Replace with actual ICP number when available */}
+                  ICP备案号: [待补充]{" "}
+                  Replace with actual ICP number when available
                 </a>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

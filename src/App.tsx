@@ -52,6 +52,16 @@ import DiscountCalculator from "./pages/tools/DiscountCalculator";
 import PasswordStrengthChecker from "./pages/tools/PasswordStrengthChecker";
 import EmailValidator from "./pages/tools/EmailValidator";
 import StopwatchTimer from "./pages/tools/StopwatchTimer";
+import JwtDecoder from "./pages/tools/JwtDecoder";
+import SqlFormatter from "./pages/tools/SqlFormatter";
+import CodeMinifier from "./pages/tools/CodeMinifier";
+import HttpStatusCodes from "./pages/tools/HttpStatusCodes";
+import ApiTester from "./pages/tools/ApiTester";
+import WhitespaceRemover from "./pages/tools/WhitespaceRemover";
+import PomodoroTimer from "./pages/tools/PomodoroTimer";
+import IpLookup from "./pages/tools/IpLookup";
+import BarcodeGenerator from "./pages/tools/BarcodeGenerator";
+import ColorGradientGenerator from "./pages/tools/ColorGradientGenerator";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import CookiePolicy from "./pages/CookiePolicy";
 import TermsOfService from "./pages/TermsOfService";
@@ -245,6 +255,40 @@ const App = () => (
                       <Route
                         path="/tools/stopwatch-timer"
                         element={<StopwatchTimer />}
+                      />
+                      <Route
+                        path="/tools/jwt-decoder"
+                        element={<JwtDecoder />}
+                      />
+                      <Route
+                        path="/tools/sql-formatter"
+                        element={<SqlFormatter />}
+                      />
+                      <Route
+                        path="/tools/code-minifier"
+                        element={<CodeMinifier />}
+                      />
+                      <Route
+                        path="/tools/http-status-codes"
+                        element={<HttpStatusCodes />}
+                      />
+                      <Route path="/tools/api-tester" element={<ApiTester />} />
+                      <Route
+                        path="/tools/whitespace-remover"
+                        element={<WhitespaceRemover />}
+                      />
+                      <Route
+                        path="/tools/pomodoro-timer"
+                        element={<PomodoroTimer />}
+                      />
+                      <Route path="/tools/ip-lookup" element={<IpLookup />} />
+                      <Route
+                        path="/tools/barcode-generator"
+                        element={<BarcodeGenerator />}
+                      />
+                      <Route
+                        path="/tools/color-gradient-generator"
+                        element={<ColorGradientGenerator />}
                       />
                       <Route path="/privacy" element={<PrivacyPolicy />} />
                       <Route path="/cookies" element={<CookiePolicy />} />

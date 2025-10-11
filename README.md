@@ -6,7 +6,7 @@ A modern online tools collection website providing various practical utilities.
 
 **Haoin Tools** (https://haointools.com) is a feature-rich online tools platform, providing convenient tool services for developers, designers and all users.
 
-**Operated by:** 杭州皓萤科技有限公司 (Haoin Tech Co., Ltd.)  
+**Operated by:** Haoin Tech Co., Ltd.
 **Contact:** contact@haoin.tech  
 **Domains:** haointools.com | haoin.tech
 
@@ -24,7 +24,7 @@ A modern online tools collection website providing various practical utilities.
 
 ### 前置要求
 
-- Node.js 16+ 
+- Node.js 16+
 - npm 或 yarn
 
 ### 本地开发
@@ -56,6 +56,7 @@ npm run preview
 ## 功能特性
 
 ### 💰 金融工具
+
 - 贷款计算器
 - 利息计算器
 - 投资计算器
@@ -63,17 +64,20 @@ npm run preview
 - 信用卡计算器
 
 ### 🔧 实用工具
+
 - 单位转换器
 - 年龄计算器
 - 日期计算器
 - 随机选择器
 
 ### 🖼️ 图像工具
+
 - 图片压缩器
 - 图片大小调整
 - 颜色选择器
 
 ### 📝 文本工具
+
 - 大小写转换
 - 字数统计
 - 文本对比
@@ -81,6 +85,7 @@ npm run preview
 - Markdown 预览
 
 ### 🔄 转换工具
+
 - Base64 编解码
 - URL 编解码
 - JSON 格式化
@@ -89,6 +94,7 @@ npm run preview
 - 时间戳转换
 
 ### 🎲 生成器工具
+
 - UUID 生成器
 - 密码生成器
 - 二维码生成器
@@ -96,10 +102,12 @@ npm run preview
 - 哈希生成器
 
 ### 🧮 计算器工具
+
 - 百分比计算器
 - BMI 计算器
 
 ### 💻 开发工具
+
 - 正则表达式测试器
 - JSON 格式化器
 - 哈希生成器

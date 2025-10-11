@@ -74,7 +74,7 @@ const Index = () => {
               <span className="gradient-text">Haoin Free Online Tools</span>
               <br />
               <span className="gradient-text-accent">
-                30+ Free Web Tools 🚀
+                50+ Free Web Tools 🚀
               </span>
             </h1>
 

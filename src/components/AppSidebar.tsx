@@ -39,7 +39,7 @@ export function AppSidebar() {
               Haoin Free Online Tools
             </h1>
             <p className="text-xs font-semibold text-primary/70">
-              ✨ 30+ Free Web Tools
+              ✨ 50+ Free Web Tools
             </p>
           </div>
         </NavLink>

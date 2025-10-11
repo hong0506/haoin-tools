@@ -12,92 +12,90 @@ import {
 } from "@/components/ui/card";
 import { toast } from "sonner";
 import {
-  KeyRound,
+  Space,
   Copy,
   RotateCcw,
   Lightbulb,
   ArrowLeft,
-  Shield,
   Zap,
   Info,
-  Lock,
-  CheckCircle,
-  AlertTriangle,
+  Code2,
+  FileText,
+  AlignLeft,
 } from "lucide-react";
 import { FavoriteButton } from "@/components/FavoriteButton";
 import { Badge } from "@/components/ui/badge";
+import { Checkbox } from "@/components/ui/checkbox";
 
-const JwtDecoder = () => {
-  const [token, setToken] = useState("");
-  const [header, setHeader] = useState("");
-  const [payload, setPayload] = useState("");
-  const [signature, setSignature] = useState("");
-  const [isValid, setIsValid] = useState<boolean | null>(null);
+const WhitespaceRemover = () => {
+  const [inputText, setInputText] = useState("");
+  const [outputText, setOutputText] = useState("");
+  const [removeExtraSpaces, setRemoveExtraSpaces] = useState(true);
+  const [removeLineBreaks, setRemoveLineBreaks] = useState(false);
+  const [removeTabs, setRemoveTabs] = useState(true);
+  const [trimLines, setTrimLines] = useState(true);
   const navigate = useNavigate();
 
-  const decodeJwt = () => {
-    try {
-      if (!token.trim()) {
-        toast.error("Please enter a JWT token");
-        return;
-      }
-
-      const parts = token.split(".");
-      if (parts.length !== 3) {
-        toast.error("Invalid JWT format");
-        setIsValid(false);
-        return;
-      }
-
-      // Decode header
-      const decodedHeader = JSON.parse(
-        atob(parts[0].replace(/-/g, "+").replace(/_/g, "/"))
-      );
-      setHeader(JSON.stringify(decodedHeader, null, 2));
-
-      // Decode payload
-      const decodedPayload = JSON.parse(
-        atob(parts[1].replace(/-/g, "+").replace(/_/g, "/"))
-      );
-      setPayload(JSON.stringify(decodedPayload, null, 2));
-
-      // Signature (can't decode without secret)
-      setSignature(parts[2]);
-
-      setIsValid(true);
-      toast.success("JWT decoded successfully!");
-    } catch (error) {
-      toast.error("Invalid JWT token");
-      setIsValid(false);
-      setHeader("");
-      setPayload("");
-      setSignature("");
+  const processText = () => {
+    if (!inputText.trim()) {
+      toast.error("Please enter some text first");
+      return;
     }
+
+    let result = inputText;
+
+    // Remove tabs
+    if (removeTabs) {
+      result = result.replace(/\t/g, " ");
+    }
+
+    // Remove extra spaces (multiple spaces to single space)
+    if (removeExtraSpaces) {
+      result = result.replace(/ +/g, " ");
+    }
+
+    // Trim each line
+    if (trimLines) {
+      result = result
+        .split("\n")
+        .map((line) => line.trim())
+        .join("\n");
+    }
+
+    // Remove line breaks
+    if (removeLineBreaks) {
+      result = result.replace(/\n+/g, " ");
+    } else {
+      // Remove empty lines
+      result = result.replace(/\n\s*\n/g, "\n");
+    }
+
+    setOutputText(result.trim());
+    toast.success("Whitespace removed!");
   };
 
-  const copyToClipboard = (text: string, label: string) => {
-    navigator.clipboard.writeText(text);
-    toast.success(`${label} copied to clipboard!`);
+  const copyToClipboard = () => {
+    navigator.clipboard.writeText(outputText);
+    toast.success("Copied to clipboard!");
   };
 
   const clearAll = () => {
-    setToken("");
-    setHeader("");
-    setPayload("");
-    setSignature("");
-    setIsValid(null);
+    setInputText("");
+    setOutputText("");
     toast.success("All fields cleared");
   };
 
   const loadExample = () => {
-    const exampleToken =
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiZW1haWwiOiJqb2huQGV4YW1wbGUuY29tIiwiaWF0IjoxNTE2MjM5MDIyLCJleHAiOjE3MTYyMzkwMjJ9.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c";
-    setToken(exampleToken);
-    setHeader("");
-    setPayload("");
-    setSignature("");
-    setIsValid(null);
-    toast.success("Example JWT loaded");
+    setInputText(`This    text    has    extra    spaces.
+
+    
+And     some     empty     lines.
+
+	It also	has	tabs.
+  
+  And spaces at the   beginning   and   end.  `);
+    setOutputText("");
+    toast.success("Example loaded");
   };
 
   return (
@@ -114,8 +112,8 @@ const JwtDecoder = () => {
           </Button>
           <SidebarTrigger />
           <div className="flex items-center gap-2">
-            <KeyRound className="h-5 w-5 text-primary" />
-            <h1 className="text-xl font-semibold">JWT Decoder</h1>
+            <Space className="h-5 w-5 text-primary" />
+            <h1 className="text-xl font-semibold">Whitespace Remover</h1>
           </div>
         </div>
       </header>
@@ -125,12 +123,15 @@ const JwtDecoder = () => {
           <CardHeader>
             <div className="flex items-center justify-between">
               <div>
-                <CardTitle>Decode JWT Token</CardTitle>
+                <CardTitle>Remove Extra Whitespace</CardTitle>
                 <CardDescription>
-                  Decode and inspect JWT (JSON Web Token) header and payload
+                  Clean up spaces, tabs, and line breaks from text
                 </CardDescription>
               </div>
-              <FavoriteButton toolId="jwt-decoder" toolName="JWT Decoder" />
+              <FavoriteButton
+                toolId="whitespace-remover"
+                toolName="Whitespace Remover"
+              />
             </div>
           </CardHeader>
           <CardContent className="space-y-4">
@@ -147,112 +148,115 @@ const JwtDecoder = () => {
 
             <div>
               <label className="mb-2 block text-sm font-medium">
-                JWT Token
+                Input Text
               </label>
               <Textarea
-                value={token}
-                onChange={(e) => setToken(e.target.value)}
-                placeholder="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
-                className="min-h-[120px] font-mono text-sm"
+                value={inputText}
+                onChange={(e) => setInputText(e.target.value)}
+                placeholder="Enter text with extra spaces, tabs, or line breaks..."
+                className="min-h-[200px] font-mono text-sm"
               />
+              <div className="text-xs text-muted-foreground mt-1">
+                Characters: {inputText.length}
+              </div>
             </div>
 
-            <Button onClick={decodeJwt} className="w-full">
-              <KeyRound className="h-4 w-4 mr-2" />
-              Decode JWT
+            <div className="space-y-3 p-4 bg-gray-50 dark:bg-gray-900 rounded-lg">
+              <div className="text-sm font-medium mb-2">Options:</div>
+
+              <div className="flex items-center space-x-2">
+                <Checkbox
+                  id="extra-spaces"
+                  checked={removeExtraSpaces}
+                  onCheckedChange={(checked) =>
+                    setRemoveExtraSpaces(checked as boolean)
+                  }
+                />
+                <label
+                  htmlFor="extra-spaces"
+                  className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                >
+                  Remove extra spaces (multiple spaces → single space)
+                </label>
+              </div>
+
+              <div className="flex items-center space-x-2">
+                <Checkbox
+                  id="tabs"
+                  checked={removeTabs}
+                  onCheckedChange={(checked) =>
+                    setRemoveTabs(checked as boolean)
+                  }
+                />
+                <label
+                  htmlFor="tabs"
+                  className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                >
+                  Remove tabs (convert to spaces)
+                </label>
+              </div>
+
+              <div className="flex items-center space-x-2">
+                <Checkbox
+                  id="trim-lines"
+                  checked={trimLines}
+                  onCheckedChange={(checked) =>
+                    setTrimLines(checked as boolean)
+                  }
+                />
+                <label
+                  htmlFor="trim-lines"
+                  className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                >
+                  Trim spaces from beginning/end of each line
+                </label>
+              </div>
+
+              <div className="flex items-center space-x-2">
+                <Checkbox
+                  id="line-breaks"
+                  checked={removeLineBreaks}
+                  onCheckedChange={(checked) =>
+                    setRemoveLineBreaks(checked as boolean)
+                  }
+                />
+                <label
+                  htmlFor="line-breaks"
+                  className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                >
+                  Remove all line breaks (make single line)
+                </label>
+              </div>
+            </div>
+
+            <Button onClick={processText} className="w-full">
+              <Space className="h-4 w-4 mr-2" />
+              Remove Whitespace
             </Button>
 
-            {isValid !== null && (
-              <div
-                className={`flex items-center gap-2 p-3 rounded-lg ${
-                  isValid
-                    ? "bg-green-50 border border-green-200"
-                    : "bg-red-50 border border-red-200"
-                }`}
-              >
-                {isValid ? (
-                  <>
-                    <CheckCircle className="h-5 w-5 text-green-600" />
-                    <span className="text-sm font-medium text-green-900">
-                      Valid JWT Format
-                    </span>
-                  </>
-                ) : (
-                  <>
-                    <AlertTriangle className="h-5 w-5 text-red-600" />
-                    <span className="text-sm font-medium text-red-900">
-                      Invalid JWT Format
-                    </span>
-                  </>
-                )}
-              </div>
-            )}
-
-            {header && (
+            {outputText && (
               <div>
                 <div className="mb-2 flex items-center justify-between">
-                  <label className="text-sm font-medium">Header</label>
-                  <Button
-                    onClick={() => copyToClipboard(header, "Header")}
-                    size="sm"
-                    variant="ghost"
-                  >
+                  <label className="text-sm font-medium">Output</label>
+                  <Button onClick={copyToClipboard} size="sm" variant="ghost">
                     <Copy className="mr-2 h-4 w-4" />
                     Copy
                   </Button>
                 </div>
                 <Textarea
-                  value={header}
+                  value={outputText}
                   readOnly
-                  className="min-h-[100px] font-mono text-sm bg-blue-50/50"
+                  className="min-h-[200px] font-mono text-sm bg-green-50 dark:bg-green-950/20"
                 />
-              </div>
-            )}
-
-            {payload && (
-              <div>
-                <div className="mb-2 flex items-center justify-between">
-                  <label className="text-sm font-medium">Payload</label>
-                  <Button
-                    onClick={() => copyToClipboard(payload, "Payload")}
-                    size="sm"
-                    variant="ghost"
-                  >
-                    <Copy className="mr-2 h-4 w-4" />
-                    Copy
-                  </Button>
+                <div className="text-xs text-muted-foreground mt-1">
+                  Characters: {outputText.length} (Reduced by{" "}
+                  {(
+                    ((inputText.length - outputText.length) /
+                      inputText.length) *
+                    100
+                  ).toFixed(1)}
+                  %)
                 </div>
-                <Textarea
-                  value={payload}
-                  readOnly
-                  className="min-h-[150px] font-mono text-sm bg-purple-50/50"
-                />
-              </div>
-            )}
-
-            {signature && (
-              <div>
-                <div className="mb-2 flex items-center justify-between">
-                  <label className="text-sm font-medium">
-                    Signature (Base64)
-                  </label>
-                  <Button
-                    onClick={() => copyToClipboard(signature, "Signature")}
-                    size="sm"
-                    variant="ghost"
-                  >
-                    <Copy className="mr-2 h-4 w-4" />
-                    Copy
-                  </Button>
-                </div>
-                <Textarea
-                  value={signature}
-                  readOnly
-                  className="min-h-[80px] font-mono text-sm bg-amber-50/50"
-                />
-                <p className="text-xs text-muted-foreground mt-2">
-                  ⚠️ Signature verification requires the secret key
-                </p>
               </div>
             )}
           </CardContent>
@@ -262,10 +266,12 @@ const JwtDecoder = () => {
         <Card className="mt-6 bg-gradient-to-r from-blue-50 via-purple-50 to-pink-50 border-blue-200">
           <CardContent className="pt-6">
             <p className="text-gray-700 leading-relaxed">
-              <strong className="text-gray-900">What is JWT Decoder?</strong>{" "}
-              This tool decodes JWT (JSON Web Tokens) to inspect the header,
-              payload, and signature. Perfect for debugging authentication,
-              testing APIs, and understanding token structure! 🔐
+              <strong className="text-gray-900">
+                What is Whitespace Remover?
+              </strong>{" "}
+              This tool removes extra spaces, tabs, and line breaks from text.
+              Perfect for cleaning up copied text, code formatting, or data
+              preparation! 🧹
             </p>
           </CardContent>
         </Card>
@@ -282,56 +288,60 @@ const JwtDecoder = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-purple-50 to-purple-100/50 border border-purple-200">
                 <div className="p-2 bg-white rounded-lg h-fit">
-                  <Shield className="h-5 w-5 text-purple-600" />
+                  <Code2 className="h-5 w-5 text-purple-600" />
                 </div>
                 <div>
                   <div className="font-semibold text-purple-900">
-                    Authentication
+                    Code Cleanup
                   </div>
                   <p className="text-sm text-purple-700">
-                    Decode{" "}
+                    Remove{" "}
                     <Badge variant="secondary" className="mx-1">
-                      auth tokens
+                      extra spaces
                     </Badge>{" "}
-                    to inspect user claims and roles
+                    from code snippets
                   </p>
                 </div>
               </div>
 
               <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-blue-50 to-blue-100/50 border border-blue-200">
                 <div className="p-2 bg-white rounded-lg h-fit">
-                  <CheckCircle className="h-5 w-5 text-blue-600" />
+                  <FileText className="h-5 w-5 text-blue-600" />
                 </div>
                 <div>
-                  <div className="font-semibold text-blue-900">Debugging</div>
+                  <div className="font-semibold text-blue-900">
+                    Text Processing
+                  </div>
                   <p className="text-sm text-blue-700">
-                    Debug JWT issues in API authentication flows
+                    Clean up copied text from PDFs or websites
                   </p>
                 </div>
               </div>
 
               <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-green-50 to-green-100/50 border border-green-200">
                 <div className="p-2 bg-white rounded-lg h-fit">
-                  <Lock className="h-5 w-5 text-green-600" />
+                  <AlignLeft className="h-5 w-5 text-green-600" />
                 </div>
                 <div>
                   <div className="font-semibold text-green-900">
-                    Token Analysis
+                    Data Preparation
                   </div>
                   <p className="text-sm text-green-700">
-                    Analyze token expiration, issuer, and claims
+                    Format data for CSV or database import
                   </p>
                 </div>
               </div>
 
               <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-pink-50 to-pink-100/50 border border-pink-200">
                 <div className="p-2 bg-white rounded-lg h-fit">
-                  <KeyRound className="h-5 w-5 text-pink-600" />
+                  <Space className="h-5 w-5 text-pink-600" />
                 </div>
                 <div>
-                  <div className="font-semibold text-pink-900">API Testing</div>
+                  <div className="font-semibold text-pink-900">
+                    Content Writing
+                  </div>
                   <p className="text-sm text-pink-700">
-                    Inspect tokens during API development and testing
+                    Remove formatting issues from documents
                   </p>
                 </div>
               </div>
@@ -352,29 +362,29 @@ const JwtDecoder = () => {
               <div className="flex gap-2 items-start">
                 <div className="text-amber-600 font-bold">→</div>
                 <p className="text-sm text-amber-900">
-                  <strong>Security:</strong> JWT decoding is safe - it's just
-                  Base64 decoding
+                  <strong>Options:</strong> Customize what to remove with
+                  checkboxes
                 </p>
               </div>
               <div className="flex gap-2 items-start">
                 <div className="text-amber-600 font-bold">→</div>
                 <p className="text-sm text-amber-900">
-                  <strong>Expiration:</strong> Check 'exp' claim for token
-                  expiration time
+                  <strong>Line Breaks:</strong> Keep for multi-line, remove for
+                  single line
                 </p>
               </div>
               <div className="flex gap-2 items-start">
                 <div className="text-amber-600 font-bold">→</div>
                 <p className="text-sm text-amber-900">
-                  <strong>Claims:</strong> Payload contains user data and
-                  permissions
+                  <strong>Trim Lines:</strong> Removes leading/trailing spaces
+                  per line
                 </p>
               </div>
               <div className="flex gap-2 items-start">
                 <div className="text-amber-600 font-bold">→</div>
                 <p className="text-sm text-amber-900">
-                  <strong>Verification:</strong> Signature needs secret key to
-                  verify
+                  <strong>Preview:</strong> See reduction percentage after
+                  processing
                 </p>
               </div>
             </div>
@@ -389,36 +399,36 @@ const JwtDecoder = () => {
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
               <button
-                onClick={() => navigate("/tools/base64")}
+                onClick={() => navigate("/tools/text-sorter")}
                 className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
               >
                 <div className="font-semibold text-gray-900 group-hover:text-primary">
-                  Base64 Tool
+                  Text Sorter
                 </div>
                 <div className="text-sm text-gray-600 mt-1">
-                  Encode/decode Base64
+                  Sort text lines
                 </div>
               </button>
               <button
-                onClick={() => navigate("/tools/json-formatter")}
+                onClick={() => navigate("/tools/duplicate-remover")}
                 className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
               >
                 <div className="font-semibold text-gray-900 group-hover:text-primary">
-                  JSON Formatter
+                  Duplicate Remover
                 </div>
                 <div className="text-sm text-gray-600 mt-1">
-                  Format JSON data
+                  Remove duplicate lines
                 </div>
               </button>
               <button
-                onClick={() => navigate("/tools/hash-generator")}
+                onClick={() => navigate("/tools/text-replacer")}
                 className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
               >
                 <div className="font-semibold text-gray-900 group-hover:text-primary">
-                  Hash Generator
+                  Text Replacer
                 </div>
                 <div className="text-sm text-gray-600 mt-1">
-                  Generate hashes
+                  Find and replace text
                 </div>
               </button>
             </div>
@@ -429,4 +439,4 @@ const JwtDecoder = () => {
   );
 };
 
-export default JwtDecoder;
+export default WhitespaceRemover;
