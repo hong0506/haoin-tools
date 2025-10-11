@@ -352,7 +352,8 @@ export const Footer = () => {
                 <button
                   onClick={() => {
                     navigator.clipboard.writeText(modalData.account);
-                    alert("Account copied to clipboard!");
+                    // Using native alert for better compatibility without toast import
+                    setTimeout(() => alert("✓ Account ID copied!"), 100);
                   }}
                   className="px-5 py-1.5 bg-gradient-to-r from-pink-500 to-purple-500 text-white text-sm rounded-full hover:shadow-lg transition-all hover:scale-105"
                 >

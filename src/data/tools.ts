@@ -480,7 +480,7 @@ export const tools: Tool[] = [
     badge: "Productivity",
     badgeVariant: "purple",
     path: "/tools/pomodoro-timer",
-    icon: "Tomato",
+    icon: "Clock",
   },
   {
     id: "whitespace-remover",

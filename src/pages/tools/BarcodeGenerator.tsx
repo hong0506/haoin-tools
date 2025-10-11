@@ -112,7 +112,6 @@ const BarcodeGenerator = () => {
             }
           };
           img.onerror = (error) => {
-            console.error("Image load error:", error);
             reject(error);
           };
           img.src = barcodeUrl;
@@ -135,7 +134,6 @@ const BarcodeGenerator = () => {
 
       toast.success(`Barcode downloaded as ${format.toUpperCase()}!`);
     } catch (error) {
-      console.error("Download error:", error);
       toast.error(`Failed to download barcode as ${format.toUpperCase()}`);
     }
   };
