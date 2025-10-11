@@ -20,6 +20,7 @@ import {
   Replace,
   Zap,
   Info,
+  Copy,
 } from "lucide-react";
 import { toast } from "sonner";
 import { FavoriteButton } from "@/components/FavoriteButton";
@@ -59,7 +60,9 @@ const TextReplacer = () => {
         result = inputText.replace(regex, replaceText);
       }
 
-      const count = (inputText.match(new RegExp(findText, caseSensitive ? "g" : "gi"))?.length || 0);
+      const count =
+        inputText.match(new RegExp(findText, caseSensitive ? "g" : "gi"))
+          ?.length || 0;
       setResultText(result);
       toast.success(`Replaced ${count} occurrence(s)`);
     } catch (error) {
@@ -82,6 +85,13 @@ const TextReplacer = () => {
     setFindText("World");
     setReplaceText("Universe");
     toast.success("Example loaded");
+  };
+
+  const copyToClipboard = () => {
+    if (resultText) {
+      navigator.clipboard.writeText(resultText);
+      toast.success("Copied to clipboard!");
+    }
   };
 
   return (
@@ -111,10 +121,7 @@ const TextReplacer = () => {
                   Find and replace text with support for regular expressions
                 </CardDescription>
               </div>
-              <FavoriteButton
-                toolId="text-replacer"
-                toolName="Text Replacer"
-              />
+              <FavoriteButton toolId="text-replacer" toolName="Text Replacer" />
             </div>
           </CardHeader>
           <CardContent className="space-y-4">
@@ -166,7 +173,9 @@ const TextReplacer = () => {
                 <Checkbox
                   id="case-sensitive"
                   checked={caseSensitive}
-                  onCheckedChange={(checked) => setCaseSensitive(checked as boolean)}
+                  onCheckedChange={(checked) =>
+                    setCaseSensitive(checked as boolean)
+                  }
                 />
                 <label
                   htmlFor="case-sensitive"
@@ -197,7 +206,13 @@ const TextReplacer = () => {
 
             {resultText && (
               <div>
-                <Label>Result</Label>
+                <div className="flex items-center justify-between mb-2">
+                  <Label>Result</Label>
+                  <Button variant="outline" size="sm" onClick={copyToClipboard}>
+                    <Copy className="h-4 w-4 mr-2" />
+                    Copy
+                  </Button>
+                </div>
                 <Textarea
                   value={resultText}
                   readOnly
@@ -213,10 +228,11 @@ const TextReplacer = () => {
         <Card className="mt-6 bg-gradient-to-r from-blue-50 via-purple-50 to-pink-50 border-blue-200">
           <CardContent className="pt-6">
             <p className="text-gray-700 leading-relaxed">
-              <strong className="text-gray-900">
-                What is Text Replacer?
-              </strong>{" "}
-              This powerful tool allows you to find and replace text with support for regular expressions, case sensitivity, and batch processing. Perfect for developers, writers, and data processors who need quick text transformations! 🔍
+              <strong className="text-gray-900">What is Text Replacer?</strong>{" "}
+              This powerful tool allows you to find and replace text with
+              support for regular expressions, case sensitivity, and batch
+              processing. Perfect for developers, writers, and data processors
+              who need quick text transformations! 🔍
             </p>
           </CardContent>
         </Card>
@@ -236,7 +252,9 @@ const TextReplacer = () => {
                   <Replace className="h-5 w-5 text-blue-600" />
                 </div>
                 <div>
-                  <div className="font-semibold text-blue-900">Batch Editing</div>
+                  <div className="font-semibold text-blue-900">
+                    Batch Editing
+                  </div>
                   <p className="text-sm text-blue-700">
                     Replace multiple instances of text across large documents
                   </p>
@@ -276,9 +294,7 @@ const TextReplacer = () => {
                   <Lightbulb className="h-5 w-5 text-pink-600" />
                 </div>
                 <div>
-                  <div className="font-semibold text-pink-900">
-                    URL Updates
-                  </div>
+                  <div className="font-semibold text-pink-900">URL Updates</div>
                   <p className="text-sm text-pink-700">
                     Update links or paths across multiple files
                   </p>
@@ -301,25 +317,29 @@ const TextReplacer = () => {
               <div className="flex gap-2 items-start">
                 <div className="text-amber-600 font-bold">→</div>
                 <p className="text-sm text-amber-900">
-                  <strong>Regex:</strong> Use \d for digits, \w for word characters
+                  <strong>Regex:</strong> Use \d for digits, \w for word
+                  characters
                 </p>
               </div>
               <div className="flex gap-2 items-start">
                 <div className="text-amber-600 font-bold">→</div>
                 <p className="text-sm text-amber-900">
-                  <strong>Global:</strong> All occurrences are replaced automatically
+                  <strong>Global:</strong> All occurrences are replaced
+                  automatically
                 </p>
               </div>
               <div className="flex gap-2 items-start">
                 <div className="text-amber-600 font-bold">→</div>
                 <p className="text-sm text-amber-900">
-                  <strong>Case Match:</strong> Enable case sensitive for exact matches
+                  <strong>Case Match:</strong> Enable case sensitive for exact
+                  matches
                 </p>
               </div>
               <div className="flex gap-2 items-start">
                 <div className="text-amber-600 font-bold">→</div>
                 <p className="text-sm text-amber-900">
-                  <strong>Test First:</strong> Try on a small sample before bulk replace
+                  <strong>Test First:</strong> Try on a small sample before bulk
+                  replace
                 </p>
               </div>
             </div>

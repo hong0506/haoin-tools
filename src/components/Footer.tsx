@@ -270,19 +270,33 @@ export const Footer = () => {
             </div>
 
             {/* Copyright Bar */}
-            <div className="pt-4 flex flex-col md:flex-row justify-between items-center gap-3 text-xs text-muted-foreground">
-              <div>
-                © {currentYear}{" "}
-                <span className="font-semibold text-primary">Haoin Tools</span>.
-                All rights reserved.
+            <div className="pt-4 border-t border-border/50 flex flex-col gap-2">
+              <div className="flex flex-col md:flex-row justify-between items-center gap-3 text-xs text-muted-foreground">
+                <div className="text-center md:text-left">
+                  © {currentYear}{" "}
+                  <span className="font-semibold text-primary">
+                    杭州皓萤科技有限公司 (Hangzhou Haoin Technology Co., Ltd.)
+                  </span>
+                  . All rights reserved.
+                </div>
+                <div>
+                  Email:{" "}
+                  <a
+                    href="mailto:contact@haoin.tech"
+                    className="text-primary hover:underline font-medium"
+                  >
+                    contact@haoin.tech
+                  </a>
+                </div>
               </div>
-              <div>
-                Email:{" "}
-                <a
-                  href="mailto:contact@haoin.tech"
-                  className="text-primary hover:underline font-medium"
+              <div className="text-center text-xs text-muted-foreground/70">
+                <a 
+                  href="https://beian.miit.gov.cn" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="hover:text-primary transition-colors"
                 >
-                  contact@haoin.tech
+                  ICP备案号: [待补充] {/* Replace with actual ICP number when available */}
                 </a>
               </div>
             </div>
