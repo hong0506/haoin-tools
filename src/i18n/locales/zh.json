@@ -59,32 +59,447 @@
     }
   },
   "footer": {
-    "description": "为开发者、设计师和所有人提供的免费在线工具。无需注册，永久100%免费。",
+    "description": "即时访问50+免费在线工具 - 文本处理、图像编辑、转换器、生成器、计算器等。无需注册。",
+    "dataProcessedLocally": "所有数据在您的浏览器中本地处理",
     "quickLinks": "快速链接",
+    "wechat": "微信",
+    "instagram": "Instagram",
+    "home": "首页",
+    "favorites": "收藏夹",
+    "recentlyUsed": "最近使用",
+    "generators": "生成器",
+    "devTools": "开发工具",
     "tools": "工具",
-    "legal": "法律",
+    "legal": "法律信息",
+    "privacyPolicy": "隐私政策",
+    "termsOfService": "服务条款",
+    "cookiePolicy": "Cookie政策",
+    "copyright": "版权",
+    "aboutUs": "关于我们",
     "followUs": "关注我们",
+    "followUsForUpdates": "关注我们获取更新！",
     "language": "语言",
-    "copyright": "© 2024 皓萤工具。保留所有权利。",
-    "madeWith": "用",
-    "by": "制作于"
+    "allRightsReserved": "© 2025 皓萤科技。保留所有权利。",
+    "email": "邮箱：",
+    "privacyFirst": "隐私优先",
+    "privacyDescription": "所有工具在您的浏览器中本地处理数据。我们不存储您的文件或个人数据。",
+    "disclaimer": "免责声明",
+    "disclaimerText": "工具按原样提供，仅用于教育目的。不旨在替代专业建议。对因使用工具或错误造成的损害概不负责。",
+    "advertising": "广告：",
+    "advertisingText": "可能显示第三方广告以支持免费服务。",
+    "userResponsibility": "用户承担所有风险，并且必须确保遵守适用法律。"
   },
   "toolCard": {
     "addedToFavorites": "已添加到收藏夹！",
     "removedFromFavorites": "已从收藏夹移除！"
   },
+  "toolPage": {
+    "buttons": {
+      "clear": "清除",
+      "copy": "复制",
+      "loadExample": "加载示例",
+      "back": "返回"
+    },
+    "messages": {
+      "copied": "已复制到剪贴板！",
+      "cleared": "文本已清除",
+      "exampleLoaded": "示例已加载",
+      "enterText": "请先输入一些文本",
+      "textConverted": "文本已转换！"
+    },
+    "placeholder": "在这里输入您的文本...",
+    "stats": {
+      "characters": "字符",
+      "words": "单词",
+      "lines": "行"
+    },
+    "sections": {
+      "whatIs": "什么是",
+      "commonUseCases": "常见用途",
+      "proTips": "专业提示",
+      "relatedTools": "您可能喜欢的相关工具"
+    }
+  },
+  "privacy": {
+    "title": "隐私政策",
+    "lastUpdated": "最后更新：",
+    "introduction": {
+      "title": "介绍",
+      "content": "欢迎来到皓萤工具！我们尊重您的隐私，并致力于保护您的个人数据。本隐私政策将告知您我们在您访问我们的网站时如何保护您的个人数据，并告诉您您的隐私权利。",
+      "contact": "联系方式："
+    },
+    "dataCollection": {
+      "title": "我们收集的数据",
+      "content": "我们收集最少的数据来为您提供最好的服务：",
+      "usageData": "使用数据：关于您如何使用我们工具的信息",
+      "technicalData": "技术数据：IP地址、浏览器类型和设备信息",
+      "noPersonalFiles": "无个人文件：所有文件处理都在您的浏览器中本地进行"
+    },
+    "dataProtection": {
+      "title": "我们如何保护您的数据",
+      "content": "您的隐私和安全是我们的首要任务：",
+      "clientSide": "客户端处理：所有工具都在您的浏览器中运行",
+      "noStorage": "无数据存储：我们不存储您的文件或个人数据",
+      "noTracking": "无跟踪：我们不使用侵入性跟踪技术",
+      "httpsSecure": "HTTPS安全：所有连接都经过加密"
+    },
+    "advertising": {
+      "title": "第三方广告",
+      "content": "我们可能显示第三方广告以支持我们的免费服务：",
+      "adNetworks": "广告网络：我们与第三方广告合作伙伴合作，他们可能收集匿名使用数据",
+      "cookies": "Cookie：广告商可能使用Cookie来显示相关广告（您可以通过浏览器设置选择退出）",
+      "dataSharing": "数据共享：我们不与广告商共享您的个人信息",
+      "privacyControls": "隐私控制：您可以使用广告拦截器或调整浏览器中的隐私设置",
+      "note": "第三方广告商有自己的隐私政策。我们建议查看他们的政策以获取详细信息。"
+    },
+    "cookies": {
+      "title": "Cookie",
+      "content": "我们仅使用必要的Cookie来确保网站正常运行。我们不使用广告或跟踪Cookie。您可以通过浏览器设置控制Cookie。"
+    },
+    "dataRights": {
+      "title": "国际用户和数据权利",
+      "gdpr": {
+        "title": "对于欧盟用户（GDPR）：",
+        "rights": [
+          "访问您个人数据的权利",
+          "更正或删除的权利",
+          "限制或反对处理的权利",
+          "数据可携权",
+          "撤回同意的权利"
+        ]
+      },
+      "ccpa": {
+        "title": "对于加利福尼亚州用户（CCPA）：",
+        "rights": [
+          "了解收集哪些个人信息的权利",
+          "删除个人信息的权利",
+          "选择退出个人信息销售的权利（我们不销售数据）",
+          "行使权利时不受歧视的权利"
+        ]
+      },
+      "china": "对于中国用户：我们遵守中国数据保护法律，包括《个人信息保护法》（PIPL）。您的数据在您的浏览器中本地处理，未经同意不会传输到中国境外。"
+    },
+    "dataRetention": {
+      "title": "数据保留",
+      "content": "由于所有数据处理都在您的浏览器中本地进行，我们不在服务器上保留您的个人数据。浏览器Cookie和本地存储由您控制，可以随时通过浏览器设置清除。"
+    },
+    "contact": {
+      "title": "联系我们",
+      "content": "如果您对此隐私政策有任何疑问或希望行使您的数据权利，请通过我们的社交媒体渠道联系我们或发送电子邮件至：",
+      "responseTime": "对于隐私相关的投诉或担忧，我们将根据适用的数据保护法律要求在30天内回复。"
+    },
+    "trust": "您的信任对我们很重要。我们致力于保护您的数据安全和隐私。"
+  },
+  "terms": {
+    "title": "服务条款",
+    "lastUpdated": "最后更新：",
+    "agreement": {
+      "title": "📜 条款协议",
+      "content": "通过访问和使用皓萤工具，您接受并同意受本协议条款和规定的约束。如果您不同意遵守这些条款，请不要使用本服务。"
+    },
+    "useOfService": {
+      "title": "✨ 服务使用",
+      "content": "皓萤工具为每个人提供免费的在线工具：",
+      "freeAccess": "🎯 免费访问：所有工具都是免费使用的",
+      "noRegistration": "🚀 无需注册：无需账户",
+      "personalCommercial": "💻 个人和商业用途：用于任何合法目的",
+      "unlimitedUsage": "⚡ 无限制使用：无使用限制或约束"
+    },
+    "prohibited": {
+      "title": "⚠️ 禁止活动",
+      "content": "您同意不得：",
+      "illegal": "❌ 将服务用于任何非法目的",
+      "harm": "❌ 试图伤害或破坏服务",
+      "reverseEngineer": "❌ 逆向工程或复制我们的工具",
+      "automated": "❌ 使用自动化系统滥用服务",
+      "infringe": "❌ 上传、传输或分发任何侵犯知识产权的内容",
+      "violate": "❌ 违反您所在司法管辖区的任何适用法律或法规"
+    },
+    "disclaimer": {
+      "title": "🛡️ 免责声明和责任限制",
+      "content": "服务按现状和可用提供，不提供任何保证。我们努力确保准确性和可靠性，但我们不能保证工具总是无错误或不受干扰。",
+      "important": "重要免责声明：",
+      "financial": "• 财务计算器仅用于信息目的，不构成财务建议",
+      "health": "• 健康相关工具（BMI计算器等）不是医疗建议 - 请咨询专业人士",
+      "liability": "• 我们不对因工具使用或错误造成的任何损失或损害承担责任",
+      "maximum": "• 最大责任仅限于您为服务支付的金额（免费工具为零）"
+    },
+    "intellectualProperty": {
+      "title": "📝 知识产权",
+      "content": "皓萤工具上的所有内容、功能和特性均由我们拥有，并受到国际版权、商标和其他知识产权法律的保护。"
+    },
+    "advertising": {
+      "title": "📺 广告",
+      "content": "为了维持我们的免费服务，我们可能会显示第三方广告：",
+      "networks": "• 广告由第三方广告网络提供",
+      "endorse": "• 我们不认可或对广告产品/服务承担责任",
+      "adContent": "• 广告内容受广告商条款和隐私政策的约束",
+      "transactions": "• 我们不对与广告商的任何交易承担责任"
+    },
+    "governingLaw": {
+      "title": "⚖️ 管辖法律和争议解决",
+      "content": "这些条款受中华人民共和国法律管辖。对于国际用户，当地消费者保护法也可能适用。",
+      "disputes": "任何争议应首先通过友好协商解决。如果协商失败，争议应提交给中国浙江省杭州市有管辖权的法院。"
+    },
+    "changes": {
+      "title": "🔄 条款变更",
+      "content": "我们保留随时修改这些条款的权利。我们将通过更新本页面顶部的最后更新日期来通知用户任何重大变更。变更后继续使用服务即表示接受新条款。"
+    },
+    "contact": {
+      "title": "📧 联系我们",
+      "content": "对我们的服务条款有疑问？请联系我们："
+    },
+    "fairUse": "⚖️ 合理使用：我们相信为每个人提供免费、可访问的工具，同时维护安全可靠的服务。"
+  },
+  "legal": {
+    "title": "法律声明与版权",
+    "lastUpdated": "最后更新：",
+    "copyright": {
+      "title": "📋 版权声明",
+      "content": "本网站（皓萤工具）提供的所有工具和服务均为独立开发。我们尊重并保护知识产权，所有内容使用均符合相关法律法规。",
+      "originalContent": {
+        "title": "原创内容声明",
+        "points": [
+          "所有页面设计、UI布局和交互逻辑均为原创",
+          "基于React、TypeScript等开源技术的代码实现",
+          "使用shadcn/ui开源组件库构建用户界面",
+          "基于公开算法和技术标准的工具功能实现"
+        ]
+      },
+      "technicalImplementation": {
+        "title": "技术实现",
+        "content": "本网站工具的核心算法和功能基于以下公开技术和标准：",
+        "points": [
+          "Base64编码/解码：符合RFC 4648标准",
+          "JSON格式化：基于JSON规范实现",
+          "哈希生成：使用Web Crypto API",
+          "其他工具：均基于公开技术标准和算法"
+        ]
+      }
+    },
+    "technologyStack": {
+      "title": "💻 技术栈",
+      "content": "本网站基于以下开源技术构建：",
+      "points": [
+        "前端框架：React 18 + TypeScript",
+        "路由：React Router v6",
+        "UI组件：shadcn/ui (Radix UI + Tailwind CSS)",
+        "样式：Tailwind CSS",
+        "构建工具：Vite",
+        "状态管理：React Context API"
+      ],
+      "note": "所有使用的开源库均符合其相应的开源许可证（MIT、Apache 2.0等）。我们对这些优秀的开源项目表示诚挚的感谢。"
+    },
+    "usageTerms": {
+      "title": "📜 使用条款与免责声明",
+      "usageLicense": {
+        "title": "使用许可",
+        "content": "本网站提供的所有工具均免费供个人和商业使用。我们不收集、存储或传输您在工具中输入的任何数据；所有处理均在您的浏览器中本地完成。"
+      },
+      "disclaimer": {
+        "title": "免责声明",
+        "points": [
+          "本网站的工具按\"现状\"提供，不保证准确性",
+          "用户承担使用这些工具所产生的所有风险",
+          "金融计算工具仅供参考，不构成投资建议",
+          "本网站不对因使用或无法使用工具而造成的任何损失负责"
+        ]
+      },
+      "privacyProtection": {
+        "title": "隐私保护",
+        "content": "我们重视您的隐私。本网站的所有工具均在您的浏览器中本地运行，不会将您的数据发送到任何服务器（需要实时数据的工具除外，如货币转换）。"
+      },
+      "contact": {
+        "title": "联系我们",
+        "content": "如果您对本网站的版权、技术实现或其他方面有任何疑问，请通过以下方式联系我们"
+      }
+    },
+    "thirdPartyContent": {
+      "title": "🤝 第三方内容",
+      "content": "本网站的某些功能可能使用第三方API或数据：",
+      "points": [
+        "货币汇率：使用第三方汇率API获取实时数据",
+        "图标：使用Lucide Icons开源图标库（MIT许可证）",
+        "字体：使用系统默认字体或Google字体",
+        "广告：可能显示第三方广告（Google AdSense）以支持免费服务"
+      ],
+      "note": "我们致力于确保所有第三方内容的合法使用。如果您发现任何侵权内容，请立即通过contact@haoin.tech联系我们，我们将在24小时内处理。"
+    },
+    "dmca": {
+      "title": "⚠️ DMCA版权侵权通知",
+      "content": "皓萤工具尊重知识产权，遵守美国数字千年版权法案（DMCA）的规定。如果您认为本网站的内容侵犯了您的版权，请按照以下程序通知我们。",
+      "requirements": {
+        "title": "DMCA下架通知要求",
+        "content": "您的通知必须包含以下信息：",
+        "points": [
+          "您的物理或电子签名（作为版权所有者或其授权代表）",
+          "涉嫌侵权材料的准确描述和位置",
+          "您的联系信息（地址、电话号码、电子邮件）",
+          "声明您善意相信该使用未经版权所有者授权",
+          "声明通知中的信息准确，您是版权所有者或其授权代表"
+        ]
+      },
+      "designatedAgent": {
+        "title": "DMCA指定代理人",
+        "agent": "版权代理人 - 皓萤工具",
+        "email": "contact@haoin.tech",
+        "subject": "主题行：\"DMCA下架通知\""
+      },
+      "note": "请注意：根据DMCA规定，故意提供虚假侵权声明可能导致法律责任。我们将在收到有效通知后及时处理。"
+    },
+    "userContent": {
+      "title": "👤 用户内容责任",
+      "content": "本网站的所有工具仅提供处理功能，不存储用户数据。用户负责：",
+      "points": [
+        "确保上传或处理的内容不侵犯他人的知识产权",
+        "确保内容符合相关法律法规",
+        "确保内容不包含非法、有害、威胁、诽谤或淫秽材料",
+        "承担因使用这些工具处理非法内容而产生的所有法律责任"
+      ],
+      "importantNotice": "由于所有处理均在用户的浏览器中本地完成，我们无法监控或控制用户处理的内容。用户必须确保合法合规使用。"
+    },
+    "footer": {
+      "rightsReserved": "© 2025 皓萤工具。保留所有权利。",
+      "company": "皓萤科技有限公司",
+      "compliance": "本网站符合相关法律法规。"
+    }
+  },
   "tools": {
     "case-converter": {
       "title": "大小写转换器",
-      "description": "在大写、小写、标题大小写等之间转换文本"
+      "description": "在大写、小写、标题大小写等之间转换文本",
+      "intro": "此工具可帮助您即时在不同格式之间转换文本，如大写（UPPERCASE）、小写（lowercase）、标题大小写（Title Case）、驼峰命名（camelCase）、蛇形命名（snake_case）和短横线命名（kebab-case）。非常适合需要快速文本格式化的开发人员、作者和内容创作者！🚀",
+      "exampleText": "你好世界！这是一个用于大小写转换的示例文本。",
+      "useCases": {
+        "programming": {
+          "title": "编程",
+          "description": "使用<code class=\"mx-1 px-2 py-0.5 bg-white rounded text-purple-700 font-mono text-xs\">camelCase</code>作为变量名，使用<code class=\"mx-1 px-2 py-0.5 bg-white rounded text-purple-700 font-mono text-xs\">snake_case</code>作为Python函数名"
+        },
+        "urlsCss": {
+          "title": "URL和CSS",
+          "description": "使用<code class=\"mx-1 px-2 py-0.5 bg-white rounded text-blue-700 font-mono text-xs\">kebab-case</code>创建简洁、SEO友好的URL"
+        },
+        "database": {
+          "title": "数据库字段",
+          "description": "使用<code class=\"mx-1 px-2 py-0.5 bg-white rounded text-green-700 font-mono text-xs\">snake_case</code>作为数据库列名"
+        },
+        "content": {
+          "title": "内容写作",
+          "description": "使用<code class=\"mx-1 px-2 py-0.5 bg-white rounded text-pink-700 font-mono text-xs\">Title Case</code>作为标题和题目"
+        }
+      },
+      "proTips": {
+        "javascript": "<strong>JavaScript：</strong> 变量使用驼峰命名（myVariable）",
+        "python": "<strong>Python：</strong> 函数使用蛇形命名（my_function）",
+        "urls": "<strong>URL：</strong> 使用短横线命名以获得更好的SEO效果（my-page-url）",
+        "headings": "<strong>标题：</strong> 使用标题大小写以获得正确的格式"
+      }
     },
     "word-counter": {
       "title": "字数统计器",
-      "description": "统计文本中的字数、字符、句子和段落"
+      "description": "统计文本中的字数、字符、句子和段落",
+      "placeholder": "开始输入或粘贴您的文本...",
+      "stats": {
+        "words": "单词",
+        "characters": "字符",
+        "charactersNoSpaces": "字符（不含空格）",
+        "sentences": "句子",
+        "paragraphs": "段落",
+        "readingTime": "阅读时间"
+      },
+      "minute": "分钟",
+      "minutes": "分钟",
+      "whatIs": "什么是字数统计器？",
+      "whatIsContent": "此工具提供实时文本分析，包括字数统计、字符统计、句子、段落和预计阅读时间。非常适合作家、学生、博主和需要满足特定长度要求的内容创作者！📝",
+      "useCases": {
+        "title": "常见用途",
+        "academic": {
+          "title": "学术写作",
+          "description": "精确满足论文和学位论文的字数要求"
+        },
+        "content": {
+          "title": "内容写作",
+          "description": "优化博客文章和文章以获得更好的SEO效果"
+        },
+        "social": {
+          "title": "社交媒体",
+          "description": "保持在Twitter、LinkedIn等平台的字符限制内"
+        },
+        "translation": {
+          "title": "翻译项目",
+          "description": "跟踪用于定价和项目估算的字数"
+        }
+      },
+      "proTips": {
+        "title": "💡 专业提示",
+        "reading": {
+          "label": "阅读时间",
+          "text": "平均阅读速度为每分钟200-250个单词"
+        },
+        "seo": {
+          "label": "SEO",
+          "text": "博客文章的最佳表现在1,500-2,500字"
+        },
+        "twitter": {
+          "label": "Twitter",
+          "text": "280字符限制（使用字符统计）"
+        },
+        "readability": {
+          "label": "可读性",
+          "text": "网页内容的段落保持在150字以内"
+        }
+      },
+      "relatedTools": {
+        "title": "🔗 您可能喜欢的相关工具",
+        "caseConverter": {
+          "title": "大小写转换器",
+          "description": "转换文本大小写格式"
+        },
+        "textSorter": {
+          "title": "文本排序",
+          "description": "按字母顺序排序文本行"
+        },
+        "textDiff": {
+          "title": "文本差异检查",
+          "description": "比较两段文本"
+        }
+      }
     },
     "json-formatter": {
       "title": "JSON格式化器",
-      "description": "格式化和验证JSON数据，带语法高亮"
+      "description": "格式化、压缩和验证JSON数据，带语法高亮",
+      "inputLabel": "输入JSON",
+      "format": "格式化",
+      "minify": "压缩",
+      "whatIs": "什么是JSON格式化器？",
+      "whatIsContent": "此工具格式化、验证和压缩JSON数据，带语法高亮。非常适合API开发、调试和数据验证！🔧",
+      "useCases": {
+        "title": "常见用途",
+        "api": {
+          "title": "API开发",
+          "description": "格式化和验证API响应和请求"
+        },
+        "config": {
+          "title": "配置文件",
+          "description": "验证和格式化应用程序的配置文件"
+        },
+        "database": {
+          "title": "数据库导出",
+          "description": "格式化数据库查询结果和JSON导出"
+        },
+        "debugging": {
+          "title": "调试",
+          "description": "验证语法并查找JSON数据中的错误"
+        }
+      },
+      "proTips": {
+        "title": "专业提示",
+        "format": "格式化：使用格式化进行开发和调试",
+        "minify": "压缩：使用压缩进行生产以减小大小",
+        "validation": "验证：在应用程序中使用之前始终验证",
+        "quotes": "引号：JSON键必须使用双引号，不能使用单引号"
+      },
+      "relatedTools": "您可能喜欢的相关工具"
     },
     "base64-encoder": {
       "title": "Base64编码/解码器",
@@ -137,7 +552,290 @@
     "bmi-calculator": {
       "title": "BMI计算器",
       "description": "计算您的身体质量指数和健康状况"
+    },
+    "loan-calculator": {
+      "title": "贷款计算器",
+      "description": "计算每月还款额和总利息"
+    },
+    "interest-calculator": {
+      "title": "利息计算器",
+      "description": "计算单利和复利"
+    },
+    "investment-calculator": {
+      "title": "投资计算器",
+      "description": "估算投资收益"
+    },
+    "currency-converter": {
+      "title": "货币转换器",
+      "description": "实时汇率货币转换"
+    },
+    "credit-card-calculator": {
+      "title": "信用卡计算器",
+      "description": "计算信用卡还款时间和总利息"
+    },
+    "unit-converter": {
+      "title": "单位转换器",
+      "description": "不同计量单位之间的转换"
+    },
+    "age-calculator": {
+      "title": "年龄计算器",
+      "description": "计算精确的年龄（年、月、日）"
+    },
+    "date-calculator": {
+      "title": "日期计算器",
+      "description": "计算两个日期之间的差异"
+    },
+    "random-picker": {
+      "title": "随机选择器",
+      "description": "从列表中随机选择名字或项目"
+    },
+    "image-compressor": {
+      "title": "图片压缩器",
+      "description": "压缩图片以减小文件大小"
+    },
+    "image-resizer": {
+      "title": "图片调整大小",
+      "description": "调整图片至任意尺寸"
+    },
+    "text-diff": {
+      "title": "文本差异检查",
+      "description": "比较两段文本并找出差异"
+    },
+    "text-sorter": {
+      "title": "文本排序",
+      "description": "按字母顺序对文本行进行排序"
+    },
+    "html-to-text": {
+      "title": "HTML转文本",
+      "description": "将HTML转换为纯文本"
+    },
+    "csv-to-json": {
+      "title": "CSV转JSON",
+      "description": "将CSV数据转换为JSON格式"
+    },
+    "text-replacer": {
+      "title": "文本替换",
+      "description": "查找和替换文本，支持正则表达式"
+    },
+    "duplicate-remover": {
+      "title": "重复行删除",
+      "description": "删除文本中的重复行和空行"
+    },
+    "json-to-csv": {
+      "title": "JSON转CSV",
+      "description": "将JSON数据转换为CSV格式"
+    },
+    "xml-to-json": {
+      "title": "XML转JSON",
+      "description": "将XML转换为JSON格式"
+    },
+    "markdown-to-html": {
+      "title": "Markdown转HTML",
+      "description": "将Markdown转换为HTML"
+    },
+    "discount-calculator": {
+      "title": "折扣计算器",
+      "description": "计算折扣和最终价格"
+    },
+    "password-strength-checker": {
+      "title": "密码强度检查",
+      "description": "分析密码安全性并获得改进建议"
+    },
+    "email-validator": {
+      "title": "邮箱验证器",
+      "description": "批量验证电子邮件地址（符合RFC 5322标准）"
+    },
+    "stopwatch-timer": {
+      "title": "秒表和计时器",
+      "description": "使用秒表或设置倒计时器来跟踪时间"
+    },
+    "pomodoro-timer": {
+      "title": "番茄钟",
+      "description": "专注计时器：25分钟工作，5分钟休息"
+    },
+    "whitespace-remover": {
+      "title": "空白符删除",
+      "description": "删除文本中多余的空格、制表符和换行符"
+    },
+    "ip-lookup": {
+      "title": "IP地址查询",
+      "description": "获取任何IP地址的信息"
+    },
+    "barcode-generator": {
+      "title": "条形码生成器",
+      "description": "从文本生成条形码（Code128、EAN、UPC）"
+    },
+    "color-gradient-generator": {
+      "title": "渐变色生成器",
+      "description": "创建漂亮的CSS渐变，实时预览"
+    },
+    "jwt-decoder": {
+      "title": "JWT解码器",
+      "description": "解码和检查JWT令牌的头部和载荷"
+    },
+    "sql-formatter": {
+      "title": "SQL格式化",
+      "description": "格式化和美化SQL查询，提高可读性"
+    },
+    "code-minifier": {
+      "title": "代码压缩",
+      "description": "压缩HTML、CSS和JavaScript以减小文件大小"
+    },
+    "http-status-codes": {
+      "title": "HTTP状态码",
+      "description": "HTTP状态码及其含义的快速参考"
+    },
+    "api-tester": {
+      "title": "API测试器",
+      "description": "通过发送HTTP请求和检查响应来测试REST API"
+    }
+  },
+  "cookiePolicy": {
+    "title": "Cookie政策",
+    "lastUpdated": "最后更新：",
+    "whatAreCookies": {
+      "title": "🍪 什么是Cookie？",
+      "description": "Cookie是您访问网站时存储在您设备上的小型文本文件。它们帮助网站记住您的偏好设置并改善您的浏览体验。"
+    },
+    "howWeUseCookies": {
+      "title": "📝 我们如何使用Cookie",
+      "description": "在皓萤工具，我们尽量减少和负责任地使用Cookie：",
+      "essential": {
+        "title": "必要Cookie",
+        "description": "这些是网站正常运行所必需的，例如记住您的主题偏好（深色/浅色模式）和语言设置。"
+      },
+      "functionality": {
+        "title": "功能性Cookie",
+        "description": "这些Cookie会记住您最近使用的工具，以便在您下次访问时提供快速访问。"
+      },
+      "advertising": {
+        "title": "广告Cookie",
+        "description": "我们<strong>不</strong>使用广告或跟踪Cookie。"
+      },
+      "thirdParty": {
+        "title": "第三方跟踪",
+        "description": "我们<strong>不</strong>与第三方广告商分享您的数据。"
+      }
+    },
+    "typesOfCookies": {
+      "title": "🎯 我们使用的Cookie类型",
+      "table": {
+        "cookieName": "Cookie名称",
+        "purpose": "用途",
+        "duration": "有效期",
+        "cookies": {
+          "cookieConsent": {
+            "name": "cookieConsent",
+            "purpose": "记住您的Cookie偏好",
+            "duration": "1年"
+          },
+          "theme": {
+            "name": "theme",
+            "purpose": "记住深色/浅色模式偏好",
+            "duration": "永久"
+          },
+          "recentTools": {
+            "name": "recentTools",
+            "purpose": "存储您最近使用的工具",
+            "duration": "30天"
+          }
+        }
+      }
+    },
+    "managingCookies": {
+      "title": "🔧 管理Cookie",
+      "description": "您对Cookie拥有完全控制权：",
+      "browserSettings": {
+        "title": "浏览器设置",
+        "description": "您可以随时通过浏览器设置阻止或删除Cookie。"
+      },
+      "optOut": {
+        "title": "选择退出",
+        "description": "您可以在首次访问我们网站时使用Cookie同意横幅拒绝Cookie。"
+      },
+      "impact": {
+        "title": "影响",
+        "description": "阻止Cookie可能会影响某些网站功能，但所有工具将继续正常工作。"
+      }
+    },
+    "privacyPriority": {
+      "title": "🔒 您的隐私是我们的首要任务",
+      "description": "与许多网站不同，我们不使用Cookie来跟踪您的行为、建立用户档案或提供定向广告。我们的Cookie严格用于改善您在我们网站上的用户体验。所有数据处理都在您的浏览器中本地进行，我们从不向我们的服务器发送您的文件或个人数据。"
+    },
+    "contact": {
+      "title": "📞 联系我们",
+      "description": "如果您对我们使用Cookie有任何疑问，请通过以下方式联系我们："
+    },
+    "footer": {
+      "title": "简单透明：",
+      "description": "我们相信坦诚地告诉您我们如何使用Cookie。没有隐藏的跟踪器，没有意外。"
+    }
+  },
+  "aboutUs": {
+    "title": "关于我们",
+    "pageTitle": "关于皓萤工具",
+    "subtitle": "您值得信赖的效率与创意伙伴 🚀",
+    "ourStory": {
+      "title": "✨ 我们的故事",
+      "paragraph1": "皓萤工具诞生于一个简单的想法：<strong>每个人都应该能够无障碍地使用强大且易用的工具</strong>。我们注意到许多在线工具要么过于复杂，需要注册，要么对基本功能收费。",
+      "paragraph2": "因此，我们创建了皓萤工具 - 一个完全<strong>免费、无需注册</strong>的工具集合，旨在让您的生活更轻松。无论您是开发者、设计师、学生，还是只是需要完成工作的人，我们都能满足您的需求！"
+    },
+    "ourMission": {
+      "title": "我们的使命",
+      "description": "提供<strong>免费、易用且隐私优先的工具</strong>，让人们能够更智能地工作、更好地创作。所有工具永久免费，通过可选的广告支持来维护我们的服务。"
+    },
+    "ourVision": {
+      "title": "我们的愿景",
+      "description": "成为任何寻找可靠、快速且美观的在线工具的人的<strong>首选目的地</strong>。我们根据您的需求不断添加新工具！"
+    },
+    "whyChooseUs": {
+      "title": "为什么选择我们？",
+      "features": {
+        "beautifulDesign": {
+          "title": "精美设计",
+          "description": "现代化、直观的界面，使用愉悦"
+        },
+        "lightningFast": {
+          "title": "闪电般快速",
+          "description": "客户端处理，即时获得结果"
+        },
+        "privacyFirst": {
+          "title": "隐私优先",
+          "description": "您的数据永远不会离开您的浏览器"
+        },
+        "alwaysFree": {
+          "title": "永久免费",
+          "description": "没有隐藏费用，没有高级套餐"
+        },
+        "mobileFriendly": {
+          "title": "移动友好",
+          "description": "在所有设备上完美运行"
+        },
+        "noRegistration": {
+          "title": "无需注册",
+          "description": "立即开始使用，无需注册"
+        }
+      }
+    },
+    "whatWeOffer": {
+      "title": "🚀 我们提供什么",
+      "description": "我们目前提供<strong>50+个强大工具</strong>，涵盖多个类别：",
+      "categories": {
+        "textProcessing": "📝 文本处理",
+        "converters": "🔄 转换器",
+        "generators": "🎲 生成器",
+        "calculators": "🧮 计算器",
+        "imageStudio": "🖼️ 图像工作室",
+        "devTools": "💻 开发工具",
+        "finance": "💰 金融",
+        "utilities": "🛠️ 实用工具",
+        "andMore": "...以及更多！"
+      }
+    },
+    "joinCommunity": {
+      "title": "💖 加入我们的社区",
+      "description": "在社交媒体上关注我们，了解新工具、新功能和使用技巧！",
+      "feedback": "我们喜欢听取用户的意见。有功能请求或反馈？随时联系我们！"
     }
   }
 }
-

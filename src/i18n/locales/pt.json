@@ -61,6 +61,8 @@
   "footer": {
     "description": "Ferramentas online gratuitas para desenvolvedores, designers e todos. Não é necessário registro, 100% grátis para sempre.",
     "quickLinks": "Links Rápidos",
+    "wechat": "WeChat",
+    "instagram": "Instagram",
     "tools": "Ferramentas",
     "legal": "Legal",
     "followUs": "Siga-nos",
@@ -82,6 +84,86 @@
       "proTips": "Dicas Profissionais",
       "relatedTools": "Ferramentas Relacionadas que Você Pode Gostar"
     }
+  },
+  "cookiePolicy": {
+    "title": "Política de Cookies",
+    "lastUpdated": "Última atualização: ",
+    "whatAreCookies": {
+      "title": "🍪 O que são Cookies?",
+      "description": "Cookies são pequenos arquivos de texto armazenados no seu dispositivo quando você visita um site. Eles ajudam o site a lembrar suas preferências e melhorar sua experiência de navegação."
+    },
+    "howWeUseCookies": {
+      "title": "📝 Como Usamos os Cookies",
+      "description": "No Haoin Tools, usamos cookies de forma mínima e responsável:",
+      "essential": {
+        "title": "Cookies Essenciais",
+        "description": "São necessários para o funcionamento adequado do site, como lembrar sua preferência de tema (modo escuro/claro) e configurações de idioma."
+      },
+      "functionality": {
+        "title": "Cookies Funcionais",
+        "description": "Esses cookies lembram as ferramentas que você usou recentemente para fornecer acesso rápido na sua próxima visita."
+      },
+      "advertising": {
+        "title": "Cookies de Publicidade",
+        "description": "<strong>NÃO</strong> usamos cookies de publicidade ou rastreamento."
+      },
+      "thirdParty": {
+        "title": "Rastreamento de Terceiros",
+        "description": "<strong>NÃO</strong> compartilhamos seus dados com anunciantes terceiros."
+      }
+    },
+    "typesOfCookies": {
+      "title": "🎯 Tipos de Cookies que Usamos",
+      "table": {
+        "cookieName": "Nome do Cookie",
+        "purpose": "Finalidade",
+        "duration": "Duração",
+        "cookies": {
+          "cookieConsent": {
+            "name": "cookieConsent",
+            "purpose": "Lembrar sua preferência de cookies",
+            "duration": "1 ano"
+          },
+          "theme": {
+            "name": "theme",
+            "purpose": "Lembrar preferência de modo escuro/claro",
+            "duration": "Permanente"
+          },
+          "recentTools": {
+            "name": "recentTools",
+            "purpose": "Armazenar suas ferramentas usadas recentemente",
+            "duration": "30 dias"
+          }
+        }
+      }
+    },
+    "managingCookies": {
+      "title": "🔧 Gerenciamento de Cookies",
+      "description": "Você tem controle total sobre os cookies:",
+      "browserSettings": {
+        "title": "Configurações do Navegador",
+        "description": "Você pode bloquear ou excluir cookies através das configurações do seu navegador a qualquer momento."
+      },
+      "optOut": {
+        "title": "Recusar",
+        "description": "Você pode recusar cookies quando visitar nosso site pela primeira vez usando o banner de consentimento de cookies."
+      },
+      "impact": {
+        "title": "Impacto",
+        "description": "Bloquear cookies pode afetar alguns recursos do site, mas todas as ferramentas continuarão funcionando."
+      }
+    },
+    "privacyPriority": {
+      "title": "🔒 Sua Privacidade é Nossa Prioridade",
+      "description": "Ao contrário de muitos sites, não usamos cookies para rastrear seu comportamento, criar perfis de usuário ou exibir anúncios direcionados. Nossos cookies são estritamente para melhorar sua experiência de usuário em nosso site. Todo o processamento de dados acontece localmente em seu navegador, e nunca enviamos seus arquivos ou dados pessoais para nossos servidores."
+    },
+    "contact": {
+      "title": "📞 Entre em Contato",
+      "description": "Se você tiver alguma dúvida sobre nosso uso de cookies, entre em contato conosco em:"
+    },
+    "footer": {
+      "title": "Simples e Transparente:",
+      "description": "Acreditamos em ser transparentes sobre como usamos cookies. Sem rastreadores ocultos, sem surpresas."
+    }
   }
 }
-

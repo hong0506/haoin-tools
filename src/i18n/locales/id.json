@@ -61,6 +61,8 @@
   "footer": {
     "description": "Alat online gratis untuk pengembang, desainer, dan semua orang. Tidak perlu registrasi, 100% gratis selamanya.",
     "quickLinks": "Tautan Cepat",
+    "wechat": "WeChat",
+    "instagram": "Instagram",
     "tools": "Alat",
     "legal": "Legal",
     "followUs": "Ikuti Kami",
@@ -82,6 +84,86 @@
       "proTips": "Tips Profesional",
       "relatedTools": "Alat Terkait yang Mungkin Anda Suka"
     }
+  },
+  "cookiePolicy": {
+    "title": "Kebijakan Cookie",
+    "lastUpdated": "Terakhir diperbarui: ",
+    "whatAreCookies": {
+      "title": "🍪 Apa itu Cookie?",
+      "description": "Cookie adalah file teks kecil yang disimpan di perangkat Anda saat Anda mengunjungi situs web. Cookie membantu situs web mengingat preferensi Anda dan meningkatkan pengalaman browsing Anda."
+    },
+    "howWeUseCookies": {
+      "title": "📝 Bagaimana Kami Menggunakan Cookie",
+      "description": "Di Haoin Tools, kami menggunakan cookie secara minimal dan bertanggung jawab:",
+      "essential": {
+        "title": "Cookie Esensial",
+        "description": "Cookie ini diperlukan agar situs web berfungsi dengan baik, seperti mengingat preferensi tema Anda (mode gelap/terang) dan pengaturan bahasa."
+      },
+      "functionality": {
+        "title": "Cookie Fungsional",
+        "description": "Cookie ini mengingat alat yang baru-baru ini Anda gunakan untuk memberikan akses cepat pada kunjungan berikutnya."
+      },
+      "advertising": {
+        "title": "Cookie Iklan",
+        "description": "Kami <strong>TIDAK</strong> menggunakan cookie iklan atau pelacakan."
+      },
+      "thirdParty": {
+        "title": "Pelacakan Pihak Ketiga",
+        "description": "Kami <strong>TIDAK</strong> membagikan data Anda dengan pengiklan pihak ketiga."
+      }
+    },
+    "typesOfCookies": {
+      "title": "🎯 Jenis Cookie yang Kami Gunakan",
+      "table": {
+        "cookieName": "Nama Cookie",
+        "purpose": "Tujuan",
+        "duration": "Durasi",
+        "cookies": {
+          "cookieConsent": {
+            "name": "cookieConsent",
+            "purpose": "Mengingat preferensi cookie Anda",
+            "duration": "1 tahun"
+          },
+          "theme": {
+            "name": "theme",
+            "purpose": "Mengingat preferensi mode gelap/terang",
+            "duration": "Permanen"
+          },
+          "recentTools": {
+            "name": "recentTools",
+            "purpose": "Menyimpan alat yang baru-baru ini Anda gunakan",
+            "duration": "30 hari"
+          }
+        }
+      }
+    },
+    "managingCookies": {
+      "title": "🔧 Mengelola Cookie",
+      "description": "Anda memiliki kontrol penuh atas cookie:",
+      "browserSettings": {
+        "title": "Pengaturan Browser",
+        "description": "Anda dapat memblokir atau menghapus cookie melalui pengaturan browser Anda kapan saja."
+      },
+      "optOut": {
+        "title": "Menolak",
+        "description": "Anda dapat menolak cookie saat pertama kali mengunjungi situs web kami menggunakan banner persetujuan cookie."
+      },
+      "impact": {
+        "title": "Dampak",
+        "description": "Memblokir cookie dapat memengaruhi beberapa fitur situs web, tetapi semua alat akan terus berfungsi."
+      }
+    },
+    "privacyPriority": {
+      "title": "🔒 Privasi Anda adalah Prioritas Kami",
+      "description": "Tidak seperti banyak situs web, kami tidak menggunakan cookie untuk melacak perilaku Anda, membangun profil pengguna, atau menayangkan iklan tertarget. Cookie kami murni untuk meningkatkan pengalaman pengguna Anda di situs kami. Semua pemrosesan data terjadi secara lokal di browser Anda, dan kami tidak pernah mengirim file atau data pribadi Anda ke server kami."
+    },
+    "contact": {
+      "title": "📞 Hubungi Kami",
+      "description": "Jika Anda memiliki pertanyaan tentang penggunaan cookie kami, silakan hubungi kami di:"
+    },
+    "footer": {
+      "title": "Sederhana & Transparan:",
+      "description": "Kami percaya untuk terbuka tentang bagaimana kami menggunakan cookie. Tanpa pelacak tersembunyi, tanpa kejutan."
+    }
   }
 }
-

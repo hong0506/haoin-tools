@@ -138,13 +138,17 @@ const Index = () => {
               <h2 className="text-3xl font-bold mb-2">
                 {searchQuery ? (
                   <>
-                    <span className="gradient-text">{t("common.searchResults")}</span>
+                    <span className="gradient-text">
+                      {t("common.searchResults")}
+                    </span>
                     <span className="ml-3 text-2xl text-muted-foreground">
                       ({filteredTools.length})
                     </span>
                   </>
                 ) : (
-                  <span className="gradient-text">{t("common.exploreAllTools")}</span>
+                  <span className="gradient-text">
+                    {t("common.exploreAllTools")}
+                  </span>
                 )}
               </h2>
               {!searchQuery && (

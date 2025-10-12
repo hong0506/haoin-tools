@@ -59,24 +59,394 @@
     }
   },
   "footer": {
-    "description": "Free online tools for developers, designers, and everyone. No registration required, 100% free forever.",
+    "description": "Access 50+ free online tools instantly - text processing, image editing, converters, generators, calculators and more. No registration required.",
+    "dataProcessedLocally": "All data processed locally in your browser",
     "quickLinks": "Quick Links",
+    "wechat": "WeChat",
+    "instagram": "Instagram",
+    "home": "Home",
+    "favorites": "Favorites",
+    "recentlyUsed": "Recently Used",
+    "generators": "Generators",
+    "devTools": "Dev Tools",
     "tools": "Tools",
     "legal": "Legal",
+    "privacyPolicy": "Privacy Policy",
+    "termsOfService": "Terms of Service",
+    "cookiePolicy": "Cookie Policy",
+    "copyright": "Copyright",
+    "aboutUs": "About Us",
     "followUs": "Follow Us",
+    "followUsForUpdates": "Follow us for updates!",
     "language": "Language",
-    "copyright": "© 2024 Haoin Tools. All rights reserved.",
-    "madeWith": "Made with",
-    "by": "by"
+    "allRightsReserved": "© 2025 Haoin Technology Co., Ltd.. All rights reserved.",
+    "email": "Email:",
+    "privacyFirst": "Privacy First",
+    "privacyDescription": "All tools process data locally in your browser. We do not store your files or personal data.",
+    "disclaimer": "Disclaimer",
+    "disclaimerText": "Tools provided \"as is\" for educational purposes. Not intended to replace professional advice. Not liable for damages from tool use or errors.",
+    "advertising": "Advertising:",
+    "advertisingText": "May display third-party ads to support free services.",
+    "userResponsibility": "Users bear all risks and must ensure compliance with applicable laws."
   },
   "toolCard": {
     "addedToFavorites": "added to favorites!",
     "removedFromFavorites": "removed from favorites!"
   },
+  "toolPage": {
+    "buttons": {
+      "clear": "Clear",
+      "copy": "Copy",
+      "loadExample": "Load Example",
+      "back": "Back"
+    },
+    "messages": {
+      "copied": "Copied to clipboard!",
+      "cleared": "Text cleared",
+      "exampleLoaded": "Example loaded",
+      "enterText": "Please enter some text first",
+      "textConverted": "Text converted!"
+    },
+    "placeholder": "Enter your text here...",
+    "stats": {
+      "characters": "characters",
+      "words": "words",
+      "lines": "lines"
+    },
+    "sections": {
+      "whatIs": "What is",
+      "commonUseCases": "Common Use Cases",
+      "proTips": "Pro Tips",
+      "relatedTools": "Related Tools You Might Like"
+    }
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "lastUpdated": "Last updated:",
+    "introduction": {
+      "title": "Introduction",
+      "content": "Welcome to Haoin Tools! We respect your privacy and are committed to protecting your personal data. This privacy policy will inform you about how we look after your personal data when you visit our website and tell you about your privacy rights.",
+      "contact": "Contact:"
+    },
+    "dataCollection": {
+      "title": "Data We Collect",
+      "content": "We collect minimal data to provide you with the best service:",
+      "usageData": "Usage Data: Information about how you use our tools",
+      "technicalData": "Technical Data: IP address, browser type, and device information",
+      "noPersonalFiles": "No Personal Files: All file processing happens locally in your browser"
+    },
+    "dataProtection": {
+      "title": "How We Protect Your Data",
+      "content": "Your privacy and security are our top priorities:",
+      "clientSide": "Client-Side Processing: All tools run in your browser",
+      "noStorage": "No Data Storage: We don't store your files or personal data",
+      "noTracking": "No Tracking: We don't use invasive tracking technologies",
+      "httpsSecure": "HTTPS Secure: All connections are encrypted"
+    },
+    "advertising": {
+      "title": "Third-Party Advertising",
+      "content": "We may display third-party advertisements to support our free services:",
+      "adNetworks": "Ad networks: We work with third-party advertising partners who may collect anonymous usage data",
+      "cookies": "Cookies: Advertisers may use cookies to show relevant ads (you can opt out via browser settings)",
+      "dataSharing": "Data Sharing: We do not share your personal information with advertisers",
+      "privacyControls": "Privacy Controls: You can use ad blockers or adjust privacy settings in your browser",
+      "note": "Third-party advertisers have their own privacy policies. We recommend reviewing their policies for detailed information."
+    },
+    "cookies": {
+      "title": "Cookies",
+      "content": "We use essential cookies only to ensure the website functions properly. We do not use advertising or tracking cookies. You can control cookies through your browser settings."
+    },
+    "dataRights": {
+      "title": "International Users & Data Rights",
+      "gdpr": {
+        "title": "For Users in the European Union (GDPR):",
+        "rights": [
+          "Right to access your personal data",
+          "Right to rectification or deletion",
+          "Right to restrict or object to processing",
+          "Right to data portability",
+          "Right to withdraw consent"
+        ]
+      },
+      "ccpa": {
+        "title": "For Users in California (CCPA):",
+        "rights": [
+          "Right to know what personal information is collected",
+          "Right to delete personal information",
+          "Right to opt-out of sale of personal information (we do not sell data)",
+          "Right to non-discrimination for exercising your rights"
+        ]
+      },
+      "china": "For Users in China: We comply with Chinese data protection laws including the Personal Information Protection Law (PIPL). Your data is processed locally in your browser and not transferred outside of China without consent."
+    },
+    "dataRetention": {
+      "title": "Data Retention",
+      "content": "Since all data processing happens locally in your browser, we do not retain your personal data on our servers. Browser cookies and local storage are under your control and can be cleared at any time through your browser settings."
+    },
+    "contact": {
+      "title": "Contact Us",
+      "content": "If you have any questions about this Privacy Policy or wish to exercise your data rights, please contact us through our social media channels or email us at:",
+      "responseTime": "For privacy-related complaints or concerns, we will respond within 30 days as required by applicable data protection laws."
+    },
+    "trust": "Your trust is important to us. We're committed to keeping your data safe and private."
+  },
+  "terms": {
+    "title": "Terms of Service",
+    "lastUpdated": "Last updated:",
+    "agreement": {
+      "title": "📜 Agreement to Terms",
+      "content": "By accessing and using Haoin Tools, you accept and agree to be bound by the terms and provision of this agreement. If you do not agree to abide by these terms, please do not use this service."
+    },
+    "useOfService": {
+      "title": "✨ Use of Service",
+      "content": "Haoin Tools provides free online tools for everyone:",
+      "freeAccess": "🎯 Free Access: All tools are free to use",
+      "noRegistration": "🚀 No Registration: No account required",
+      "personalCommercial": "💻 Personal & Commercial Use: Use for any legal purpose",
+      "unlimitedUsage": "⚡ Unlimited Usage: No usage limits or restrictions"
+    },
+    "prohibited": {
+      "title": "⚠️ Prohibited Activities",
+      "content": "You agree NOT to:",
+      "illegal": "❌ Use the service for any illegal purposes",
+      "harm": "❌ Attempt to harm or disrupt the service",
+      "reverseEngineer": "❌ Reverse engineer or copy our tools",
+      "automated": "❌ Use automated systems to abuse the service",
+      "infringe": "❌ Upload, transmit or distribute any content that infringes intellectual property rights",
+      "violate": "❌ Violate any applicable laws or regulations in your jurisdiction"
+    },
+    "disclaimer": {
+      "title": "🛡️ Disclaimer & Limitation of Liability",
+      "content": "The service is provided \"as is\" and \"as available\" without any warranties. We strive for accuracy and reliability, but we cannot guarantee that the tools will always be error-free or uninterrupted.",
+      "important": "Important Disclaimers:",
+      "financial": "• Financial calculators are for informational purposes only and do not constitute financial advice",
+      "health": "• Health-related tools (BMI calculator, etc.) are not medical advice - consult professionals",
+      "liability": "• We are not liable for any losses or damages resulting from tool use or errors",
+      "maximum": "• Maximum liability is limited to the amount you paid for the service (which is zero for free tools)"
+    },
+    "intellectualProperty": {
+      "title": "📝 Intellectual Property",
+      "content": "All content, features, and functionality on Haoin Tools are owned by us and are protected by international copyright, trademark, and other intellectual property laws."
+    },
+    "advertising": {
+      "title": "📺 Advertising",
+      "content": "To maintain our free services, we may display third-party advertisements:",
+      "networks": "• Ads are provided by third-party advertising networks",
+      "endorse": "• We do not endorse or take responsibility for advertised products/services",
+      "content": "• Ad content is subject to advertisers' terms and privacy policies",
+      "transactions": "• We are not liable for any transactions with advertisers"
+    },
+    "governingLaw": {
+      "title": "⚖️ Governing Law & Dispute Resolution",
+      "content": "These Terms are governed by the laws of the People's Republic of China. For international users, local consumer protection laws may also apply.",
+      "disputes": "Any disputes shall be resolved through friendly negotiation first. If negotiation fails, disputes shall be submitted to the courts with jurisdiction in Hangzhou, Zhejiang Province, China."
+    },
+    "changes": {
+      "title": "🔄 Changes to Terms",
+      "content": "We reserve the right to modify these terms at any time. We will notify users of any material changes by updating the \"Last updated\" date at the top of this page. Continued use of the service after changes constitutes acceptance of the new terms."
+    },
+    "contact": {
+      "title": "📧 Contact",
+      "content": "Questions about our Terms of Service? Contact us at:"
+    },
+    "fairUse": "⚖️ Fair Use: We believe in providing free, accessible tools for everyone while maintaining a safe and reliable service."
+  },
+  "cookies": {
+    "title": "Cookie Policy",
+    "lastUpdated": "Last updated:",
+    "whatAre": {
+      "title": "🍪 What Are Cookies?",
+      "content": "Cookies are small text files that are stored on your device when you visit a website. They help the website remember your preferences and improve your browsing experience."
+    },
+    "howWeUse": {
+      "title": "📝 How We Use Cookies",
+      "content": "At Haoin Tools, we use cookies minimally and responsibly:",
+      "essential": "Essential Cookies: These are necessary for the website to function properly, such as remembering your theme preference (dark/light mode) and language settings.",
+      "functionality": "Functionality Cookies: These remember your recently used tools to provide quick access on your next visit.",
+      "advertising": "Advertising Cookies: We DO NOT use advertising or tracking cookies.",
+      "tracking": "Third-Party Tracking: We DO NOT share your data with third-party advertisers."
+    },
+    "types": {
+      "title": "🎯 Types of Cookies We Use",
+      "cookieName": "Cookie Name",
+      "purpose": "Purpose",
+      "duration": "Duration",
+      "cookieConsent": {
+        "name": "cookieConsent",
+        "purpose": "Remember your cookie preference",
+        "duration": "1 year"
+      },
+      "theme": {
+        "name": "theme",
+        "purpose": "Remember dark/light mode preference",
+        "duration": "Permanent"
+      },
+      "recentTools": {
+        "name": "recentTools",
+        "purpose": "Store your recently used tools",
+        "duration": "30 days"
+      }
+    },
+    "managing": {
+      "title": "🔧 Managing Cookies",
+      "content": "You have full control over cookies:",
+      "browserSettings": "Browser Settings: You can block or delete cookies through your browser settings at any time.",
+      "optOut": "Opt-Out: You can decline cookies when you first visit our website using the cookie consent banner.",
+      "impact": "Impact: Blocking cookies may affect some website features, but all tools will continue to work."
+    },
+    "privacy": {
+      "title": "🔒 Your Privacy is Our Priority",
+      "content": "Unlike many websites, we don't use cookies to track your behavior, build user profiles, or serve targeted ads. Our cookies are strictly for improving your user experience on our site. All data processing happens locally in your browser, and we never send your files or personal data to our servers."
+    },
+    "contact": {
+      "title": "📞 Contact Us",
+      "content": "If you have any questions about our use of cookies, please contact us at:"
+    },
+    "simple": "🍪 Simple & Transparent: We believe in being upfront about how we use cookies. No hidden trackers, no surprises."
+  },
+  "legal": {
+    "title": "Legal & Copyright",
+    "lastUpdated": "Last updated:",
+    "copyright": {
+      "title": "📋 Copyright Notice",
+      "content": "All tools and services provided on this website (Haoin Tools) are independently developed. We respect and protect intellectual property rights, and all content usage complies with applicable laws and regulations.",
+      "originalContent": {
+        "title": "Original Content Statement",
+        "points": [
+          "All page designs, UI layouts, and interaction logic are original",
+          "Code implementation based on React, TypeScript, and other open-source technologies",
+          "User interface built with shadcn/ui open-source component library",
+          "Tool functionality implemented based on public algorithms and technical standards"
+        ]
+      },
+      "technicalImplementation": {
+        "title": "Technical Implementation",
+        "content": "The core algorithms and functionality of this website's tools are based on the following public technologies and standards:",
+        "points": [
+          "Base64 encoding/decoding: Complies with RFC 4648 standard",
+          "JSON formatting: Implemented based on JSON specifications",
+          "Hash generation: Uses Web Crypto API",
+          "Other tools: All based on public technical standards and algorithms"
+        ]
+      }
+    },
+    "technologyStack": {
+      "title": "💻 Technology Stack",
+      "content": "This website is built on the following open-source technologies:",
+      "points": [
+        "Frontend Framework: React 18 + TypeScript",
+        "Routing: React Router v6",
+        "UI Components: shadcn/ui (Radix UI + Tailwind CSS)",
+        "Styling: Tailwind CSS",
+        "Build Tool: Vite",
+        "State Management: React Context API"
+      ],
+      "note": "All open-source libraries used comply with their respective open-source licenses (MIT, Apache 2.0, etc.). We express our sincere gratitude to these excellent open-source projects."
+    },
+    "usageTerms": {
+      "title": "📜 Usage Terms & Disclaimer",
+      "usageLicense": {
+        "title": "Usage License",
+        "content": "All tools provided on this website are free for personal and commercial use. We do not collect, store, or transmit any data you enter in the tools; all processing is completed locally in your browser."
+      },
+      "disclaimer": {
+        "title": "Disclaimer",
+        "points": [
+          "The tools on this website are provided \"as is\" without any warranty of accuracy",
+          "Users assume all risks arising from the use of these tools",
+          "Financial calculation tools are for reference only and do not constitute investment advice",
+          "This website is not responsible for any losses caused by using or inability to use the tools"
+        ]
+      },
+      "privacyProtection": {
+        "title": "Privacy Protection",
+        "content": "We value your privacy. All tools on this website run locally in your browser and do not send your data to any server (except tools requiring real-time data, such as currency conversion)."
+      },
+      "contact": {
+        "title": "Contact Us",
+        "content": "If you have any questions about copyright, technical implementation, or other aspects of this website, please contact us at"
+      }
+    },
+    "thirdPartyContent": {
+      "title": "🤝 Third-Party Content",
+      "content": "Some features on this website may use third-party APIs or data:",
+      "points": [
+        "Currency Rates: Uses third-party exchange rate APIs to obtain real-time data",
+        "Icons: Uses Lucide Icons open-source icon library (MIT License)",
+        "Fonts: Uses system default fonts or Google Fonts",
+        "Advertising: May display third-party ads (Google AdSense) to support free services"
+      ],
+      "note": "We are committed to ensuring the lawful use of all third-party content. If you discover any infringing content, please contact us immediately at contact@haoin.tech, and we will address it within 24 hours."
+    },
+    "dmca": {
+      "title": "⚠️ DMCA Copyright Infringement Notice",
+      "content": "Haoin Tools respects intellectual property and complies with the provisions of the US Digital Millennium Copyright Act (DMCA). If you believe that content on this website infringes your copyright, please notify us following the procedure below.",
+      "requirements": {
+        "title": "DMCA Takedown Notice Requirements",
+        "content": "Your notice must include the following information:",
+        "points": [
+          "Your physical or electronic signature (as the copyright owner or their authorized representative)",
+          "Accurate description and location of the allegedly infringing material",
+          "Your contact information (address, phone number, email)",
+          "Statement that you believe in good faith that the use is not authorized by the copyright owner",
+          "Statement that the information in the notice is accurate, and you are the copyright owner or their authorized representative"
+        ]
+      },
+      "designatedAgent": {
+        "title": "DMCA Designated Agent",
+        "agent": "Copyright Agent - Haoin Tools",
+        "email": "contact@haoin.tech",
+        "subject": "Subject Line: \"DMCA Takedown Notice\""
+      },
+      "note": "Please note: According to DMCA regulations, knowingly providing false infringement claims may result in legal liability. We will handle it promptly upon receiving a valid notice."
+    },
+    "userContent": {
+      "title": "👤 User Content Responsibility",
+      "content": "All tools on this website only provide processing functionality and do not store user data. Users are responsible for:",
+      "points": [
+        "Ensuring that uploaded or processed content does not infringe on others' intellectual property rights",
+        "Ensuring content complies with applicable laws and regulations",
+        "Ensuring content does not contain illegal, harmful, threatening, defamatory, or obscene materials",
+        "Assuming all legal liabilities arising from using these tools to process illegal content"
+      ],
+      "importantNotice": "Since all processing is completed locally in the user's browser, we cannot monitor or control the content processed by users. Users must ensure lawful and compliant use on their own."
+    },
+    "footer": {
+      "rightsReserved": "© 2025 Haoin Tools. All Rights Reserved.",
+      "company": "Haoin Tech Co., Ltd.",
+      "compliance": "This website complies with applicable laws and regulations."
+    }
+  },
   "tools": {
     "case-converter": {
       "title": "Case Converter",
-      "description": "Convert text between uppercase, lowercase, title case, and more"
+      "description": "Convert text between uppercase, lowercase, title case, and more",
+      "intro": "This tool helps you instantly convert text between different formats like UPPERCASE, lowercase, Title Case, camelCase, snake_case, and kebab-case. Perfect for developers, writers, and content creators who need quick text formatting! 🚀",
+      "exampleText": "Hello World! This is a sample text for case conversion.",
+      "useCases": {
+        "programming": {
+          "title": "Programming",
+          "description": "Use <code class=\"mx-1 px-2 py-0.5 bg-white rounded text-purple-700 font-mono text-xs\">camelCase</code> for variables, <code class=\"mx-1 px-2 py-0.5 bg-white rounded text-purple-700 font-mono text-xs\">snake_case</code> for Python"
+        },
+        "urlsCss": {
+          "title": "URLs & CSS",
+          "description": "Use <code class=\"mx-1 px-2 py-0.5 bg-white rounded text-blue-700 font-mono text-xs\">kebab-case</code> for clean, SEO-friendly URLs"
+        },
+        "database": {
+          "title": "Database Fields",
+          "description": "Use <code class=\"mx-1 px-2 py-0.5 bg-white rounded text-green-700 font-mono text-xs\">snake_case</code> for database column names"
+        },
+        "content": {
+          "title": "Content Writing",
+          "description": "Use <code class=\"mx-1 px-2 py-0.5 bg-white rounded text-pink-700 font-mono text-xs\">Title Case</code> for headings and titles"
+        }
+      },
+      "proTips": {
+        "javascript": "<strong>JavaScript:</strong> Use camelCase for variables (myVariable)",
+        "python": "<strong>Python:</strong> Use snake_case for functions (my_function)",
+        "urls": "<strong>URLs:</strong> Use kebab-case for better SEO (my-page-url)",
+        "headings": "<strong>Headings:</strong> Use Title Case for proper formatting"
+      }
     },
     "word-counter": {
       "title": "Word Counter",
@@ -137,7 +507,290 @@
     "bmi-calculator": {
       "title": "BMI Calculator",
       "description": "Calculate your Body Mass Index and health status"
+    },
+    "loan-calculator": {
+      "title": "Loan Calculator",
+      "description": "Calculate monthly payments and total interest for loans"
+    },
+    "interest-calculator": {
+      "title": "Interest Calculator",
+      "description": "Calculate simple and compound interest"
+    },
+    "investment-calculator": {
+      "title": "Investment Calculator",
+      "description": "Estimate investment returns over time"
+    },
+    "currency-converter": {
+      "title": "Currency Converter",
+      "description": "Convert between different currencies with real-time rates"
+    },
+    "credit-card-calculator": {
+      "title": "Credit Card Calculator",
+      "description": "Calculate credit card payoff time and total interest"
+    },
+    "unit-converter": {
+      "title": "Unit Converter",
+      "description": "Convert between different units of measurement"
+    },
+    "age-calculator": {
+      "title": "Age Calculator",
+      "description": "Calculate your exact age in years, months, and days"
+    },
+    "date-calculator": {
+      "title": "Date Calculator",
+      "description": "Calculate difference between two dates"
+    },
+    "random-picker": {
+      "title": "Random Picker",
+      "description": "Pick random names or items from a list"
+    },
+    "image-compressor": {
+      "title": "Image Compressor",
+      "description": "Compress images to reduce file size"
+    },
+    "image-resizer": {
+      "title": "Image Resizer",
+      "description": "Resize images to any dimension"
+    },
+    "text-diff": {
+      "title": "Text Diff Checker",
+      "description": "Compare two texts and find differences"
+    },
+    "text-sorter": {
+      "title": "Text Sorter",
+      "description": "Sort text lines alphabetically"
+    },
+    "html-to-text": {
+      "title": "HTML to Text",
+      "description": "Convert HTML to plain text"
+    },
+    "csv-to-json": {
+      "title": "CSV to JSON",
+      "description": "Convert CSV data to JSON format"
+    },
+    "text-replacer": {
+      "title": "Text Replacer",
+      "description": "Find and replace text with support for regex"
+    },
+    "duplicate-remover": {
+      "title": "Duplicate Line Remover",
+      "description": "Remove duplicate and empty lines from text"
+    },
+    "json-to-csv": {
+      "title": "JSON to CSV",
+      "description": "Convert JSON data to CSV format"
+    },
+    "xml-to-json": {
+      "title": "XML to JSON",
+      "description": "Convert XML to JSON format"
+    },
+    "markdown-to-html": {
+      "title": "Markdown to HTML",
+      "description": "Convert Markdown to HTML"
+    },
+    "discount-calculator": {
+      "title": "Discount Calculator",
+      "description": "Calculate discounts and final prices"
+    },
+    "password-strength-checker": {
+      "title": "Password Strength Checker",
+      "description": "Analyze password security and get improvement suggestions"
+    },
+    "email-validator": {
+      "title": "Email Validator",
+      "description": "Validate email addresses in bulk (RFC 5322 compliant)"
+    },
+    "stopwatch-timer": {
+      "title": "Stopwatch & Timer",
+      "description": "Track time with stopwatch or set countdown timers"
+    },
+    "pomodoro-timer": {
+      "title": "Pomodoro Timer",
+      "description": "Focus timer with 25-min work and 5-min break intervals"
+    },
+    "whitespace-remover": {
+      "title": "Whitespace Remover",
+      "description": "Remove extra spaces, tabs, and line breaks from text"
+    },
+    "ip-lookup": {
+      "title": "IP Address Lookup",
+      "description": "Get information about any IP address"
+    },
+    "barcode-generator": {
+      "title": "Barcode Generator",
+      "description": "Generate barcodes (Code128, EAN, UPC) from text"
+    },
+    "color-gradient-generator": {
+      "title": "Color Gradient Generator",
+      "description": "Create beautiful CSS gradients with live preview"
+    },
+    "jwt-decoder": {
+      "title": "JWT Decoder",
+      "description": "Decode and inspect JWT tokens header and payload"
+    },
+    "sql-formatter": {
+      "title": "SQL Formatter",
+      "description": "Format and beautify SQL queries for better readability"
+    },
+    "code-minifier": {
+      "title": "Code Minifier",
+      "description": "Compress HTML, CSS, and JavaScript to reduce file size"
+    },
+    "http-status-codes": {
+      "title": "HTTP Status Codes",
+      "description": "Quick reference for HTTP status codes and their meanings"
+    },
+    "api-tester": {
+      "title": "API Tester",
+      "description": "Test REST APIs by sending HTTP requests and inspecting responses"
+    }
+  },
+  "cookiePolicy": {
+    "title": "Cookie Policy",
+    "lastUpdated": "Last updated: ",
+    "whatAreCookies": {
+      "title": "🍪 What Are Cookies?",
+      "description": "Cookies are small text files that are stored on your device when you visit a website. They help the website remember your preferences and improve your browsing experience."
+    },
+    "howWeUseCookies": {
+      "title": "📝 How We Use Cookies",
+      "description": "At Haoin Tools, we use cookies minimally and responsibly:",
+      "essential": {
+        "title": "Essential Cookies",
+        "description": "These are necessary for the website to function properly, such as remembering your theme preference (dark/light mode) and language settings."
+      },
+      "functionality": {
+        "title": "Functionality Cookies",
+        "description": "These remember your recently used tools to provide quick access on your next visit."
+      },
+      "advertising": {
+        "title": "Advertising Cookies",
+        "description": "We <strong>DO NOT</strong> use advertising or tracking cookies."
+      },
+      "thirdParty": {
+        "title": "Third-Party Tracking",
+        "description": "We <strong>DO NOT</strong> share your data with third-party advertisers."
+      }
+    },
+    "typesOfCookies": {
+      "title": "🎯 Types of Cookies We Use",
+      "table": {
+        "cookieName": "Cookie Name",
+        "purpose": "Purpose",
+        "duration": "Duration",
+        "cookies": {
+          "cookieConsent": {
+            "name": "cookieConsent",
+            "purpose": "Remember your cookie preference",
+            "duration": "1 year"
+          },
+          "theme": {
+            "name": "theme",
+            "purpose": "Remember dark/light mode preference",
+            "duration": "Permanent"
+          },
+          "recentTools": {
+            "name": "recentTools",
+            "purpose": "Store your recently used tools",
+            "duration": "30 days"
+          }
+        }
+      }
+    },
+    "managingCookies": {
+      "title": "🔧 Managing Cookies",
+      "description": "You have full control over cookies:",
+      "browserSettings": {
+        "title": "Browser Settings",
+        "description": "You can block or delete cookies through your browser settings at any time."
+      },
+      "optOut": {
+        "title": "Opt-Out",
+        "description": "You can decline cookies when you first visit our website using the cookie consent banner."
+      },
+      "impact": {
+        "title": "Impact",
+        "description": "Blocking cookies may affect some website features, but all tools will continue to work."
+      }
+    },
+    "privacyPriority": {
+      "title": "🔒 Your Privacy is Our Priority",
+      "description": "Unlike many websites, we don't use cookies to track your behavior, build user profiles, or serve targeted ads. Our cookies are strictly for improving your user experience on our site. All data processing happens locally in your browser, and we never send your files or personal data to our servers."
+    },
+    "contact": {
+      "title": "📞 Contact Us",
+      "description": "If you have any questions about our use of cookies, please contact us at:"
+    },
+    "footer": {
+      "title": "Simple & Transparent:",
+      "description": "We believe in being upfront about how we use cookies. No hidden trackers, no surprises."
+    }
+  },
+  "aboutUs": {
+    "title": "About Us",
+    "pageTitle": "About Haoin Tools",
+    "subtitle": "Your trusted companion for productivity and creativity 🚀",
+    "ourStory": {
+      "title": "✨ Our Story",
+      "paragraph1": "Haoin Tools was born from a simple idea: <strong>everyone deserves access to powerful, easy-to-use tools</strong> without barriers. We noticed that many online tools were either too complex, required registration, or charged fees for basic features.",
+      "paragraph2": "So we built Haoin Tools - a completely <strong>free, no-registration-required</strong> collection of tools designed to make your life easier. Whether you're a developer, designer, student, or just someone who needs to get things done, we've got you covered!"
+    },
+    "ourMission": {
+      "title": "Our Mission",
+      "description": "To provide <strong>free, accessible, and privacy-first tools</strong> that empower people to work smarter and create better. All tools remain free forever, with optional advertising support to maintain our services."
+    },
+    "ourVision": {
+      "title": "Our Vision",
+      "description": "To become the <strong>go-to destination</strong> for anyone looking for reliable, fast, and beautiful online tools. We're constantly adding new tools based on your needs!"
+    },
+    "whyChooseUs": {
+      "title": "Why Choose Us?",
+      "features": {
+        "beautifulDesign": {
+          "title": "Beautiful Design",
+          "description": "Modern, intuitive interface that's a joy to use"
+        },
+        "lightningFast": {
+          "title": "Lightning Fast",
+          "description": "Client-side processing for instant results"
+        },
+        "privacyFirst": {
+          "title": "Privacy First",
+          "description": "Your data never leaves your browser"
+        },
+        "alwaysFree": {
+          "title": "Always Free",
+          "description": "No hidden costs, no premium tiers"
+        },
+        "mobileFriendly": {
+          "title": "Mobile Friendly",
+          "description": "Works perfectly on all devices"
+        },
+        "noRegistration": {
+          "title": "No Registration",
+          "description": "Start using immediately, no sign-up needed"
+        }
+      }
+    },
+    "whatWeOffer": {
+      "title": "🚀 What We Offer",
+      "description": "We currently offer <strong>50+ powerful tools</strong> across multiple categories:",
+      "categories": {
+        "textProcessing": "📝 Text Processing",
+        "converters": "🔄 Converters",
+        "generators": "🎲 Generators",
+        "calculators": "🧮 Calculators",
+        "imageStudio": "🖼️ Image Studio",
+        "devTools": "💻 Dev Tools",
+        "finance": "💰 Finance",
+        "utilities": "🛠️ Utilities",
+        "andMore": "...and more!"
+      }
+    },
+    "joinCommunity": {
+      "title": "💖 Join Our Community",
+      "description": "Follow us on social media to stay updated with new tools, features, and tips!",
+      "feedback": "We love hearing from our users. Have a feature request or feedback? Reach out to us anytime!"
     }
   }
 }
-

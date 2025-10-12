@@ -2,8 +2,11 @@ import { SidebarTrigger } from "@/components/ui/sidebar";
 import { AnimatedBackground } from "@/components/AnimatedBackground";
 import { Footer } from "@/components/Footer";
 import { Heart, Zap, Users, Target } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 const AboutUs = () => {
+  const { t } = useTranslation();
+
   return (
     <div className="min-h-screen relative">
       <AnimatedBackground />
@@ -11,7 +14,7 @@ const AboutUs = () => {
       <header className="sticky top-0 z-10 border-b glass">
         <div className="flex h-16 items-center gap-4 px-6">
           <SidebarTrigger />
-          <h2 className="text-lg font-semibold">About Us</h2>
+          <h2 className="text-lg font-semibold">{t("aboutUs.title")}</h2>
         </div>
       </header>
 
@@ -21,36 +24,30 @@ const AboutUs = () => {
             <Heart className="h-12 w-12 text-white" />
           </div>
           <h1 className="text-5xl font-black mb-4">
-            <span className="gradient-text">About Haoin Tools</span>
+            <span className="gradient-text">{t("aboutUs.pageTitle")}</span>
           </h1>
           <p className="text-muted-foreground text-xl max-w-2xl mx-auto">
-            Your trusted companion for productivity and creativity 🚀
+            {t("aboutUs.subtitle")}
           </p>
         </div>
 
         <div className="space-y-6">
           <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-lg">
             <h2 className="text-3xl font-bold mb-4 gradient-text">
-              ✨ Our Story
+              {t("aboutUs.ourStory.title")}
             </h2>
-            <p className="text-foreground/80 leading-relaxed text-lg mb-4">
-              Haoin Tools was born from a simple idea:{" "}
-              <strong className="text-primary">
-                everyone deserves access to powerful, easy-to-use tools
-              </strong>{" "}
-              without barriers. We noticed that many online tools were either
-              too complex, required registration, or charged fees for basic
-              features.
-            </p>
-            <p className="text-foreground/80 leading-relaxed text-lg">
-              So we built Haoin Tools - a completely{" "}
-              <strong className="text-primary">
-                free, no-registration-required
-              </strong>{" "}
-              collection of tools designed to make your life easier. Whether
-              you're a developer, designer, student, or just someone who needs
-              to get things done, we've got you covered!
-            </p>
+            <p
+              className="text-foreground/80 leading-relaxed text-lg mb-4"
+              dangerouslySetInnerHTML={{
+                __html: t("aboutUs.ourStory.paragraph1"),
+              }}
+            />
+            <p
+              className="text-foreground/80 leading-relaxed text-lg"
+              dangerouslySetInnerHTML={{
+                __html: t("aboutUs.ourStory.paragraph2"),
+              }}
+            />
           </div>
 
           <div className="grid md:grid-cols-2 gap-6">
@@ -59,15 +56,14 @@ const AboutUs = () => {
                 <Target className="h-8 w-8 text-white" />
               </div>
               <h3 className="text-2xl font-bold mb-3 gradient-text">
-                Our Mission
+                {t("aboutUs.ourMission.title")}
               </h3>
-              <p className="text-foreground/80 leading-relaxed">
-                To provide{" "}
-                <strong>free, accessible, and privacy-first tools</strong> that
-                empower people to work smarter and create better. All tools
-                remain free forever, with optional advertising support to
-                maintain our services.
-              </p>
+              <p
+                className="text-foreground/80 leading-relaxed"
+                dangerouslySetInnerHTML={{
+                  __html: t("aboutUs.ourMission.description"),
+                }}
+              />
             </div>
 
             <div className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-3xl p-8 shadow-lg">
@@ -75,13 +71,14 @@ const AboutUs = () => {
                 <Zap className="h-8 w-8 text-white" />
               </div>
               <h3 className="text-2xl font-bold mb-3 gradient-text-accent">
-                Our Vision
+                {t("aboutUs.ourVision.title")}
               </h3>
-              <p className="text-foreground/80 leading-relaxed">
-                To become the <strong>go-to destination</strong> for anyone
-                looking for reliable, fast, and beautiful online tools. We're
-                constantly adding new tools based on your needs!
-              </p>
+              <p
+                className="text-foreground/80 leading-relaxed"
+                dangerouslySetInnerHTML={{
+                  __html: t("aboutUs.ourVision.description"),
+                }}
+              />
             </div>
           </div>
 
@@ -91,7 +88,7 @@ const AboutUs = () => {
                 <Users className="h-8 w-8 text-white" />
               </div>
               <h2 className="text-3xl font-bold gradient-text">
-                Why Choose Us?
+                {t("aboutUs.whyChooseUs.title")}
               </h2>
             </div>
 
@@ -99,9 +96,13 @@ const AboutUs = () => {
               <div className="flex items-start gap-3">
                 <div className="text-2xl">🎨</div>
                 <div>
-                  <h4 className="font-bold text-lg mb-1">Beautiful Design</h4>
+                  <h4 className="font-bold text-lg mb-1">
+                    {t("aboutUs.whyChooseUs.features.beautifulDesign.title")}
+                  </h4>
                   <p className="text-foreground/70">
-                    Modern, intuitive interface that's a joy to use
+                    {t(
+                      "aboutUs.whyChooseUs.features.beautifulDesign.description"
+                    )}
                   </p>
                 </div>
               </div>
@@ -109,9 +110,13 @@ const AboutUs = () => {
               <div className="flex items-start gap-3">
                 <div className="text-2xl">⚡</div>
                 <div>
-                  <h4 className="font-bold text-lg mb-1">Lightning Fast</h4>
+                  <h4 className="font-bold text-lg mb-1">
+                    {t("aboutUs.whyChooseUs.features.lightningFast.title")}
+                  </h4>
                   <p className="text-foreground/70">
-                    Client-side processing for instant results
+                    {t(
+                      "aboutUs.whyChooseUs.features.lightningFast.description"
+                    )}
                   </p>
                 </div>
               </div>
@@ -119,9 +124,11 @@ const AboutUs = () => {
               <div className="flex items-start gap-3">
                 <div className="text-2xl">🔒</div>
                 <div>
-                  <h4 className="font-bold text-lg mb-1">Privacy First</h4>
+                  <h4 className="font-bold text-lg mb-1">
+                    {t("aboutUs.whyChooseUs.features.privacyFirst.title")}
+                  </h4>
                   <p className="text-foreground/70">
-                    Your data never leaves your browser
+                    {t("aboutUs.whyChooseUs.features.privacyFirst.description")}
                   </p>
                 </div>
               </div>
@@ -129,9 +136,11 @@ const AboutUs = () => {
               <div className="flex items-start gap-3">
                 <div className="text-2xl">🆓</div>
                 <div>
-                  <h4 className="font-bold text-lg mb-1">Always Free</h4>
+                  <h4 className="font-bold text-lg mb-1">
+                    {t("aboutUs.whyChooseUs.features.alwaysFree.title")}
+                  </h4>
                   <p className="text-foreground/70">
-                    No hidden costs, no premium tiers
+                    {t("aboutUs.whyChooseUs.features.alwaysFree.description")}
                   </p>
                 </div>
               </div>
@@ -139,9 +148,13 @@ const AboutUs = () => {
               <div className="flex items-start gap-3">
                 <div className="text-2xl">📱</div>
                 <div>
-                  <h4 className="font-bold text-lg mb-1">Mobile Friendly</h4>
+                  <h4 className="font-bold text-lg mb-1">
+                    {t("aboutUs.whyChooseUs.features.mobileFriendly.title")}
+                  </h4>
                   <p className="text-foreground/70">
-                    Works perfectly on all devices
+                    {t(
+                      "aboutUs.whyChooseUs.features.mobileFriendly.description"
+                    )}
                   </p>
                 </div>
               </div>
@@ -149,9 +162,13 @@ const AboutUs = () => {
               <div className="flex items-start gap-3">
                 <div className="text-2xl">🌍</div>
                 <div>
-                  <h4 className="font-bold text-lg mb-1">No Registration</h4>
+                  <h4 className="font-bold text-lg mb-1">
+                    {t("aboutUs.whyChooseUs.features.noRegistration.title")}
+                  </h4>
                   <p className="text-foreground/70">
-                    Start using immediately, no sign-up needed
+                    {t(
+                      "aboutUs.whyChooseUs.features.noRegistration.description"
+                    )}
                   </p>
                 </div>
               </div>
@@ -160,54 +177,38 @@ const AboutUs = () => {
 
           <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-lg">
             <h2 className="text-3xl font-bold mb-4 gradient-text">
-              🚀 What We Offer
+              {t("aboutUs.whatWeOffer.title")}
             </h2>
-            <p className="text-foreground/80 leading-relaxed text-lg mb-4">
-              We currently offer{" "}
-              <strong className="text-primary">40+ powerful tools</strong>{" "}
-              across multiple categories:
-            </p>
+            <p
+              className="text-foreground/80 leading-relaxed text-lg mb-4"
+              dangerouslySetInnerHTML={{
+                __html: t("aboutUs.whatWeOffer.description"),
+              }}
+            />
             <div className="grid md:grid-cols-3 gap-3 text-foreground/80">
-              <div>📝 Text Processing</div>
-              <div>🔄 Converters</div>
-              <div>🎲 Generators</div>
-              <div>🧮 Calculators</div>
-              <div>🖼️ Image Studio</div>
-              <div>💻 Dev Tools</div>
-              <div>💰 Finance</div>
-              <div>🛠️ Utilities</div>
-              <div>...and more!</div>
+              <div>{t("aboutUs.whatWeOffer.categories.textProcessing")}</div>
+              <div>{t("aboutUs.whatWeOffer.categories.converters")}</div>
+              <div>{t("aboutUs.whatWeOffer.categories.generators")}</div>
+              <div>{t("aboutUs.whatWeOffer.categories.calculators")}</div>
+              <div>{t("aboutUs.whatWeOffer.categories.imageStudio")}</div>
+              <div>{t("aboutUs.whatWeOffer.categories.devTools")}</div>
+              <div>{t("aboutUs.whatWeOffer.categories.finance")}</div>
+              <div>{t("aboutUs.whatWeOffer.categories.utilities")}</div>
+              <div>{t("aboutUs.whatWeOffer.categories.andMore")}</div>
             </div>
           </div>
 
           <div className="bg-gradient-to-r from-pink-500 to-purple-500 rounded-3xl p-8 shadow-lg text-white text-center">
-            <h2 className="text-3xl font-bold mb-4">💖 Join Our Community</h2>
+            <h2 className="text-3xl font-bold mb-4">
+              {t("aboutUs.joinCommunity.title")}
+            </h2>
             <p className="text-lg mb-6 text-white/90">
-              Follow us on social media to stay updated with new tools,
-              features, and tips!
+              {t("aboutUs.joinCommunity.description")}
             </p>
             <p className="text-sm text-white/80">
-              We love hearing from our users. Have a feature request or
-              feedback? Reach out to us anytime!
+              {t("aboutUs.joinCommunity.feedback")}
             </p>
           </div>
-
-          {/* <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-3xl p-8 shadow-lg text-center">
-            <p className="text-lg text-foreground/70 space-y-2">
-              <strong className="text-primary text-xl block">
-                Made with ❤️ by Haoin Tech
-              </strong>
-              <span className="text-sm block">
-                杭州皓萤科技有限公司 (Haoin Tech Co., Ltd.)
-              </span>
-              <span className="text-sm block">
-                Empowering creativity and productivity, one tool at a time.
-              </span>
-              <span className="text-xs block mt-4 text-muted-foreground">
-                📧 contact@haoin.tech | 🌐 haointools.com
-              </span>
-            </p>
-          </div> */}
         </div>
       </div>
 

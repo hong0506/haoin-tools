@@ -59,15 +59,35 @@
     }
   },
   "footer": {
-    "description": "Herramientas en línea gratuitas para desarrolladores, diseñadores y todos. No se requiere registro, 100% gratis para siempre.",
+    "description": "Accede a más de 50 herramientas en línea gratuitas al instante - procesamiento de texto, edición de imágenes, convertidores, generadores, calculadoras y más. No se requiere registro.",
+    "dataProcessedLocally": "Todos los datos se procesan localmente en tu navegador",
     "quickLinks": "Enlaces Rápidos",
+    "wechat": "WeChat",
+    "instagram": "Instagram",
+    "home": "Inicio",
+    "favorites": "Favoritos",
+    "recentlyUsed": "Usados Recientemente",
+    "generators": "Generadores",
+    "devTools": "Herramientas de Desarrollo",
     "tools": "Herramientas",
     "legal": "Legal",
+    "privacyPolicy": "Política de Privacidad",
+    "termsOfService": "Términos de Servicio",
+    "cookiePolicy": "Política de Cookies",
+    "copyright": "Derechos de Autor",
+    "aboutUs": "Sobre Nosotros",
     "followUs": "Síguenos",
+    "followUsForUpdates": "¡Síguenos para actualizaciones!",
     "language": "Idioma",
-    "copyright": "© 2024 Haoin Tools. Todos los derechos reservados.",
-    "madeWith": "Hecho con",
-    "by": "por"
+    "allRightsReserved": "© 2025 Haoin Technology Co., Ltd. Todos los derechos reservados.",
+    "email": "Correo:",
+    "privacyFirst": "Privacidad Primero",
+    "privacyDescription": "Todas las herramientas procesan datos localmente en tu navegador. No almacenamos tus archivos ni datos personales.",
+    "disclaimer": "Descargo de Responsabilidad",
+    "disclaimerText": "Herramientas proporcionadas tal cual con fines educativos. No pretenden reemplazar el asesoramiento profesional. No nos hacemos responsables de daños por el uso de herramientas o errores.",
+    "advertising": "Publicidad:",
+    "advertisingText": "Puede mostrar anuncios de terceros para apoyar los servicios gratuitos.",
+    "userResponsibility": "Los usuarios asumen todos los riesgos y deben garantizar el cumplimiento de las leyes aplicables."
   },
   "toolCard": {
     "addedToFavorites": "¡agregado a favoritos!",
@@ -82,6 +102,153 @@
       "proTips": "Consejos Profesionales",
       "relatedTools": "Herramientas Relacionadas que Podrían Gustarte"
     }
+  },
+  "cookiePolicy": {
+    "title": "Política de Cookies",
+    "lastUpdated": "Última actualización: ",
+    "whatAreCookies": {
+      "title": "🍪 ¿Qué son las Cookies?",
+      "description": "Las cookies son pequeños archivos de texto que se almacenan en tu dispositivo cuando visitas un sitio web. Ayudan al sitio web a recordar tus preferencias y mejorar tu experiencia de navegación."
+    },
+    "howWeUseCookies": {
+      "title": "📝 Cómo Utilizamos las Cookies",
+      "description": "En Haoin Tools, utilizamos cookies de manera mínima y responsable:",
+      "essential": {
+        "title": "Cookies Esenciales",
+        "description": "Son necesarias para que el sitio web funcione correctamente, como recordar tu preferencia de tema (modo oscuro/claro) y configuración de idioma."
+      },
+      "functionality": {
+        "title": "Cookies Funcionales",
+        "description": "Estas recuerdan las herramientas que usaste recientemente para proporcionar acceso rápido en tu próxima visita."
+      },
+      "advertising": {
+        "title": "Cookies Publicitarias",
+        "description": "<strong>NO</strong> utilizamos cookies de publicidad o seguimiento."
+      },
+      "thirdParty": {
+        "title": "Seguimiento de Terceros",
+        "description": "<strong>NO</strong> compartimos tus datos con anunciantes de terceros."
+      }
+    },
+    "typesOfCookies": {
+      "title": "🎯 Tipos de Cookies que Utilizamos",
+      "table": {
+        "cookieName": "Nombre de Cookie",
+        "purpose": "Propósito",
+        "duration": "Duración",
+        "cookies": {
+          "cookieConsent": {
+            "name": "cookieConsent",
+            "purpose": "Recordar tu preferencia de cookies",
+            "duration": "1 año"
+          },
+          "theme": {
+            "name": "theme",
+            "purpose": "Recordar preferencia de modo oscuro/claro",
+            "duration": "Permanente"
+          },
+          "recentTools": {
+            "name": "recentTools",
+            "purpose": "Almacenar tus herramientas usadas recientemente",
+            "duration": "30 días"
+          }
+        }
+      }
+    },
+    "managingCookies": {
+      "title": "🔧 Gestión de Cookies",
+      "description": "Tienes control total sobre las cookies:",
+      "browserSettings": {
+        "title": "Configuración del Navegador",
+        "description": "Puedes bloquear o eliminar cookies a través de la configuración de tu navegador en cualquier momento."
+      },
+      "optOut": {
+        "title": "Optar por No Participar",
+        "description": "Puedes rechazar las cookies cuando visites nuestro sitio web por primera vez utilizando el banner de consentimiento de cookies."
+      },
+      "impact": {
+        "title": "Impacto",
+        "description": "Bloquear las cookies puede afectar algunas funciones del sitio web, pero todas las herramientas seguirán funcionando."
+      }
+    },
+    "privacyPriority": {
+      "title": "🔒 Tu Privacidad es Nuestra Prioridad",
+      "description": "A diferencia de muchos sitios web, no utilizamos cookies para rastrear tu comportamiento, crear perfiles de usuario o servir anuncios dirigidos. Nuestras cookies son estrictamente para mejorar tu experiencia de usuario en nuestro sitio. Todo el procesamiento de datos ocurre localmente en tu navegador, y nunca enviamos tus archivos o datos personales a nuestros servidores."
+    },
+    "contact": {
+      "title": "📞 Contáctanos",
+      "description": "Si tienes alguna pregunta sobre nuestro uso de cookies, contáctanos en:"
+    },
+    "footer": {
+      "title": "Simple y Transparente:",
+      "description": "Creemos en ser francos sobre cómo usamos las cookies. Sin rastreadores ocultos, sin sorpresas."
+    }
+  },
+  "aboutUs": {
+    "title": "Sobre Nosotros",
+    "pageTitle": "Sobre Haoin Tools",
+    "subtitle": "Tu compañero de confianza para la productividad y creatividad 🚀",
+    "ourStory": {
+      "title": "✨ Nuestra Historia",
+      "paragraph1": "Haoin Tools nació de una idea simple: <strong>todos merecen acceso a herramientas poderosas y fáciles de usar</strong> sin barreras. Notamos que muchas herramientas en línea eran demasiado complejas, requerían registro o cobraban tarifas por funciones básicas.",
+      "paragraph2": "Así que construimos Haoin Tools - una colección completamente <strong>gratuita y sin registro requerido</strong> de herramientas diseñadas para hacer tu vida más fácil. Ya seas desarrollador, diseñador, estudiante o simplemente alguien que necesita hacer las cosas, ¡te tenemos cubierto!"
+    },
+    "ourMission": {
+      "title": "Nuestra Misión",
+      "description": "Proporcionar <strong>herramientas gratuitas, accesibles y que priorizan la privacidad</strong> que empoderen a las personas para trabajar de manera más inteligente y crear mejor. Todas las herramientas permanecen gratuitas para siempre, con soporte publicitario opcional para mantener nuestros servicios."
+    },
+    "ourVision": {
+      "title": "Nuestra Visión",
+      "description": "Convertirnos en el <strong>destino de referencia</strong> para cualquiera que busque herramientas en línea confiables, rápidas y hermosas. ¡Constantemente agregamos nuevas herramientas basadas en tus necesidades!"
+    },
+    "whyChooseUs": {
+      "title": "¿Por Qué Elegirnos?",
+      "features": {
+        "beautifulDesign": {
+          "title": "Diseño Hermoso",
+          "description": "Interfaz moderna e intuitiva que es un placer usar"
+        },
+        "lightningFast": {
+          "title": "Ultrarrápido",
+          "description": "Procesamiento del lado del cliente para resultados instantáneos"
+        },
+        "privacyFirst": {
+          "title": "Privacidad Primero",
+          "description": "Tus datos nunca salen de tu navegador"
+        },
+        "alwaysFree": {
+          "title": "Siempre Gratis",
+          "description": "Sin costos ocultos, sin niveles premium"
+        },
+        "mobileFriendly": {
+          "title": "Compatible con Móviles",
+          "description": "Funciona perfectamente en todos los dispositivos"
+        },
+        "noRegistration": {
+          "title": "Sin Registro",
+          "description": "Comienza a usar inmediatamente, sin necesidad de registrarse"
+        }
+      }
+    },
+    "whatWeOffer": {
+      "title": "🚀 Lo Que Ofrecemos",
+      "description": "Actualmente ofrecemos <strong>más de 50 herramientas potentes</strong> en múltiples categorías:",
+      "categories": {
+        "textProcessing": "📝 Procesamiento de Texto",
+        "converters": "🔄 Convertidores",
+        "generators": "🎲 Generadores",
+        "calculators": "🧮 Calculadoras",
+        "imageStudio": "🖼️ Estudio de Imágenes",
+        "devTools": "💻 Herramientas de Desarrollo",
+        "finance": "💰 Finanzas",
+        "utilities": "🛠️ Utilidades",
+        "andMore": "...¡y más!"
+      }
+    },
+    "joinCommunity": {
+      "title": "💖 Únete a Nuestra Comunidad",
+      "description": "¡Síguenos en las redes sociales para mantenerte actualizado con nuevas herramientas, funciones y consejos!",
+      "feedback": "Nos encanta escuchar a nuestros usuarios. ¿Tienes una solicitud de función o comentarios? ¡Contáctanos en cualquier momento!"
+    }
   }
 }
-

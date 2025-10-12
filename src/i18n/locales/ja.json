@@ -54,12 +54,15 @@
     "features": {
       "beautifulUI": "美しいUI",
       "lightningFast": "超高速",
-      "privacyFirst": "プライバシー第一"
+      "privacyFirst": "プライバシー第一",
+      "easyToUse": "使いやすい"
     }
   },
   "footer": {
     "description": "開発者、デザイナー、すべての人のための無料オンラインツール。登録不要、永久に100％無料。",
     "quickLinks": "クイックリンク",
+    "wechat": "WeChat",
+    "instagram": "Instagram",
     "tools": "ツール",
     "legal": "法的情報",
     "followUs": "フォローする",
@@ -81,6 +84,153 @@
       "proTips": "プロのヒント",
       "relatedTools": "おすすめの関連ツール"
     }
+  },
+  "cookiePolicy": {
+    "title": "Cookieポリシー",
+    "lastUpdated": "最終更新日：",
+    "whatAreCookies": {
+      "title": "🍪 Cookieとは？",
+      "description": "Cookieは、ウェブサイトにアクセスしたときにデバイスに保存される小さなテキストファイルです。ウェブサイトがあなたの設定を記憶し、ブラウジング体験を向上させるのに役立ちます。"
+    },
+    "howWeUseCookies": {
+      "title": "📝 Cookieの使用方法",
+      "description": "Haoin Toolsでは、最小限かつ責任を持ってCookieを使用しています：",
+      "essential": {
+        "title": "必須Cookie",
+        "description": "これらはウェブサイトが正常に機能するために必要なもので、テーマの設定（ダーク/ライトモード）や言語設定を記憶します。"
+      },
+      "functionality": {
+        "title": "機能Cookie",
+        "description": "これらは最近使用したツールを記憶し、次回の訪問時に素早くアクセスできるようにします。"
+      },
+      "advertising": {
+        "title": "広告Cookie",
+        "description": "広告やトラッキングCookieは<strong>使用していません</strong>。"
+      },
+      "thirdParty": {
+        "title": "サードパーティトラッキング",
+        "description": "サードパーティの広告主とデータを<strong>共有していません</strong>。"
+      }
+    },
+    "typesOfCookies": {
+      "title": "🎯 使用しているCookieの種類",
+      "table": {
+        "cookieName": "Cookie名",
+        "purpose": "目的",
+        "duration": "有効期限",
+        "cookies": {
+          "cookieConsent": {
+            "name": "cookieConsent",
+            "purpose": "Cookieの設定を記憶",
+            "duration": "1年"
+          },
+          "theme": {
+            "name": "theme",
+            "purpose": "ダーク/ライトモードの設定を記憶",
+            "duration": "永続的"
+          },
+          "recentTools": {
+            "name": "recentTools",
+            "purpose": "最近使用したツールを保存",
+            "duration": "30日"
+          }
+        }
+      }
+    },
+    "managingCookies": {
+      "title": "🔧 Cookieの管理",
+      "description": "Cookieを完全にコントロールできます：",
+      "browserSettings": {
+        "title": "ブラウザ設定",
+        "description": "ブラウザの設定からいつでもCookieをブロックまたは削除できます。"
+      },
+      "optOut": {
+        "title": "オプトアウト",
+        "description": "初回訪問時にCookie同意バナーを使用してCookieを拒否できます。"
+      },
+      "impact": {
+        "title": "影響",
+        "description": "Cookieをブロックすると一部のウェブサイト機能に影響する可能性がありますが、すべてのツールは引き続き動作します。"
+      }
+    },
+    "privacyPriority": {
+      "title": "🔒 プライバシーを最優先",
+      "description": "多くのウェブサイトとは異なり、私たちは行動を追跡したり、ユーザープロファイルを構築したり、ターゲット広告を配信するためにCookieを使用していません。私たちのCookieは、当サイトでのユーザー体験を向上させるためだけのものです。すべてのデータ処理はブラウザ内でローカルに行われ、ファイルや個人データをサーバーに送信することはありません。"
+    },
+    "contact": {
+      "title": "📞 お問い合わせ",
+      "description": "Cookieの使用に関するご質問は、以下までお問い合わせください："
+    },
+    "footer": {
+      "title": "シンプルで透明：",
+      "description": "Cookieの使用方法について率直にお伝えすることを信条としています。隠されたトラッカーもサプライズもありません。"
+    }
+  },
+  "aboutUs": {
+    "title": "私たちについて",
+    "pageTitle": "Haoin Toolsについて",
+    "subtitle": "生産性と創造性のための信頼できるパートナー 🚀",
+    "ourStory": {
+      "title": "✨ 私たちのストーリー",
+      "paragraph1": "Haoin Toolsは、シンプルなアイデアから生まれました：<strong>誰もが障壁なく、強力で使いやすいツールにアクセスできるべきだ</strong>。多くのオンラインツールが複雑すぎたり、登録が必要だったり、基本機能に料金がかかったりすることに気づきました。",
+      "paragraph2": "そこで私たちはHaoin Toolsを構築しました - 完全に<strong>無料で登録不要</strong>のツールコレクションで、あなたの生活をより簡単にするように設計されています。開発者、デザイナー、学生、または単に仕事を終わらせる必要がある人、誰でも対応します！"
+    },
+    "ourMission": {
+      "title": "私たちのミッション",
+      "description": "人々がよりスマートに働き、より良く創作できるように、<strong>無料でアクセス可能、プライバシー第一のツール</strong>を提供すること。すべてのツールは永久に無料で、オプションの広告サポートでサービスを維持します。"
+    },
+    "ourVision": {
+      "title": "私たちのビジョン",
+      "description": "信頼性が高く、高速で美しいオンラインツールを探している人にとっての<strong>第一選択先</strong>になること。ニーズに基づいて常に新しいツールを追加しています！"
+    },
+    "whyChooseUs": {
+      "title": "なぜ私たちを選ぶのか？",
+      "features": {
+        "beautifulDesign": {
+          "title": "美しいデザイン",
+          "description": "使う喜びを感じる、モダンで直感的なインターフェース"
+        },
+        "lightningFast": {
+          "title": "超高速",
+          "description": "クライアント側の処理で即座に結果を取得"
+        },
+        "privacyFirst": {
+          "title": "プライバシー第一",
+          "description": "データはブラウザから離れることはありません"
+        },
+        "alwaysFree": {
+          "title": "永久無料",
+          "description": "隠れたコストなし、プレミアム層なし"
+        },
+        "mobileFriendly": {
+          "title": "モバイルフレンドリー",
+          "description": "すべてのデバイスで完璧に動作"
+        },
+        "noRegistration": {
+          "title": "登録不要",
+          "description": "サインアップ不要ですぐに使用開始"
+        }
+      }
+    },
+    "whatWeOffer": {
+      "title": "🚀 提供するもの",
+      "description": "現在、複数のカテゴリにわたって<strong>50以上の強力なツール</strong>を提供しています：",
+      "categories": {
+        "textProcessing": "📝 テキスト処理",
+        "converters": "🔄 コンバーター",
+        "generators": "🎲 ジェネレーター",
+        "calculators": "🧮 計算機",
+        "imageStudio": "🖼️ 画像スタジオ",
+        "devTools": "💻 開発ツール",
+        "finance": "💰 金融",
+        "utilities": "🛠️ ユーティリティ",
+        "andMore": "...そしてもっと！"
+      }
+    },
+    "joinCommunity": {
+      "title": "💖 コミュニティに参加",
+      "description": "ソーシャルメディアでフォローして、新しいツール、機能、ヒントで最新情報を入手しましょう！",
+      "feedback": "ユーザーの声をお聞きするのが大好きです。機能のリクエストやフィードバックがありますか？いつでもご連絡ください！"
+    }
   }
 }
-

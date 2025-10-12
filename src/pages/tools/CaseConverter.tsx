@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { SidebarTrigger } from "@/components/ui/sidebar";
 import {
   Card,
@@ -27,6 +28,7 @@ import { FavoriteButton } from "@/components/FavoriteButton";
 import { Badge } from "@/components/ui/badge";
 
 const CaseConverter = () => {
+  const { t } = useTranslation();
   const [inputText, setInputText] = useState("");
   const [convertedText, setConvertedText] = useState("");
   const [currentFormat, setCurrentFormat] = useState<string>("");
@@ -39,7 +41,7 @@ const CaseConverter = () => {
   const convertCase = (type: string) => {
     const sourceText = inputText.trim() || convertedText.trim();
     if (!sourceText) {
-      toast.error("Please enter some text first");
+      toast.error(t("toolPage.messages.enterText"));
       return;
     }
 
@@ -95,7 +97,7 @@ const CaseConverter = () => {
     }
     setConvertedText(result);
     setCurrentFormat(type);
-    toast.success("Text converted!");
+    toast.success(t("toolPage.messages.textConverted"));
   };
 
   const handleTextChange = (value: string) => {
@@ -110,21 +112,21 @@ const CaseConverter = () => {
   const copyToClipboard = () => {
     const textToCopy = displayText;
     navigator.clipboard.writeText(textToCopy);
-    toast.success("Copied to clipboard!");
+    toast.success(t("toolPage.messages.copied"));
   };
 
   const clearText = () => {
     setInputText("");
     setConvertedText("");
     setCurrentFormat("");
-    toast.success("Text cleared");
+    toast.success(t("toolPage.messages.cleared"));
   };
 
   const loadExample = () => {
-    setInputText("Hello World! This is a sample text for case conversion.");
+    setInputText(t("tools.case-converter.exampleText"));
     setConvertedText("");
     setCurrentFormat("");
-    toast.success("Example loaded");
+    toast.success(t("toolPage.messages.exampleLoaded"));
   };
 
   return (
@@ -140,7 +142,7 @@ const CaseConverter = () => {
             <ArrowLeft className="h-4 w-4" />
           </Button>
           <SidebarTrigger />
-          <h1 className="text-xl font-semibold">Case Converter</h1>
+          <h1 className="text-xl font-semibold">{t("tools.case-converter.title")}</h1>
         </div>
       </header>
 
@@ -149,15 +151,14 @@ const CaseConverter = () => {
           <CardHeader>
             <div className="flex items-center justify-between">
               <div>
-            <CardTitle>Text Case Converter</CardTitle>
+            <CardTitle>{t("tools.case-converter.title")}</CardTitle>
             <CardDescription>
-                  Convert text between different cases: uppercase, lowercase,
-                  title case, and more
+                  {t("tools.case-converter.description")}
             </CardDescription>
               </div>
               <FavoriteButton
                 toolId="case-converter"
-                toolName="Text Case Converter"
+                toolName={t("tools.case-converter.title")}
               />
             </div>
           </CardHeader>
@@ -165,16 +166,16 @@ const CaseConverter = () => {
             <div className="flex gap-2 mb-4">
               <Button onClick={clearText} variant="outline" size="sm">
                 <RotateCcw className="h-4 w-4 mr-2" />
-                Clear
+                {t("toolPage.buttons.clear")}
               </Button>
               <Button onClick={loadExample} variant="ghost" size="sm">
                 <Lightbulb className="h-4 w-4 mr-1" />
-                Load Example
+                {t("toolPage.buttons.loadExample")}
               </Button>
             </div>
 
             <Textarea
-              placeholder="Enter your text here..."
+              placeholder={t("toolPage.placeholder")}
               value={displayText}
               onChange={(e) => handleTextChange(e.target.value)}
               className="min-h-[200px] font-mono"
@@ -229,7 +230,7 @@ const CaseConverter = () => {
                 className="ml-auto"
               >
                 <Copy className="h-4 w-4" />
-                Copy
+                {t("toolPage.buttons.copy")}
               </Button>
             </div>
           </CardContent>
@@ -242,7 +243,7 @@ const CaseConverter = () => {
               <span className="font-semibold text-blue-600">
                 {displayText.length}
               </span>
-              <span>characters</span>
+              <span>{t("toolPage.stats.characters")}</span>
             </div>
             <div className="flex items-center gap-2">
               <span className="font-semibold text-purple-600">
@@ -253,13 +254,13 @@ const CaseConverter = () => {
                     .filter((w) => w).length
                 }
               </span>
-              <span>words</span>
+              <span>{t("toolPage.stats.words")}</span>
             </div>
             <div className="flex items-center gap-2">
               <span className="font-semibold text-green-600">
                 {displayText.split("\n").length}
               </span>
-              <span>lines</span>
+              <span>{t("toolPage.stats.lines")}</span>
             </div>
           </div>
         )}
@@ -269,12 +270,9 @@ const CaseConverter = () => {
           <CardContent className="pt-6">
             <p className="text-gray-700 leading-relaxed">
               <strong className="text-gray-900">
-                What is Text Case Converter?
+                {t("toolPage.sections.whatIs")} {t("tools.case-converter.title")}?
               </strong>{" "}
-              This tool helps you instantly convert text between different
-              formats like UPPERCASE, lowercase, Title Case, camelCase,
-              snake_case, and kebab-case. Perfect for developers, writers, and
-              content creators who need quick text formatting! 🚀
+              {t("tools.case-converter.intro")}
             </p>
           </CardContent>
         </Card>
@@ -284,7 +282,7 @@ const CaseConverter = () => {
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <Zap className="h-5 w-5 text-primary" />
-              Common Use Cases
+              {t("toolPage.sections.commonUseCases")}
             </CardTitle>
           </CardHeader>
           <CardContent>
@@ -295,19 +293,16 @@ const CaseConverter = () => {
                 </div>
                 <div>
                   <div className="font-semibold text-purple-900">
-                    Programming
+                    {t("tools.case-converter.useCases.programming.title")}
                   </div>
-                  <p className="text-sm text-purple-700">
-                    Use{" "}
-                    <Badge variant="secondary" className="mx-1">
-                      camelCase
-                    </Badge>{" "}
-                    for variables,
-                    <Badge variant="secondary" className="mx-1">
-                      snake_case
-                    </Badge>{" "}
-                    for Python
-                  </p>
+                  <p
+                    className="text-sm text-purple-700"
+                    dangerouslySetInnerHTML={{
+                      __html: t(
+                        "tools.case-converter.useCases.programming.description"
+                      ),
+                    }}
+                  />
                 </div>
               </div>
 
@@ -316,14 +311,17 @@ const CaseConverter = () => {
                   <LinkIcon className="h-5 w-5 text-blue-600" />
                 </div>
                 <div>
-                  <div className="font-semibold text-blue-900">URLs & CSS</div>
-                  <p className="text-sm text-blue-700">
-                    Use{" "}
-                    <Badge variant="secondary" className="mx-1">
-                      kebab-case
-                    </Badge>{" "}
-                    for clean, SEO-friendly URLs
-                  </p>
+                  <div className="font-semibold text-blue-900">
+                    {t("tools.case-converter.useCases.urlsCss.title")}
+                  </div>
+                  <p
+                    className="text-sm text-blue-700"
+                    dangerouslySetInnerHTML={{
+                      __html: t(
+                        "tools.case-converter.useCases.urlsCss.description"
+                      ),
+                    }}
+                  />
                 </div>
               </div>
 
@@ -333,15 +331,16 @@ const CaseConverter = () => {
                 </div>
                 <div>
                   <div className="font-semibold text-green-900">
-                    Database Fields
+                    {t("tools.case-converter.useCases.database.title")}
                   </div>
-                  <p className="text-sm text-green-700">
-                    Use{" "}
-                    <Badge variant="secondary" className="mx-1">
-                      snake_case
-                    </Badge>{" "}
-                    for database column names
-                  </p>
+                  <p
+                    className="text-sm text-green-700"
+                    dangerouslySetInnerHTML={{
+                      __html: t(
+                        "tools.case-converter.useCases.database.description"
+                      ),
+                    }}
+                  />
                 </div>
               </div>
 
@@ -351,15 +350,16 @@ const CaseConverter = () => {
                 </div>
                 <div>
                   <div className="font-semibold text-pink-900">
-                    Content Writing
+                    {t("tools.case-converter.useCases.content.title")}
                   </div>
-                  <p className="text-sm text-pink-700">
-                    Use{" "}
-                    <Badge variant="secondary" className="mx-1">
-                      Title Case
-                    </Badge>{" "}
-                    for headings and titles
-                  </p>
+                  <p
+                    className="text-sm text-pink-700"
+                    dangerouslySetInnerHTML={{
+                      __html: t(
+                        "tools.case-converter.useCases.content.description"
+                      ),
+                    }}
+                  />
                 </div>
               </div>
             </div>
@@ -371,38 +371,26 @@ const CaseConverter = () => {
           <CardHeader>
             <CardTitle className="flex items-center gap-2 text-amber-900">
               <Info className="h-5 w-5 text-amber-600" />
-              💡 Pro Tips
+              💡 {t("toolPage.sections.proTips")}
             </CardTitle>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
               <div className="flex gap-2 items-start">
                 <div className="text-amber-600 font-bold">→</div>
-                <p className="text-sm text-amber-900">
-                  <strong>JavaScript:</strong> Use camelCase for variables
-                  (myVariable)
-                </p>
+                <p className="text-sm text-amber-900" dangerouslySetInnerHTML={{ __html: t("tools.case-converter.proTips.javascript") }} />
               </div>
               <div className="flex gap-2 items-start">
                 <div className="text-amber-600 font-bold">→</div>
-                <p className="text-sm text-amber-900">
-                  <strong>Python:</strong> Use snake_case for functions
-                  (my_function)
-                </p>
+                <p className="text-sm text-amber-900" dangerouslySetInnerHTML={{ __html: t("tools.case-converter.proTips.python") }} />
               </div>
               <div className="flex gap-2 items-start">
                 <div className="text-amber-600 font-bold">→</div>
-                <p className="text-sm text-amber-900">
-                  <strong>URLs:</strong> Use kebab-case for better SEO
-                  (my-page-url)
-                </p>
+                <p className="text-sm text-amber-900" dangerouslySetInnerHTML={{ __html: t("tools.case-converter.proTips.urls") }} />
               </div>
               <div className="flex gap-2 items-start">
                 <div className="text-amber-600 font-bold">→</div>
-                <p className="text-sm text-amber-900">
-                  <strong>Headings:</strong> Use Title Case for proper
-                  formatting
-                </p>
+                <p className="text-sm text-amber-900" dangerouslySetInnerHTML={{ __html: t("tools.case-converter.proTips.headings") }} />
               </div>
             </div>
           </CardContent>
@@ -411,7 +399,7 @@ const CaseConverter = () => {
         {/* Related Tools */}
         <Card className="mt-6">
           <CardHeader>
-            <CardTitle>🔗 Related Tools You Might Like</CardTitle>
+            <CardTitle>🔗 {t("toolPage.sections.relatedTools")}</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
@@ -420,10 +408,10 @@ const CaseConverter = () => {
                 className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
               >
                 <div className="font-semibold text-gray-900 group-hover:text-primary">
-                  Word Counter
+                  {t("tools.word-counter.title")}
                 </div>
                 <div className="text-sm text-gray-600 mt-1">
-                  Count words and characters
+                  {t("tools.word-counter.description")}
                 </div>
               </button>
               <button
@@ -431,10 +419,10 @@ const CaseConverter = () => {
                 className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
               >
                 <div className="font-semibold text-gray-900 group-hover:text-primary">
-                  Text Sorter
+                  {t("tools.text-sorter.title")}
                 </div>
                 <div className="text-sm text-gray-600 mt-1">
-                  Sort text lines alphabetically
+                  {t("tools.text-sorter.description")}
                 </div>
               </button>
               <button
@@ -442,10 +430,10 @@ const CaseConverter = () => {
                 className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
               >
                 <div className="font-semibold text-gray-900 group-hover:text-primary">
-                  Text Diff
+                  {t("tools.text-diff.title")}
                 </div>
                 <div className="text-sm text-gray-600 mt-1">
-                  Compare two texts
+                  {t("tools.text-diff.description")}
                 </div>
               </button>
             </div>

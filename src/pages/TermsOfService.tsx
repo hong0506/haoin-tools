@@ -2,8 +2,11 @@ import { SidebarTrigger } from "@/components/ui/sidebar";
 import { AnimatedBackground } from "@/components/AnimatedBackground";
 import { Footer } from "@/components/Footer";
 import { FileText } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 const TermsOfService = () => {
+  const { t } = useTranslation();
+  
   return (
     <div className="min-h-screen relative">
       <AnimatedBackground />
@@ -11,7 +14,7 @@ const TermsOfService = () => {
       <header className="sticky top-0 z-10 border-b glass">
         <div className="flex h-16 items-center gap-4 px-6">
           <SidebarTrigger />
-          <h2 className="text-lg font-semibold">Terms of Service</h2>
+          <h2 className="text-lg font-semibold">{t("terms.title")}</h2>
         </div>
       </header>
 
@@ -21,156 +24,131 @@ const TermsOfService = () => {
             <FileText className="h-12 w-12 text-white" />
           </div>
           <h1 className="text-5xl font-black mb-4">
-            <span className="gradient-text">Terms of Service</span>
+            <span className="gradient-text">{t("terms.title")}</span>
           </h1>
           <p className="text-muted-foreground text-lg">
-            Last updated: {new Date().toLocaleDateString("zh-CN")}
+            {t("terms.lastUpdated")} {new Date().toLocaleDateString("zh-CN")}
           </p>
         </div>
 
         <div className="prose prose-lg max-w-none">
           <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-lg mb-6">
             <h2 className="text-2xl font-bold mb-4 gradient-text">
-              📜 Agreement to Terms
+              {t("terms.agreement.title")}
             </h2>
             <p className="text-foreground/80 leading-relaxed">
-              By accessing and using Haoin Tools, you accept and agree to be
-              bound by the terms and provision of this agreement. If you do not
-              agree to abide by these terms, please do not use this service.
+              {t("terms.agreement.content")}
             </p>
           </div>
 
           <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-lg mb-6">
             <h2 className="text-2xl font-bold mb-4 gradient-text">
-              ✨ Use of Service
+              {t("terms.useOfService.title")}
             </h2>
             <p className="text-foreground/80 leading-relaxed mb-4">
-              Haoin Tools provides free online tools for everyone:
+              {t("terms.useOfService.content")}
             </p>
             <ul className="space-y-2 text-foreground/80">
-              <li>
-                🎯 <strong>Free Access</strong>: All tools are free to use
-              </li>
-              <li>
-                🚀 <strong>No Registration</strong>: No account required
-              </li>
-              <li>
-                💻 <strong>Personal & Commercial Use</strong>: Use for any legal
-                purpose
-              </li>
-              <li>
-                ⚡ <strong>Unlimited Usage</strong>: No usage limits or
-                restrictions
-              </li>
+              <li>{t("terms.useOfService.freeAccess")}</li>
+              <li>{t("terms.useOfService.noRegistration")}</li>
+              <li>{t("terms.useOfService.personalCommercial")}</li>
+              <li>{t("terms.useOfService.unlimitedUsage")}</li>
             </ul>
           </div>
 
           <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-lg mb-6">
             <h2 className="text-2xl font-bold mb-4 gradient-text">
-              ⚠️ Prohibited Activities
+              {t("terms.prohibited.title")}
             </h2>
             <p className="text-foreground/80 leading-relaxed mb-4">
-              You agree NOT to:
+              {t("terms.prohibited.content")}
             </p>
             <ul className="space-y-2 text-foreground/80">
-              <li>❌ Use the service for any illegal purposes</li>
-              <li>❌ Attempt to harm or disrupt the service</li>
-              <li>❌ Reverse engineer or copy our tools</li>
-              <li>❌ Use automated systems to abuse the service</li>
-              <li>❌ Upload, transmit or distribute any content that infringes intellectual property rights</li>
-              <li>❌ Violate any applicable laws or regulations in your jurisdiction</li>
+              <li>{t("terms.prohibited.illegal")}</li>
+              <li>{t("terms.prohibited.harm")}</li>
+              <li>{t("terms.prohibited.reverseEngineer")}</li>
+              <li>{t("terms.prohibited.automated")}</li>
+              <li>{t("terms.prohibited.infringe")}</li>
+              <li>{t("terms.prohibited.violate")}</li>
             </ul>
           </div>
 
           <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-lg mb-6">
             <h2 className="text-2xl font-bold mb-4 gradient-text">
-              🛡️ Disclaimer & Limitation of Liability
+              {t("terms.disclaimer.title")}
             </h2>
             <p className="text-foreground/80 leading-relaxed mb-4">
-              The service is provided "as is" and "as available" without any
-              warranties. We strive for accuracy and reliability, but we cannot
-              guarantee that the tools will always be error-free or
-              uninterrupted.
+              {t("terms.disclaimer.content")}
             </p>
             <p className="text-foreground/80 leading-relaxed mb-4">
-              <strong>Important Disclaimers:</strong>
+              <strong>{t("terms.disclaimer.important")}</strong>
             </p>
             <ul className="space-y-2 text-foreground/80">
-              <li>• Financial calculators are for informational purposes only and do not constitute financial advice</li>
-              <li>• Health-related tools (BMI calculator, etc.) are not medical advice - consult professionals</li>
-              <li>• We are not liable for any losses or damages resulting from tool use or errors</li>
-              <li>• Maximum liability is limited to the amount you paid for the service (which is zero for free tools)</li>
+              <li>{t("terms.disclaimer.financial")}</li>
+              <li>{t("terms.disclaimer.health")}</li>
+              <li>{t("terms.disclaimer.liability")}</li>
+              <li>{t("terms.disclaimer.maximum")}</li>
             </ul>
           </div>
 
           <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-lg mb-6">
             <h2 className="text-2xl font-bold mb-4 gradient-text">
-              📝 Intellectual Property
+              {t("terms.intellectualProperty.title")}
             </h2>
             <p className="text-foreground/80 leading-relaxed">
-              All content, features, and functionality on Haoin Tools are owned
-              by us and are protected by international copyright, trademark, and
-              other intellectual property laws.
+              {t("terms.intellectualProperty.content")}
             </p>
           </div>
 
           <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-lg mb-6">
             <h2 className="text-2xl font-bold mb-4 gradient-text">
-              📺 Advertising
+              {t("terms.advertising.title")}
             </h2>
             <p className="text-foreground/80 leading-relaxed mb-4">
-              To maintain our free services, we may display third-party advertisements:
+              {t("terms.advertising.content")}
             </p>
             <ul className="space-y-2 text-foreground/80">
-              <li>• Ads are provided by third-party advertising networks</li>
-              <li>• We do not endorse or take responsibility for advertised products/services</li>
-              <li>• Ad content is subject to advertisers' terms and privacy policies</li>
-              <li>• We are not liable for any transactions with advertisers</li>
+              <li>{t("terms.advertising.networks")}</li>
+              <li>{t("terms.advertising.endorse")}</li>
+              <li>{t("terms.advertising.content")}</li>
+              <li>{t("terms.advertising.transactions")}</li>
             </ul>
           </div>
 
           <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-lg mb-6">
             <h2 className="text-2xl font-bold mb-4 gradient-text">
-              ⚖️ Governing Law & Dispute Resolution
+              {t("terms.governingLaw.title")}
             </h2>
             <p className="text-foreground/80 leading-relaxed mb-4">
-              These Terms are governed by the laws of the People's Republic of China.
-              For international users, local consumer protection laws may also apply.
+              {t("terms.governingLaw.content")}
             </p>
             <p className="text-foreground/80 leading-relaxed">
-              Any disputes shall be resolved through friendly negotiation first.
-              If negotiation fails, disputes shall be submitted to the courts with
-              jurisdiction in Hangzhou, Zhejiang Province, China.
+              {t("terms.governingLaw.disputes")}
             </p>
           </div>
 
           <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-lg mb-6">
             <h2 className="text-2xl font-bold mb-4 gradient-text">
-              🔄 Changes to Terms
+              {t("terms.changes.title")}
             </h2>
             <p className="text-foreground/80 leading-relaxed">
-              We reserve the right to modify these terms at any time. We will
-              notify users of any material changes by updating the "Last
-              updated" date at the top of this page. Continued use of the service
-              after changes constitutes acceptance of the new terms.
+              {t("terms.changes.content")}
             </p>
           </div>
 
           <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-lg mb-6">
             <h2 className="text-2xl font-bold mb-4 gradient-text">
-              📧 Contact
+              {t("terms.contact.title")}
             </h2>
             <p className="text-foreground/80 leading-relaxed">
-              Questions about our Terms of Service? Contact us at:{" "}
+              {t("terms.contact.content")}{" "}
               <strong className="text-primary">contact@haoin.tech</strong>
             </p>
           </div>
 
           <div className="bg-gradient-to-r from-blue-50 to-cyan-50 rounded-3xl p-8 shadow-lg">
             <p className="text-center text-foreground/70">
-              ⚖️ <strong>Fair Use:</strong> We believe in providing free,
-              accessible tools for everyone while maintaining a safe and
-              reliable service.
+              {t("terms.fairUse")}
             </p>
           </div>
         </div>

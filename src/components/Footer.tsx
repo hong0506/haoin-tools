@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { X, AlertCircle, Lock } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import wechatQR from "@/assets/wechat-qr-code.jpg";
 import douyinQR from "@/assets/douyin-qr-code.jpg";
 import xiaohongshuQR from "@/assets/xiaohongshu-qr-code.jpg";
@@ -18,52 +19,30 @@ export const Footer = () => {
   const currentYear = new Date().getFullYear();
   const [showModal, setShowModal] = useState(false);
   const [modalData, setModalData] = useState<SocialModal | null>(null);
+  const { t } = useTranslation();
 
   const socialLinks = [
     {
-      name: "WeChat",
-      displayName: "WeChat",
+      name: "wechat",
+      translationKey: "footer.wechat",
       icon: wechatIcon,
       color: "from-green-500 to-emerald-500",
       account: "lumifiretech",
       qrCode: wechatQR,
     },
-    // {
-    //   name: "Douyin",
-    //   displayName: "TikTok",
-    //   icon: "/icons/douyin.svg",
-    //   color: "from-black to-gray-800",
-    //   account: "69832710392",
-    //   qrCode: douyinQR,
-    // },
-    // {
-    //   name: "Xiaohongshu",
-    //   displayName: "Xiaohongshu",
-    //   icon: "/icons/xiaohongshu.svg",
-    //   color: "from-red-500 to-pink-500",
-    //   account: "2942406351",
-    //   qrCode: xiaohongshuQR,
-    // },
     {
-      name: "Instagram",
-      displayName: "Instagram",
+      name: "instagram",
+      translationKey: "footer.instagram",
       icon: instagramIcon,
       color: "from-purple-500 via-pink-500 to-orange-500",
       account: "@haoin_tech",
     },
-    // {
-    //   name: "Facebook",
-    //   displayName: "Facebook",
-    //   icon: "👍",
-    //   color: "from-blue-600 to-blue-500",
-    //   account: "Haoin Tools",
-    // },
   ];
 
   const handleSocialClick = (social: (typeof socialLinks)[0]) => {
     setModalData({
       platform: social.name,
-      name: social.displayName,
+      name: t(social.translationKey),
       account: social.account,
       qrCode: social.qrCode,
     });
@@ -79,29 +58,29 @@ export const Footer = () => {
             {/* Brand Section - 40% width */}
             <div className="md:col-span-5">
               <h3 className="text-2xl font-black gradient-text mb-3">
-                Haoin Free Online Tools
+                {t("hero.title")}
               </h3>
               <p className="text-sm text-muted-foreground leading-relaxed mb-4">
-                Access 50+ free online tools instantly - text processing, image
-                editing, converters, generators, calculators and more. No
-                registration required.
+                {t("footer.description")}
               </p>
               <div className="flex items-center gap-2 text-xs text-muted-foreground">
                 <Lock className="h-3.5 w-3.5" />
-                <span>All data processed locally in your browser</span>
+                <span>{t("footer.dataProcessedLocally")}</span>
               </div>
             </div>
 
             {/* Quick Links - 25% width */}
             <div className="md:col-span-3">
-              <h4 className="font-bold text-foreground mb-3">Quick Links</h4>
+              <h4 className="font-bold text-foreground mb-3">
+                {t("footer.quickLinks")}
+              </h4>
               <ul className="space-y-2 text-sm text-muted-foreground">
                 <li>
                   <Link
                     to="/"
                     className="hover:text-primary transition-colors flex items-center gap-2"
                   >
-                    🏠 Home
+                    🏠 {t("footer.home")}
                   </Link>
                 </li>
                 <li>
@@ -109,7 +88,7 @@ export const Footer = () => {
                     to="/category/favorites"
                     className="hover:text-primary transition-colors flex items-center gap-2"
                   >
-                    ⭐ Favorites
+                    ⭐ {t("footer.favorites")}
                   </Link>
                 </li>
                 <li>
@@ -117,7 +96,7 @@ export const Footer = () => {
                     to="/category/recent"
                     className="hover:text-primary transition-colors flex items-center gap-2"
                   >
-                    🕒 Recently Used
+                    🕒 {t("footer.recentlyUsed")}
                   </Link>
                 </li>
                 <li>
@@ -125,15 +104,15 @@ export const Footer = () => {
                     to="/category/generator"
                     className="hover:text-primary transition-colors flex items-center gap-2"
                   >
-                    ⚡ Generators
+                    ⚡ {t("footer.generators")}
                   </Link>
                 </li>
                 <li>
                   <Link
-                    to="/category/code"
+                    to="/category/developer"
                     className="hover:text-primary transition-colors flex items-center gap-2"
                   >
-                    💻 Dev Tools
+                    💻 {t("footer.devTools")}
                   </Link>
                 </li>
               </ul>
@@ -141,14 +120,16 @@ export const Footer = () => {
 
             {/* Legal Links - 20% width */}
             <div className="md:col-span-2">
-              <h4 className="font-bold text-foreground mb-3">Legal</h4>
+              <h4 className="font-bold text-foreground mb-3">
+                {t("footer.legal")}
+              </h4>
               <ul className="space-y-2 text-sm text-muted-foreground">
                 <li>
                   <Link
                     to="/privacy"
                     className="hover:text-primary transition-colors"
                   >
-                    Privacy Policy
+                    {t("footer.privacyPolicy")}
                   </Link>
                 </li>
                 <li>
@@ -156,7 +137,7 @@ export const Footer = () => {
                     to="/terms"
                     className="hover:text-primary transition-colors"
                   >
-                    Terms of Service
+                    {t("footer.termsOfService")}
                   </Link>
                 </li>
                 <li>
@@ -164,7 +145,7 @@ export const Footer = () => {
                     to="/cookies"
                     className="hover:text-primary transition-colors"
                   >
-                    Cookie Policy
+                    {t("footer.cookiePolicy")}
                   </Link>
                 </li>
                 <li>
@@ -172,7 +153,7 @@ export const Footer = () => {
                     to="/legal"
                     className="hover:text-primary transition-colors"
                   >
-                    Copyright
+                    {t("footer.copyright")}
                   </Link>
                 </li>
                 <li>
@@ -180,7 +161,7 @@ export const Footer = () => {
                     to="/about"
                     className="hover:text-primary transition-colors"
                   >
-                    About Us
+                    {t("footer.aboutUs")}
                   </Link>
                 </li>
               </ul>
@@ -188,9 +169,11 @@ export const Footer = () => {
 
             {/* Connect - 15% width */}
             <div className="md:col-span-2">
-              <h4 className="font-bold text-foreground mb-3">Connect</h4>
+              <h4 className="font-bold text-foreground mb-3">
+                {t("footer.followUs")}
+              </h4>
               <p className="text-xs text-muted-foreground mb-3">
-                Follow us for updates!
+                {t("footer.followUsForUpdates")}
               </p>
               <div className="flex flex-wrap gap-2">
                 {socialLinks.map((social) => (
@@ -207,7 +190,7 @@ export const Footer = () => {
                     />
                     {/* Tooltip */}
                     <div className="absolute -top-9 left-1/2 -translate-x-1/2 bg-gray-900 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
-                      {social.displayName}
+                      {t(social.translationKey)}
                     </div>
                   </button>
                 ))}
@@ -225,11 +208,10 @@ export const Footer = () => {
                 </div>
                 <div className="flex-1">
                   <h4 className="font-semibold text-sm text-foreground mb-1">
-                    Privacy First
+                    {t("footer.privacyFirst")}
                   </h4>
                   <p className="text-xs text-muted-foreground leading-relaxed">
-                    All tools process data locally in your browser. We do not
-                    store your files or personal data.
+                    {t("footer.privacyDescription")}
                   </p>
                 </div>
               </div>
@@ -242,12 +224,10 @@ export const Footer = () => {
                   <AlertCircle className="h-3.5 w-3.5 text-orange-500 mt-0.5 flex-shrink-0" />
                   <div className="flex-1">
                     <h4 className="font-semibold text-xs text-foreground mb-1">
-                      Disclaimer
+                      {t("footer.disclaimer")}
                     </h4>
                     <p className="text-[11px] text-muted-foreground leading-relaxed">
-                      Tools provided "as is" for educational purposes. Not
-                      intended to replace professional advice. Not liable for
-                      damages from tool use or errors.
+                      {t("footer.disclaimerText")}
                     </p>
                   </div>
                 </div>
@@ -257,14 +237,11 @@ export const Footer = () => {
                 <div className="text-[11px] text-muted-foreground leading-relaxed">
                   <p className="mb-2">
                     <span className="font-semibold text-foreground">
-                      Advertising:
+                      {t("footer.advertising")}
                     </span>{" "}
-                    May display third-party ads to support free services.
+                    {t("footer.advertisingText")}
                   </p>
-                  <p>
-                    Users bear all risks and must ensure compliance with
-                    applicable laws.
-                  </p>
+                  <p>{t("footer.userResponsibility")}</p>
                 </div>
               </div>
             </div>
@@ -273,14 +250,10 @@ export const Footer = () => {
             <div className="pt-4 border-t border-border/50 flex flex-col gap-2">
               <div className="flex flex-col md:flex-row justify-between items-center gap-3 text-xs text-muted-foreground">
                 <div className="text-center md:text-left">
-                  © {currentYear}{" "}
-                  <span className="font-semibold text-primary">
-                    Haoin Technology Co., Ltd.
-                  </span>
-                  . All rights reserved.
+                  {t("footer.allRightsReserved")}
                 </div>
                 <div>
-                  Email:{" "}
+                  {t("footer.email")}{" "}
                   <a
                     href="mailto:contact@haoin.tech"
                     className="text-primary hover:underline font-medium"

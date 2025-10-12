@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Star } from "lucide-react";
 import { toast } from "sonner";
 import { useFavorites } from "@/contexts/FavoritesContext";
+import { useTranslation } from "react-i18next";
 
 interface FavoriteButtonProps {
   toolId: string;
@@ -14,15 +15,16 @@ export const FavoriteButton = ({
   toolName,
   className = "",
 }: FavoriteButtonProps) => {
+  const { t } = useTranslation();
   const { isFavorited, toggleFavorite } = useFavorites();
   const favorited = isFavorited(toolId);
 
   const handleFavorite = () => {
     toggleFavorite(toolId);
     if (!favorited) {
-      toast.success(`${toolName} added to favorites!`);
+      toast.success(`${toolName} ${t("toolCard.addedToFavorites")}`);
     } else {
-      toast.success(`${toolName} removed from favorites!`);
+      toast.success(`${toolName} ${t("toolCard.removedFromFavorites")}`);
     }
   };
 
@@ -38,7 +40,7 @@ export const FavoriteButton = ({
           favorited ? "fill-yellow-400 text-yellow-400" : ""
         }`}
       />
-      <span className="text-sm">Favorite</span>
+      <span className="text-sm">{t("common.favorites")}</span>
     </Button>
   );
 };

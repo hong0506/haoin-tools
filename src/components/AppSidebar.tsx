@@ -38,10 +38,10 @@ export function AppSidebar() {
           </div>
           <div>
             <h1 className="text-2xl font-black gradient-text">
-              Haoin Free Online Tools
+              {t("hero.title")}
             </h1>
             <p className="text-xs font-semibold text-primary/70">
-              ✨ 50+ Free Web Tools
+              ✨ {t("hero.subtitle")}
             </p>
           </div>
         </NavLink>
@@ -89,7 +89,9 @@ export function AppSidebar() {
                         }
                       >
                         {IconComponent && <IconComponent className="h-5 w-5" />}
-                        <span className="text-[15px]">{t(`categories.${category.id}`)}</span>
+                        <span className="text-[15px]">
+                          {t(`categories.${category.id}`)}
+                        </span>
                       </NavLink>
                     </SidebarMenuButton>
                   </SidebarMenuItem>
