@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { SidebarTrigger } from "@/components/ui/sidebar";
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -35,6 +37,7 @@ interface EmailValidationResult {
 }
 
 const EmailValidator = () => {
+  const { t } = useTranslation();
   const [emailInput, setEmailInput] = useState("");
   const [results, setResults] = useState<EmailValidationResult[]>([]);
   const navigate = useNavigate();
@@ -43,14 +46,14 @@ const EmailValidator = () => {
     const trimmedEmail = email.trim();
     
     if (!trimmedEmail) {
-      return { email: trimmedEmail, isValid: false, reason: "Email is empty" };
+      return { email: trimmedEmail, isValid: false, reason: t("tools.email-validator.errors.empty") };
     }
 
     // RFC 5322 compliant regex (simplified)
     const emailRegex = /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
 
     if (!emailRegex.test(trimmedEmail)) {
-      return { email: trimmedEmail, isValid: false, reason: "Invalid email format" };
+      return { email: trimmedEmail, isValid: false, reason: t("tools.email-validator.errors.invalidFormat") };
     }
 
     const [localPart, domain] = trimmedEmail.split("@");
@@ -59,7 +62,7 @@ const EmailValidator = () => {
       return {
         email: trimmedEmail,
         isValid: false,
-        reason: "Local part too long (max 64 characters)",
+        reason: t("tools.email-validator.errors.localPartTooLong"),
       };
     }
 
@@ -67,7 +70,7 @@ const EmailValidator = () => {
       return {
         email: trimmedEmail,
         isValid: false,
-        reason: "Domain too long (max 255 characters)",
+        reason: t("tools.email-validator.errors.domainTooLong"),
       };
     }
 
@@ -75,7 +78,7 @@ const EmailValidator = () => {
       return {
         email: trimmedEmail,
         isValid: false,
-        reason: "Local part cannot start or end with a dot",
+        reason: t("tools.email-validator.errors.localPartDotPosition"),
       };
     }
 
@@ -83,7 +86,7 @@ const EmailValidator = () => {
       return {
         email: trimmedEmail,
         isValid: false,
-        reason: "Consecutive dots not allowed",
+        reason: t("tools.email-validator.errors.consecutiveDots"),
       };
     }
 
@@ -91,7 +94,7 @@ const EmailValidator = () => {
       return {
         email: trimmedEmail,
         isValid: false,
-        reason: "Domain must contain a dot",
+        reason: t("tools.email-validator.errors.domainNoDot"),
       };
     }
 
@@ -100,7 +103,7 @@ const EmailValidator = () => {
 
   const handleValidate = () => {
     if (!emailInput.trim()) {
-      toast.error("Please enter email addresses");
+      toast.error(t("tools.email-validator.pleaseEnterEmails"));
       return;
     }
 
@@ -109,12 +112,12 @@ const EmailValidator = () => {
     setResults(validationResults);
 
     const validCount = validationResults.filter((r) => r.isValid).length;
-    toast.success(`Validated ${emails.length} email(s) - ${validCount} valid`);
+    toast.success(t("tools.email-validator.validatedCount", { total: emails.length, valid: validCount }));
   };
 
   const exportResults = () => {
     if (results.length === 0) {
-      toast.error("No results to export");
+      toast.error(t("tools.email-validator.noResultsToExport"));
       return;
     }
 
@@ -126,13 +129,13 @@ const EmailValidator = () => {
     a.download = "valid-emails.txt";
     a.click();
     URL.revokeObjectURL(url);
-    toast.success("Valid emails exported!");
+    toast.success(t("tools.email-validator.validEmailsExported"));
   };
 
   const clearAll = () => {
     setEmailInput("");
     setResults([]);
-    toast.success("Cleared");
+    toast.success(t("tools.email-validator.cleared"));
   };
 
   const loadExample = () => {
@@ -142,7 +145,7 @@ invalid-email
 test@domain
 valid.email+tag@subdomain.example.com
 user..name@domain.com`);
-    toast.success("Example loaded");
+    toast.success(t("tools.email-validator.exampleLoaded"));
   };
 
   const validCount = results.filter((r) => r.isValid).length;
@@ -151,7 +154,7 @@ user..name@domain.com`);
   return (
     <div className="min-h-screen">
       <header className="sticky top-0 z-10 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="flex h-16 items-center gap-4 px-6">
+        <div className="flex h-16 items-center gap-2 sm:gap-4 px-2 sm:px-6">
           <Button
             variant="ghost"
             size="icon"
@@ -161,7 +164,10 @@ user..name@domain.com`);
             <ArrowLeft className="h-4 w-4" />
           </Button>
           <SidebarTrigger />
-          <h1 className="text-xl font-semibold">Email Validator</h1>
+          <h1 className="text-xl font-semibold flex-1">{t("tools.email-validator.title")}</h1>
+          <div className="flex-shrink-0">
+            <LanguageSwitcher />
+          </div>
         </div>
       </header>
 
@@ -170,14 +176,14 @@ user..name@domain.com`);
           <CardHeader>
             <div className="flex items-center justify-between">
               <div>
-                <CardTitle>Validate Email Addresses</CardTitle>
+                <CardTitle>{t("tools.email-validator.validateEmails")}</CardTitle>
                 <CardDescription>
-                  Check if email addresses are valid (one per line)
+                  {t("tools.email-validator.descriptionFull")}
                 </CardDescription>
               </div>
               <FavoriteButton
                 toolId="email-validator"
-                toolName="Email Validator"
+                toolName={t("tools.email-validator.title")}
               />
             </div>
           </CardHeader>
@@ -185,18 +191,18 @@ user..name@domain.com`);
             <div className="flex gap-2 mb-4">
               <Button onClick={clearAll} variant="outline" size="sm">
                 <RotateCcw className="h-4 w-4 mr-2" />
-                Clear
+                {t("toolPage.buttons.clear")}
               </Button>
               <Button onClick={loadExample} variant="ghost" size="sm">
                 <Lightbulb className="h-4 w-4 mr-1" />
-                Load Example
+                {t("toolPage.buttons.loadExample")}
               </Button>
             </div>
 
             <div>
-              <div className="text-sm font-medium mb-2">Email Addresses</div>
+              <div className="text-sm font-medium mb-2">{t("tools.email-validator.emailAddresses")}</div>
               <Textarea
-                placeholder="Enter email addresses (one per line)..."
+                placeholder={t("tools.email-validator.emailPlaceholder")}
                 value={emailInput}
                 onChange={(e) => setEmailInput(e.target.value)}
                 rows={8}
@@ -206,7 +212,7 @@ user..name@domain.com`);
 
             <Button onClick={handleValidate} className="w-full">
               <Mail className="h-4 w-4 mr-2" />
-              Validate Emails
+              {t("tools.email-validator.validateButton")}
             </Button>
 
             {results.length > 0 && (
@@ -214,14 +220,14 @@ user..name@domain.com`);
                 <div className="flex items-center justify-between pt-4">
                   <div className="flex gap-3">
                     <Badge variant="default" className="bg-green-600">
-                      {validCount} Valid
+                      {validCount} {t("tools.email-validator.valid")}
                     </Badge>
-                    <Badge variant="destructive">{invalidCount} Invalid</Badge>
+                    <Badge variant="destructive">{invalidCount} {t("tools.email-validator.invalid")}</Badge>
                   </div>
                   {validCount > 0 && (
                     <Button variant="outline" size="sm" onClick={exportResults}>
                       <Download className="h-4 w-4 mr-2" />
-                      Export Valid
+                      {t("tools.email-validator.exportValid")}
                     </Button>
                   )}
                 </div>
@@ -259,13 +265,13 @@ user..name@domain.com`);
           </CardContent>
         </Card>
 
-        <Card className="mt-6 bg-gradient-to-r from-blue-50 via-purple-50 to-pink-50 border-blue-200">
+        <Card className="mt-6 bg-gradient-to-r from-blue-50 via-purple-50 to-pink-50 dark:from-blue-950/30 dark:via-purple-950/30 dark:to-pink-950/30 border-blue-200 dark:border-blue-800">
           <CardContent className="pt-6">
-            <p className="text-gray-700 leading-relaxed">
-              <strong className="text-gray-900">
-                What is Email Validator?
+            <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+              <strong className="text-gray-900 dark:text-gray-100">
+                {t("tools.email-validator.whatIs")}
               </strong>{" "}
-              This tool validates email addresses according to RFC 5322 standards. Perfect for cleaning email lists, verifying form inputs, and data validation! ✉️
+              {t("tools.email-validator.whatIsContent")}
             </p>
           </CardContent>
         </Card>
@@ -274,63 +280,63 @@ user..name@domain.com`);
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <Zap className="h-5 w-5 text-primary" />
-              Common Use Cases
+              {t("toolPage.sections.commonUseCases")}
             </CardTitle>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-blue-50 to-blue-100/50 border border-blue-200">
-                <div className="p-2 bg-white rounded-lg h-fit">
-                  <Mail className="h-5 w-5 text-blue-600" />
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-blue-50 to-blue-100/50 dark:from-blue-950/30 dark:to-blue-900/30 border border-blue-200 dark:border-blue-800">
+                <div className="p-2 bg-white dark:bg-gray-800 rounded-lg h-fit">
+                  <Mail className="h-5 w-5 text-blue-600 dark:text-blue-400" />
                 </div>
                 <div>
-                  <div className="font-semibold text-blue-900">
-                    Email List Cleaning
+                  <div className="font-semibold text-blue-900 dark:text-blue-300">
+                    {t("tools.email-validator.useCases.listCleaning.title")}
                   </div>
-                  <p className="text-sm text-blue-700">
-                    Remove invalid emails from mailing lists
+                  <p className="text-sm text-blue-700 dark:text-blue-400">
+                    {t("tools.email-validator.useCases.listCleaning.description")}
                   </p>
                 </div>
               </div>
 
-              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-purple-50 to-purple-100/50 border border-purple-200">
-                <div className="p-2 bg-white rounded-lg h-fit">
-                  <Shield className="h-5 w-5 text-purple-600" />
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-purple-50 to-purple-100/50 dark:from-purple-950/30 dark:to-purple-900/30 border border-purple-200 dark:border-purple-800">
+                <div className="p-2 bg-white dark:bg-gray-800 rounded-lg h-fit">
+                  <Shield className="h-5 w-5 text-purple-600 dark:text-purple-400" />
                 </div>
                 <div>
-                  <div className="font-semibold text-purple-900">
-                    Form Validation
+                  <div className="font-semibold text-purple-900 dark:text-purple-300">
+                    {t("tools.email-validator.useCases.formValidation.title")}
                   </div>
-                  <p className="text-sm text-purple-700">
-                    Verify email format before submission
+                  <p className="text-sm text-purple-700 dark:text-purple-400">
+                    {t("tools.email-validator.useCases.formValidation.description")}
                   </p>
                 </div>
               </div>
 
-              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-green-50 to-green-100/50 border border-green-200">
-                <div className="p-2 bg-white rounded-lg h-fit">
-                  <Globe className="h-5 w-5 text-green-600" />
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-green-50 to-green-100/50 dark:from-green-950/30 dark:to-green-900/30 border border-green-200 dark:border-green-800">
+                <div className="p-2 bg-white dark:bg-gray-800 rounded-lg h-fit">
+                  <Globe className="h-5 w-5 text-green-600 dark:text-green-400" />
                 </div>
                 <div>
-                  <div className="font-semibold text-green-900">
-                    Data Import
+                  <div className="font-semibold text-green-900 dark:text-green-300">
+                    {t("tools.email-validator.useCases.dataImport.title")}
                   </div>
-                  <p className="text-sm text-green-700">
-                    Validate emails before importing to CRM
+                  <p className="text-sm text-green-700 dark:text-green-400">
+                    {t("tools.email-validator.useCases.dataImport.description")}
                   </p>
                 </div>
               </div>
 
-              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-pink-50 to-pink-100/50 border border-pink-200">
-                <div className="p-2 bg-white rounded-lg h-fit">
-                  <AlertCircle className="h-5 w-5 text-pink-600" />
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-pink-50 to-pink-100/50 dark:from-pink-950/30 dark:to-pink-900/30 border border-pink-200 dark:border-pink-800">
+                <div className="p-2 bg-white dark:bg-gray-800 rounded-lg h-fit">
+                  <AlertCircle className="h-5 w-5 text-pink-600 dark:text-pink-400" />
                 </div>
                 <div>
-                  <div className="font-semibold text-pink-900">
-                    Bulk Validation
+                  <div className="font-semibold text-pink-900 dark:text-pink-300">
+                    {t("tools.email-validator.useCases.bulkValidation.title")}
                   </div>
-                  <p className="text-sm text-pink-700">
-                    Check hundreds of emails at once
+                  <p className="text-sm text-pink-700 dark:text-pink-400">
+                    {t("tools.email-validator.useCases.bulkValidation.description")}
                   </p>
                 </div>
               </div>
@@ -338,38 +344,38 @@ user..name@domain.com`);
           </CardContent>
         </Card>
 
-        <Card className="mt-6 bg-gradient-to-br from-amber-50 via-orange-50 to-amber-50 border-amber-200">
+        <Card className="mt-6 bg-gradient-to-br from-amber-50 via-orange-50 to-amber-50 dark:from-amber-950/30 dark:via-orange-950/30 dark:to-amber-950/30 border-amber-200 dark:border-amber-800">
           <CardHeader>
-            <CardTitle className="flex items-center gap-2 text-amber-900">
-              <Info className="h-5 w-5 text-amber-600" />
-              💡 Pro Tips
+            <CardTitle className="flex items-center gap-2 text-amber-900 dark:text-amber-300">
+              <Info className="h-5 w-5 text-amber-600 dark:text-amber-400" />
+              💡 {t("toolPage.sections.proTips")}
             </CardTitle>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
               <div className="flex gap-2 items-start">
-                <div className="text-amber-600 font-bold">→</div>
-                <p className="text-sm text-amber-900">
-                  <strong>Batch Processing:</strong> Validate multiple emails at once
-                </p>
+                <div className="text-amber-600 dark:text-amber-400 font-bold">→</div>
+                <p className="text-sm text-amber-900 dark:text-amber-300" dangerouslySetInnerHTML={{
+                  __html: t("tools.email-validator.proTips.batchProcessing")
+                }} />
               </div>
               <div className="flex gap-2 items-start">
-                <div className="text-amber-600 font-bold">→</div>
-                <p className="text-sm text-amber-900">
-                  <strong>RFC Compliant:</strong> Follows email standards strictly
-                </p>
+                <div className="text-amber-600 dark:text-amber-400 font-bold">→</div>
+                <p className="text-sm text-amber-900 dark:text-amber-300" dangerouslySetInnerHTML={{
+                  __html: t("tools.email-validator.proTips.rfcCompliant")
+                }} />
               </div>
               <div className="flex gap-2 items-start">
-                <div className="text-amber-600 font-bold">→</div>
-                <p className="text-sm text-amber-900">
-                  <strong>Export Valid:</strong> Download only valid emails
-                </p>
+                <div className="text-amber-600 dark:text-amber-400 font-bold">→</div>
+                <p className="text-sm text-amber-900 dark:text-amber-300" dangerouslySetInnerHTML={{
+                  __html: t("tools.email-validator.proTips.exportValid")
+                }} />
               </div>
               <div className="flex gap-2 items-start">
-                <div className="text-amber-600 font-bold">→</div>
-                <p className="text-sm text-amber-900">
-                  <strong>Instant Feedback:</strong> See detailed error reasons
-                </p>
+                <div className="text-amber-600 dark:text-amber-400 font-bold">→</div>
+                <p className="text-sm text-amber-900 dark:text-amber-300" dangerouslySetInnerHTML={{
+                  __html: t("tools.email-validator.proTips.instantFeedback")
+                }} />
               </div>
             </div>
           </CardContent>
@@ -377,7 +383,7 @@ user..name@domain.com`);
 
         <Card className="mt-6">
           <CardHeader>
-            <CardTitle>🔗 Related Tools You Might Like</CardTitle>
+            <CardTitle>{t("tools.email-validator.relatedTools")}</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
@@ -386,10 +392,10 @@ user..name@domain.com`);
                 className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
               >
                 <div className="font-semibold text-gray-900 group-hover:text-primary">
-                  Duplicate Remover
+                  {t("tools.duplicate-remover.title")}
                 </div>
                 <div className="text-sm text-gray-600 mt-1">
-                  Remove duplicate emails
+                  {t("tools.duplicate-remover.description")}
                 </div>
               </button>
               <button
@@ -397,10 +403,10 @@ user..name@domain.com`);
                 className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
               >
                 <div className="font-semibold text-gray-900 group-hover:text-primary">
-                  Text Sorter
+                  {t("tools.text-sorter.title")}
                 </div>
                 <div className="text-sm text-gray-600 mt-1">
-                  Sort email lists
+                  {t("tools.text-sorter.description")}
                 </div>
               </button>
               <button
@@ -408,10 +414,10 @@ user..name@domain.com`);
                 className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
               >
                 <div className="font-semibold text-gray-900 group-hover:text-primary">
-                  CSV to JSON
+                  {t("tools.csv-to-json.title")}
                 </div>
                 <div className="text-sm text-gray-600 mt-1">
-                  Convert email data
+                  {t("tools.csv-to-json.description")}
                 </div>
               </button>
             </div>

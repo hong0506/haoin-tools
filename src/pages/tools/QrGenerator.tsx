@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { SidebarTrigger } from "@/components/ui/sidebar";
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import {
@@ -37,20 +39,21 @@ import {
 } from "lucide-react";
 
 const QrGenerator = () => {
+  const { t } = useTranslation();
   const [text, setText] = useState("");
   const [qrUrl, setQrUrl] = useState("");
   const navigate = useNavigate();
 
   const generateQr = () => {
     if (!text.trim()) {
-      toast.error("Please enter text or URL");
+      toast.error(t('tools.qr-generator.errorEmpty'));
       return;
     }
     const encodedText = encodeURIComponent(text);
     setQrUrl(
       `https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=${encodedText}`
     );
-    toast.success("QR code generated");
+    toast.success(t('tools.qr-generator.generated'));
   };
 
   const downloadQr = async (format: "png" | "jpg" = "png") => {
@@ -73,12 +76,12 @@ const QrGenerator = () => {
       } else {
         // PNG format - direct download
         link.click();
-        toast.success("QR code downloaded as PNG");
+        toast.success(t('tools.qr-generator.downloadedPNG'));
       }
 
       URL.revokeObjectURL(url);
     } catch (error) {
-      toast.error("Failed to download QR code");
+      toast.error(t('tools.qr-generator.downloadError'));
     }
   };
 
@@ -108,7 +111,7 @@ const QrGenerator = () => {
               link.download = "qrcode.jpg";
               link.click();
               URL.revokeObjectURL(url);
-              toast.success("QR code downloaded as JPG");
+              toast.success(t('tools.qr-generator.downloadedJPG'));
             }
           },
           "image/jpeg",
@@ -119,32 +122,33 @@ const QrGenerator = () => {
       const url = URL.createObjectURL(blob);
       img.src = url;
     } catch (error) {
-      toast.error("Failed to convert to JPG");
+      toast.error(t('tools.qr-generator.convertError'));
     }
   };
 
   const clearText = () => {
     setText("");
     setQrUrl("");
-    toast.success("Text cleared");
+    toast.success(t('toolPage.messages.cleared'));
   };
 
   const loadExample = () => {
-    setText("https://www.example.com");
+    setText(t('tools.qr-generator.exampleUrl'));
     setQrUrl("");
-    toast.success("Example loaded");
+    toast.success(t('toolPage.messages.exampleLoaded'));
   };
 
   return (
     <div className="min-h-screen">
       <header className="sticky top-0 z-10 border-b bg-background/95 backdrop-blur">
-        <div className="flex h-16 items-center gap-4 px-6">
+        <div className="flex h-16 items-center gap-2 sm:gap-4 px-2 sm:px-6">
           <Button variant="ghost" size="icon" onClick={() => navigate(-1)}>
             <ArrowLeft className="h-4 w-4" />
           </Button>
           <SidebarTrigger />
-          <div className="flex items-center gap-2">
-            <h1 className="text-xl font-semibold">QR Code Generator</h1>
+          <h1 className="text-xl font-semibold flex-1">{t('tools.qr-generator.title')}</h1>
+          <div className="flex-shrink-0">
+            <LanguageSwitcher />
           </div>
         </div>
       </header>
@@ -154,40 +158,40 @@ const QrGenerator = () => {
           <CardHeader>
             <div className="flex items-center justify-between">
               <div>
-                <CardTitle>QR Code Generator</CardTitle>
+                <CardTitle>{t('tools.qr-generator.title')}</CardTitle>
                 <CardDescription>
-                  Create QR codes from text or URLs
+                  {t('tools.qr-generator.description')}
                 </CardDescription>
               </div>
-              <FavoriteButton toolId="qr-generator" toolName="QR Generator" />
+              <FavoriteButton toolId="qr-generator" toolName={t('tools.qr-generator.title')} />
             </div>
           </CardHeader>
           <CardContent className="space-y-4">
             <div className="flex gap-2 mb-4">
               <Button onClick={clearText} variant="outline" size="sm">
                 <RotateCcw className="h-4 w-4 mr-2" />
-                Clear
+                {t('toolPage.buttons.clear')}
               </Button>
               <Button onClick={loadExample} variant="ghost" size="sm">
                 <Lightbulb className="h-4 w-4 mr-1" />
-                Load Example
+                {t('toolPage.buttons.loadExample')}
               </Button>
             </div>
 
             <div>
               <label className="mb-2 block text-sm font-medium">
-                Enter text or URL
+                {t('tools.qr-generator.inputLabel')}
               </label>
               <Textarea
                 value={text}
                 onChange={(e) => setText(e.target.value)}
-                placeholder="https://example.com"
+                placeholder={t('tools.qr-generator.placeholder')}
                 className="min-h-[100px]"
               />
             </div>
 
             <Button onClick={generateQr} className="w-full">
-              Generate QR Code
+              {t('tools.qr-generator.generate')}
             </Button>
 
             {qrUrl && (
@@ -197,18 +201,18 @@ const QrGenerator = () => {
                   <DropdownMenuTrigger asChild>
                     <Button variant="outline">
                       <Download className="h-4 w-4 mr-2" />
-                      Download QR Code
+                      {t('tools.qr-generator.download')}
                       <ChevronDown className="h-4 w-4 ml-2" />
                     </Button>
                   </DropdownMenuTrigger>
                   <DropdownMenuContent align="center">
                     <DropdownMenuItem onClick={() => downloadQr("png")}>
                       <span className="mr-2">📄</span>
-                      Download as PNG
+                      {t('tools.qr-generator.downloadPNG')}
                     </DropdownMenuItem>
                     <DropdownMenuItem onClick={() => downloadQr("jpg")}>
                       <span className="mr-2">🖼️</span>
-                      Download as JPG
+                      {t('tools.qr-generator.downloadJPG')}
                     </DropdownMenuItem>
                   </DropdownMenuContent>
                 </DropdownMenu>
@@ -222,10 +226,9 @@ const QrGenerator = () => {
           <CardContent className="pt-6">
             <p className="text-gray-700 leading-relaxed">
               <strong className="text-gray-900">
-                What is QR Code Generator?
+                {t('tools.qr-generator.whatIs')}
               </strong>{" "}
-              This tool generates QR codes from text or URLs. Perfect for business
-              cards, event promotion, WiFi sharing, and marketing campaigns! 📱
+              {t('tools.qr-generator.whatIsContent')}
             </p>
           </CardContent>
         </Card>
@@ -235,7 +238,7 @@ const QrGenerator = () => {
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <Zap className="h-5 w-5 text-primary" />
-              Common Use Cases
+              {t('toolPage.sections.commonUseCases')}
             </CardTitle>
           </CardHeader>
           <CardContent>
@@ -246,15 +249,14 @@ const QrGenerator = () => {
                 </div>
                 <div>
                   <div className="font-semibold text-blue-900">
-                    Business Cards
+                    {t('tools.qr-generator.useCases.businessCards.title')}
                   </div>
-                  <p className="text-sm text-blue-700">
-                    Add QR codes to{" "}
-                    <Badge variant="secondary" className="mx-1">
-                      business cards
-                    </Badge>
-                    for quick contact sharing
-                  </p>
+                  <p
+                    className="text-sm text-blue-700"
+                    dangerouslySetInnerHTML={{
+                      __html: t('tools.qr-generator.useCases.businessCards.description'),
+                    }}
+                  />
                 </div>
               </div>
 
@@ -263,9 +265,11 @@ const QrGenerator = () => {
                   <Wifi className="h-5 w-5 text-purple-600" />
                 </div>
                 <div>
-                  <div className="font-semibold text-purple-900">WiFi Sharing</div>
+                  <div className="font-semibold text-purple-900">
+                    {t('tools.qr-generator.useCases.wifiSharing.title')}
+                  </div>
                   <p className="text-sm text-purple-700">
-                    Share WiFi credentials without typing passwords
+                    {t('tools.qr-generator.useCases.wifiSharing.description')}
                   </p>
                 </div>
               </div>
@@ -276,10 +280,10 @@ const QrGenerator = () => {
                 </div>
                 <div>
                   <div className="font-semibold text-green-900">
-                    Event Promotion
+                    {t('tools.qr-generator.useCases.eventPromotion.title')}
                   </div>
                   <p className="text-sm text-green-700">
-                    Create QR codes for event registrations and ticket sales
+                    {t('tools.qr-generator.useCases.eventPromotion.description')}
                   </p>
                 </div>
               </div>
@@ -290,10 +294,10 @@ const QrGenerator = () => {
                 </div>
                 <div>
                   <div className="font-semibold text-pink-900">
-                    Contact Info
+                    {t('tools.qr-generator.useCases.contactInfo.title')}
                   </div>
                   <p className="text-sm text-pink-700">
-                    Share social media profiles and contact details instantly
+                    {t('tools.qr-generator.useCases.contactInfo.description')}
                   </p>
                 </div>
               </div>
@@ -306,34 +310,46 @@ const QrGenerator = () => {
           <CardHeader>
             <CardTitle className="flex items-center gap-2 text-amber-900">
               <Info className="h-5 w-5 text-amber-600" />
-              💡 Pro Tips
+              💡 {t('toolPage.sections.proTips')}
             </CardTitle>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
               <div className="flex gap-2 items-start">
                 <div className="text-amber-600 font-bold">→</div>
-                <p className="text-sm text-amber-900">
-                  <strong>Keep it Short:</strong> QR codes work best with shorter text
-                </p>
+                <p
+                  className="text-sm text-amber-900"
+                  dangerouslySetInnerHTML={{
+                    __html: t('tools.qr-generator.proTips.short'),
+                  }}
+                />
               </div>
               <div className="flex gap-2 items-start">
                 <div className="text-amber-600 font-bold">→</div>
-                <p className="text-sm text-amber-900">
-                  <strong>Test First:</strong> Scan with your phone before printing
-                </p>
+                <p
+                  className="text-sm text-amber-900"
+                  dangerouslySetInnerHTML={{
+                    __html: t('tools.qr-generator.proTips.test'),
+                  }}
+                />
               </div>
               <div className="flex gap-2 items-start">
                 <div className="text-amber-600 font-bold">→</div>
-                <p className="text-sm text-amber-900">
-                  <strong>Contrast:</strong> Use high contrast for better scanning
-                </p>
+                <p
+                  className="text-sm text-amber-900"
+                  dangerouslySetInnerHTML={{
+                    __html: t('tools.qr-generator.proTips.contrast'),
+                  }}
+                />
               </div>
               <div className="flex gap-2 items-start">
                 <div className="text-amber-600 font-bold">→</div>
-                <p className="text-sm text-amber-900">
-                  <strong>Instructions:</strong> Add "Scan to" text near QR codes
-                </p>
+                <p
+                  className="text-sm text-amber-900"
+                  dangerouslySetInnerHTML={{
+                    __html: t('tools.qr-generator.proTips.instructions'),
+                  }}
+                />
               </div>
             </div>
           </CardContent>
@@ -342,7 +358,7 @@ const QrGenerator = () => {
         {/* Related Tools */}
         <Card className="mt-6">
           <CardHeader>
-            <CardTitle>🔗 Related Tools You Might Like</CardTitle>
+            <CardTitle>🔗 {t('toolPage.sections.relatedTools')}</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
@@ -351,10 +367,10 @@ const QrGenerator = () => {
                 className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
               >
                 <div className="font-semibold text-gray-900 group-hover:text-primary">
-                  URL Encoder
+                  {t('tools.url-encoder.title')}
                 </div>
                 <div className="text-sm text-gray-600 mt-1">
-                  Encode/decode URLs
+                  {t('tools.url-encoder.description')}
                 </div>
               </button>
               <button
@@ -362,10 +378,10 @@ const QrGenerator = () => {
                 className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
               >
                 <div className="font-semibold text-gray-900 group-hover:text-primary">
-                  Base64 Tool
+                  {t('tools.base64-encoder.title')}
                 </div>
                 <div className="text-sm text-gray-600 mt-1">
-                  Encode/decode Base64
+                  {t('tools.base64-encoder.description')}
                 </div>
               </button>
               <button
@@ -373,10 +389,10 @@ const QrGenerator = () => {
                 className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
               >
                 <div className="font-semibold text-gray-900 group-hover:text-primary">
-                  Hash Generator
+                  {t('tools.hash-generator.title')}
                 </div>
                 <div className="text-sm text-gray-600 mt-1">
-                  Create secure hashes
+                  {t('tools.hash-generator.description')}
                 </div>
               </button>
             </div>

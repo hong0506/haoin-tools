@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { SidebarTrigger } from "@/components/ui/sidebar";
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import {
@@ -27,6 +29,7 @@ import { FavoriteButton } from "@/components/FavoriteButton";
 import { Badge } from "@/components/ui/badge";
 
 const CreditCardCalculator = () => {
+  const { t } = useTranslation();
   const [balance, setBalance] = useState("");
   const [apr, setApr] = useState("");
   const [monthlyPayment, setMonthlyPayment] = useState("");
@@ -44,7 +47,7 @@ const CreditCardCalculator = () => {
     if (b > 0 && rate >= 0 && payment > 0) {
       if (payment <= b * rate) {
         setResult({
-          payoffTime: "Never (payment too low)",
+          payoffTime: t("tools.credit-card-calculator.never"),
           totalInterest: 0,
           totalPaid: 0,
         });
@@ -56,18 +59,18 @@ const CreditCardCalculator = () => {
       const totalInterest = totalPaid - b;
       const years = Math.floor(months / 12);
       const remainingMonths = Math.ceil(months % 12);
+      const yearText = years > 1 ? t("tools.credit-card-calculator.years") : t("tools.credit-card-calculator.year");
+      const monthText = remainingMonths > 1 ? t("tools.credit-card-calculator.months") : t("tools.credit-card-calculator.month");
       const payoffTime =
         years > 0
-          ? `${years} year${years > 1 ? "s" : ""} ${remainingMonths} month${
-              remainingMonths > 1 ? "s" : ""
-            }`
-          : `${Math.ceil(months)} month${Math.ceil(months) > 1 ? "s" : ""}`;
+          ? `${years} ${yearText} ${remainingMonths} ${monthText}`
+          : `${Math.ceil(months)} ${Math.ceil(months) > 1 ? t("tools.credit-card-calculator.months") : t("tools.credit-card-calculator.month")}`;
       setResult({
         payoffTime,
         totalInterest: parseFloat(totalInterest.toFixed(2)),
         totalPaid: parseFloat(totalPaid.toFixed(2)),
       });
-      toast.success("Calculation completed!");
+      toast.success(t("tools.credit-card-calculator.calculationCompleted"));
     }
   };
 
@@ -76,7 +79,7 @@ const CreditCardCalculator = () => {
     setApr("");
     setMonthlyPayment("");
     setResult(null);
-    toast.success("All fields cleared");
+    toast.success(t("tools.credit-card-calculator.allFieldsCleared"));
   };
 
   const loadExample = () => {
@@ -84,7 +87,7 @@ const CreditCardCalculator = () => {
     setApr("18.99");
     setMonthlyPayment("200");
     setResult(null);
-    toast.success("Example loaded");
+    toast.success(t("tools.credit-card-calculator.exampleLoaded"));
   };
 
   return (
@@ -102,7 +105,7 @@ const CreditCardCalculator = () => {
           <SidebarTrigger />
           <div className="flex items-center gap-2">
             <CreditCard className="h-5 w-5 text-primary" />
-            <h1 className="text-xl font-semibold">Credit Card Calculator</h1>
+            <h1 className="text-xl font-semibold">{t("tools.credit-card-calculator.title")}</h1>
           </div>
         </div>
       </header>
@@ -111,14 +114,14 @@ const CreditCardCalculator = () => {
           <CardHeader>
             <div className="flex items-center justify-between">
               <div>
-                <CardTitle>Calculate Credit Card Payoff</CardTitle>
+                <CardTitle>{t("tools.credit-card-calculator.calculatePayoff")}</CardTitle>
                 <CardDescription>
-                  Estimate when you'll be debt-free
+                  {t("tools.credit-card-calculator.descriptionFull")}
                 </CardDescription>
               </div>
               <FavoriteButton
                 toolId="credit-card-calculator"
-                toolName="Credit Card Calculator"
+                toolName={t("tools.credit-card-calculator.title")}
               />
             </div>
           </CardHeader>
@@ -126,17 +129,17 @@ const CreditCardCalculator = () => {
             <div className="flex gap-2 mb-4">
               <Button onClick={clearAll} variant="outline" size="sm">
                 <RotateCcw className="h-4 w-4 mr-2" />
-                Clear
+                {t("toolPage.buttons.clear")}
               </Button>
               <Button onClick={loadExample} variant="ghost" size="sm">
                 <Lightbulb className="h-4 w-4 mr-1" />
-                Load Example
+                {t("toolPage.buttons.loadExample")}
               </Button>
             </div>
 
             <div>
               <label className="mb-2 block text-sm font-medium">
-                Current Balance ($)
+                {t("tools.credit-card-calculator.currentBalance")}
               </label>
               <Input
                 type="number"
@@ -147,7 +150,7 @@ const CreditCardCalculator = () => {
             </div>
             <div>
               <label className="mb-2 block text-sm font-medium">
-                Annual Percentage Rate (APR %)
+                {t("tools.credit-card-calculator.annualRate")}
               </label>
               <Input
                 type="number"
@@ -159,7 +162,7 @@ const CreditCardCalculator = () => {
             </div>
             <div>
               <label className="mb-2 block text-sm font-medium">
-                Monthly Payment ($)
+                {t("tools.credit-card-calculator.monthlyPayment")}
               </label>
               <Input
                 type="number"
@@ -169,13 +172,13 @@ const CreditCardCalculator = () => {
               />
             </div>
             <Button onClick={calculatePayoff} className="w-full">
-              Calculate
+              {t("tools.credit-card-calculator.calculate")}
             </Button>
             {result && (
               <div className="space-y-4 rounded-lg bg-secondary/50 p-6">
                 <div className="text-center border-b pb-4">
                   <p className="text-sm text-muted-foreground">
-                    Time to Pay Off
+                    {t("tools.credit-card-calculator.timeToPayOff")}
                   </p>
                   <p className="text-3xl font-bold text-primary">
                     {result.payoffTime}
@@ -183,14 +186,14 @@ const CreditCardCalculator = () => {
                 </div>
                 <div className="grid grid-cols-2 gap-4">
                   <div className="text-center">
-                    <p className="text-xs text-muted-foreground">Total Paid</p>
+                    <p className="text-xs text-muted-foreground">{t("tools.credit-card-calculator.totalPaid")}</p>
                     <p className="text-lg font-semibold">
                       ${result.totalPaid.toLocaleString()}
                     </p>
                   </div>
                   <div className="text-center">
                     <p className="text-xs text-muted-foreground">
-                      Total Interest
+                      {t("tools.credit-card-calculator.totalInterest")}
                     </p>
                     <p className="text-lg font-semibold text-orange-500">
                       ${result.totalInterest.toLocaleString()}
@@ -203,15 +206,13 @@ const CreditCardCalculator = () => {
         </Card>
 
         {/* Tool Introduction */}
-        <Card className="mt-6 bg-gradient-to-r from-blue-50 via-purple-50 to-pink-50 border-blue-200">
+        <Card className="mt-6 bg-gradient-to-r from-blue-50 via-purple-50 to-pink-50 dark:from-blue-950/30 dark:via-purple-950/30 dark:to-pink-950/30 border-blue-200 dark:border-blue-800">
           <CardContent className="pt-6">
-            <p className="text-gray-700 leading-relaxed">
-              <strong className="text-gray-900">
-                What is Credit Card Payoff Calculator?
+            <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+              <strong className="text-gray-900 dark:text-gray-100">
+                {t("tools.credit-card-calculator.whatIs")}
               </strong>{" "}
-              This tool calculates payoff time, total interest, and payments for
-              credit card debt. Perfect for debt management and financial
-              planning! 💳
+              {t("tools.credit-card-calculator.whatIsContent")}
             </p>
           </CardContent>
         </Card>
@@ -221,67 +222,66 @@ const CreditCardCalculator = () => {
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <Zap className="h-5 w-5 text-primary" />
-              Common Use Cases
+              {t("toolPage.sections.commonUseCases")}
             </CardTitle>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-blue-50 to-blue-100/50 border border-blue-200">
-                <div className="p-2 bg-white rounded-lg h-fit">
-                  <TrendingDown className="h-5 w-5 text-blue-600" />
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-blue-50 to-blue-100/50 dark:from-blue-950/30 dark:to-blue-900/30 border border-blue-200 dark:border-blue-800">
+                <div className="p-2 bg-white dark:bg-gray-800 rounded-lg h-fit">
+                  <TrendingDown className="h-5 w-5 text-blue-600 dark:text-blue-400" />
                 </div>
                 <div>
-                  <div className="font-semibold text-blue-900">
-                    Debt Management
+                  <div className="font-semibold text-blue-900 dark:text-blue-300">
+                    {t("tools.credit-card-calculator.useCases.debt.title")}
                   </div>
-                  <p className="text-sm text-blue-700">
-                    Plan{" "}
+                  <p className="text-sm text-blue-700 dark:text-blue-400">
+                    {t("tools.credit-card-calculator.useCases.debt.description")}{" "}
                     <Badge variant="secondary" className="mx-1">
                       debt payoff
                     </Badge>
-                    strategies and timelines
                   </p>
                 </div>
               </div>
 
-              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-purple-50 to-purple-100/50 border border-purple-200">
-                <div className="p-2 bg-white rounded-lg h-fit">
-                  <DollarSign className="h-5 w-5 text-purple-600" />
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-purple-50 to-purple-100/50 dark:from-purple-950/30 dark:to-purple-900/30 border border-purple-200 dark:border-purple-800">
+                <div className="p-2 bg-white dark:bg-gray-800 rounded-lg h-fit">
+                  <DollarSign className="h-5 w-5 text-purple-600 dark:text-purple-400" />
                 </div>
                 <div>
-                  <div className="font-semibold text-purple-900">
-                    Interest Analysis
+                  <div className="font-semibold text-purple-900 dark:text-purple-300">
+                    {t("tools.credit-card-calculator.useCases.interest.title")}
                   </div>
-                  <p className="text-sm text-purple-700">
-                    Calculate total interest costs over the payoff period
+                  <p className="text-sm text-purple-700 dark:text-purple-400">
+                    {t("tools.credit-card-calculator.useCases.interest.description")}
                   </p>
                 </div>
               </div>
 
-              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-green-50 to-green-100/50 border border-green-200">
-                <div className="p-2 bg-white rounded-lg h-fit">
-                  <Wallet className="h-5 w-5 text-green-600" />
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-green-50 to-green-100/50 dark:from-green-950/30 dark:to-green-900/30 border border-green-200 dark:border-green-800">
+                <div className="p-2 bg-white dark:bg-gray-800 rounded-lg h-fit">
+                  <Wallet className="h-5 w-5 text-green-600 dark:text-green-400" />
                 </div>
                 <div>
-                  <div className="font-semibold text-green-900">
-                    Budget Planning
+                  <div className="font-semibold text-green-900 dark:text-green-300">
+                    {t("tools.credit-card-calculator.useCases.budget.title")}
                   </div>
-                  <p className="text-sm text-green-700">
-                    Optimize monthly payments within your budget
+                  <p className="text-sm text-green-700 dark:text-green-400">
+                    {t("tools.credit-card-calculator.useCases.budget.description")}
                   </p>
                 </div>
               </div>
 
-              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-pink-50 to-pink-100/50 border border-pink-200">
-                <div className="p-2 bg-white rounded-lg h-fit">
-                  <AlertTriangle className="h-5 w-5 text-pink-600" />
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-pink-50 to-pink-100/50 dark:from-pink-950/30 dark:to-pink-900/30 border border-pink-200 dark:border-pink-800">
+                <div className="p-2 bg-white dark:bg-gray-800 rounded-lg h-fit">
+                  <AlertTriangle className="h-5 w-5 text-pink-600 dark:text-pink-400" />
                 </div>
                 <div>
-                  <div className="font-semibold text-pink-900">
-                    Payment Strategy
+                  <div className="font-semibold text-pink-900 dark:text-pink-300">
+                    {t("tools.credit-card-calculator.useCases.strategy.title")}
                   </div>
-                  <p className="text-sm text-pink-700">
-                    Compare different payment amounts and timelines
+                  <p className="text-sm text-pink-700 dark:text-pink-400">
+                    {t("tools.credit-card-calculator.useCases.strategy.description")}
                   </p>
                 </div>
               </div>
@@ -290,42 +290,38 @@ const CreditCardCalculator = () => {
         </Card>
 
         {/* Quick Tips */}
-        <Card className="mt-6 bg-gradient-to-br from-amber-50 via-orange-50 to-amber-50 border-amber-200">
+        <Card className="mt-6 bg-gradient-to-br from-amber-50 via-orange-50 to-amber-50 dark:from-amber-950/30 dark:via-orange-950/30 dark:to-amber-950/30 border-amber-200 dark:border-amber-800">
           <CardHeader>
-            <CardTitle className="flex items-center gap-2 text-amber-900">
-              <Info className="h-5 w-5 text-amber-600" />
-              💡 Pro Tips
+            <CardTitle className="flex items-center gap-2 text-amber-900 dark:text-amber-300">
+              <Info className="h-5 w-5 text-amber-600 dark:text-amber-400" />
+              💡 {t("toolPage.sections.proTips")}
             </CardTitle>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
               <div className="flex gap-2 items-start">
-                <div className="text-amber-600 font-bold">→</div>
-                <p className="text-sm text-amber-900">
-                  <strong>Higher Payments:</strong> Reduce total interest
-                  significantly
-                </p>
+                <div className="text-amber-600 dark:text-amber-400 font-bold">→</div>
+                <p className="text-sm text-amber-900 dark:text-amber-300" dangerouslySetInnerHTML={{
+                  __html: t("tools.credit-card-calculator.proTips.higherPayments")
+                }} />
               </div>
               <div className="flex gap-2 items-start">
-                <div className="text-amber-600 font-bold">→</div>
-                <p className="text-sm text-amber-900">
-                  <strong>Minimum Payments:</strong> Can take years to pay off
-                  debt
-                </p>
+                <div className="text-amber-600 dark:text-amber-400 font-bold">→</div>
+                <p className="text-sm text-amber-900 dark:text-amber-300" dangerouslySetInnerHTML={{
+                  __html: t("tools.credit-card-calculator.proTips.minimumPayments")
+                }} />
               </div>
               <div className="flex gap-2 items-start">
-                <div className="text-amber-600 font-bold">→</div>
-                <p className="text-sm text-amber-900">
-                  <strong>Pay More:</strong> Always pay more than minimum when
-                  possible
-                </p>
+                <div className="text-amber-600 dark:text-amber-400 font-bold">→</div>
+                <p className="text-sm text-amber-900 dark:text-amber-300" dangerouslySetInnerHTML={{
+                  __html: t("tools.credit-card-calculator.proTips.payMore")
+                }} />
               </div>
               <div className="flex gap-2 items-start">
-                <div className="text-amber-600 font-bold">→</div>
-                <p className="text-sm text-amber-900">
-                  <strong>Lower APR:</strong> Can save thousands in interest
-                  costs
-                </p>
+                <div className="text-amber-600 dark:text-amber-400 font-bold">→</div>
+                <p className="text-sm text-amber-900 dark:text-amber-300" dangerouslySetInnerHTML={{
+                  __html: t("tools.credit-card-calculator.proTips.lowerAPR")
+                }} />
               </div>
             </div>
           </CardContent>
@@ -334,7 +330,7 @@ const CreditCardCalculator = () => {
         {/* Related Tools */}
         <Card className="mt-6">
           <CardHeader>
-            <CardTitle>🔗 Related Tools You Might Like</CardTitle>
+            <CardTitle>{t("tools.credit-card-calculator.relatedTools")}</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
@@ -343,10 +339,10 @@ const CreditCardCalculator = () => {
                 className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
               >
                 <div className="font-semibold text-gray-900 group-hover:text-primary">
-                  Loan Calculator
+                  {t("tools.loan-calculator.title")}
                 </div>
                 <div className="text-sm text-gray-600 mt-1">
-                  Calculate loan payments
+                  {t("tools.loan-calculator.description")}
                 </div>
               </button>
               <button
@@ -354,10 +350,10 @@ const CreditCardCalculator = () => {
                 className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
               >
                 <div className="font-semibold text-gray-900 group-hover:text-primary">
-                  Interest Calculator
+                  {t("tools.interest-calculator.title")}
                 </div>
                 <div className="text-sm text-gray-600 mt-1">
-                  Calculate interest
+                  {t("tools.interest-calculator.description")}
                 </div>
               </button>
               <button
@@ -365,10 +361,10 @@ const CreditCardCalculator = () => {
                 className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
               >
                 <div className="font-semibold text-gray-900 group-hover:text-primary">
-                  Percentage Calculator
+                  {t("tools.percentage-calculator.title")}
                 </div>
                 <div className="text-sm text-gray-600 mt-1">
-                  Calculate percentages
+                  {t("tools.percentage-calculator.description")}
                 </div>
               </button>
             </div>

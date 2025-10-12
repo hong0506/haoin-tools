@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { SidebarTrigger } from "@/components/ui/sidebar";
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -27,6 +29,7 @@ import { FavoriteButton } from "@/components/FavoriteButton";
 import { Badge } from "@/components/ui/badge";
 
 const TextReplacer = () => {
+  const { t, i18n } = useTranslation();
   const [inputText, setInputText] = useState("");
   const [findText, setFindText] = useState("");
   const [replaceText, setReplaceText] = useState("");
@@ -37,11 +40,11 @@ const TextReplacer = () => {
 
   const handleReplace = () => {
     if (!inputText) {
-      toast.error("Please enter some text");
+      toast.error(t("tools.text-replacer.pleaseEnterText"));
       return;
     }
     if (!findText) {
-      toast.error("Please enter text to find");
+      toast.error(t("tools.text-replacer.pleaseEnterFind"));
       return;
     }
 
@@ -64,9 +67,9 @@ const TextReplacer = () => {
         inputText.match(new RegExp(findText, caseSensitive ? "g" : "gi"))
           ?.length || 0;
       setResultText(result);
-      toast.success(`Replaced ${count} occurrence(s)`);
+      toast.success(t("tools.text-replacer.replacedCount", { count }));
     } catch (error) {
-      toast.error("Invalid regex pattern");
+      toast.error(t("tools.text-replacer.invalidRegex"));
     }
   };
 
@@ -77,27 +80,37 @@ const TextReplacer = () => {
     setResultText("");
     setCaseSensitive(false);
     setUseRegex(false);
-    toast.success("All fields cleared");
+    toast.success(t("tools.text-replacer.allFieldsCleared"));
   };
 
   const loadExample = () => {
-    setInputText("Hello World! Welcome to the World of programming.");
-    setFindText("World");
-    setReplaceText("Universe");
-    toast.success("Example loaded");
+    if (i18n.language === "zh") {
+      setInputText("你好世界！欢迎来到编程的世界。");
+      setFindText("世界");
+      setReplaceText("宇宙");
+    } else if (i18n.language === "es") {
+      setInputText("¡Hola Mundo! Bienvenido al Mundo de la programación.");
+      setFindText("Mundo");
+      setReplaceText("Universo");
+    } else {
+      setInputText("Hello World! Welcome to the World of programming.");
+      setFindText("World");
+      setReplaceText("Universe");
+    }
+    toast.success(t("tools.text-replacer.exampleLoaded"));
   };
 
   const copyToClipboard = () => {
     if (resultText) {
       navigator.clipboard.writeText(resultText);
-      toast.success("Copied to clipboard!");
+      toast.success(t("tools.text-replacer.copiedToClipboard"));
     }
   };
 
   return (
     <div className="min-h-screen">
       <header className="sticky top-0 z-10 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="flex h-16 items-center gap-4 px-6">
+        <div className="flex h-16 items-center gap-2 sm:gap-4 px-2 sm:px-6">
           <Button
             variant="ghost"
             size="icon"
@@ -107,7 +120,12 @@ const TextReplacer = () => {
             <ArrowLeft className="h-4 w-4" />
           </Button>
           <SidebarTrigger />
-          <h1 className="text-xl font-semibold">Text Replacer</h1>
+          <h1 className="text-xl font-semibold flex-1">
+            {t("tools.text-replacer.title")}
+          </h1>
+          <div className="flex-shrink-0">
+            <LanguageSwitcher />
+          </div>
         </div>
       </header>
 
@@ -116,30 +134,33 @@ const TextReplacer = () => {
           <CardHeader>
             <div className="flex items-center justify-between">
               <div>
-                <CardTitle>Find and Replace Text</CardTitle>
+                <CardTitle>{t("tools.text-replacer.findAndReplace")}</CardTitle>
                 <CardDescription>
-                  Find and replace text with support for regular expressions
+                  {t("tools.text-replacer.descriptionFull")}
                 </CardDescription>
               </div>
-              <FavoriteButton toolId="text-replacer" toolName="Text Replacer" />
+              <FavoriteButton
+                toolId="text-replacer"
+                toolName={t("tools.text-replacer.title")}
+              />
             </div>
           </CardHeader>
           <CardContent className="space-y-4">
             <div className="flex gap-2 mb-4">
               <Button onClick={clearAll} variant="outline" size="sm">
                 <RotateCcw className="h-4 w-4 mr-2" />
-                Clear
+                {t("toolPage.buttons.clear")}
               </Button>
               <Button onClick={loadExample} variant="ghost" size="sm">
                 <Lightbulb className="h-4 w-4 mr-1" />
-                Load Example
+                {t("toolPage.buttons.loadExample")}
               </Button>
             </div>
 
             <div>
-              <Label>Input Text</Label>
+              <Label>{t("tools.text-replacer.inputText")}</Label>
               <Textarea
-                placeholder="Enter your text here..."
+                placeholder={t("tools.text-replacer.inputPlaceholder")}
                 value={inputText}
                 onChange={(e) => setInputText(e.target.value)}
                 rows={6}
@@ -149,18 +170,18 @@ const TextReplacer = () => {
 
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <Label>Find</Label>
+                <Label>{t("tools.text-replacer.find")}</Label>
                 <Input
-                  placeholder="Text to find"
+                  placeholder={t("tools.text-replacer.findPlaceholder")}
                   value={findText}
                   onChange={(e) => setFindText(e.target.value)}
                   className="mt-2"
                 />
               </div>
               <div>
-                <Label>Replace With</Label>
+                <Label>{t("tools.text-replacer.replaceWith")}</Label>
                 <Input
-                  placeholder="Replacement text"
+                  placeholder={t("tools.text-replacer.replacePlaceholder")}
                   value={replaceText}
                   onChange={(e) => setReplaceText(e.target.value)}
                   className="mt-2"
@@ -181,7 +202,7 @@ const TextReplacer = () => {
                   htmlFor="case-sensitive"
                   className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
                 >
-                  Case Sensitive
+                  {t("tools.text-replacer.caseSensitive")}
                 </label>
               </div>
               <div className="flex items-center space-x-2">
@@ -194,23 +215,23 @@ const TextReplacer = () => {
                   htmlFor="use-regex"
                   className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
                 >
-                  Use Regular Expression
+                  {t("tools.text-replacer.useRegex")}
                 </label>
               </div>
             </div>
 
             <Button onClick={handleReplace} className="w-full">
               <Replace className="h-4 w-4 mr-2" />
-              Replace
+              {t("tools.text-replacer.replace")}
             </Button>
 
             {resultText && (
               <div>
                 <div className="flex items-center justify-between mb-2">
-                  <Label>Result</Label>
+                  <Label>{t("tools.text-replacer.result")}</Label>
                   <Button variant="outline" size="sm" onClick={copyToClipboard}>
                     <Copy className="h-4 w-4 mr-2" />
-                    Copy
+                    {t("toolPage.buttons.copy")}
                   </Button>
                 </div>
                 <Textarea
@@ -225,14 +246,13 @@ const TextReplacer = () => {
         </Card>
 
         {/* Tool Introduction */}
-        <Card className="mt-6 bg-gradient-to-r from-blue-50 via-purple-50 to-pink-50 border-blue-200">
+        <Card className="mt-6 bg-gradient-to-r from-blue-50 via-purple-50 to-pink-50 dark:from-blue-950/30 dark:via-purple-950/30 dark:to-pink-950/30 border-blue-200 dark:border-blue-800">
           <CardContent className="pt-6">
-            <p className="text-gray-700 leading-relaxed">
-              <strong className="text-gray-900">What is Text Replacer?</strong>{" "}
-              This powerful tool allows you to find and replace text with
-              support for regular expressions, case sensitivity, and batch
-              processing. Perfect for developers, writers, and data processors
-              who need quick text transformations! 🔍
+            <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+              <strong className="text-gray-900 dark:text-gray-100">
+                {t("tools.text-replacer.whatIs")}
+              </strong>{" "}
+              {t("tools.text-replacer.whatIsContent")}
             </p>
           </CardContent>
         </Card>
@@ -242,61 +262,63 @@ const TextReplacer = () => {
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <Zap className="h-5 w-5 text-primary" />
-              Common Use Cases
+              {t("toolPage.sections.commonUseCases")}
             </CardTitle>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-blue-50 to-blue-100/50 border border-blue-200">
-                <div className="p-2 bg-white rounded-lg h-fit">
-                  <Replace className="h-5 w-5 text-blue-600" />
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-blue-50 to-blue-100/50 dark:from-blue-950/30 dark:to-blue-900/30 border border-blue-200 dark:border-blue-800">
+                <div className="p-2 bg-white dark:bg-gray-800 rounded-lg h-fit">
+                  <Replace className="h-5 w-5 text-blue-600 dark:text-blue-400" />
                 </div>
                 <div>
-                  <div className="font-semibold text-blue-900">
-                    Batch Editing
+                  <div className="font-semibold text-blue-900 dark:text-blue-300">
+                    {t("tools.text-replacer.useCases.batch.title")}
                   </div>
-                  <p className="text-sm text-blue-700">
-                    Replace multiple instances of text across large documents
+                  <p className="text-sm text-blue-700 dark:text-blue-400">
+                    {t("tools.text-replacer.useCases.batch.description")}
                   </p>
                 </div>
               </div>
 
-              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-purple-50 to-purple-100/50 border border-purple-200">
-                <div className="p-2 bg-white rounded-lg h-fit">
-                  <Zap className="h-5 w-5 text-purple-600" />
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-purple-50 to-purple-100/50 dark:from-purple-950/30 dark:to-purple-900/30 border border-purple-200 dark:border-purple-800">
+                <div className="p-2 bg-white dark:bg-gray-800 rounded-lg h-fit">
+                  <Zap className="h-5 w-5 text-purple-600 dark:text-purple-400" />
                 </div>
                 <div>
-                  <div className="font-semibold text-purple-900">
-                    Code Refactoring
+                  <div className="font-semibold text-purple-900 dark:text-purple-300">
+                    {t("tools.text-replacer.useCases.refactoring.title")}
                   </div>
-                  <p className="text-sm text-purple-700">
-                    Rename variables, functions, or classes quickly
+                  <p className="text-sm text-purple-700 dark:text-purple-400">
+                    {t("tools.text-replacer.useCases.refactoring.description")}
                   </p>
                 </div>
               </div>
 
-              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-green-50 to-green-100/50 border border-green-200">
-                <div className="p-2 bg-white rounded-lg h-fit">
-                  <Info className="h-5 w-5 text-green-600" />
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-green-50 to-green-100/50 dark:from-green-950/30 dark:to-green-900/30 border border-green-200 dark:border-green-800">
+                <div className="p-2 bg-white dark:bg-gray-800 rounded-lg h-fit">
+                  <Info className="h-5 w-5 text-green-600 dark:text-green-400" />
                 </div>
                 <div>
-                  <div className="font-semibold text-green-900">
-                    Data Cleaning
+                  <div className="font-semibold text-green-900 dark:text-green-300">
+                    {t("tools.text-replacer.useCases.cleaning.title")}
                   </div>
-                  <p className="text-sm text-green-700">
-                    Clean and normalize data by replacing patterns
+                  <p className="text-sm text-green-700 dark:text-green-400">
+                    {t("tools.text-replacer.useCases.cleaning.description")}
                   </p>
                 </div>
               </div>
 
-              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-pink-50 to-pink-100/50 border border-pink-200">
-                <div className="p-2 bg-white rounded-lg h-fit">
-                  <Lightbulb className="h-5 w-5 text-pink-600" />
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-pink-50 to-pink-100/50 dark:from-pink-950/30 dark:to-pink-900/30 border border-pink-200 dark:border-pink-800">
+                <div className="p-2 bg-white dark:bg-gray-800 rounded-lg h-fit">
+                  <Lightbulb className="h-5 w-5 text-pink-600 dark:text-pink-400" />
                 </div>
                 <div>
-                  <div className="font-semibold text-pink-900">URL Updates</div>
-                  <p className="text-sm text-pink-700">
-                    Update links or paths across multiple files
+                  <div className="font-semibold text-pink-900 dark:text-pink-300">
+                    {t("tools.text-replacer.useCases.urls.title")}
+                  </div>
+                  <p className="text-sm text-pink-700 dark:text-pink-400">
+                    {t("tools.text-replacer.useCases.urls.description")}
                   </p>
                 </div>
               </div>
@@ -305,42 +327,58 @@ const TextReplacer = () => {
         </Card>
 
         {/* Quick Tips */}
-        <Card className="mt-6 bg-gradient-to-br from-amber-50 via-orange-50 to-amber-50 border-amber-200">
+        <Card className="mt-6 bg-gradient-to-br from-amber-50 via-orange-50 to-amber-50 dark:from-amber-950/30 dark:via-orange-950/30 dark:to-amber-950/30 border-amber-200 dark:border-amber-800">
           <CardHeader>
-            <CardTitle className="flex items-center gap-2 text-amber-900">
-              <Info className="h-5 w-5 text-amber-600" />
-              💡 Pro Tips
+            <CardTitle className="flex items-center gap-2 text-amber-900 dark:text-amber-300">
+              <Info className="h-5 w-5 text-amber-600 dark:text-amber-400" />
+              💡 {t("toolPage.sections.proTips")}
             </CardTitle>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
               <div className="flex gap-2 items-start">
-                <div className="text-amber-600 font-bold">→</div>
-                <p className="text-sm text-amber-900">
-                  <strong>Regex:</strong> Use \d for digits, \w for word
-                  characters
-                </p>
+                <div className="text-amber-600 dark:text-amber-400 font-bold">
+                  →
+                </div>
+                <p
+                  className="text-sm text-amber-900 dark:text-amber-300"
+                  dangerouslySetInnerHTML={{
+                    __html: t("tools.text-replacer.proTips.regex"),
+                  }}
+                />
               </div>
               <div className="flex gap-2 items-start">
-                <div className="text-amber-600 font-bold">→</div>
-                <p className="text-sm text-amber-900">
-                  <strong>Global:</strong> All occurrences are replaced
-                  automatically
-                </p>
+                <div className="text-amber-600 dark:text-amber-400 font-bold">
+                  →
+                </div>
+                <p
+                  className="text-sm text-amber-900 dark:text-amber-300"
+                  dangerouslySetInnerHTML={{
+                    __html: t("tools.text-replacer.proTips.global"),
+                  }}
+                />
               </div>
               <div className="flex gap-2 items-start">
-                <div className="text-amber-600 font-bold">→</div>
-                <p className="text-sm text-amber-900">
-                  <strong>Case Match:</strong> Enable case sensitive for exact
-                  matches
-                </p>
+                <div className="text-amber-600 dark:text-amber-400 font-bold">
+                  →
+                </div>
+                <p
+                  className="text-sm text-amber-900 dark:text-amber-300"
+                  dangerouslySetInnerHTML={{
+                    __html: t("tools.text-replacer.proTips.caseMatch"),
+                  }}
+                />
               </div>
               <div className="flex gap-2 items-start">
-                <div className="text-amber-600 font-bold">→</div>
-                <p className="text-sm text-amber-900">
-                  <strong>Test First:</strong> Try on a small sample before bulk
-                  replace
-                </p>
+                <div className="text-amber-600 dark:text-amber-400 font-bold">
+                  →
+                </div>
+                <p
+                  className="text-sm text-amber-900 dark:text-amber-300"
+                  dangerouslySetInnerHTML={{
+                    __html: t("tools.text-replacer.proTips.testFirst"),
+                  }}
+                />
               </div>
             </div>
           </CardContent>
@@ -349,7 +387,7 @@ const TextReplacer = () => {
         {/* Related Tools */}
         <Card className="mt-6">
           <CardHeader>
-            <CardTitle>🔗 Related Tools You Might Like</CardTitle>
+            <CardTitle>{t("tools.text-replacer.relatedTools")}</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
@@ -358,10 +396,10 @@ const TextReplacer = () => {
                 className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
               >
                 <div className="font-semibold text-gray-900 group-hover:text-primary">
-                  Regex Tester
+                  {t("tools.regex-tester.title")}
                 </div>
                 <div className="text-sm text-gray-600 mt-1">
-                  Test regular expressions
+                  {t("tools.regex-tester.description")}
                 </div>
               </button>
               <button
@@ -369,10 +407,10 @@ const TextReplacer = () => {
                 className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
               >
                 <div className="font-semibold text-gray-900 group-hover:text-primary">
-                  Case Converter
+                  {t("tools.case-converter.title")}
                 </div>
                 <div className="text-sm text-gray-600 mt-1">
-                  Change text case
+                  {t("tools.case-converter.description")}
                 </div>
               </button>
               <button
@@ -380,10 +418,10 @@ const TextReplacer = () => {
                 className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
               >
                 <div className="font-semibold text-gray-900 group-hover:text-primary">
-                  Text Sorter
+                  {t("tools.text-sorter.title")}
                 </div>
                 <div className="text-sm text-gray-600 mt-1">
-                  Sort text lines
+                  {t("tools.text-sorter.description")}
                 </div>
               </button>
             </div>

@@ -2,6 +2,7 @@ import { useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { SidebarTrigger } from "@/components/ui/sidebar";
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import {
   Card,
   CardContent,
@@ -25,7 +26,11 @@ import {
 } from "lucide-react";
 import { FavoriteButton } from "@/components/FavoriteButton";
 import { Badge } from "@/components/ui/badge";
-import { AdBanner, AdSidebarStack, AdMediumRectangle } from "@/components/AdBanner";
+import {
+  AdBanner,
+  AdSidebarStack,
+  AdMediumRectangle,
+} from "@/components/AdBanner";
 
 const WordCounter = () => {
   const [text, setText] = useState("");
@@ -56,11 +61,7 @@ const WordCounter = () => {
   };
 
   const loadExample = () => {
-    const exampleText = `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-
-Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
-Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.`;
+    const exampleText = t("tools.word-counter.exampleText");
     setText(exampleText);
     toast.success(t("toolPage.messages.exampleLoaded"));
   };
@@ -68,7 +69,7 @@ Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium dolor
   return (
     <div className="min-h-screen">
       <header className="sticky top-0 z-10 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="flex h-16 items-center gap-4 px-6">
+        <div className="flex h-16 items-center gap-2 sm:gap-4 px-2 sm:px-6">
           <Button
             variant="ghost"
             size="icon"
@@ -78,7 +79,12 @@ Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium dolor
             <ArrowLeft className="h-4 w-4" />
           </Button>
           <SidebarTrigger />
-          <h1 className="text-xl font-semibold">{t("tools.word-counter.title")}</h1>
+          <h1 className="text-xl font-semibold flex-1">
+            {t("tools.word-counter.title")}
+          </h1>
+          <div className="flex-shrink-0">
+            <LanguageSwitcher />
+          </div>
         </div>
       </header>
 
@@ -98,7 +104,10 @@ Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium dolor
                   {t("tools.word-counter.description")}
                 </CardDescription>
               </div>
-              <FavoriteButton toolId="word-counter" toolName={t("tools.word-counter.title")} />
+              <FavoriteButton
+                toolId="word-counter"
+                toolName={t("tools.word-counter.title")}
+              />
             </div>
           </CardHeader>
           <CardContent className="space-y-6">
@@ -127,7 +136,9 @@ Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium dolor
                     <p className="text-3xl font-bold text-primary">
                       {stats.words}
                     </p>
-                    <p className="text-sm text-muted-foreground">{t("tools.word-counter.stats.words")}</p>
+                    <p className="text-sm text-muted-foreground">
+                      {t("tools.word-counter.stats.words")}
+                    </p>
                   </div>
                 </CardContent>
               </Card>
@@ -138,7 +149,9 @@ Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium dolor
                     <p className="text-3xl font-bold text-primary">
                       {stats.characters}
                     </p>
-                    <p className="text-sm text-muted-foreground">{t("tools.word-counter.stats.characters")}</p>
+                    <p className="text-sm text-muted-foreground">
+                      {t("tools.word-counter.stats.characters")}
+                    </p>
                   </div>
                 </CardContent>
               </Card>
@@ -162,7 +175,9 @@ Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium dolor
                     <p className="text-3xl font-bold text-primary">
                       {stats.sentences}
                     </p>
-                    <p className="text-sm text-muted-foreground">{t("tools.word-counter.stats.sentences")}</p>
+                    <p className="text-sm text-muted-foreground">
+                      {t("tools.word-counter.stats.sentences")}
+                    </p>
                   </div>
                 </CardContent>
               </Card>
@@ -173,7 +188,9 @@ Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium dolor
                     <p className="text-3xl font-bold text-primary">
                       {stats.paragraphs}
                     </p>
-                    <p className="text-sm text-muted-foreground">{t("tools.word-counter.stats.paragraphs")}</p>
+                    <p className="text-sm text-muted-foreground">
+                      {t("tools.word-counter.stats.paragraphs")}
+                    </p>
                   </div>
                 </CardContent>
               </Card>
@@ -185,7 +202,8 @@ Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium dolor
                       {stats.readingTime}
                     </p>
                     <p className="text-sm text-muted-foreground">
-                      {t("tools.word-counter.stats.readingTime")} ({t("tools.word-counter.minutes")})
+                      {t("tools.word-counter.stats.readingTime")} (
+                      {t("tools.word-counter.minutes")})
                     </p>
                   </div>
                 </CardContent>
@@ -201,7 +219,9 @@ Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium dolor
         <Card className="mt-6 bg-gradient-to-r from-blue-50 via-purple-50 to-pink-50 border-blue-200">
           <CardContent className="pt-6">
             <p className="text-gray-700 leading-relaxed">
-              <strong className="text-gray-900">{t("tools.word-counter.whatIs")}</strong>{" "}
+              <strong className="text-gray-900">
+                {t("tools.word-counter.whatIs")}
+              </strong>{" "}
               {t("tools.word-counter.whatIsContent")}
             </p>
           </CardContent>
@@ -289,25 +309,35 @@ Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium dolor
               <div className="flex gap-2 items-start">
                 <div className="text-amber-600 font-bold">→</div>
                 <p className="text-sm text-amber-900">
-                  <strong>{t("tools.word-counter.proTips.reading.label")}:</strong> {t("tools.word-counter.proTips.reading.text")}
+                  <strong>
+                    {t("tools.word-counter.proTips.reading.label")}:
+                  </strong>{" "}
+                  {t("tools.word-counter.proTips.reading.text")}
                 </p>
               </div>
               <div className="flex gap-2 items-start">
                 <div className="text-amber-600 font-bold">→</div>
                 <p className="text-sm text-amber-900">
-                  <strong>{t("tools.word-counter.proTips.seo.label")}:</strong> {t("tools.word-counter.proTips.seo.text")}
+                  <strong>{t("tools.word-counter.proTips.seo.label")}:</strong>{" "}
+                  {t("tools.word-counter.proTips.seo.text")}
                 </p>
               </div>
               <div className="flex gap-2 items-start">
                 <div className="text-amber-600 font-bold">→</div>
                 <p className="text-sm text-amber-900">
-                  <strong>{t("tools.word-counter.proTips.twitter.label")}:</strong> {t("tools.word-counter.proTips.twitter.text")}
+                  <strong>
+                    {t("tools.word-counter.proTips.twitter.label")}:
+                  </strong>{" "}
+                  {t("tools.word-counter.proTips.twitter.text")}
                 </p>
               </div>
               <div className="flex gap-2 items-start">
                 <div className="text-amber-600 font-bold">→</div>
                 <p className="text-sm text-amber-900">
-                  <strong>{t("tools.word-counter.proTips.readability.label")}:</strong> {t("tools.word-counter.proTips.readability.text")}
+                  <strong>
+                    {t("tools.word-counter.proTips.readability.label")}:
+                  </strong>{" "}
+                  {t("tools.word-counter.proTips.readability.text")}
                 </p>
               </div>
             </div>
@@ -329,7 +359,9 @@ Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium dolor
                   {t("tools.word-counter.relatedTools.caseConverter.title")}
                 </div>
                 <div className="text-sm text-gray-600 mt-1">
-                  {t("tools.word-counter.relatedTools.caseConverter.description")}
+                  {t(
+                    "tools.word-counter.relatedTools.caseConverter.description"
+                  )}
                 </div>
               </button>
               <button

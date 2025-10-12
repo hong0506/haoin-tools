@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { SidebarTrigger } from "@/components/ui/sidebar";
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import {
   Card,
   CardContent,
@@ -29,6 +31,7 @@ import { FavoriteButton } from "@/components/FavoriteButton";
 import { Badge } from "@/components/ui/badge";
 
 const Base64Tool = () => {
+  const { t } = useTranslation();
   const [input, setInput] = useState("");
   const [output, setOutput] = useState("");
   const [activeTab, setActiveTab] = useState("encode");
@@ -38,9 +41,9 @@ const Base64Tool = () => {
     try {
       const encoded = btoa(unescape(encodeURIComponent(input)));
       setOutput(encoded);
-      toast.success("Text encoded to Base64!");
+      toast.success(t('tools.base64-encoder.encodeSuccess'));
     } catch (error) {
-      toast.error("Error encoding text");
+      toast.error(t('tools.base64-encoder.encodeError'));
     }
   };
 
@@ -48,19 +51,19 @@ const Base64Tool = () => {
     try {
       const decoded = decodeURIComponent(escape(atob(input)));
       setOutput(decoded);
-      toast.success("Base64 decoded!");
+      toast.success(t('tools.base64-encoder.decodeSuccess'));
     } catch (error) {
-      toast.error("Invalid Base64 string");
+      toast.error(t('tools.base64-encoder.decodeError'));
     }
   };
 
   const copyToClipboard = () => {
     if (!output) {
-      toast.error("No output to copy");
+      toast.error(t('toolPage.messages.noOutputToCopy'));
       return;
     }
     navigator.clipboard.writeText(output);
-    toast.success("Copied to clipboard!");
+    toast.success(t('common.copied'));
   };
 
   const swap = () => {
@@ -71,26 +74,24 @@ const Base64Tool = () => {
   const clearAll = () => {
     setInput("");
     setOutput("");
-    toast.success("Cleared all fields");
+    toast.success(t('toolPage.messages.cleared'));
   };
 
   const loadExample = (type: "encode" | "decode") => {
     if (type === "encode") {
-      setInput("Hello, World! This is a sample text for Base64 encoding.");
+      setInput(t('tools.base64-encoder.exampleText'));
       setOutput("");
     } else {
-      setInput(
-        "SGVsbG8sIFdvcmxkISBUaGlzIGlzIGEgc2FtcGxlIHRleHQgZm9yIEJhc2U2NCBlbmNvZGluZy4="
-      );
+      setInput(t('tools.base64-encoder.exampleBase64'));
       setOutput("");
     }
-    toast.success("Example loaded");
+    toast.success(t('toolPage.messages.exampleLoaded'));
   };
 
   return (
     <div className="min-h-screen">
       <header className="sticky top-0 z-10 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="flex h-16 items-center gap-4 px-6">
+        <div className="flex h-16 items-center gap-2 sm:gap-4 px-2 sm:px-6">
           <Button
             variant="ghost"
             size="icon"
@@ -100,7 +101,10 @@ const Base64Tool = () => {
             <ArrowLeft className="h-4 w-4" />
           </Button>
           <SidebarTrigger />
-          <h1 className="text-xl font-semibold">Base64 Encoder/Decoder</h1>
+          <h1 className="text-xl font-semibold flex-1">{t('tools.base64-encoder.title')}</h1>
+          <div className="flex-shrink-0">
+            <LanguageSwitcher />
+          </div>
         </div>
       </header>
 
@@ -109,19 +113,19 @@ const Base64Tool = () => {
           <CardHeader>
             <div className="flex items-center justify-between">
               <div>
-                <CardTitle>Base64 Encoder & Decoder</CardTitle>
+                <CardTitle>{t('tools.base64-encoder.title')}</CardTitle>
                 <CardDescription>
-                  Encode text to Base64 or decode Base64 back to text
+                  {t('tools.base64-encoder.description')}
                 </CardDescription>
               </div>
-              <FavoriteButton toolId="base64-encoder" toolName="Base64 Tool" />
+              <FavoriteButton toolId="base64-encoder" toolName={t('tools.base64-encoder.title')} />
             </div>
           </CardHeader>
           <CardContent className="space-y-4">
             <div className="flex gap-2 mb-4">
               <Button onClick={clearAll} variant="outline" size="sm">
                 <RotateCcw className="h-4 w-4 mr-2" />
-                Clear
+                {t('toolPage.buttons.clear')}
               </Button>
               <Button
                 onClick={() => loadExample(activeTab as "encode" | "decode")}
@@ -129,7 +133,7 @@ const Base64Tool = () => {
                 size="sm"
               >
                 <Lightbulb className="h-4 w-4 mr-1" />
-                Load Example
+                {t('toolPage.buttons.loadExample')}
               </Button>
             </div>
 
@@ -139,17 +143,17 @@ const Base64Tool = () => {
               onValueChange={setActiveTab}
             >
               <TabsList className="grid w-full grid-cols-2">
-                <TabsTrigger value="encode">Encode</TabsTrigger>
-                <TabsTrigger value="decode">Decode</TabsTrigger>
+                <TabsTrigger value="encode">{t('tools.base64-encoder.encode')}</TabsTrigger>
+                <TabsTrigger value="decode">{t('tools.base64-encoder.decode')}</TabsTrigger>
               </TabsList>
 
               <TabsContent value="encode" className="space-y-4 mt-4">
                 <div className="space-y-2">
                   <label className="text-sm font-medium block">
-                    Text to encode:
+                    {t('tools.base64-encoder.inputLabel')}:
                   </label>
                   <Textarea
-                    placeholder="Enter text to encode..."
+                    placeholder={t('tools.base64-encoder.placeholder')}
                     value={input}
                     onChange={(e) => setInput(e.target.value)}
                     className="min-h-[150px] font-mono"
@@ -157,13 +161,13 @@ const Base64Tool = () => {
                 </div>
 
                 <Button onClick={encode} className="w-full">
-                  Encode to Base64
+                  {t('tools.base64-encoder.encode')}
                 </Button>
 
                 <div className="space-y-2">
                   <div className="flex items-center justify-between">
                     <label className="text-sm font-medium">
-                      Base64 output:
+                      {t('tools.base64-encoder.outputLabel')}:
                     </label>
                     <div className="flex gap-2">
                       <Button onClick={swap} size="sm" variant="outline">
@@ -181,7 +185,7 @@ const Base64Tool = () => {
                   <Textarea
                     value={output}
                     readOnly
-                    placeholder="Encoded result will appear here..."
+                    placeholder={t('tools.base64-encoder.encodedPlaceholder')}
                     className="min-h-[150px] font-mono"
                   />
                 </div>
@@ -190,10 +194,10 @@ const Base64Tool = () => {
               <TabsContent value="decode" className="space-y-4 mt-4">
                 <div className="space-y-2">
                   <label className="text-sm font-medium block">
-                    Base64 to decode:
+                    {t('tools.base64-encoder.base64Label')}:
                   </label>
                   <Textarea
-                    placeholder="Enter Base64 string to decode..."
+                    placeholder={t('tools.base64-encoder.base64Placeholder')}
                     value={input}
                     onChange={(e) => setInput(e.target.value)}
                     className="min-h-[150px] font-mono"
@@ -201,13 +205,13 @@ const Base64Tool = () => {
                 </div>
 
                 <Button onClick={decode} className="w-full">
-                  Decode from Base64
+                  {t('tools.base64-encoder.decode')}
                 </Button>
 
                 <div className="space-y-2">
                   <div className="flex items-center justify-between">
                     <label className="text-sm font-medium">
-                      Decoded output:
+                      {t('tools.base64-encoder.outputLabel')}:
                     </label>
                     <div className="flex gap-2">
                       <Button onClick={swap} size="sm" variant="outline">
@@ -225,7 +229,7 @@ const Base64Tool = () => {
                   <Textarea
                     value={output}
                     readOnly
-                    placeholder="Decoded result will appear here..."
+                    placeholder={t('tools.base64-encoder.decodedPlaceholder')}
                     className="min-h-[150px] font-mono"
                   />
                 </div>
@@ -239,11 +243,9 @@ const Base64Tool = () => {
           <CardContent className="pt-6">
             <p className="text-gray-700 leading-relaxed">
               <strong className="text-gray-900">
-                What is Base64 Encoder/Decoder?
+                {t('tools.base64-encoder.whatIs')}
               </strong>{" "}
-              This tool encodes text to Base64 format or decodes Base64 strings
-              back to original text. Base64 is essential for data transmission,
-              API authentication, and embedding binary data! 🔐
+              {t('tools.base64-encoder.whatIsContent')}
             </p>
           </CardContent>
         </Card>
@@ -253,7 +255,7 @@ const Base64Tool = () => {
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <Zap className="h-5 w-5 text-primary" />
-              Common Use Cases
+              {t('toolPage.sections.commonUseCases')}
             </CardTitle>
           </CardHeader>
           <CardContent>
@@ -264,15 +266,14 @@ const Base64Tool = () => {
                 </div>
                 <div>
                   <div className="font-semibold text-blue-900">
-                    API Authentication
+                    {t('tools.base64-encoder.useCases.api.title')}
                   </div>
-                  <p className="text-sm text-blue-700">
-                    Encode credentials for{" "}
-                    <Badge variant="secondary" className="mx-1">
-                      Basic Auth
-                    </Badge>
-                    headers
-                  </p>
+                  <p
+                    className="text-sm text-blue-700"
+                    dangerouslySetInnerHTML={{
+                      __html: t('tools.base64-encoder.useCases.api.description'),
+                    }}
+                  />
                 </div>
               </div>
 
@@ -282,10 +283,10 @@ const Base64Tool = () => {
                 </div>
                 <div>
                   <div className="font-semibold text-purple-900">
-                    Image Embedding
+                    {t('tools.base64-encoder.useCases.image.title')}
                   </div>
                   <p className="text-sm text-purple-700">
-                    Convert images to Base64 for embedding in HTML/CSS
+                    {t('tools.base64-encoder.useCases.image.description')}
                   </p>
                 </div>
               </div>
@@ -296,10 +297,10 @@ const Base64Tool = () => {
                 </div>
                 <div>
                   <div className="font-semibold text-green-900">
-                    Email Attachments
+                    {t('tools.base64-encoder.useCases.email.title')}
                   </div>
                   <p className="text-sm text-green-700">
-                    Encode files for email transmission using MIME
+                    {t('tools.base64-encoder.useCases.email.description')}
                   </p>
                 </div>
               </div>
@@ -310,10 +311,10 @@ const Base64Tool = () => {
                 </div>
                 <div>
                   <div className="font-semibold text-pink-900">
-                    Data URLs
+                    {t('tools.base64-encoder.useCases.dataUrl.title')}
                   </div>
                   <p className="text-sm text-pink-700">
-                    Create data URLs for embedding resources inline
+                    {t('tools.base64-encoder.useCases.dataUrl.description')}
                   </p>
                 </div>
               </div>
@@ -326,37 +327,46 @@ const Base64Tool = () => {
           <CardHeader>
             <CardTitle className="flex items-center gap-2 text-amber-900">
               <Info className="h-5 w-5 text-amber-600" />
-              💡 Pro Tips
+              💡 {t('toolPage.sections.proTips')}
             </CardTitle>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
               <div className="flex gap-2 items-start">
                 <div className="text-amber-600 font-bold">→</div>
-                <p className="text-sm text-amber-900">
-                  <strong>Size Increase:</strong> Base64 encoding increases data
-                  size by ~33%
-                </p>
+                <p
+                  className="text-sm text-amber-900"
+                  dangerouslySetInnerHTML={{
+                    __html: t('tools.base64-encoder.proTips.encoding'),
+                  }}
+                />
               </div>
               <div className="flex gap-2 items-start">
                 <div className="text-amber-600 font-bold">→</div>
-                <p className="text-sm text-amber-900">
-                  <strong>HTTP Auth:</strong> Format is "username:password" then
-                  encode
-                </p>
+                <p
+                  className="text-sm text-amber-900"
+                  dangerouslySetInnerHTML={{
+                    __html: t('tools.base64-encoder.proTips.security'),
+                  }}
+                />
               </div>
               <div className="flex gap-2 items-start">
                 <div className="text-amber-600 font-bold">→</div>
-                <p className="text-sm text-amber-900">
-                  <strong>JSON Safe:</strong> Perfect for embedding binary data in
-                  JSON
-                </p>
+                <p
+                  className="text-sm text-amber-900"
+                  dangerouslySetInnerHTML={{
+                    __html: t('tools.base64-encoder.proTips.urls'),
+                  }}
+                />
               </div>
               <div className="flex gap-2 items-start">
                 <div className="text-amber-600 font-bold">→</div>
-                <p className="text-sm text-amber-900">
-                  <strong>URL Safe:</strong> Replace + with - and / with _ for URLs
-                </p>
+                <p
+                  className="text-sm text-amber-900"
+                  dangerouslySetInnerHTML={{
+                    __html: t('tools.base64-encoder.proTips.utf8'),
+                  }}
+                />
               </div>
             </div>
           </CardContent>
@@ -365,7 +375,7 @@ const Base64Tool = () => {
         {/* Related Tools */}
         <Card className="mt-6">
           <CardHeader>
-            <CardTitle>🔗 Related Tools You Might Like</CardTitle>
+            <CardTitle>🔗 {t('toolPage.sections.relatedTools')}</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
@@ -374,10 +384,10 @@ const Base64Tool = () => {
                 className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
               >
                 <div className="font-semibold text-gray-900 group-hover:text-primary">
-                  URL Encoder
+                  {t('tools.url-encoder.title')}
                 </div>
                 <div className="text-sm text-gray-600 mt-1">
-                  Encode/decode URLs
+                  {t('tools.url-encoder.description')}
                 </div>
               </button>
               <button
@@ -385,10 +395,10 @@ const Base64Tool = () => {
                 className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
               >
                 <div className="font-semibold text-gray-900 group-hover:text-primary">
-                  Hash Generator
+                  {t('tools.hash-generator.title')}
                 </div>
                 <div className="text-sm text-gray-600 mt-1">
-                  Create secure hashes
+                  {t('tools.hash-generator.description')}
                 </div>
               </button>
               <button
@@ -396,10 +406,10 @@ const Base64Tool = () => {
                 className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
               >
                 <div className="font-semibold text-gray-900 group-hover:text-primary">
-                  JSON Formatter
+                  {t('tools.json-formatter.title')}
                 </div>
                 <div className="text-sm text-gray-600 mt-1">
-                  Format and validate JSON
+                  {t('tools.json-formatter.description')}
                 </div>
               </button>
             </div>

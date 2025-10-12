@@ -22,11 +22,16 @@ export function AppSidebar() {
 
   const handleAllToolsClick = () => {
     clearSearch();
-    // Scroll to top when clicking All Tools
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
+    // Clear saved scroll position and scroll to top
+    sessionStorage.removeItem('scroll_/');
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  };
+
+  const handleCategoryClick = (path: string) => {
+    clearSearch();
+    // Clear saved scroll position and scroll to top
+    sessionStorage.removeItem(`scroll_${path}`);
+    window.scrollTo({ top: 0, behavior: 'instant' });
   };
 
   return (
@@ -47,7 +52,7 @@ export function AppSidebar() {
         </NavLink>
       </SidebarHeader>
 
-      <SidebarContent className="px-3 py-4">
+      <SidebarContent className="px-3 py-4 pb-8">
         <SidebarGroup>
           <SidebarGroupLabel className="text-xs font-bold text-muted-foreground uppercase tracking-wider mb-2">
             📂 {t("nav.tools")}
@@ -82,6 +87,7 @@ export function AppSidebar() {
                     <SidebarMenuButton asChild>
                       <NavLink
                         to={category.path}
+                        onClick={() => handleCategoryClick(category.path)}
                         className={({ isActive }) =>
                           isActive
                             ? "flex items-center gap-3 rounded-xl bg-gradient-to-r from-pink-500 to-purple-500 px-4 py-3 text-white font-semibold shadow-lg transition-all"

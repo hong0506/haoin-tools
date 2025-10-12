@@ -12,17 +12,14 @@ import { Sparkles, Zap, Heart } from "lucide-react";
 import { shouldShowAd } from "@/config/ads";
 import { useSearch } from "@/contexts/SearchContext";
 import { useTranslation } from "react-i18next";
+import { multiLanguageSearch } from "@/lib/searchUtils";
 
 const Index = () => {
   const { searchQuery, setSearchQuery } = useSearch();
   const { t } = useTranslation();
 
-  const filteredTools = tools.filter(
-    (tool) =>
-      tool.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      tool.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      tool.category.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+  // Use multi-language search to support all languages (en, zh, es)
+  const filteredTools = multiLanguageSearch(tools, searchQuery);
 
   // Auto scroll to top when search query changes
   useEffect(() => {

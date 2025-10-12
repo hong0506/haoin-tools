@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { SidebarTrigger } from "@/components/ui/sidebar";
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -29,6 +31,7 @@ import { FavoriteButton } from "@/components/FavoriteButton";
 import { Badge } from "@/components/ui/badge";
 
 const LoremIpsum = () => {
+  const { t } = useTranslation();
   const [paragraphs, setParagraphs] = useState(3);
   const [output, setOutput] = useState("");
   const navigate = useNavigate();
@@ -54,26 +57,24 @@ const LoremIpsum = () => {
       (_, i) => loremText[i % loremText.length]
     ).join("\n\n");
     setOutput(text);
-    toast.success(
-      `Generated ${paragraphs} paragraph${paragraphs > 1 ? "s" : ""}`
-    );
+    toast.success(t("tools.lorem-ipsum.generated", { count: paragraphs }));
   };
 
   const copyOutput = () => {
     navigator.clipboard.writeText(output);
-    toast.success("Copied to clipboard");
+    toast.success(t("toolPage.messages.copied"));
   };
 
   const clearAll = () => {
     setOutput("");
     setParagraphs(3);
-    toast.success("All fields cleared");
+    toast.success(t("toolPage.messages.cleared"));
   };
 
   const loadExample = () => {
     setParagraphs(3);
     setOutput("");
-    toast.success("Example loaded");
+    toast.success(t("toolPage.messages.exampleLoaded"));
   };
 
   return (
@@ -85,7 +86,9 @@ const LoremIpsum = () => {
           </Button>
           <SidebarTrigger />
           <div className="flex items-center gap-2">
-            <h1 className="text-xl font-semibold">Lorem Ipsum Generator</h1>
+            <h1 className="text-xl font-semibold">
+              {t("tools.lorem-ipsum.title")}
+            </h1>
           </div>
         </div>
       </header>
@@ -95,14 +98,14 @@ const LoremIpsum = () => {
           <CardHeader>
             <div className="flex items-center justify-between">
               <div>
-                <CardTitle>Lorem Ipsum Generator</CardTitle>
+                <CardTitle>{t("tools.lorem-ipsum.title")}</CardTitle>
                 <CardDescription>
-                  Create Lorem Ipsum text for your designs
+                  {t("tools.lorem-ipsum.description")}
                 </CardDescription>
               </div>
               <FavoriteButton
                 toolId="lorem-ipsum"
-                toolName="Lorem Ipsum Generator"
+                toolName={t("tools.lorem-ipsum.title")}
               />
             </div>
           </CardHeader>
@@ -110,17 +113,17 @@ const LoremIpsum = () => {
             <div className="flex gap-2 mb-4">
               <Button onClick={clearAll} variant="outline" size="sm">
                 <RotateCcw className="h-4 w-4 mr-2" />
-                Clear
+                {t("toolPage.buttons.clear")}
               </Button>
               <Button onClick={loadExample} variant="ghost" size="sm">
                 <Lightbulb className="h-4 w-4 mr-1" />
-                Load Example
+                {t("toolPage.buttons.loadExample")}
               </Button>
             </div>
 
             <div>
               <label className="mb-2 block text-sm font-medium">
-                Number of Paragraphs
+                {t("tools.lorem-ipsum.numberOfParagraphs")}
               </label>
               <Input
                 type="number"
@@ -136,16 +139,18 @@ const LoremIpsum = () => {
             </div>
 
             <Button onClick={generate} className="w-full">
-              Generate
+              {t("tools.lorem-ipsum.generate")}
             </Button>
 
             {output && (
               <div>
                 <div className="mb-2 flex items-center justify-between">
-                  <label className="text-sm font-medium">Generated Text</label>
+                  <label className="text-sm font-medium">
+                    {t("tools.lorem-ipsum.generatedText")}
+                  </label>
                   <Button onClick={copyOutput} size="sm" variant="ghost">
                     <Copy className="mr-2 h-4 w-4" />
-                    Copy
+                    {t("toolPage.buttons.copy")}
                   </Button>
                 </div>
                 <Textarea value={output} readOnly className="min-h-[300px]" />
@@ -159,11 +164,9 @@ const LoremIpsum = () => {
           <CardContent className="pt-6">
             <p className="text-gray-700 leading-relaxed">
               <strong className="text-gray-900">
-                What is Lorem Ipsum Generator?
+                {t("tools.lorem-ipsum.whatIs")}
               </strong>{" "}
-              This tool generates Lorem Ipsum placeholder text for designs and
-              mockups. Perfect for testing layouts, typography, and visualizing
-              content without real text! 🎨
+              {t("tools.lorem-ipsum.whatIsContent")}
             </p>
           </CardContent>
         </Card>
@@ -173,7 +176,7 @@ const LoremIpsum = () => {
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <Zap className="h-5 w-5 text-primary" />
-              Common Use Cases
+              {t("toolPage.sections.commonUseCases")}
             </CardTitle>
           </CardHeader>
           <CardContent>
@@ -184,14 +187,10 @@ const LoremIpsum = () => {
                 </div>
                 <div>
                   <div className="font-semibold text-purple-900">
-                    Web Design
+                    {t("tools.lorem-ipsum.useCases.webDesign.title")}
                   </div>
                   <p className="text-sm text-purple-700">
-                    Fill{" "}
-                    <Badge variant="secondary" className="mx-1">
-                      mockups
-                    </Badge>
-                    and prototypes with placeholder content
+                    {t("tools.lorem-ipsum.useCases.webDesign.description")}
                   </p>
                 </div>
               </div>
@@ -202,10 +201,10 @@ const LoremIpsum = () => {
                 </div>
                 <div>
                   <div className="font-semibold text-blue-900">
-                    UI/UX Design
+                    {t("tools.lorem-ipsum.useCases.uiUxDesign.title")}
                   </div>
                   <p className="text-sm text-blue-700">
-                    Test layouts and spacing without final content
+                    {t("tools.lorem-ipsum.useCases.uiUxDesign.description")}
                   </p>
                 </div>
               </div>
@@ -216,10 +215,12 @@ const LoremIpsum = () => {
                 </div>
                 <div>
                   <div className="font-semibold text-green-900">
-                    Typography Testing
+                    {t("tools.lorem-ipsum.useCases.typographyTesting.title")}
                   </div>
                   <p className="text-sm text-green-700">
-                    Test font sizes, line heights, and text formatting
+                    {t(
+                      "tools.lorem-ipsum.useCases.typographyTesting.description"
+                    )}
                   </p>
                 </div>
               </div>
@@ -230,10 +231,12 @@ const LoremIpsum = () => {
                 </div>
                 <div>
                   <div className="font-semibold text-pink-900">
-                    Client Presentations
+                    {t("tools.lorem-ipsum.useCases.clientPresentations.title")}
                   </div>
                   <p className="text-sm text-pink-700">
-                    Show design concepts before final content is ready
+                    {t(
+                      "tools.lorem-ipsum.useCases.clientPresentations.description"
+                    )}
                   </p>
                 </div>
               </div>
@@ -246,37 +249,46 @@ const LoremIpsum = () => {
           <CardHeader>
             <CardTitle className="flex items-center gap-2 text-amber-900">
               <Info className="h-5 w-5 text-amber-600" />
-              💡 Pro Tips
+              💡 {t("toolPage.sections.proTips")}
             </CardTitle>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
               <div className="flex gap-2 items-start">
                 <div className="text-amber-600 font-bold">→</div>
-                <p className="text-sm text-amber-900">
-                  <strong>History:</strong> Lorem Ipsum has been used since the
-                  1500s
-                </p>
+                <p
+                  className="text-sm text-amber-900"
+                  dangerouslySetInnerHTML={{
+                    __html: t("tools.lorem-ipsum.proTips.history"),
+                  }}
+                />
               </div>
               <div className="flex gap-2 items-start">
                 <div className="text-amber-600 font-bold">→</div>
-                <p className="text-sm text-amber-900">
-                  <strong>Focus:</strong> Use it to focus on design, not content
-                </p>
+                <p
+                  className="text-sm text-amber-900"
+                  dangerouslySetInnerHTML={{
+                    __html: t("tools.lorem-ipsum.proTips.focus"),
+                  }}
+                />
               </div>
               <div className="flex gap-2 items-start">
                 <div className="text-amber-600 font-bold">→</div>
-                <p className="text-sm text-amber-900">
-                  <strong>Mockups:</strong> Perfect for client presentations and
-                  demos
-                </p>
+                <p
+                  className="text-sm text-amber-900"
+                  dangerouslySetInnerHTML={{
+                    __html: t("tools.lorem-ipsum.proTips.mockups"),
+                  }}
+                />
               </div>
               <div className="flex gap-2 items-start">
                 <div className="text-amber-600 font-bold">→</div>
-                <p className="text-sm text-amber-900">
-                  <strong>Consistency:</strong> Provides uniform text for layout
-                  testing
-                </p>
+                <p
+                  className="text-sm text-amber-900"
+                  dangerouslySetInnerHTML={{
+                    __html: t("tools.lorem-ipsum.proTips.consistency"),
+                  }}
+                />
               </div>
             </div>
           </CardContent>
@@ -285,7 +297,7 @@ const LoremIpsum = () => {
         {/* Related Tools */}
         <Card className="mt-6">
           <CardHeader>
-            <CardTitle>🔗 Related Tools You Might Like</CardTitle>
+            <CardTitle>{t("tools.lorem-ipsum.relatedTools")}</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
@@ -294,10 +306,10 @@ const LoremIpsum = () => {
                 className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
               >
                 <div className="font-semibold text-gray-900 group-hover:text-primary">
-                  Word Counter
+                  {t("tools.word-counter.title")}
                 </div>
                 <div className="text-sm text-gray-600 mt-1">
-                  Count words and characters
+                  {t("tools.word-counter.description")}
                 </div>
               </button>
               <button
@@ -305,10 +317,10 @@ const LoremIpsum = () => {
                 className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
               >
                 <div className="font-semibold text-gray-900 group-hover:text-primary">
-                  Random Picker
+                  {t("tools.random-picker.title")}
                 </div>
                 <div className="text-sm text-gray-600 mt-1">
-                  Pick random items
+                  {t("tools.random-picker.description")}
                 </div>
               </button>
               <button
@@ -316,10 +328,10 @@ const LoremIpsum = () => {
                 className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
               >
                 <div className="font-semibold text-gray-900 group-hover:text-primary">
-                  Text Sorter
+                  {t("tools.text-sorter.title")}
                 </div>
                 <div className="text-sm text-gray-600 mt-1">
-                  Sort text lines
+                  {t("tools.text-sorter.description")}
                 </div>
               </button>
             </div>

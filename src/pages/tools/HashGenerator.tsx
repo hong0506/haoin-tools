@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { SidebarTrigger } from "@/components/ui/sidebar";
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Input } from "@/components/ui/input";
@@ -29,6 +31,7 @@ import { FavoriteButton } from "@/components/FavoriteButton";
 import { Badge } from "@/components/ui/badge";
 
 const HashGenerator = () => {
+  const { t } = useTranslation();
   const [text, setText] = useState("");
   const [hashes, setHashes] = useState<{
     md5: string;
@@ -47,7 +50,7 @@ const HashGenerator = () => {
 
   const generateHashes = async () => {
     if (!text) {
-      toast.error("Please enter text");
+      toast.error(t("tools.hash-generator.pleaseEnterText"));
       return;
     }
 
@@ -64,35 +67,35 @@ const HashGenerator = () => {
     };
 
     setHashes({
-      md5: "MD5 not available in browser",
+      md5: t("tools.hash-generator.md5NotAvailable"),
       sha1: toHex(sha1),
       sha256: toHex(sha256),
     });
 
-    toast.success("Hashes generated");
+    toast.success(t("tools.hash-generator.hashesGenerated"));
   };
 
   const copyHash = (hash: string, type: string) => {
     navigator.clipboard.writeText(hash);
-    toast.success(`${type} copied to clipboard`);
+    toast.success(t("tools.hash-generator.copiedToClipboard", { type }));
   };
 
   const clearAll = () => {
     setText("");
     setHashes({ md5: "", sha1: "", sha256: "" });
-    toast.success("All fields cleared");
+    toast.success(t("toolPage.messages.cleared"));
   };
 
   const loadExample = () => {
-    setText("Hello, World! This is a sample text for hashing.");
+    setText(t("tools.hash-generator.exampleText"));
     setHashes({ md5: "", sha1: "", sha256: "" });
-    toast.success("Example loaded");
+    toast.success(t("toolPage.messages.exampleLoaded"));
   };
 
   return (
     <div className="min-h-screen">
       <header className="sticky top-0 z-10 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="flex h-16 items-center gap-4 px-6">
+        <div className="flex h-16 items-center gap-2 sm:gap-4 px-2 sm:px-6">
           <Button
             variant="ghost"
             size="icon"
@@ -102,9 +105,14 @@ const HashGenerator = () => {
             <ArrowLeft className="h-4 w-4" />
           </Button>
           <SidebarTrigger />
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 flex-1">
             <Fingerprint className="h-5 w-5 text-primary" />
-            <h1 className="text-xl font-semibold">Hash Generator</h1>
+            <h1 className="text-xl font-semibold">
+              {t("tools.hash-generator.title")}
+            </h1>
+          </div>
+          <div className="flex-shrink-0">
+            <LanguageSwitcher />
           </div>
         </div>
       </header>
@@ -114,14 +122,16 @@ const HashGenerator = () => {
           <CardHeader>
             <div className="flex items-center justify-between">
               <div>
-                <CardTitle>Generate Hashes</CardTitle>
+                <CardTitle>
+                  {t("tools.hash-generator.generateHashes")}
+                </CardTitle>
                 <CardDescription>
-                  Create SHA-1 and SHA-256 hashes
+                  {t("tools.hash-generator.description")}
                 </CardDescription>
               </div>
               <FavoriteButton
                 toolId="hash-generator"
-                toolName="Hash Generator"
+                toolName={t("tools.hash-generator.title")}
               />
             </div>
           </CardHeader>
@@ -129,28 +139,28 @@ const HashGenerator = () => {
             <div className="flex gap-2 mb-4">
               <Button onClick={clearAll} variant="outline" size="sm">
                 <RotateCcw className="h-4 w-4 mr-2" />
-                Clear
+                {t("toolPage.buttons.clear")}
               </Button>
               <Button onClick={loadExample} variant="ghost" size="sm">
                 <Lightbulb className="h-4 w-4 mr-1" />
-                Load Example
+                {t("toolPage.buttons.loadExample")}
               </Button>
             </div>
 
             <div>
               <label className="mb-2 block text-sm font-medium">
-                Input Text
+                {t("tools.hash-generator.inputText")}
               </label>
               <Textarea
                 value={text}
                 onChange={(e) => setText(e.target.value)}
-                placeholder="Enter text to hash"
+                placeholder={t("tools.hash-generator.placeholder")}
                 className="min-h-[150px]"
               />
             </div>
 
             <Button onClick={generateHashes} className="w-full">
-              Generate Hashes
+              {t("tools.hash-generator.generateHashes")}
             </Button>
 
             {hashes.sha1 && (
@@ -199,10 +209,10 @@ const HashGenerator = () => {
         <Card className="mt-6 bg-gradient-to-r from-blue-50 via-purple-50 to-pink-50 border-blue-200">
           <CardContent className="pt-6">
             <p className="text-gray-700 leading-relaxed">
-              <strong className="text-gray-900">What is Hash Generator?</strong>{" "}
-              This tool generates cryptographic hashes (MD5, SHA-1, SHA-256) for data
-              integrity verification and security. Perfect for password hashing, file
-              verification, and API authentication! 🔒
+              <strong className="text-gray-900">
+                {t("tools.hash-generator.whatIs")}
+              </strong>{" "}
+              {t("tools.hash-generator.whatIsContent")}
             </p>
           </CardContent>
         </Card>
@@ -212,7 +222,7 @@ const HashGenerator = () => {
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <Zap className="h-5 w-5 text-primary" />
-              Common Use Cases
+              {t("toolPage.sections.commonUseCases")}
             </CardTitle>
           </CardHeader>
           <CardContent>
@@ -223,14 +233,12 @@ const HashGenerator = () => {
                 </div>
                 <div>
                   <div className="font-semibold text-blue-900">
-                    Password Security
+                    {t("tools.hash-generator.useCases.passwordSecurity.title")}
                   </div>
                   <p className="text-sm text-blue-700">
-                    Hash passwords for secure{" "}
-                    <Badge variant="secondary" className="mx-1">
-                      storage
-                    </Badge>
-                    in databases
+                    {t(
+                      "tools.hash-generator.useCases.passwordSecurity.description"
+                    )}
                   </p>
                 </div>
               </div>
@@ -241,10 +249,12 @@ const HashGenerator = () => {
                 </div>
                 <div>
                   <div className="font-semibold text-purple-900">
-                    File Integrity
+                    {t("tools.hash-generator.useCases.fileIntegrity.title")}
                   </div>
                   <p className="text-sm text-purple-700">
-                    Verify file integrity with checksum validation
+                    {t(
+                      "tools.hash-generator.useCases.fileIntegrity.description"
+                    )}
                   </p>
                 </div>
               </div>
@@ -255,10 +265,12 @@ const HashGenerator = () => {
                 </div>
                 <div>
                   <div className="font-semibold text-green-900">
-                    API Authentication
+                    {t("tools.hash-generator.useCases.apiAuthentication.title")}
                   </div>
                   <p className="text-sm text-green-700">
-                    Generate hash-based authentication tokens
+                    {t(
+                      "tools.hash-generator.useCases.apiAuthentication.description"
+                    )}
                   </p>
                 </div>
               </div>
@@ -269,10 +281,12 @@ const HashGenerator = () => {
                 </div>
                 <div>
                   <div className="font-semibold text-pink-900">
-                    Data Security
+                    {t("tools.hash-generator.useCases.dataSecurity.title")}
                   </div>
                   <p className="text-sm text-pink-700">
-                    Create digital signatures and verify data authenticity
+                    {t(
+                      "tools.hash-generator.useCases.dataSecurity.description"
+                    )}
                   </p>
                 </div>
               </div>
@@ -285,36 +299,46 @@ const HashGenerator = () => {
           <CardHeader>
             <CardTitle className="flex items-center gap-2 text-amber-900">
               <Info className="h-5 w-5 text-amber-600" />
-              💡 Pro Tips
+              💡 {t("toolPage.sections.proTips")}
             </CardTitle>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
               <div className="flex gap-2 items-start">
                 <div className="text-amber-600 font-bold">→</div>
-                <p className="text-sm text-amber-900">
-                  <strong>SHA-256:</strong> Most secure option for modern
-                  applications
-                </p>
+                <p
+                  className="text-sm text-amber-900"
+                  dangerouslySetInnerHTML={{
+                    __html: t("tools.hash-generator.proTips.sha256"),
+                  }}
+                />
               </div>
               <div className="flex gap-2 items-start">
                 <div className="text-amber-600 font-bold">→</div>
-                <p className="text-sm text-amber-900">
-                  <strong>One-Way:</strong> Hash functions cannot be reversed
-                </p>
+                <p
+                  className="text-sm text-amber-900"
+                  dangerouslySetInnerHTML={{
+                    __html: t("tools.hash-generator.proTips.oneWay"),
+                  }}
+                />
               </div>
               <div className="flex gap-2 items-start">
                 <div className="text-amber-600 font-bold">→</div>
-                <p className="text-sm text-amber-900">
-                  <strong>Avoid MD5:</strong> Not secure for critical applications
-                </p>
+                <p
+                  className="text-sm text-amber-900"
+                  dangerouslySetInnerHTML={{
+                    __html: t("tools.hash-generator.proTips.avoidMd5"),
+                  }}
+                />
               </div>
               <div className="flex gap-2 items-start">
                 <div className="text-amber-600 font-bold">→</div>
-                <p className="text-sm text-amber-900">
-                  <strong>Verification:</strong> Compare hashes to check file
-                  integrity
-                </p>
+                <p
+                  className="text-sm text-amber-900"
+                  dangerouslySetInnerHTML={{
+                    __html: t("tools.hash-generator.proTips.verification"),
+                  }}
+                />
               </div>
             </div>
           </CardContent>
@@ -323,7 +347,7 @@ const HashGenerator = () => {
         {/* Related Tools */}
         <Card className="mt-6">
           <CardHeader>
-            <CardTitle>🔗 Related Tools You Might Like</CardTitle>
+            <CardTitle>{t("tools.hash-generator.relatedTools")}</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
@@ -332,10 +356,10 @@ const HashGenerator = () => {
                 className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
               >
                 <div className="font-semibold text-gray-900 group-hover:text-primary">
-                  Password Generator
+                  {t("tools.password-generator.title")}
                 </div>
                 <div className="text-sm text-gray-600 mt-1">
-                  Generate secure passwords
+                  {t("tools.password-generator.description")}
                 </div>
               </button>
               <button
@@ -343,10 +367,10 @@ const HashGenerator = () => {
                 className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
               >
                 <div className="font-semibold text-gray-900 group-hover:text-primary">
-                  UUID Generator
+                  {t("tools.uuid-generator.title")}
                 </div>
                 <div className="text-sm text-gray-600 mt-1">
-                  Generate unique IDs
+                  {t("tools.uuid-generator.description")}
                 </div>
               </button>
               <button
@@ -354,10 +378,10 @@ const HashGenerator = () => {
                 className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
               >
                 <div className="font-semibold text-gray-900 group-hover:text-primary">
-                  Base64 Tool
+                  {t("tools.base64-encoder.title")}
                 </div>
                 <div className="text-sm text-gray-600 mt-1">
-                  Encode/decode Base64
+                  {t("tools.base64-encoder.description")}
                 </div>
               </button>
             </div>

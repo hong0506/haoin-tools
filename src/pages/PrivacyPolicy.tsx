@@ -1,4 +1,5 @@
 import { SidebarTrigger } from "@/components/ui/sidebar";
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { AnimatedBackground } from "@/components/AnimatedBackground";
 import { Footer } from "@/components/Footer";
 import { Shield } from "lucide-react";
@@ -6,15 +7,18 @@ import { useTranslation } from "react-i18next";
 
 const PrivacyPolicy = () => {
   const { t } = useTranslation();
-  
+
   return (
     <div className="min-h-screen relative">
       <AnimatedBackground />
 
       <header className="sticky top-0 z-10 border-b glass">
-        <div className="flex h-16 items-center gap-4 px-6">
+        <div className="flex h-16 items-center gap-2 sm:gap-4 px-2 sm:px-6">
           <SidebarTrigger />
-          <h2 className="text-lg font-semibold">{t("privacy.title")}</h2>
+          <h2 className="text-lg font-semibold flex-1">{t("privacy.title")}</h2>
+          <div className="flex-shrink-0">
+            <LanguageSwitcher />
+          </div>
         </div>
       </header>
 
@@ -40,7 +44,8 @@ const PrivacyPolicy = () => {
               {t("privacy.introduction.content")}
             </p>
             <p className="text-foreground/80 leading-relaxed">
-              <strong>{t("privacy.introduction.contact")}</strong> contact@haoin.tech
+              <strong>{t("privacy.introduction.contact")}</strong>{" "}
+              contact@haoin.tech
             </p>
           </div>
 
@@ -92,7 +97,9 @@ const PrivacyPolicy = () => {
           </div>
 
           <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-lg mb-6">
-            <h2 className="text-2xl font-bold mb-4 gradient-text">{t("privacy.cookies.title")}</h2>
+            <h2 className="text-2xl font-bold mb-4 gradient-text">
+              {t("privacy.cookies.title")}
+            </h2>
             <p className="text-foreground/80 leading-relaxed">
               {t("privacy.cookies.content")}
             </p>
@@ -106,20 +113,25 @@ const PrivacyPolicy = () => {
               <strong>{t("privacy.dataRights.gdpr.title")}</strong>
             </p>
             <ul className="space-y-2 text-foreground/80 mb-4">
-              {t("privacy.dataRights.gdpr.rights", { returnObjects: true }).map((right: string, index: number) => (
-                <li key={index}>{right}</li>
-              ))}
+              {t("privacy.dataRights.gdpr.rights", { returnObjects: true }).map(
+                (right: string, index: number) => (
+                  <li key={index}>{right}</li>
+                )
+              )}
             </ul>
             <p className="text-foreground/80 leading-relaxed mb-4">
               <strong>{t("privacy.dataRights.ccpa.title")}</strong>
             </p>
             <ul className="space-y-2 text-foreground/80 mb-4">
-              {t("privacy.dataRights.ccpa.rights", { returnObjects: true }).map((right: string, index: number) => (
-                <li key={index}>{right}</li>
-              ))}
+              {t("privacy.dataRights.ccpa.rights", { returnObjects: true }).map(
+                (right: string, index: number) => (
+                  <li key={index}>{right}</li>
+                )
+              )}
             </ul>
             <p className="text-foreground/80 leading-relaxed">
-              <strong>对于中国用户：</strong> {t("privacy.dataRights.china")}
+              <strong>{t("privacy.dataRights.chinaLabel")}</strong>{" "}
+              {t("privacy.dataRights.china")}
             </p>
           </div>
 

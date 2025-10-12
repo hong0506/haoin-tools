@@ -93,14 +93,2724 @@
     "addedToFavorites": "¡agregado a favoritos!",
     "removedFromFavorites": "¡eliminado de favoritos!"
   },
+  "toolPage": {
+    "buttons": {
+      "clear": "Limpiar",
+      "copy": "Copiar",
+      "loadExample": "Cargar Ejemplo",
+      "back": "Volver"
+    },
+    "messages": {
+      "copied": "¡Copiado al portapapeles!",
+      "cleared": "Texto limpiado",
+      "exampleLoaded": "Ejemplo cargado",
+      "enterText": "Por favor ingrese algún texto primero",
+      "textConverted": "¡Texto convertido!"
+    },
+    "placeholder": "Ingrese su texto aquí...",
+    "stats": {
+      "characters": "caracteres",
+      "words": "palabras",
+      "lines": "líneas"
+    },
+    "sections": {
+      "whatIs": "¿Qué es",
+      "commonUseCases": "Casos de Uso Comunes",
+      "proTips": "Consejos Profesionales",
+      "relatedTools": "🔗 Herramientas Relacionadas que Podrían Gustarte"
+    }
+  },
+  "privacy": {
+    "title": "Política de Privacidad",
+    "lastUpdated": "Última actualización:",
+    "introduction": {
+      "title": "Introducción",
+      "content": "¡Bienvenido a Haoin Tools! Respetamos su privacidad y nos comprometemos a proteger sus datos personales. Esta política de privacidad le informará sobre cómo protegemos sus datos personales cuando visita nuestro sitio web y le informará sobre sus derechos de privacidad.",
+      "contact": "Contacto:"
+    },
+    "dataCollection": {
+      "title": "Datos que Recopilamos",
+      "content": "Recopilamos datos mínimos para brindarle el mejor servicio:",
+      "usageData": "Datos de uso: Información sobre cómo utiliza nuestras herramientas",
+      "technicalData": "Datos técnicos: Dirección IP, tipo de navegador e información del dispositivo",
+      "noPersonalFiles": "Sin archivos personales: Todo el procesamiento de archivos se realiza localmente en su navegador"
+    },
+    "dataProtection": {
+      "title": "Cómo Protegemos Sus Datos",
+      "content": "Su privacidad y seguridad son nuestra máxima prioridad:",
+      "clientSide": "Procesamiento del lado del cliente: Todas las herramientas funcionan en su navegador",
+      "noStorage": "Sin almacenamiento de datos: No almacenamos sus archivos ni datos personales",
+      "noTracking": "Sin seguimiento: No utilizamos tecnologías de seguimiento invasivas",
+      "httpsSecure": "Seguridad HTTPS: Todas las conexiones están encriptadas"
+    },
+    "advertising": {
+      "title": "Publicidad de Terceros",
+      "content": "Podemos mostrar anuncios de terceros para respaldar nuestros servicios gratuitos:",
+      "adNetworks": "Redes publicitarias: Trabajamos con socios publicitarios de terceros que pueden recopilar datos de uso anónimos",
+      "cookies": "Cookies: Los anunciantes pueden usar cookies para mostrar anuncios relevantes (puede optar por no participar a través de la configuración del navegador)",
+      "dataSharing": "Compartir datos: No compartimos su información personal con anunciantes",
+      "privacyControls": "Controles de privacidad: Puede usar bloqueadores de anuncios o ajustar la configuración de privacidad en su navegador",
+      "note": "Los anunciantes externos tienen sus propias políticas de privacidad. Recomendamos revisar sus políticas para obtener detalles."
+    },
+    "cookies": {
+      "title": "Cookies",
+      "content": "Solo usamos cookies esenciales para garantizar que el sitio web funcione correctamente. No usamos cookies publicitarias ni de seguimiento. Puede controlar las cookies a través de la configuración de su navegador."
+    },
+    "dataRights": {
+      "title": "Usuarios Internacionales y Derechos de Datos",
+      "gdpr": {
+        "title": "Para usuarios de la UE (RGPD):",
+        "rights": [
+          "Derecho de acceso a sus datos personales",
+          "Derecho de rectificación o eliminación",
+          "Derecho a restringir u oponerse al procesamiento",
+          "Derecho a la portabilidad de datos",
+          "Derecho a retirar el consentimiento"
+        ]
+      },
+      "ccpa": {
+        "title": "Para usuarios de California (CCPA):",
+        "rights": [
+          "Derecho a saber qué información personal se recopila",
+          "Derecho a eliminar información personal",
+          "Derecho a optar por no participar en la venta de información personal (no vendemos datos)",
+          "Derecho a no ser discriminado por ejercer sus derechos"
+        ]
+      },
+      "chinaLabel": "Para usuarios chinos:",
+      "china": "Cumplimos con las leyes de protección de datos de China, incluida la Ley de Protección de Información Personal (PIPL). Sus datos se procesan localmente en su navegador y no se transfieren fuera de China sin su consentimiento."
+    },
+    "dataRetention": {
+      "title": "Retención de Datos",
+      "content": "Dado que todo el procesamiento de datos se realiza localmente en su navegador, no retenemos sus datos personales en nuestros servidores. Las cookies del navegador y el almacenamiento local están bajo su control y pueden borrarse en cualquier momento a través de la configuración del navegador."
+    },
+    "contact": {
+      "title": "Contáctenos",
+      "content": "Si tiene alguna pregunta sobre esta política de privacidad o desea ejercer sus derechos de datos, contáctenos a través de nuestros canales de redes sociales o envíe un correo electrónico a:",
+      "responseTime": "Para quejas o inquietudes relacionadas con la privacidad, responderemos dentro de 30 días según lo exigen las leyes de protección de datos aplicables."
+    },
+    "trust": "Su confianza es importante para nosotros. Estamos comprometidos a mantener sus datos seguros y privados."
+  },
+  "terms": {
+    "title": "Términos de Servicio",
+    "lastUpdated": "Última actualización:",
+    "agreement": {
+      "title": "📜 Acuerdo de Términos",
+      "content": "Al acceder y usar Haoin Tools, acepta y está de acuerdo en estar obligado por los términos y condiciones de este acuerdo. Si no está de acuerdo en cumplir con estos términos, no utilice este servicio."
+    },
+    "useOfService": {
+      "title": "✨ Uso del Servicio",
+      "content": "Haoin Tools proporciona herramientas en línea gratuitas para todos:",
+      "freeAccess": "🎯 Acceso Gratuito: Todas las herramientas son de uso gratuito",
+      "noRegistration": "🚀 Sin Registro: No se requiere cuenta",
+      "personalCommercial": "💻 Uso Personal y Comercial: Para cualquier propósito legal",
+      "unlimitedUsage": "⚡ Uso Ilimitado: Sin límites ni restricciones de uso"
+    },
+    "prohibited": {
+      "title": "⚠️ Actividades Prohibidas",
+      "content": "Usted acepta no:",
+      "illegal": "❌ Usar el servicio para cualquier propósito ilegal",
+      "harm": "❌ Intentar dañar o interrumpir el servicio",
+      "reverseEngineer": "❌ Realizar ingeniería inversa o copiar nuestras herramientas",
+      "automated": "❌ Usar sistemas automatizados para abusar del servicio",
+      "infringe": "❌ Cargar, transmitir o distribuir cualquier contenido que infrinja derechos de propiedad intelectual",
+      "violate": "❌ Violar cualquier ley o regulación aplicable en su jurisdicción"
+    },
+    "disclaimer": {
+      "title": "🛡️ Descargo de Responsabilidad y Limitación de Responsabilidad",
+      "content": "El servicio se proporciona tal cual y según disponibilidad sin ninguna garantía. Nos esforzamos por garantizar la precisión y confiabilidad, pero no podemos garantizar que las herramientas estén siempre libres de errores o ininterrumpidas.",
+      "important": "Descargos Importantes:",
+      "financial": "• Las calculadoras financieras son solo para fines informativos y no constituyen asesoramiento financiero",
+      "health": "• Las herramientas relacionadas con la salud (calculadora de IMC, etc.) no son consejos médicos: consulte a profesionales",
+      "liability": "• No somos responsables de ninguna pérdida o daño causado por el uso de herramientas o errores",
+      "maximum": "• La responsabilidad máxima se limita a la cantidad que pagó por el servicio (cero para herramientas gratuitas)"
+    },
+    "intellectualProperty": {
+      "title": "📝 Propiedad Intelectual",
+      "content": "Todo el contenido, funciones y características en Haoin Tools son propiedad nuestra y están protegidos por leyes internacionales de derechos de autor, marcas comerciales y otras leyes de propiedad intelectual."
+    },
+    "advertising": {
+      "title": "📺 Publicidad",
+      "content": "Para mantener nuestro servicio gratuito, podemos mostrar anuncios de terceros:",
+      "networks": "• Los anuncios son proporcionados por redes publicitarias de terceros",
+      "endorse": "• No respaldamos ni somos responsables de los productos/servicios anunciados",
+      "adContent": "• El contenido publicitario está sujeto a los términos y políticas de privacidad de los anunciantes",
+      "transactions": "• No somos responsables de ninguna transacción con anunciantes"
+    },
+    "governingLaw": {
+      "title": "⚖️ Ley Aplicable y Resolución de Disputas",
+      "content": "Estos términos se rigen por las leyes de la República Popular China. Para usuarios internacionales, también pueden aplicarse las leyes locales de protección al consumidor.",
+      "disputes": "Cualquier disputa debe resolverse primero mediante negociación amistosa. Si la negociación falla, la disputa se someterá a un tribunal competente en Hangzhou, provincia de Zhejiang, China."
+    },
+    "changes": {
+      "title": "🔄 Cambios en los Términos",
+      "content": "Nos reservamos el derecho de modificar estos términos en cualquier momento. Notificaremos a los usuarios sobre cualquier cambio significativo actualizando la fecha de última actualización en la parte superior de esta página. El uso continuado del servicio después de los cambios constituye la aceptación de los nuevos términos."
+    },
+    "contact": {
+      "title": "📧 Contáctenos",
+      "content": "¿Tiene preguntas sobre nuestros Términos de Servicio? Contáctenos en:"
+    },
+    "fairUse": "⚖️ Uso Justo: Creemos en proporcionar herramientas gratuitas y accesibles para todos mientras mantenemos un servicio seguro y confiable."
+  },
+  "legal": {
+    "title": "Aviso Legal y Derechos de Autor",
+    "lastUpdated": "Última actualización:",
+    "copyright": {
+      "title": "📋 Aviso de Derechos de Autor",
+      "content": "Todas las herramientas y servicios proporcionados en este sitio web (Haoin Tools) han sido desarrollados de forma independiente. Respetamos y protegemos los derechos de propiedad intelectual, y todo el uso de contenido cumple con las leyes y regulaciones pertinentes.",
+      "originalContent": {
+        "title": "Declaración de Contenido Original",
+        "points": [
+          "Todo el diseño de páginas, diseño de UI y lógica de interacción es original",
+          "Implementación de código basada en tecnologías de código abierto como React, TypeScript",
+          "Interfaz de usuario construida usando la biblioteca de componentes de código abierto shadcn/ui",
+          "Implementación de funciones de herramientas basadas en algoritmos públicos y estándares técnicos"
+        ]
+      },
+      "technicalImplementation": {
+        "title": "Implementación Técnica",
+        "content": "Los algoritmos centrales y funcionalidades de las herramientas de este sitio web se basan en las siguientes tecnologías y estándares públicos:",
+        "points": [
+          "Codificación/Decodificación Base64: Cumple con el estándar RFC 4648",
+          "Formateo JSON: Implementado según especificaciones JSON",
+          "Generación de Hash: Usando Web Crypto API",
+          "Otras herramientas: Todas basadas en estándares técnicos y algoritmos públicos"
+        ]
+      }
+    },
+    "technologyStack": {
+      "title": "💻 Stack Tecnológico",
+      "content": "Este sitio web está construido sobre las siguientes tecnologías de código abierto:",
+      "points": [
+        "Framework Frontend: React 18 + TypeScript",
+        "Enrutamiento: React Router v6",
+        "Componentes UI: shadcn/ui (Radix UI + Tailwind CSS)",
+        "Estilos: Tailwind CSS",
+        "Herramientas de Construcción: Vite",
+        "Gestión de Estado: React Context API"
+      ],
+      "note": "Todas las bibliotecas de código abierto utilizadas cumplen con sus respectivas licencias de código abierto (MIT, Apache 2.0, etc.). Expresamos nuestro sincero agradecimiento a estos excelentes proyectos de código abierto."
+    },
+    "usageTerms": {
+      "title": "📜 Términos de Uso y Descargo de Responsabilidad",
+      "usageLicense": {
+        "title": "Licencia de Uso",
+        "content": "Todas las herramientas proporcionadas en este sitio web son de uso gratuito tanto para uso personal como comercial. No recopilamos, almacenamos ni transmitimos ningún dato que ingrese en las herramientas; todo el procesamiento se realiza localmente en su navegador."
+      },
+      "disclaimer": {
+        "title": "Descargo de Responsabilidad",
+        "points": [
+          "Las herramientas de este sitio web se proporcionan \"tal cual\" sin garantía de precisión",
+          "Los usuarios asumen todos los riesgos asociados con el uso de estas herramientas",
+          "Las herramientas de cálculo financiero son solo para referencia y no constituyen asesoramiento de inversión",
+          "Este sitio web no es responsable de ninguna pérdida causada por el uso o la imposibilidad de usar las herramientas"
+        ]
+      },
+      "privacyProtection": {
+        "title": "Protección de Privacidad",
+        "content": "Valoramos su privacidad. Todas las herramientas en este sitio web se ejecutan localmente en su navegador y no enviarán sus datos a ningún servidor (excepto herramientas que requieren datos en tiempo real, como la conversión de moneda)."
+      },
+      "contact": {
+        "title": "Contáctenos",
+        "content": "Si tiene alguna pregunta sobre los derechos de autor, la implementación técnica u otros aspectos de este sitio web, contáctenos en"
+      }
+    },
+    "thirdPartyContent": {
+      "title": "🤝 Contenido de Terceros",
+      "content": "Algunas funciones de este sitio web pueden usar APIs o datos de terceros:",
+      "points": [
+        "Tasas de cambio de moneda: Usando API de tasas de cambio de terceros para obtener datos en tiempo real",
+        "Iconos: Usando la biblioteca de iconos de código abierto Lucide Icons (licencia MIT)",
+        "Fuentes: Usando fuentes predeterminadas del sistema o Google Fonts",
+        "Publicidad: Puede mostrar anuncios de terceros (Google AdSense) para respaldar el servicio gratuito"
+      ],
+      "note": "Estamos comprometidos a garantizar el uso legal de todo el contenido de terceros. Si encuentra algún contenido infractor, contáctenos inmediatamente en contact@haoin.tech y lo gestionaremos en 24 horas."
+    },
+    "dmca": {
+      "title": "⚠️ Aviso de Infracción de Derechos de Autor DMCA",
+      "content": "Haoin Tools respeta los derechos de propiedad intelectual y cumple con las disposiciones de la Ley de Derechos de Autor del Milenio Digital (DMCA) de EE. UU. Si cree que el contenido de este sitio web infringe sus derechos de autor, notifíquenos siguiendo este procedimiento.",
+      "requirements": {
+        "title": "Requisitos de Notificación de Retiro DMCA",
+        "content": "Su notificación debe contener la siguiente información:",
+        "points": [
+          "Su firma física o electrónica (como propietario de los derechos de autor o su representante autorizado)",
+          "Descripción precisa y ubicación del material presuntamente infractor",
+          "Su información de contacto (dirección, número de teléfono, correo electrónico)",
+          "Declaración de que cree de buena fe que el uso no está autorizado por el propietario de los derechos de autor",
+          "Declaración de que la información en la notificación es precisa y que es el propietario de los derechos de autor o su representante autorizado"
+        ]
+      },
+      "designatedAgent": {
+        "title": "Agente Designado DMCA",
+        "agent": "Agente de Derechos de Autor - Haoin Tools",
+        "email": "contact@haoin.tech",
+        "subject": "Línea de asunto: \"Aviso de Retiro DMCA\""
+      },
+      "note": "Tenga en cuenta: Según la DMCA, proporcionar intencionalmente declaraciones falsas de infracción puede resultar en responsabilidad legal. Procesaremos notificaciones válidas de manera oportuna al recibirlas."
+    },
+    "userContent": {
+      "title": "👤 Responsabilidad del Contenido del Usuario",
+      "content": "Todas las herramientas de este sitio web solo proporcionan funciones de procesamiento y no almacenan datos del usuario. Los usuarios son responsables de:",
+      "points": [
+        "Asegurarse de que el contenido cargado o procesado no infrinja los derechos de propiedad intelectual de otros",
+        "Asegurarse de que el contenido cumpla con las leyes y regulaciones relevantes",
+        "Asegurarse de que el contenido no contenga materiales ilegales, dañinos, amenazantes, difamatorios u obscenos",
+        "Asumir toda responsabilidad legal resultante del uso de estas herramientas para procesar contenido ilegal"
+      ],
+      "importantNotice": "Dado que todo el procesamiento se realiza localmente en el navegador del usuario, no podemos monitorear ni controlar el contenido que los usuarios procesan. Los usuarios deben asegurarse del uso legal y conforme."
+    },
+    "footer": {
+      "rightsReserved": "© 2025 Haoin Tools. Todos los derechos reservados.",
+      "company": "Haoin Technology Co., Ltd.",
+      "compliance": "Este sitio web cumple con las leyes y regulaciones pertinentes."
+    }
+  },
   "tools": {
-    "caseConverter": {
+    "case-converter": {
       "title": "Convertidor de Mayúsculas/Minúsculas",
       "description": "Convierte texto entre mayúsculas, minúsculas, mayúsculas de título y más",
-      "intro": "Transforma el caso de tu texto fácilmente",
-      "useCases": "Casos de Uso Comunes",
-      "proTips": "Consejos Profesionales",
+      "intro": "Esta herramienta te ayuda a convertir texto instantáneamente entre diferentes formatos como MAYÚSCULAS (UPPERCASE), minúsculas (lowercase), Mayúsculas de Título (Title Case), camelCase, snake_case y kebab-case. ¡Perfecta para desarrolladores, escritores y creadores de contenido que necesitan formateo de texto rápido! 🚀",
+      "exampleText": "¡Hola Mundo! Este es un texto de ejemplo para conversión de mayúsculas.",
+      "useCases": {
+        "programming": {
+          "title": "Programación",
+          "description": "Usar <code class=\"mx-1 px-2 py-0.5 bg-white rounded text-purple-700 font-mono text-xs\">camelCase</code> para nombres de variables, <code class=\"mx-1 px-2 py-0.5 bg-white rounded text-purple-700 font-mono text-xs\">snake_case</code> para nombres de funciones Python"
+        },
+        "urlsCss": {
+          "title": "URLs y CSS",
+          "description": "Usar <code class=\"mx-1 px-2 py-0.5 bg-white rounded text-blue-700 font-mono text-xs\">kebab-case</code> para URLs limpias y amigables con SEO"
+        },
+        "database": {
+          "title": "Campos de Base de Datos",
+          "description": "Usar <code class=\"mx-1 px-2 py-0.5 bg-white rounded text-green-700 font-mono text-xs\">snake_case</code> para nombres de columnas de base de datos"
+        },
+        "content": {
+          "title": "Escritura de Contenido",
+          "description": "Usar <code class=\"mx-1 px-2 py-0.5 bg-white rounded text-pink-700 font-mono text-xs\">Title Case</code> para encabezados y títulos"
+        }
+      },
+      "proTips": {
+        "javascript": "<strong>JavaScript:</strong> Usar camelCase para variables (myVariable)",
+        "python": "<strong>Python:</strong> Usar snake_case para funciones (my_function)",
+        "urls": "<strong>URLs:</strong> Usar kebab-case para mejor SEO (my-page-url)",
+        "headings": "<strong>Encabezados:</strong> Usar Title Case para formato apropiado"
+      },
+      "relatedTools": "🔗 Herramientas Relacionadas que Podrían Gustarte"
+    },
+    "text-diff": {
+      "title": "Comparador de Texto",
+      "description": "Compara dos textos e identifica diferencias",
+      "compareText": "Comparar Textos",
+      "descriptionFull": "Compara dos versiones de texto e identifica diferencias línea por línea",
+      "text1": "Texto 1",
+      "text2": "Texto 2",
+      "text1Placeholder": "Ingrese el primer texto...",
+      "text2Placeholder": "Ingrese el segundo texto...",
+      "allFieldsCleared": "Todos los campos limpiados",
+      "exampleLoaded": "Ejemplo cargado",
+      "differencesFound": "{{count}} diferencia encontrada",
+      "differencesFound_plural": "{{count}} diferencias encontradas",
+      "line": "Línea {{line}}",
+      "noDifferencesFound": "¡Los textos son idénticos! ✨",
+      "whatIs": "¿Qué es el Comparador de Texto?",
+      "whatIsContent": "Esta herramienta compara dos versiones de texto e identifica línea por línea las diferencias entre ellas. ¡Perfecta para control de versiones, edición y revisión de documentos! 📝",
+      "useCases": {
+        "codeReview": {
+          "title": "Revisión de Código",
+          "description": "Comparar versiones de código antes y después de los cambios"
+        },
+        "versionControl": {
+          "title": "Control de Versiones",
+          "description": "Comparar diferentes versiones del mismo archivo o documento"
+        },
+        "contentEditing": {
+          "title": "Edición de Contenido",
+          "description": "Rastrear cambios en artículos, documentos y contenido escrito"
+        },
+        "legalReview": {
+          "title": "Revisión Legal",
+          "description": "Comparar borradores de contratos y documentos legales"
+        }
+      },
+      "proTips": {
+        "colorCoding": "<strong>Códigos de Color:</strong> Rojo indica texto eliminado, verde indica texto agregado",
+        "lineByLine": "<strong>Línea por Línea:</strong> La comparación se realiza línea por línea para mayor precisión",
+        "configFiles": "<strong>Archivos de Configuración:</strong> Perfecto para comparar archivos de configuración y scripts",
+        "copyPaste": "<strong>Copiar y Pegar:</strong> Simplemente pegue ambas versiones y vea las diferencias al instante"
+      },
+      "relatedTools": "🔗 Herramientas Relacionadas que Podrían Gustarte"
+    },
+    "markdown-to-html": {
+      "title": "Markdown a HTML",
+      "description": "Convierte sintaxis Markdown a HTML",
+      "convertMarkdownToHtml": "Convertir Markdown a HTML",
+      "descriptionFull": "Convierte sintaxis Markdown a marcado HTML limpio",
+      "markdownInput": "Entrada Markdown",
+      "markdownPlaceholder": "# Hola Mundo",
+      "convertButton": "Convertir a HTML",
+      "htmlOutput": "Salida HTML",
+      "pleaseEnterMarkdown": "Por favor ingrese Markdown",
+      "convertedSuccess": "¡Convertido exitosamente a HTML!",
+      "copiedToClipboard": "¡Copiado al portapapeles!",
+      "allFieldsCleared": "Todos los campos limpiados",
+      "exampleLoaded": "Ejemplo cargado",
+      "exampleMarkdown": "# Bienvenido a Markdown\n\n## ¿Qué es Markdown?\n\nMarkdown es un **lenguaje de marcado ligero** que te permite escribir contenido formateado usando sintaxis de texto plano simple. Es ampliamente utilizado para:\n\n- Escribir documentación\n- Crear contenido de blogs\n- Formatear mensajes en foros\n- Escribir archivos README\n\n## Características Principales\n\n### Formato de Texto\n\nPuedes hacer texto **negrita** usando doble asterisco o *cursiva* usando un asterisco.\n\n### Enlaces e Imágenes\n\nCrear [enlaces](https://www.ejemplo.com) es muy sencillo.\n\n### Listas\n\n**Lista numerada:**\n1. Primer elemento\n2. Segundo elemento\n3. Tercer elemento\n\n**Lista con viñetas:**\n- Café\n- Té\n- Chocolate caliente\n\n### Bloques de Código\n\nPuedes incluir código en línea como `console.log('Hola')` o bloques de código:\n\n```javascript\nfunction saludar(nombre) {\n  return `¡Hola, ${nombre}!`;\n}\n```\n\n### Citas\n\n> \"La simplicidad es la máxima sofisticación.\" - Leonardo da Vinci\n\n---\n\n¡Markdown hace que escribir contenido formateado sea **fácil y rápido**!",
+      "whatIs": "¿Qué es Markdown a HTML?",
+      "whatIsContent": "Esta herramienta convierte sintaxis Markdown a marcado HTML limpio. ¡Perfecta para bloggers, desarrolladores y creadores de contenido que necesitan generar HTML rápidamente! 📝",
+      "useCases": {
+        "blogPosts": {
+          "title": "Publicaciones de Blog",
+          "description": "Convertir artículos Markdown a HTML para publicación"
+        },
+        "documentation": {
+          "title": "Documentación",
+          "description": "Convertir archivos README a formato HTML"
+        },
+        "webDevelopment": {
+          "title": "Desarrollo Web",
+          "description": "Generar contenido HTML desde Markdown"
+        },
+        "emailTemplates": {
+          "title": "Plantillas de Email",
+          "description": "Crear plantillas de email ricas desde Markdown"
+        }
+      },
+      "proTips": {
+        "headings": "<strong>Encabezados:</strong> Usar # para H1, ## para H2, etc.",
+        "formatting": "<strong>Formato:</strong> **negrita** para negrita, *cursiva* para cursiva",
+        "links": "<strong>Enlaces:</strong> Formato [texto](url) para hipervínculos",
+        "lists": "<strong>Listas:</strong> Usar - o * para viñetas"
+      },
       "relatedTools": "Herramientas Relacionadas que Podrían Gustarte"
+    },
+    "csv-to-json": {
+      "title": "CSV a JSON",
+      "description": "Convertir datos CSV a formato JSON",
+      "convertCsvToJson": "Convertir CSV a JSON",
+      "descriptionFull": "Transformar datos CSV (tabulares) a formato JSON",
+      "csvInput": "Entrada CSV",
+      "csvPlaceholder": "nombre,edad,ciudad\nJuan,30,Madrid\nMaría,25,Barcelona",
+      "convertButton": "Convertir a JSON",
+      "jsonOutput": "Salida JSON",
+      "csvHeaderRequired": "CSV debe tener al menos una fila de encabezado y una fila de datos",
+      "convertedSuccess": "¡Convertido exitosamente!",
+      "conversionFailed": "Conversión fallida",
+      "copiedToClipboard": "¡Copiado al portapapeles!",
+      "allFieldsCleared": "Todos los campos limpiados",
+      "exampleLoaded": "Ejemplo cargado",
+      "whatIs": "¿Qué es CSV a JSON?",
+      "whatIsContent": "Esta herramienta convierte datos CSV (tabulares) a formato JSON. ¡Perfecta para integración de API, migración de datos y desarrollo web! 📊",
+      "useCases": {
+        "apiIntegration": {
+          "title": "Integración de API",
+          "description": "Convertir CSV a JSON para solicitudes API"
+        },
+        "dataMigration": {
+          "title": "Migración de Datos",
+          "description": "Importar datos CSV a bases de datos y aplicaciones"
+        },
+        "dataAnalysis": {
+          "title": "Análisis de Datos",
+          "description": "Convertir datos de hojas de cálculo para herramientas de análisis"
+        },
+        "webDevelopment": {
+          "title": "Desarrollo Web",
+          "description": "Usar datos CSV en aplicaciones web y visualizaciones"
+        }
+      },
+      "proTips": {
+        "headers": "<strong>Encabezados:</strong> La primera fila se convierte en claves JSON",
+        "format": "<strong>Formato:</strong> Cada fila se convierte en un objeto JSON",
+        "spreadsheets": "<strong>Hojas de Cálculo:</strong> Perfecto para exportaciones de Excel/Sheets",
+        "apis": "<strong>APIs:</strong> Preparar datos para llamadas API REST"
+      },
+      "relatedTools": "🔗 Herramientas Relacionadas que Podrían Gustarte"
+    },
+    "http-status-codes": {
+      "title": "Códigos de Estado HTTP",
+      "description": "Referencia rápida de códigos de estado HTTP y sus significados",
+      "httpStatusCodeReference": "Referencia de Códigos de Estado HTTP",
+      "descriptionFull": "Búsqueda rápida de códigos de estado de respuesta HTTP",
+      "searchPlaceholder": "Buscar por código, nombre o descripción...",
+      "searchCleared": "Búsqueda limpiada",
+      "exampleLoaded": "Ejemplo cargado - buscando 404 No Encontrado",
+      "categories": {
+        "1xx": "1xx Informativo",
+        "2xx": "2xx Éxito",
+        "3xx": "3xx Redirección",
+        "4xx": "4xx Error del Cliente",
+        "5xx": "5xx Error del Servidor"
+      },
+      "noResults": "No se encontraron códigos de estado que coincidan con \"{{term}}\"",
+      "whatIs": "¿Qué son los Códigos de Estado HTTP?",
+      "whatIsContent": "Códigos de respuesta estándar dados por servidores web en Internet. Ayudan a identificar la causa del problema cuando una página web no se carga correctamente. 🌐",
+      "quickCategoryGuide": "Guía Rápida de Categorías",
+      "categoryGuide": {
+        "2xx": {
+          "title": "✅ 2xx - Éxito",
+          "description": "Solicitud recibida, comprendida y aceptada"
+        },
+        "3xx": {
+          "title": "🔄 3xx - Redirección",
+          "description": "Se necesita acción adicional para completar la solicitud"
+        },
+        "4xx": {
+          "title": "⚠️ 4xx - Error del Cliente",
+          "description": "La solicitud contiene sintaxis incorrecta o no puede cumplirse"
+        },
+        "5xx": {
+          "title": "❌ 5xx - Error del Servidor",
+          "description": "El servidor no pudo cumplir con una solicitud válida"
+        }
+      },
+      "mostCommonCodes": "💡 Códigos Más Comunes",
+      "commonCodes": {
+        "200": "<strong>200:</strong> Todo funcionó perfectamente",
+        "404": "<strong>404:</strong> Página o recurso no encontrado",
+        "500": "<strong>500:</strong> El servidor encontró un error",
+        "401": "<strong>401:</strong> Autenticación requerida"
+      },
+      "codes": {
+        "100": {
+          "name": "Continuar",
+          "description": "El servidor ha recibido los encabezados de solicitud y el cliente debe continuar enviando el cuerpo de la solicitud"
+        },
+        "101": {
+          "name": "Cambio de Protocolo",
+          "description": "El solicitante ha pedido al servidor que cambie de protocolo"
+        },
+        "200": {
+          "name": "Éxito",
+          "description": "La solicitud fue exitosa"
+        },
+        "201": {
+          "name": "Creado",
+          "description": "La solicitud fue exitosa y se creó un recurso"
+        },
+        "202": {
+          "name": "Aceptado",
+          "description": "La solicitud ha sido aceptada para procesamiento, pero el procesamiento no se ha completado"
+        },
+        "204": {
+          "name": "Sin Contenido",
+          "description": "El servidor procesó exitosamente la solicitud pero no devuelve ningún contenido"
+        },
+        "301": {
+          "name": "Movido Permanentemente",
+          "description": "La URL del recurso solicitado ha cambiado permanentemente"
+        },
+        "302": {
+          "name": "Encontrado",
+          "description": "La URI del recurso solicitado ha sido cambiada temporalmente"
+        },
+        "304": {
+          "name": "No Modificado",
+          "description": "El cliente puede usar datos almacenados en caché"
+        },
+        "307": {
+          "name": "Redirección Temporal",
+          "description": "La solicitud debe repetirse con otra URI"
+        },
+        "308": {
+          "name": "Redirección Permanente",
+          "description": "La solicitud y todas las solicitudes futuras deben repetirse usando otra URI"
+        },
+        "400": {
+          "name": "Solicitud Incorrecta",
+          "description": "El servidor no puede procesar la solicitud debido a un error del cliente"
+        },
+        "401": {
+          "name": "No Autorizado",
+          "description": "Se requiere autenticación pero falló o no se proporcionó"
+        },
+        "403": {
+          "name": "Prohibido",
+          "description": "El cliente no tiene derechos de acceso al contenido"
+        },
+        "404": {
+          "name": "No Encontrado",
+          "description": "El servidor no puede encontrar el recurso solicitado"
+        },
+        "405": {
+          "name": "Método No Permitido",
+          "description": "El método de solicitud no es compatible con el recurso solicitado"
+        },
+        "408": {
+          "name": "Tiempo de Espera Agotado",
+          "description": "El servidor esperó demasiado tiempo por la solicitud"
+        },
+        "409": {
+          "name": "Conflicto",
+          "description": "La solicitud entra en conflicto con el estado actual del servidor"
+        },
+        "410": {
+          "name": "Desaparecido",
+          "description": "El recurso solicitado ya no está disponible y no estará disponible nuevamente"
+        },
+        "413": {
+          "name": "Carga Útil Demasiado Grande",
+          "description": "La entidad de solicitud es más grande que los límites definidos por el servidor"
+        },
+        "415": {
+          "name": "Tipo de Medio No Soportado",
+          "description": "El formato de medios de los datos solicitados no es compatible"
+        },
+        "429": {
+          "name": "Demasiadas Solicitudes",
+          "description": "El usuario ha enviado demasiadas solicitudes en un período de tiempo dado"
+        },
+        "500": {
+          "name": "Error Interno del Servidor",
+          "description": "El servidor ha encontrado un error genérico"
+        },
+        "501": {
+          "name": "No Implementado",
+          "description": "El servidor no admite la funcionalidad requerida para cumplir la solicitud"
+        },
+        "502": {
+          "name": "Puerta de Enlace Incorrecta",
+          "description": "El servidor recibió una respuesta inválida del servidor upstream"
+        },
+        "503": {
+          "name": "Servicio No Disponible",
+          "description": "El servidor no está disponible actualmente (sobrecargado o fuera de servicio)"
+        },
+        "504": {
+          "name": "Tiempo de Espera de Puerta de Enlace",
+          "description": "El servidor no recibió una respuesta a tiempo del servidor upstream"
+        }
+      },
+      "relatedTools": "🔗 Herramientas Relacionadas que Podrían Gustarte"
+    },
+    "api-tester": {
+      "title": "Probador de API",
+      "description": "Probar APIs REST enviando solicitudes HTTP e inspeccionando respuestas",
+      "testApiEndpoints": "Probar Endpoints de API",
+      "descriptionFull": "Enviar solicitudes HTTP e inspeccionar respuestas",
+      "getExample": "Ejemplo GET",
+      "postExample": "Ejemplo POST",
+      "urlPlaceholder": "https://api.ejemplo.com/endpoint",
+      "sending": "Enviando...",
+      "send": "Enviar",
+      "tabs": {
+        "headers": "Encabezados",
+        "body": "Cuerpo"
+      },
+      "requestHeaders": "Encabezados de Solicitud (JSON)",
+      "requestHeadersPlaceholder": "{\"Authorization\": \"Bearer token\", \"Custom-Header\": \"valor\"}",
+      "requestBody": "Cuerpo de Solicitud",
+      "requestBodyPlaceholder": "{\"clave\": \"valor\"}",
+      "bodyNotAvailable": "Cuerpo no disponible para solicitudes {{method}}",
+      "status": "Estado",
+      "success": "Éxito",
+      "error": "Error",
+      "info": "Info",
+      "responseTime": "Tiempo de respuesta: {{time}}ms",
+      "response": "Respuesta",
+      "pleaseEnterUrl": "Por favor ingrese una URL",
+      "invalidJsonHeaders": "JSON inválido en encabezados",
+      "requestCompleted": "Solicitud completada ({{status}})",
+      "requestFailed": "Solicitud fallida",
+      "responseCopied": "¡Respuesta copiada al portapapeles!",
+      "allFieldsCleared": "Todos los campos limpiados",
+      "exampleLoaded": "Ejemplo cargado - haz clic en Enviar para probar",
+      "postExampleLoaded": "Ejemplo POST cargado - haz clic en Enviar para probar",
+      "whatIs": "¿Qué es el Probador de API?",
+      "whatIsContent": "Esta herramienta te permite probar APIs REST enviando solicitudes HTTP e inspeccionando respuestas. ¡Perfecta para desarrollo de API, depuración y prueba de endpoints! 🚀",
+      "useCases": {
+        "apiDevelopment": {
+          "title": "Desarrollo de API",
+          "description": "Probar endpoints durante el desarrollo"
+        },
+        "debugging": {
+          "title": "Depuración",
+          "description": "Depurar problemas de API e inspeccionar respuestas"
+        },
+        "integration": {
+          "title": "Integración",
+          "description": "Probar integraciones de API de terceros"
+        },
+        "quickTests": {
+          "title": "Pruebas Rápidas",
+          "description": "Probar endpoints rápidamente sin escribir código"
+        }
+      },
+      "proTips": {
+        "cors": "<strong>CORS:</strong> Algunas APIs pueden bloquear solicitudes del navegador",
+        "authentication": "<strong>Autenticación:</strong> Agregar encabezados de autenticación para endpoints protegidos",
+        "json": "<strong>JSON:</strong> Usar JSON válido para el cuerpo de solicitud",
+        "statusCodes": "<strong>Códigos de Estado:</strong> 2xx = éxito, 4xx = error del cliente, 5xx = error del servidor"
+      },
+      "httpMethods": "📋 Métodos HTTP",
+      "methods": {
+        "get": "Recuperar datos del servidor",
+        "post": "Crear nuevo recurso",
+        "put": "Actualizar recurso completo",
+        "patch": "Actualizar parcialmente recurso",
+        "delete": "Eliminar recurso"
+      },
+      "relatedTools": "🔗 Herramientas Relacionadas que Podrían Gustarte"
+    },
+    "tip-calculator": {
+      "title": "Calculadora de Propinas",
+      "description": "Calcular propinas y dividir cuentas entre varias personas"
+    },
+    "json-formatter": {
+      "title": "Formateador JSON",
+      "description": "Formatear, minificar y validar datos JSON con resaltado de sintaxis",
+      "inputLabel": "Entrada JSON",
+      "outputLabel": "Resultado de Salida",
+      "format": "Formatear",
+      "minify": "Minificar",
+      "formatSuccess": "¡JSON formateado exitosamente!",
+      "minifySuccess": "¡JSON minificado exitosamente!",
+      "invalidJson": "JSON inválido",
+      "whatIs": "¿Qué es un Formateador JSON?",
+      "whatIsContent": "Esta herramienta formatea, valida y minifica datos JSON con resaltado de sintaxis. ¡Perfecta para desarrollo de API, depuración y validación de datos! 🔧",
+      "useCases": {
+        "title": "Casos de Uso Comunes",
+        "api": {
+          "title": "Desarrollo de API",
+          "description": "Formatear y validar respuestas y solicitudes de API"
+        },
+        "config": {
+          "title": "Archivos de Configuración",
+          "description": "Validar y formatear archivos de configuración de aplicaciones"
+        },
+        "database": {
+          "title": "Exportaciones de Base de Datos",
+          "description": "Formatear resultados de consultas de bases de datos y exportaciones JSON"
+        },
+        "debugging": {
+          "title": "Depuración",
+          "description": "Validar sintaxis y encontrar errores en datos JSON"
+        }
+      },
+      "proTips": {
+        "title": "Consejos Profesionales",
+        "format": "<strong>Formatear:</strong> Usa formato para desarrollo y depuración",
+        "minify": "<strong>Minificar:</strong> Usa minificado para producción para reducir el tamaño",
+        "validation": "<strong>Validación:</strong> Siempre valida antes de usar en aplicaciones",
+        "quotes": "<strong>Comillas:</strong> Las claves JSON deben usar comillas dobles, no simples"
+      },
+      "relatedTools": "Herramientas Relacionadas que Podrían Gustarte"
+    },
+    "base64": {
+      "title": "Herramienta Base64",
+      "description": "Codificar/decodificar Base64"
+    },
+    "base64-encoder": {
+      "title": "Codificador/Decodificador Base64",
+      "description": "Codificar y decodificar texto desde/hacia formato Base64",
+      "encode": "Codificar",
+      "decode": "Decodificar",
+      "inputLabel": "Entrada de Texto",
+      "base64Label": "Entrada de Texto Base64",
+      "outputLabel": "Resultado de Salida",
+      "placeholder": "Ingrese su texto aquí...",
+      "base64Placeholder": "Ingrese texto codificado en Base64 aquí...",
+      "encodedPlaceholder": "El resultado codificado aparecerá aquí...",
+      "decodedPlaceholder": "El resultado decodificado aparecerá aquí...",
+      "exampleText": "¡Hola Mundo! Este es un ejemplo de codificación Base64.",
+      "exampleBase64": "wqFIb2xhIE11bmRvISBFc3RlIGVzIHVuIGVqZW1wbG8gZGUgY29kaWZpY2FjacOzbiBCYXNlNjQu",
+      "encodeSuccess": "¡Texto codificado exitosamente a Base64!",
+      "decodeSuccess": "¡Base64 decodificado exitosamente a texto!",
+      "encodeError": "Error al codificar texto",
+      "decodeError": "Error al decodificar Base64",
+      "allFieldsCleared": "Todos los campos limpiados",
+      "exampleLoaded": "Ejemplo cargado",
+      "copiedToClipboard": "¡Copiado al portapapeles!",
+      "whatIs": "¿Qué es la Codificación Base64?",
+      "whatIsContent": "Base64 es un método para codificar datos binarios en una cadena ASCII. Comúnmente usado para transmitir datos en protocolos de texto, como adjuntos de correo electrónico y URLs. 🔐",
+      "useCases": {
+        "title": "Casos de Uso Comunes",
+        "email": {
+          "title": "Adjuntos de Email",
+          "description": "Codificar archivos e imágenes en correos electrónicos"
+        },
+        "api": {
+          "title": "Comunicación API",
+          "description": "Transmitir datos binarios en solicitudes HTTP"
+        },
+        "image": {
+          "title": "Incrustación de Imágenes",
+          "description": "Codificar imágenes como Base64 e incrustarlas en HTML o CSS"
+        },
+        "dataUrl": {
+          "title": "URLs de Datos",
+          "description": "Crear enlaces de recursos en línea en formato data: URL"
+        },
+        "storage": {
+          "title": "Almacenamiento de Datos",
+          "description": "Almacenar datos binarios en JSON o XML"
+        },
+        "security": {
+          "title": "Autenticación Básica",
+          "description": "Codificar credenciales de autenticación básica HTTP"
+        }
+      },
+      "proTips": {
+        "title": "💡 Consejos Profesionales",
+        "encoding": "Codificación: Base64 aumenta el tamaño de datos aproximadamente un 33%",
+        "security": "Seguridad: Base64 no es encriptación, no lo uses para proteger datos sensibles",
+        "urls": "URLs: Usar variante Base64 segura para URL (+ reemplazado por -, / reemplazado por _)",
+        "utf8": "UTF-8: Asegurar manejo correcto de caracteres Unicode antes de codificar"
+      },
+      "relatedTools": "🔗 Herramientas Relacionadas que Podrían Gustarte"
+    },
+    "password-generator": {
+      "title": "Generador de Contraseñas",
+      "description": "Crear contraseñas seguras y fuertes con opciones personalizables",
+      "generatePassword": "Generar Contraseña",
+      "descriptionFull": "Generar contraseñas seguras y aleatorias",
+      "password": "Contraseña",
+      "length": "Longitud",
+      "options": "Opciones",
+      "includeUppercase": "Incluir Mayúsculas (A-Z)",
+      "includeLowercase": "Incluir Minúsculas (a-z)",
+      "includeNumbers": "Incluir Números (0-9)",
+      "includeSymbols": "Incluir Símbolos (!@#$%)",
+      "generate": "Generar",
+      "strength": "Fortaleza",
+      "weak": "Débil",
+      "medium": "Media",
+      "strong": "Fuerte",
+      "veryStrong": "Muy Fuerte",
+      "passwordGenerated": "¡Contraseña generada!",
+      "copiedToClipboard": "¡Contraseña copiada!",
+      "selectAtLeastOne": "Por favor seleccione al menos una opción",
+      "whatIs": "¿Qué es el Generador de Contraseñas?",
+      "whatIsContent": "Esta herramienta genera contraseñas seguras, aleatorias y criptográficamente fuertes con opciones personalizables. ¡Perfecta para crear contraseñas robustas para cuentas, servicios y mantener tu seguridad en línea! 🔐",
+      "useCases": {
+        "accountSecurity": {
+          "title": "Seguridad de Cuenta",
+          "description": "Crear contraseñas fuertes para cuentas de <span class=\"inline-flex items-center px-2 py-0.5 rounded text-xs font-semibold bg-white text-blue-800 mx-1\">correo</span> y redes sociales"
+        },
+        "apiKeys": {
+          "title": "Claves API",
+          "description": "Generar claves seguras para APIs de aplicaciones y Webhooks"
+        },
+        "databaseCredentials": {
+          "title": "Credenciales de Base de Datos",
+          "description": "Crear contraseñas seguras para usuarios y conexiones de base de datos"
+        },
+        "systemAdmin": {
+          "title": "Administración de Sistema",
+          "description": "Generar contraseñas seguras para servidores y cuentas de administrador"
+        }
+      },
+      "proTips": {
+        "title": "💡 Consejos Profesionales",
+        "length": "<strong>Longitud:</strong> Usar al menos 12 caracteres para seguridad óptima",
+        "unique": "<strong>Único:</strong> Nunca reutilizar contraseñas entre sitios",
+        "manager": "<strong>Gestor:</strong> Usar un gestor de contraseñas para almacenar de forma segura",
+        "mixCharacters": "<strong>Mezclar Caracteres:</strong> Combinar letras mayúsculas, minúsculas, números y símbolos",
+        "passwordManager": "<strong>Gestor de Contraseñas:</strong> Usar un gestor para almacenar contraseñas generadas",
+        "2fa": "Autenticación de Dos Factores: Habilitar 2FA para una capa adicional de seguridad"
+      },
+      "relatedTools": "🔗 Herramientas Relacionadas que Podrían Gustarte"
+    },
+    "word-counter": {
+      "title": "Contador de Palabras",
+      "description": "Contar palabras, caracteres, oraciones y párrafos en tu texto",
+      "placeholder": "Comienza a escribir o pega tu texto...",
+      "exampleText": "¡Bienvenido al Contador de Palabras! Esta es una poderosa herramienta de análisis de texto que te ayuda a entender rápidamente varias estadísticas de tu texto.\n\nYa seas estudiante, escritor, creador de contenido o profesional, esta herramienta proporciona datos precisos de análisis de texto. Puedes contar palabras, caracteres, oraciones, párrafos e incluso estimar el tiempo de lectura.\n\nEsta herramienta es especialmente útil para escritura académica, creación de contenido, publicación en redes sociales y trabajos de traducción. ¡Comienza a usarla ahora y haz que el análisis de texto sea simple y eficiente!",
+      "stats": {
+        "words": "Palabras",
+        "characters": "Caracteres",
+        "charactersNoSpaces": "Caracteres (sin espacios)",
+        "sentences": "Oraciones",
+        "paragraphs": "Párrafos",
+        "readingTime": "Tiempo de Lectura"
+      },
+      "minute": "minuto",
+      "minutes": "minutos",
+      "whatIs": "¿Qué es el Contador de Palabras?",
+      "whatIsContent": "Esta herramienta proporciona análisis de texto en tiempo real, incluyendo conteo de palabras, caracteres, oraciones, párrafos y tiempo de lectura estimado. ¡Perfecta para escritores, estudiantes, bloggers y creadores de contenido que necesitan cumplir con requisitos específicos de longitud! 📝",
+      "useCases": {
+        "title": "Casos de Uso Comunes",
+        "academic": {
+          "title": "Escritura Académica",
+          "description": "Cumplir requisitos precisos de conteo de palabras para ensayos y tesis"
+        },
+        "content": {
+          "title": "Escritura de Contenido",
+          "description": "Optimizar artículos de blog y posts para mejor SEO"
+        },
+        "social": {
+          "title": "Redes Sociales",
+          "description": "Mantener dentro de límites de caracteres en Twitter, LinkedIn, etc."
+        },
+        "translation": {
+          "title": "Proyectos de Traducción",
+          "description": "Rastrear conteo de palabras para precio y estimación de proyecto"
+        }
+      },
+      "proTips": {
+        "title": "💡 Consejos Profesionales",
+        "reading": {
+          "label": "Tiempo de Lectura",
+          "text": "Velocidad de lectura promedio es 200-250 palabras por minuto"
+        },
+        "seo": {
+          "label": "SEO",
+          "text": "Los posts de blog tienen mejor rendimiento entre 1,500-2,500 palabras"
+        },
+        "twitter": {
+          "label": "Twitter",
+          "text": "Límite de 280 caracteres (usar conteo de caracteres)"
+        },
+        "linkedin": {
+          "label": "LinkedIn",
+          "text": "Posts óptimos alrededor de 150-300 caracteres para engagement"
+        }
+      },
+      "allFieldsCleared": "Texto limpiado",
+      "exampleLoaded": "Ejemplo cargado",
+      "relatedTools": {
+        "title": "🔗 Herramientas Relacionadas que Podrían Gustarte",
+        "caseConverter": {
+          "title": "Convertidor de Mayúsculas/Minúsculas",
+          "description": "Convertir formatos de texto entre mayúsculas y minúsculas"
+        },
+        "textSorter": {
+          "title": "Ordenador de Texto",
+          "description": "Ordenar líneas de texto alfabéticamente"
+        },
+        "textDiff": {
+          "title": "Comparador de Texto",
+          "description": "Comparar dos textos"
+        }
+      }
+    },
+    "uuid-generator": {
+      "title": "Generador UUID",
+      "description": "Generar identificadores únicos universales en varios formatos",
+      "generate": "Generar UUID",
+      "generateMultiple": "Generar Múltiples",
+      "quantity": "Cantidad",
+      "version": "Versión",
+      "uppercase": "Mayúsculas",
+      "lowercase": "Minúsculas",
+      "withHyphens": "Con Guiones",
+      "withoutHyphens": "Sin Guiones",
+      "copied": "¡UUID copiado!",
+      "generated": "¡{count} UUIDs generados!",
+      "whatIs": "¿Qué es un UUID?",
+      "whatIsContent": "Un UUID (Identificador Único Universal) es un identificador único de 128 bits. La probabilidad de duplicación de UUID es extremadamente baja y puede usarse para identificación única en sistemas distribuidos. 🆔",
+      "useCases": {
+        "title": "Casos de Uso Comunes",
+        "database": {
+          "title": "Claves Primarias de Base de Datos",
+          "description": "Generar IDs únicos sin depender de secuencias centrales"
+        },
+        "api": {
+          "title": "IDs de Solicitud API",
+          "description": "Rastrear y seguir solicitudes API"
+        },
+        "distributed": {
+          "title": "Sistemas Distribuidos",
+          "description": "Generar IDs únicos entre múltiples servidores y servicios"
+        },
+        "session": {
+          "title": "Tokens de Sesión",
+          "description": "Generar identificadores únicos para sesiones de usuario"
+        },
+        "files": {
+          "title": "Nomenclatura de Archivos",
+          "description": "Generar nombres únicos para archivos subidos"
+        }
+      },
+      "proTips": {
+        "title": "💡 Consejos Profesionales",
+        "v4": "Versión 4: La más común, generada basada en números aleatorios",
+        "collision": "Colisión: La probabilidad de duplicación de UUID es extremadamente baja (aproximadamente 1 en 10^36)",
+        "format": "Formato: El formato estándar es 8-4-4-4-12 (36 caracteres con guiones)",
+        "storage": "Almacenamiento: Considerar usar formato binario en base de datos para ahorrar espacio"
+      },
+      "relatedTools": "🔗 Herramientas Relacionadas que Podrían Gustarte"
+    },
+    "color-picker": {
+      "title": "Selector de Color",
+      "description": "Elegir colores y obtener códigos HEX, RGB, HSL",
+      "pickColor": "Seleccionar Color",
+      "descriptionFull": "Seleccionar colores y obtener códigos en diferentes formatos",
+      "colorPicker": "Selector de Color",
+      "colorFormats": "Formatos de Color",
+      "hex": "HEX",
+      "rgb": "RGB",
+      "hsl": "HSL",
+      "colorCopied": "¡Color copiado!",
+      "whatIs": "¿Qué es el Selector de Color?",
+      "whatIsContent": "Esta herramienta te permite seleccionar colores visualmente y obtener los códigos en varios formatos (HEX, RGB, HSL). ¡Perfecta para diseñadores y desarrolladores web! 🎨",
+      "useCases": {
+        "title": "Casos de Uso Comunes",
+        "webDevelopment": {
+          "title": "Desarrollo Web",
+          "description": "Elegir colores para sitios web y aplicaciones"
+        },
+        "uiuxDesign": {
+          "title": "Diseño UI/UX",
+          "description": "Crear paletas de colores para interfaces"
+        },
+        "cssStyling": {
+          "title": "Estilizado CSS",
+          "description": "Obtener códigos de color para hojas de estilo"
+        },
+        "appDevelopment": {
+          "title": "Desarrollo de Aplicaciones",
+          "description": "Seleccionar colores para aplicaciones móviles y de escritorio"
+        }
+      },
+      "proTips": {
+        "title": "💡 Consejos Profesionales",
+        "hex": "<strong>HEX:</strong> Más común para desarrollo web (#RRGGBB)",
+        "rgb": "<strong>RGB:</strong> Mejor para manipulación de color con JavaScript",
+        "hsl": "<strong>HSL:</strong> Más intuitivo para ajustar tonalidad, saturación y luminosidad",
+        "contrast": "<strong>Contraste:</strong> Asegurar suficiente contraste para accesibilidad (WCAG)"
+      },
+      "relatedTools": "🔗 Herramientas Relacionadas que Podrían Gustarte"
+    },
+    "qr-generator": {
+      "title": "Generador QR",
+      "description": "Generar códigos QR desde texto o URLs",
+      "inputLabel": "Ingrese Texto o URL",
+      "placeholder": "https://ejemplo.com",
+      "exampleUrl": "https://www.ejemplo.com",
+      "generate": "Generar Código QR",
+      "download": "Descargar Código QR",
+      "downloadPNG": "Descargar como PNG",
+      "downloadJPG": "Descargar como JPG",
+      "errorEmpty": "Por favor ingrese texto o URL",
+      "generated": "Código QR generado",
+      "downloadedPNG": "Código QR descargado como PNG",
+      "downloadedJPG": "Código QR descargado como JPG",
+      "downloadError": "Error al descargar código QR",
+      "convertError": "Error al convertir a JPG",
+      "cleared": "Texto limpiado",
+      "whatIs": "¿Qué es un Generador de Código QR?",
+      "whatIsContent": "Esta herramienta genera códigos QR desde texto o URLs. ¡Perfecta para tarjetas de presentación, promoción de eventos, compartir WiFi y campañas de marketing! 📱",
+      "useCases": {
+        "title": "Casos de Uso Comunes",
+        "businessCards": {
+          "title": "Tarjetas de Presentación",
+          "description": "Agregar código QR a <span class=\"inline-flex items-center px-2 py-0.5 rounded text-xs font-semibold bg-white text-blue-800 mx-1\">tarjetas de presentación</span> para compartir información de contacto rápidamente"
+        },
+        "wifiSharing": {
+          "title": "Compartir WiFi",
+          "description": "Compartir credenciales WiFi sin necesidad de escribir contraseña"
+        },
+        "eventPromotion": {
+          "title": "Promoción de Eventos",
+          "description": "Crear códigos QR para registro de eventos y venta de entradas"
+        },
+        "contactInfo": {
+          "title": "Información de Contacto",
+          "description": "Compartir perfiles de redes sociales e información de contacto instantáneamente"
+        }
+      },
+      "proTips": {
+        "title": "💡 Consejos Profesionales",
+        "short": "<strong>Mantener Corto:</strong> Los códigos QR funcionan mejor con textos cortos",
+        "test": "Probar Primero: Escanear con tu teléfono antes de imprimir",
+        "contrast": "Contraste: Usar alto contraste para mejor escaneo",
+        "instructions": "Instrucciones: Agregar texto de indicación cerca del código QR"
+      },
+      "relatedTools": "🔗 Herramientas Relacionadas que Podrían Gustarte"
+    },
+    "url-encoder": {
+      "title": "Codificador URL",
+      "description": "Codificar y decodificar componentes URL",
+      "encodeDecodeUrl": "Codificar/Decodificar URL",
+      "descriptionFull": "Codificar y decodificar componentes URL",
+      "urlInput": "Entrada URL",
+      "urlPlaceholder": "Ingrese URL o texto...",
+      "encode": "Codificar",
+      "decode": "Decodificar",
+      "output": "Salida",
+      "pleaseEnterUrl": "Por favor ingrese URL o texto",
+      "urlEncoded": "¡URL codificada!",
+      "urlDecoded": "¡URL decodificada!",
+      "copiedToClipboard": "¡Copiado al portapapeles!",
+      "allFieldsCleared": "Todos los campos limpiados",
+      "exampleLoaded": "Ejemplo cargado",
+      "encodeExample": "Ejemplo de Codificación",
+      "decodeExample": "Ejemplo de Decodificación",
+      "whatIs": "¿Qué es la Codificación URL?",
+      "whatIsContent": "La codificación URL convierte caracteres especiales en formato seguro para URLs. ¡Perfecta para parámetros de consulta y APIs! 🔗",
+      "useCases": {
+        "title": "Casos de Uso Comunes",
+        "webDevelopment": {
+          "title": "Desarrollo Web",
+          "description": "Codificar parámetros de consulta para transmisión segura de URL"
+        },
+        "apiIntegration": {
+          "title": "Integración API",
+          "description": "Manejar caracteres especiales en solicitudes y respuestas API"
+        },
+        "socialSharing": {
+          "title": "Compartir en Redes Sociales",
+          "description": "Codificar URLs para enlaces compartidos y correos electrónicos"
+        },
+        "dataStorage": {
+          "title": "Almacenamiento de Datos",
+          "description": "Almacenar URLs con caracteres especiales de forma segura en bases de datos"
+        }
+      },
+      "proTips": {
+        "title": "💡 Consejos Profesionales",
+        "spaces": "<strong>Espacios:</strong> Se codifican como %20 (o + en cadenas de consulta)",
+        "specialChars": "<strong>Caracteres Especiales:</strong> &, ?, #, = necesitan codificación en URLs",
+        "alwaysEncode": "<strong>Siempre Codificar:</strong> Codifique entradas de usuario antes de agregar a URLs",
+        "decodeFirst": "<strong>Decodificar Primero:</strong> Decodifique parámetros URL recibidos"
+      },
+      "relatedTools": "🔗 Herramientas Relacionadas que Podrían Gustarte"
+    },
+    "markdown-preview": {
+      "title": "Vista Previa Markdown",
+      "description": "Vista previa y conversión de Markdown en tiempo real",
+      "markdownPreview": "Vista Previa Markdown",
+      "descriptionFull": "Vista previa de Markdown en tiempo real",
+      "editor": "Editor",
+      "editorDescription": "Escriba su Markdown aquí",
+      "preview": "Vista Previa",
+      "previewDescription": "Vista previa de Markdown en tiempo real",
+      "markdownInput": "Entrada Markdown",
+      "placeholder": "# Comience a escribir su Markdown aquí...",
+      "markdownPlaceholder": "# Ingrese Markdown aquí...",
+      "initialText": "# Hola Markdown\n\nComience a escribir para ver la vista previa...",
+      "words": "palabras",
+      "characters": "caracteres",
+      "lines": "líneas",
+      "copyMarkdown": "Copiar Markdown",
+      "downloadMd": "Descargar .md",
+      "downloadHtml": "Descargar .html",
+      "copied": "Markdown copiado al portapapeles",
+      "downloadedMd": "Archivo Markdown descargado",
+      "downloadedHtml": "Archivo HTML descargado",
+      "exampleText": "# Ejemplo de Markdown\n\nEste es **texto en negrita** y *texto en cursiva*.\n\n## Características\n\n- Vista previa en tiempo real\n- Resaltado de sintaxis\n- Funcionalidad de exportación\n- ~~Característica antigua~~ (tachado)\n\n### Ejemplo de Código\n\nAquí hay algo de `código en línea` y un bloque de código:\n\n```javascript\nfunction hola() {\n  console.log(\"¡Hola, Mundo!\");\n}\n```\n\n### Enlaces y Citas\n\nVisita [GitHub](https://github.com) para más ejemplos.\n\n> Esta es una cita en bloque con información importante.\n\n### Lista Ordenada\n\n1. Primer elemento\n2. Segundo elemento\n3. Tercer elemento",
+      "whatIs": "¿Qué es la Vista Previa Markdown?",
+      "whatIsContent": "Esta herramienta proporciona vista previa y formato en tiempo real de texto Markdown. ¡Perfecta para archivos README, documentación y publicaciones de blog! 📝",
+      "useCases": {
+        "title": "Casos de Uso Comunes",
+        "readme": {
+          "title": "Archivos README",
+          "description": "Crear README de GitHub y documentación de proyectos"
+        },
+        "blog": {
+          "title": "Publicaciones de Blog",
+          "description": "Escribir y formatear contenido de blog con sintaxis Markdown"
+        },
+        "documentation": {
+          "title": "Documentación Técnica",
+          "description": "Crear documentación técnica y guías de usuario"
+        },
+        "codeDocs": {
+          "title": "Documentación de Código",
+          "description": "Documentar código con resaltado de sintaxis"
+        }
+      },
+      "proTips": {
+        "title": "💡 Consejos Profesionales",
+        "headers": "<strong>Encabezados:</strong> Use # para H1, ## para H2, y así sucesivamente",
+        "formatting": "<strong>Formato:</strong> **negrita**, *cursiva*, ~~tachado~~",
+        "code": "<strong>Código:</strong> Use ``` para bloques de código, ` para código en línea",
+        "links": "<strong>Enlaces:</strong> Use sintaxis [texto](URL) para crear enlaces"
+      },
+      "relatedTools": "🔗 Herramientas Relacionadas que Podrían Gustarte"
+    },
+    "hash-generator": {
+      "title": "Generador de Hash",
+      "description": "Generar hashes MD5, SHA-1 y SHA-256 desde texto",
+      "generateHashes": "Generar Hashes",
+      "inputText": "Texto de Entrada",
+      "placeholder": "Ingrese el texto para generar hash",
+      "pleaseEnterText": "Por favor ingrese texto",
+      "hashesGenerated": "¡Hashes generados exitosamente!",
+      "copiedToClipboard": "{{type}} copiado al portapapeles",
+      "md5NotAvailable": "MD5 no disponible en el navegador",
+      "exampleText": "¡Hola, mundo! Este es un texto de ejemplo para hash.",
+      "whatIs": "¿Qué es un Generador de Hash?",
+      "whatIsContent": "Esta herramienta genera hashes criptográficos (MD5, SHA-1, SHA-256) para verificación de integridad de datos y seguridad. ¡Perfecto para hash de contraseñas, verificación de archivos y autenticación de API! 🔒",
+      "useCases": {
+        "passwordSecurity": {
+          "title": "Seguridad de Contraseñas",
+          "description": "Hashear contraseñas para almacenamiento seguro en bases de datos"
+        },
+        "fileIntegrity": {
+          "title": "Integridad de Archivos",
+          "description": "Verificar la integridad de archivos mediante sumas de comprobación"
+        },
+        "apiAuthentication": {
+          "title": "Autenticación de API",
+          "description": "Generar tokens de autenticación basados en hash"
+        },
+        "dataSecurity": {
+          "title": "Seguridad de Datos",
+          "description": "Crear firmas digitales y verificar autenticidad de datos"
+        }
+      },
+      "proTips": {
+        "sha256": "<strong>SHA-256:</strong> La opción más segura para aplicaciones modernas",
+        "oneWay": "<strong>Una Vía:</strong> Las funciones hash no pueden revertirse",
+        "avoidMd5": "<strong>Evite MD5:</strong> No es seguro para aplicaciones críticas",
+        "verification": "<strong>Verificación:</strong> Compare hashes para verificar la integridad de archivos"
+      },
+      "relatedTools": "🔗 Herramientas Relacionadas"
+    },
+    "timestamp-converter": {
+      "title": "Convertidor de Marca de Tiempo",
+      "description": "Convertir entre fecha legible y marca de tiempo Unix",
+      "convertTimestamp": "Convertir Marca de Tiempo",
+      "descriptionFull": "Convertir entre fecha legible y marca de tiempo Unix",
+      "currentTimestamp": "Marca de Tiempo Actual",
+      "timestamp": "Marca de Tiempo",
+      "timestampPlaceholder": "Ingrese marca de tiempo Unix...",
+      "humanReadableDate": "Fecha Legible",
+      "convert": "Convertir",
+      "whatIs": "¿Qué es una Marca de Tiempo Unix?",
+      "whatIsContent": "Una marca de tiempo Unix es el número de segundos desde el 1 de enero de 1970. ¡Perfecta para programación y bases de datos! ⏰",
+      "relatedTools": "🔗 Herramientas Relacionadas que Podrían Gustarte"
+    },
+    "regex-tester": {
+      "title": "Probador de Expresiones Regulares",
+      "description": "Probar y depurar expresiones regulares en tiempo real",
+      "regexPattern": "Patrón de Expresión Regular",
+      "flags": "Indicadores",
+      "testString": "Cadena de Prueba",
+      "matches": "Coincidencias",
+      "noMatches": "No se encontraron coincidencias",
+      "copyMatches": "Copiar Coincidencias",
+      "matchesCopied": "¡Coincidencias copiadas!",
+      "copyTestString": "Copiar",
+      "testStringCopied": "¡Cadena de prueba copiada!",
+      "enterTextPlaceholder": "Ingrese el texto para probar",
+      "allFieldsCleared": "Todos los campos limpiados",
+      "exampleLoaded": "Ejemplo cargado",
+      "whatIs": "¿Qué es un Probador de Expresiones Regulares?",
+      "whatIsContent": "Esta herramienta prueba y depura expresiones regulares en tiempo real. ¡Perfecta para validación de texto, extracción de datos y coincidencia de patrones! 🔍",
+      "useCases": {
+        "validation": {
+          "title": "Validación de Formularios",
+          "description": "Validar direcciones de correo electrónico, números de teléfono y entradas de usuario"
+        },
+        "extraction": {
+          "title": "Extracción de Datos",
+          "description": "Extraer patrones específicos de textos y archivos de registro"
+        },
+        "searchReplace": {
+          "title": "Buscar y Reemplazar",
+          "description": "Buscar y reemplazar patrones de texto en código y documentos"
+        },
+        "programming": {
+          "title": "Programación",
+          "description": "Probar patrones regex antes de usarlos en el código"
+        }
+      },
+      "proTips": {
+        "anchors": "<strong>Anclajes:</strong> Use ^ para inicio de cadena, $ para final de cadena",
+        "shortcuts": "<strong>Atajos:</strong> \\d (dígitos), \\w (caracteres de palabra), \\s (espacios)",
+        "groups": "<strong>Grupos:</strong> Use () para captura y agrupación",
+        "testing": "<strong>Pruebas:</strong> Pruebe con varias entradas para garantizar precisión"
+      },
+      "relatedTools": "🔗 Herramientas Relacionadas que Podrían Gustarte"
+    },
+    "lorem-ipsum": {
+      "title": "Generador Lorem Ipsum",
+      "description": "Generar texto placeholder Lorem Ipsum",
+      "generateLoremIpsum": "Generar Lorem Ipsum",
+      "descriptionFull": "Generar texto placeholder Lorem Ipsum",
+      "numberOfParagraphs": "Número de Párrafos",
+      "paragraphs": "Párrafos",
+      "words": "Palabras",
+      "sentences": "Oraciones",
+      "generate": "Generar",
+      "generatedText": "Texto Generado",
+      "copiedToClipboard": "¡Copiado al portapapeles!",
+      "textGenerated": "¡Texto generado!",
+      "generated": "¡{{count}} párrafo generado!",
+      "generated_plural": "¡{{count}} párrafos generados!",
+      "whatIs": "¿Qué es Lorem Ipsum?",
+      "whatIsContent": "Lorem Ipsum es texto placeholder usado en diseño y maquetación. ¡Perfecto para diseñadores y desarrolladores! 📄",
+      "useCases": {
+        "webDesign": {
+          "title": "Diseño Web",
+          "description": "Usar texto placeholder para visualizar diseños de sitios web antes del contenido final"
+        },
+        "uiUxDesign": {
+          "title": "Diseño UI/UX",
+          "description": "Probar disposiciones de contenido y diseños de interfaz de usuario"
+        },
+        "typographyTesting": {
+          "title": "Prueba de Tipografía",
+          "description": "Evaluar legibilidad de fuentes y rendimiento tipográfico"
+        },
+        "clientPresentations": {
+          "title": "Presentaciones a Clientes",
+          "description": "Crear mockups realistas para revisiones y aprobaciones de clientes"
+        }
+      },
+      "proTips": {
+        "history": "<strong>Historia:</strong> Lorem Ipsum proviene de una obra clásica latina de 45 a.C.",
+        "focus": "<strong>Enfoque:</strong> Usar texto sin sentido ayuda a los clientes a enfocarse en el diseño, no en el contenido",
+        "mockups": "<strong>Mockups:</strong> Perfecto para prototipos rápidos y maquetas de diseño",
+        "consistency": "<strong>Consistencia:</strong> Proporciona texto uniforme para pruebas de disposición"
+      },
+      "relatedTools": "🔗 Herramientas Relacionadas que Podrían Gustarte"
+    },
+    "percentage-calculator": {
+      "title": "Calculadora de Porcentajes",
+      "description": "Calcular porcentajes, descuentos y crecimiento",
+      "whatPercentOf": "¿Qué porcentaje de?",
+      "percentOfWhat": "¿Porcentaje de qué?",
+      "calculatePercentage": "Calcular Porcentaje",
+      "calculateValue": "Calcular Valor desde Porcentaje",
+      "value": "Valor",
+      "total": "Total",
+      "percentage": "Porcentaje",
+      "whatIs": "¿Qué es una Calculadora de Porcentajes?",
+      "whatIsContent": "Esta herramienta calcula porcentajes para descuentos, impuestos, calificaciones y más. ¡Perfecta para cálculos financieros y matemáticas cotidianas! 📊",
+      "useCases": {
+        "title": "Casos de Uso Comunes",
+        "discount": {
+          "title": "Descuentos de Venta",
+          "description": "Calcular precios con descuento y ahorros al instante"
+        },
+        "tax": {
+          "title": "Cálculo de Impuestos",
+          "description": "Calcular impuestos sobre ventas, IVA y otros impuestos basados en porcentajes"
+        },
+        "metrics": {
+          "title": "Métricas Empresariales",
+          "description": "Rastrear tasas de crecimiento, márgenes de beneficio y porcentajes de rendimiento"
+        },
+        "budget": {
+          "title": "Planificación Presupuestaria",
+          "description": "Calcular porcentajes de gastos y objetivos de ahorro"
+        }
+      },
+      "proTips": {
+        "title": "💡 Consejos Profesionales",
+        "definition": "Definición: Porcentaje significa por cada cien (50% = 50/100)",
+        "tips": "Propinas: Calcule propinas fácilmente (15-20% de la cuenta)",
+        "comparison": "Comparación: Ideal para comparar valores y proporciones",
+        "decimals": "Decimales: Admite decimales para mayor precisión"
+      },
+      "relatedTools": "🔗 Herramientas Relacionadas que Podrían Gustarte"
+    },
+    "bmi-calculator": {
+      "title": "Calculadora de IMC",
+      "description": "Calcular su Índice de Masa Corporal y estado de salud",
+      "bodyMassIndex": "Calculadora de Índice de Masa Corporal",
+      "height": "Altura (cm)",
+      "weight": "Peso (kg)",
+      "calculate": "Calcular IMC",
+      "yourBmi": "Su IMC",
+      "category": "Categoría",
+      "categories": {
+        "underweight": "Bajo Peso",
+        "normal": "Peso Normal",
+        "overweight": "Sobrepeso",
+        "obese": "Obesidad"
+      },
+      "ranges": {
+        "underweight": "• Bajo Peso: IMC < 18.5",
+        "normal": "• Peso Normal: IMC 18.5 - 24.9",
+        "overweight": "• Sobrepeso: IMC 25 - 29.9",
+        "obese": "• Obesidad: IMC ≥ 30"
+      },
+      "whatIs": "¿Qué es una Calculadora de IMC?",
+      "whatIsContent": "Esta herramienta calcula su Índice de Masa Corporal (IMC) basándose en la altura y el peso. ¡Perfecta para evaluación de salud, seguimiento de fitness y gestión de peso! 💪",
+      "useCases": {
+        "health": {
+          "title": "Evaluación de Salud",
+          "description": "Monitorear su IMC para evaluación de salud general"
+        },
+        "weight": {
+          "title": "Gestión de Peso",
+          "description": "Rastrear progreso durante la pérdida o ganancia de peso"
+        },
+        "fitness": {
+          "title": "Seguimiento de Fitness",
+          "description": "Monitorear cambios de IMC como parte de objetivos de fitness"
+        },
+        "diet": {
+          "title": "Planificación de Dieta",
+          "description": "Usar el IMC como referencia para objetivos nutricionales"
+        }
+      },
+      "proTips": {
+        "screening": "<strong>Herramienta de Detección:</strong> El IMC no es una medida de diagnóstico",
+        "normalRange": "<strong>Rango Normal:</strong> 18.5-24.9 se considera saludable",
+        "consultExperts": "<strong>Consulte Expertos:</strong> Obtenga asesoramiento de salud personalizado",
+        "limitations": "<strong>Limitaciones:</strong> Puede no ser preciso para atletas o ancianos"
+      },
+      "relatedTools": "🔗 Herramientas Relacionadas que Podrían Gustarte"
+    },
+    "loan-calculator": {
+      "title": "Calculadora de Préstamos",
+      "description": "Calcular pagos mensuales y interés total",
+      "calculateYourLoan": "Calcule su Préstamo",
+      "descriptionFull": "Calcular pago mensual, costo total e interés",
+      "loanAmount": "Monto del Préstamo",
+      "interestRate": "Tasa de Interés (%)",
+      "loanTerm": "Plazo del Préstamo",
+      "years": "Años",
+      "months": "Meses",
+      "calculate": "Calcular",
+      "monthlyPayment": "Pago Mensual",
+      "totalPayment": "Pago Total",
+      "totalInterest": "Interés Total",
+      "loanCalculated": "¡Préstamo calculado exitosamente!",
+      "enterValidValues": "Por favor ingrese valores válidos para todos los campos",
+      "allFieldsCleared": "Todos los campos limpiados",
+      "exampleLoaded": "Ejemplo cargado",
+      "whatIs": "¿Qué es una Calculadora de Préstamos?",
+      "whatIsContent": "Esta herramienta calcula el pago mensual, interés total y monto del pago de préstamos. ¡Perfecta para hipotecas, préstamos de automóviles y planificación de préstamos personales! 🏦",
+      "useCases": {
+        "mortgage": {
+          "title": "Planificación Hipotecaria",
+          "description": "Calcular pagos de préstamos hipotecarios y asequibilidad"
+        },
+        "auto": {
+          "title": "Préstamos de Automóvil",
+          "description": "Comparar opciones de financiamiento de automóviles y pagos mensuales"
+        },
+        "business": {
+          "title": "Préstamos Comerciales",
+          "description": "Evaluar financiamiento comercial y planes de pago"
+        },
+        "refinancing": {
+          "title": "Refinanciamiento",
+          "description": "Comparar opciones de refinanciamiento para ahorrar en intereses"
+        }
+      },
+      "proTips": {
+        "interestRate": "<strong>Tasa de Interés:</strong> Las tasas más bajas reducen significativamente el costo total",
+        "loanTerm": "<strong>Plazo del Préstamo:</strong> Plazos más cortos = pagos mensuales más altos, menos interés",
+        "budget": "<strong>Presupuesto:</strong> Asegúrese de que los pagos mensuales se ajusten a su presupuesto",
+        "compare": "<strong>Comparar:</strong> Compare diferentes opciones para encontrar las mejores tasas"
+      },
+      "relatedTools": "🔗 Herramientas Relacionadas que Podrían Gustarte"
+    },
+    "interest-calculator": {
+      "title": "Calculadora de Interés",
+      "description": "Calcular interés simple y compuesto",
+      "simpleInterest": "Interés Simple",
+      "compoundInterest": "Interés Compuesto",
+      "simpleFormula": "I = P × R × T",
+      "compoundFormula": "A = P(1 + r/n)^(nt)",
+      "principalAmount": "Monto Principal",
+      "annualRate": "Tasa Anual (%)",
+      "timePeriod": "Período de Tiempo (años)",
+      "compoundFrequency": "Frecuencia de Capitalización (veces/año)",
+      "frequencyHint": "1=Anual, 4=Trimestral, 12=Mensual, 365=Diaria",
+      "calculateSimple": "Calcular Interés Simple",
+      "calculateCompound": "Calcular Interés Compuesto",
+      "interestEarned": "Interés Ganado",
+      "totalAmount": "Monto Total",
+      "finalAmount": "Monto Final",
+      "invalidNumbers": "Por favor ingrese números válidos",
+      "mustBePositive": "Todos los valores deben ser mayores a 0",
+      "simpleCalculated": "¡Interés simple calculado!",
+      "compoundCalculated": "¡Interés compuesto calculado!",
+      "fieldsCleared": "Campos limpiados",
+      "exampleLoaded": "Ejemplo cargado",
+      "whatIs": "¿Qué es una Calculadora de Interés?",
+      "whatIsContent": "Esta herramienta calcula interés simple y compuesto para ahorros e inversiones. ¡Perfecta para planificación financiera y comprender el crecimiento del dinero! 💰",
+      "useCases": {
+        "savings": {
+          "title": "Cuentas de Ahorro",
+          "description": "Calcular el interés ganado en ahorros a lo largo del tiempo"
+        },
+        "investment": {
+          "title": "Planificación de Inversiones",
+          "description": "Predecir retornos de inversión con interés compuesto"
+        },
+        "retirement": {
+          "title": "Planificación de Jubilación",
+          "description": "Calcular el crecimiento de ahorros a largo plazo para la jubilación"
+        },
+        "loan": {
+          "title": "Interés de Préstamos",
+          "description": "Calcular costos de interés en préstamos y deudas"
+        }
+      },
+      "proTips": {
+        "compound": "<strong>Interés Compuesto:</strong> Crece más rápido que el interés simple",
+        "frequency": "<strong>Frecuencia:</strong> Mayor frecuencia de capitalización = más crecimiento",
+        "longTerm": "<strong>Largo Plazo:</strong> Use interés compuesto para inversiones de varios años",
+        "impact": "<strong>Impacto:</strong> Tasas de interés más altas aumentan significativamente los retornos"
+      },
+      "relatedTools": "🔗 Herramientas Relacionadas que Podrían Gustarte"
+    },
+    "investment-calculator": {
+      "title": "Calculadora de Inversión",
+      "description": "Estimar retornos de inversión",
+      "calculateGrowth": "Calcular Crecimiento de Inversión",
+      "descriptionFull": "Estimar los retornos de su inversión a lo largo del tiempo",
+      "initialInvestment": "Inversión Inicial",
+      "monthlyContribution": "Contribución Mensual",
+      "expectedReturn": "Retorno Anual Esperado (%)",
+      "investmentPeriod": "Período de Inversión (años)",
+      "calculate": "Calcular Inversión",
+      "futureValue": "Valor Futuro",
+      "totalContributions": "Contribuciones Totales",
+      "totalEarnings": "Ganancias Totales",
+      "investmentCalculated": "¡Cálculo de inversión completado!",
+      "allFieldsCleared": "Todos los campos limpiados",
+      "exampleLoaded": "Ejemplo cargado",
+      "whatIs": "¿Qué es una Calculadora de Inversión?",
+      "whatIsContent": "Esta herramienta calcula el valor futuro de la inversión con contribuciones mensuales. ¡Perfecta para planificación de jubilación, ahorros educativos y acumulación de riqueza! 📈",
+      "useCases": {
+        "retirement": {
+          "title": "Planificación de Jubilación",
+          "description": "Calcular el crecimiento de ahorros para la jubilación durante décadas"
+        },
+        "education": {
+          "title": "Ahorros Educativos",
+          "description": "Planificar fondos universitarios y gastos educativos"
+        },
+        "wealth": {
+          "title": "Acumulación de Riqueza",
+          "description": "Rastrear el crecimiento de cartera de inversiones a largo plazo y retornos"
+        },
+        "goals": {
+          "title": "Objetivos Financieros",
+          "description": "Establecer y alcanzar hitos financieros específicos"
+        }
+      },
+      "proTips": {
+        "startEarly": "<strong>Comience Temprano:</strong> El tiempo maximiza el crecimiento compuesto",
+        "regular": "<strong>Contribuciones Regulares:</strong> Los ahorros mensuales se acumulan significativamente",
+        "returns": "<strong>Retornos:</strong> El mercado de valores promedia 8-10% anualmente",
+        "risk": "<strong>Riesgo:</strong> Considere su tolerancia al riesgo al estimar retornos"
+      },
+      "relatedTools": "🔗 Herramientas Relacionadas que Podrían Gustarte"
+    },
+    "currency-converter": {
+      "title": "Convertidor de Divisas",
+      "description": "Conversión de divisas con tasas de cambio en tiempo real",
+      "convertCurrency": "Convertir Divisas",
+      "amount": "Monto",
+      "from": "De",
+      "to": "A",
+      "convert": "Convertir",
+      "converting": "Convirtiendo...",
+      "pleaseEnterValidAmount": "Por favor ingrese un monto válido",
+      "conversionSuccessful": "¡Conversión exitosa!",
+      "conversionFailed": "Falló la conversión de divisas",
+      "fetchFailed": "Falló la obtención de tasas de cambio",
+      "currencies": {
+        "usd": "Dólar Estadounidense",
+        "eur": "Euro",
+        "gbp": "Libra Esterlina",
+        "jpy": "Yen Japonés",
+        "cny": "Yuan Chino",
+        "cad": "Dólar Canadiense",
+        "aud": "Dólar Australiano",
+        "chf": "Franco Suizo",
+        "inr": "Rupia India",
+        "krw": "Won Surcoreano"
+      },
+      "whatIs": "¿Qué es un Convertidor de Divisas?",
+      "whatIsContent": "Esta herramienta convierte entre divisas usando tasas de cambio en tiempo real. ¡Perfecta para viajes, compras y negocios internacionales! 💱",
+      "useCases": {
+        "travel": {
+          "title": "Viajes Internacionales",
+          "description": "Convertir divisas para viajes al extranjero"
+        },
+        "shopping": {
+          "title": "Compras en Línea",
+          "description": "Calcular precios de tiendas internacionales"
+        },
+        "business": {
+          "title": "Transacciones Comerciales",
+          "description": "Convertir divisas para pagos y facturas internacionales"
+        },
+        "investment": {
+          "title": "Análisis de Inversiones",
+          "description": "Rastrear inversiones y retornos extranjeros"
+        }
+      },
+      "proTips": {
+        "realTime": "<strong>Tiempo Real:</strong> Las tasas de cambio se actualizan automáticamente",
+        "fees": "<strong>Comisiones:</strong> Considere las tarifas de cambio en transacciones reales",
+        "variations": "<strong>Variaciones:</strong> Las tasas varían entre diferentes servicios",
+        "estimates": "<strong>Estimaciones:</strong> Use para comparaciones rápidas"
+      },
+      "relatedTools": "🔗 Herramientas Relacionadas"
+    },
+    "credit-card-calculator": {
+      "title": "Calculadora de Tarjeta de Crédito",
+      "description": "Calcular pagos de deuda de tarjeta de crédito",
+      "calculatePayoff": "Calcular Liquidación de Tarjeta de Crédito",
+      "descriptionFull": "Calcule cuánto tiempo tomará liquidar su deuda de tarjeta de crédito",
+      "currentBalance": "Saldo Actual ($)",
+      "annualRate": "TAE Anual (%)",
+      "monthlyPayment": "Pago Mensual ($)",
+      "calculate": "Calcular Liquidación",
+      "timeToPayOff": "Tiempo para Liquidar",
+      "totalPaid": "Total Pagado",
+      "totalInterest": "Interés Total",
+      "never": "Nunca (el pago es demasiado bajo)",
+      "year": "año",
+      "years": "años",
+      "month": "mes",
+      "months": "meses",
+      "calculationCompleted": "¡Cálculo completado!",
+      "allFieldsCleared": "Todos los campos limpiados",
+      "exampleLoaded": "Ejemplo cargado",
+      "whatIs": "¿Qué es una Calculadora de Tarjeta de Crédito?",
+      "whatIsContent": "Esta herramienta calcula cuánto tiempo tomará liquidar su deuda de tarjeta de crédito y cuánto pagará en intereses. ¡Perfecta para planificación de pago de deudas y ahorro en costos de intereses! 💳",
+      "useCases": {
+        "debt": {
+          "title": "Planificación de Liquidación de Deudas",
+          "description": "Planificar estrategia de liquidación de deudas de tarjetas de crédito y cronogramas"
+        },
+        "interest": {
+          "title": "Ahorro en Intereses",
+          "description": "Calcular cuánto interés pagará durante el período de pago"
+        },
+        "budget": {
+          "title": "Gestión Presupuestaria",
+          "description": "Ajustar pagos mensuales para alinearlos con su presupuesto"
+        },
+        "strategy": {
+          "title": "Comparación de Estrategias de Pago",
+          "description": "Comparar diferentes escenarios de pago para encontrar el mejor enfoque"
+        }
+      },
+      "proTips": {
+        "higherPayments": "<strong>Pagos Más Altos:</strong> Pagos mensuales más altos = deuda liquidada más rápido y menos interés",
+        "minimumPayments": "<strong>Pagos Mínimos:</strong> Los pagos mínimos pueden tardar décadas en liquidar el saldo",
+        "payMore": "<strong>Pague Más:</strong> Incluso $50 extra al mes pueden ahorrar miles en intereses",
+        "lowerAPR": "<strong>TAE Más Baja:</strong> Considere transferir saldo a tarjetas con menor TAE para ahorrar en intereses"
+      },
+      "relatedTools": "🔗 Herramientas Relacionadas que Podrían Gustarte"
+    },
+    "unit-converter": {
+      "title": "Convertidor de Unidades",
+      "description": "Convertir entre diferentes unidades de medida",
+      "length": "Longitud",
+      "weight": "Peso",
+      "lengthConverter": "Convertidor de Longitud",
+      "weightConverter": "Convertidor de Peso",
+      "lengthDescription": "Convertir entre diferentes unidades de longitud",
+      "weightDescription": "Convertir entre diferentes unidades de peso",
+      "cleared": "Limpiado",
+      "exampleLoaded": "Ejemplo cargado",
+      "units": {
+        "meters": "Metros",
+        "kilometers": "Kilómetros",
+        "centimeters": "Centímetros",
+        "millimeters": "Milímetros",
+        "miles": "Millas",
+        "yards": "Yardas",
+        "feet": "Pies",
+        "inches": "Pulgadas",
+        "kilograms": "Kilogramos",
+        "grams": "Gramos",
+        "pounds": "Libras",
+        "ounces": "Onzas",
+        "tons": "Toneladas"
+      },
+      "whatIs": "¿Qué es un Convertidor de Unidades?",
+      "whatIsContent": "Esta herramienta convierte longitud y peso entre unidades métricas e imperiales. ¡Perfecta para viajes, cocina y construcción! 📏",
+      "useCases": {
+        "travel": {
+          "title": "Viajes Internacionales",
+          "description": "Convertir unidades métricas/imperiales entre países"
+        },
+        "cooking": {
+          "title": "Cocina y Repostería",
+          "description": "Convertir medidas de recetas de diferentes regiones"
+        },
+        "construction": {
+          "title": "Construcción",
+          "description": "Convertir medidas para proyectos de construcción"
+        },
+        "fitness": {
+          "title": "Seguimiento de Fitness",
+          "description": "Rastrear peso y medidas en sus unidades preferidas"
+        }
+      },
+      "proTips": {
+        "metric": "<strong>Sistema Métrico:</strong> Usado por la mayoría de países del mundo",
+        "weight": "<strong>Peso:</strong> 1 kilogramo = 2.20462 libras",
+        "length": "<strong>Longitud:</strong> 1 metro = 3.28084 pies",
+        "recipes": "<strong>Recetas:</strong> Siempre verifique las unidades de recetas de otros países"
+      },
+      "relatedTools": "🔗 Herramientas Relacionadas que Podrían Gustarte"
+    },
+    "age-calculator": {
+      "title": "Calculadora de Edad",
+      "description": "Calcular edad exacta (años, meses, días)",
+      "calculateYourAge": "Calcule Su Edad",
+      "dateOfBirth": "Fecha de Nacimiento",
+      "calculateAge": "Calcular Edad",
+      "ageCalculated": "¡Edad calculada!",
+      "yourAge": "Su Edad",
+      "years": "Años",
+      "months": "Meses",
+      "days": "Días",
+      "totalDays": "Total de Días",
+      "whatIs": "¿Qué es una Calculadora de Edad?",
+      "whatIsContent": "Esta herramienta calcula su edad exacta (años, meses, días) basándose en su fecha de nacimiento. ¡Perfecta para documentación, celebración de hitos y planificación de cumpleaños! 🎂",
+      "useCases": {
+        "birthdayPlanning": {
+          "title": "Planificación de Cumpleaños",
+          "description": "Calcular hitos y planificar celebraciones especiales"
+        },
+        "documentation": {
+          "title": "Documentación",
+          "description": "Obtener edad exacta para documentos oficiales y aplicaciones"
+        },
+        "schoolEnrollment": {
+          "title": "Inscripción Escolar",
+          "description": "Verificar requisitos de edad para inscripción educativa"
+        },
+        "ageVerification": {
+          "title": "Verificación de Edad",
+          "description": "Comprobar elegibilidad para actividades con restricción de edad"
+        }
+      },
+      "proTips": {
+        "exactAge": "<strong>Edad Exacta:</strong> Muestra años, meses y días con precisión",
+        "milestones": "<strong>Hitos:</strong> Perfecto para planear cumpleaños especiales",
+        "documents": "<strong>Documentos:</strong> Usar para verificación oficial de edad",
+        "eligibility": "<strong>Elegibilidad:</strong> Verifique fácilmente requisitos de edad"
+      },
+      "relatedTools": "🔗 Herramientas Relacionadas que Podrían Gustarte"
+    },
+    "date-calculator": {
+      "title": "Calculadora de Fechas",
+      "description": "Calcular la diferencia entre dos fechas",
+      "calculateDateDifference": "Calcular Diferencia de Fechas",
+      "startDate": "Fecha de Inicio",
+      "endDate": "Fecha de Fin",
+      "calculateDifference": "Calcular Diferencia",
+      "dateDifferenceCalculated": "¡Diferencia de fechas calculada!",
+      "difference": "Diferencia",
+      "days": "Días",
+      "weeks": "Semanas",
+      "months": "Meses",
+      "years": "Años",
+      "or": "o",
+      "whatIs": "¿Qué es una Calculadora de Fechas?",
+      "whatIsContent": "Esta herramienta calcula la diferencia entre dos fechas (días, semanas, meses, años). ¡Perfecta para planificación de eventos, gestión de proyectos y seguimiento de fechas límite! 📅",
+      "useCases": {
+        "eventPlanning": {
+          "title": "Planificación de Eventos",
+          "description": "Calcular cuenta regresiva para bodas, cumpleaños y eventos especiales"
+        },
+        "projectManagement": {
+          "title": "Gestión de Proyectos",
+          "description": "Rastrear cronogramas de proyectos y duración de hitos"
+        },
+        "anniversaryTracking": {
+          "title": "Seguimiento de Aniversarios",
+          "description": "Calcular años y días para aniversarios especiales"
+        },
+        "deadlineManagement": {
+          "title": "Gestión de Fechas Límite",
+          "description": "Monitorear tiempo restante para fechas límite importantes"
+        }
+      },
+      "proTips": {
+        "multipleUnits": "<strong>Múltiples Unidades:</strong> Los resultados se muestran en días, semanas, meses y años",
+        "leapYears": "<strong>Años Bisiestos:</strong> Calcula automáticamente años bisiestos",
+        "planning": "<strong>Planificación:</strong> Perfecto para cronogramas de eventos y proyectos",
+        "business": "<strong>Negocios:</strong> Útil para cálculos legales y contractuales"
+      },
+      "relatedTools": "🔗 Herramientas Relacionadas que Podrían Gustarte"
+    },
+    "random-picker": {
+      "title": "Selector Aleatorio",
+      "description": "Seleccionar elementos aleatorios de una lista",
+      "randomNameItemPicker": "Selector Aleatorio de Nombres/Elementos",
+      "descriptionFull": "Seleccione aleatoriamente un ganador o elemento de su lista",
+      "placeholder": "Ingrese cada elemento en una nueva línea:\nAlicia\nBob\nCarlos\nDiana\nEva",
+      "pickRandomWinner": "Seleccionar Ganador Aleatorio",
+      "winner": "🎉 Ganador",
+      "pleaseEnterItem": "Por favor ingrese al menos un elemento",
+      "winnerSelected": "¡Ganador seleccionado!",
+      "exampleNames": "Alicia\nBob\nCarlos\nDiana\nEva\nFrank\nGrace\nHenry\nIvy\nJack",
+      "whatIs": "¿Qué es un Selector Aleatorio?",
+      "whatIsContent": "Esta herramienta selecciona aleatoriamente un elemento de su lista. ¡Perfecta para sorteos, rifas, concursos y toma de decisiones justas! 🎲",
+      "useCases": {
+        "contestGiveaways": {
+          "title": "Concursos y Sorteos",
+          "description": "Seleccionar ganadores aleatorios para concursos de redes sociales y sorteos"
+        },
+        "raffleDrawings": {
+          "title": "Sorteos de Rifas",
+          "description": "Realizar sorteos de rifas justos para eventos y recaudación de fondos"
+        },
+        "teamAssignments": {
+          "title": "Asignaciones de Equipos",
+          "description": "Asignar aleatoriamente miembros a equipos o grupos de proyecto"
+        },
+        "decisionMaking": {
+          "title": "Toma de Decisiones",
+          "description": "Tomar decisiones imparciales cuando no puede decidir entre opciones"
+        }
+      },
+      "proTips": {
+        "onePerLine": "<strong>Uno por Línea:</strong> Ingrese cada nombre o elemento en una línea separada",
+        "fairSelection": "<strong>Selección Justa:</strong> Cada elemento tiene la misma probabilidad de ser elegido",
+        "screenshot": "<strong>Captura de Pantalla:</strong> Capturar el resultado para fines de registro",
+        "socialMedia": "<strong>Redes Sociales:</strong> Ideal para sorteos de Instagram, Facebook y Twitter"
+      },
+      "relatedTools": "🔗 Herramientas Relacionadas que Podrían Gustarte"
+    },
+    "image-compressor": {
+      "title": "Compresor de Imágenes",
+      "description": "Comprimir imágenes para reducir tamaño de archivo",
+      "compressImages": "Comprimir Imágenes",
+      "descriptionFull": "Reducir tamaño de archivo de imágenes sin perder mucha calidad",
+      "uploadImage": "Subir Imagen",
+      "original": "Original",
+      "compressed": "Comprimida",
+      "outputFormat": "Formato de Salida",
+      "quality": "Calidad",
+      "lowQuality": "Baja Calidad",
+      "highQuality": "Alta Calidad",
+      "compressImageButton": "Comprimir Imagen",
+      "download": "Descargar",
+      "pleaseUploadImage": "Por favor suba una imagen válida",
+      "imageTooLarge": "La imagen es demasiado grande (máximo 10MB)",
+      "imageLoaded": "Imagen cargada ({{size}} KB)",
+      "failedToRead": "Error al leer la imagen",
+      "uploadImageFirst": "Por favor suba una imagen primero",
+      "compressedSuccess": "¡Imagen comprimida! Tamaño: {{size}} KB (reducción del {{reduction}}%)",
+      "failedToLoad": "Error al cargar la imagen",
+      "compressFirst": "Por favor comprima la imagen primero",
+      "imageDownloaded": "¡Imagen descargada!",
+      "allFieldsCleared": "Todos los campos limpiados",
+      "exampleImageLoaded": "Imagen de ejemplo cargada",
+      "whatIs": "¿Qué es un Compresor de Imágenes?",
+      "whatIsContent": "Esta herramienta reduce el tamaño de archivo de imágenes manteniendo la calidad visual. ¡Perfecta para optimización web, adjuntos de correo y cargas más rápidas! 🖼️",
+      "useCases": {
+        "webOptimization": {
+          "title": "Optimización Web",
+          "description": "Acelerar tiempos de carga de sitios web reduciendo tamaños de imagen"
+        },
+        "emailAttachments": {
+          "title": "Adjuntos de Email",
+          "description": "Reducir tamaños de imagen para cumplir límites de adjuntos de correo"
+        },
+        "ecommerce": {
+          "title": "Imágenes de Comercio Electrónico",
+          "description": "Optimizar imágenes de productos para carga más rápida"
+        },
+        "mobileApps": {
+          "title": "Aplicaciones Móviles",
+          "description": "Reducir uso de datos y mejorar rendimiento de apps"
+        }
+      },
+      "proTips": {
+        "webUse": "<strong>Uso Web:</strong> 60-80% de calidad es ideal para imágenes web",
+        "tradeOff": "<strong>Equilibrio:</strong> Menor calidad = archivos más pequeños pero calidad reducida",
+        "testing": "<strong>Pruebas:</strong> Compare calidades diferentes para encontrar el equilibrio perfecto",
+        "performance": "<strong>Rendimiento:</strong> WebP ofrece mejor compresión que JPEG/PNG"
+      },
+      "relatedTools": "🔗 Herramientas Relacionadas que Podrían Gustarte"
+    },
+    "image-resizer": {
+      "title": "Redimensionador de Imágenes",
+      "description": "Redimensionar imágenes a dimensiones personalizadas",
+      "resizeImages": "Redimensionar Imágenes",
+      "changeDimensions": "Cambiar las dimensiones de las imágenes a cualquier tamaño",
+      "uploadImage": "Subir Imagen",
+      "width": "Ancho (px)",
+      "height": "Alto (px)",
+      "resizeDownload": "Redimensionar y Descargar",
+      "pleaseUploadImage": "Por favor suba una imagen válida",
+      "imageTooLarge": "La imagen es demasiado grande (máximo 10MB)",
+      "imageLoaded": "Imagen cargada ({{width}} x {{height}} px)",
+      "failedToLoad": "Error al cargar la imagen",
+      "failedToRead": "Error al leer la imagen",
+      "uploadImageFirst": "Por favor suba una imagen primero",
+      "imageResized": "¡Imagen redimensionada y descargada!",
+      "allFieldsCleared": "Todos los campos limpiados",
+      "exampleImageLoaded": "Imagen de ejemplo cargada",
+      "whatIs": "¿Qué es un Redimensionador de Imágenes?",
+      "whatIsContent": "Esta herramienta cambia las dimensiones de las imágenes a cualquier ancho y alto deseado. ¡Perfecta para optimización web, publicación en redes sociales y garantizar tamaños de imagen consistentes! 📐",
+      "useCases": {
+        "social": {
+          "title": "Redes Sociales",
+          "description": "Redimensionar imágenes para publicaciones perfectas en"
+        },
+        "web": {
+          "title": "Optimización Web",
+          "description": "Ajustar imágenes a las dimensiones exactas requeridas para su sitio web"
+        },
+        "mobile": {
+          "title": "Compatibilidad Móvil",
+          "description": "Redimensionar imágenes para pantallas de dispositivos móviles"
+        },
+        "thumbnails": {
+          "title": "Crear Miniaturas",
+          "description": "Generar versiones más pequeñas de imágenes para vistas previas y galerías"
+        }
+      },
+      "proTips": {
+        "platformSizes": "<strong>Tamaños de Plataforma:</strong> Instagram: 1080x1080, Twitter: 1200x675, Facebook: 1200x630",
+        "aspectRatio": "<strong>Relación de Aspecto:</strong> Mantenga la proporción para evitar distorsión",
+        "workflow": "<strong>Flujo de Trabajo:</strong> Redimensione primero, luego comprima para mejores resultados",
+        "devices": "<strong>Dispositivos:</strong> Considere múltiples tamaños de pantalla al redimensionar"
+      },
+      "relatedTools": "🔗 Herramientas Relacionadas que Podrían Gustarte"
+    },
+    "text-sorter": {
+      "title": "Ordenador de Texto",
+      "description": "Ordenar líneas de texto alfabéticamente",
+      "sortTextLines": "Ordenar Líneas de Texto",
+      "inputText": "Texto de Entrada",
+      "placeholder": "Ingrese texto (un elemento por línea)...",
+      "ascOrder": "A → Z",
+      "descOrder": "Z → A",
+      "sortLines": "Ordenar Líneas",
+      "sortedOutput": "Salida Ordenada",
+      "linesSorted": "líneas ordenadas",
+      "exampleText": "Cebra\nManzana\nPlátano\nCereza\nDátil",
+      "whatIs": "¿Qué es un Ordenador de Texto?",
+      "whatIsContent": "Esta herramienta le ayuda a ordenar líneas de texto alfabéticamente en orden ascendente (A→Z) o descendente (Z→A). ¡Perfecta para organizar rápidamente listas, nombres, datos y cualquier contenido de texto! 📋",
+      "useCases": {
+        "listOrganization": {
+          "title": "Organización de Listas",
+          "description": "Ordenar nombres, elementos o cualquier lista alfabéticamente para fácil referencia"
+        },
+        "dataPreparation": {
+          "title": "Preparación de Datos",
+          "description": "Organizar datos antes de importar a hojas de cálculo"
+        },
+        "contactLists": {
+          "title": "Listas de Contactos",
+          "description": "Ordenar nombres, correos o números de teléfono alfabéticamente"
+        },
+        "inventoryManagement": {
+          "title": "Gestión de Inventario",
+          "description": "Organizar nombres de productos o códigos SKU para catálogos"
+        }
+      },
+      "proTips": {
+        "onePerLine": "<strong>Uno por Línea:</strong> Cada línea se trata como un elemento separado",
+        "ascOrder": "<strong>A→Z:</strong> Use orden ascendente para ordenamiento alfabético estándar",
+        "descOrder": "<strong>Z→A:</strong> Use orden descendente para ordenamiento inverso",
+        "caseSensitive": "<strong>Sensible a Mayúsculas:</strong> Las letras mayúsculas aparecen antes que las minúsculas"
+      },
+      "relatedTools": "🔗 Herramientas Relacionadas que Podrían Gustarte"
+    },
+    "html-to-text": {
+      "title": "HTML a Texto",
+      "description": "Convertir HTML a texto plano",
+      "convertHtmlToPlainText": "Convertir HTML a Texto Plano",
+      "htmlInput": "Entrada HTML",
+      "placeholder": "<html>\n  <body>\n    <h1>Título</h1>\n    <p>Contenido de párrafo</p>\n  </body>\n</html>",
+      "convertToText": "Convertir a Texto",
+      "plainTextOutput": "Salida de Texto Plano",
+      "convertedSuccessfully": "¡HTML convertido exitosamente a texto plano!",
+      "exampleHtml": "<!DOCTYPE html>\n<html>\n<head>\n  <title>Página de Ejemplo</title>\n</head>\n<body>\n  <h1>Bienvenido a la Conversión HTML a Texto</h1>\n  <p>Esta es una herramienta <strong>poderosa</strong> para extraer contenido de texto plano de HTML.</p>\n  <ul>\n    <li>Elimina todas las etiquetas HTML</li>\n    <li>Conserva el contenido del texto</li>\n    <li>Limpia el formato</li>\n  </ul>\n  <p>¡Ideal para análisis de contenido y procesamiento de datos!</p>\n</body>\n</html>",
+      "whatIs": "¿Qué es HTML a Texto?",
+      "whatIsContent": "Esta herramienta extrae texto plano del código HTML eliminando todas las etiquetas y formato. ¡Perfecta para limpieza de contenido, extracción de datos y análisis de texto! 📄",
+      "useCases": {
+        "emailExtraction": {
+          "title": "Extracción de Contenido de Email",
+          "description": "Extraer texto plano de correos HTML para análisis"
+        },
+        "webScraping": {
+          "title": "Extracción Web",
+          "description": "Obtener contenido de texto de páginas web"
+        },
+        "dataCleaning": {
+          "title": "Limpieza de Datos",
+          "description": "Limpiar código HTML de bases de datos y archivos"
+        },
+        "contentAnalysis": {
+          "title": "Análisis de Contenido",
+          "description": "Analizar contenido de texto sin elementos HTML"
+        }
+      },
+      "proTips": {
+        "cleanText": "<strong>Texto Limpio:</strong> Elimina todas las etiquetas HTML y atributos",
+        "webPages": "<strong>Páginas Web:</strong> Perfecto para extraer contenido de páginas HTML",
+        "email": "<strong>Correos HTML:</strong> Convierte correos HTML a formato de texto plano",
+        "analysis": "<strong>Análisis:</strong> Úsalo antes del análisis de texto o conteo de palabras"
+      },
+      "relatedTools": "🔗 Herramientas Relacionadas que Podrían Gustarte"
+    },
+    "text-replacer": {
+      "title": "Reemplazador de Texto",
+      "description": "Buscar y reemplazar texto con soporte para expresiones regulares",
+      "findAndReplace": "Buscar y Reemplazar",
+      "descriptionFull": "Buscar y reemplazar texto con sensibilidad a mayúsculas y soporte para regex",
+      "inputText": "Texto de Entrada",
+      "inputPlaceholder": "Ingrese su texto aquí...",
+      "find": "Buscar",
+      "findPlaceholder": "Buscar texto...",
+      "replaceWith": "Reemplazar con",
+      "replacePlaceholder": "Reemplazar con...",
+      "caseSensitive": "Sensible a mayúsculas",
+      "useRegex": "Usar Regex",
+      "replace": "Reemplazar",
+      "result": "Resultado",
+      "pleaseEnterText": "Por favor ingrese texto primero",
+      "pleaseEnterFind": "Por favor ingrese texto a buscar",
+      "replacedCount": "¡{{count}} reemplazo(s) realizado(s)!",
+      "invalidRegex": "Expresión regular inválida",
+      "allFieldsCleared": "¡Todos los campos se han limpiado!",
+      "exampleLoaded": "¡Ejemplo cargado!",
+      "copiedToClipboard": "¡Texto copiado al portapapeles!",
+      "whatIs": "¿Qué es un Reemplazador de Texto?",
+      "whatIsContent": "Esta herramienta le permite buscar y reemplazar texto con opciones para sensibilidad a mayúsculas y soporte de expresiones regulares. ¡Perfecto para edición de texto por lotes, refactorización de código y limpieza de datos! ✏️",
+      "useCases": {
+        "batch": {
+          "title": "Reemplazo por Lotes",
+          "description": "Reemplazar múltiples instancias de texto de una sola vez"
+        },
+        "refactoring": {
+          "title": "Refactorización de Código",
+          "description": "Renombrar variables, funciones o clases en código"
+        },
+        "cleaning": {
+          "title": "Limpieza de Datos",
+          "description": "Eliminar o reemplazar caracteres no deseados en conjuntos de datos"
+        },
+        "urls": {
+          "title": "Actualización de URLs",
+          "description": "Actualizar nombres de dominio o rutas en archivos de configuración"
+        }
+      },
+      "proTips": {
+        "regex": "<strong>Patrones Regex:</strong> Use expresiones regulares para búsquedas avanzadas",
+        "global": "<strong>Reemplazo Global:</strong> Todas las coincidencias se reemplazan automáticamente",
+        "caseMatch": "<strong>Sensible a Mayúsculas:</strong> Active para coincidencias exactas de mayúsculas/minúsculas",
+        "testFirst": "<strong>Pruebe Primero:</strong> Pruebe con texto pequeño antes de reemplazos grandes"
+      },
+      "relatedTools": "🔗 Herramientas Relacionadas que Podrían Gustarte"
+    },
+    "duplicate-remover": {
+      "title": "Eliminador de Duplicados",
+      "description": "Eliminar líneas duplicadas y vacías del texto",
+      "removeDuplicateLines": "Eliminar Líneas Duplicadas",
+      "descriptionFull": "Eliminar líneas duplicadas y vacías de su texto",
+      "inputPlaceholder": "Ingrese su texto (un elemento por línea)...",
+      "removeEmptyLines": "Eliminar líneas vacías",
+      "caseSensitiveComparison": "Comparación sensible a mayúsculas",
+      "removeDuplicates": "Eliminar Duplicados",
+      "result": "Resultado",
+      "original": "Original",
+      "removed": "Eliminados",
+      "final": "Final",
+      "lines": "líneas",
+      "pleaseEnterText": "Por favor ingrese algo de texto",
+      "removedCount": "{{count}} líneas duplicadas/vacías eliminadas",
+      "copiedToClipboard": "¡Copiado al portapapeles!",
+      "allFieldsCleared": "Todos los campos limpiados",
+      "exampleLoaded": "Ejemplo cargado",
+      "whatIs": "¿Qué es un Eliminador de Líneas Duplicadas?",
+      "whatIsContent": "Esta herramienta le ayuda a limpiar texto eliminando líneas duplicadas y líneas vacías. ¡Perfecta para limpiar listas, procesar datos y organizar contenido! 🧹",
+      "useCases": {
+        "cleanLists": {
+          "title": "Limpiar Listas",
+          "description": "Eliminar duplicados de listas de correos, contactos o cualquier lista de texto"
+        },
+        "dataProcessing": {
+          "title": "Procesamiento de Datos",
+          "description": "Limpiar y deduplicar datos antes de importar a bases de datos"
+        },
+        "emailLists": {
+          "title": "Listas de Correo",
+          "description": "Asegurar direcciones de correo únicas para campañas de email"
+        },
+        "logCleaning": {
+          "title": "Limpieza de Registros",
+          "description": "Eliminar entradas duplicadas de archivos de registro"
+        }
+      },
+      "proTips": {
+        "caseSensitive": "<strong>Sensible a Mayúsculas:</strong> \"Apple\" y \"apple\" se tratan como diferentes",
+        "cleanLists": "<strong>Limpiar Listas:</strong> Perfecto para limpiar datos",
+        "emptyLines": "<strong>Líneas Vacías:</strong> Opcionalmente mantener o eliminar líneas en blanco",
+        "statsDisplay": "<strong>Mostrar Estadísticas:</strong> Ver cuántas líneas fueron eliminadas"
+      },
+      "relatedTools": "🔗 Herramientas Relacionadas que Podrían Gustarte"
+    },
+    "json-to-csv": {
+      "title": "JSON a CSV",
+      "description": "Convertir arrays JSON a formato CSV para aplicaciones de hojas de cálculo",
+      "jsonInput": "Entrada JSON",
+      "csvOutput": "Salida CSV",
+      "placeholder": "[{\"name\": \"Juan\", \"age\": 30}, ...]",
+      "convert": "Convertir a CSV",
+      "convertSuccess": "¡Convertido a CSV exitosamente!",
+      "downloaded": "¡CSV descargado!",
+      "exampleJson": "[\n  { \"name\": \"Juan\", \"age\": 30, \"city\": \"Madrid\" },\n  { \"name\": \"María\", \"age\": 25, \"city\": \"Barcelona\" },\n  { \"name\": \"Pedro\", \"age\": 35, \"city\": \"Valencia\" }\n]",
+      "errors": {
+        "enterJson": "Por favor ingrese datos JSON",
+        "mustBeArray": "El JSON debe ser un array de objetos",
+        "arrayEmpty": "El array está vacío",
+        "invalidJson": "Formato JSON inválido",
+        "noCsvToDownload": "No hay CSV para descargar"
+      },
+      "whatIs": "¿Qué es un Convertidor JSON a CSV?",
+      "whatIsContent": "Esta herramienta convierte arrays JSON a formato CSV, perfecto para importar en Excel, Google Sheets o cualquier aplicación de hojas de cálculo. ¡Exporte sus datos sin problemas! 📊",
+      "useCases": {
+        "excelExport": {
+          "title": "Exportación a Excel",
+          "description": "Exportar datos de API a hojas de cálculo de Excel para análisis"
+        },
+        "dataMigration": {
+          "title": "Migración de Datos",
+          "description": "Convertir datos JSON para importación a bases de datos"
+        },
+        "dataAnalysis": {
+          "title": "Análisis de Datos",
+          "description": "Preparar datos para herramientas de análisis estadístico"
+        },
+        "apiResponses": {
+          "title": "Respuestas de API",
+          "description": "Convertir respuestas de API a formato de hoja de cálculo"
+        }
+      },
+      "proTips": {
+        "arrayRequired": "<strong>Array Requerido:</strong> El JSON debe ser un array de objetos",
+        "excelCompatible": "<strong>Compatible con Excel:</strong> Se abre directamente en Excel",
+        "autoHeaders": "<strong>Encabezados Automáticos:</strong> Los encabezados de columna se extraen automáticamente",
+        "download": "<strong>Descargar:</strong> Guardar como archivo .csv para uso sin conexión"
+      }
+    },
+    "xml-to-json": {
+      "title": "XML a JSON",
+      "description": "Convertir formato XML a JSON",
+      "convertXmlToJson": "Convertir XML a JSON",
+      "descriptionFull": "Convertir datos XML a formato JSON",
+      "xmlInput": "Entrada XML",
+      "xmlPlaceholder": "<?xml version=\"1.0\"?><root>...</root>",
+      "convertButton": "Convertir a JSON",
+      "jsonOutput": "Salida JSON",
+      "pleaseEnterXml": "Por favor ingrese datos XML",
+      "convertedSuccess": "¡Convertido a JSON exitosamente!",
+      "invalidXmlFormat": "Formato XML inválido",
+      "copiedToClipboard": "¡Copiado al portapapeles!",
+      "allFieldsCleared": "Todos los campos limpiados",
+      "exampleLoaded": "Ejemplo cargado",
+      "exampleXml": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<biblioteca>\n  <libro id=\"1\">\n    <titulo>Cien Años de Soledad</titulo>\n    <autor>Gabriel García Márquez</autor>\n    <año>1967</año>\n    <genero>Realismo Mágico</genero>\n    <precio moneda=\"USD\">29.99</precio>\n  </libro>\n  <libro id=\"2\">\n    <titulo>Don Quijote de la Mancha</titulo>\n    <autor>Miguel de Cervantes</autor>\n    <año>1605</año>\n    <genero>Novela</genero>\n    <precio moneda=\"EUR\">24.50</precio>\n  </libro>\n</biblioteca>",
+      "whatIs": "¿Qué es un Convertidor XML a JSON?",
+      "whatIsContent": "Esta herramienta convierte datos XML a formato JSON, haciéndolos más fáciles de usar en aplicaciones web modernas y APIs. ¡Perfecto para transformación de datos! 🔄",
+      "useCases": {
+        "apiMigration": {
+          "title": "Migración de API",
+          "description": "Convertir APIs XML antiguas a formato JSON moderno"
+        },
+        "dataProcessing": {
+          "title": "Procesamiento de Datos",
+          "description": "Procesar datos XML en aplicaciones JavaScript"
+        },
+        "configFiles": {
+          "title": "Archivos de Configuración",
+          "description": "Convertir archivos de configuración XML a formato JSON"
+        },
+        "webDevelopment": {
+          "title": "Desarrollo Web",
+          "description": "Usar datos XML en frameworks modernos"
+        }
+      },
+      "proTips": {
+        "attributes": "<strong>Atributos:</strong> Los atributos XML se convierten en @attributes en JSON",
+        "arrays": "<strong>Arrays:</strong> Múltiples elementos con el mismo nombre se convierten en arrays",
+        "structure": "<strong>Estructura:</strong> La jerarquía XML se preserva en JSON",
+        "validation": "<strong>Validación:</strong> Verifique que el XML sea válido antes de convertir"
+      },
+      "relatedTools": "🔗 Herramientas Relacionadas que Podrían Gustarte"
+    },
+    "discount-calculator": {
+      "title": "Calculadora de Descuentos",
+      "description": "Calcular rápidamente los ahorros y precios finales con descuentos porcentuales",
+      "calculateDiscounts": "Calcular Descuentos",
+      "originalPrice": "Precio Original ($)",
+      "discount": "Descuento (%)",
+      "youSave": "Ahorras",
+      "finalPrice": "Precio Final",
+      "whatIs": "¿Qué es una Calculadora de Descuentos?",
+      "whatIsContent": "Esta herramienta calcula instantáneamente cuánto ahorra y el precio final después de aplicar un descuento porcentual. ¡Perfecta para compras en línea, comparaciones de precios y planificación de presupuesto! 🛍️",
+      "useCases": {
+        "onlineShopping": {
+          "title": "Compras en Línea",
+          "description": "Calcular rápidamente el precio final durante ventas y promociones"
+        },
+        "priceComparison": {
+          "title": "Comparación de Precios",
+          "description": "Comparar descuentos entre diferentes tiendas o productos"
+        },
+        "salesAnalysis": {
+          "title": "Análisis de Ventas",
+          "description": "Para vendedores: calcular estrategias de precios y márgenes de ganancia"
+        },
+        "budgetPlanning": {
+          "title": "Planificación de Presupuesto",
+          "description": "Determinar cuánto puede ahorrar durante eventos de venta"
+        }
+      },
+      "proTips": {
+        "instantResults": "<strong>Resultados Instantáneos:</strong> Los cálculos se actualizan automáticamente mientras escribe",
+        "anyCurrency": "<strong>Cualquier Moneda:</strong> Funciona con dólares, euros o cualquier moneda",
+        "stackDiscounts": "<strong>Descuentos Apilados:</strong> Para múltiples descuentos, calcule cada uno secuencialmente",
+        "quickCompare": "<strong>Comparación Rápida:</strong> Use el ejemplo para ver cómo un descuento del 25% en $199.99 ahorra $50"
+      },
+      "relatedTools": "🔗 Herramientas Relacionadas que Podrían Gustarte"
+    },
+    "password-strength-checker": {
+      "title": "Verificador de Fortaleza de Contraseña",
+      "description": "Analizar la seguridad de contraseñas y obtener sugerencias de mejora",
+      "checkPasswordStrength": "Verificar Fortaleza de Contraseña",
+      "enterPassword": "Ingrese su Contraseña",
+      "placeholder": "Ingrese su contraseña...",
+      "passwordStrength": "Fortaleza de Contraseña",
+      "secure": "seguro",
+      "examplePassword": "Ejemplo$2024$Seguro!",
+      "strength": {
+        "veryWeak": "Muy Débil",
+        "weak": "Débil",
+        "medium": "Media",
+        "strong": "Fuerte",
+        "veryStrong": "Muy Fuerte"
+      },
+      "checks": {
+        "length": "Al menos 12 caracteres",
+        "uppercase": "Letras mayúsculas (A-Z)",
+        "lowercase": "Letras minúsculas (a-z)",
+        "numbers": "Números (0-9)",
+        "special": "Caracteres especiales (!@#$%...)"
+      },
+      "suggestionsTitle": "Sugerencias para Mejorar",
+      "suggestions": {
+        "length": "Use al menos 12 caracteres para mayor seguridad",
+        "uppercase": "Agregue letras mayúsculas (A-Z)",
+        "lowercase": "Agregue letras minúsculas (a-z)",
+        "numbers": "Incluya números (0-9)",
+        "special": "Agregue caracteres especiales (!@#$%...)"
+      },
+      "whatIs": "¿Qué es un Verificador de Fortaleza de Contraseña?",
+      "whatIsContent": "Esta herramienta analiza su contraseña en tiempo real y proporciona retroalimentación sobre su seguridad. Verifica longitud, complejidad y proporciona sugerencias para crear contraseñas más fuertes. ¡Su contraseña nunca se envía a ningún servidor - todo el procesamiento ocurre en su navegador! 🔒",
+      "useCases": {
+        "accountSecurity": {
+          "title": "Seguridad de Cuentas",
+          "description": "Evaluar la fortaleza de contraseñas antes de crear cuentas nuevas"
+        },
+        "passwordCreation": {
+          "title": "Creación de Contraseñas",
+          "description": "Obtener retroalimentación en tiempo real al crear contraseñas seguras"
+        },
+        "securityAudit": {
+          "title": "Auditoría de Seguridad",
+          "description": "Verificar contraseñas existentes e identificar contraseñas débiles"
+        },
+        "learnBestPractices": {
+          "title": "Aprender Mejores Prácticas",
+          "description": "Comprender qué hace que una contraseña sea segura"
+        }
+      },
+      "proTips": {
+        "lengthMatters": "<strong>La Longitud Importa:</strong> Las contraseñas más largas son exponencialmente más seguras",
+        "mixItUp": "<strong>Mezcle:</strong> Use una combinación de mayúsculas, minúsculas, números y símbolos",
+        "avoidCommonWords": "<strong>Evite Palabras Comunes:</strong> No use palabras del diccionario o patrones predecibles",
+        "privacyFirst": "<strong>Privacidad Primero:</strong> Su contraseña se procesa localmente, nunca se envía a servidores"
+      },
+      "relatedTools": "🔗 Herramientas Relacionadas que Podrían Gustarte"
+    },
+    "email-validator": {
+      "title": "Validador de Correo Electrónico",
+      "description": "Validar direcciones de correo electrónico en lote (conforme a RFC 5322)",
+      "validateEmails": "Validar Correos Electrónicos",
+      "descriptionFull": "Verificar si las direcciones de correo electrónico son válidas (una por línea)",
+      "emailAddresses": "Direcciones de Correo Electrónico",
+      "emailPlaceholder": "Ingrese direcciones de correo electrónico (una por línea)...",
+      "validateButton": "Validar Correos",
+      "valid": "Válido",
+      "invalid": "Inválido",
+      "exportValid": "Exportar Correos Válidos",
+      "pleaseEnterEmails": "Por favor ingrese direcciones de correo electrónico",
+      "validatedCount": "{{total}} correos validados - {{valid}} válidos",
+      "noResultsToExport": "No hay resultados para exportar",
+      "validEmailsExported": "¡Correos válidos exportados!",
+      "cleared": "Limpiado",
+      "exampleLoaded": "Ejemplo cargado",
+      "errors": {
+        "empty": "El correo está vacío",
+        "invalidFormat": "Formato de correo inválido",
+        "localPartTooLong": "Parte local demasiado larga (máximo 64 caracteres)",
+        "domainTooLong": "Dominio demasiado largo (máximo 255 caracteres)",
+        "localPartDotPosition": "La parte local no puede comenzar o terminar con un punto",
+        "consecutiveDots": "No se permiten puntos consecutivos",
+        "domainNoDot": "El dominio debe contener un punto"
+      },
+      "whatIs": "¿Qué es un Validador de Correo Electrónico?",
+      "whatIsContent": "Esta herramienta valida direcciones de correo electrónico según el estándar RFC 5322. ¡Perfecta para limpiar listas de correo, validar entradas de formularios y verificación de datos! ✉️",
+      "useCases": {
+        "listCleaning": {
+          "title": "Limpieza de Listas de Correo",
+          "description": "Eliminar correos inválidos de listas de distribución"
+        },
+        "formValidation": {
+          "title": "Validación de Formularios",
+          "description": "Verificar formato de correo antes del envío"
+        },
+        "dataImport": {
+          "title": "Importación de Datos",
+          "description": "Validar correos antes de importar a CRM"
+        },
+        "bulkValidation": {
+          "title": "Validación en Lote",
+          "description": "Verificar cientos de correos a la vez"
+        }
+      },
+      "proTips": {
+        "batchProcessing": "<strong>Procesamiento por Lotes:</strong> Valide múltiples correos a la vez",
+        "rfcCompliant": "<strong>Conforme a RFC:</strong> Sigue estrictamente los estándares de correo electrónico",
+        "exportValid": "<strong>Exportar Válidos:</strong> Descargue solo los correos válidos",
+        "instantFeedback": "<strong>Retroalimentación Instantánea:</strong> Vea razones de error detalladas"
+      },
+      "relatedTools": "🔗 Herramientas Relacionadas que Podrían Gustarte"
+    },
+    "stopwatch-timer": {
+      "title": "Cronómetro y Temporizador",
+      "description": "Cronómetro preciso y temporizador de cuenta regresiva para productividad",
+      "stopwatchAndCountdownTimer": "Cronómetro y Temporizador de Cuenta Regresiva",
+      "stopwatch": "Cronómetro",
+      "timer": "Temporizador",
+      "start": "Iniciar",
+      "pause": "Pausar",
+      "reset": "Reiniciar",
+      "resume": "Reanudar",
+      "startTimer": "Iniciar Temporizador",
+      "minutes": "Minutos",
+      "seconds": "Segundos",
+      "hoursMinutesSecondsMilliseconds": "horas : minutos : segundos . milisegundos",
+      "hoursMinutesSeconds": "horas : minutos : segundos",
+      "pleaseSetValidTime": "Por favor establezca un tiempo válido",
+      "timerComplete": "¡Temporizador completado! ⏰",
+      "whatIs": "¿Qué es un Cronómetro y Temporizador?",
+      "whatIsContent": "Esta herramienta combina un cronómetro preciso con milisegundos para medir el tiempo transcurrido, y un temporizador de cuenta regresiva configurable. ¡Perfecta para ejercicio, cocina, estudio y gestión de productividad! ⏱️",
+      "useCases": {
+        "fitness": {
+          "title": "Entrenamiento Físico",
+          "description": "Cronometrar entrenamientos, intervalos y descansos durante ejercicios"
+        },
+        "cooking": {
+          "title": "Cocinar y Hornear",
+          "description": "Establecer temporizadores para recetas y tiempos de cocción"
+        },
+        "studying": {
+          "title": "Sesiones de Estudio",
+          "description": "Rastrear sesiones de estudio y pausas usando la técnica Pomodoro"
+        },
+        "productivity": {
+          "title": "Gestión del Tiempo",
+          "description": "Medir cuánto tiempo toman las tareas para mejor planificación"
+        }
+      },
+      "proTips": {
+        "stopwatch": "<strong>Cronómetro:</strong> Mide con precisión de milisegundos para necesidades de cronometraje preciso",
+        "timer": "<strong>Temporizador:</strong> Los ajustes preestablecidos (5, 10, 25, 30 min) facilitan tareas comunes",
+        "quickPresets": "<strong>Ajustes Rápidos:</strong> Use los botones de minutos preestablecidos para configuración rápida del temporizador",
+        "precision": "<strong>Precisión:</strong> El cronómetro rastrea hasta centésimas de segundo"
+      },
+      "relatedTools": "🔗 Herramientas Relacionadas que Podrían Gustarte"
+    },
+    "jwt-decoder": {
+      "title": "Decodificador JWT",
+      "description": "Decodificar e inspeccionar encabezado y carga útil de tokens JWT",
+      "decodeJwtToken": "Decodificar Token JWT",
+      "jwtToken": "Token JWT",
+      "placeholder": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+      "decodeJwt": "Decodificar JWT",
+      "pleaseEnterToken": "Por favor ingrese un token JWT",
+      "invalidJwtFormat": "Formato JWT inválido",
+      "invalidJwtToken": "Token JWT inválido",
+      "decodedSuccessfully": "¡JWT decodificado exitosamente!",
+      "copiedToClipboard": "¡{{label}} copiado al portapapeles!",
+      "validJwtFormat": "Formato JWT válido",
+      "header": "Encabezado",
+      "payload": "Carga Útil",
+      "signature": "Firma",
+      "signatureBase64": "Firma (Base64)",
+      "signatureWarning": "La verificación de firma requiere clave secreta",
+      "exampleToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibm9tYnJlIjoiSnVhbiBQw6lyZXoiLCJlbWFpbCI6Imp1YW4ucGVyZXpAZWplbXBsby5jb20iLCJyb2wiOiJhZG1pbiIsImlhdCI6MTUxNjIzOTAyMiwiZXhwIjoxNTE2MjQyNjIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c",
+      "whatIs": "¿Qué es un Decodificador JWT?",
+      "whatIsContent": "Esta herramienta decodifica JWT (JSON Web Tokens) para inspeccionar el encabezado, carga útil y firma. ¡Perfecto para depurar autenticación, probar APIs y entender la estructura de tokens! 🔐",
+      "useCases": {
+        "authentication": {
+          "title": "Autenticación",
+          "description": "Decodificar tokens de autenticación para verificar claims de usuario y roles"
+        },
+        "debugging": {
+          "title": "Depuración",
+          "description": "Depurar problemas de JWT en flujos de autenticación de API"
+        },
+        "tokenAnalysis": {
+          "title": "Análisis de Tokens",
+          "description": "Analizar tiempo de expiración, emisor y claims del token"
+        },
+        "apiTesting": {
+          "title": "Pruebas de API",
+          "description": "Inspeccionar tokens durante desarrollo y pruebas de API"
+        }
+      },
+      "proTips": {
+        "security": "<strong>Seguridad:</strong> Decodificar JWT es seguro - solo es decodificación Base64",
+        "expiration": "<strong>Expiración:</strong> Verifique el claim 'exp' para el tiempo de expiración del token",
+        "claims": "<strong>Claims:</strong> La carga útil contiene datos de usuario y permisos",
+        "verification": "<strong>Verificación:</strong> La firma requiere una clave secreta para verificar"
+      },
+      "relatedTools": "🔗 Herramientas Relacionadas que Podrían Gustarte"
+    },
+    "sql-formatter": {
+      "title": "Formateador SQL",
+      "description": "Formatear y embellecer consultas SQL para mejor legibilidad",
+      "formatSqlQueries": "Formatear Consultas SQL",
+      "sqlInput": "Entrada SQL",
+      "placeholder": "SELECT * FROM users WHERE...",
+      "formatSql": "Formatear SQL",
+      "formattedSql": "SQL Formateado",
+      "pleaseEnterSql": "Por favor ingrese una consulta SQL",
+      "formattedSuccessfully": "¡SQL formateado exitosamente!",
+      "errorFormatting": "Error al formatear SQL",
+      "exampleSql": "select u.id,u.name,o.order_id from users u inner join orders o on u.id=o.user_id where u.status='active' and o.total>100 order by o.created_at desc limit 10",
+      "whatIs": "¿Qué es un Formateador SQL?",
+      "whatIsContent": "Esta herramienta formatea y embellece consultas SQL agregando indentación apropiada, saltos de línea y estandarizando mayúsculas de palabras clave. ¡Perfecta para mejorar la legibilidad del código y mantener un estilo SQL consistente! 📝",
+      "useCases": {
+        "codeReview": {
+          "title": "Revisión de Código",
+          "description": "Formatear consultas complejas para mejor revisión de código"
+        },
+        "documentation": {
+          "title": "Documentación",
+          "description": "Crear SQL claro y legible para documentación"
+        },
+        "debugging": {
+          "title": "Depuración",
+          "description": "Formatear consultas desordenadas para identificar problemas fácilmente"
+        },
+        "learning": {
+          "title": "Aprendizaje",
+          "description": "Entender la estructura SQL mediante formato apropiado"
+        }
+      },
+      "proTips": {
+        "keywords": "<strong>Palabras Clave:</strong> Todas las palabras clave SQL se convierten automáticamente a mayúsculas",
+        "indentation": "<strong>Indentación:</strong> Indentación apropiada para cláusulas anidadas",
+        "lineBreaks": "<strong>Saltos de Línea:</strong> Saltos de línea lógicos entre cláusulas SQL",
+        "consistency": "<strong>Consistencia:</strong> Formato estandarizado para mejor colaboración en equipo"
+      },
+      "relatedTools": "🔗 Herramientas Relacionadas que Podrían Gustarte"
+    },
+    "code-minifier": {
+      "title": "Minificador de Código",
+      "description": "Comprimir HTML, CSS y JavaScript para reducir tamaño de archivo",
+      "minifyCode": "Minificar Código",
+      "htmlInput": "Entrada HTML",
+      "cssInput": "Entrada CSS",
+      "jsInput": "Entrada JavaScript",
+      "htmlPlaceholder": "<html>\n  <body>\n    <h1>Título</h1>\n  </body>\n</html>",
+      "cssPlaceholder": "body {\n  margin: 0;\n  padding: 0;\n}",
+      "jsPlaceholder": "function hola() {\n  console.log('Hola');\n}",
+      "minifyHtml": "Minificar HTML",
+      "minifyCss": "Minificar CSS",
+      "minifyJs": "Minificar JavaScript",
+      "minifiedOutput": "Salida Minificada",
+      "size": "Tamaño",
+      "bytes": "bytes",
+      "reduction": "reducción",
+      "pleaseEnterHtml": "Por favor ingrese código HTML",
+      "pleaseEnterCss": "Por favor ingrese código CSS",
+      "pleaseEnterJs": "Por favor ingrese código JavaScript",
+      "htmlMinified": "¡HTML minificado! ({{reduction}}% de reducción)",
+      "cssMinified": "¡CSS minificado! ({{reduction}}% de reducción)",
+      "jsMinified": "¡JavaScript minificado! ({{reduction}}% de reducción)",
+      "errorMinifyingHtml": "Error al minificar HTML",
+      "errorMinifyingCss": "Error al minificar CSS",
+      "errorMinifyingJs": "Error al minificar JavaScript",
+      "copiedToClipboard": "¡{{type}} copiado al portapapeles!",
+      "exampleHtml": "<!DOCTYPE html>\n<html lang=\"es\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>Página de Ejemplo</title>\n  <!-- Este es un comentario -->\n</head>\n<body>\n  <h1>Bienvenido al Minificador de Código</h1>\n  <p>Esta herramienta reduce el tamaño de archivos eliminando espacios y comentarios innecesarios.</p>\n</body>\n</html>",
+      "exampleCss": "/* Estilos para el cuerpo */\nbody {\n  margin: 0;\n  padding: 20px;\n  font-family: Arial, sans-serif;\n  background-color: #f5f5f5;\n}\n\n/* Estilos para encabezados */\nh1 {\n  color: #333;\n  font-size: 24px;\n  margin-bottom: 10px;\n}",
+      "exampleJs": "// Función de saludo\nfunction saludar(nombre) {\n  // Registrar saludo en consola\n  console.log('Hola, ' + nombre + '!');\n  return true;\n}\n\n/* Llamar a la función */\nsaludar('Mundo');",
+      "whatIs": "¿Qué es un Minificador de Código?",
+      "whatIsContent": "Esta herramienta comprime código HTML, CSS y JavaScript eliminando espacios en blanco, comentarios y caracteres innecesarios. ¡Perfecta para mejorar rendimiento web, reducir tiempos de carga y optimizar ancho de banda! ⚡",
+      "useCases": {
+        "performance": {
+          "title": "Optimización de Rendimiento Web",
+          "description": "Reducir tamaños de archivo para tiempos de carga de página más rápidos"
+        },
+        "bandwidth": {
+          "title": "Ahorro de Ancho de Banda",
+          "description": "Disminuir uso de ancho de banda y costos de alojamiento"
+        },
+        "production": {
+          "title": "Implementación en Producción",
+          "description": "Preparar código para entornos de producción"
+        },
+        "seo": {
+          "title": "Mejora de SEO",
+          "description": "Mejorar velocidad del sitio para mejores clasificaciones de búsqueda"
+        }
+      },
+      "proTips": {
+        "development": "<strong>Desarrollo:</strong> Use código sin minificar para desarrollo y depuración",
+        "production": "<strong>Producción:</strong> Siempre minifique el código antes de implementar en producción",
+        "testing": "<strong>Pruebas:</strong> Pruebe código minificado antes de implementar en producción",
+        "backup": "<strong>Respaldo:</strong> Siempre mantenga copias del código original"
+      },
+      "relatedTools": "🔗 Herramientas Relacionadas que Podrían Gustarte"
+    },
+    "whitespace-remover": {
+      "title": "Eliminador de Espacios en Blanco",
+      "description": "Eliminar espacios, tabulaciones y saltos de línea innecesarios del texto",
+      "removeWhitespace": "Eliminar Espacios en Blanco",
+      "cleanupText": "Limpiar espacios adicionales, tabulaciones y líneas vacías",
+      "inputText": "Texto de Entrada",
+      "inputPlaceholder": "Ingrese el texto con espacios adicionales aquí...",
+      "characters": "Caracteres",
+      "options": "Opciones",
+      "removeExtraSpaces": "Eliminar espacios adicionales (múltiples espacios a uno solo)",
+      "removeTabs": "Eliminar tabulaciones (convertir a espacios)",
+      "trimLines": "Recortar líneas (eliminar espacios al inicio y final)",
+      "removeLineBreaks": "Eliminar saltos de línea (texto en una sola línea)",
+      "output": "Texto Procesado",
+      "copiedToClipboard": "¡Texto copiado al portapapeles!",
+      "allFieldsCleared": "¡Todos los campos se han limpiado!",
+      "exampleLoaded": "¡Ejemplo cargado!",
+      "enterTextFirst": "Por favor ingrese texto primero",
+      "whitespaceRemoved": "¡Espacios en blanco eliminados exitosamente!",
+      "reducedBy": "reducido en",
+      "exampleText": "Este    es   un    texto    de    ejemplo    con    muchos    espacios.\n\n\nTambién   tiene    múltiples   saltos   de   línea    y    tabulaciones.\n\n   Las   líneas   tienen    espacios    al    inicio    y    al    final.   \n\n\nPuedes    usar    las    opciones    para    limpiar    todo    este    formato    inconsistente.",
+      "whatIs": "¿Qué es el Eliminador de Espacios en Blanco?",
+      "whatIsContent": "Esta herramienta elimina espacios en blanco, tabulaciones y líneas vacías innecesarias de su texto. ¡Perfecta para limpiar código, texto copiado o datos! 🧹",
+      "useCases": {
+        "code": {
+          "title": "Limpieza de Código",
+          "description": "Limpiar código con formato inconsistente y espacios adicionales"
+        },
+        "text": {
+          "title": "Procesamiento de Texto",
+          "description": "Normalizar texto copiado de PDFs o páginas web"
+        },
+        "data": {
+          "title": "Preparación de Datos",
+          "description": "Preparar datos para importar a bases de datos o hojas de cálculo"
+        },
+        "content": {
+          "title": "Edición de Contenido",
+          "description": "Limpiar contenido antes de publicar o enviar"
+        }
+      },
+      "proTips": {
+        "options": "<strong>Opciones Flexibles:</strong> Combine diferentes opciones según sus necesidades",
+        "lineBreaks": "<strong>Saltos de Línea:</strong> Marque para convertir todo a una sola línea",
+        "trimLines": "<strong>Recortar Líneas:</strong> Mantiene líneas pero elimina espacios al inicio/final",
+        "preview": "<strong>Vista Previa:</strong> Vea la reducción de caracteres en tiempo real"
+      },
+      "relatedTools": "🔗 Herramientas Relacionadas que Podrían Gustarte"
+    },
+    "pomodoro-timer": {
+      "title": "Temporizador Pomodoro",
+      "description": "Técnica Pomodoro con temporizador para aumentar la productividad y gestionar el tiempo",
+      "pomodoroTechnique": "Técnica Pomodoro",
+      "descriptionFull": "Mejore su enfoque y productividad con intervalos cronometrados",
+      "focusTime": "Tiempo de Enfoque",
+      "shortBreak": "Descanso Corto",
+      "longBreak": "Descanso Largo",
+      "pomodorosCompleted": "Pomodoros Completados: {{count}}",
+      "start": "Iniciar",
+      "pause": "Pausar",
+      "reset": "Reiniciar",
+      "longBreakTime": "¡Hora del descanso largo! Has completado 4 pomodoros 🎉",
+      "shortBreakTime": "¡Hora del descanso corto! Relájate un momento ☕",
+      "focusTimeNow": "¡Hora de enfocarse! Comencemos otro pomodoro 💪",
+      "whatIs": "¿Qué es la Técnica Pomodoro?",
+      "whatIsContent": "La Técnica Pomodoro es un método de gestión del tiempo que utiliza intervalos de trabajo de 25 minutos (llamados 'pomodoros') seguidos de descansos cortos. Después de completar 4 pomodoros, tomas un descanso más largo. ¡Esta técnica ayuda a mantener el enfoque y prevenir el agotamiento! 🍅",
+      "useCases": {
+        "deepWork": {
+          "title": "Trabajo Profundo",
+          "description": "Mantener un enfoque intenso en tareas complejas durante 25 minutos"
+        },
+        "productivity": {
+          "title": "Aumentar Productividad",
+          "description": "Completar más tareas dividiendo el trabajo en intervalos manejables"
+        },
+        "timeManagement": {
+          "title": "Gestión del Tiempo",
+          "description": "Rastrear cuántos pomodoros toman diferentes tipos de tareas"
+        },
+        "preventBurnout": {
+          "title": "Prevenir Agotamiento",
+          "description": "Los descansos regulares previenen la fatiga mental y mantienen la energía"
+        }
+      },
+      "proTips": {
+        "focusFully": "<strong>Enfócate Completamente:</strong> Durante un pomodoro, elimina todas las distracciones",
+        "shortBreaks": "<strong>Descansos Cortos:</strong> Estírate, toma agua o descansa tus ojos durante 5 minutos",
+        "longBreaks": "<strong>Descansos Largos:</strong> Después de 4 pomodoros, toma 15-30 minutos para recargar",
+        "trackProgress": "<strong>Rastrea el Progreso:</strong> Cuenta los pomodoros completados para medir la productividad"
+      },
+      "relatedTools": "🔗 Herramientas Relacionadas que Podrían Gustarte"
+    },
+    "ip-lookup": {
+      "title": "Búsqueda de IP",
+      "description": "Obtener información de cualquier dirección IP",
+      "ipAddressInfo": "Información de Dirección IP",
+      "descriptionFull": "Obtener ubicación y detalles de ISP de cualquier IP",
+      "inputPlaceholder": "Ingrese dirección IP (déjelo en blanco para su IP)",
+      "lookup": "Buscar",
+      "loading": "Cargando...",
+      "cleared": "Limpiado",
+      "exampleLoaded": "IP de ejemplo cargada (Google DNS)",
+      "invalidIp": "Dirección IP inválida",
+      "ipInfoRetrieved": "¡Información de IP obtenida!",
+      "failedToLookup": "Error al buscar IP",
+      "ipAddress": "Dirección IP",
+      "location": "Ubicación",
+      "isp": "ISP",
+      "timezone": "Zona Horaria",
+      "coordinates": "Coordenadas",
+      "postalCode": "Código Postal",
+      "whatIs": "¿Qué es una Búsqueda de IP?",
+      "whatIsContent": "Obtenga información detallada sobre cualquier dirección IP, incluyendo ubicación, ISP, zona horaria y más. ¡Déjelo en blanco para verificar su propia IP! 🌍",
+      "useCases": {
+        "networkSecurity": {
+          "title": "Seguridad de Red",
+          "description": "Identificar direcciones IP sospechosas"
+        },
+        "geolocation": {
+          "title": "Geolocalización",
+          "description": "Encontrar la ubicación geográfica de los visitantes"
+        },
+        "troubleshooting": {
+          "title": "Resolución de Problemas",
+          "description": "Depurar problemas de conexión de red"
+        },
+        "analytics": {
+          "title": "Análisis Web",
+          "description": "Comprender la demografía de su audiencia"
+        }
+      },
+      "proTips": {
+        "yourIp": "<strong>Su IP:</strong> Deje el campo vacío para verificar su propia IP",
+        "privacy": "<strong>Privacidad:</strong> Use VPN para ocultar su dirección IP",
+        "location": "<strong>Ubicación:</strong> La precisión varía según el ISP",
+        "ispInfo": "<strong>Información ISP:</strong> Identifique el proveedor de servicios de Internet"
+      },
+      "relatedTools": "🔗 Herramientas Relacionadas que Podrían Gustarte"
+    },
+    "barcode-generator": {
+      "title": "Generador de Código de Barras",
+      "description": "Generar códigos de barras en varios formatos para productos e inventario",
+      "generateBarcodes": "Generar Códigos de Barras",
+      "barcodeText": "Texto del Código de Barras",
+      "placeholder": "Ingrese texto o número...",
+      "barcodeFormat": "Formato del Código de Barras",
+      "formats": {
+        "code128": "CODE128 (Uso general)",
+        "ean13": "EAN-13 (Productos minoristas)",
+        "upca": "UPC-A (Productos de EE.UU./Canadá)",
+        "code39": "CODE39 (Industrial)"
+      },
+      "generateBarcode": "Generar Código de Barras",
+      "generatedBarcode": "Código de Barras Generado",
+      "downloadBarcode": "Descargar",
+      "downloadPng": "Descargar como PNG",
+      "downloadJpg": "Descargar como JPG",
+      "exampleText": "ABC123456789",
+      "pleaseEnterText": "Por favor ingrese texto para generar código de barras",
+      "barcodeGenerated": "¡Código de barras generado exitosamente!",
+      "downloaded": "¡Código de barras descargado como {{format}}!",
+      "downloadFailed": "Error al descargar como {{format}}",
+      "whatIs": "¿Qué es un Generador de Código de Barras?",
+      "whatIsContent": "Esta herramienta genera códigos de barras en varios formatos estándar (CODE128, EAN-13, UPC-A, CODE39). ¡Perfecto para gestión de inventario, etiquetado de productos y seguimiento de activos! 📦",
+      "useCases": {
+        "title": "Casos de Uso Comunes",
+        "retailProducts": {
+          "title": "Productos Minoristas",
+          "description": "Crear códigos de barras para productos en tiendas y comercio electrónico"
+        },
+        "inventory": {
+          "title": "Gestión de Inventario",
+          "description": "Rastrear stock y productos con códigos de barras escaneables"
+        },
+        "assetTracking": {
+          "title": "Seguimiento de Activos",
+          "description": "Etiquetar y rastrear equipos, herramientas y activos de la empresa"
+        },
+        "shippingLabels": {
+          "title": "Etiquetas de Envío",
+          "description": "Generar códigos de barras para paquetes y logística de envío"
+        }
+      },
+      "proTips": {
+        "code128": "<strong>CODE128:</strong> Mejor para uso general, soporta todos los caracteres ASCII",
+        "ean13": "<strong>EAN-13:</strong> Requiere exactamente 13 dígitos, usado globalmente en productos minoristas",
+        "highQuality": "<strong>Alta Calidad:</strong> Descargue como PNG para mejor calidad de impresión",
+        "testScan": "<strong>Pruebe el Escaneo:</strong> Siempre pruebe los códigos de barras impresos con un escáner antes de uso en producción"
+      },
+      "relatedTools": "🔗 Herramientas Relacionadas que Podrían Gustarte"
+    },
+    "color-gradient-generator": {
+      "title": "Generador de Degradado de Color",
+      "description": "Crear hermosos degradados de color CSS con vista previa en vivo",
+      "cssGradientGenerator": "Generador de Degradado CSS",
+      "startColor": "Color Inicial",
+      "endColor": "Color Final",
+      "direction": "Dirección",
+      "directions": {
+        "leftToRight": "Izquierda a Derecha →",
+        "rightToLeft": "Derecha a Izquierda ←",
+        "topToBottom": "Arriba a Abajo ↓",
+        "bottomToTop": "Abajo a Arriba ↑",
+        "diagonal": "Diagonal ↘",
+        "customAngle": "Ángulo Personalizado"
+      },
+      "angle": "Ángulo: {{angle}}°",
+      "cssCode": "Código CSS",
+      "copyCss": "Copiar CSS",
+      "cssCopied": "¡Código CSS copiado al portapapeles!",
+      "gradientPresets": "Degradados Predefinidos",
+      "presets": {
+        "sunset": "Atardecer",
+        "ocean": "Océano",
+        "forest": "Bosque",
+        "purpleDream": "Sueño Púrpura",
+        "fire": "Fuego",
+        "sky": "Cielo"
+      },
+      "whatIs": "¿Qué es un Generador de Degradado de Color?",
+      "whatIsContent": "Esta herramienta le permite crear hermosos degradados de color CSS con vista previa en vivo. ¡Elija colores, ajuste la dirección y copie el código CSS listo para usar en sus proyectos web! 🎨",
+      "useCases": {
+        "websiteBackgrounds": {
+          "title": "Fondos de Sitios Web",
+          "description": "Crear fondos atractivos con degradados para secciones de páginas web"
+        },
+        "uiComponents": {
+          "title": "Componentes UI",
+          "description": "Diseñar botones, tarjetas y elementos con degradados modernos"
+        },
+        "brandColors": {
+          "title": "Colores de Marca",
+          "description": "Explorar combinaciones de colores que reflejen su identidad de marca"
+        },
+        "socialMedia": {
+          "title": "Gráficos de Redes Sociales",
+          "description": "Crear fondos llamativos para publicaciones e historias"
+        }
+      },
+      "proTips": {
+        "livePreview": "<strong>Vista Previa en Vivo:</strong> Vea los cambios instantáneamente mientras ajusta colores",
+        "presets": "<strong>Degradados Predefinidos:</strong> Comience con combinaciones de colores profesionales",
+        "copyCss": "<strong>Copiar CSS:</strong> Código listo para pegar en sus archivos de estilos",
+        "customAngles": "<strong>Ángulos Personalizados:</strong> Experimente con direcciones únicas para efectos creativos"
+      },
+      "relatedTools": "🔗 Herramientas Relacionadas que Podrían Gustarte"
     }
   },
   "cookiePolicy": {

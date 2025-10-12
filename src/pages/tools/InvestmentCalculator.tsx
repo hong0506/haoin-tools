@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { SidebarTrigger } from "@/components/ui/sidebar";
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import {
@@ -27,6 +29,7 @@ import { FavoriteButton } from "@/components/FavoriteButton";
 import { Badge } from "@/components/ui/badge";
 
 const InvestmentCalculator = () => {
+  const { t } = useTranslation();
   const [initialInvestment, setInitialInvestment] = useState("");
   const [monthlyContribution, setMonthlyContribution] = useState("");
   const [annualReturn, setAnnualReturn] = useState("");
@@ -54,7 +57,7 @@ const InvestmentCalculator = () => {
         totalContributions: parseFloat(totalContributions.toFixed(2)),
         totalEarnings: parseFloat(totalEarnings.toFixed(2)),
       });
-      toast.success("Investment calculated!");
+      toast.success(t("tools.investment-calculator.investmentCalculated"));
     }
   };
 
@@ -64,7 +67,7 @@ const InvestmentCalculator = () => {
     setAnnualReturn("");
     setYears("");
     setResult(null);
-    toast.success("All fields cleared");
+    toast.success(t("tools.investment-calculator.allFieldsCleared"));
   };
 
   const loadExample = () => {
@@ -73,7 +76,7 @@ const InvestmentCalculator = () => {
     setAnnualReturn("8");
     setYears("20");
     setResult(null);
-    toast.success("Example loaded");
+    toast.success(t("tools.investment-calculator.exampleLoaded"));
   };
 
   return (
@@ -85,7 +88,7 @@ const InvestmentCalculator = () => {
           </Button>
           <SidebarTrigger />
           <div className="flex items-center gap-2">
-            <h1 className="text-xl font-semibold">Investment Calculator</h1>
+            <h1 className="text-xl font-semibold">{t("tools.investment-calculator.title")}</h1>
           </div>
         </div>
       </header>
@@ -94,14 +97,14 @@ const InvestmentCalculator = () => {
           <CardHeader>
             <div className="flex items-center justify-between">
               <div>
-                <CardTitle>Calculate Investment Growth</CardTitle>
+                <CardTitle>{t("tools.investment-calculator.calculateGrowth")}</CardTitle>
                 <CardDescription>
-                  Estimate your investment returns over time
+                  {t("tools.investment-calculator.descriptionFull")}
                 </CardDescription>
               </div>
               <FavoriteButton
                 toolId="investment-calculator"
-                toolName="Investment Calculator"
+                toolName={t("tools.investment-calculator.title")}
               />
             </div>
           </CardHeader>
@@ -109,17 +112,17 @@ const InvestmentCalculator = () => {
             <div className="flex gap-2 mb-4">
               <Button onClick={clearAll} variant="outline" size="sm">
                 <RotateCcw className="h-4 w-4 mr-2" />
-                Clear
+                {t("toolPage.buttons.clear")}
               </Button>
               <Button onClick={loadExample} variant="ghost" size="sm">
                 <Lightbulb className="h-4 w-4 mr-1" />
-                Load Example
+                {t("toolPage.buttons.loadExample")}
               </Button>
             </div>
 
             <div>
               <label className="mb-2 block text-sm font-medium">
-                Initial Investment ($)
+                {t("tools.investment-calculator.initialInvestment")}
               </label>
               <Input
                 type="number"
@@ -130,7 +133,7 @@ const InvestmentCalculator = () => {
             </div>
             <div>
               <label className="mb-2 block text-sm font-medium">
-                Monthly Contribution ($)
+                {t("tools.investment-calculator.monthlyContribution")}
               </label>
               <Input
                 type="number"
@@ -141,7 +144,7 @@ const InvestmentCalculator = () => {
             </div>
             <div>
               <label className="mb-2 block text-sm font-medium">
-                Expected Annual Return (%)
+                {t("tools.investment-calculator.expectedReturn")}
               </label>
               <Input
                 type="number"
@@ -153,7 +156,7 @@ const InvestmentCalculator = () => {
             </div>
             <div>
               <label className="mb-2 block text-sm font-medium">
-                Investment Period (years)
+                {t("tools.investment-calculator.investmentPeriod")}
               </label>
               <Input
                 type="number"
@@ -163,12 +166,12 @@ const InvestmentCalculator = () => {
               />
             </div>
             <Button onClick={calculateInvestment} className="w-full">
-              Calculate Investment
+              {t("tools.investment-calculator.calculate")}
             </Button>
             {result && (
               <div className="space-y-4 rounded-lg bg-gradient-to-br from-primary/10 to-accent/10 p-6">
                 <div className="text-center border-b pb-4">
-                  <p className="text-sm text-muted-foreground">Future Value</p>
+                  <p className="text-sm text-muted-foreground">{t("tools.investment-calculator.futureValue")}</p>
                   <p className="text-5xl font-bold text-primary">
                     ${result.futureValue.toLocaleString()}
                   </p>
@@ -176,7 +179,7 @@ const InvestmentCalculator = () => {
                 <div className="grid grid-cols-2 gap-4">
                   <div className="text-center">
                     <p className="text-xs text-muted-foreground">
-                      Total Contributions
+                      {t("tools.investment-calculator.totalContributions")}
                     </p>
                     <p className="text-xl font-semibold">
                       ${result.totalContributions.toLocaleString()}
@@ -184,7 +187,7 @@ const InvestmentCalculator = () => {
                   </div>
                   <div className="text-center">
                     <p className="text-xs text-muted-foreground">
-                      Total Earnings
+                      {t("tools.investment-calculator.totalEarnings")}
                     </p>
                     <p className="text-xl font-semibold text-green-500">
                       ${result.totalEarnings.toLocaleString()}
@@ -197,15 +200,13 @@ const InvestmentCalculator = () => {
         </Card>
 
         {/* Tool Introduction */}
-        <Card className="mt-6 bg-gradient-to-r from-blue-50 via-purple-50 to-pink-50 border-blue-200">
+        <Card className="mt-6 bg-gradient-to-r from-blue-50 via-purple-50 to-pink-50 dark:from-blue-950/30 dark:via-purple-950/30 dark:to-pink-950/30 border-blue-200 dark:border-blue-800">
           <CardContent className="pt-6">
-            <p className="text-gray-700 leading-relaxed">
-              <strong className="text-gray-900">
-                What is Investment Calculator?
+            <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+              <strong className="text-gray-900 dark:text-gray-100">
+                {t("tools.investment-calculator.whatIs")}
               </strong>{" "}
-              This tool calculates future investment value with monthly
-              contributions. Perfect for retirement planning, education savings,
-              and wealth building! 📈
+              {t("tools.investment-calculator.whatIsContent")}
             </p>
           </CardContent>
         </Card>
@@ -215,67 +216,66 @@ const InvestmentCalculator = () => {
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <Zap className="h-5 w-5 text-primary" />
-              Common Use Cases
+              {t("toolPage.sections.commonUseCases")}
             </CardTitle>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-blue-50 to-blue-100/50 border border-blue-200">
-                <div className="p-2 bg-white rounded-lg h-fit">
-                  <Wallet className="h-5 w-5 text-blue-600" />
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-blue-50 to-blue-100/50 dark:from-blue-950/30 dark:to-blue-900/30 border border-blue-200 dark:border-blue-800">
+                <div className="p-2 bg-white dark:bg-gray-800 rounded-lg h-fit">
+                  <Wallet className="h-5 w-5 text-blue-600 dark:text-blue-400" />
                 </div>
                 <div>
-                  <div className="font-semibold text-blue-900">
-                    Retirement Planning
+                  <div className="font-semibold text-blue-900 dark:text-blue-300">
+                    {t("tools.investment-calculator.useCases.retirement.title")}
                   </div>
-                  <p className="text-sm text-blue-700">
-                    Calculate{" "}
+                  <p className="text-sm text-blue-700 dark:text-blue-400">
+                    {t("tools.investment-calculator.useCases.retirement.description")}{" "}
                     <Badge variant="secondary" className="mx-1">
                       retirement
                     </Badge>
-                    savings growth over decades
                   </p>
                 </div>
               </div>
 
-              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-purple-50 to-purple-100/50 border border-purple-200">
-                <div className="p-2 bg-white rounded-lg h-fit">
-                  <GraduationCap className="h-5 w-5 text-purple-600" />
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-purple-50 to-purple-100/50 dark:from-purple-950/30 dark:to-purple-900/30 border border-purple-200 dark:border-purple-800">
+                <div className="p-2 bg-white dark:bg-gray-800 rounded-lg h-fit">
+                  <GraduationCap className="h-5 w-5 text-purple-600 dark:text-purple-400" />
                 </div>
                 <div>
-                  <div className="font-semibold text-purple-900">
-                    Education Savings
+                  <div className="font-semibold text-purple-900 dark:text-purple-300">
+                    {t("tools.investment-calculator.useCases.education.title")}
                   </div>
-                  <p className="text-sm text-purple-700">
-                    Plan for college funds and education expenses
+                  <p className="text-sm text-purple-700 dark:text-purple-400">
+                    {t("tools.investment-calculator.useCases.education.description")}
                   </p>
                 </div>
               </div>
 
-              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-green-50 to-green-100/50 border border-green-200">
-                <div className="p-2 bg-white rounded-lg h-fit">
-                  <TrendingUp className="h-5 w-5 text-green-600" />
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-green-50 to-green-100/50 dark:from-green-950/30 dark:to-green-900/30 border border-green-200 dark:border-green-800">
+                <div className="p-2 bg-white dark:bg-gray-800 rounded-lg h-fit">
+                  <TrendingUp className="h-5 w-5 text-green-600 dark:text-green-400" />
                 </div>
                 <div>
-                  <div className="font-semibold text-green-900">
-                    Wealth Building
+                  <div className="font-semibold text-green-900 dark:text-green-300">
+                    {t("tools.investment-calculator.useCases.wealth.title")}
                   </div>
-                  <p className="text-sm text-green-700">
-                    Track long-term portfolio growth and investment returns
+                  <p className="text-sm text-green-700 dark:text-green-400">
+                    {t("tools.investment-calculator.useCases.wealth.description")}
                   </p>
                 </div>
               </div>
 
-              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-pink-50 to-pink-100/50 border border-pink-200">
-                <div className="p-2 bg-white rounded-lg h-fit">
-                  <Target className="h-5 w-5 text-pink-600" />
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-pink-50 to-pink-100/50 dark:from-pink-950/30 dark:to-pink-900/30 border border-pink-200 dark:border-pink-800">
+                <div className="p-2 bg-white dark:bg-gray-800 rounded-lg h-fit">
+                  <Target className="h-5 w-5 text-pink-600 dark:text-pink-400" />
                 </div>
                 <div>
-                  <div className="font-semibold text-pink-900">
-                    Financial Goals
+                  <div className="font-semibold text-pink-900 dark:text-pink-300">
+                    {t("tools.investment-calculator.useCases.goals.title")}
                   </div>
-                  <p className="text-sm text-pink-700">
-                    Set and achieve specific financial milestones
+                  <p className="text-sm text-pink-700 dark:text-pink-400">
+                    {t("tools.investment-calculator.useCases.goals.description")}
                   </p>
                 </div>
               </div>
@@ -284,40 +284,38 @@ const InvestmentCalculator = () => {
         </Card>
 
         {/* Quick Tips */}
-        <Card className="mt-6 bg-gradient-to-br from-amber-50 via-orange-50 to-amber-50 border-amber-200">
+        <Card className="mt-6 bg-gradient-to-br from-amber-50 via-orange-50 to-amber-50 dark:from-amber-950/30 dark:via-orange-950/30 dark:to-amber-950/30 border-amber-200 dark:border-amber-800">
           <CardHeader>
-            <CardTitle className="flex items-center gap-2 text-amber-900">
-              <Info className="h-5 w-5 text-amber-600" />
-              💡 Pro Tips
+            <CardTitle className="flex items-center gap-2 text-amber-900 dark:text-amber-300">
+              <Info className="h-5 w-5 text-amber-600 dark:text-amber-400" />
+              💡 {t("toolPage.sections.proTips")}
             </CardTitle>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
               <div className="flex gap-2 items-start">
-                <div className="text-amber-600 font-bold">→</div>
-                <p className="text-sm text-amber-900">
-                  <strong>Start Early:</strong> Time maximizes compound growth
-                </p>
+                <div className="text-amber-600 dark:text-amber-400 font-bold">→</div>
+                <p className="text-sm text-amber-900 dark:text-amber-300" dangerouslySetInnerHTML={{
+                  __html: t("tools.investment-calculator.proTips.startEarly")
+                }} />
               </div>
               <div className="flex gap-2 items-start">
-                <div className="text-amber-600 font-bold">→</div>
-                <p className="text-sm text-amber-900">
-                  <strong>Regular Contributions:</strong> Monthly savings add up
-                  significantly
-                </p>
+                <div className="text-amber-600 dark:text-amber-400 font-bold">→</div>
+                <p className="text-sm text-amber-900 dark:text-amber-300" dangerouslySetInnerHTML={{
+                  __html: t("tools.investment-calculator.proTips.regular")
+                }} />
               </div>
               <div className="flex gap-2 items-start">
-                <div className="text-amber-600 font-bold">→</div>
-                <p className="text-sm text-amber-900">
-                  <strong>Returns:</strong> Stock market averages 8-10% annually
-                </p>
+                <div className="text-amber-600 dark:text-amber-400 font-bold">→</div>
+                <p className="text-sm text-amber-900 dark:text-amber-300" dangerouslySetInnerHTML={{
+                  __html: t("tools.investment-calculator.proTips.returns")
+                }} />
               </div>
               <div className="flex gap-2 items-start">
-                <div className="text-amber-600 font-bold">→</div>
-                <p className="text-sm text-amber-900">
-                  <strong>Risk:</strong> Consider tolerance when estimating
-                  returns
-                </p>
+                <div className="text-amber-600 dark:text-amber-400 font-bold">→</div>
+                <p className="text-sm text-amber-900 dark:text-amber-300" dangerouslySetInnerHTML={{
+                  __html: t("tools.investment-calculator.proTips.risk")
+                }} />
               </div>
             </div>
           </CardContent>
@@ -326,7 +324,7 @@ const InvestmentCalculator = () => {
         {/* Related Tools */}
         <Card className="mt-6">
           <CardHeader>
-            <CardTitle>🔗 Related Tools You Might Like</CardTitle>
+            <CardTitle>{t("tools.investment-calculator.relatedTools")}</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
@@ -335,10 +333,10 @@ const InvestmentCalculator = () => {
                 className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
               >
                 <div className="font-semibold text-gray-900 group-hover:text-primary">
-                  Interest Calculator
+                  {t("tools.interest-calculator.title")}
                 </div>
                 <div className="text-sm text-gray-600 mt-1">
-                  Calculate interest
+                  {t("tools.interest-calculator.description")}
                 </div>
               </button>
               <button
@@ -346,10 +344,10 @@ const InvestmentCalculator = () => {
                 className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
               >
                 <div className="font-semibold text-gray-900 group-hover:text-primary">
-                  Loan Calculator
+                  {t("tools.loan-calculator.title")}
                 </div>
                 <div className="text-sm text-gray-600 mt-1">
-                  Calculate loan payments
+                  {t("tools.loan-calculator.description")}
                 </div>
               </button>
               <button
@@ -357,10 +355,10 @@ const InvestmentCalculator = () => {
                 className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
               >
                 <div className="font-semibold text-gray-900 group-hover:text-primary">
-                  Percentage Calculator
+                  {t("tools.percentage-calculator.title")}
                 </div>
                 <div className="text-sm text-gray-600 mt-1">
-                  Calculate percentages
+                  {t("tools.percentage-calculator.description")}
                 </div>
               </button>
             </div>

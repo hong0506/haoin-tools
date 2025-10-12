@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { SidebarTrigger } from "@/components/ui/sidebar";
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import {
@@ -27,6 +29,7 @@ import { Badge } from "@/components/ui/badge";
 import { toast } from "sonner";
 
 const HtmlToText = () => {
+  const { t } = useTranslation();
   const [html, setHtml] = useState("");
   const [text, setText] = useState("");
   const navigate = useNavigate();
@@ -36,33 +39,24 @@ const HtmlToText = () => {
     div.innerHTML = html;
     const plainText = div.textContent || div.innerText || "";
     setText(plainText);
-    toast.success("Converted successfully!");
+    toast.success(t("tools.html-to-text.convertedSuccessfully"));
   };
 
   const copyToClipboard = () => {
     navigator.clipboard.writeText(text);
-    toast.success("Copied to clipboard!");
+    toast.success(t("toolPage.messages.copied"));
   };
 
   const clearAll = () => {
     setHtml("");
     setText("");
-    toast.success("All fields cleared");
+    toast.success(t("toolPage.messages.cleared"));
   };
 
   const loadExample = () => {
-    setHtml(`<div>
-  <h1>Welcome to Our Website</h1>
-  <p>This is a <strong>sample HTML</strong> with <em>various tags</em>.</p>
-  <ul>
-    <li>First item</li>
-    <li>Second item</li>
-    <li>Third item</li>
-  </ul>
-  <a href="https://example.com">Visit our site</a>
-</div>`);
+    setHtml(t("tools.html-to-text.exampleHtml"));
     setText("");
-    toast.success("Example loaded");
+    toast.success(t("toolPage.messages.exampleLoaded"));
   };
 
   return (
@@ -74,7 +68,9 @@ const HtmlToText = () => {
           </Button>
           <SidebarTrigger />
           <div className="flex items-center gap-2"></div>
-          <h1 className="text-xl font-semibold">HTML to Text</h1>
+          <h1 className="text-xl font-semibold">
+            {t("tools.html-to-text.title")}
+          </h1>
         </div>
       </header>
       <div className="container mx-auto max-w-4xl px-6 py-8">
@@ -82,51 +78,56 @@ const HtmlToText = () => {
           <CardHeader>
             <div className="flex items-center justify-between">
               <div>
-                <CardTitle>Convert HTML to Plain Text</CardTitle>
+                <CardTitle>
+                  {t("tools.html-to-text.convertHtmlToPlainText")}
+                </CardTitle>
                 <CardDescription>
-                  Convert HTML markup to plain text
+                  {t("tools.html-to-text.description")}
                 </CardDescription>
               </div>
-              <FavoriteButton toolId="html-to-text" toolName="HTML to Text" />
+              <FavoriteButton
+                toolId="html-to-text"
+                toolName={t("tools.html-to-text.title")}
+              />
             </div>
           </CardHeader>
           <CardContent className="space-y-4">
             <div className="flex gap-2 mb-4">
               <Button onClick={clearAll} variant="outline" size="sm">
                 <RotateCcw className="h-4 w-4 mr-2" />
-                Clear
+                {t("toolPage.buttons.clear")}
               </Button>
               <Button onClick={loadExample} variant="ghost" size="sm">
                 <Lightbulb className="h-4 w-4 mr-1" />
-                Load Example
+                {t("toolPage.buttons.loadExample")}
               </Button>
             </div>
 
             <div>
               <label className="mb-2 block text-sm font-medium">
-                HTML Input
+                {t("tools.html-to-text.htmlInput")}
               </label>
               <Textarea
                 value={html}
                 onChange={(e) => setHtml(e.target.value)}
-                rows={8}
-                placeholder="<p>Hello World</p>"
+                rows={16}
+                placeholder={t("tools.html-to-text.placeholder")}
               />
             </div>
             <Button onClick={convert} className="w-full">
-              Convert to Text
+              {t("tools.html-to-text.convertToText")}
             </Button>
             {text && (
               <div>
                 <div className="flex items-center justify-between mb-2">
                   <label className="text-sm font-medium">
-                    Plain Text Output
+                    {t("tools.html-to-text.plainTextOutput")}
                   </label>
                   <Button variant="outline" size="sm" onClick={copyToClipboard}>
-                    Copy
+                    {t("toolPage.buttons.copy")}
                   </Button>
                 </div>
-                <Textarea value={text} readOnly rows={8} />
+                <Textarea value={text} readOnly rows={16} />
               </div>
             )}
           </CardContent>
@@ -136,9 +137,10 @@ const HtmlToText = () => {
         <Card className="mt-6 bg-gradient-to-r from-blue-50 via-purple-50 to-pink-50 border-blue-200">
           <CardContent className="pt-6">
             <p className="text-gray-700 leading-relaxed">
-              <strong className="text-gray-900">What is HTML to Text?</strong>{" "}
-              This tool converts HTML markup to plain text by stripping tags. Perfect
-              for web scraping, email extraction, and content analysis! 🌍
+              <strong className="text-gray-900">
+                {t("tools.html-to-text.whatIs")}
+              </strong>{" "}
+              {t("tools.html-to-text.whatIsContent")}
             </p>
           </CardContent>
         </Card>
@@ -148,7 +150,7 @@ const HtmlToText = () => {
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <Zap className="h-5 w-5 text-primary" />
-              Common Use Cases
+              {t("toolPage.sections.commonUseCases")}
             </CardTitle>
           </CardHeader>
           <CardContent>
@@ -159,14 +161,12 @@ const HtmlToText = () => {
                 </div>
                 <div>
                   <div className="font-semibold text-blue-900">
-                    Email Extraction
+                    {t("tools.html-to-text.useCases.emailExtraction.title")}
                   </div>
                   <p className="text-sm text-blue-700">
-                    Extract{" "}
-                    <Badge variant="secondary" className="mx-1">
-                      text
-                    </Badge>
-                    from HTML emails for processing
+                    {t(
+                      "tools.html-to-text.useCases.emailExtraction.description"
+                    )}
                   </p>
                 </div>
               </div>
@@ -176,9 +176,11 @@ const HtmlToText = () => {
                   <Globe className="h-5 w-5 text-purple-600" />
                 </div>
                 <div>
-                  <div className="font-semibold text-purple-900">Web Scraping</div>
+                  <div className="font-semibold text-purple-900">
+                    {t("tools.html-to-text.useCases.webScraping.title")}
+                  </div>
                   <p className="text-sm text-purple-700">
-                    Extract content from web pages for analysis
+                    {t("tools.html-to-text.useCases.webScraping.description")}
                   </p>
                 </div>
               </div>
@@ -188,9 +190,11 @@ const HtmlToText = () => {
                   <Database className="h-5 w-5 text-green-600" />
                 </div>
                 <div>
-                  <div className="font-semibold text-green-900">Data Cleaning</div>
+                  <div className="font-semibold text-green-900">
+                    {t("tools.html-to-text.useCases.dataCleaning.title")}
+                  </div>
                   <p className="text-sm text-green-700">
-                    Clean HTML content for data processing
+                    {t("tools.html-to-text.useCases.dataCleaning.description")}
                   </p>
                 </div>
               </div>
@@ -201,10 +205,12 @@ const HtmlToText = () => {
                 </div>
                 <div>
                   <div className="font-semibold text-pink-900">
-                    Content Analysis
+                    {t("tools.html-to-text.useCases.contentAnalysis.title")}
                   </div>
                   <p className="text-sm text-pink-700">
-                    Prepare text for analysis tools and processing
+                    {t(
+                      "tools.html-to-text.useCases.contentAnalysis.description"
+                    )}
                   </p>
                 </div>
               </div>
@@ -217,34 +223,46 @@ const HtmlToText = () => {
           <CardHeader>
             <CardTitle className="flex items-center gap-2 text-amber-900">
               <Info className="h-5 w-5 text-amber-600" />
-              💡 Pro Tips
+              💡 {t("toolPage.sections.proTips")}
             </CardTitle>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
               <div className="flex gap-2 items-start">
                 <div className="text-amber-600 font-bold">→</div>
-                <p className="text-sm text-amber-900">
-                  <strong>Clean Text:</strong> Removes all HTML tags and attributes
-                </p>
+                <p
+                  className="text-sm text-amber-900"
+                  dangerouslySetInnerHTML={{
+                    __html: t("tools.html-to-text.proTips.cleanText"),
+                  }}
+                />
               </div>
               <div className="flex gap-2 items-start">
                 <div className="text-amber-600 font-bold">→</div>
-                <p className="text-sm text-amber-900">
-                  <strong>Web Pages:</strong> Extract readable content from websites
-                </p>
+                <p
+                  className="text-sm text-amber-900"
+                  dangerouslySetInnerHTML={{
+                    __html: t("tools.html-to-text.proTips.webPages"),
+                  }}
+                />
               </div>
               <div className="flex gap-2 items-start">
                 <div className="text-amber-600 font-bold">→</div>
-                <p className="text-sm text-amber-900">
-                  <strong>Email:</strong> Perfect for processing HTML email content
-                </p>
+                <p
+                  className="text-sm text-amber-900"
+                  dangerouslySetInnerHTML={{
+                    __html: t("tools.html-to-text.proTips.email"),
+                  }}
+                />
               </div>
               <div className="flex gap-2 items-start">
                 <div className="text-amber-600 font-bold">→</div>
-                <p className="text-sm text-amber-900">
-                  <strong>Analysis:</strong> Prepare content for text analysis tools
-                </p>
+                <p
+                  className="text-sm text-amber-900"
+                  dangerouslySetInnerHTML={{
+                    __html: t("tools.html-to-text.proTips.analysis"),
+                  }}
+                />
               </div>
             </div>
           </CardContent>
@@ -253,7 +271,7 @@ const HtmlToText = () => {
         {/* Related Tools */}
         <Card className="mt-6">
           <CardHeader>
-            <CardTitle>🔗 Related Tools You Might Like</CardTitle>
+            <CardTitle>{t("tools.html-to-text.relatedTools")}</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
@@ -262,10 +280,10 @@ const HtmlToText = () => {
                 className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
               >
                 <div className="font-semibold text-gray-900 group-hover:text-primary">
-                  Markdown Preview
+                  {t("tools.markdown-preview.title")}
                 </div>
                 <div className="text-sm text-gray-600 mt-1">
-                  Preview Markdown
+                  {t("tools.markdown-preview.description")}
                 </div>
               </button>
               <button
@@ -273,18 +291,22 @@ const HtmlToText = () => {
                 className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
               >
                 <div className="font-semibold text-gray-900 group-hover:text-primary">
-                  Word Counter
+                  {t("tools.word-counter.title")}
                 </div>
-                <div className="text-sm text-gray-600 mt-1">Count words</div>
+                <div className="text-sm text-gray-600 mt-1">
+                  {t("tools.word-counter.description")}
+                </div>
               </button>
               <button
                 onClick={() => navigate("/tools/text-sorter")}
                 className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
               >
                 <div className="font-semibold text-gray-900 group-hover:text-primary">
-                  Text Sorter
+                  {t("tools.text-sorter.title")}
                 </div>
-                <div className="text-sm text-gray-600 mt-1">Sort text lines</div>
+                <div className="text-sm text-gray-600 mt-1">
+                  {t("tools.text-sorter.description")}
+                </div>
               </button>
             </div>
           </CardContent>

@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { SidebarTrigger } from "@/components/ui/sidebar";
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import {
@@ -34,6 +36,7 @@ import { FavoriteButton } from "@/components/FavoriteButton";
 import { Badge } from "@/components/ui/badge";
 
 const LoanCalculator = () => {
+  const { t } = useTranslation();
   const [principal, setPrincipal] = useState("");
   const [interestRate, setInterestRate] = useState("");
   const [term, setTerm] = useState("");
@@ -63,9 +66,9 @@ const LoanCalculator = () => {
         totalPayment: parseFloat(totalPayment.toFixed(2)),
         totalInterest: parseFloat(totalInterest.toFixed(2)),
       });
-      toast.success("Loan calculated successfully!");
+      toast.success(t("tools.loan-calculator.loanCalculated"));
     } else {
-      toast.error("Please enter valid values for all fields");
+      toast.error(t("tools.loan-calculator.enterValidValues"));
     }
   };
 
@@ -75,7 +78,7 @@ const LoanCalculator = () => {
     setTerm("");
     setTermUnit("years");
     setResult(null);
-    toast.success("All fields cleared");
+    toast.success(t("tools.loan-calculator.allFieldsCleared"));
   };
 
   const loadExample = () => {
@@ -84,7 +87,7 @@ const LoanCalculator = () => {
     setTerm("30");
     setTermUnit("years");
     setResult(null);
-    toast.success("Example loaded");
+    toast.success(t("tools.loan-calculator.exampleLoaded"));
   };
 
   return (
@@ -96,7 +99,7 @@ const LoanCalculator = () => {
           </Button>
           <SidebarTrigger />
           <div className="flex items-center gap-2">
-            <h1 className="text-xl font-semibold">Loan Calculator</h1>
+            <h1 className="text-xl font-semibold">{t("tools.loan-calculator.title")}</h1>
           </div>
         </div>
       </header>
@@ -105,14 +108,14 @@ const LoanCalculator = () => {
           <CardHeader>
             <div className="flex items-center justify-between">
               <div>
-                <CardTitle>Calculate Your Loan</CardTitle>
+                <CardTitle>{t("tools.loan-calculator.calculateYourLoan")}</CardTitle>
                 <CardDescription>
-                  Calculate monthly payments, total cost, and interest
+                  {t("tools.loan-calculator.descriptionFull")}
                 </CardDescription>
               </div>
               <FavoriteButton
                 toolId="loan-calculator"
-                toolName="Loan Calculator"
+                toolName={t("tools.loan-calculator.title")}
               />
             </div>
           </CardHeader>
@@ -120,17 +123,17 @@ const LoanCalculator = () => {
             <div className="flex gap-2 mb-4">
               <Button onClick={clearAll} variant="outline" size="sm">
                 <RotateCcw className="h-4 w-4 mr-2" />
-                Clear
+                {t("toolPage.buttons.clear")}
               </Button>
               <Button onClick={loadExample} variant="ghost" size="sm">
                 <Lightbulb className="h-4 w-4 mr-1" />
-                Load Example
+                {t("toolPage.buttons.loadExample")}
               </Button>
             </div>
 
             <div>
               <label className="mb-2 block text-sm font-medium">
-                Loan Amount ($)
+                {t("tools.loan-calculator.loanAmount")}
               </label>
               <Input
                 type="number"
@@ -143,7 +146,7 @@ const LoanCalculator = () => {
 
             <div>
               <label className="mb-2 block text-sm font-medium">
-                Interest Rate (%)
+                {t("tools.loan-calculator.interestRate")}
               </label>
               <Input
                 type="number"
@@ -156,7 +159,7 @@ const LoanCalculator = () => {
 
             <div>
               <label className="mb-2 block text-sm font-medium">
-                Loan Term
+                {t("tools.loan-calculator.loanTerm")}
               </label>
               <div className="flex gap-2">
                 <Input
@@ -171,21 +174,21 @@ const LoanCalculator = () => {
                     <SelectValue />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="years">Years</SelectItem>
-                    <SelectItem value="months">Months</SelectItem>
+                    <SelectItem value="years">{t("tools.loan-calculator.years")}</SelectItem>
+                    <SelectItem value="months">{t("tools.loan-calculator.months")}</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
             </div>
 
             <Button onClick={calculateLoan} className="w-full">
-              Calculate
+              {t("tools.loan-calculator.calculate")}
             </Button>
             {result && (
               <div className="space-y-4 rounded-lg bg-secondary/50 p-6">
                 <div className="flex justify-between items-center border-b pb-3">
                   <span className="text-sm text-muted-foreground">
-                    Monthly Payment
+                    {t("tools.loan-calculator.monthlyPayment")}
                   </span>
                   <span className="text-2xl font-bold text-primary">
                     ${result.monthlyPayment.toLocaleString()}
@@ -193,7 +196,7 @@ const LoanCalculator = () => {
                 </div>
                 <div className="flex justify-between items-center border-b pb-3">
                   <span className="text-sm text-muted-foreground">
-                    Total Payment
+                    {t("tools.loan-calculator.totalPayment")}
                   </span>
                   <span className="text-lg font-semibold">
                     ${result.totalPayment.toLocaleString()}
@@ -201,7 +204,7 @@ const LoanCalculator = () => {
                 </div>
                 <div className="flex justify-between items-center">
                   <span className="text-sm text-muted-foreground">
-                    Total Interest
+                    {t("tools.loan-calculator.totalInterest")}
                   </span>
                   <span className="text-lg font-semibold text-orange-500">
                     ${result.totalInterest.toLocaleString()}
@@ -213,13 +216,11 @@ const LoanCalculator = () => {
         </Card>
 
         {/* Tool Introduction */}
-        <Card className="mt-6 bg-gradient-to-r from-blue-50 via-purple-50 to-pink-50 border-blue-200">
+        <Card className="mt-6 bg-gradient-to-r from-blue-50 via-purple-50 to-pink-50 dark:from-blue-950/30 dark:via-purple-950/30 dark:to-pink-950/30 border-blue-200 dark:border-blue-800">
           <CardContent className="pt-6">
-            <p className="text-gray-700 leading-relaxed">
-              <strong className="text-gray-900">What is Loan Calculator?</strong>{" "}
-              This tool calculates monthly payments, total interest, and repayment
-              amounts for loans. Perfect for mortgage, auto, and personal loan
-              planning! 🏦
+            <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+              <strong className="text-gray-900 dark:text-gray-100">{t("tools.loan-calculator.whatIs")}</strong>{" "}
+              {t("tools.loan-calculator.whatIsContent")}
             </p>
           </CardContent>
         </Card>
@@ -229,59 +230,58 @@ const LoanCalculator = () => {
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <Zap className="h-5 w-5 text-primary" />
-              Common Use Cases
+              {t("toolPage.sections.commonUseCases")}
             </CardTitle>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-blue-50 to-blue-100/50 border border-blue-200">
-                <div className="p-2 bg-white rounded-lg h-fit">
-                  <Home className="h-5 w-5 text-blue-600" />
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-blue-50 to-blue-100/50 dark:from-blue-950/30 dark:to-blue-900/30 border border-blue-200 dark:border-blue-800">
+                <div className="p-2 bg-white dark:bg-gray-800 rounded-lg h-fit">
+                  <Home className="h-5 w-5 text-blue-600 dark:text-blue-400" />
                 </div>
                 <div>
-                  <div className="font-semibold text-blue-900">Mortgage Planning</div>
-                  <p className="text-sm text-blue-700">
-                    Calculate{" "}
+                  <div className="font-semibold text-blue-900 dark:text-blue-300">{t("tools.loan-calculator.useCases.mortgage.title")}</div>
+                  <p className="text-sm text-blue-700 dark:text-blue-400">
+                    {t("tools.loan-calculator.useCases.mortgage.description")}{" "}
                     <Badge variant="secondary" className="mx-1">
                       home loan
                     </Badge>
-                    payments and affordability
                   </p>
                 </div>
               </div>
 
-              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-purple-50 to-purple-100/50 border border-purple-200">
-                <div className="p-2 bg-white rounded-lg h-fit">
-                  <Car className="h-5 w-5 text-purple-600" />
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-purple-50 to-purple-100/50 dark:from-purple-950/30 dark:to-purple-900/30 border border-purple-200 dark:border-purple-800">
+                <div className="p-2 bg-white dark:bg-gray-800 rounded-lg h-fit">
+                  <Car className="h-5 w-5 text-purple-600 dark:text-purple-400" />
                 </div>
                 <div>
-                  <div className="font-semibold text-purple-900">Auto Loans</div>
-                  <p className="text-sm text-purple-700">
-                    Compare car financing options and monthly payments
+                  <div className="font-semibold text-purple-900 dark:text-purple-300">{t("tools.loan-calculator.useCases.auto.title")}</div>
+                  <p className="text-sm text-purple-700 dark:text-purple-400">
+                    {t("tools.loan-calculator.useCases.auto.description")}
                   </p>
                 </div>
               </div>
 
-              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-green-50 to-green-100/50 border border-green-200">
-                <div className="p-2 bg-white rounded-lg h-fit">
-                  <Briefcase className="h-5 w-5 text-green-600" />
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-green-50 to-green-100/50 dark:from-green-950/30 dark:to-green-900/30 border border-green-200 dark:border-green-800">
+                <div className="p-2 bg-white dark:bg-gray-800 rounded-lg h-fit">
+                  <Briefcase className="h-5 w-5 text-green-600 dark:text-green-400" />
                 </div>
                 <div>
-                  <div className="font-semibold text-green-900">Business Loans</div>
-                  <p className="text-sm text-green-700">
-                    Evaluate business financing and repayment schedules
+                  <div className="font-semibold text-green-900 dark:text-green-300">{t("tools.loan-calculator.useCases.business.title")}</div>
+                  <p className="text-sm text-green-700 dark:text-green-400">
+                    {t("tools.loan-calculator.useCases.business.description")}
                   </p>
                 </div>
               </div>
 
-              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-pink-50 to-pink-100/50 border border-pink-200">
-                <div className="p-2 bg-white rounded-lg h-fit">
-                  <TrendingDown className="h-5 w-5 text-pink-600" />
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-pink-50 to-pink-100/50 dark:from-pink-950/30 dark:to-pink-900/30 border border-pink-200 dark:border-pink-800">
+                <div className="p-2 bg-white dark:bg-gray-800 rounded-lg h-fit">
+                  <TrendingDown className="h-5 w-5 text-pink-600 dark:text-pink-400" />
                 </div>
                 <div>
-                  <div className="font-semibold text-pink-900">Refinancing</div>
-                  <p className="text-sm text-pink-700">
-                    Compare refinancing options to save on interest
+                  <div className="font-semibold text-pink-900 dark:text-pink-300">{t("tools.loan-calculator.useCases.refinancing.title")}</div>
+                  <p className="text-sm text-pink-700 dark:text-pink-400">
+                    {t("tools.loan-calculator.useCases.refinancing.description")}
                   </p>
                 </div>
               </div>
@@ -290,40 +290,38 @@ const LoanCalculator = () => {
         </Card>
 
         {/* Quick Tips */}
-        <Card className="mt-6 bg-gradient-to-br from-amber-50 via-orange-50 to-amber-50 border-amber-200">
+        <Card className="mt-6 bg-gradient-to-br from-amber-50 via-orange-50 to-amber-50 dark:from-amber-950/30 dark:via-orange-950/30 dark:to-amber-950/30 border-amber-200 dark:border-amber-800">
           <CardHeader>
-            <CardTitle className="flex items-center gap-2 text-amber-900">
-              <Info className="h-5 w-5 text-amber-600" />
-              💡 Pro Tips
+            <CardTitle className="flex items-center gap-2 text-amber-900 dark:text-amber-300">
+              <Info className="h-5 w-5 text-amber-600 dark:text-amber-400" />
+              💡 {t("toolPage.sections.proTips")}
             </CardTitle>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
               <div className="flex gap-2 items-start">
-                <div className="text-amber-600 font-bold">→</div>
-                <p className="text-sm text-amber-900">
-                  <strong>Interest Rate:</strong> Lower rates reduce total cost
-                  significantly
-                </p>
+                <div className="text-amber-600 dark:text-amber-400 font-bold">→</div>
+                <p className="text-sm text-amber-900 dark:text-amber-300" dangerouslySetInnerHTML={{
+                  __html: t("tools.loan-calculator.proTips.interestRate")
+                }} />
               </div>
               <div className="flex gap-2 items-start">
-                <div className="text-amber-600 font-bold">→</div>
-                <p className="text-sm text-amber-900">
-                  <strong>Loan Term:</strong> Shorter terms = higher payments, less
-                  interest
-                </p>
+                <div className="text-amber-600 dark:text-amber-400 font-bold">→</div>
+                <p className="text-sm text-amber-900 dark:text-amber-300" dangerouslySetInnerHTML={{
+                  __html: t("tools.loan-calculator.proTips.loanTerm")
+                }} />
               </div>
               <div className="flex gap-2 items-start">
-                <div className="text-amber-600 font-bold">→</div>
-                <p className="text-sm text-amber-900">
-                  <strong>Budget:</strong> Ensure monthly payments fit your budget
-                </p>
+                <div className="text-amber-600 dark:text-amber-400 font-bold">→</div>
+                <p className="text-sm text-amber-900 dark:text-amber-300" dangerouslySetInnerHTML={{
+                  __html: t("tools.loan-calculator.proTips.budget")
+                }} />
               </div>
               <div className="flex gap-2 items-start">
-                <div className="text-amber-600 font-bold">→</div>
-                <p className="text-sm text-amber-900">
-                  <strong>Compare:</strong> Always shop around for the best rates
-                </p>
+                <div className="text-amber-600 dark:text-amber-400 font-bold">→</div>
+                <p className="text-sm text-amber-900 dark:text-amber-300" dangerouslySetInnerHTML={{
+                  __html: t("tools.loan-calculator.proTips.compare")
+                }} />
               </div>
             </div>
           </CardContent>
@@ -332,7 +330,7 @@ const LoanCalculator = () => {
         {/* Related Tools */}
         <Card className="mt-6">
           <CardHeader>
-            <CardTitle>🔗 Related Tools You Might Like</CardTitle>
+            <CardTitle>{t("tools.loan-calculator.relatedTools")}</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
@@ -341,10 +339,10 @@ const LoanCalculator = () => {
                 className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
               >
                 <div className="font-semibold text-gray-900 group-hover:text-primary">
-                  Interest Calculator
+                  {t("tools.interest-calculator.title")}
                 </div>
                 <div className="text-sm text-gray-600 mt-1">
-                  Calculate interest
+                  {t("tools.interest-calculator.description")}
                 </div>
               </button>
               <button
@@ -352,10 +350,10 @@ const LoanCalculator = () => {
                 className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
               >
                 <div className="font-semibold text-gray-900 group-hover:text-primary">
-                  Investment Calculator
+                  {t("tools.investment-calculator.title")}
                 </div>
                 <div className="text-sm text-gray-600 mt-1">
-                  Calculate returns
+                  {t("tools.investment-calculator.description")}
                 </div>
               </button>
               <button
@@ -363,10 +361,10 @@ const LoanCalculator = () => {
                 className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
               >
                 <div className="font-semibold text-gray-900 group-hover:text-primary">
-                  Percentage Calculator
+                  {t("tools.percentage-calculator.title")}
                 </div>
                 <div className="text-sm text-gray-600 mt-1">
-                  Calculate percentages
+                  {t("tools.percentage-calculator.description")}
                 </div>
               </button>
             </div>

@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { SidebarTrigger } from "@/components/ui/sidebar";
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import {
@@ -28,6 +30,7 @@ import { Badge } from "@/components/ui/badge";
 import { Checkbox } from "@/components/ui/checkbox";
 
 const WhitespaceRemover = () => {
+  const { t } = useTranslation();
   const [inputText, setInputText] = useState("");
   const [outputText, setOutputText] = useState("");
   const [removeExtraSpaces, setRemoveExtraSpaces] = useState(true);
@@ -38,7 +41,7 @@ const WhitespaceRemover = () => {
 
   const processText = () => {
     if (!inputText.trim()) {
-      toast.error("Please enter some text first");
+      toast.error(t("tools.whitespace-remover.enterTextFirst"));
       return;
     }
 
@@ -71,31 +74,24 @@ const WhitespaceRemover = () => {
     }
 
     setOutputText(result.trim());
-    toast.success("Whitespace removed!");
+    toast.success(t("tools.whitespace-remover.whitespaceRemoved"));
   };
 
   const copyToClipboard = () => {
     navigator.clipboard.writeText(outputText);
-    toast.success("Copied to clipboard!");
+    toast.success(t("tools.whitespace-remover.copiedToClipboard"));
   };
 
   const clearAll = () => {
     setInputText("");
     setOutputText("");
-    toast.success("All fields cleared");
+    toast.success(t("tools.whitespace-remover.allFieldsCleared"));
   };
 
   const loadExample = () => {
-    setInputText(`This    text    has    extra    spaces.
-
-    
-And     some     empty     lines.
-
-	It also	has	tabs.
-  
-  And spaces at the   beginning   and   end.  `);
+    setInputText(t("tools.whitespace-remover.exampleText"));
     setOutputText("");
-    toast.success("Example loaded");
+    toast.success(t("tools.whitespace-remover.exampleLoaded"));
   };
 
   return (
@@ -113,7 +109,9 @@ And     some     empty     lines.
           <SidebarTrigger />
           <div className="flex items-center gap-2">
             <Space className="h-5 w-5 text-primary" />
-            <h1 className="text-xl font-semibold">Whitespace Remover</h1>
+            <h1 className="text-xl font-semibold">
+              {t("tools.whitespace-remover.title")}
+            </h1>
           </div>
         </div>
       </header>
@@ -123,14 +121,16 @@ And     some     empty     lines.
           <CardHeader>
             <div className="flex items-center justify-between">
               <div>
-                <CardTitle>Remove Extra Whitespace</CardTitle>
+                <CardTitle>
+                  {t("tools.whitespace-remover.removeWhitespace")}
+                </CardTitle>
                 <CardDescription>
-                  Clean up spaces, tabs, and line breaks from text
+                  {t("tools.whitespace-remover.cleanupText")}
                 </CardDescription>
               </div>
               <FavoriteButton
                 toolId="whitespace-remover"
-                toolName="Whitespace Remover"
+                toolName={t("tools.whitespace-remover.title")}
               />
             </div>
           </CardHeader>
@@ -138,31 +138,33 @@ And     some     empty     lines.
             <div className="flex gap-2 mb-4">
               <Button onClick={clearAll} variant="outline" size="sm">
                 <RotateCcw className="h-4 w-4 mr-2" />
-                Clear
+                {t("toolPage.buttons.clear")}
               </Button>
               <Button onClick={loadExample} variant="ghost" size="sm">
                 <Lightbulb className="h-4 w-4 mr-1" />
-                Load Example
+                {t("toolPage.buttons.loadExample")}
               </Button>
             </div>
 
             <div>
               <label className="mb-2 block text-sm font-medium">
-                Input Text
+                {t("tools.whitespace-remover.inputText")}
               </label>
               <Textarea
                 value={inputText}
                 onChange={(e) => setInputText(e.target.value)}
-                placeholder="Enter text with extra spaces, tabs, or line breaks..."
+                placeholder={t("tools.whitespace-remover.inputPlaceholder")}
                 className="min-h-[200px] font-mono text-sm"
               />
               <div className="text-xs text-muted-foreground mt-1">
-                Characters: {inputText.length}
+                {t("tools.whitespace-remover.characters")}: {inputText.length}
               </div>
             </div>
 
             <div className="space-y-3 p-4 bg-gray-50 dark:bg-gray-900 rounded-lg">
-              <div className="text-sm font-medium mb-2">Options:</div>
+              <div className="text-sm font-medium mb-2">
+                {t("tools.whitespace-remover.options")}
+              </div>
 
               <div className="flex items-center space-x-2">
                 <Checkbox
@@ -176,7 +178,7 @@ And     some     empty     lines.
                   htmlFor="extra-spaces"
                   className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
                 >
-                  Remove extra spaces (multiple spaces → single space)
+                  {t("tools.whitespace-remover.removeExtraSpaces")}
                 </label>
               </div>
 
@@ -192,7 +194,7 @@ And     some     empty     lines.
                   htmlFor="tabs"
                   className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
                 >
-                  Remove tabs (convert to spaces)
+                  {t("tools.whitespace-remover.removeTabs")}
                 </label>
               </div>
 
@@ -208,7 +210,7 @@ And     some     empty     lines.
                   htmlFor="trim-lines"
                   className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
                 >
-                  Trim spaces from beginning/end of each line
+                  {t("tools.whitespace-remover.trimLines")}
                 </label>
               </div>
 
@@ -224,23 +226,25 @@ And     some     empty     lines.
                   htmlFor="line-breaks"
                   className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
                 >
-                  Remove all line breaks (make single line)
+                  {t("tools.whitespace-remover.removeLineBreaks")}
                 </label>
               </div>
             </div>
 
             <Button onClick={processText} className="w-full">
               <Space className="h-4 w-4 mr-2" />
-              Remove Whitespace
+              {t("tools.whitespace-remover.removeWhitespace")}
             </Button>
 
             {outputText && (
               <div>
                 <div className="mb-2 flex items-center justify-between">
-                  <label className="text-sm font-medium">Output</label>
+                  <label className="text-sm font-medium">
+                    {t("tools.whitespace-remover.output")}
+                  </label>
                   <Button onClick={copyToClipboard} size="sm" variant="ghost">
                     <Copy className="mr-2 h-4 w-4" />
-                    Copy
+                    {t("toolPage.buttons.copy")}
                   </Button>
                 </div>
                 <Textarea
@@ -249,7 +253,8 @@ And     some     empty     lines.
                   className="min-h-[200px] font-mono text-sm bg-green-50 dark:bg-green-950/20"
                 />
                 <div className="text-xs text-muted-foreground mt-1">
-                  Characters: {outputText.length} (Reduced by{" "}
+                  {t("tools.whitespace-remover.characters")}:{" "}
+                  {outputText.length} ({t("tools.whitespace-remover.reducedBy")}{" "}
                   {(
                     ((inputText.length - outputText.length) /
                       inputText.length) *
@@ -263,15 +268,13 @@ And     some     empty     lines.
         </Card>
 
         {/* Tool Introduction */}
-        <Card className="mt-6 bg-gradient-to-r from-blue-50 via-purple-50 to-pink-50 border-blue-200">
+        <Card className="mt-6 bg-gradient-to-r from-blue-50 via-purple-50 to-pink-50 dark:from-blue-950/30 dark:via-purple-950/30 dark:to-pink-950/30 border-blue-200 dark:border-blue-800">
           <CardContent className="pt-6">
-            <p className="text-gray-700 leading-relaxed">
-              <strong className="text-gray-900">
-                What is Whitespace Remover?
+            <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+              <strong className="text-gray-900 dark:text-gray-100">
+                {t("tools.whitespace-remover.whatIs")}
               </strong>{" "}
-              This tool removes extra spaces, tabs, and line breaks from text.
-              Perfect for cleaning up copied text, code formatting, or data
-              preparation! 🧹
+              {t("tools.whitespace-remover.whatIsContent")}
             </p>
           </CardContent>
         </Card>
@@ -281,67 +284,66 @@ And     some     empty     lines.
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <Zap className="h-5 w-5 text-primary" />
-              Common Use Cases
+              {t("toolPage.sections.commonUseCases")}
             </CardTitle>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-purple-50 to-purple-100/50 border border-purple-200">
-                <div className="p-2 bg-white rounded-lg h-fit">
-                  <Code2 className="h-5 w-5 text-purple-600" />
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-purple-50 to-purple-100/50 dark:from-purple-950/30 dark:to-purple-900/30 border border-purple-200 dark:border-purple-800">
+                <div className="p-2 bg-white dark:bg-gray-800 rounded-lg h-fit">
+                  <Code2 className="h-5 w-5 text-purple-600 dark:text-purple-400" />
                 </div>
                 <div>
-                  <div className="font-semibold text-purple-900">
-                    Code Cleanup
+                  <div className="font-semibold text-purple-900 dark:text-purple-300">
+                    {t("tools.whitespace-remover.useCases.code.title")}
                   </div>
-                  <p className="text-sm text-purple-700">
-                    Remove{" "}
+                  <p className="text-sm text-purple-700 dark:text-purple-400">
+                    {t("tools.whitespace-remover.useCases.code.description")}{" "}
                     <Badge variant="secondary" className="mx-1">
                       extra spaces
-                    </Badge>{" "}
-                    from code snippets
+                    </Badge>
                   </p>
                 </div>
               </div>
 
-              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-blue-50 to-blue-100/50 border border-blue-200">
-                <div className="p-2 bg-white rounded-lg h-fit">
-                  <FileText className="h-5 w-5 text-blue-600" />
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-blue-50 to-blue-100/50 dark:from-blue-950/30 dark:to-blue-900/30 border border-blue-200 dark:border-blue-800">
+                <div className="p-2 bg-white dark:bg-gray-800 rounded-lg h-fit">
+                  <FileText className="h-5 w-5 text-blue-600 dark:text-blue-400" />
                 </div>
                 <div>
-                  <div className="font-semibold text-blue-900">
-                    Text Processing
+                  <div className="font-semibold text-blue-900 dark:text-blue-300">
+                    {t("tools.whitespace-remover.useCases.text.title")}
                   </div>
-                  <p className="text-sm text-blue-700">
-                    Clean up copied text from PDFs or websites
+                  <p className="text-sm text-blue-700 dark:text-blue-400">
+                    {t("tools.whitespace-remover.useCases.text.description")}
                   </p>
                 </div>
               </div>
 
-              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-green-50 to-green-100/50 border border-green-200">
-                <div className="p-2 bg-white rounded-lg h-fit">
-                  <AlignLeft className="h-5 w-5 text-green-600" />
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-green-50 to-green-100/50 dark:from-green-950/30 dark:to-green-900/30 border border-green-200 dark:border-green-800">
+                <div className="p-2 bg-white dark:bg-gray-800 rounded-lg h-fit">
+                  <AlignLeft className="h-5 w-5 text-green-600 dark:text-green-400" />
                 </div>
                 <div>
-                  <div className="font-semibold text-green-900">
-                    Data Preparation
+                  <div className="font-semibold text-green-900 dark:text-green-300">
+                    {t("tools.whitespace-remover.useCases.data.title")}
                   </div>
-                  <p className="text-sm text-green-700">
-                    Format data for CSV or database import
+                  <p className="text-sm text-green-700 dark:text-green-400">
+                    {t("tools.whitespace-remover.useCases.data.description")}
                   </p>
                 </div>
               </div>
 
-              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-pink-50 to-pink-100/50 border border-pink-200">
-                <div className="p-2 bg-white rounded-lg h-fit">
-                  <Space className="h-5 w-5 text-pink-600" />
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-pink-50 to-pink-100/50 dark:from-pink-950/30 dark:to-pink-900/30 border border-pink-200 dark:border-pink-800">
+                <div className="p-2 bg-white dark:bg-gray-800 rounded-lg h-fit">
+                  <Space className="h-5 w-5 text-pink-600 dark:text-pink-400" />
                 </div>
                 <div>
-                  <div className="font-semibold text-pink-900">
-                    Content Writing
+                  <div className="font-semibold text-pink-900 dark:text-pink-300">
+                    {t("tools.whitespace-remover.useCases.content.title")}
                   </div>
-                  <p className="text-sm text-pink-700">
-                    Remove formatting issues from documents
+                  <p className="text-sm text-pink-700 dark:text-pink-400">
+                    {t("tools.whitespace-remover.useCases.content.description")}
                   </p>
                 </div>
               </div>
@@ -350,42 +352,58 @@ And     some     empty     lines.
         </Card>
 
         {/* Quick Tips */}
-        <Card className="mt-6 bg-gradient-to-br from-amber-50 via-orange-50 to-amber-50 border-amber-200">
+        <Card className="mt-6 bg-gradient-to-br from-amber-50 via-orange-50 to-amber-50 dark:from-amber-950/30 dark:via-orange-950/30 dark:to-amber-950/30 border-amber-200 dark:border-amber-800">
           <CardHeader>
-            <CardTitle className="flex items-center gap-2 text-amber-900">
-              <Info className="h-5 w-5 text-amber-600" />
-              💡 Pro Tips
+            <CardTitle className="flex items-center gap-2 text-amber-900 dark:text-amber-300">
+              <Info className="h-5 w-5 text-amber-600 dark:text-amber-400" />
+              💡 {t("toolPage.sections.proTips")}
             </CardTitle>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
               <div className="flex gap-2 items-start">
-                <div className="text-amber-600 font-bold">→</div>
-                <p className="text-sm text-amber-900">
-                  <strong>Options:</strong> Customize what to remove with
-                  checkboxes
-                </p>
+                <div className="text-amber-600 dark:text-amber-400 font-bold">
+                  →
+                </div>
+                <p
+                  className="text-sm text-amber-900 dark:text-amber-300"
+                  dangerouslySetInnerHTML={{
+                    __html: t("tools.whitespace-remover.proTips.options"),
+                  }}
+                />
               </div>
               <div className="flex gap-2 items-start">
-                <div className="text-amber-600 font-bold">→</div>
-                <p className="text-sm text-amber-900">
-                  <strong>Line Breaks:</strong> Keep for multi-line, remove for
-                  single line
-                </p>
+                <div className="text-amber-600 dark:text-amber-400 font-bold">
+                  →
+                </div>
+                <p
+                  className="text-sm text-amber-900 dark:text-amber-300"
+                  dangerouslySetInnerHTML={{
+                    __html: t("tools.whitespace-remover.proTips.lineBreaks"),
+                  }}
+                />
               </div>
               <div className="flex gap-2 items-start">
-                <div className="text-amber-600 font-bold">→</div>
-                <p className="text-sm text-amber-900">
-                  <strong>Trim Lines:</strong> Removes leading/trailing spaces
-                  per line
-                </p>
+                <div className="text-amber-600 dark:text-amber-400 font-bold">
+                  →
+                </div>
+                <p
+                  className="text-sm text-amber-900 dark:text-amber-300"
+                  dangerouslySetInnerHTML={{
+                    __html: t("tools.whitespace-remover.proTips.trimLines"),
+                  }}
+                />
               </div>
               <div className="flex gap-2 items-start">
-                <div className="text-amber-600 font-bold">→</div>
-                <p className="text-sm text-amber-900">
-                  <strong>Preview:</strong> See reduction percentage after
-                  processing
-                </p>
+                <div className="text-amber-600 dark:text-amber-400 font-bold">
+                  →
+                </div>
+                <p
+                  className="text-sm text-amber-900 dark:text-amber-300"
+                  dangerouslySetInnerHTML={{
+                    __html: t("tools.whitespace-remover.proTips.preview"),
+                  }}
+                />
               </div>
             </div>
           </CardContent>
@@ -394,7 +412,7 @@ And     some     empty     lines.
         {/* Related Tools */}
         <Card className="mt-6">
           <CardHeader>
-            <CardTitle>🔗 Related Tools You Might Like</CardTitle>
+            <CardTitle>{t("tools.whitespace-remover.relatedTools")}</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
@@ -403,10 +421,10 @@ And     some     empty     lines.
                 className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
               >
                 <div className="font-semibold text-gray-900 group-hover:text-primary">
-                  Text Sorter
+                  {t("tools.text-sorter.title")}
                 </div>
                 <div className="text-sm text-gray-600 mt-1">
-                  Sort text lines
+                  {t("tools.text-sorter.description")}
                 </div>
               </button>
               <button
@@ -414,10 +432,10 @@ And     some     empty     lines.
                 className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
               >
                 <div className="font-semibold text-gray-900 group-hover:text-primary">
-                  Duplicate Remover
+                  {t("tools.duplicate-remover.title")}
                 </div>
                 <div className="text-sm text-gray-600 mt-1">
-                  Remove duplicate lines
+                  {t("tools.duplicate-remover.description")}
                 </div>
               </button>
               <button
@@ -425,10 +443,10 @@ And     some     empty     lines.
                 className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
               >
                 <div className="font-semibold text-gray-900 group-hover:text-primary">
-                  Text Replacer
+                  {t("tools.text-replacer.title")}
                 </div>
                 <div className="text-sm text-gray-600 mt-1">
-                  Find and replace text
+                  {t("tools.text-replacer.description")}
                 </div>
               </button>
             </div>

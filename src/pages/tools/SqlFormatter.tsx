@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { SidebarTrigger } from "@/components/ui/sidebar";
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -27,13 +29,14 @@ import { FavoriteButton } from "@/components/FavoriteButton";
 import { Badge } from "@/components/ui/badge";
 
 const SqlFormatter = () => {
+  const { t } = useTranslation();
   const [sqlInput, setSqlInput] = useState("");
   const [sqlOutput, setSqlOutput] = useState("");
   const navigate = useNavigate();
 
   const formatSql = () => {
     if (!sqlInput.trim()) {
-      toast.error("Please enter SQL query");
+      toast.error(t("tools.sql-formatter.pleaseEnterSql"));
       return;
     }
     try {
@@ -92,16 +95,16 @@ const SqlFormatter = () => {
         formatted = formatted.replace(regex, keyword.toUpperCase());
       });
       setSqlOutput(formatted);
-      toast.success("SQL formatted successfully!");
+      toast.success(t("tools.sql-formatter.formattedSuccessfully"));
     } catch (error) {
-      toast.error("Error formatting SQL");
+      toast.error(t("tools.sql-formatter.errorFormatting"));
     }
   };
 
   return (
     <div className="min-h-screen">
       <header className="sticky top-0 z-10 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="flex h-16 items-center gap-4 px-6">
+        <div className="flex h-16 items-center gap-2 sm:gap-4 px-2 sm:px-6">
           <Button
             variant="ghost"
             size="icon"
@@ -111,7 +114,12 @@ const SqlFormatter = () => {
             <ArrowLeft className="h-4 w-4" />
           </Button>
           <SidebarTrigger />
-          <h1 className="text-xl font-semibold">SQL Formatter</h1>
+          <h1 className="text-xl font-semibold flex-1">
+            {t("tools.sql-formatter.title")}
+          </h1>
+          <div className="flex-shrink-0">
+            <LanguageSwitcher />
+          </div>
         </div>
       </header>
       <div className="container mx-auto max-w-4xl px-6 py-8">
@@ -119,12 +127,17 @@ const SqlFormatter = () => {
           <CardHeader>
             <div className="flex items-center justify-between">
               <div>
-                <CardTitle>Format SQL Queries</CardTitle>
+                <CardTitle>
+                  {t("tools.sql-formatter.formatSqlQueries")}
+                </CardTitle>
                 <CardDescription>
-                  Format and beautify SQL queries for better readability
+                  {t("tools.sql-formatter.description")}
                 </CardDescription>
               </div>
-              <FavoriteButton toolId="sql-formatter" toolName="SQL Formatter" />
+              <FavoriteButton
+                toolId="sql-formatter"
+                toolName={t("tools.sql-formatter.title")}
+              />
             </div>
           </CardHeader>
           <CardContent className="space-y-4">
@@ -133,32 +146,32 @@ const SqlFormatter = () => {
                 onClick={() => {
                   setSqlInput("");
                   setSqlOutput("");
-                  toast.success("Cleared");
+                  toast.success(t("toolPage.messages.cleared"));
                 }}
                 variant="outline"
                 size="sm"
               >
                 <RotateCcw className="h-4 w-4 mr-2" />
-                Clear
+                {t("toolPage.buttons.clear")}
               </Button>
               <Button
                 onClick={() => {
-                  setSqlInput(
-                    "select u.id,u.name,o.order_id from users u inner join orders o on u.id=o.user_id where u.status='active' and o.total>100 order by o.created_at desc limit 10"
-                  );
-                  toast.success("Example loaded");
+                  setSqlInput(t("tools.sql-formatter.exampleSql"));
+                  toast.success(t("toolPage.messages.exampleLoaded"));
                 }}
                 variant="ghost"
                 size="sm"
               >
                 <Lightbulb className="h-4 w-4 mr-1" />
-                Load Example
+                {t("toolPage.buttons.loadExample")}
               </Button>
             </div>
             <div>
-              <div className="text-sm font-medium mb-2">SQL Input</div>
+              <div className="text-sm font-medium mb-2">
+                {t("tools.sql-formatter.sqlInput")}
+              </div>
               <Textarea
-                placeholder="SELECT * FROM users WHERE..."
+                placeholder={t("tools.sql-formatter.placeholder")}
                 value={sqlInput}
                 onChange={(e) => setSqlInput(e.target.value)}
                 rows={8}
@@ -167,22 +180,24 @@ const SqlFormatter = () => {
             </div>
             <Button onClick={formatSql} className="w-full">
               <Database className="h-4 w-4 mr-2" />
-              Format SQL
+              {t("tools.sql-formatter.formatSql")}
             </Button>
             {sqlOutput && (
               <>
                 <div className="flex items-center justify-between">
-                  <div className="text-sm font-medium">Formatted SQL</div>
+                  <div className="text-sm font-medium">
+                    {t("tools.sql-formatter.formattedSql")}
+                  </div>
                   <Button
                     variant="outline"
                     size="sm"
                     onClick={() => {
                       navigator.clipboard.writeText(sqlOutput);
-                      toast.success("Copied!");
+                      toast.success(t("toolPage.messages.copied"));
                     }}
                   >
                     <Copy className="h-4 w-4 mr-2" />
-                    Copy
+                    {t("toolPage.buttons.copy")}
                   </Button>
                 </div>
                 <Textarea
@@ -200,11 +215,10 @@ const SqlFormatter = () => {
         <Card className="mt-6 bg-gradient-to-r from-blue-50 via-purple-50 to-pink-50 border-blue-200">
           <CardContent className="pt-6">
             <p className="text-gray-700 leading-relaxed">
-              <strong className="text-gray-900">What is SQL Formatter?</strong>{" "}
-              This tool formats and beautifies SQL queries by adding proper
-              indentation, line breaks, and standardizing keyword
-              capitalization. Perfect for improving code readability and
-              maintaining consistent SQL style! 📝
+              <strong className="text-gray-900">
+                {t("tools.sql-formatter.whatIs")}
+              </strong>{" "}
+              {t("tools.sql-formatter.whatIsContent")}
             </p>
           </CardContent>
         </Card>
@@ -214,7 +228,7 @@ const SqlFormatter = () => {
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <Zap className="h-5 w-5 text-primary" />
-              Common Use Cases
+              {t("toolPage.sections.commonUseCases")}
             </CardTitle>
           </CardHeader>
           <CardContent>
@@ -225,14 +239,10 @@ const SqlFormatter = () => {
                 </div>
                 <div>
                   <div className="font-semibold text-purple-900">
-                    Code Review
+                    {t("tools.sql-formatter.useCases.codeReview.title")}
                   </div>
                   <p className="text-sm text-purple-700">
-                    Format{" "}
-                    <Badge variant="secondary" className="mx-1">
-                      complex queries
-                    </Badge>{" "}
-                    for better code review
+                    {t("tools.sql-formatter.useCases.codeReview.description")}
                   </p>
                 </div>
               </div>
@@ -243,10 +253,12 @@ const SqlFormatter = () => {
                 </div>
                 <div>
                   <div className="font-semibold text-blue-900">
-                    Documentation
+                    {t("tools.sql-formatter.useCases.documentation.title")}
                   </div>
                   <p className="text-sm text-blue-700">
-                    Create clean, readable SQL for documentation
+                    {t(
+                      "tools.sql-formatter.useCases.documentation.description"
+                    )}
                   </p>
                 </div>
               </div>
@@ -256,9 +268,11 @@ const SqlFormatter = () => {
                   <Settings className="h-5 w-5 text-green-600" />
                 </div>
                 <div>
-                  <div className="font-semibold text-green-900">Debugging</div>
+                  <div className="font-semibold text-green-900">
+                    {t("tools.sql-formatter.useCases.debugging.title")}
+                  </div>
                   <p className="text-sm text-green-700">
-                    Format messy queries to identify issues easily
+                    {t("tools.sql-formatter.useCases.debugging.description")}
                   </p>
                 </div>
               </div>
@@ -268,9 +282,11 @@ const SqlFormatter = () => {
                   <FileText className="h-5 w-5 text-pink-600" />
                 </div>
                 <div>
-                  <div className="font-semibold text-pink-900">Learning</div>
+                  <div className="font-semibold text-pink-900">
+                    {t("tools.sql-formatter.useCases.learning.title")}
+                  </div>
                   <p className="text-sm text-pink-700">
-                    Understand SQL structure through proper formatting
+                    {t("tools.sql-formatter.useCases.learning.description")}
                   </p>
                 </div>
               </div>
@@ -283,38 +299,46 @@ const SqlFormatter = () => {
           <CardHeader>
             <CardTitle className="flex items-center gap-2 text-amber-900">
               <Info className="h-5 w-5 text-amber-600" />
-              💡 Pro Tips
+              💡 {t("toolPage.sections.proTips")}
             </CardTitle>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
               <div className="flex gap-2 items-start">
                 <div className="text-amber-600 font-bold">→</div>
-                <p className="text-sm text-amber-900">
-                  <strong>Keywords:</strong> All SQL keywords are automatically
-                  capitalized
-                </p>
+                <p
+                  className="text-sm text-amber-900"
+                  dangerouslySetInnerHTML={{
+                    __html: t("tools.sql-formatter.proTips.keywords"),
+                  }}
+                />
               </div>
               <div className="flex gap-2 items-start">
                 <div className="text-amber-600 font-bold">→</div>
-                <p className="text-sm text-amber-900">
-                  <strong>Indentation:</strong> Proper indentation for nested
-                  clauses
-                </p>
+                <p
+                  className="text-sm text-amber-900"
+                  dangerouslySetInnerHTML={{
+                    __html: t("tools.sql-formatter.proTips.indentation"),
+                  }}
+                />
               </div>
               <div className="flex gap-2 items-start">
                 <div className="text-amber-600 font-bold">→</div>
-                <p className="text-sm text-amber-900">
-                  <strong>Line Breaks:</strong> Logical breaks between SQL
-                  clauses
-                </p>
+                <p
+                  className="text-sm text-amber-900"
+                  dangerouslySetInnerHTML={{
+                    __html: t("tools.sql-formatter.proTips.lineBreaks"),
+                  }}
+                />
               </div>
               <div className="flex gap-2 items-start">
                 <div className="text-amber-600 font-bold">→</div>
-                <p className="text-sm text-amber-900">
-                  <strong>Consistency:</strong> Standardized formatting for team
-                  collaboration
-                </p>
+                <p
+                  className="text-sm text-amber-900"
+                  dangerouslySetInnerHTML={{
+                    __html: t("tools.sql-formatter.proTips.consistency"),
+                  }}
+                />
               </div>
             </div>
           </CardContent>
@@ -323,7 +347,7 @@ const SqlFormatter = () => {
         {/* Related Tools */}
         <Card className="mt-6">
           <CardHeader>
-            <CardTitle>🔗 Related Tools You Might Like</CardTitle>
+            <CardTitle>{t("tools.sql-formatter.relatedTools")}</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
@@ -332,10 +356,10 @@ const SqlFormatter = () => {
                 className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
               >
                 <div className="font-semibold text-gray-900 group-hover:text-primary">
-                  JSON Formatter
+                  {t("tools.json-formatter.title")}
                 </div>
                 <div className="text-sm text-gray-600 mt-1">
-                  Format JSON data
+                  {t("tools.json-formatter.description")}
                 </div>
               </button>
               <button
@@ -343,10 +367,10 @@ const SqlFormatter = () => {
                 className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
               >
                 <div className="font-semibold text-gray-900 group-hover:text-primary">
-                  CSV to JSON
+                  {t("tools.csv-to-json.title")}
                 </div>
                 <div className="text-sm text-gray-600 mt-1">
-                  Convert CSV to JSON
+                  {t("tools.csv-to-json.description")}
                 </div>
               </button>
               <button
@@ -354,10 +378,10 @@ const SqlFormatter = () => {
                 className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
               >
                 <div className="font-semibold text-gray-900 group-hover:text-primary">
-                  Code Minifier
+                  {t("tools.code-minifier.title")}
                 </div>
                 <div className="text-sm text-gray-600 mt-1">
-                  Compress code files
+                  {t("tools.code-minifier.description")}
                 </div>
               </button>
             </div>

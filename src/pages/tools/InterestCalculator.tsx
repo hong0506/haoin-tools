@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { SidebarTrigger } from "@/components/ui/sidebar";
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import {
@@ -28,6 +30,7 @@ import { FavoriteButton } from "@/components/FavoriteButton";
 import { Badge } from "@/components/ui/badge";
 
 const InterestCalculator = () => {
+  const { t } = useTranslation();
   const [simpleInputs, setSimpleInputs] = useState({
     principal: "",
     rate: "",
@@ -52,30 +55,30 @@ const InterestCalculator = () => {
     const t = parseFloat(simpleInputs.time);
 
     if (isNaN(p) || isNaN(r) || isNaN(t)) {
-      toast.error("Please enter valid numbers");
+      toast.error(t("tools.interest-calculator.invalidNumbers"));
       return;
     }
 
     if (p <= 0 || r <= 0 || t <= 0) {
-      toast.error("All values must be greater than 0");
+      toast.error(t("tools.interest-calculator.mustBePositive"));
       return;
     }
 
     const interest = p * r * t;
     setSimpleResult(parseFloat(interest.toFixed(2)));
-    toast.success("Simple interest calculated!");
+    toast.success(t("tools.interest-calculator.simpleCalculated"));
   };
 
   const clearSimple = () => {
     setSimpleInputs({ principal: "", rate: "", time: "" });
     setSimpleResult(null);
-    toast.success("Fields cleared");
+    toast.success(t("tools.interest-calculator.fieldsCleared"));
   };
 
   const loadSimpleExample = () => {
     setSimpleInputs({ principal: "10000", rate: "5", time: "3" });
     setSimpleResult(null);
-    toast.success("Example loaded");
+    toast.success(t("tools.interest-calculator.exampleLoaded"));
   };
 
   const calculateCompound = () => {
@@ -85,12 +88,12 @@ const InterestCalculator = () => {
     const n = parseFloat(compoundInputs.frequency);
 
     if (isNaN(p) || isNaN(r) || isNaN(t) || isNaN(n)) {
-      toast.error("Please enter valid numbers");
+      toast.error(t("tools.interest-calculator.invalidNumbers"));
       return;
     }
 
     if (p <= 0 || r <= 0 || t <= 0 || n <= 0) {
-      toast.error("All values must be greater than 0");
+      toast.error(t("tools.interest-calculator.mustBePositive"));
       return;
     }
 
@@ -100,13 +103,13 @@ const InterestCalculator = () => {
       total: parseFloat(total.toFixed(2)),
       interest: parseFloat(interest.toFixed(2)),
     });
-    toast.success("Compound interest calculated!");
+    toast.success(t("tools.interest-calculator.compoundCalculated"));
   };
 
   const clearCompound = () => {
     setCompoundInputs({ principal: "", rate: "", time: "", frequency: "12" });
     setCompoundResult(null);
-    toast.success("Fields cleared");
+    toast.success(t("tools.interest-calculator.fieldsCleared"));
   };
 
   const loadCompoundExample = () => {
@@ -117,7 +120,7 @@ const InterestCalculator = () => {
       frequency: "12",
     });
     setCompoundResult(null);
-    toast.success("Example loaded");
+    toast.success(t("tools.interest-calculator.exampleLoaded"));
   };
 
   return (
@@ -129,7 +132,7 @@ const InterestCalculator = () => {
           </Button>
           <SidebarTrigger />
           <div className="flex items-center gap-2">
-            <h1 className="text-xl font-semibold">Interest Calculator</h1>
+            <h1 className="text-xl font-semibold">{t("tools.interest-calculator.title")}</h1>
           </div>
         </div>
       </header>
@@ -137,35 +140,35 @@ const InterestCalculator = () => {
         <Tabs defaultValue="simple" className="w-full">
           <div className="flex items-center justify-between mb-6">
             <TabsList className="grid grid-cols-2 max-w-lg">
-              <TabsTrigger value="simple">Simple Interest</TabsTrigger>
-              <TabsTrigger value="compound">Compound Interest</TabsTrigger>
+              <TabsTrigger value="simple">{t("tools.interest-calculator.simpleInterest")}</TabsTrigger>
+              <TabsTrigger value="compound">{t("tools.interest-calculator.compoundInterest")}</TabsTrigger>
             </TabsList>
             <FavoriteButton
               toolId="interest-calculator"
-              toolName="Interest Calculator"
+              toolName={t("tools.interest-calculator.title")}
             />
           </div>
           <TabsContent value="simple">
             <Card>
               <CardHeader>
-                <CardTitle>Simple Interest</CardTitle>
-                <CardDescription>I = P × R × T</CardDescription>
+                <CardTitle>{t("tools.interest-calculator.simpleInterest")}</CardTitle>
+                <CardDescription>{t("tools.interest-calculator.simpleFormula")}</CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="flex gap-2 mb-4">
                   <Button onClick={clearSimple} variant="outline" size="sm">
                     <RotateCcw className="h-4 w-4 mr-2" />
-                    Clear
+                    {t("toolPage.buttons.clear")}
                   </Button>
                   <Button onClick={loadSimpleExample} variant="ghost" size="sm">
                     <Lightbulb className="h-4 w-4 mr-1" />
-                    Load Example
+                    {t("toolPage.buttons.loadExample")}
                   </Button>
                 </div>
 
                 <div>
                   <label className="mb-2 block text-sm font-medium">
-                    Principal Amount ($)
+                    {t("tools.interest-calculator.principalAmount")}
                   </label>
                   <Input
                     type="number"
@@ -181,7 +184,7 @@ const InterestCalculator = () => {
                 </div>
                 <div>
                   <label className="mb-2 block text-sm font-medium">
-                    Annual Interest Rate (%)
+                    {t("tools.interest-calculator.annualRate")}
                   </label>
                   <Input
                     type="number"
@@ -195,7 +198,7 @@ const InterestCalculator = () => {
                 </div>
                 <div>
                   <label className="mb-2 block text-sm font-medium">
-                    Time Period (years)
+                    {t("tools.interest-calculator.timePeriod")}
                   </label>
                   <Input
                     type="number"
@@ -207,13 +210,13 @@ const InterestCalculator = () => {
                   />
                 </div>
                 <Button onClick={calculateSimple} className="w-full">
-                  Calculate Simple Interest
+                  {t("tools.interest-calculator.calculateSimple")}
                 </Button>
                 {simpleResult !== null && (
                   <div className="space-y-3 rounded-lg bg-primary/10 p-6">
                     <div className="text-center">
                       <p className="text-sm text-muted-foreground">
-                        Interest Earned
+                        {t("tools.interest-calculator.interestEarned")}
                       </p>
                       <p className="text-4xl font-bold text-primary">
                         ${simpleResult.toLocaleString()}
@@ -221,7 +224,7 @@ const InterestCalculator = () => {
                     </div>
                     <div className="text-center border-t pt-3">
                       <p className="text-sm text-muted-foreground">
-                        Total Amount
+                        {t("tools.interest-calculator.totalAmount")}
                       </p>
                       <p className="text-2xl font-semibold text-green-500">
                         $
@@ -238,14 +241,14 @@ const InterestCalculator = () => {
           <TabsContent value="compound">
             <Card>
               <CardHeader>
-                <CardTitle>Compound Interest</CardTitle>
-                <CardDescription>A = P(1 + r/n)^(nt)</CardDescription>
+                <CardTitle>{t("tools.interest-calculator.compoundInterest")}</CardTitle>
+                <CardDescription>{t("tools.interest-calculator.compoundFormula")}</CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="flex gap-2 mb-4">
                   <Button onClick={clearCompound} variant="outline" size="sm">
                     <RotateCcw className="h-4 w-4 mr-2" />
-                    Clear
+                    {t("toolPage.buttons.clear")}
                   </Button>
                   <Button
                     onClick={loadCompoundExample}
@@ -253,13 +256,13 @@ const InterestCalculator = () => {
                     size="sm"
                   >
                     <Lightbulb className="h-4 w-4 mr-1" />
-                    Load Example
+                    {t("toolPage.buttons.loadExample")}
                   </Button>
                 </div>
 
                 <div>
                   <label className="mb-2 block text-sm font-medium">
-                    Principal Amount ($)
+                    {t("tools.interest-calculator.principalAmount")}
                   </label>
                   <Input
                     type="number"
@@ -275,7 +278,7 @@ const InterestCalculator = () => {
                 </div>
                 <div>
                   <label className="mb-2 block text-sm font-medium">
-                    Annual Interest Rate (%)
+                    {t("tools.interest-calculator.annualRate")}
                   </label>
                   <Input
                     type="number"
@@ -292,7 +295,7 @@ const InterestCalculator = () => {
                 </div>
                 <div>
                   <label className="mb-2 block text-sm font-medium">
-                    Time Period (years)
+                    {t("tools.interest-calculator.timePeriod")}
                   </label>
                   <Input
                     type="number"
@@ -308,7 +311,7 @@ const InterestCalculator = () => {
                 </div>
                 <div>
                   <label className="mb-2 block text-sm font-medium">
-                    Compound Frequency (times/year)
+                    {t("tools.interest-calculator.compoundFrequency")}
                   </label>
                   <Input
                     type="number"
@@ -322,17 +325,17 @@ const InterestCalculator = () => {
                     placeholder="12"
                   />
                   <p className="mt-1 text-xs text-muted-foreground">
-                    1=Annually, 4=Quarterly, 12=Monthly, 365=Daily
+                    {t("tools.interest-calculator.frequencyHint")}
                   </p>
                 </div>
                 <Button onClick={calculateCompound} className="w-full">
-                  Calculate Compound Interest
+                  {t("tools.interest-calculator.calculateCompound")}
                 </Button>
                 {compoundResult && (
                   <div className="space-y-3 rounded-lg bg-primary/10 p-6">
                     <div className="text-center">
                       <p className="text-sm text-muted-foreground">
-                        Final Amount
+                        {t("tools.interest-calculator.finalAmount")}
                       </p>
                       <p className="text-4xl font-bold text-primary">
                         ${compoundResult.total.toLocaleString()}
@@ -340,7 +343,7 @@ const InterestCalculator = () => {
                     </div>
                     <div className="text-center border-t pt-3">
                       <p className="text-sm text-muted-foreground">
-                        Interest Earned
+                        {t("tools.interest-calculator.interestEarned")}
                       </p>
                       <p className="text-2xl font-semibold text-green-500">
                         ${compoundResult.interest.toLocaleString()}
@@ -354,15 +357,13 @@ const InterestCalculator = () => {
         </Tabs>
 
         {/* Tool Introduction */}
-        <Card className="mt-6 bg-gradient-to-r from-blue-50 via-purple-50 to-pink-50 border-blue-200">
+        <Card className="mt-6 bg-gradient-to-r from-blue-50 via-purple-50 to-pink-50 dark:from-blue-950/30 dark:via-purple-950/30 dark:to-pink-950/30 border-blue-200 dark:border-blue-800">
           <CardContent className="pt-6">
-            <p className="text-gray-700 leading-relaxed">
-              <strong className="text-gray-900">
-                What is Interest Calculator?
+            <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+              <strong className="text-gray-900 dark:text-gray-100">
+                {t("tools.interest-calculator.whatIs")}
               </strong>{" "}
-              This tool calculates simple and compound interest for savings and
-              investments. Perfect for financial planning and understanding
-              money growth! 💰
+              {t("tools.interest-calculator.whatIsContent")}
             </p>
           </CardContent>
         </Card>
@@ -372,67 +373,66 @@ const InterestCalculator = () => {
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <Zap className="h-5 w-5 text-primary" />
-              Common Use Cases
+              {t("toolPage.sections.commonUseCases")}
             </CardTitle>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-blue-50 to-blue-100/50 border border-blue-200">
-                <div className="p-2 bg-white rounded-lg h-fit">
-                  <PiggyBank className="h-5 w-5 text-blue-600" />
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-blue-50 to-blue-100/50 dark:from-blue-950/30 dark:to-blue-900/30 border border-blue-200 dark:border-blue-800">
+                <div className="p-2 bg-white dark:bg-gray-800 rounded-lg h-fit">
+                  <PiggyBank className="h-5 w-5 text-blue-600 dark:text-blue-400" />
                 </div>
                 <div>
-                  <div className="font-semibold text-blue-900">
-                    Savings Accounts
+                  <div className="font-semibold text-blue-900 dark:text-blue-300">
+                    {t("tools.interest-calculator.useCases.savings.title")}
                   </div>
-                  <p className="text-sm text-blue-700">
-                    Calculate{" "}
+                  <p className="text-sm text-blue-700 dark:text-blue-400">
+                    {t("tools.interest-calculator.useCases.savings.description")}{" "}
                     <Badge variant="secondary" className="mx-1">
                       interest earned
                     </Badge>
-                    on savings over time
                   </p>
                 </div>
               </div>
 
-              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-purple-50 to-purple-100/50 border border-purple-200">
-                <div className="p-2 bg-white rounded-lg h-fit">
-                  <LineChart className="h-5 w-5 text-purple-600" />
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-purple-50 to-purple-100/50 dark:from-purple-950/30 dark:to-purple-900/30 border border-purple-200 dark:border-purple-800">
+                <div className="p-2 bg-white dark:bg-gray-800 rounded-lg h-fit">
+                  <LineChart className="h-5 w-5 text-purple-600 dark:text-purple-400" />
                 </div>
                 <div>
-                  <div className="font-semibold text-purple-900">
-                    Investment Planning
+                  <div className="font-semibold text-purple-900 dark:text-purple-300">
+                    {t("tools.interest-calculator.useCases.investment.title")}
                   </div>
-                  <p className="text-sm text-purple-700">
-                    Forecast investment returns with compound interest
+                  <p className="text-sm text-purple-700 dark:text-purple-400">
+                    {t("tools.interest-calculator.useCases.investment.description")}
                   </p>
                 </div>
               </div>
 
-              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-green-50 to-green-100/50 border border-green-200">
-                <div className="p-2 bg-white rounded-lg h-fit">
-                  <Wallet className="h-5 w-5 text-green-600" />
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-green-50 to-green-100/50 dark:from-green-950/30 dark:to-green-900/30 border border-green-200 dark:border-green-800">
+                <div className="p-2 bg-white dark:bg-gray-800 rounded-lg h-fit">
+                  <Wallet className="h-5 w-5 text-green-600 dark:text-green-400" />
                 </div>
                 <div>
-                  <div className="font-semibold text-green-900">
-                    Retirement Planning
+                  <div className="font-semibold text-green-900 dark:text-green-300">
+                    {t("tools.interest-calculator.useCases.retirement.title")}
                   </div>
-                  <p className="text-sm text-green-700">
-                    Calculate long-term savings growth for retirement
+                  <p className="text-sm text-green-700 dark:text-green-400">
+                    {t("tools.interest-calculator.useCases.retirement.description")}
                   </p>
                 </div>
               </div>
 
-              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-pink-50 to-pink-100/50 border border-pink-200">
-                <div className="p-2 bg-white rounded-lg h-fit">
-                  <TrendingDown className="h-5 w-5 text-pink-600" />
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-pink-50 to-pink-100/50 dark:from-pink-950/30 dark:to-pink-900/30 border border-pink-200 dark:border-pink-800">
+                <div className="p-2 bg-white dark:bg-gray-800 rounded-lg h-fit">
+                  <TrendingDown className="h-5 w-5 text-pink-600 dark:text-pink-400" />
                 </div>
                 <div>
-                  <div className="font-semibold text-pink-900">
-                    Loan Interest
+                  <div className="font-semibold text-pink-900 dark:text-pink-300">
+                    {t("tools.interest-calculator.useCases.loan.title")}
                   </div>
-                  <p className="text-sm text-pink-700">
-                    Calculate interest costs on loans and debts
+                  <p className="text-sm text-pink-700 dark:text-pink-400">
+                    {t("tools.interest-calculator.useCases.loan.description")}
                   </p>
                 </div>
               </div>
@@ -441,42 +441,38 @@ const InterestCalculator = () => {
         </Card>
 
         {/* Quick Tips */}
-        <Card className="mt-6 bg-gradient-to-br from-amber-50 via-orange-50 to-amber-50 border-amber-200">
+        <Card className="mt-6 bg-gradient-to-br from-amber-50 via-orange-50 to-amber-50 dark:from-amber-950/30 dark:via-orange-950/30 dark:to-amber-950/30 border-amber-200 dark:border-amber-800">
           <CardHeader>
-            <CardTitle className="flex items-center gap-2 text-amber-900">
-              <Info className="h-5 w-5 text-amber-600" />
-              💡 Pro Tips
+            <CardTitle className="flex items-center gap-2 text-amber-900 dark:text-amber-300">
+              <Info className="h-5 w-5 text-amber-600 dark:text-amber-400" />
+              💡 {t("toolPage.sections.proTips")}
             </CardTitle>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
               <div className="flex gap-2 items-start">
-                <div className="text-amber-600 font-bold">→</div>
-                <p className="text-sm text-amber-900">
-                  <strong>Compound Interest:</strong> Grows faster than simple
-                  interest
-                </p>
+                <div className="text-amber-600 dark:text-amber-400 font-bold">→</div>
+                <p className="text-sm text-amber-900 dark:text-amber-300" dangerouslySetInnerHTML={{
+                  __html: t("tools.interest-calculator.proTips.compound")
+                }} />
               </div>
               <div className="flex gap-2 items-start">
-                <div className="text-amber-600 font-bold">→</div>
-                <p className="text-sm text-amber-900">
-                  <strong>Frequency:</strong> More frequent compounding = more
-                  growth
-                </p>
+                <div className="text-amber-600 dark:text-amber-400 font-bold">→</div>
+                <p className="text-sm text-amber-900 dark:text-amber-300" dangerouslySetInnerHTML={{
+                  __html: t("tools.interest-calculator.proTips.frequency")
+                }} />
               </div>
               <div className="flex gap-2 items-start">
-                <div className="text-amber-600 font-bold">→</div>
-                <p className="text-sm text-amber-900">
-                  <strong>Long-term:</strong> Use compound for investments over
-                  years
-                </p>
+                <div className="text-amber-600 dark:text-amber-400 font-bold">→</div>
+                <p className="text-sm text-amber-900 dark:text-amber-300" dangerouslySetInnerHTML={{
+                  __html: t("tools.interest-calculator.proTips.longTerm")
+                }} />
               </div>
               <div className="flex gap-2 items-start">
-                <div className="text-amber-600 font-bold">→</div>
-                <p className="text-sm text-amber-900">
-                  <strong>Impact:</strong> Higher rates significantly boost
-                  returns
-                </p>
+                <div className="text-amber-600 dark:text-amber-400 font-bold">→</div>
+                <p className="text-sm text-amber-900 dark:text-amber-300" dangerouslySetInnerHTML={{
+                  __html: t("tools.interest-calculator.proTips.impact")
+                }} />
               </div>
             </div>
           </CardContent>
@@ -485,7 +481,7 @@ const InterestCalculator = () => {
         {/* Related Tools */}
         <Card className="mt-6">
           <CardHeader>
-            <CardTitle>🔗 Related Tools You Might Like</CardTitle>
+            <CardTitle>{t("tools.interest-calculator.relatedTools")}</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
@@ -494,10 +490,10 @@ const InterestCalculator = () => {
                 className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
               >
                 <div className="font-semibold text-gray-900 group-hover:text-primary">
-                  Investment Calculator
+                  {t("tools.investment-calculator.title")}
                 </div>
                 <div className="text-sm text-gray-600 mt-1">
-                  Calculate returns
+                  {t("tools.investment-calculator.description")}
                 </div>
               </button>
               <button
@@ -505,10 +501,10 @@ const InterestCalculator = () => {
                 className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
               >
                 <div className="font-semibold text-gray-900 group-hover:text-primary">
-                  Loan Calculator
+                  {t("tools.loan-calculator.title")}
                 </div>
                 <div className="text-sm text-gray-600 mt-1">
-                  Calculate loan payments
+                  {t("tools.loan-calculator.description")}
                 </div>
               </button>
               <button
@@ -516,10 +512,10 @@ const InterestCalculator = () => {
                 className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
               >
                 <div className="font-semibold text-gray-900 group-hover:text-primary">
-                  Percentage Calculator
+                  {t("tools.percentage-calculator.title")}
                 </div>
                 <div className="text-sm text-gray-600 mt-1">
-                  Calculate percentages
+                  {t("tools.percentage-calculator.description")}
                 </div>
               </button>
             </div>

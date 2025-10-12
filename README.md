@@ -119,10 +119,66 @@ src/
 ├── components/     # 可复用组件
 ├── pages/         # 页面组件
 │   └── tools/    # 各种工具页面
+├── i18n/          # 国际化配置和翻译文件
+│   ├── config.ts # i18next 配置
+│   └── locales/  # 翻译 JSON 文件 (10 种语言)
 ├── data/          # 数据配置
 ├── lib/           # 工具函数
 └── types/         # TypeScript 类型定义
 ```
+
+## 🌍 国际化 (i18n)
+
+本项目支持 10 种语言：英语、中文、西班牙语、葡萄牙语、印尼语、越南语、法语、德语、日语、韩语
+
+### 开发命令
+
+```bash
+# 检查翻译覆盖率
+npm run i18n:check
+
+# 生成翻译模板
+npm run i18n:template
+
+# 提取硬编码字符串
+npm run i18n:extract
+
+# 机器翻译（需要 API key）
+npm run i18n:translate
+
+# CI 检查（未完成时失败）
+npm run i18n:check:ci
+```
+
+### 机器翻译设置
+
+1. 复制环境变量模板：
+```bash
+cp .env.example .env
+```
+
+2. 添加 API key（选择一个）：
+```bash
+# OpenAI (推荐)
+OPENAI_API_KEY=sk-proj-your-key-here
+
+# 或 Anthropic Claude
+ANTHROPIC_API_KEY=sk-ant-your-key-here
+```
+
+3. 运行翻译：
+```bash
+# 翻译所有语言
+npm run i18n:translate
+
+# 翻译单个语言
+npm run i18n:translate -- --locale=zh
+
+# 使用 Claude
+npm run i18n:translate -- --provider=anthropic
+```
+
+**详细文档：** 查看 [`TRANSLATION_CLI_GUIDE.md`](./TRANSLATION_CLI_GUIDE.md)
 
 ## 贡献
 

@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { SidebarTrigger } from "@/components/ui/sidebar";
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import {
@@ -35,6 +37,7 @@ import { FavoriteButton } from "@/components/FavoriteButton";
 import { Badge } from "@/components/ui/badge";
 
 const UnitConverter = () => {
+  const { t } = useTranslation();
   const [lengthValue, setLengthValue] = useState("");
   const [lengthFrom, setLengthFrom] = useState("meters");
   const [lengthTo, setLengthTo] = useState("feet");
@@ -82,26 +85,26 @@ const UnitConverter = () => {
 
   const clearLength = () => {
     setLengthValue("");
-    toast.success("Cleared");
+    toast.success(t("tools.unit-converter.cleared"));
   };
 
   const clearWeight = () => {
     setWeightValue("");
-    toast.success("Cleared");
+    toast.success(t("tools.unit-converter.cleared"));
   };
 
   const loadLengthExample = () => {
     setLengthValue("100");
     setLengthFrom("meters");
     setLengthTo("feet");
-    toast.success("Example loaded");
+    toast.success(t("tools.unit-converter.exampleLoaded"));
   };
 
   const loadWeightExample = () => {
     setWeightValue("100");
     setWeightFrom("kilograms");
     setWeightTo("pounds");
-    toast.success("Example loaded");
+    toast.success(t("tools.unit-converter.exampleLoaded"));
   };
 
   return (
@@ -113,7 +116,7 @@ const UnitConverter = () => {
           </Button>
           <SidebarTrigger />
           <div className="flex items-center gap-2">
-            <h1 className="text-xl font-semibold">Unit Converter</h1>
+            <h1 className="text-xl font-semibold">{t("tools.unit-converter.title")}</h1>
           </div>
         </div>
       </header>
@@ -121,28 +124,28 @@ const UnitConverter = () => {
         <Tabs defaultValue="length">
           <div className="flex items-center justify-between mb-6">
             <TabsList className="grid w-full grid-cols-2 max-w-md">
-              <TabsTrigger value="length">Length</TabsTrigger>
-              <TabsTrigger value="weight">Weight</TabsTrigger>
+              <TabsTrigger value="length">{t("tools.unit-converter.length")}</TabsTrigger>
+              <TabsTrigger value="weight">{t("tools.unit-converter.weight")}</TabsTrigger>
             </TabsList>
-            <FavoriteButton toolId="unit-converter" toolName="Unit Converter" />
+            <FavoriteButton toolId="unit-converter" toolName={t("tools.unit-converter.title")} />
           </div>
           <TabsContent value="length">
             <Card>
               <CardHeader>
-                <CardTitle>Length Converter</CardTitle>
+                <CardTitle>{t("tools.unit-converter.lengthConverter")}</CardTitle>
                 <CardDescription>
-                  Convert between different length units
+                  {t("tools.unit-converter.lengthDescription")}
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="flex gap-2 mb-4">
                   <Button onClick={clearLength} variant="outline" size="sm">
                     <RotateCcw className="h-4 w-4 mr-2" />
-                    Clear
+                    {t("toolPage.buttons.clear")}
                   </Button>
                   <Button onClick={loadLengthExample} variant="ghost" size="sm">
                     <Lightbulb className="h-4 w-4 mr-1" />
-                    Load Example
+                    {t("toolPage.buttons.loadExample")}
                   </Button>
                 </div>
                 <div className="flex gap-2">
@@ -160,7 +163,7 @@ const UnitConverter = () => {
                     <SelectContent>
                       {Object.keys(lengthUnits).map((unit) => (
                         <SelectItem key={unit} value={unit}>
-                          {unit}
+                          {t(`tools.unit-converter.units.${unit}`)}
                         </SelectItem>
                       ))}
                     </SelectContent>
@@ -175,7 +178,7 @@ const UnitConverter = () => {
                     <SelectContent>
                       {Object.keys(lengthUnits).map((unit) => (
                         <SelectItem key={unit} value={unit}>
-                          {unit}
+                          {t(`tools.unit-converter.units.${unit}`)}
                         </SelectItem>
                       ))}
                     </SelectContent>
@@ -187,20 +190,20 @@ const UnitConverter = () => {
           <TabsContent value="weight">
             <Card>
               <CardHeader>
-                <CardTitle>Weight Converter</CardTitle>
+                <CardTitle>{t("tools.unit-converter.weightConverter")}</CardTitle>
                 <CardDescription>
-                  Convert between different weight units
+                  {t("tools.unit-converter.weightDescription")}
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="flex gap-2 mb-4">
                   <Button onClick={clearWeight} variant="outline" size="sm">
                     <RotateCcw className="h-4 w-4 mr-2" />
-                    Clear
+                    {t("toolPage.buttons.clear")}
                   </Button>
                   <Button onClick={loadWeightExample} variant="ghost" size="sm">
                     <Lightbulb className="h-4 w-4 mr-1" />
-                    Load Example
+                    {t("toolPage.buttons.loadExample")}
                   </Button>
                 </div>
                 <div className="flex gap-2">
@@ -218,7 +221,7 @@ const UnitConverter = () => {
                     <SelectContent>
                       {Object.keys(weightUnits).map((unit) => (
                         <SelectItem key={unit} value={unit}>
-                          {unit}
+                          {t(`tools.unit-converter.units.${unit}`)}
                         </SelectItem>
                       ))}
                     </SelectContent>
@@ -233,7 +236,7 @@ const UnitConverter = () => {
                     <SelectContent>
                       {Object.keys(weightUnits).map((unit) => (
                         <SelectItem key={unit} value={unit}>
-                          {unit}
+                          {t(`tools.unit-converter.units.${unit}`)}
                         </SelectItem>
                       ))}
                     </SelectContent>
@@ -245,12 +248,11 @@ const UnitConverter = () => {
         </Tabs>
 
         {/* Tool Introduction */}
-        <Card className="mt-6 bg-gradient-to-r from-blue-50 via-purple-50 to-pink-50 border-blue-200">
+        <Card className="mt-6 bg-gradient-to-r from-blue-50 via-purple-50 to-pink-50 dark:from-blue-950/30 dark:via-purple-950/30 dark:to-pink-950/30 border-blue-200 dark:border-blue-800">
           <CardContent className="pt-6">
-            <p className="text-gray-700 leading-relaxed">
-              <strong className="text-gray-900">What is Unit Converter?</strong>{" "}
-              This tool converts between metric and imperial units for length and
-              weight. Perfect for travel, cooking, and construction! 📏
+            <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+              <strong className="text-gray-900 dark:text-gray-100">{t("tools.unit-converter.whatIs")}</strong>{" "}
+              {t("tools.unit-converter.whatIsContent")}
             </p>
           </CardContent>
         </Card>
@@ -260,65 +262,64 @@ const UnitConverter = () => {
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <Zap className="h-5 w-5 text-primary" />
-              Common Use Cases
+              {t("toolPage.sections.commonUseCases")}
             </CardTitle>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-blue-50 to-blue-100/50 border border-blue-200">
-                <div className="p-2 bg-white rounded-lg h-fit">
-                  <Globe className="h-5 w-5 text-blue-600" />
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-blue-50 to-blue-100/50 dark:from-blue-950/30 dark:to-blue-900/30 border border-blue-200 dark:border-blue-800">
+                <div className="p-2 bg-white dark:bg-gray-800 rounded-lg h-fit">
+                  <Globe className="h-5 w-5 text-blue-600 dark:text-blue-400" />
                 </div>
                 <div>
-                  <div className="font-semibold text-blue-900">
-                    International Travel
+                  <div className="font-semibold text-blue-900 dark:text-blue-300">
+                    {t("tools.unit-converter.useCases.travel.title")}
                   </div>
-                  <p className="text-sm text-blue-700">
-                    Convert{" "}
+                  <p className="text-sm text-blue-700 dark:text-blue-400">
+                    {t("tools.unit-converter.useCases.travel.description")}{" "}
                     <Badge variant="secondary" className="mx-1">
                       metric/imperial
                     </Badge>
-                    units across countries
                   </p>
                 </div>
               </div>
 
-              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-purple-50 to-purple-100/50 border border-purple-200">
-                <div className="p-2 bg-white rounded-lg h-fit">
-                  <Utensils className="h-5 w-5 text-purple-600" />
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-purple-50 to-purple-100/50 dark:from-purple-950/30 dark:to-purple-900/30 border border-purple-200 dark:border-purple-800">
+                <div className="p-2 bg-white dark:bg-gray-800 rounded-lg h-fit">
+                  <Utensils className="h-5 w-5 text-purple-600 dark:text-purple-400" />
                 </div>
                 <div>
-                  <div className="font-semibold text-purple-900">
-                    Cooking & Baking
+                  <div className="font-semibold text-purple-900 dark:text-purple-300">
+                    {t("tools.unit-converter.useCases.cooking.title")}
                   </div>
-                  <p className="text-sm text-purple-700">
-                    Convert recipe measurements from different regions
+                  <p className="text-sm text-purple-700 dark:text-purple-400">
+                    {t("tools.unit-converter.useCases.cooking.description")}
                   </p>
                 </div>
               </div>
 
-              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-green-50 to-green-100/50 border border-green-200">
-                <div className="p-2 bg-white rounded-lg h-fit">
-                  <Hammer className="h-5 w-5 text-green-600" />
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-green-50 to-green-100/50 dark:from-green-950/30 dark:to-green-900/30 border border-green-200 dark:border-green-800">
+                <div className="p-2 bg-white dark:bg-gray-800 rounded-lg h-fit">
+                  <Hammer className="h-5 w-5 text-green-600 dark:text-green-400" />
                 </div>
                 <div>
-                  <div className="font-semibold text-green-900">
-                    Construction
+                  <div className="font-semibold text-green-900 dark:text-green-300">
+                    {t("tools.unit-converter.useCases.construction.title")}
                   </div>
-                  <p className="text-sm text-green-700">
-                    Convert measurements for building projects
+                  <p className="text-sm text-green-700 dark:text-green-400">
+                    {t("tools.unit-converter.useCases.construction.description")}
                   </p>
                 </div>
               </div>
 
-              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-pink-50 to-pink-100/50 border border-pink-200">
-                <div className="p-2 bg-white rounded-lg h-fit">
-                  <Scale className="h-5 w-5 text-pink-600" />
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-pink-50 to-pink-100/50 dark:from-pink-950/30 dark:to-pink-900/30 border border-pink-200 dark:border-pink-800">
+                <div className="p-2 bg-white dark:bg-gray-800 rounded-lg h-fit">
+                  <Scale className="h-5 w-5 text-pink-600 dark:text-pink-400" />
                 </div>
                 <div>
-                  <div className="font-semibold text-pink-900">Fitness Tracking</div>
-                  <p className="text-sm text-pink-700">
-                    Track weight and measurements in preferred units
+                  <div className="font-semibold text-pink-900 dark:text-pink-300">{t("tools.unit-converter.useCases.fitness.title")}</div>
+                  <p className="text-sm text-pink-700 dark:text-pink-400">
+                    {t("tools.unit-converter.useCases.fitness.description")}
                   </p>
                 </div>
               </div>
@@ -327,38 +328,38 @@ const UnitConverter = () => {
         </Card>
 
         {/* Quick Tips */}
-        <Card className="mt-6 bg-gradient-to-br from-amber-50 via-orange-50 to-amber-50 border-amber-200">
+        <Card className="mt-6 bg-gradient-to-br from-amber-50 via-orange-50 to-amber-50 dark:from-amber-950/30 dark:via-orange-950/30 dark:to-amber-950/30 border-amber-200 dark:border-amber-800">
           <CardHeader>
-            <CardTitle className="flex items-center gap-2 text-amber-900">
-              <Info className="h-5 w-5 text-amber-600" />
-              💡 Pro Tips
+            <CardTitle className="flex items-center gap-2 text-amber-900 dark:text-amber-300">
+              <Info className="h-5 w-5 text-amber-600 dark:text-amber-400" />
+              💡 {t("toolPage.sections.proTips")}
             </CardTitle>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
               <div className="flex gap-2 items-start">
-                <div className="text-amber-600 font-bold">→</div>
-                <p className="text-sm text-amber-900">
-                  <strong>Metric:</strong> Used in most countries worldwide
-                </p>
+                <div className="text-amber-600 dark:text-amber-400 font-bold">→</div>
+                <p className="text-sm text-amber-900 dark:text-amber-300" dangerouslySetInnerHTML={{
+                  __html: t("tools.unit-converter.proTips.metric")
+                }} />
               </div>
               <div className="flex gap-2 items-start">
-                <div className="text-amber-600 font-bold">→</div>
-                <p className="text-sm text-amber-900">
-                  <strong>Weight:</strong> 1 kg = 2.20462 lbs
-                </p>
+                <div className="text-amber-600 dark:text-amber-400 font-bold">→</div>
+                <p className="text-sm text-amber-900 dark:text-amber-300" dangerouslySetInnerHTML={{
+                  __html: t("tools.unit-converter.proTips.weight")
+                }} />
               </div>
               <div className="flex gap-2 items-start">
-                <div className="text-amber-600 font-bold">→</div>
-                <p className="text-sm text-amber-900">
-                  <strong>Length:</strong> 1 m = 3.28084 ft
-                </p>
+                <div className="text-amber-600 dark:text-amber-400 font-bold">→</div>
+                <p className="text-sm text-amber-900 dark:text-amber-300" dangerouslySetInnerHTML={{
+                  __html: t("tools.unit-converter.proTips.length")
+                }} />
               </div>
               <div className="flex gap-2 items-start">
-                <div className="text-amber-600 font-bold">→</div>
-                <p className="text-sm text-amber-900">
-                  <strong>Recipes:</strong> Double-check units from other countries
-                </p>
+                <div className="text-amber-600 dark:text-amber-400 font-bold">→</div>
+                <p className="text-sm text-amber-900 dark:text-amber-300" dangerouslySetInnerHTML={{
+                  __html: t("tools.unit-converter.proTips.recipes")
+                }} />
               </div>
             </div>
           </CardContent>
@@ -367,7 +368,7 @@ const UnitConverter = () => {
         {/* Related Tools */}
         <Card className="mt-6">
           <CardHeader>
-            <CardTitle>🔗 Related Tools You Might Like</CardTitle>
+            <CardTitle>{t("tools.unit-converter.relatedTools")}</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
@@ -376,19 +377,19 @@ const UnitConverter = () => {
                 className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
               >
                 <div className="font-semibold text-gray-900 group-hover:text-primary">
-                  Currency Converter
+                  {t("tools.currency-converter.title")}
                 </div>
-                <div className="text-sm text-gray-600 mt-1">Convert currencies</div>
+                <div className="text-sm text-gray-600 mt-1">{t("tools.currency-converter.description")}</div>
               </button>
               <button
                 onClick={() => navigate("/tools/percentage-calculator")}
                 className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
               >
                 <div className="font-semibold text-gray-900 group-hover:text-primary">
-                  Percentage Calculator
+                  {t("tools.percentage-calculator.title")}
                 </div>
                 <div className="text-sm text-gray-600 mt-1">
-                  Calculate percentages
+                  {t("tools.percentage-calculator.description")}
                 </div>
               </button>
               <button
@@ -396,9 +397,9 @@ const UnitConverter = () => {
                 className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
               >
                 <div className="font-semibold text-gray-900 group-hover:text-primary">
-                  BMI Calculator
+                  {t("tools.bmi-calculator.title")}
                 </div>
-                <div className="text-sm text-gray-600 mt-1">Calculate BMI</div>
+                <div className="text-sm text-gray-600 mt-1">{t("tools.bmi-calculator.description")}</div>
               </button>
             </div>
           </CardContent>

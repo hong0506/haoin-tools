@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { SidebarTrigger } from "@/components/ui/sidebar";
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import {
@@ -27,9 +29,15 @@ import { FavoriteButton } from "@/components/FavoriteButton";
 import { Badge } from "@/components/ui/badge";
 
 const DateCalculator = () => {
+  const { t } = useTranslation();
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
-  const [result, setResult] = useState<string>("");
+  const [result, setResult] = useState<{
+    days: number;
+    weeks: number;
+    months: number;
+    years: number;
+  } | null>(null);
   const navigate = useNavigate();
 
   const calculateDifference = () => {
@@ -41,17 +49,15 @@ const DateCalculator = () => {
     const months = Math.floor(days / 30.44);
     const years = Math.floor(days / 365.25);
 
-    setResult(
-      `${days} days (${weeks} weeks, ${months} months, or ${years} years)`
-    );
-    toast.success("Date difference calculated!");
+    setResult({ days, weeks, months, years });
+    toast.success(t("tools.date-calculator.dateDifferenceCalculated"));
   };
 
   const clearAll = () => {
     setStartDate("");
     setEndDate("");
-    setResult("");
-    toast.success("All fields cleared");
+    setResult(null);
+    toast.success(t("toolPage.messages.cleared"));
   };
 
   const loadExample = () => {
@@ -60,8 +66,8 @@ const DateCalculator = () => {
     oneYearAgo.setFullYear(oneYearAgo.getFullYear() - 1);
     setStartDate(oneYearAgo.toISOString().split("T")[0]);
     setEndDate(today.toISOString().split("T")[0]);
-    setResult("");
-    toast.success("Example loaded");
+    setResult(null);
+    toast.success(t("toolPage.messages.exampleLoaded"));
   };
 
   return (
@@ -73,7 +79,9 @@ const DateCalculator = () => {
           </Button>
           <SidebarTrigger />
           <div className="flex items-center gap-2"></div>
-          <h1 className="text-xl font-semibold">Date Calculator</h1>
+          <h1 className="text-xl font-semibold">
+            {t("tools.date-calculator.title")}
+          </h1>
         </div>
       </header>
       <div className="container mx-auto max-w-4xl px-6 py-8">
@@ -81,14 +89,16 @@ const DateCalculator = () => {
           <CardHeader>
             <div className="flex items-center justify-between">
               <div>
-                <CardTitle>Calculate Date Difference</CardTitle>
+                <CardTitle>
+                  {t("tools.date-calculator.calculateDateDifference")}
+                </CardTitle>
                 <CardDescription>
-                  Find the difference between two dates
+                  {t("tools.date-calculator.description")}
                 </CardDescription>
               </div>
               <FavoriteButton
                 toolId="date-calculator"
-                toolName="Date Calculator"
+                toolName={t("tools.date-calculator.title")}
               />
             </div>
           </CardHeader>
@@ -96,17 +106,17 @@ const DateCalculator = () => {
             <div className="flex gap-2 mb-4">
               <Button onClick={clearAll} variant="outline" size="sm">
                 <RotateCcw className="h-4 w-4 mr-2" />
-                Clear
+                {t("toolPage.buttons.clear")}
               </Button>
               <Button onClick={loadExample} variant="ghost" size="sm">
                 <Lightbulb className="h-4 w-4 mr-1" />
-                Load Example
+                {t("toolPage.buttons.loadExample")}
               </Button>
             </div>
 
             <div>
               <label className="mb-2 block text-sm font-medium">
-                Start Date
+                {t("tools.date-calculator.startDate")}
               </label>
               <Input
                 type="date"
@@ -115,7 +125,9 @@ const DateCalculator = () => {
               />
             </div>
             <div>
-              <label className="mb-2 block text-sm font-medium">End Date</label>
+              <label className="mb-2 block text-sm font-medium">
+                {t("tools.date-calculator.endDate")}
+              </label>
               <Input
                 type="date"
                 value={endDate}
@@ -123,12 +135,20 @@ const DateCalculator = () => {
               />
             </div>
             <Button onClick={calculateDifference} className="w-full">
-              Calculate Difference
+              {t("tools.date-calculator.calculateDifference")}
             </Button>
             {result && (
               <div className="rounded-lg bg-primary/10 p-6 text-center">
-                <p className="text-sm text-muted-foreground">Difference</p>
-                <p className="text-2xl font-bold text-primary">{result}</p>
+                <p className="text-sm text-muted-foreground">
+                  {t("tools.date-calculator.difference")}
+                </p>
+                <p className="text-2xl font-bold text-primary">
+                  {result.days} {t("tools.date-calculator.days")} (
+                  {result.weeks} {t("tools.date-calculator.weeks")},{" "}
+                  {result.months} {t("tools.date-calculator.months")},{" "}
+                  {t("tools.date-calculator.or")} {result.years}{" "}
+                  {t("tools.date-calculator.years")})
+                </p>
               </div>
             )}
           </CardContent>
@@ -139,11 +159,9 @@ const DateCalculator = () => {
           <CardContent className="pt-6">
             <p className="text-gray-700 leading-relaxed">
               <strong className="text-gray-900">
-                What is Date Calculator?
+                {t("tools.date-calculator.whatIs")}
               </strong>{" "}
-              This tool calculates the difference between two dates in days,
-              weeks, months, and years. Perfect for event planning, project
-              management, and deadline tracking! 📅
+              {t("tools.date-calculator.whatIsContent")}
             </p>
           </CardContent>
         </Card>
@@ -153,7 +171,7 @@ const DateCalculator = () => {
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <Zap className="h-5 w-5 text-primary" />
-              Common Use Cases
+              {t("toolPage.sections.commonUseCases")}
             </CardTitle>
           </CardHeader>
           <CardContent>
@@ -164,14 +182,10 @@ const DateCalculator = () => {
                 </div>
                 <div>
                   <div className="font-semibold text-blue-900">
-                    Event Planning
+                    {t("tools.date-calculator.useCases.eventPlanning.title")}
                   </div>
                   <p className="text-sm text-blue-700">
-                    Calculate{" "}
-                    <Badge variant="secondary" className="mx-1">
-                      days until
-                    </Badge>
-                    weddings, birthdays, and special events
+                    {t("tools.date-calculator.useCases.eventPlanning.description")}
                   </p>
                 </div>
               </div>
@@ -182,10 +196,12 @@ const DateCalculator = () => {
                 </div>
                 <div>
                   <div className="font-semibold text-purple-900">
-                    Project Management
+                    {t("tools.date-calculator.useCases.projectManagement.title")}
                   </div>
                   <p className="text-sm text-purple-700">
-                    Track project timelines and milestone durations
+                    {t(
+                      "tools.date-calculator.useCases.projectManagement.description"
+                    )}
                   </p>
                 </div>
               </div>
@@ -196,10 +212,12 @@ const DateCalculator = () => {
                 </div>
                 <div>
                   <div className="font-semibold text-green-900">
-                    Anniversary Tracking
+                    {t("tools.date-calculator.useCases.anniversaryTracking.title")}
                   </div>
                   <p className="text-sm text-green-700">
-                    Calculate years and days for special anniversaries
+                    {t(
+                      "tools.date-calculator.useCases.anniversaryTracking.description"
+                    )}
                   </p>
                 </div>
               </div>
@@ -210,10 +228,12 @@ const DateCalculator = () => {
                 </div>
                 <div>
                   <div className="font-semibold text-pink-900">
-                    Deadline Management
+                    {t("tools.date-calculator.useCases.deadlineManagement.title")}
                   </div>
                   <p className="text-sm text-pink-700">
-                    Monitor time remaining for important deadlines
+                    {t(
+                      "tools.date-calculator.useCases.deadlineManagement.description"
+                    )}
                   </p>
                 </div>
               </div>
@@ -226,38 +246,46 @@ const DateCalculator = () => {
           <CardHeader>
             <CardTitle className="flex items-center gap-2 text-amber-900">
               <Info className="h-5 w-5 text-amber-600" />
-              💡 Pro Tips
+              💡 {t("toolPage.sections.proTips")}
             </CardTitle>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
               <div className="flex gap-2 items-start">
                 <div className="text-amber-600 font-bold">→</div>
-                <p className="text-sm text-amber-900">
-                  <strong>Multiple Units:</strong> See results in days, weeks,
-                  months, years
-                </p>
+                <p
+                  className="text-sm text-amber-900"
+                  dangerouslySetInnerHTML={{
+                    __html: t("tools.date-calculator.proTips.multipleUnits"),
+                  }}
+                />
               </div>
               <div className="flex gap-2 items-start">
                 <div className="text-amber-600 font-bold">→</div>
-                <p className="text-sm text-amber-900">
-                  <strong>Leap Years:</strong> Automatically accounts for leap
-                  years
-                </p>
+                <p
+                  className="text-sm text-amber-900"
+                  dangerouslySetInnerHTML={{
+                    __html: t("tools.date-calculator.proTips.leapYears"),
+                  }}
+                />
               </div>
               <div className="flex gap-2 items-start">
                 <div className="text-amber-600 font-bold">→</div>
-                <p className="text-sm text-amber-900">
-                  <strong>Planning:</strong> Perfect for event and project
-                  timelines
-                </p>
+                <p
+                  className="text-sm text-amber-900"
+                  dangerouslySetInnerHTML={{
+                    __html: t("tools.date-calculator.proTips.planning"),
+                  }}
+                />
               </div>
               <div className="flex gap-2 items-start">
                 <div className="text-amber-600 font-bold">→</div>
-                <p className="text-sm text-amber-900">
-                  <strong>Business:</strong> Useful for legal and contract
-                  calculations
-                </p>
+                <p
+                  className="text-sm text-amber-900"
+                  dangerouslySetInnerHTML={{
+                    __html: t("tools.date-calculator.proTips.business"),
+                  }}
+                />
               </div>
             </div>
           </CardContent>
@@ -266,7 +294,7 @@ const DateCalculator = () => {
         {/* Related Tools */}
         <Card className="mt-6">
           <CardHeader>
-            <CardTitle>🔗 Related Tools You Might Like</CardTitle>
+            <CardTitle>{t("tools.date-calculator.relatedTools")}</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
@@ -275,19 +303,21 @@ const DateCalculator = () => {
                 className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
               >
                 <div className="font-semibold text-gray-900 group-hover:text-primary">
-                  Age Calculator
+                  {t("tools.age-calculator.title")}
                 </div>
-                <div className="text-sm text-gray-600 mt-1">Calculate age</div>
+                <div className="text-sm text-gray-600 mt-1">
+                  {t("tools.age-calculator.description")}
+                </div>
               </button>
               <button
                 onClick={() => navigate("/tools/timestamp-converter")}
                 className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
               >
                 <div className="font-semibold text-gray-900 group-hover:text-primary">
-                  Timestamp Converter
+                  {t("tools.timestamp-converter.title")}
                 </div>
                 <div className="text-sm text-gray-600 mt-1">
-                  Convert timestamps
+                  {t("tools.timestamp-converter.description")}
                 </div>
               </button>
               <button
@@ -295,10 +325,10 @@ const DateCalculator = () => {
                 className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
               >
                 <div className="font-semibold text-gray-900 group-hover:text-primary">
-                  Percentage Calculator
+                  {t("tools.percentage-calculator.title")}
                 </div>
                 <div className="text-sm text-gray-600 mt-1">
-                  Calculate percentages
+                  {t("tools.percentage-calculator.description")}
                 </div>
               </button>
             </div>

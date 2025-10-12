@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { SidebarTrigger } from "@/components/ui/sidebar";
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import {
@@ -26,6 +28,7 @@ import { FavoriteButton } from "@/components/FavoriteButton";
 import { Badge } from "@/components/ui/badge";
 
 const ColorPicker = () => {
+  const { t } = useTranslation();
   const [color, setColor] = useState("#3b82f6");
   const navigate = useNavigate();
 
@@ -83,7 +86,7 @@ const ColorPicker = () => {
 
   const copyToClipboard = (text: string, format: string) => {
     navigator.clipboard.writeText(text);
-    toast.success(`${format} copied to clipboard`);
+    toast.success(t("tools.color-picker.copied", { format }));
   };
 
   return (
@@ -96,7 +99,9 @@ const ColorPicker = () => {
           <SidebarTrigger />
           <div className="flex items-center gap-2">
             <Palette className="h-5 w-5 text-primary" />
-            <h1 className="text-xl font-semibold">Color Picker</h1>
+            <h1 className="text-xl font-semibold">
+              {t("tools.color-picker.title")}
+            </h1>
             <div className="ml-auto"></div>
           </div>
         </div>
@@ -107,12 +112,15 @@ const ColorPicker = () => {
           <CardHeader>
             <div className="flex items-center justify-between">
               <div>
-                <CardTitle>Pick & Convert Colors</CardTitle>
+                <CardTitle>{t("tools.color-picker.title")}</CardTitle>
                 <CardDescription>
-                  Choose colors and convert between formats
+                  {t("tools.color-picker.description")}
                 </CardDescription>
               </div>
-              <FavoriteButton toolId="color-picker" toolName="Color Picker" />
+              <FavoriteButton
+                toolId="color-picker"
+                toolName={t("tools.color-picker.title")}
+              />
             </div>
           </CardHeader>
           <CardContent className="space-y-6">
@@ -196,9 +204,10 @@ const ColorPicker = () => {
         <Card className="mt-6 bg-gradient-to-r from-blue-50 via-purple-50 to-pink-50 border-blue-200">
           <CardContent className="pt-6">
             <p className="text-gray-700 leading-relaxed">
-              <strong className="text-gray-900">What is Color Picker?</strong>{" "}
-              This tool helps you pick colors and convert between HEX, RGB, and HSL
-              formats. Perfect for web development, design, and branding! 🎨
+              <strong className="text-gray-900">
+                {t("tools.color-picker.whatIs")}
+              </strong>{" "}
+              {t("tools.color-picker.whatIsContent")}
             </p>
           </CardContent>
         </Card>
@@ -208,7 +217,7 @@ const ColorPicker = () => {
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <Zap className="h-5 w-5 text-primary" />
-              Common Use Cases
+              {t("toolPage.sections.commonUseCases")}
             </CardTitle>
           </CardHeader>
           <CardContent>
@@ -218,14 +227,17 @@ const ColorPicker = () => {
                   <Monitor className="h-5 w-5 text-blue-600" />
                 </div>
                 <div>
-                  <div className="font-semibold text-blue-900">Web Development</div>
-                  <p className="text-sm text-blue-700">
-                    Get{" "}
-                    <Badge variant="secondary" className="mx-1">
-                      HEX/RGB
-                    </Badge>
-                    codes for CSS and styling
-                  </p>
+                  <div className="font-semibold text-blue-900">
+                    {t("tools.color-picker.useCases.webDevelopment.title")}
+                  </div>
+                  <p
+                    className="text-sm text-blue-700"
+                    dangerouslySetInnerHTML={{
+                      __html: t(
+                        "tools.color-picker.useCases.webDevelopment.description"
+                      ),
+                    }}
+                  />
                 </div>
               </div>
 
@@ -234,9 +246,11 @@ const ColorPicker = () => {
                   <Paintbrush className="h-5 w-5 text-purple-600" />
                 </div>
                 <div>
-                  <div className="font-semibold text-purple-900">UI/UX Design</div>
+                  <div className="font-semibold text-purple-900">
+                    {t("tools.color-picker.useCases.uiuxDesign.title")}
+                  </div>
                   <p className="text-sm text-purple-700">
-                    Pick and match colors for interface design
+                    {t("tools.color-picker.useCases.uiuxDesign.description")}
                   </p>
                 </div>
               </div>
@@ -246,9 +260,11 @@ const ColorPicker = () => {
                   <Code className="h-5 w-5 text-green-600" />
                 </div>
                 <div>
-                  <div className="font-semibold text-green-900">CSS Styling</div>
+                  <div className="font-semibold text-green-900">
+                    {t("tools.color-picker.useCases.cssStyling.title")}
+                  </div>
                   <p className="text-sm text-green-700">
-                    Convert colors for web styling and themes
+                    {t("tools.color-picker.useCases.cssStyling.description")}
                   </p>
                 </div>
               </div>
@@ -258,9 +274,13 @@ const ColorPicker = () => {
                   <Smartphone className="h-5 w-5 text-pink-600" />
                 </div>
                 <div>
-                  <div className="font-semibold text-pink-900">App Development</div>
+                  <div className="font-semibold text-pink-900">
+                    {t("tools.color-picker.useCases.appDevelopment.title")}
+                  </div>
                   <p className="text-sm text-pink-700">
-                    Choose colors for mobile and desktop apps
+                    {t(
+                      "tools.color-picker.useCases.appDevelopment.description"
+                    )}
                   </p>
                 </div>
               </div>
@@ -273,34 +293,46 @@ const ColorPicker = () => {
           <CardHeader>
             <CardTitle className="flex items-center gap-2 text-amber-900">
               <Info className="h-5 w-5 text-amber-600" />
-              💡 Pro Tips
+              💡 {t("toolPage.sections.proTips")}
             </CardTitle>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
               <div className="flex gap-2 items-start">
                 <div className="text-amber-600 font-bold">→</div>
-                <p className="text-sm text-amber-900">
-                  <strong>HEX:</strong> Most common format in web development
-                </p>
+                <p
+                  className="text-sm text-amber-900"
+                  dangerouslySetInnerHTML={{
+                    __html: t("tools.color-picker.proTips.hex"),
+                  }}
+                />
               </div>
               <div className="flex gap-2 items-start">
                 <div className="text-amber-600 font-bold">→</div>
-                <p className="text-sm text-amber-900">
-                  <strong>RGB:</strong> Values range from 0-255 per channel
-                </p>
+                <p
+                  className="text-sm text-amber-900"
+                  dangerouslySetInnerHTML={{
+                    __html: t("tools.color-picker.proTips.rgb"),
+                  }}
+                />
               </div>
               <div className="flex gap-2 items-start">
                 <div className="text-amber-600 font-bold">→</div>
-                <p className="text-sm text-amber-900">
-                  <strong>HSL:</strong> Great for creating color variations
-                </p>
+                <p
+                  className="text-sm text-amber-900"
+                  dangerouslySetInnerHTML={{
+                    __html: t("tools.color-picker.proTips.hsl"),
+                  }}
+                />
               </div>
               <div className="flex gap-2 items-start">
                 <div className="text-amber-600 font-bold">→</div>
-                <p className="text-sm text-amber-900">
-                  <strong>Accessibility:</strong> Check color contrast ratios
-                </p>
+                <p
+                  className="text-sm text-amber-900"
+                  dangerouslySetInnerHTML={{
+                    __html: t("tools.color-picker.proTips.contrast"),
+                  }}
+                />
               </div>
             </div>
           </CardContent>
@@ -309,7 +341,7 @@ const ColorPicker = () => {
         {/* Related Tools */}
         <Card className="mt-6">
           <CardHeader>
-            <CardTitle>🔗 Related Tools You Might Like</CardTitle>
+            <CardTitle>🔗 {t("toolPage.sections.relatedTools")}</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
@@ -318,27 +350,33 @@ const ColorPicker = () => {
                 className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
               >
                 <div className="font-semibold text-gray-900 group-hover:text-primary">
-                  Image Compressor
+                  {t("tools.image-compressor.title")}
                 </div>
-                <div className="text-sm text-gray-600 mt-1">Compress images</div>
+                <div className="text-sm text-gray-600 mt-1">
+                  {t("tools.image-compressor.description")}
+                </div>
               </button>
               <button
                 onClick={() => navigate("/tools/image-resizer")}
                 className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
               >
                 <div className="font-semibold text-gray-900 group-hover:text-primary">
-                  Image Resizer
+                  {t("tools.image-resizer.title")}
                 </div>
-                <div className="text-sm text-gray-600 mt-1">Resize images</div>
+                <div className="text-sm text-gray-600 mt-1">
+                  {t("tools.image-resizer.description")}
+                </div>
               </button>
               <button
                 onClick={() => navigate("/tools/base64")}
                 className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
               >
                 <div className="font-semibold text-gray-900 group-hover:text-primary">
-                  Base64 Tool
+                  {t("tools.base64-encoder.title")}
                 </div>
-                <div className="text-sm text-gray-600 mt-1">Encode/decode</div>
+                <div className="text-sm text-gray-600 mt-1">
+                  {t("tools.base64-encoder.description")}
+                </div>
               </button>
             </div>
           </CardContent>

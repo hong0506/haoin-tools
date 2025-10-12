@@ -1,0 +1,173 @@
+name: i18n Validation & Quality Checks
+
+on:
+  pull_request:
+    paths:
+      - 'src/i18n/locales/**'
+      - 'src/pages/**'
+      - 'src/components/**'
+  push:
+    branches:
+      - main
+      - develop
+    paths:
+      - 'src/i18n/locales/**'
+
+jobs:
+  validate-translations:
+    name: Validate Translations
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run build
+        run: npm run build
+        
+      - name: Validate translation integrity
+        run: npm run i18n:validate
+        
+      - name: Upload validation report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: i18n-validation-report
+          path: i18n-validation-report.json
+          retention-days: 30
+
+      - name: Comment PR with validation results
+        if: github.event_name == 'pull_request' && always()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            
+            if (!fs.existsSync('i18n-validation-report.json')) {
+              console.log('No validation report found');
+              return;
+            }
+            
+            const report = JSON.parse(fs.readFileSync('i18n-validation-report.json', 'utf8'));
+            
+            let comment = '## 🔍 i18n Validation Report\n\n';
+            comment += `**Timestamp:** ${report.timestamp}\n`;
+            comment += `**Source Keys:** ${report.totalSourceKeys}\n`;
+            comment += `**Status:** ${report.overallPassed ? '✅ PASSED' : '❌ FAILED'}\n\n`;
+            
+            comment += '### Summary\n';
+            comment += `- Locales validated: ${report.summary.totalLocales}\n`;
+            comment += `- ✅ Passed: ${report.summary.passedLocales}\n`;
+            comment += `- ❌ Failed: ${report.summary.failedLocales}\n`;
+            comment += `- Errors: ${report.summary.totalErrors}\n`;
+            comment += `- Warnings: ${report.summary.totalWarnings}\n\n`;
+            
+            comment += '### Per-Locale Results\n\n';
+            comment += '| Locale | Status | Errors | Warnings | Coverage |\n';
+            comment += '|--------|--------|--------|----------|----------|\n';
+            
+            for (const result of report.results) {
+              const status = result.passed ? '✅' : '❌';
+              const missingKeys = result.errors.filter(e => e.type === 'missing').length;
+              const coverage = ((result.totalKeys - missingKeys) / result.totalKeys * 100).toFixed(1);
+              comment += `| ${result.locale} | ${status} | ${result.errors.length} | ${result.warnings.length} | ${coverage}% |\n`;
+            }
+            
+            // Add details for failed locales
+            const failed = report.results.filter(r => !r.passed);
+            if (failed.length > 0) {
+              comment += '\n### ❌ Issues Found\n\n';
+              for (const result of failed) {
+                comment += `<details>\n<summary><b>${result.locale.toUpperCase()}</b> (${result.errors.length} errors)</summary>\n\n`;
+                
+                // Group errors by type
+                const errorsByType = result.errors.reduce((acc, err) => {
+                  if (!acc[err.type]) acc[err.type] = [];
+                  acc[err.type].push(err);
+                  return acc;
+                }, {});
+                
+                for (const [type, errors] of Object.entries(errorsByType)) {
+                  comment += `**${type}** (${errors.length}):\n`;
+                  errors.slice(0, 3).forEach(err => {
+                    comment += `- \`${err.key}\`: ${err.message}\n`;
+                  });
+                  if (errors.length > 3) {
+                    comment += `- ... and ${errors.length - 3} more\n`;
+                  }
+                  comment += '\n';
+                }
+                
+                comment += '</details>\n\n';
+              }
+              
+              comment += '\n⚠️ **Action Required:** Fix errors before merging. Run `npm run i18n:validate` locally for detailed output.\n';
+            }
+            
+            if (report.summary.totalWarnings > 0 && report.overallPassed) {
+              comment += '\n⚠️ **Note:** Some warnings found but not blocking. Review recommended.\n';
+            }
+            
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: comment
+            });
+
+  check-coverage:
+    name: Check Translation Coverage
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Check coverage
+        run: npm run i18n:check
+        
+      - name: Upload coverage report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: i18n-coverage-report
+          path: i18n-coverage-report.json
+          retention-days: 30
+
+  validate-json:
+    name: Validate JSON Structure
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Validate JSON files
+        run: |
+          echo "🔍 Validating JSON structure..."
+          for file in src/i18n/locales/*.json; do
+            echo "Checking $file..."
+            if ! jq empty "$file" 2>/dev/null; then
+              echo "❌ Invalid JSON in $file"
+              exit 1
+            fi
+          done
+          echo "✅ All JSON files are valid"

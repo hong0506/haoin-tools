@@ -1,4 +1,5 @@
 import { SidebarTrigger } from "@/components/ui/sidebar";
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { AnimatedBackground } from "@/components/AnimatedBackground";
 import { Footer } from "@/components/Footer";
 import {
@@ -19,9 +20,12 @@ const Legal = () => {
       <AnimatedBackground />
 
       <header className="sticky top-0 z-10 border-b glass">
-        <div className="flex h-16 items-center gap-4 px-6">
+        <div className="flex h-16 items-center gap-2 sm:gap-4 px-2 sm:px-6">
           <SidebarTrigger />
-          <h2 className="text-lg font-semibold">{t("legal.title")}</h2>
+          <h2 className="text-lg font-semibold flex-1">{t("legal.title")}</h2>
+          <div className="flex-shrink-0">
+            <LanguageSwitcher />
+          </div>
         </div>
       </header>
 

@@ -79,12 +79,66 @@ const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
 
-// Scroll to top on route change
-const ScrollToTop = () => {
+// Smart scroll restoration - save position on navigation, restore on back
+const SmartScrollRestoration = () => {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    window.scrollTo(0, 0);
+    // Tool pages should always start from top, only save/restore position for home and category pages
+    const isToolPage = pathname.startsWith('/tools/');
+    
+    if (isToolPage) {
+      // Tool pages: always scroll to top
+      window.scrollTo(0, 0);
+      
+      // Don't save tool page positions
+      return;
+    }
+    
+    // For home and category pages: restore saved position
+    const savedPosition = sessionStorage.getItem(`scroll_${pathname}`);
+    if (savedPosition) {
+      const targetPosition = parseInt(savedPosition, 10);
+      
+      // Wait for all images and lazy-loaded content to render
+      // Use multiple attempts to handle dynamic content loading
+      let attempts = 0;
+      const maxAttempts = 20; // Try for up to 2 seconds
+      
+      const restoreScroll = () => {
+        attempts++;
+        
+        // Check if we can scroll to the target position
+        const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+        
+        if (maxScroll >= targetPosition || attempts >= maxAttempts) {
+          // Content is ready or we've waited long enough
+          window.scrollTo({
+            top: targetPosition,
+            behavior: 'instant'
+          });
+        } else {
+          // Content still loading, try again
+          setTimeout(restoreScroll, 100);
+        }
+      };
+      
+      // Start restoration after initial render
+      setTimeout(restoreScroll, 50);
+
+      return () => {
+        // Save position when leaving home/category pages
+        sessionStorage.setItem(`scroll_${pathname}`, window.scrollY.toString());
+      };
+    } else {
+      // First time visiting: scroll to top
+      window.scrollTo(0, 0);
+      
+      // Still save position when leaving
+      return () => {
+        sessionStorage.setItem(`scroll_${pathname}`, window.scrollY.toString());
+      };
+    }
   }, [pathname]);
 
   return null;
@@ -101,7 +155,7 @@ const App = () => (
           v7_relativeSplatPath: true,
         }}
       >
-        <ScrollToTop />
+        <SmartScrollRestoration />
         <RecentToolsProvider>
           <FavoritesProvider>
             <SearchProvider>

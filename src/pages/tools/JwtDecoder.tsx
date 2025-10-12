@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { SidebarTrigger } from "@/components/ui/sidebar";
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import {
@@ -28,6 +30,7 @@ import { FavoriteButton } from "@/components/FavoriteButton";
 import { Badge } from "@/components/ui/badge";
 
 const JwtDecoder = () => {
+  const { t } = useTranslation();
   const [token, setToken] = useState("");
   const [header, setHeader] = useState("");
   const [payload, setPayload] = useState("");
@@ -38,13 +41,13 @@ const JwtDecoder = () => {
   const decodeJwt = () => {
     try {
       if (!token.trim()) {
-        toast.error("Please enter a JWT token");
+        toast.error(t("tools.jwt-decoder.pleaseEnterToken"));
         return;
       }
 
       const parts = token.split(".");
       if (parts.length !== 3) {
-        toast.error("Invalid JWT format");
+        toast.error(t("tools.jwt-decoder.invalidJwtFormat"));
         setIsValid(false);
         return;
       }
@@ -65,9 +68,9 @@ const JwtDecoder = () => {
       setSignature(parts[2]);
 
       setIsValid(true);
-      toast.success("JWT decoded successfully!");
+      toast.success(t("tools.jwt-decoder.decodedSuccessfully"));
     } catch (error) {
-      toast.error("Invalid JWT token");
+      toast.error(t("tools.jwt-decoder.invalidJwtToken"));
       setIsValid(false);
       setHeader("");
       setPayload("");
@@ -77,7 +80,7 @@ const JwtDecoder = () => {
 
   const copyToClipboard = (text: string, label: string) => {
     navigator.clipboard.writeText(text);
-    toast.success(`${label} copied to clipboard!`);
+    toast.success(t("tools.jwt-decoder.copiedToClipboard", { label }));
   };
 
   const clearAll = () => {
@@ -86,7 +89,7 @@ const JwtDecoder = () => {
     setPayload("");
     setSignature("");
     setIsValid(null);
-    toast.success("All fields cleared");
+    toast.success(t("toolPage.messages.cleared"));
   };
 
   const loadExample = () => {
@@ -97,7 +100,7 @@ const JwtDecoder = () => {
     setPayload("");
     setSignature("");
     setIsValid(null);
-    toast.success("Example JWT loaded");
+    toast.success(t("toolPage.messages.exampleLoaded"));
   };
 
   return (
@@ -115,7 +118,9 @@ const JwtDecoder = () => {
           <SidebarTrigger />
           <div className="flex items-center gap-2">
             <KeyRound className="h-5 w-5 text-primary" />
-            <h1 className="text-xl font-semibold">JWT Decoder</h1>
+            <h1 className="text-xl font-semibold">
+              {t("tools.jwt-decoder.title")}
+            </h1>
           </div>
         </div>
       </header>
@@ -125,41 +130,44 @@ const JwtDecoder = () => {
           <CardHeader>
             <div className="flex items-center justify-between">
               <div>
-                <CardTitle>Decode JWT Token</CardTitle>
+                <CardTitle>{t("tools.jwt-decoder.decodeJwtToken")}</CardTitle>
                 <CardDescription>
-                  Decode and inspect JWT (JSON Web Token) header and payload
+                  {t("tools.jwt-decoder.description")}
                 </CardDescription>
               </div>
-              <FavoriteButton toolId="jwt-decoder" toolName="JWT Decoder" />
+              <FavoriteButton
+                toolId="jwt-decoder"
+                toolName={t("tools.jwt-decoder.title")}
+              />
             </div>
           </CardHeader>
           <CardContent className="space-y-4">
             <div className="flex gap-2 mb-4">
               <Button onClick={clearAll} variant="outline" size="sm">
                 <RotateCcw className="h-4 w-4 mr-2" />
-                Clear
+                {t("toolPage.buttons.clear")}
               </Button>
               <Button onClick={loadExample} variant="ghost" size="sm">
                 <Lightbulb className="h-4 w-4 mr-1" />
-                Load Example
+                {t("toolPage.buttons.loadExample")}
               </Button>
             </div>
 
             <div>
               <label className="mb-2 block text-sm font-medium">
-                JWT Token
+                {t("tools.jwt-decoder.jwtToken")}
               </label>
               <Textarea
                 value={token}
                 onChange={(e) => setToken(e.target.value)}
-                placeholder="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+                placeholder={t("tools.jwt-decoder.placeholder")}
                 className="min-h-[120px] font-mono text-sm"
               />
             </div>
 
             <Button onClick={decodeJwt} className="w-full">
               <KeyRound className="h-4 w-4 mr-2" />
-              Decode JWT
+              {t("tools.jwt-decoder.decodeJwt")}
             </Button>
 
             {isValid !== null && (
@@ -174,14 +182,14 @@ const JwtDecoder = () => {
                   <>
                     <CheckCircle className="h-5 w-5 text-green-600" />
                     <span className="text-sm font-medium text-green-900">
-                      Valid JWT Format
+                      {t("tools.jwt-decoder.validJwtFormat")}
                     </span>
                   </>
                 ) : (
                   <>
                     <AlertTriangle className="h-5 w-5 text-red-600" />
                     <span className="text-sm font-medium text-red-900">
-                      Invalid JWT Format
+                      {t("tools.jwt-decoder.invalidJwtFormat")}
                     </span>
                   </>
                 )}
@@ -191,14 +199,18 @@ const JwtDecoder = () => {
             {header && (
               <div>
                 <div className="mb-2 flex items-center justify-between">
-                  <label className="text-sm font-medium">Header</label>
+                  <label className="text-sm font-medium">
+                    {t("tools.jwt-decoder.header")}
+                  </label>
                   <Button
-                    onClick={() => copyToClipboard(header, "Header")}
+                    onClick={() =>
+                      copyToClipboard(header, t("tools.jwt-decoder.header"))
+                    }
                     size="sm"
                     variant="ghost"
                   >
                     <Copy className="mr-2 h-4 w-4" />
-                    Copy
+                    {t("toolPage.buttons.copy")}
                   </Button>
                 </div>
                 <Textarea
@@ -212,14 +224,18 @@ const JwtDecoder = () => {
             {payload && (
               <div>
                 <div className="mb-2 flex items-center justify-between">
-                  <label className="text-sm font-medium">Payload</label>
+                  <label className="text-sm font-medium">
+                    {t("tools.jwt-decoder.payload")}
+                  </label>
                   <Button
-                    onClick={() => copyToClipboard(payload, "Payload")}
+                    onClick={() =>
+                      copyToClipboard(payload, t("tools.jwt-decoder.payload"))
+                    }
                     size="sm"
                     variant="ghost"
                   >
                     <Copy className="mr-2 h-4 w-4" />
-                    Copy
+                    {t("toolPage.buttons.copy")}
                   </Button>
                 </div>
                 <Textarea
@@ -234,15 +250,20 @@ const JwtDecoder = () => {
               <div>
                 <div className="mb-2 flex items-center justify-between">
                   <label className="text-sm font-medium">
-                    Signature (Base64)
+                    {t("tools.jwt-decoder.signatureBase64")}
                   </label>
                   <Button
-                    onClick={() => copyToClipboard(signature, "Signature")}
+                    onClick={() =>
+                      copyToClipboard(
+                        signature,
+                        t("tools.jwt-decoder.signature")
+                      )
+                    }
                     size="sm"
                     variant="ghost"
                   >
                     <Copy className="mr-2 h-4 w-4" />
-                    Copy
+                    {t("toolPage.buttons.copy")}
                   </Button>
                 </div>
                 <Textarea
@@ -251,7 +272,7 @@ const JwtDecoder = () => {
                   className="min-h-[80px] font-mono text-sm bg-amber-50/50"
                 />
                 <p className="text-xs text-muted-foreground mt-2">
-                  ⚠️ Signature verification requires the secret key
+                  ⚠️ {t("tools.jwt-decoder.signatureWarning")}
                 </p>
               </div>
             )}
@@ -262,10 +283,10 @@ const JwtDecoder = () => {
         <Card className="mt-6 bg-gradient-to-r from-blue-50 via-purple-50 to-pink-50 border-blue-200">
           <CardContent className="pt-6">
             <p className="text-gray-700 leading-relaxed">
-              <strong className="text-gray-900">What is JWT Decoder?</strong>{" "}
-              This tool decodes JWT (JSON Web Tokens) to inspect the header,
-              payload, and signature. Perfect for debugging authentication,
-              testing APIs, and understanding token structure! 🔐
+              <strong className="text-gray-900">
+                {t("tools.jwt-decoder.whatIs")}
+              </strong>{" "}
+              {t("tools.jwt-decoder.whatIsContent")}
             </p>
           </CardContent>
         </Card>
@@ -275,7 +296,7 @@ const JwtDecoder = () => {
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <Zap className="h-5 w-5 text-primary" />
-              Common Use Cases
+              {t("toolPage.sections.commonUseCases")}
             </CardTitle>
           </CardHeader>
           <CardContent>
@@ -286,14 +307,10 @@ const JwtDecoder = () => {
                 </div>
                 <div>
                   <div className="font-semibold text-purple-900">
-                    Authentication
+                    {t("tools.jwt-decoder.useCases.authentication.title")}
                   </div>
                   <p className="text-sm text-purple-700">
-                    Decode{" "}
-                    <Badge variant="secondary" className="mx-1">
-                      auth tokens
-                    </Badge>{" "}
-                    to inspect user claims and roles
+                    {t("tools.jwt-decoder.useCases.authentication.description")}
                   </p>
                 </div>
               </div>
@@ -303,9 +320,11 @@ const JwtDecoder = () => {
                   <CheckCircle className="h-5 w-5 text-blue-600" />
                 </div>
                 <div>
-                  <div className="font-semibold text-blue-900">Debugging</div>
+                  <div className="font-semibold text-blue-900">
+                    {t("tools.jwt-decoder.useCases.debugging.title")}
+                  </div>
                   <p className="text-sm text-blue-700">
-                    Debug JWT issues in API authentication flows
+                    {t("tools.jwt-decoder.useCases.debugging.description")}
                   </p>
                 </div>
               </div>
@@ -316,10 +335,10 @@ const JwtDecoder = () => {
                 </div>
                 <div>
                   <div className="font-semibold text-green-900">
-                    Token Analysis
+                    {t("tools.jwt-decoder.useCases.tokenAnalysis.title")}
                   </div>
                   <p className="text-sm text-green-700">
-                    Analyze token expiration, issuer, and claims
+                    {t("tools.jwt-decoder.useCases.tokenAnalysis.description")}
                   </p>
                 </div>
               </div>
@@ -329,9 +348,11 @@ const JwtDecoder = () => {
                   <KeyRound className="h-5 w-5 text-pink-600" />
                 </div>
                 <div>
-                  <div className="font-semibold text-pink-900">API Testing</div>
+                  <div className="font-semibold text-pink-900">
+                    {t("tools.jwt-decoder.useCases.apiTesting.title")}
+                  </div>
                   <p className="text-sm text-pink-700">
-                    Inspect tokens during API development and testing
+                    {t("tools.jwt-decoder.useCases.apiTesting.description")}
                   </p>
                 </div>
               </div>
@@ -344,38 +365,46 @@ const JwtDecoder = () => {
           <CardHeader>
             <CardTitle className="flex items-center gap-2 text-amber-900">
               <Info className="h-5 w-5 text-amber-600" />
-              💡 Pro Tips
+              💡 {t("toolPage.sections.proTips")}
             </CardTitle>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
               <div className="flex gap-2 items-start">
                 <div className="text-amber-600 font-bold">→</div>
-                <p className="text-sm text-amber-900">
-                  <strong>Security:</strong> JWT decoding is safe - it's just
-                  Base64 decoding
-                </p>
+                <p
+                  className="text-sm text-amber-900"
+                  dangerouslySetInnerHTML={{
+                    __html: t("tools.jwt-decoder.proTips.security"),
+                  }}
+                />
               </div>
               <div className="flex gap-2 items-start">
                 <div className="text-amber-600 font-bold">→</div>
-                <p className="text-sm text-amber-900">
-                  <strong>Expiration:</strong> Check 'exp' claim for token
-                  expiration time
-                </p>
+                <p
+                  className="text-sm text-amber-900"
+                  dangerouslySetInnerHTML={{
+                    __html: t("tools.jwt-decoder.proTips.expiration"),
+                  }}
+                />
               </div>
               <div className="flex gap-2 items-start">
                 <div className="text-amber-600 font-bold">→</div>
-                <p className="text-sm text-amber-900">
-                  <strong>Claims:</strong> Payload contains user data and
-                  permissions
-                </p>
+                <p
+                  className="text-sm text-amber-900"
+                  dangerouslySetInnerHTML={{
+                    __html: t("tools.jwt-decoder.proTips.claims"),
+                  }}
+                />
               </div>
               <div className="flex gap-2 items-start">
                 <div className="text-amber-600 font-bold">→</div>
-                <p className="text-sm text-amber-900">
-                  <strong>Verification:</strong> Signature needs secret key to
-                  verify
-                </p>
+                <p
+                  className="text-sm text-amber-900"
+                  dangerouslySetInnerHTML={{
+                    __html: t("tools.jwt-decoder.proTips.verification"),
+                  }}
+                />
               </div>
             </div>
           </CardContent>
@@ -384,7 +413,7 @@ const JwtDecoder = () => {
         {/* Related Tools */}
         <Card className="mt-6">
           <CardHeader>
-            <CardTitle>🔗 Related Tools You Might Like</CardTitle>
+            <CardTitle>{t("tools.jwt-decoder.relatedTools")}</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
@@ -393,10 +422,10 @@ const JwtDecoder = () => {
                 className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
               >
                 <div className="font-semibold text-gray-900 group-hover:text-primary">
-                  Base64 Tool
+                  {t("tools.base64-encoder.title")}
                 </div>
                 <div className="text-sm text-gray-600 mt-1">
-                  Encode/decode Base64
+                  {t("tools.base64-encoder.description")}
                 </div>
               </button>
               <button
@@ -404,10 +433,10 @@ const JwtDecoder = () => {
                 className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
               >
                 <div className="font-semibold text-gray-900 group-hover:text-primary">
-                  JSON Formatter
+                  {t("tools.json-formatter.title")}
                 </div>
                 <div className="text-sm text-gray-600 mt-1">
-                  Format JSON data
+                  {t("tools.json-formatter.description")}
                 </div>
               </button>
               <button
@@ -415,10 +444,10 @@ const JwtDecoder = () => {
                 className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
               >
                 <div className="font-semibold text-gray-900 group-hover:text-primary">
-                  Hash Generator
+                  {t("tools.hash-generator.title")}
                 </div>
                 <div className="text-sm text-gray-600 mt-1">
-                  Generate hashes
+                  {t("tools.hash-generator.description")}
                 </div>
               </button>
             </div>

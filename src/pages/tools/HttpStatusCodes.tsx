@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { SidebarTrigger } from "@/components/ui/sidebar";
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -27,203 +29,64 @@ import { FavoriteButton } from "@/components/FavoriteButton";
 import { toast } from "sonner";
 
 const HttpStatusCodes = () => {
+  const { t } = useTranslation();
   const [searchTerm, setSearchTerm] = useState("");
   const navigate = useNavigate();
 
   const clearSearch = () => {
     setSearchTerm("");
-    toast.success("Search cleared");
+    toast.success(t("tools.http-status-codes.searchCleared"));
   };
 
   const loadExample = () => {
     setSearchTerm("404");
-    toast.success("Example loaded - searching for 404 Not Found");
+    toast.success(t("tools.http-status-codes.exampleLoaded"));
   };
+
+  const getStatusCode = (code: number, category: string) => ({
+    code,
+    name: t(`tools.http-status-codes.codes.${code}.name`),
+    description: t(`tools.http-status-codes.codes.${code}.description`),
+    category,
+  });
 
   const statusCodes = [
     // 1xx Informational
-    {
-      code: 100,
-      name: "Continue",
-      description:
-        "The server has received the request headers, and the client should proceed to send the request body",
-      category: "1xx",
-    },
-    {
-      code: 101,
-      name: "Switching Protocols",
-      description: "The requester has asked the server to switch protocols",
-      category: "1xx",
-    },
+    getStatusCode(100, "1xx"),
+    getStatusCode(101, "1xx"),
 
     // 2xx Success
-    {
-      code: 200,
-      name: "OK",
-      description: "The request was successful",
-      category: "2xx",
-    },
-    {
-      code: 201,
-      name: "Created",
-      description: "The request was successful and a resource was created",
-      category: "2xx",
-    },
-    {
-      code: 202,
-      name: "Accepted",
-      description:
-        "The request has been accepted for processing, but processing is not complete",
-      category: "2xx",
-    },
-    {
-      code: 204,
-      name: "No Content",
-      description:
-        "The server successfully processed the request but is not returning any content",
-      category: "2xx",
-    },
+    getStatusCode(200, "2xx"),
+    getStatusCode(201, "2xx"),
+    getStatusCode(202, "2xx"),
+    getStatusCode(204, "2xx"),
 
     // 3xx Redirection
-    {
-      code: 301,
-      name: "Moved Permanently",
-      description:
-        "The URL of the requested resource has been changed permanently",
-      category: "3xx",
-    },
-    {
-      code: 302,
-      name: "Found",
-      description: "The URI of requested resource has been changed temporarily",
-      category: "3xx",
-    },
-    {
-      code: 304,
-      name: "Not Modified",
-      description: "The client can use cached data",
-      category: "3xx",
-    },
-    {
-      code: 307,
-      name: "Temporary Redirect",
-      description: "The request should be repeated with another URI",
-      category: "3xx",
-    },
-    {
-      code: 308,
-      name: "Permanent Redirect",
-      description:
-        "The request and all future requests should be repeated using another URI",
-      category: "3xx",
-    },
+    getStatusCode(301, "3xx"),
+    getStatusCode(302, "3xx"),
+    getStatusCode(304, "3xx"),
+    getStatusCode(307, "3xx"),
+    getStatusCode(308, "3xx"),
 
     // 4xx Client Errors
-    {
-      code: 400,
-      name: "Bad Request",
-      description: "The server cannot process the request due to client error",
-      category: "4xx",
-    },
-    {
-      code: 401,
-      name: "Unauthorized",
-      description:
-        "Authentication is required and has failed or has not been provided",
-      category: "4xx",
-    },
-    {
-      code: 403,
-      name: "Forbidden",
-      description: "The client does not have access rights to the content",
-      category: "4xx",
-    },
-    {
-      code: 404,
-      name: "Not Found",
-      description: "The server cannot find the requested resource",
-      category: "4xx",
-    },
-    {
-      code: 405,
-      name: "Method Not Allowed",
-      description:
-        "The request method is not supported for the requested resource",
-      category: "4xx",
-    },
-    {
-      code: 408,
-      name: "Request Timeout",
-      description: "The server timed out waiting for the request",
-      category: "4xx",
-    },
-    {
-      code: 409,
-      name: "Conflict",
-      description: "The request conflicts with the current state of the server",
-      category: "4xx",
-    },
-    {
-      code: 410,
-      name: "Gone",
-      description:
-        "The requested resource is no longer available and will not be available again",
-      category: "4xx",
-    },
-    {
-      code: 413,
-      name: "Payload Too Large",
-      description: "The request entity is larger than limits defined by server",
-      category: "4xx",
-    },
-    {
-      code: 415,
-      name: "Unsupported Media Type",
-      description: "The media format of the requested data is not supported",
-      category: "4xx",
-    },
-    {
-      code: 429,
-      name: "Too Many Requests",
-      description:
-        "The user has sent too many requests in a given amount of time",
-      category: "4xx",
-    },
+    getStatusCode(400, "4xx"),
+    getStatusCode(401, "4xx"),
+    getStatusCode(403, "4xx"),
+    getStatusCode(404, "4xx"),
+    getStatusCode(405, "4xx"),
+    getStatusCode(408, "4xx"),
+    getStatusCode(409, "4xx"),
+    getStatusCode(410, "4xx"),
+    getStatusCode(413, "4xx"),
+    getStatusCode(415, "4xx"),
+    getStatusCode(429, "4xx"),
 
     // 5xx Server Errors
-    {
-      code: 500,
-      name: "Internal Server Error",
-      description: "A generic error occurred on the server",
-      category: "5xx",
-    },
-    {
-      code: 501,
-      name: "Not Implemented",
-      description:
-        "The server does not support the functionality required to fulfill the request",
-      category: "5xx",
-    },
-    {
-      code: 502,
-      name: "Bad Gateway",
-      description:
-        "The server received an invalid response from an upstream server",
-      category: "5xx",
-    },
-    {
-      code: 503,
-      name: "Service Unavailable",
-      description: "The server is currently unavailable (overloaded or down)",
-      category: "5xx",
-    },
-    {
-      code: 504,
-      name: "Gateway Timeout",
-      description:
-        "The server did not receive a timely response from an upstream server",
-      category: "5xx",
-    },
+    getStatusCode(500, "5xx"),
+    getStatusCode(501, "5xx"),
+    getStatusCode(502, "5xx"),
+    getStatusCode(503, "5xx"),
+    getStatusCode(504, "5xx"),
   ];
 
   const filteredCodes = statusCodes.filter(
@@ -236,37 +99,41 @@ const HttpStatusCodes = () => {
   const getCategoryColor = (category: string) => {
     switch (category) {
       case "1xx":
-        return "bg-blue-50 border-blue-200 text-blue-900";
+        return "bg-blue-50 dark:bg-blue-950/30 border-blue-200 dark:border-blue-800 text-blue-900 dark:text-blue-300";
       case "2xx":
-        return "bg-green-50 border-green-200 text-green-900";
+        return "bg-green-50 dark:bg-green-950/30 border-green-200 dark:border-green-800 text-green-900 dark:text-green-300";
       case "3xx":
-        return "bg-yellow-50 border-yellow-200 text-yellow-900";
+        return "bg-yellow-50 dark:bg-yellow-950/30 border-yellow-200 dark:border-yellow-800 text-yellow-900 dark:text-yellow-300";
       case "4xx":
-        return "bg-orange-50 border-orange-200 text-orange-900";
+        return "bg-orange-50 dark:bg-orange-950/30 border-orange-200 dark:border-orange-800 text-orange-900 dark:text-orange-300";
       case "5xx":
-        return "bg-red-50 border-red-200 text-red-900";
+        return "bg-red-50 dark:bg-red-950/30 border-red-200 dark:border-red-800 text-red-900 dark:text-red-300";
       default:
-        return "bg-gray-50 border-gray-200 text-gray-900";
+        return "bg-gray-50 dark:bg-gray-950/30 border-gray-200 dark:border-gray-800 text-gray-900 dark:text-gray-300";
     }
   };
 
   const getCategoryIcon = (category: string) => {
     switch (category) {
       case "2xx":
-        return <CheckCircle2 className="h-5 w-5 text-green-600" />;
+        return (
+          <CheckCircle2 className="h-5 w-5 text-green-600 dark:text-green-400" />
+        );
       case "4xx":
-        return <AlertCircle className="h-5 w-5 text-orange-600" />;
+        return (
+          <AlertCircle className="h-5 w-5 text-orange-600 dark:text-orange-400" />
+        );
       case "5xx":
-        return <XCircle className="h-5 w-5 text-red-600" />;
+        return <XCircle className="h-5 w-5 text-red-600 dark:text-red-400" />;
       default:
-        return <Info className="h-5 w-5 text-blue-600" />;
+        return <Info className="h-5 w-5 text-blue-600 dark:text-blue-400" />;
     }
   };
 
   return (
     <div className="min-h-screen">
       <header className="sticky top-0 z-10 border-b bg-background/95 backdrop-blur">
-        <div className="flex h-16 items-center gap-4 px-6">
+        <div className="flex h-16 items-center gap-2 sm:gap-4 px-2 sm:px-6">
           <Button
             variant="ghost"
             size="icon"
@@ -276,7 +143,12 @@ const HttpStatusCodes = () => {
             <ArrowLeft className="h-4 w-4" />
           </Button>
           <SidebarTrigger />
-          <h1 className="text-xl font-semibold">HTTP Status Codes</h1>
+          <h1 className="text-xl font-semibold flex-1">
+            {t("tools.http-status-codes.title")}
+          </h1>
+          <div className="flex-shrink-0">
+            <LanguageSwitcher />
+          </div>
         </div>
       </header>
 
@@ -285,14 +157,16 @@ const HttpStatusCodes = () => {
           <CardHeader>
             <div className="flex items-center justify-between">
               <div>
-                <CardTitle>HTTP Status Code Reference</CardTitle>
+                <CardTitle>
+                  {t("tools.http-status-codes.httpStatusCodeReference")}
+                </CardTitle>
                 <CardDescription>
-                  Quick lookup for HTTP response status codes
+                  {t("tools.http-status-codes.descriptionFull")}
                 </CardDescription>
               </div>
               <FavoriteButton
                 toolId="http-status-codes"
-                toolName="HTTP Status Codes"
+                toolName={t("tools.http-status-codes.title")}
               />
             </div>
           </CardHeader>
@@ -300,18 +174,18 @@ const HttpStatusCodes = () => {
             <div className="flex gap-2 mb-4">
               <Button onClick={clearSearch} variant="outline" size="sm">
                 <RotateCcw className="h-4 w-4 mr-2" />
-                Clear
+                {t("toolPage.buttons.clear")}
               </Button>
               <Button onClick={loadExample} variant="ghost" size="sm">
                 <Lightbulb className="h-4 w-4 mr-1" />
-                Load Example
+                {t("toolPage.buttons.loadExample")}
               </Button>
             </div>
 
             <div className="relative">
               <Search className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
               <Input
-                placeholder="Search by code, name, or description..."
+                placeholder={t("tools.http-status-codes.searchPlaceholder")}
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 className="pl-10"
@@ -320,19 +194,19 @@ const HttpStatusCodes = () => {
 
             <div className="flex gap-2 flex-wrap">
               <Badge variant="outline" className="bg-blue-50">
-                1xx Informational
+                {t("tools.http-status-codes.categories.1xx")}
               </Badge>
               <Badge variant="outline" className="bg-green-50">
-                2xx Success
+                {t("tools.http-status-codes.categories.2xx")}
               </Badge>
               <Badge variant="outline" className="bg-yellow-50">
-                3xx Redirection
+                {t("tools.http-status-codes.categories.3xx")}
               </Badge>
               <Badge variant="outline" className="bg-orange-50">
-                4xx Client Error
+                {t("tools.http-status-codes.categories.4xx")}
               </Badge>
               <Badge variant="outline" className="bg-red-50">
-                5xx Server Error
+                {t("tools.http-status-codes.categories.5xx")}
               </Badge>
             </div>
 
@@ -362,21 +236,19 @@ const HttpStatusCodes = () => {
 
             {filteredCodes.length === 0 && (
               <div className="text-center py-8 text-muted-foreground">
-                No status codes found matching "{searchTerm}"
+                {t("tools.http-status-codes.noResults", { term: searchTerm })}
               </div>
             )}
           </CardContent>
         </Card>
 
-        <Card className="mt-6 bg-gradient-to-r from-blue-50 via-purple-50 to-pink-50 border-blue-200">
+        <Card className="mt-6 bg-gradient-to-r from-blue-50 via-purple-50 to-pink-50 dark:from-blue-950/30 dark:via-purple-950/30 dark:to-pink-950/30 border-blue-200 dark:border-blue-800">
           <CardContent className="pt-6">
-            <p className="text-gray-700 leading-relaxed">
-              <strong className="text-gray-900">
-                What are HTTP Status Codes?
+            <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+              <strong className="text-gray-900 dark:text-gray-100">
+                {t("tools.http-status-codes.whatIs")}
               </strong>{" "}
-              Standard response codes given by web servers on the internet. They
-              help identify the cause of the problem when a webpage doesn't load
-              properly. 🌐
+              {t("tools.http-status-codes.whatIsContent")}
             </p>
           </CardContent>
         </Card>
@@ -385,79 +257,99 @@ const HttpStatusCodes = () => {
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <Zap className="h-5 w-5 text-primary" />
-              Quick Category Guide
+              {t("tools.http-status-codes.quickCategoryGuide")}
             </CardTitle>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="p-4 rounded-lg bg-green-50 border border-green-200">
-                <div className="font-semibold text-green-900 mb-2">
-                  ✅ 2xx - Success
+              <div className="p-4 rounded-lg bg-green-50 dark:bg-green-950/30 border border-green-200 dark:border-green-800">
+                <div className="font-semibold text-green-900 dark:text-green-300 mb-2">
+                  {t("tools.http-status-codes.categoryGuide.2xx.title")}
                 </div>
-                <p className="text-sm text-green-700">
-                  Request received, understood, and accepted
+                <p className="text-sm text-green-700 dark:text-green-400">
+                  {t("tools.http-status-codes.categoryGuide.2xx.description")}
                 </p>
               </div>
-              <div className="p-4 rounded-lg bg-yellow-50 border border-yellow-200">
-                <div className="font-semibold text-yellow-900 mb-2">
-                  🔄 3xx - Redirection
+              <div className="p-4 rounded-lg bg-yellow-50 dark:bg-yellow-950/30 border border-yellow-200 dark:border-yellow-800">
+                <div className="font-semibold text-yellow-900 dark:text-yellow-300 mb-2">
+                  {t("tools.http-status-codes.categoryGuide.3xx.title")}
                 </div>
-                <p className="text-sm text-yellow-700">
-                  Further action needed to complete request
+                <p className="text-sm text-yellow-700 dark:text-yellow-400">
+                  {t("tools.http-status-codes.categoryGuide.3xx.description")}
                 </p>
               </div>
-              <div className="p-4 rounded-lg bg-orange-50 border border-orange-200">
-                <div className="font-semibold text-orange-900 mb-2">
-                  ⚠️ 4xx - Client Error
+              <div className="p-4 rounded-lg bg-orange-50 dark:bg-orange-950/30 border border-orange-200 dark:border-orange-800">
+                <div className="font-semibold text-orange-900 dark:text-orange-300 mb-2">
+                  {t("tools.http-status-codes.categoryGuide.4xx.title")}
                 </div>
-                <p className="text-sm text-orange-700">
-                  Request contains bad syntax or cannot be fulfilled
+                <p className="text-sm text-orange-700 dark:text-orange-400">
+                  {t("tools.http-status-codes.categoryGuide.4xx.description")}
                 </p>
               </div>
-              <div className="p-4 rounded-lg bg-red-50 border border-red-200">
-                <div className="font-semibold text-red-900 mb-2">
-                  ❌ 5xx - Server Error
+              <div className="p-4 rounded-lg bg-red-50 dark:bg-red-950/30 border border-red-200 dark:border-red-800">
+                <div className="font-semibold text-red-900 dark:text-red-300 mb-2">
+                  {t("tools.http-status-codes.categoryGuide.5xx.title")}
                 </div>
-                <p className="text-sm text-red-700">
-                  Server failed to fulfill a valid request
+                <p className="text-sm text-red-700 dark:text-red-400">
+                  {t("tools.http-status-codes.categoryGuide.5xx.description")}
                 </p>
               </div>
             </div>
           </CardContent>
         </Card>
 
-        <Card className="mt-6 bg-gradient-to-br from-amber-50 via-orange-50 to-amber-50 border-amber-200">
+        <Card className="mt-6 bg-gradient-to-br from-amber-50 via-orange-50 to-amber-50 dark:from-amber-950/30 dark:via-orange-950/30 dark:to-amber-950/30 border-amber-200 dark:border-amber-800">
           <CardHeader>
-            <CardTitle className="flex items-center gap-2 text-amber-900">
-              <Info className="h-5 w-5 text-amber-600" />
-              💡 Most Common Codes
+            <CardTitle className="flex items-center gap-2 text-amber-900 dark:text-amber-300">
+              <Info className="h-5 w-5 text-amber-600 dark:text-amber-400" />
+              {t("tools.http-status-codes.mostCommonCodes")}
             </CardTitle>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
               <div className="flex gap-2 items-start">
-                <div className="text-amber-600 font-bold">→</div>
-                <p className="text-sm text-amber-900">
-                  <strong>200:</strong> Everything worked perfectly
-                </p>
+                <div className="text-amber-600 dark:text-amber-400 font-bold">
+                  →
+                </div>
+                <p
+                  className="text-sm text-amber-900 dark:text-amber-300"
+                  dangerouslySetInnerHTML={{
+                    __html: t("tools.http-status-codes.commonCodes.200"),
+                  }}
+                />
               </div>
               <div className="flex gap-2 items-start">
-                <div className="text-amber-600 font-bold">→</div>
-                <p className="text-sm text-amber-900">
-                  <strong>404:</strong> Page or resource not found
-                </p>
+                <div className="text-amber-600 dark:text-amber-400 font-bold">
+                  →
+                </div>
+                <p
+                  className="text-sm text-amber-900 dark:text-amber-300"
+                  dangerouslySetInnerHTML={{
+                    __html: t("tools.http-status-codes.commonCodes.404"),
+                  }}
+                />
               </div>
               <div className="flex gap-2 items-start">
-                <div className="text-amber-600 font-bold">→</div>
-                <p className="text-sm text-amber-900">
-                  <strong>500:</strong> Server encountered an error
-                </p>
+                <div className="text-amber-600 dark:text-amber-400 font-bold">
+                  →
+                </div>
+                <p
+                  className="text-sm text-amber-900 dark:text-amber-300"
+                  dangerouslySetInnerHTML={{
+                    __html: t("tools.http-status-codes.commonCodes.500"),
+                  }}
+                />
               </div>
               <div className="flex gap-2 items-start">
-                <div className="text-amber-600 font-bold">→</div>
-                <p className="text-sm text-amber-900">
-                  <strong>401:</strong> Authentication required
-                </p>
+                <div className="text-amber-600 dark:text-amber-400 font-bold">
+                  →
+                </div>
+                <p
+                  className="text-sm text-amber-900 dark:text-amber-300"
+                  dangerouslySetInnerHTML={{
+                    __html: t("tools.http-status-codes.commonCodes.401"),
+                  }}
+                />
               </div>
             </div>
           </CardContent>
@@ -465,7 +357,7 @@ const HttpStatusCodes = () => {
 
         <Card className="mt-6">
           <CardHeader>
-            <CardTitle>🔗 Related Tools You Might Like</CardTitle>
+            <CardTitle>{t("tools.http-status-codes.relatedTools")}</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
@@ -474,19 +366,21 @@ const HttpStatusCodes = () => {
                 className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
               >
                 <div className="font-semibold text-gray-900 group-hover:text-primary">
-                  API Tester
+                  {t("tools.api-tester.title")}
                 </div>
-                <div className="text-sm text-gray-600 mt-1">Test REST APIs</div>
+                <div className="text-sm text-gray-600 mt-1">
+                  {t("tools.api-tester.description")}
+                </div>
               </button>
               <button
                 onClick={() => navigate("/tools/json-formatter")}
                 className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
               >
                 <div className="font-semibold text-gray-900 group-hover:text-primary">
-                  JSON Formatter
+                  {t("tools.json-formatter.title")}
                 </div>
                 <div className="text-sm text-gray-600 mt-1">
-                  Format JSON data
+                  {t("tools.json-formatter.description")}
                 </div>
               </button>
               <button
@@ -494,10 +388,10 @@ const HttpStatusCodes = () => {
                 className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
               >
                 <div className="font-semibold text-gray-900 group-hover:text-primary">
-                  Regex Tester
+                  {t("tools.regex-tester.title")}
                 </div>
                 <div className="text-sm text-gray-600 mt-1">
-                  Test regex patterns
+                  {t("tools.regex-tester.description")}
                 </div>
               </button>
             </div>

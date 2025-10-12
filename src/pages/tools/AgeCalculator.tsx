@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { SidebarTrigger } from "@/components/ui/sidebar";
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import {
@@ -27,6 +29,7 @@ import { FavoriteButton } from "@/components/FavoriteButton";
 import { Badge } from "@/components/ui/badge";
 
 const AgeCalculator = () => {
+  const { t } = useTranslation();
   const [birthDate, setBirthDate] = useState("");
   const [result, setResult] = useState<{
     years: number;
@@ -60,13 +63,13 @@ const AgeCalculator = () => {
     );
 
     setResult({ years, months, days, totalDays });
-    toast.success("Age calculated!");
+    toast.success(t("tools.age-calculator.ageCalculated"));
   };
 
   const clearAll = () => {
     setBirthDate("");
     setResult(null);
-    toast.success("All fields cleared");
+    toast.success(t("toolPage.messages.cleared"));
   };
 
   const loadExample = () => {
@@ -74,7 +77,7 @@ const AgeCalculator = () => {
     exampleDate.setFullYear(exampleDate.getFullYear() - 25);
     setBirthDate(exampleDate.toISOString().split("T")[0]);
     setResult(null);
-    toast.success("Example loaded");
+    toast.success(t("toolPage.messages.exampleLoaded"));
   };
 
   return (
@@ -85,7 +88,9 @@ const AgeCalculator = () => {
             <ArrowLeft className="h-4 w-4" />
           </Button>
           <SidebarTrigger />
-          <h1 className="text-xl font-semibold">Age Calculator</h1>
+          <h1 className="text-xl font-semibold">
+            {t("tools.age-calculator.title")}
+          </h1>
         </div>
       </header>
       <div className="container mx-auto max-w-4xl px-6 py-8">
@@ -93,14 +98,16 @@ const AgeCalculator = () => {
           <CardHeader>
             <div className="flex items-center justify-between">
               <div>
-                <CardTitle>Calculate Your Age</CardTitle>
+                <CardTitle>
+                  {t("tools.age-calculator.calculateYourAge")}
+                </CardTitle>
                 <CardDescription>
-                  Find your exact age in years, months, and days
+                  {t("tools.age-calculator.description")}
                 </CardDescription>
               </div>
               <FavoriteButton
                 toolId="age-calculator"
-                toolName="Age Calculator"
+                toolName={t("tools.age-calculator.title")}
               />
             </div>
           </CardHeader>
@@ -108,17 +115,17 @@ const AgeCalculator = () => {
             <div className="flex gap-2 mb-4">
               <Button onClick={clearAll} variant="outline" size="sm">
                 <RotateCcw className="h-4 w-4 mr-2" />
-                Clear
+                {t("toolPage.buttons.clear")}
               </Button>
               <Button onClick={loadExample} variant="ghost" size="sm">
                 <Lightbulb className="h-4 w-4 mr-1" />
-                Load Example
+                {t("toolPage.buttons.loadExample")}
               </Button>
             </div>
 
             <div>
               <label className="mb-2 block text-sm font-medium">
-                Date of Birth
+                {t("tools.age-calculator.dateOfBirth")}
               </label>
               <Input
                 type="date"
@@ -127,21 +134,27 @@ const AgeCalculator = () => {
               />
             </div>
             <Button onClick={calculateAge} className="w-full">
-              Calculate Age
+              {t("tools.age-calculator.calculateAge")}
             </Button>
             {result && (
               <div className="space-y-4 rounded-lg bg-gradient-to-br from-primary/10 to-accent/10 p-6">
                 <div className="text-center border-b pb-4">
-                  <p className="text-sm text-muted-foreground">Your Age</p>
+                  <p className="text-sm text-muted-foreground">
+                    {t("tools.age-calculator.yourAge")}
+                  </p>
                   <p className="text-4xl font-bold text-primary">
-                    {result.years} years {result.months} months {result.days}{" "}
-                    days
+                    {result.years} {t("tools.age-calculator.years")}{" "}
+                    {result.months} {t("tools.age-calculator.months")}{" "}
+                    {result.days} {t("tools.age-calculator.days")}
                   </p>
                 </div>
                 <div className="text-center">
-                  <p className="text-sm text-muted-foreground">Total Days</p>
+                  <p className="text-sm text-muted-foreground">
+                    {t("tools.age-calculator.totalDays")}
+                  </p>
                   <p className="text-2xl font-semibold">
-                    {result.totalDays.toLocaleString()} days
+                    {result.totalDays.toLocaleString()}{" "}
+                    {t("tools.age-calculator.days")}
                   </p>
                 </div>
               </div>
@@ -153,10 +166,10 @@ const AgeCalculator = () => {
         <Card className="mt-6 bg-gradient-to-r from-blue-50 via-purple-50 to-pink-50 border-blue-200">
           <CardContent className="pt-6">
             <p className="text-gray-700 leading-relaxed">
-              <strong className="text-gray-900">What is Age Calculator?</strong>{" "}
-              This tool calculates your exact age in years, months, and days from
-              your birthdate. Perfect for documentation, milestones, and birthday
-              planning! 🎂
+              <strong className="text-gray-900">
+                {t("tools.age-calculator.whatIs")}
+              </strong>{" "}
+              {t("tools.age-calculator.whatIsContent")}
             </p>
           </CardContent>
         </Card>
@@ -166,7 +179,7 @@ const AgeCalculator = () => {
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <Zap className="h-5 w-5 text-primary" />
-              Common Use Cases
+              {t("toolPage.sections.commonUseCases")}
             </CardTitle>
           </CardHeader>
           <CardContent>
@@ -177,14 +190,12 @@ const AgeCalculator = () => {
                 </div>
                 <div>
                   <div className="font-semibold text-blue-900">
-                    Birthday Planning
+                    {t("tools.age-calculator.useCases.birthdayPlanning.title")}
                   </div>
                   <p className="text-sm text-blue-700">
-                    Calculate{" "}
-                    <Badge variant="secondary" className="mx-1">
-                      milestones
-                    </Badge>
-                    and plan special celebrations
+                    {t(
+                      "tools.age-calculator.useCases.birthdayPlanning.description"
+                    )}
                   </p>
                 </div>
               </div>
@@ -195,10 +206,12 @@ const AgeCalculator = () => {
                 </div>
                 <div>
                   <div className="font-semibold text-purple-900">
-                    Documentation
+                    {t("tools.age-calculator.useCases.documentation.title")}
                   </div>
                   <p className="text-sm text-purple-700">
-                    Get exact age for official documents and applications
+                    {t(
+                      "tools.age-calculator.useCases.documentation.description"
+                    )}
                   </p>
                 </div>
               </div>
@@ -209,10 +222,12 @@ const AgeCalculator = () => {
                 </div>
                 <div>
                   <div className="font-semibold text-green-900">
-                    School Enrollment
+                    {t("tools.age-calculator.useCases.schoolEnrollment.title")}
                   </div>
                   <p className="text-sm text-green-700">
-                    Verify age requirements for educational admissions
+                    {t(
+                      "tools.age-calculator.useCases.schoolEnrollment.description"
+                    )}
                   </p>
                 </div>
               </div>
@@ -223,10 +238,12 @@ const AgeCalculator = () => {
                 </div>
                 <div>
                   <div className="font-semibold text-pink-900">
-                    Age Verification
+                    {t("tools.age-calculator.useCases.ageVerification.title")}
                   </div>
                   <p className="text-sm text-pink-700">
-                    Check eligibility for age-restricted activities
+                    {t(
+                      "tools.age-calculator.useCases.ageVerification.description"
+                    )}
                   </p>
                 </div>
               </div>
@@ -239,36 +256,46 @@ const AgeCalculator = () => {
           <CardHeader>
             <CardTitle className="flex items-center gap-2 text-amber-900">
               <Info className="h-5 w-5 text-amber-600" />
-              💡 Pro Tips
+              💡 {t("toolPage.sections.proTips")}
             </CardTitle>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
               <div className="flex gap-2 items-start">
                 <div className="text-amber-600 font-bold">→</div>
-                <p className="text-sm text-amber-900">
-                  <strong>Exact Age:</strong> Shows years, months, and days
-                  precisely
-                </p>
+                <p
+                  className="text-sm text-amber-900"
+                  dangerouslySetInnerHTML={{
+                    __html: t("tools.age-calculator.proTips.exactAge"),
+                  }}
+                />
               </div>
               <div className="flex gap-2 items-start">
                 <div className="text-amber-600 font-bold">→</div>
-                <p className="text-sm text-amber-900">
-                  <strong>Milestones:</strong> Perfect for planning special
-                  birthdays
-                </p>
+                <p
+                  className="text-sm text-amber-900"
+                  dangerouslySetInnerHTML={{
+                    __html: t("tools.age-calculator.proTips.milestones"),
+                  }}
+                />
               </div>
               <div className="flex gap-2 items-start">
                 <div className="text-amber-600 font-bold">→</div>
-                <p className="text-sm text-amber-900">
-                  <strong>Documents:</strong> Use for official age verification
-                </p>
+                <p
+                  className="text-sm text-amber-900"
+                  dangerouslySetInnerHTML={{
+                    __html: t("tools.age-calculator.proTips.documents"),
+                  }}
+                />
               </div>
               <div className="flex gap-2 items-start">
                 <div className="text-amber-600 font-bold">→</div>
-                <p className="text-sm text-amber-900">
-                  <strong>Eligibility:</strong> Check age requirements easily
-                </p>
+                <p
+                  className="text-sm text-amber-900"
+                  dangerouslySetInnerHTML={{
+                    __html: t("tools.age-calculator.proTips.eligibility"),
+                  }}
+                />
               </div>
             </div>
           </CardContent>
@@ -277,7 +304,7 @@ const AgeCalculator = () => {
         {/* Related Tools */}
         <Card className="mt-6">
           <CardHeader>
-            <CardTitle>🔗 Related Tools You Might Like</CardTitle>
+            <CardTitle>{t("tools.age-calculator.relatedTools")}</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
@@ -286,10 +313,10 @@ const AgeCalculator = () => {
                 className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
               >
                 <div className="font-semibold text-gray-900 group-hover:text-primary">
-                  Date Calculator
+                  {t("tools.date-calculator.title")}
                 </div>
                 <div className="text-sm text-gray-600 mt-1">
-                  Calculate date differences
+                  {t("tools.date-calculator.description")}
                 </div>
               </button>
               <button
@@ -297,19 +324,21 @@ const AgeCalculator = () => {
                 className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
               >
                 <div className="font-semibold text-gray-900 group-hover:text-primary">
-                  BMI Calculator
+                  {t("tools.bmi-calculator.title")}
                 </div>
-                <div className="text-sm text-gray-600 mt-1">Calculate BMI</div>
+                <div className="text-sm text-gray-600 mt-1">
+                  {t("tools.bmi-calculator.description")}
+                </div>
               </button>
               <button
                 onClick={() => navigate("/tools/timestamp-converter")}
                 className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
               >
                 <div className="font-semibold text-gray-900 group-hover:text-primary">
-                  Timestamp Converter
+                  {t("tools.timestamp-converter.title")}
                 </div>
                 <div className="text-sm text-gray-600 mt-1">
-                  Convert timestamps
+                  {t("tools.timestamp-converter.description")}
                 </div>
               </button>
             </div>

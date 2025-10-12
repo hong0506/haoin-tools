@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { SidebarTrigger } from "@/components/ui/sidebar";
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -28,13 +30,14 @@ import { toast } from "sonner";
 import { FavoriteButton } from "@/components/FavoriteButton";
 
 const JsonToCsv = () => {
+  const { t } = useTranslation();
   const [jsonInput, setJsonInput] = useState("");
   const [csvOutput, setCsvOutput] = useState("");
   const navigate = useNavigate();
 
   const convertToCSV = () => {
     if (!jsonInput.trim()) {
-      toast.error("Please enter JSON data");
+      toast.error(t('tools.json-to-csv.errors.enterJson'));
       return;
     }
 
@@ -42,12 +45,12 @@ const JsonToCsv = () => {
       const data = JSON.parse(jsonInput);
       
       if (!Array.isArray(data)) {
-        toast.error("JSON must be an array of objects");
+        toast.error(t('tools.json-to-csv.errors.mustBeArray'));
         return;
       }
       
       if (data.length === 0) {
-        toast.error("Array is empty");
+        toast.error(t('tools.json-to-csv.errors.arrayEmpty'));
         return;
       }
 
@@ -71,15 +74,15 @@ const JsonToCsv = () => {
 
       const csv = [header, ...rows].join("\n");
       setCsvOutput(csv);
-      toast.success("Converted to CSV successfully!");
+      toast.success(t('tools.json-to-csv.convertSuccess'));
     } catch (error) {
-      toast.error("Invalid JSON format");
+      toast.error(t('tools.json-to-csv.errors.invalidJson'));
     }
   };
 
   const downloadCSV = () => {
     if (!csvOutput) {
-      toast.error("No CSV to download");
+      toast.error(t('tools.json-to-csv.errors.noCsvToDownload'));
       return;
     }
 
@@ -90,36 +93,32 @@ const JsonToCsv = () => {
     a.download = `data-${Date.now()}.csv`;
     a.click();
     URL.revokeObjectURL(url);
-    toast.success("CSV downloaded!");
+    toast.success(t('tools.json-to-csv.downloaded'));
   };
 
   const copyToClipboard = () => {
     if (csvOutput) {
       navigator.clipboard.writeText(csvOutput);
-      toast.success("Copied to clipboard!");
+      toast.success(t('common.copied'));
     }
   };
 
   const clearAll = () => {
     setJsonInput("");
     setCsvOutput("");
-    toast.success("All fields cleared");
+    toast.success(t('toolPage.messages.cleared'));
   };
 
   const loadExample = () => {
-    const exampleJSON = JSON.stringify([
-      { name: "John", age: 30, city: "New York" },
-      { name: "Jane", age: 25, city: "Paris" },
-      { name: "Bob", age: 35, city: "London" }
-    ], null, 2);
+    const exampleJSON = t('tools.json-to-csv.exampleJson');
     setJsonInput(exampleJSON);
-    toast.success("Example loaded");
+    toast.success(t('toolPage.messages.exampleLoaded'));
   };
 
   return (
     <div className="min-h-screen">
       <header className="sticky top-0 z-10 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="flex h-16 items-center gap-4 px-6">
+        <div className="flex h-16 items-center gap-2 sm:gap-4 px-2 sm:px-6">
           <Button
             variant="ghost"
             size="icon"
@@ -129,7 +128,10 @@ const JsonToCsv = () => {
             <ArrowLeft className="h-4 w-4" />
           </Button>
           <SidebarTrigger />
-          <h1 className="text-xl font-semibold">JSON to CSV</h1>
+          <h1 className="text-xl font-semibold flex-1">{t('tools.json-to-csv.title')}</h1>
+          <div className="flex-shrink-0">
+            <LanguageSwitcher />
+          </div>
         </div>
       </header>
 
@@ -138,30 +140,30 @@ const JsonToCsv = () => {
           <CardHeader>
             <div className="flex items-center justify-between">
               <div>
-                <CardTitle>Convert JSON to CSV</CardTitle>
+                <CardTitle>{t('tools.json-to-csv.title')}</CardTitle>
                 <CardDescription>
-                  Convert JSON array to CSV format for spreadsheet applications
+                  {t('tools.json-to-csv.description')}
                 </CardDescription>
               </div>
-              <FavoriteButton toolId="json-to-csv" toolName="JSON to CSV" />
+              <FavoriteButton toolId="json-to-csv" toolName={t('tools.json-to-csv.title')} />
             </div>
           </CardHeader>
           <CardContent className="space-y-4">
             <div className="flex gap-2 mb-4">
               <Button onClick={clearAll} variant="outline" size="sm">
                 <RotateCcw className="h-4 w-4 mr-2" />
-                Clear
+                {t('toolPage.buttons.clear')}
               </Button>
               <Button onClick={loadExample} variant="ghost" size="sm">
                 <Lightbulb className="h-4 w-4 mr-1" />
-                Load Example
+                {t('toolPage.buttons.loadExample')}
               </Button>
             </div>
 
             <div>
-              <div className="text-sm font-medium mb-2">JSON Input</div>
+              <div className="text-sm font-medium mb-2">{t('tools.json-to-csv.jsonInput')}</div>
               <Textarea
-                placeholder='[{"name": "John", "age": 30}, ...]'
+                placeholder={t('tools.json-to-csv.placeholder')}
                 value={jsonInput}
                 onChange={(e) => setJsonInput(e.target.value)}
                 rows={8}
@@ -171,21 +173,21 @@ const JsonToCsv = () => {
 
             <Button onClick={convertToCSV} className="w-full">
               <FileSpreadsheet className="h-4 w-4 mr-2" />
-              Convert to CSV
+              {t('tools.json-to-csv.convert')}
             </Button>
 
             {csvOutput && (
               <>
                 <div className="flex items-center justify-between">
-                  <div className="text-sm font-medium">CSV Output</div>
+                  <div className="text-sm font-medium">{t('tools.json-to-csv.csvOutput')}</div>
                   <div className="flex gap-2">
                     <Button variant="outline" size="sm" onClick={copyToClipboard}>
                       <Copy className="h-4 w-4 mr-2" />
-                      Copy
+                      {t('toolPage.buttons.copy')}
                     </Button>
                     <Button variant="outline" size="sm" onClick={downloadCSV}>
                       <Download className="h-4 w-4 mr-2" />
-                      Download
+                      {t('toolPage.buttons.download')}
                     </Button>
                   </div>
                 </div>
@@ -204,9 +206,9 @@ const JsonToCsv = () => {
           <CardContent className="pt-6">
             <p className="text-gray-700 leading-relaxed">
               <strong className="text-gray-900">
-                What is JSON to CSV Converter?
+                {t('tools.json-to-csv.whatIs')}
               </strong>{" "}
-              This tool converts JSON arrays into CSV format, perfect for importing into Excel, Google Sheets, or any spreadsheet application. Export your data seamlessly! 📊
+              {t('tools.json-to-csv.whatIsContent')}
             </p>
           </CardContent>
         </Card>
@@ -215,7 +217,7 @@ const JsonToCsv = () => {
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <Zap className="h-5 w-5 text-primary" />
-              Common Use Cases
+              {t('toolPage.sections.commonUseCases')}
             </CardTitle>
           </CardHeader>
           <CardContent>
@@ -225,9 +227,11 @@ const JsonToCsv = () => {
                   <Table className="h-5 w-5 text-blue-600" />
                 </div>
                 <div>
-                  <div className="font-semibold text-blue-900">Excel Export</div>
+                  <div className="font-semibold text-blue-900">
+                    {t('tools.json-to-csv.useCases.excelExport.title')}
+                  </div>
                   <p className="text-sm text-blue-700">
-                    Export API data to Excel spreadsheets for analysis
+                    {t('tools.json-to-csv.useCases.excelExport.description')}
                   </p>
                 </div>
               </div>
@@ -238,10 +242,10 @@ const JsonToCsv = () => {
                 </div>
                 <div>
                   <div className="font-semibold text-purple-900">
-                    Data Migration
+                    {t('tools.json-to-csv.useCases.dataMigration.title')}
                   </div>
                   <p className="text-sm text-purple-700">
-                    Convert JSON data for database imports
+                    {t('tools.json-to-csv.useCases.dataMigration.description')}
                   </p>
                 </div>
               </div>
@@ -252,10 +256,10 @@ const JsonToCsv = () => {
                 </div>
                 <div>
                   <div className="font-semibold text-green-900">
-                    Data Analysis
+                    {t('tools.json-to-csv.useCases.dataAnalysis.title')}
                   </div>
                   <p className="text-sm text-green-700">
-                    Prepare data for statistical analysis tools
+                    {t('tools.json-to-csv.useCases.dataAnalysis.description')}
                   </p>
                 </div>
               </div>
@@ -266,10 +270,10 @@ const JsonToCsv = () => {
                 </div>
                 <div>
                   <div className="font-semibold text-pink-900">
-                    API Responses
+                    {t('tools.json-to-csv.useCases.apiResponses.title')}
                   </div>
                   <p className="text-sm text-pink-700">
-                    Convert API responses to spreadsheet format
+                    {t('tools.json-to-csv.useCases.apiResponses.description')}
                   </p>
                 </div>
               </div>
@@ -281,34 +285,46 @@ const JsonToCsv = () => {
           <CardHeader>
             <CardTitle className="flex items-center gap-2 text-amber-900">
               <Info className="h-5 w-5 text-amber-600" />
-              💡 Pro Tips
+              💡 {t('toolPage.sections.proTips')}
             </CardTitle>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
               <div className="flex gap-2 items-start">
                 <div className="text-amber-600 font-bold">→</div>
-                <p className="text-sm text-amber-900">
-                  <strong>Array Required:</strong> JSON must be an array of objects
-                </p>
+                <p
+                  className="text-sm text-amber-900"
+                  dangerouslySetInnerHTML={{
+                    __html: t('tools.json-to-csv.proTips.arrayRequired'),
+                  }}
+                />
               </div>
               <div className="flex gap-2 items-start">
                 <div className="text-amber-600 font-bold">→</div>
-                <p className="text-sm text-amber-900">
-                  <strong>Excel Compatible:</strong> Can be opened directly in Excel
-                </p>
+                <p
+                  className="text-sm text-amber-900"
+                  dangerouslySetInnerHTML={{
+                    __html: t('tools.json-to-csv.proTips.excelCompatible'),
+                  }}
+                />
               </div>
               <div className="flex gap-2 items-start">
                 <div className="text-amber-600 font-bold">→</div>
-                <p className="text-sm text-amber-900">
-                  <strong>Auto Headers:</strong> Column headers extracted automatically
-                </p>
+                <p
+                  className="text-sm text-amber-900"
+                  dangerouslySetInnerHTML={{
+                    __html: t('tools.json-to-csv.proTips.autoHeaders'),
+                  }}
+                />
               </div>
               <div className="flex gap-2 items-start">
                 <div className="text-amber-600 font-bold">→</div>
-                <p className="text-sm text-amber-900">
-                  <strong>Download:</strong> Save as .csv file for offline use
-                </p>
+                <p
+                  className="text-sm text-amber-900"
+                  dangerouslySetInnerHTML={{
+                    __html: t('tools.json-to-csv.proTips.download'),
+                  }}
+                />
               </div>
             </div>
           </CardContent>
@@ -316,7 +332,7 @@ const JsonToCsv = () => {
 
         <Card className="mt-6">
           <CardHeader>
-            <CardTitle>🔗 Related Tools You Might Like</CardTitle>
+            <CardTitle>🔗 {t('toolPage.sections.relatedTools')}</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
@@ -325,10 +341,10 @@ const JsonToCsv = () => {
                 className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
               >
                 <div className="font-semibold text-gray-900 group-hover:text-primary">
-                  CSV to JSON
+                  {t('tools.csv-to-json.title')}
                 </div>
                 <div className="text-sm text-gray-600 mt-1">
-                  Convert CSV to JSON
+                  {t('tools.csv-to-json.description')}
                 </div>
               </button>
               <button
@@ -336,10 +352,10 @@ const JsonToCsv = () => {
                 className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
               >
                 <div className="font-semibold text-gray-900 group-hover:text-primary">
-                  JSON Formatter
+                  {t('tools.json-formatter.title')}
                 </div>
                 <div className="text-sm text-gray-600 mt-1">
-                  Format and validate JSON
+                  {t('tools.json-formatter.description')}
                 </div>
               </button>
               <button
@@ -347,10 +363,10 @@ const JsonToCsv = () => {
                 className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
               >
                 <div className="font-semibold text-gray-900 group-hover:text-primary">
-                  XML to JSON
+                  {t('tools.xml-to-json.title')}
                 </div>
                 <div className="text-sm text-gray-600 mt-1">
-                  Convert XML to JSON
+                  {t('tools.xml-to-json.description')}
                 </div>
               </button>
             </div>

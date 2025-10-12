@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { SidebarTrigger } from "@/components/ui/sidebar";
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import {
@@ -37,6 +39,7 @@ import {
 } from "lucide-react";
 
 const CurrencyConverter = () => {
+  const { t } = useTranslation();
   const [amount, setAmount] = useState("");
   const [fromCurrency, setFromCurrency] = useState("USD");
   const [toCurrency, setToCurrency] = useState("EUR");
@@ -45,22 +48,22 @@ const CurrencyConverter = () => {
   const navigate = useNavigate();
 
   const currencies = [
-    { code: "USD", name: "US Dollar" },
-    { code: "EUR", name: "Euro" },
-    { code: "GBP", name: "British Pound" },
-    { code: "JPY", name: "Japanese Yen" },
-    { code: "CNY", name: "Chinese Yuan" },
-    { code: "CAD", name: "Canadian Dollar" },
-    { code: "AUD", name: "Australian Dollar" },
-    { code: "CHF", name: "Swiss Franc" },
-    { code: "INR", name: "Indian Rupee" },
-    { code: "KRW", name: "South Korean Won" },
+    { code: "USD", name: t("tools.currency-converter.currencies.usd") },
+    { code: "EUR", name: t("tools.currency-converter.currencies.eur") },
+    { code: "GBP", name: t("tools.currency-converter.currencies.gbp") },
+    { code: "JPY", name: t("tools.currency-converter.currencies.jpy") },
+    { code: "CNY", name: t("tools.currency-converter.currencies.cny") },
+    { code: "CAD", name: t("tools.currency-converter.currencies.cad") },
+    { code: "AUD", name: t("tools.currency-converter.currencies.aud") },
+    { code: "CHF", name: t("tools.currency-converter.currencies.chf") },
+    { code: "INR", name: t("tools.currency-converter.currencies.inr") },
+    { code: "KRW", name: t("tools.currency-converter.currencies.krw") },
   ];
 
   const convertCurrency = async () => {
     const amt = parseFloat(amount);
     if (isNaN(amt) || amt <= 0) {
-      toast.error("Please enter a valid amount");
+      toast.error(t("tools.currency-converter.pleaseEnterValidAmount"));
       return;
     }
     setLoading(true);
@@ -72,12 +75,12 @@ const CurrencyConverter = () => {
       if (data.rates && data.rates[toCurrency]) {
         const converted = amt * data.rates[toCurrency];
         setResult(parseFloat(converted.toFixed(2)));
-        toast.success("Conversion successful!");
+        toast.success(t("tools.currency-converter.conversionSuccessful"));
       } else {
-        toast.error("Currency conversion failed");
+        toast.error(t("tools.currency-converter.conversionFailed"));
       }
     } catch (error) {
-      toast.error("Failed to fetch exchange rates");
+      toast.error(t("tools.currency-converter.fetchFailed"));
     } finally {
       setLoading(false);
     }
@@ -92,7 +95,7 @@ const CurrencyConverter = () => {
   const clearAll = () => {
     setAmount("");
     setResult(null);
-    toast.success("All fields cleared");
+    toast.success(t("toolPage.messages.cleared"));
   };
 
   const loadExample = () => {
@@ -100,7 +103,7 @@ const CurrencyConverter = () => {
     setFromCurrency("USD");
     setToCurrency("EUR");
     setResult(null);
-    toast.success("Example loaded");
+    toast.success(t("toolPage.messages.exampleLoaded"));
   };
 
   return (
@@ -118,7 +121,9 @@ const CurrencyConverter = () => {
           <SidebarTrigger />
           <div className="flex items-center gap-2">
             <ArrowLeftRight className="h-5 w-5 text-primary" />
-            <h1 className="text-xl font-semibold">Currency Converter</h1>
+            <h1 className="text-xl font-semibold">
+              {t("tools.currency-converter.title")}
+            </h1>
           </div>
         </div>
       </header>
@@ -127,14 +132,16 @@ const CurrencyConverter = () => {
           <CardHeader>
             <div className="flex items-center justify-between">
               <div>
-                <CardTitle>Convert Currency</CardTitle>
+                <CardTitle>
+                  {t("tools.currency-converter.convertCurrency")}
+                </CardTitle>
                 <CardDescription>
-                  Real-time currency exchange rates
+                  {t("tools.currency-converter.description")}
                 </CardDescription>
               </div>
               <FavoriteButton
                 toolId="currency-converter"
-                toolName="Currency Converter"
+                toolName={t("tools.currency-converter.title")}
               />
             </div>
           </CardHeader>
@@ -142,16 +149,18 @@ const CurrencyConverter = () => {
             <div className="flex gap-2 mb-4">
               <Button onClick={clearAll} variant="outline" size="sm">
                 <RotateCcw className="h-4 w-4 mr-2" />
-                Clear
+                {t("toolPage.buttons.clear")}
               </Button>
               <Button onClick={loadExample} variant="ghost" size="sm">
                 <Lightbulb className="h-4 w-4 mr-1" />
-                Load Example
+                {t("toolPage.buttons.loadExample")}
               </Button>
             </div>
 
             <div>
-              <label className="mb-2 block text-sm font-medium">Amount</label>
+              <label className="mb-2 block text-sm font-medium">
+                {t("tools.currency-converter.amount")}
+              </label>
               <Input
                 type="number"
                 value={amount}
@@ -160,7 +169,9 @@ const CurrencyConverter = () => {
               />
             </div>
             <div>
-              <label className="mb-2 block text-sm font-medium">From</label>
+              <label className="mb-2 block text-sm font-medium">
+                {t("tools.currency-converter.from")}
+              </label>
               <Select value={fromCurrency} onValueChange={setFromCurrency}>
                 <SelectTrigger>
                   <SelectValue />
@@ -180,7 +191,9 @@ const CurrencyConverter = () => {
               </Button>
             </div>
             <div>
-              <label className="mb-2 block text-sm font-medium">To</label>
+              <label className="mb-2 block text-sm font-medium">
+                {t("tools.currency-converter.to")}
+              </label>
               <Select value={toCurrency} onValueChange={setToCurrency}>
                 <SelectTrigger>
                   <SelectValue />
@@ -199,7 +212,9 @@ const CurrencyConverter = () => {
               className="w-full"
               disabled={loading}
             >
-              {loading ? "Converting..." : "Convert"}
+              {loading
+                ? t("tools.currency-converter.converting")
+                : t("tools.currency-converter.convert")}
             </Button>
             {result !== null && (
               <div className="rounded-lg bg-primary/10 p-6 text-center">
@@ -219,10 +234,9 @@ const CurrencyConverter = () => {
           <CardContent className="pt-6">
             <p className="text-gray-700 leading-relaxed">
               <strong className="text-gray-900">
-                What is Currency Converter?
+                {t("tools.currency-converter.whatIs")}
               </strong>{" "}
-              This tool converts between currencies using real-time rates.
-              Perfect for travel, shopping, and international business! 💱
+              {t("tools.currency-converter.whatIsContent")}
             </p>
           </CardContent>
         </Card>
@@ -232,7 +246,7 @@ const CurrencyConverter = () => {
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <Zap className="h-5 w-5 text-primary" />
-              Common Use Cases
+              {t("toolPage.sections.commonUseCases")}
             </CardTitle>
           </CardHeader>
           <CardContent>
@@ -243,14 +257,10 @@ const CurrencyConverter = () => {
                 </div>
                 <div>
                   <div className="font-semibold text-blue-900">
-                    International Travel
+                    {t("tools.currency-converter.useCases.travel.title")}
                   </div>
                   <p className="text-sm text-blue-700">
-                    Convert{" "}
-                    <Badge variant="secondary" className="mx-1">
-                      currencies
-                    </Badge>
-                    for trips abroad
+                    {t("tools.currency-converter.useCases.travel.description")}
                   </p>
                 </div>
               </div>
@@ -261,10 +271,12 @@ const CurrencyConverter = () => {
                 </div>
                 <div>
                   <div className="font-semibold text-purple-900">
-                    Online Shopping
+                    {t("tools.currency-converter.useCases.shopping.title")}
                   </div>
                   <p className="text-sm text-purple-700">
-                    Calculate prices from international stores
+                    {t(
+                      "tools.currency-converter.useCases.shopping.description"
+                    )}
                   </p>
                 </div>
               </div>
@@ -275,10 +287,12 @@ const CurrencyConverter = () => {
                 </div>
                 <div>
                   <div className="font-semibold text-green-900">
-                    Business Transactions
+                    {t("tools.currency-converter.useCases.business.title")}
                   </div>
                   <p className="text-sm text-green-700">
-                    Convert for international payments and invoices
+                    {t(
+                      "tools.currency-converter.useCases.business.description"
+                    )}
                   </p>
                 </div>
               </div>
@@ -289,10 +303,12 @@ const CurrencyConverter = () => {
                 </div>
                 <div>
                   <div className="font-semibold text-pink-900">
-                    Investment Analysis
+                    {t("tools.currency-converter.useCases.investment.title")}
                   </div>
                   <p className="text-sm text-pink-700">
-                    Track foreign investments and returns
+                    {t(
+                      "tools.currency-converter.useCases.investment.description"
+                    )}
                   </p>
                 </div>
               </div>
@@ -305,35 +321,46 @@ const CurrencyConverter = () => {
           <CardHeader>
             <CardTitle className="flex items-center gap-2 text-amber-900">
               <Info className="h-5 w-5 text-amber-600" />
-              💡 Pro Tips
+              💡 {t("toolPage.sections.proTips")}
             </CardTitle>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
               <div className="flex gap-2 items-start">
                 <div className="text-amber-600 font-bold">→</div>
-                <p className="text-sm text-amber-900">
-                  <strong>Real-time:</strong> Rates update automatically
-                </p>
+                <p
+                  className="text-sm text-amber-900"
+                  dangerouslySetInnerHTML={{
+                    __html: t("tools.currency-converter.proTips.realTime"),
+                  }}
+                />
               </div>
               <div className="flex gap-2 items-start">
                 <div className="text-amber-600 font-bold">→</div>
-                <p className="text-sm text-amber-900">
-                  <strong>Fees:</strong> Consider exchange fees for actual
-                  transactions
-                </p>
+                <p
+                  className="text-sm text-amber-900"
+                  dangerouslySetInnerHTML={{
+                    __html: t("tools.currency-converter.proTips.fees"),
+                  }}
+                />
               </div>
               <div className="flex gap-2 items-start">
                 <div className="text-amber-600 font-bold">→</div>
-                <p className="text-sm text-amber-900">
-                  <strong>Variations:</strong> Rates vary between services
-                </p>
+                <p
+                  className="text-sm text-amber-900"
+                  dangerouslySetInnerHTML={{
+                    __html: t("tools.currency-converter.proTips.variations"),
+                  }}
+                />
               </div>
               <div className="flex gap-2 items-start">
                 <div className="text-amber-600 font-bold">→</div>
-                <p className="text-sm text-amber-900">
-                  <strong>Estimates:</strong> Use for quick comparisons
-                </p>
+                <p
+                  className="text-sm text-amber-900"
+                  dangerouslySetInnerHTML={{
+                    __html: t("tools.currency-converter.proTips.estimates"),
+                  }}
+                />
               </div>
             </div>
           </CardContent>
@@ -342,7 +369,7 @@ const CurrencyConverter = () => {
         {/* Related Tools */}
         <Card className="mt-6">
           <CardHeader>
-            <CardTitle>🔗 Related Tools You Might Like</CardTitle>
+            <CardTitle>{t("tools.currency-converter.relatedTools")}</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
@@ -351,19 +378,21 @@ const CurrencyConverter = () => {
                 className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
               >
                 <div className="font-semibold text-gray-900 group-hover:text-primary">
-                  Unit Converter
+                  {t("tools.unit-converter.title")}
                 </div>
-                <div className="text-sm text-gray-600 mt-1">Convert units</div>
+                <div className="text-sm text-gray-600 mt-1">
+                  {t("tools.unit-converter.description")}
+                </div>
               </button>
               <button
                 onClick={() => navigate("/tools/percentage-calculator")}
                 className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
               >
                 <div className="font-semibold text-gray-900 group-hover:text-primary">
-                  Percentage Calculator
+                  {t("tools.percentage-calculator.title")}
                 </div>
                 <div className="text-sm text-gray-600 mt-1">
-                  Calculate percentages
+                  {t("tools.percentage-calculator.description")}
                 </div>
               </button>
               <button
@@ -371,10 +400,10 @@ const CurrencyConverter = () => {
                 className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
               >
                 <div className="font-semibold text-gray-900 group-hover:text-primary">
-                  Interest Calculator
+                  {t("tools.interest-calculator.title")}
                 </div>
                 <div className="text-sm text-gray-600 mt-1">
-                  Calculate interest
+                  {t("tools.interest-calculator.description")}
                 </div>
               </button>
             </div>

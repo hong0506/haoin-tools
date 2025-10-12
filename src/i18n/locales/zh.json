@@ -177,7 +177,8 @@
           "行使权利时不受歧视的权利"
         ]
       },
-      "china": "对于中国用户：我们遵守中国数据保护法律，包括《个人信息保护法》（PIPL）。您的数据在您的浏览器中本地处理，未经同意不会传输到中国境外。"
+      "chinaLabel": "对于中国用户：",
+      "china": "我们遵守中国数据保护法律，包括《个人信息保护法》（PIPL）。您的数据在您的浏览器中本地处理，未经同意不会传输到中国境外。"
     },
     "dataRetention": {
       "title": "数据保留",
@@ -399,6 +400,7 @@
       "title": "字数统计器",
       "description": "统计文本中的字数、字符、句子和段落",
       "placeholder": "开始输入或粘贴您的文本...",
+      "exampleText": "欢迎使用字数统计器！这是一个功能强大的文本分析工具，可以帮助您快速了解文本的各种统计信息。\n\n无论您是学生、作家、内容创作者还是专业人士，这个工具都能为您提供准确的文本分析数据。您可以统计单词数量、字符数量、句子数量、段落数量，甚至还能估算阅读时间。\n\n这个工具特别适合用于学术写作、内容创作、社交媒体发布和翻译工作。现在就开始使用吧，让文本分析变得简单高效！",
       "stats": {
         "words": "单词",
         "characters": "字符",
@@ -469,8 +471,12 @@
       "title": "JSON格式化器",
       "description": "格式化、压缩和验证JSON数据，带语法高亮",
       "inputLabel": "输入JSON",
+      "outputLabel": "输出结果",
       "format": "格式化",
       "minify": "压缩",
+      "formatSuccess": "JSON格式化成功",
+      "minifySuccess": "JSON压缩成功",
+      "invalidJson": "JSON格式无效",
       "whatIs": "什么是JSON格式化器？",
       "whatIsContent": "此工具格式化、验证和压缩JSON数据，带语法高亮。非常适合API开发、调试和数据验证！🔧",
       "useCases": {
@@ -494,200 +500,2371 @@
       },
       "proTips": {
         "title": "专业提示",
-        "format": "格式化：使用格式化进行开发和调试",
-        "minify": "压缩：使用压缩进行生产以减小大小",
-        "validation": "验证：在应用程序中使用之前始终验证",
-        "quotes": "引号：JSON键必须使用双引号，不能使用单引号"
+        "format": "<strong>格式化：</strong>使用格式化进行开发和调试",
+        "minify": "<strong>压缩：</strong>使用压缩进行生产以减小大小",
+        "validation": "<strong>验证：</strong>在应用程序中使用之前始终验证",
+        "quotes": "<strong>引号：</strong>JSON键必须使用双引号，不能使用单引号"
       },
       "relatedTools": "您可能喜欢的相关工具"
     },
+    "base64": {
+      "title": "Base64工具",
+      "description": "编码和解码Base64"
+    },
     "base64-encoder": {
       "title": "Base64编码/解码器",
-      "description": "编码和解码Base64格式的文本"
+      "description": "编码和解码Base64格式的文本",
+      "encode": "编码",
+      "decode": "解码",
+      "inputLabel": "输入文本",
+      "base64Label": "输入Base64文本",
+      "outputLabel": "输出结果",
+      "placeholder": "在此输入您的文本...",
+      "base64Placeholder": "在此输入Base64编码的文本...",
+      "encodedPlaceholder": "编码结果将显示在这里...",
+      "decodedPlaceholder": "解码结果将显示在这里...",
+      "exampleText": "你好世界！这是一个Base64编码示例。",
+      "exampleBase64": "5L2g5aWX5LiW55WM77yI6L+Z5LiA5LiqQmFzZTY05Yqg6L295Lit5paH5Lu25YiG6K6v77yJ",
+      "encodeSuccess": "文本已成功编码为Base64！",
+      "decodeSuccess": "Base64已成功解码为文本！",
+      "encodeError": "编码文本时出错",
+      "decodeError": "解码Base64时出错",
+      "whatIs": "什么是Base64编码？",
+      "whatIsContent": "Base64是一种将二进制数据编码为ASCII字符串的方法。常用于在文本协议中传输数据，如电子邮件附件和URL。🔐",
+      "useCases": {
+        "title": "常见用途",
+        "email": {
+          "title": "电子邮件附件",
+          "description": "在电子邮件中编码文件和图像"
+        },
+        "api": {
+          "title": "API通信",
+          "description": "在HTTP请求中传输二进制数据"
+        },
+        "image": {
+          "title": "图片嵌入",
+          "description": "将图片编码为Base64并嵌入HTML或CSS中"
+        },
+        "dataUrl": {
+          "title": "数据URL",
+          "description": "创建data: URL格式的内联资源链接"
+        },
+        "storage": {
+          "title": "数据存储",
+          "description": "在JSON或XML中存储二进制数据"
+        },
+        "security": {
+          "title": "基本认证",
+          "description": "编码HTTP基本认证凭据"
+        }
+      },
+      "proTips": {
+        "title": "💡 专业提示",
+        "encoding": "编码：Base64会使数据大小增加约33%",
+        "security": "安全：Base64不是加密，不要用它保护敏感数据",
+        "urls": "URL：使用URL安全的Base64变体（+ 替换为 -，/ 替换为 _）",
+        "utf8": "UTF-8：确保在编码前正确处理Unicode字符"
+      }
     },
     "uuid-generator": {
       "title": "UUID生成器",
-      "description": "生成各种格式的唯一标识符(UUID)"
+      "description": "生成各种格式的唯一标识符(UUID)",
+      "generate": "生成UUID",
+      "generateMultiple": "生成多个",
+      "quantity": "数量",
+      "version": "版本",
+      "uppercase": "大写",
+      "lowercase": "小写",
+      "withHyphens": "带连字符",
+      "withoutHyphens": "无连字符",
+      "copied": "UUID已复制！",
+      "generated": "已生成 {count} 个UUID！",
+      "whatIs": "什么是UUID？",
+      "whatIsContent": "UUID（通用唯一标识符）是一个128位的唯一标识符。UUID的重复概率极低，可用于分布式系统中的唯一标识。🆔",
+      "useCases": {
+        "title": "常见用途",
+        "database": {
+          "title": "数据库主键",
+          "description": "在不依赖中央序列的情况下生成唯一ID"
+        },
+        "api": {
+          "title": "API请求ID",
+          "description": "跟踪和追踪API请求"
+        },
+        "distributed": {
+          "title": "分布式系统",
+          "description": "在多个服务器和服务之间生成唯一ID"
+        },
+        "session": {
+          "title": "会话令牌",
+          "description": "为用户会话生成唯一标识符"
+        },
+        "files": {
+          "title": "文件命名",
+          "description": "为上传的文件生成唯一名称"
+        }
+      },
+      "proTips": {
+        "title": "💡 专业提示",
+        "v4": "版本4：最常用，基于随机数生成",
+        "collision": "碰撞：UUID重复的概率极低（约10的36次方分之一）",
+        "format": "格式：标准格式为8-4-4-4-12（36个字符含连字符）",
+        "storage": "存储：考虑在数据库中使用二进制格式以节省空间"
+      }
     },
     "password-generator": {
       "title": "密码生成器",
-      "description": "创建强大、安全的密码，可自定义选项"
+      "description": "创建强大、安全的密码，可自定义选项",
+      "generate": "生成密码",
+      "length": "密码长度",
+      "options": "选项",
+      "characterTypes": "字符类型",
+      "uppercase": "大写字母 (A-Z)",
+      "lowercase": "小写字母 (a-z)",
+      "numbers": "数字 (0-9)",
+      "symbols": "符号 (!@#$%^&*)",
+      "avoidAmbiguous": "避免易混淆字符 (0,O,l,1)",
+      "passwordStrength": "密码强度",
+      "weak": "弱",
+      "medium": "中",
+      "strong": "强",
+      "veryStrong": "很强",
+      "copied": "密码已复制到剪贴板！",
+      "generated": "密码已生成！",
+      "cleared": "密码已清除",
+      "placeholder": "生成的密码将显示在这里",
+      "whatIs": "什么是密码生成器？",
+      "whatIsContent": "此工具可生成加密安全的密码，长度和字符类型可自定义。非常适合为账户、API和敏感系统创建强密码！🔐",
+      "errors": {
+        "selectCharacterType": "请至少选择一种字符类型",
+        "generateFirst": "请先生成密码"
+      },
+      "useCases": {
+        "title": "常见用途",
+        "accountSecurity": {
+          "title": "账户安全",
+          "description": "为<span class=\"inline-flex items-center px-2 py-0.5 rounded text-xs font-semibold bg-white text-blue-800 mx-1\">邮箱</span>和社交媒体账户创建强密码"
+        },
+        "apiKeys": {
+          "title": "API密钥",
+          "description": "为应用程序API和Webhook生成安全密钥"
+        },
+        "databaseCredentials": {
+          "title": "数据库凭据",
+          "description": "为数据库用户和连接创建安全密码"
+        },
+        "systemAdmin": {
+          "title": "系统管理",
+          "description": "为服务器和管理员账户生成安全密码"
+        },
+        "accounts": {
+          "title": "在线账户",
+          "description": "为社交媒体、邮箱等创建安全密码"
+        },
+        "wifi": {
+          "title": "WiFi密码",
+          "description": "生成强大的WiFi网络密码"
+        },
+        "database": {
+          "title": "数据库凭据",
+          "description": "为数据库用户创建安全密码"
+        },
+        "app": {
+          "title": "应用程序密钥",
+          "description": "生成API密钥和应用程序密钥"
+        }
+      },
+      "proTips": {
+        "title": "💡 专业提示",
+        "length": "<strong>长度：</strong>使用至少12个字符以获得强安全性",
+        "mixCharacters": "<strong>混合字符：</strong>启用所有选项（大写、小写、数字、符号）",
+        "passwordManager": "<strong>密码管理器：</strong>使用管理器存储生成的密码",
+        "unique": "<strong>唯一性：</strong>切勿在不同账户之间重复使用密码",
+        "manager": "密码管理器：使用密码管理器存储您的密码",
+        "2fa": "双因素认证：启用2FA以获得额外的安全层"
+      }
     },
     "color-picker": {
       "title": "颜色选择器",
-      "description": "选择颜色并在HEX、RGB、HSL格式之间转换"
+      "description": "选择颜色并在不同格式之间转换",
+      "pickColor": "选择颜色",
+      "hex": "HEX",
+      "rgb": "RGB",
+      "hsl": "HSL",
+      "copied": "{{format}} 已复制到剪贴板",
+      "whatIs": "什么是颜色选择器？",
+      "whatIsContent": "此工具帮助您选择颜色并在HEX、RGB和HSL格式之间转换。非常适合Web开发、设计和品牌建设！🎨",
+      "useCases": {
+        "title": "常见用途",
+        "webDevelopment": {
+          "title": "Web开发",
+          "description": "获取<span class=\"inline-flex items-center px-2 py-0.5 rounded text-xs font-semibold bg-white text-blue-800 mx-1\">HEX/RGB</span>代码用于CSS和样式"
+        },
+        "uiuxDesign": {
+          "title": "UI/UX设计",
+          "description": "为界面设计选择和匹配颜色"
+        },
+        "cssStyling": {
+          "title": "CSS样式",
+          "description": "转换颜色用于Web样式和主题"
+        },
+        "appDevelopment": {
+          "title": "应用开发",
+          "description": "为移动和桌面应用选择颜色"
+        },
+        "webDesign": {
+          "title": "网页设计",
+          "description": "为网站选择和管理颜色方案"
+        },
+        "branding": {
+          "title": "品牌设计",
+          "description": "创建和匹配品牌颜色"
+        },
+        "ui": {
+          "title": "UI开发",
+          "description": "在CSS和设计工具中使用颜色代码"
+        },
+        "accessibility": {
+          "title": "可访问性",
+          "description": "检查颜色对比度和可读性"
+        }
+      },
+      "proTips": {
+        "title": "💡 专业提示",
+        "hex": "<strong>HEX：</strong>Web开发中最常用的格式",
+        "rgb": "<strong>RGB：</strong>每个通道的值范围为0-255",
+        "hsl": "<strong>HSL：</strong>非常适合创建颜色变化",
+        "contrast": "<strong>无障碍访问：</strong>检查颜色对比度比率"
+      }
     },
     "qr-generator": {
       "title": "二维码生成器",
-      "description": "从文本、URL或其他数据生成二维码"
+      "description": "从文本或URL生成二维码",
+      "inputLabel": "输入文本或URL",
+      "placeholder": "https://example.com",
+      "exampleUrl": "https://www.example.com",
+      "generate": "生成二维码",
+      "download": "下载二维码",
+      "downloadPNG": "下载为PNG",
+      "downloadJPG": "下载为JPG",
+      "errorEmpty": "请输入文本或URL",
+      "generated": "二维码已生成",
+      "downloadedPNG": "二维码已下载为PNG",
+      "downloadedJPG": "二维码已下载为JPG",
+      "downloadError": "下载二维码失败",
+      "convertError": "转换为JPG失败",
+      "cleared": "文本已清除",
+      "whatIs": "什么是二维码生成器？",
+      "whatIsContent": "此工具从文本或URL生成二维码。非常适合名片、活动推广、WiFi共享和营销活动！📱",
+      "useCases": {
+        "title": "常见用途",
+        "businessCards": {
+          "title": "名片",
+          "description": "在<span class=\"inline-flex items-center px-2 py-0.5 rounded text-xs font-semibold bg-white text-blue-800 mx-1\">名片</span>上添加二维码以快速分享联系方式"
+        },
+        "wifiSharing": {
+          "title": "WiFi共享",
+          "description": "无需输入密码即可分享WiFi凭据"
+        },
+        "eventPromotion": {
+          "title": "活动推广",
+          "description": "为活动注册和门票销售创建二维码"
+        },
+        "contactInfo": {
+          "title": "联系信息",
+          "description": "即时分享社交媒体资料和联系方式"
+        },
+        "business": {
+          "title": "名片",
+          "description": "在名片上添加二维码以快速分享联系方式"
+        },
+        "wifi": {
+          "title": "WiFi共享",
+          "description": "无需输入密码即可分享WiFi凭据"
+        },
+        "event": {
+          "title": "活动推广",
+          "description": "为活动注册和门票销售创建二维码"
+        },
+        "contact": {
+          "title": "联系信息",
+          "description": "即时分享社交媒体资料和联系方式"
+        }
+      },
+      "proTips": {
+        "title": "💡 专业提示",
+        "short": "<strong>保持简短：</strong>二维码在较短文本时效果最佳",
+        "test": "先测试：打印前用手机扫描测试",
+        "contrast": "对比度：使用高对比度以获得更好的扫描效果",
+        "instructions": "说明：在二维码附近添加扫描提示文字"
+      }
     },
     "url-encoder": {
       "title": "URL编码/解码器",
-      "description": "编码和解码URL及查询参数"
+      "description": "编码和解码URL及查询参数",
+      "encode": "编码",
+      "decode": "解码",
+      "input": "输入",
+      "output": "输出",
+      "placeholder": "输入文本或URL",
+      "encodeSuccess": "URL编码成功",
+      "decodeSuccess": "URL解码成功",
+      "encodeError": "编码失败",
+      "decodeError": "解码失败",
+      "copied": "已复制到剪贴板",
+      "cleared": "所有字段已清除",
+      "exampleLoaded": "示例已加载",
+      "encodeExample": "编码示例",
+      "decodeExample": "解码示例",
+      "exampleText": "Hello World! This is a test URL with spaces & special characters.",
+      "exampleEncoded": "Hello%20World%21%20This%20is%20a%20test%20URL%20with%20spaces%20%26%20special%20characters.",
+      "whatIs": "什么是URL编码/解码器？",
+      "whatIsContent": "此工具编码和解码URL（百分号编码）。非常适合处理特殊字符、查询参数和安全URL传输！🔗",
+      "useCases": {
+        "title": "常见用途",
+        "webDevelopment": {
+          "title": "Web开发",
+          "description": "编码查询参数以安全传输URL"
+        },
+        "apiIntegration": {
+          "title": "API集成",
+          "description": "处理API请求和响应中的特殊字符"
+        },
+        "socialSharing": {
+          "title": "社交分享",
+          "description": "为社交媒体分享链接和邮件编码URL"
+        },
+        "dataStorage": {
+          "title": "数据存储",
+          "description": "在数据库中安全存储包含特殊字符的URL"
+        }
+      },
+      "proTips": {
+        "title": "💡 专业提示",
+        "spaces": "<strong>空格：</strong>编码为%20（或在查询字符串中为+）",
+        "specialChars": "<strong>特殊字符：</strong>&、?、#、=在URL中需要编码",
+        "alwaysEncode": "<strong>始终编码：</strong>在添加到URL之前编码用户输入",
+        "decodeFirst": "<strong>先解码：</strong>解码接收到的URL参数"
+      },
+      "relatedTools": "🔗 相关工具"
     },
     "markdown-preview": {
       "title": "Markdown预览",
-      "description": "实时编写和预览Markdown"
+      "description": "实时编写和预览Markdown",
+      "editor": "编辑器",
+      "editorDescription": "在此编写您的Markdown",
+      "preview": "预览",
+      "previewDescription": "实时Markdown预览",
+      "placeholder": "# 开始在此编写您的Markdown...",
+      "initialText": "# Hello Markdown\n\n开始输入以查看预览...",
+      "words": "单词",
+      "characters": "字符",
+      "lines": "行",
+      "copyMarkdown": "复制Markdown",
+      "downloadMd": "下载.md",
+      "downloadHtml": "下载.html",
+      "copied": "Markdown已复制到剪贴板",
+      "downloadedMd": "Markdown文件已下载",
+      "downloadedHtml": "HTML文件已下载",
+      "exampleText": "# Markdown示例\n\n这是一个**粗体文本**和*斜体文本*。\n\n## 功能\n\n- 实时预览\n- 语法高亮\n- 导出功能\n- ~~旧功能~~（删除线）\n\n### 代码示例\n\n这里有一些`内联代码`和一个代码块：\n\n```javascript\nfunction hello() {\n  console.log(\"你好，世界！\");\n}\n```\n\n### 链接和引用\n\n查看[GitHub](https://github.com)获取更多示例。\n\n> 这是一个包含重要信息的引用块。\n\n### 有序列表\n\n1. 第一项\n2. 第二项\n3. 第三项",
+      "whatIs": "什么是Markdown预览？",
+      "whatIsContent": "此工具提供Markdown文本的实时预览和格式化。非常适合README文件、文档和博客文章！📝",
+      "useCases": {
+        "title": "常见用途",
+        "readme": {
+          "title": "README文件",
+          "description": "创建GitHub README和项目文档"
+        },
+        "blog": {
+          "title": "博客文章",
+          "description": "使用Markdown语法编写和格式化博客内容"
+        },
+        "documentation": {
+          "title": "技术文档",
+          "description": "创建技术文档和用户指南"
+        },
+        "codeDocs": {
+          "title": "代码文档",
+          "description": "使用语法高亮记录代码"
+        }
+      },
+      "proTips": {
+        "title": "💡 专业提示",
+        "headers": "<strong>标题：</strong>使用#表示H1，##表示H2，以此类推",
+        "formatting": "<strong>格式化：</strong>**粗体**，*斜体*，~~删除线~~",
+        "code": "<strong>代码：</strong>使用```表示代码块，`表示内联代码",
+        "links": "<strong>链接：</strong>使用[文本](URL)语法创建链接"
+      },
+      "relatedTools": "🔗 相关工具"
     },
     "hash-generator": {
       "title": "哈希生成器",
-      "description": "从文本生成MD5、SHA-1、SHA-256哈希值"
+      "description": "从文本生成MD5、SHA-1、SHA-256哈希值",
+      "generateHashes": "生成哈希值",
+      "inputText": "输入文本",
+      "placeholder": "输入要哈希的文本",
+      "pleaseEnterText": "请输入文本",
+      "hashesGenerated": "哈希值生成成功",
+      "copiedToClipboard": "{{type}}已复制到剪贴板",
+      "md5NotAvailable": "MD5在浏览器中不可用",
+      "exampleText": "你好，世界！这是一个用于哈希的示例文本。",
+      "whatIs": "什么是哈希生成器？",
+      "whatIsContent": "此工具为数据完整性验证和安全性生成加密哈希（MD5、SHA-1、SHA-256）。非常适合密码哈希、文件验证和API身份验证！🔒",
+      "useCases": {
+        "passwordSecurity": {
+          "title": "密码安全",
+          "description": "对密码进行哈希处理以在数据库中安全存储"
+        },
+        "fileIntegrity": {
+          "title": "文件完整性",
+          "description": "通过校验和验证文件完整性"
+        },
+        "apiAuthentication": {
+          "title": "API身份验证",
+          "description": "生成基于哈希的身份验证令牌"
+        },
+        "dataSecurity": {
+          "title": "数据安全",
+          "description": "创建数字签名并验证数据真实性"
+        }
+      },
+      "proTips": {
+        "sha256": "<strong>SHA-256：</strong>现代应用程序最安全的选择",
+        "oneWay": "<strong>单向：</strong>哈希函数无法反向",
+        "avoidMd5": "<strong>避免MD5：</strong>对于关键应用程序不安全",
+        "verification": "<strong>验证：</strong>比较哈希值以检查文件完整性"
+      },
+      "relatedTools": "🔗 相关工具"
     },
     "timestamp-converter": {
       "title": "时间戳转换器",
-      "description": "在Unix时间戳和人类可读日期之间转换"
+      "description": "在Unix时间戳和人类可读日期之间转换",
+      "unixTimestamp": "Unix时间戳",
+      "humanDate": "人类可读日期",
+      "convertToDate": "转换为日期",
+      "convertToTimestamp": "转换为时间戳",
+      "currentTime": "当前时间",
+      "convertedToDate": "已转换为日期",
+      "convertedToTimestamp": "已转换为时间戳",
+      "invalidTimestamp": "无效的时间戳",
+      "invalidDate": "无效的日期",
+      "currentTimestampSet": "已设置当前时间戳",
+      "currentDateSet": "已设置当前日期",
+      "allFieldsCleared": "所有字段已清除",
+      "exampleLoaded": "示例已加载",
+      "whatIs": "什么是时间戳转换器？",
+      "whatIsContent": "此工具在Unix时间戳和人类可读日期之间转换。非常适合数据库查询、API开发和调试！⏰",
+      "useCases": {
+        "database": {
+          "title": "数据库查询",
+          "description": "为SQL查询和日期筛选转换时间戳"
+        },
+        "api": {
+          "title": "API开发",
+          "description": "处理基于时间戳的API和端点"
+        },
+        "logs": {
+          "title": "日志分析",
+          "description": "解析和理解服务器日志中的时间戳"
+        },
+        "data": {
+          "title": "数据处理",
+          "description": "为数据迁移和ETL过程转换日期"
+        }
+      },
+      "proTips": {
+        "startDate": "<strong>起始日期：</strong>Unix纪元从1970年1月1日UTC开始",
+        "units": "<strong>单位：</strong>Unix使用秒，JavaScript使用毫秒",
+        "utc": "<strong>UTC：</strong>时间戳始终采用UTC（无时区）",
+        "precision": "<strong>精度：</strong>使用时间戳进行精确的日期计算"
+      },
+      "relatedTools": "🔗 您可能喜欢的相关工具"
     },
     "regex-tester": {
       "title": "正则表达式测试器",
-      "description": "实时测试和调试正则表达式"
+      "description": "实时测试和调试正则表达式",
+      "regexPattern": "正则表达式模式",
+      "flags": "标志",
+      "testString": "测试字符串",
+      "matches": "匹配项",
+      "noMatches": "未找到匹配项",
+      "copyMatches": "复制匹配项",
+      "matchesCopied": "匹配项已复制！",
+      "copyTestString": "复制",
+      "testStringCopied": "测试字符串已复制！",
+      "enterTextPlaceholder": "输入要测试的文本",
+      "allFieldsCleared": "所有字段已清除",
+      "exampleLoaded": "示例已加载",
+      "whatIs": "什么是正则表达式测试器？",
+      "whatIsContent": "此工具实时测试和调试正则表达式。非常适合文本验证、数据提取和模式匹配！🔍",
+      "useCases": {
+        "validation": {
+          "title": "表单验证",
+          "description": "验证电子邮件地址、电话号码和用户输入"
+        },
+        "extraction": {
+          "title": "数据提取",
+          "description": "从文本和日志文件中提取特定模式"
+        },
+        "searchReplace": {
+          "title": "搜索和替换",
+          "description": "在代码和文档中查找和替换文本模式"
+        },
+        "programming": {
+          "title": "编程",
+          "description": "在代码中使用之前测试正则表达式模式"
+        }
+      },
+      "proTips": {
+        "anchors": "<strong>锚点：</strong>使用^表示字符串开头，$表示字符串结尾",
+        "shortcuts": "<strong>快捷方式：</strong>\\d（数字）、\\w（单词字符）、\\s（空格）",
+        "groups": "<strong>分组：</strong>使用()进行捕获和分组",
+        "testing": "<strong>测试：</strong>用各种输入测试以确保准确性"
+      },
+      "relatedTools": "🔗 您可能喜欢的相关工具"
     },
     "lorem-ipsum": {
       "title": "Lorem Ipsum生成器",
-      "description": "为您的设计生成占位文本"
+      "description": "为您的设计生成占位文本",
+      "numberOfParagraphs": "段落数量",
+      "generate": "生成",
+      "generatedText": "生成的文本",
+      "generated": "已生成{{count}}段！",
+      "whatIs": "什么是Lorem Ipsum生成器？",
+      "whatIsContent": "此工具为设计和模型生成Lorem Ipsum占位文本。非常适合测试布局、排版和可视化内容而无需真实文本！🎨",
+      "useCases": {
+        "webDesign": {
+          "title": "网页设计",
+          "description": "用占位内容填充模型和原型"
+        },
+        "uiUxDesign": {
+          "title": "UI/UX设计",
+          "description": "在没有最终内容的情况下测试布局和间距"
+        },
+        "typographyTesting": {
+          "title": "排版测试",
+          "description": "测试字体大小、行高和文本格式"
+        },
+        "clientPresentations": {
+          "title": "客户演示",
+          "description": "在最终内容准备好之前展示设计概念"
+        }
+      },
+      "proTips": {
+        "history": "<strong>历史：</strong>Lorem Ipsum自1500年代以来一直被使用",
+        "focus": "<strong>专注：</strong>使用它专注于设计而非内容",
+        "mockups": "<strong>模型：</strong>非常适合客户演示和演示",
+        "consistency": "<strong>一致性：</strong>为布局测试提供统一文本"
+      },
+      "relatedTools": "🔗 相关工具"
     },
     "percentage-calculator": {
       "title": "百分比计算器",
-      "description": "计算百分比、折扣和增长"
+      "description": "计算百分比、折扣和增长",
+      "whatPercentOf": "什么的百分之几",
+      "percentOfWhat": "百分之几是什么",
+      "calculatePercentage": "计算百分比",
+      "calculateValue": "从百分比计算值",
+      "value": "值",
+      "total": "总数",
+      "percentage": "百分比",
+      "whatIs": "什么是百分比计算器？",
+      "whatIsContent": "此工具计算折扣、税费、成绩等的百分比。非常适合财务计算和日常数学！📊",
+      "useCases": {
+        "title": "常见用途",
+        "discount": {
+          "title": "销售折扣",
+          "description": "即时计算折扣价格和节省金额"
+        },
+        "tax": {
+          "title": "税费计算",
+          "description": "计算销售税、增值税和其他基于百分比的税费"
+        },
+        "metrics": {
+          "title": "业务指标",
+          "description": "跟踪增长率、利润率和绩效百分比"
+        },
+        "budget": {
+          "title": "预算规划",
+          "description": "计算支出百分比和储蓄目标"
+        }
+      },
+      "proTips": {
+        "title": "💡 专业提示",
+        "definition": "定义：百分比意味着每百（50% = 50/100）",
+        "tips": "小贴士：轻松计算小费（账单的15-20%）",
+        "comparison": "比较：非常适合比较值和比率",
+        "decimals": "小数：支持小数以获得精确度"
+      }
     },
     "bmi-calculator": {
       "title": "BMI计算器",
-      "description": "计算您的身体质量指数和健康状况"
+      "description": "计算您的身体质量指数和健康状况",
+      "bodyMassIndex": "身体质量指数计算器",
+      "height": "身高 (cm)",
+      "weight": "体重 (kg)",
+      "calculate": "计算BMI",
+      "yourBmi": "您的BMI",
+      "category": "分类",
+      "categories": {
+        "underweight": "体重过轻",
+        "normal": "正常体重",
+        "overweight": "超重",
+        "obese": "肥胖"
+      },
+      "ranges": {
+        "underweight": "• 体重过轻：BMI < 18.5",
+        "normal": "• 正常体重：BMI 18.5 - 24.9",
+        "overweight": "• 超重：BMI 25 - 29.9",
+        "obese": "• 肥胖：BMI ≥ 30"
+      },
+      "whatIs": "什么是BMI计算器？",
+      "whatIsContent": "此工具根据身高和体重计算您的身体质量指数（BMI）。非常适合健康评估、健身追踪和体重管理！💪",
+      "useCases": {
+        "health": {
+          "title": "健康评估",
+          "description": "监测您的BMI以进行整体健康评估"
+        },
+        "weight": {
+          "title": "体重管理",
+          "description": "在减重或增重过程中追踪进展"
+        },
+        "fitness": {
+          "title": "健身追踪",
+          "description": "将BMI变化作为健身目标的一部分进行监测"
+        },
+        "diet": {
+          "title": "饮食规划",
+          "description": "将BMI作为营养目标的参考"
+        }
+      },
+      "proTips": {
+        "screening": "<strong>筛查工具：</strong>BMI不是诊断性测量",
+        "normalRange": "<strong>正常范围：</strong>18.5-24.9被认为是健康的",
+        "consultExperts": "<strong>咨询专家：</strong>获取个性化的健康建议",
+        "limitations": "<strong>局限性：</strong>可能不适合运动员或老年人"
+      },
+      "relatedTools": "🔗 您可能喜欢的相关工具"
     },
     "loan-calculator": {
       "title": "贷款计算器",
-      "description": "计算每月还款额和总利息"
+      "description": "计算每月还款额和总利息",
+      "calculateYourLoan": "计算您的贷款",
+      "descriptionFull": "计算月供、总成本和利息",
+      "loanAmount": "贷款金额",
+      "interestRate": "利率 (%)",
+      "loanTerm": "贷款期限",
+      "years": "年",
+      "months": "月",
+      "calculate": "计算",
+      "monthlyPayment": "月供",
+      "totalPayment": "总还款额",
+      "totalInterest": "总利息",
+      "loanCalculated": "贷款计算成功！",
+      "enterValidValues": "请为所有字段输入有效值",
+      "allFieldsCleared": "所有字段已清除",
+      "exampleLoaded": "示例已加载",
+      "whatIs": "什么是贷款计算器？",
+      "whatIsContent": "此工具计算贷款的月供、总利息和还款金额。非常适合房贷、汽车贷款和个人贷款规划！🏦",
+      "useCases": {
+        "mortgage": {
+          "title": "房贷规划",
+          "description": "计算房屋贷款付款和可负担性"
+        },
+        "auto": {
+          "title": "汽车贷款",
+          "description": "比较汽车融资选项和月供"
+        },
+        "business": {
+          "title": "商业贷款",
+          "description": "评估商业融资和还款计划"
+        },
+        "refinancing": {
+          "title": "再融资",
+          "description": "比较再融资选项以节省利息"
+        }
+      },
+      "proTips": {
+        "interestRate": "<strong>利率：</strong>较低的利率可显著降低总成本",
+        "loanTerm": "<strong>贷款期限：</strong>期限越短=月供越高，利息越少",
+        "budget": "<strong>预算：</strong>确保月供符合您的预算",
+        "compare": "<strong>比较：</strong>货比三家寻找最优利率"
+      },
+      "relatedTools": "🔗 您可能喜欢的相关工具"
     },
     "interest-calculator": {
       "title": "利息计算器",
-      "description": "计算单利和复利"
+      "description": "计算单利和复利",
+      "simpleInterest": "单利",
+      "compoundInterest": "复利",
+      "simpleFormula": "I = P × R × T",
+      "compoundFormula": "A = P(1 + r/n)^(nt)",
+      "principalAmount": "本金金额",
+      "annualRate": "年利率 (%)",
+      "timePeriod": "时间期限（年）",
+      "compoundFrequency": "复利频率（次/年）",
+      "frequencyHint": "1=年度，4=季度，12=月度，365=每日",
+      "calculateSimple": "计算单利",
+      "calculateCompound": "计算复利",
+      "interestEarned": "赚取的利息",
+      "totalAmount": "总金额",
+      "finalAmount": "最终金额",
+      "invalidNumbers": "请输入有效的数字",
+      "mustBePositive": "所有值必须大于0",
+      "simpleCalculated": "单利已计算！",
+      "compoundCalculated": "复利已计算！",
+      "fieldsCleared": "字段已清除",
+      "exampleLoaded": "示例已加载",
+      "whatIs": "什么是利息计算器？",
+      "whatIsContent": "此工具计算储蓄和投资的单利和复利。非常适合财务规划和了解资金增长！💰",
+      "useCases": {
+        "savings": {
+          "title": "储蓄账户",
+          "description": "计算储蓄随时间赚取的利息"
+        },
+        "investment": {
+          "title": "投资规划",
+          "description": "用复利预测投资回报"
+        },
+        "retirement": {
+          "title": "退休规划",
+          "description": "计算退休长期储蓄增长"
+        },
+        "loan": {
+          "title": "贷款利息",
+          "description": "计算贷款和债务的利息成本"
+        }
+      },
+      "proTips": {
+        "compound": "<strong>复利：</strong>增长速度快于单利",
+        "frequency": "<strong>频率：</strong>复利频率越高=增长越多",
+        "longTerm": "<strong>长期：</strong>多年投资使用复利",
+        "impact": "<strong>影响：</strong>更高的利率会大幅提升回报"
+      },
+      "relatedTools": "🔗 您可能喜欢的相关工具"
     },
     "investment-calculator": {
       "title": "投资计算器",
-      "description": "估算投资收益"
+      "description": "估算投资收益",
+      "calculateGrowth": "计算投资增长",
+      "descriptionFull": "估算您的投资随时间的回报",
+      "initialInvestment": "初始投资",
+      "monthlyContribution": "每月投入",
+      "expectedReturn": "预期年回报率 (%)",
+      "investmentPeriod": "投资期限（年）",
+      "calculate": "计算投资",
+      "futureValue": "未来价值",
+      "totalContributions": "总投入",
+      "totalEarnings": "总收益",
+      "investmentCalculated": "投资计算完成！",
+      "allFieldsCleared": "所有字段已清除",
+      "exampleLoaded": "示例已加载",
+      "whatIs": "什么是投资计算器？",
+      "whatIsContent": "此工具计算包含每月投入的未来投资价值。非常适合退休规划、教育储蓄和财富积累！📈",
+      "useCases": {
+        "retirement": {
+          "title": "退休规划",
+          "description": "计算数十年的退休储蓄增长"
+        },
+        "education": {
+          "title": "教育储蓄",
+          "description": "规划大学基金和教育费用"
+        },
+        "wealth": {
+          "title": "财富积累",
+          "description": "跟踪长期投资组合增长和投资回报"
+        },
+        "goals": {
+          "title": "财务目标",
+          "description": "设定并实现特定的财务里程碑"
+        }
+      },
+      "proTips": {
+        "startEarly": "<strong>尽早开始：</strong>时间可最大化复利增长",
+        "regular": "<strong>定期投入：</strong>每月储蓄积累可观",
+        "returns": "<strong>回报率：</strong>股市年均回报率为8-10%",
+        "risk": "<strong>风险：</strong>估算回报时考虑风险承受能力"
+      },
+      "relatedTools": "🔗 您可能喜欢的相关工具"
     },
     "currency-converter": {
       "title": "货币转换器",
-      "description": "实时汇率货币转换"
+      "description": "实时汇率货币转换",
+      "convertCurrency": "转换货币",
+      "amount": "金额",
+      "from": "从",
+      "to": "到",
+      "convert": "转换",
+      "converting": "转换中...",
+      "pleaseEnterValidAmount": "请输入有效金额",
+      "conversionSuccessful": "转换成功！",
+      "conversionFailed": "货币转换失败",
+      "fetchFailed": "获取汇率失败",
+      "currencies": {
+        "usd": "美元",
+        "eur": "欧元",
+        "gbp": "英镑",
+        "jpy": "日元",
+        "cny": "人民币",
+        "cad": "加拿大元",
+        "aud": "澳元",
+        "chf": "瑞士法郎",
+        "inr": "印度卢比",
+        "krw": "韩元"
+      },
+      "whatIs": "什么是货币转换器？",
+      "whatIsContent": "此工具使用实时汇率在货币之间转换。非常适合旅行、购物和国际商务！💱",
+      "useCases": {
+        "travel": {
+          "title": "国际旅行",
+          "description": "为出国旅行转换货币"
+        },
+        "shopping": {
+          "title": "在线购物",
+          "description": "计算国际商店的价格"
+        },
+        "business": {
+          "title": "商业交易",
+          "description": "为国际付款和发票转换货币"
+        },
+        "investment": {
+          "title": "投资分析",
+          "description": "追踪外国投资和回报"
+        }
+      },
+      "proTips": {
+        "realTime": "<strong>实时：</strong>汇率自动更新",
+        "fees": "<strong>费用：</strong>考虑实际交易的兑换费用",
+        "variations": "<strong>差异：</strong>不同服务之间的汇率有所不同",
+        "estimates": "<strong>估算：</strong>用于快速比较"
+      },
+      "relatedTools": "🔗 相关工具"
     },
     "credit-card-calculator": {
       "title": "信用卡计算器",
-      "description": "计算信用卡还款时间和总利息"
+      "description": "计算信用卡还款时间和总利息",
+      "calculatePayoff": "计算信用卡还款",
+      "descriptionFull": "估算何时能还清债务",
+      "currentBalance": "当前余额",
+      "annualRate": "年利率（APR %）",
+      "monthlyPayment": "每月还款",
+      "calculate": "计算",
+      "timeToPayOff": "还清时间",
+      "totalPaid": "总支付",
+      "totalInterest": "总利息",
+      "never": "永远无法还清（还款额太低）",
+      "years": "年",
+      "year": "年",
+      "months": "月",
+      "month": "月",
+      "calculationCompleted": "计算完成！",
+      "allFieldsCleared": "所有字段已清除",
+      "exampleLoaded": "示例已加载",
+      "whatIs": "什么是信用卡还款计算器？",
+      "whatIsContent": "此工具计算信用卡债务的还款时间、总利息和付款。非常适合债务管理和财务规划！💳",
+      "useCases": {
+        "debt": {
+          "title": "债务管理",
+          "description": "规划债务还清策略和时间表"
+        },
+        "interest": {
+          "title": "利息分析",
+          "description": "计算还款期间的总利息成本"
+        },
+        "budget": {
+          "title": "预算规划",
+          "description": "在预算内优化每月还款"
+        },
+        "strategy": {
+          "title": "还款策略",
+          "description": "比较不同的还款金额和时间表"
+        }
+      },
+      "proTips": {
+        "higherPayments": "<strong>提高还款：</strong>显著减少总利息",
+        "minimumPayments": "<strong>最低还款：</strong>可能需要数年才能还清债务",
+        "payMore": "<strong>多付：</strong>尽可能支付超过最低还款额",
+        "lowerAPR": "<strong>降低APR：</strong>可节省数千元利息成本"
+      },
+      "relatedTools": "🔗 您可能喜欢的相关工具"
     },
     "unit-converter": {
       "title": "单位转换器",
-      "description": "不同计量单位之间的转换"
+      "description": "不同计量单位之间的转换",
+      "length": "长度",
+      "weight": "重量",
+      "lengthConverter": "长度转换器",
+      "weightConverter": "重量转换器",
+      "lengthDescription": "在不同的长度单位之间转换",
+      "weightDescription": "在不同的重量单位之间转换",
+      "cleared": "已清除",
+      "exampleLoaded": "示例已加载",
+      "units": {
+        "meters": "米",
+        "kilometers": "千米",
+        "centimeters": "厘米",
+        "millimeters": "毫米",
+        "miles": "英里",
+        "yards": "码",
+        "feet": "英尺",
+        "inches": "英寸",
+        "kilograms": "千克",
+        "grams": "克",
+        "pounds": "磅",
+        "ounces": "盎司",
+        "tons": "吨"
+      },
+      "whatIs": "什么是单位转换器？",
+      "whatIsContent": "此工具在公制和英制单位之间转换长度和重量。非常适合旅行、烹饪和建筑！📏",
+      "useCases": {
+        "travel": {
+          "title": "国际旅行",
+          "description": "跨国转换公制/英制单位"
+        },
+        "cooking": {
+          "title": "烹饪和烘焙",
+          "description": "转换来自不同地区的食谱测量"
+        },
+        "construction": {
+          "title": "建筑",
+          "description": "转换建筑项目的测量值"
+        },
+        "fitness": {
+          "title": "健身追踪",
+          "description": "用首选单位追踪体重和尺寸"
+        }
+      },
+      "proTips": {
+        "metric": "<strong>公制：</strong>全球大多数国家使用",
+        "weight": "<strong>重量：</strong>1千克 = 2.20462磅",
+        "length": "<strong>长度：</strong>1米 = 3.28084英尺",
+        "recipes": "<strong>食谱：</strong>务必核对来自其他国家的单位"
+      },
+      "relatedTools": "🔗 您可能喜欢的相关工具"
     },
     "age-calculator": {
       "title": "年龄计算器",
-      "description": "计算精确的年龄（年、月、日）"
+      "description": "计算精确的年龄（年、月、日）",
+      "calculateYourAge": "计算您的年龄",
+      "dateOfBirth": "出生日期",
+      "calculateAge": "计算年龄",
+      "ageCalculated": "年龄已计算！",
+      "yourAge": "您的年龄",
+      "years": "年",
+      "months": "月",
+      "days": "天",
+      "totalDays": "总天数",
+      "whatIs": "什么是年龄计算器？",
+      "whatIsContent": "此工具根据您的出生日期计算精确的年龄（年、月、日）。非常适合文档记录、里程碑纪念和生日规划！🎂",
+      "useCases": {
+        "birthdayPlanning": {
+          "title": "生日规划",
+          "description": "计算里程碑并规划特殊的庆祝活动"
+        },
+        "documentation": {
+          "title": "文档记录",
+          "description": "获取用于官方文件和申请的精确年龄"
+        },
+        "schoolEnrollment": {
+          "title": "学校入学",
+          "description": "验证教育入学的年龄要求"
+        },
+        "ageVerification": {
+          "title": "年龄验证",
+          "description": "检查年龄限制活动的资格"
+        }
+      },
+      "proTips": {
+        "exactAge": "<strong>精确年龄：</strong>精确显示年、月、日",
+        "milestones": "<strong>里程碑：</strong>非常适合规划特殊生日",
+        "documents": "<strong>文档：</strong>用于官方年龄验证",
+        "eligibility": "<strong>资格：</strong>轻松检查年龄要求"
+      },
+      "relatedTools": "🔗 您可能喜欢的相关工具"
     },
     "date-calculator": {
       "title": "日期计算器",
-      "description": "计算两个日期之间的差异"
+      "description": "计算两个日期之间的差异",
+      "calculateDateDifference": "计算日期差异",
+      "startDate": "开始日期",
+      "endDate": "结束日期",
+      "calculateDifference": "计算差异",
+      "dateDifferenceCalculated": "日期差异已计算！",
+      "difference": "差异",
+      "days": "天",
+      "weeks": "周",
+      "months": "月",
+      "years": "年",
+      "or": "或",
+      "whatIs": "什么是日期计算器？",
+      "whatIsContent": "此工具计算两个日期之间的差异（天、周、月、年）。非常适合活动规划、项目管理和截止日期跟踪！📅",
+      "useCases": {
+        "eventPlanning": {
+          "title": "活动规划",
+          "description": "计算婚礼、生日和特殊活动的倒计时天数"
+        },
+        "projectManagement": {
+          "title": "项目管理",
+          "description": "跟踪项目时间线和里程碑持续时间"
+        },
+        "anniversaryTracking": {
+          "title": "纪念日跟踪",
+          "description": "计算特殊纪念日的年数和天数"
+        },
+        "deadlineManagement": {
+          "title": "截止日期管理",
+          "description": "监控重要截止日期的剩余时间"
+        }
+      },
+      "proTips": {
+        "multipleUnits": "<strong>多种单位：</strong>以天、周、月、年显示结果",
+        "leapYears": "<strong>闰年：</strong>自动考虑闰年",
+        "planning": "<strong>规划：</strong>非常适合活动和项目时间线",
+        "business": "<strong>商务：</strong>适用于法律和合同计算"
+      },
+      "relatedTools": "🔗 您可能喜欢的相关工具"
     },
     "random-picker": {
       "title": "随机选择器",
-      "description": "从列表中随机选择名字或项目"
+      "description": "从列表中随机选择名字或项目",
+      "randomNameItemPicker": "随机名字/项目选择器",
+      "pickRandomWinner": "随机选择获胜者",
+      "pleaseEnterItem": "请至少输入一个项目",
+      "winnerSelected": "获胜者已选出！",
+      "winner": "获胜者",
+      "placeholder": "小明\n小红\n小刚\n小丽",
+      "exampleNames": "小明\n小红\n小刚\n小丽\n小华\n小强",
+      "whatIs": "什么是随机选择器？",
+      "whatIsContent": "此工具从您的名字或项目列表中随机选择一个获胜者。非常适合赠品、抽奖、团队分配和公平决策！🎯",
+      "useCases": {
+        "contestGiveaways": {
+          "title": "比赛赠品",
+          "description": "为社交媒体比赛随机选择获胜者"
+        },
+        "raffleDrawings": {
+          "title": "抽奖活动",
+          "description": "公平且无偏见的奖品抽奖随机选择"
+        },
+        "teamAssignments": {
+          "title": "团队分配",
+          "description": "随机将人员分配到团队或小组"
+        },
+        "decisionMaking": {
+          "title": "决策制定",
+          "description": "让随机性帮助您在选项之间做出选择"
+        }
+      },
+      "proTips": {
+        "onePerLine": "<strong>每行一个：</strong>在新行上输入每个名字或项目",
+        "fairSelection": "<strong>公平选择：</strong>使用真正的随机性进行无偏见选择",
+        "screenshot": "<strong>截图：</strong>捕获结果以保证透明度",
+        "socialMedia": "<strong>社交媒体：</strong>非常适合Instagram和Twitter赠品"
+      },
+      "relatedTools": "🔗 您可能喜欢的相关工具"
     },
     "image-compressor": {
       "title": "图片压缩器",
-      "description": "压缩图片以减小文件大小"
+      "description": "压缩图片以减小文件大小",
+      "compressImages": "压缩图片",
+      "descriptionFull": "在保持质量的同时减小图片文件大小",
+      "uploadImage": "上传图片",
+      "original": "原始",
+      "compressed": "已压缩",
+      "outputFormat": "输出格式",
+      "quality": "质量",
+      "lowQuality": "低（文件更小）",
+      "highQuality": "高（质量更好）",
+      "compressImageButton": "压缩图片",
+      "download": "下载",
+      "pleaseUploadImage": "请上传图片文件",
+      "imageTooLarge": "图片大小应小于10MB",
+      "imageLoaded": "图片已加载：{{size}} KB",
+      "failedToRead": "读取文件失败",
+      "uploadImageFirst": "请先上传图片",
+      "compressedSuccess": "已压缩！{{size}} KB（减少 {{reduction}}%）",
+      "failedToLoad": "加载图片失败",
+      "compressFirst": "请先压缩图片",
+      "imageDownloaded": "图片已下载！",
+      "allFieldsCleared": "所有字段已清除",
+      "exampleImageLoaded": "示例图片已加载",
+      "whatIs": "什么是图片压缩器？",
+      "whatIsContent": "此工具在保持质量的同时减小图片文件大小。非常适合网页优化、电子邮件和存储管理！🗜️",
+      "useCases": {
+        "webOptimization": {
+          "title": "网页优化",
+          "description": "压缩以加快网站加载速度"
+        },
+        "emailAttachments": {
+          "title": "电子邮件附件",
+          "description": "减小文件大小以符合电子邮件发送限制"
+        },
+        "ecommerce": {
+          "title": "电子商务",
+          "description": "为在线商店优化产品照片"
+        },
+        "mobileApps": {
+          "title": "移动应用",
+          "description": "减小应用资源大小以提高性能"
+        }
+      },
+      "proTips": {
+        "webUse": "<strong>网页使用：</strong>80% 的质量通常就足够了",
+        "tradeOff": "<strong>权衡：</strong>更高压缩 = 更小文件，更低质量",
+        "testing": "<strong>测试：</strong>尝试不同级别以获得最佳平衡",
+        "performance": "<strong>性能：</strong>更小的文件加载更快"
+      },
+      "relatedTools": "🔗 您可能喜欢的相关工具"
     },
     "image-resizer": {
       "title": "图片调整大小",
-      "description": "调整图片至任意尺寸"
+      "description": "调整图片至任意尺寸",
+      "resizeImages": "调整图片大小",
+      "changeDimensions": "将图片尺寸更改为任意大小",
+      "uploadImage": "上传图片",
+      "width": "宽度（像素）",
+      "height": "高度（像素）",
+      "resizeDownload": "调整大小并下载",
+      "pleaseUploadImage": "请上传图片文件",
+      "imageTooLarge": "图片大小应小于10MB",
+      "imageLoaded": "图片已加载：{{width}}x{{height}}像素",
+      "failedToLoad": "加载图片失败",
+      "failedToRead": "读取文件失败",
+      "uploadImageFirst": "请先上传图片",
+      "imageResized": "图片已调整大小并下载！",
+      "allFieldsCleared": "所有字段已清除",
+      "exampleImageLoaded": "示例图片已加载",
+      "whatIs": "什么是图片调整大小工具？",
+      "whatIsContent": "此工具可将图片调整为网页、社交媒体和打印的自定义尺寸。非常适合为任何平台优化图形！🖼️",
+      "useCases": {
+        "social": {
+          "title": "社交媒体",
+          "description": "调整为Instagram/Twitter帖子尺寸"
+        },
+        "web": {
+          "title": "网页图形",
+          "description": "优化图片以提升网站性能"
+        },
+        "mobile": {
+          "title": "移动应用",
+          "description": "为应用开发创建图标和资源"
+        },
+        "thumbnails": {
+          "title": "缩略图",
+          "description": "为图库生成预览图片"
+        }
+      },
+      "proTips": {
+        "platformSizes": "<strong>平台尺寸：</strong>首先检查所需尺寸",
+        "aspectRatio": "<strong>宽高比：</strong>保持宽高比以避免失真",
+        "workflow": "<strong>工作流程：</strong>在压缩图片前先调整大小",
+        "devices": "<strong>设备：</strong>为屏幕使用适当的尺寸"
+      },
+      "relatedTools": "🔗 您可能喜欢的相关工具"
     },
     "text-diff": {
       "title": "文本差异检查",
-      "description": "比较两段文本并找出差异"
+      "description": "比较两段文本并找出差异",
+      "compareText": "比较文本",
+      "descriptionFull": "查找两个文本之间的差异",
+      "text1": "文本1",
+      "text2": "文本2",
+      "text1Placeholder": "输入第一段文本...",
+      "text2Placeholder": "输入第二段文本...",
+      "differencesFound": "发现差异：{{count}}",
+      "line": "第{{line}}行",
+      "noDifferencesFound": "未发现差异！",
+      "allFieldsCleared": "所有字段已清除",
+      "exampleLoaded": "示例已加载",
+      "whatIs": "什么是文本差异工具？",
+      "whatIsContent": "此工具逐行比较两个文本并用颜色编码突出显示差异。非常适合代码审查、文档比较和跟踪更改！🔍",
+      "useCases": {
+        "codeReview": {
+          "title": "代码审查",
+          "description": "比较代码版本以跟踪更改和更新"
+        },
+        "versionControl": {
+          "title": "版本控制",
+          "description": "比较文档和文件的不同版本"
+        },
+        "contentEditing": {
+          "title": "内容编辑",
+          "description": "审查文章或文档中的编辑和修改"
+        },
+        "legalReview": {
+          "title": "法律审查",
+          "description": "比较合同版本以识别条款更改"
+        }
+      },
+      "proTips": {
+        "colorCoding": "<strong>颜色编码：</strong>红色 = 删除，绿色 = 添加，橙色 = 修改",
+        "lineByLine": "<strong>逐行比较：</strong>每行单独比较，精度更高",
+        "configFiles": "<strong>配置文件：</strong>非常适合比较 .env、.config 文件",
+        "copyPaste": "<strong>复制粘贴：</strong>可直接使用剪贴板内容"
+      },
+      "relatedTools": "🔗 您可能喜欢的相关工具"
     },
     "text-sorter": {
       "title": "文本排序",
-      "description": "按字母顺序对文本行进行排序"
+      "description": "按字母顺序对文本行进行排序",
+      "sortTextLines": "对文本行进行排序",
+      "inputText": "输入文本",
+      "placeholder": "输入文本（每行一项）...",
+      "ascOrder": "A → Z",
+      "descOrder": "Z → A",
+      "sortLines": "排序行",
+      "sortedOutput": "排序后输出",
+      "linesSorted": "行已排序",
+      "exampleText": "斑马\n苹果\n香蕉\n樱桃\n枣",
+      "whatIs": "什么是文本排序器？",
+      "whatIsContent": "此工具帮助您按升序（A→Z）或降序（Z→A）对文本行进行字母排序。非常适合快速组织列表、姓名、数据和任何文本内容！📋",
+      "useCases": {
+        "listOrganization": {
+          "title": "列表组织",
+          "description": "按字母顺序对姓名、项目或任何列表进行排序，便于参考"
+        },
+        "dataPreparation": {
+          "title": "数据准备",
+          "description": "在导入电子表格之前组织数据"
+        },
+        "contactLists": {
+          "title": "联系人列表",
+          "description": "按字母顺序对姓名、电子邮件或电话号码进行排序"
+        },
+        "inventoryManagement": {
+          "title": "库存管理",
+          "description": "为目录组织产品名称或SKU代码"
+        }
+      },
+      "proTips": {
+        "onePerLine": "<strong>每行一个：</strong>每行都被视为单独的项目",
+        "ascOrder": "<strong>A→Z：</strong>使用升序进行标准字母排序",
+        "descOrder": "<strong>Z→A：</strong>使用降序进行反向排序",
+        "caseSensitive": "<strong>区分大小写：</strong>大写字母在小写字母之前"
+      },
+      "relatedTools": "🔗 您可能喜欢的相关工具"
     },
     "html-to-text": {
       "title": "HTML转文本",
-      "description": "将HTML转换为纯文本"
+      "description": "将HTML转换为纯文本",
+      "convertHtmlToPlainText": "将HTML转换为纯文本",
+      "htmlInput": "HTML输入",
+      "placeholder": "<p>你好世界</p>",
+      "convertToText": "转换为文本",
+      "plainTextOutput": "纯文本输出",
+      "convertedSuccessfully": "转换成功！",
+      "exampleHtml": "<div>\n  <h1>欢迎访问我们的网站</h1>\n  <p>这是一个包含<strong>各种标签</strong>的<em>示例HTML</em>。</p>\n  <ul>\n    <li>第一项</li>\n    <li>第二项</li>\n    <li>第三项</li>\n  </ul>\n  <a href=\"https://example.com\">访问我们的网站</a>\n</div>",
+      "whatIs": "什么是HTML转文本？",
+      "whatIsContent": "此工具通过去除标签将HTML标记转换为纯文本。非常适合网页抓取、电子邮件提取和内容分析！🌍",
+      "useCases": {
+        "emailExtraction": {
+          "title": "电子邮件提取",
+          "description": "从HTML电子邮件中提取文本进行处理"
+        },
+        "webScraping": {
+          "title": "网页抓取",
+          "description": "从网页中提取内容进行分析"
+        },
+        "dataCleaning": {
+          "title": "数据清理",
+          "description": "清理HTML内容以进行数据处理"
+        },
+        "contentAnalysis": {
+          "title": "内容分析",
+          "description": "为分析工具和处理准备文本"
+        }
+      },
+      "proTips": {
+        "cleanText": "<strong>清洁文本：</strong>删除所有HTML标签和属性",
+        "webPages": "<strong>网页：</strong>从网站提取可读内容",
+        "email": "<strong>电子邮件：</strong>非常适合处理HTML电子邮件内容",
+        "analysis": "<strong>分析：</strong>为文本分析工具准备内容"
+      },
+      "relatedTools": "🔗 您可能喜欢的相关工具"
     },
     "csv-to-json": {
       "title": "CSV转JSON",
-      "description": "将CSV数据转换为JSON格式"
+      "description": "将CSV数据转换为JSON格式",
+      "convertCsvToJson": "将CSV转换为JSON",
+      "descriptionFull": "将CSV(表格)数据转换为JSON格式",
+      "csvInput": "CSV输入",
+      "csvPlaceholder": "姓名,年龄,城市\n张三,30,北京\n李四,25,上海",
+      "convertButton": "转换为JSON",
+      "jsonOutput": "JSON输出",
+      "csvHeaderRequired": "CSV必须至少有标题行和一行数据",
+      "convertedSuccess": "转换成功！",
+      "conversionFailed": "转换失败",
+      "copiedToClipboard": "已复制到剪贴板！",
+      "allFieldsCleared": "所有字段已清除",
+      "exampleLoaded": "示例已加载",
+      "whatIs": "什么是CSV转JSON？",
+      "whatIsContent": "此工具将CSV(表格)数据转换为JSON格式。非常适合API集成、数据迁移和Web开发！📊",
+      "useCases": {
+        "apiIntegration": {
+          "title": "API集成",
+          "description": "将CSV转换为JSON用于API请求"
+        },
+        "dataMigration": {
+          "title": "数据迁移",
+          "description": "将CSV数据导入数据库和应用程序"
+        },
+        "dataAnalysis": {
+          "title": "数据分析",
+          "description": "将电子表格数据转换用于分析工具"
+        },
+        "webDevelopment": {
+          "title": "Web开发",
+          "description": "在Web应用和可视化中使用CSV数据"
+        }
+      },
+      "proTips": {
+        "headers": "<strong>标题：</strong>第一行成为JSON键",
+        "format": "<strong>格式：</strong>每行成为一个JSON对象",
+        "spreadsheets": "<strong>电子表格：</strong>非常适合Excel/Sheets导出",
+        "apis": "<strong>APIs：</strong>为REST API调用准备数据"
+      },
+      "relatedTools": "🔗 您可能喜欢的相关工具"
     },
     "text-replacer": {
       "title": "文本替换",
-      "description": "查找和替换文本，支持正则表达式"
+      "description": "查找和替换文本，支持正则表达式",
+      "findAndReplace": "查找和替换文本",
+      "descriptionFull": "查找和替换文本，支持正则表达式",
+      "inputText": "输入文本",
+      "inputPlaceholder": "在此输入您的文本...",
+      "find": "查找",
+      "findPlaceholder": "要查找的文本",
+      "replaceWith": "替换为",
+      "replacePlaceholder": "替换文本",
+      "caseSensitive": "区分大小写",
+      "useRegex": "使用正则表达式",
+      "replace": "替换",
+      "result": "结果",
+      "pleaseEnterText": "请输入一些文本",
+      "pleaseEnterFind": "请输入要查找的文本",
+      "replacedCount": "已替换 {{count}} 处",
+      "invalidRegex": "无效的正则表达式模式",
+      "allFieldsCleared": "所有字段已清除",
+      "exampleLoaded": "示例已加载",
+      "copiedToClipboard": "已复制到剪贴板！",
+      "whatIs": "什么是文本替换工具？",
+      "whatIsContent": "这个强大的工具允许您查找和替换文本，支持正则表达式、区分大小写和批量处理。非常适合需要快速文本转换的开发人员、作家和数据处理人员！🔍",
+      "useCases": {
+        "batch": {
+          "title": "批量编辑",
+          "description": "在大型文档中替换多个文本实例"
+        },
+        "refactoring": {
+          "title": "代码重构",
+          "description": "快速重命名变量、函数或类"
+        },
+        "cleaning": {
+          "title": "数据清理",
+          "description": "通过替换模式来清理和规范化数据"
+        },
+        "urls": {
+          "title": "URL更新",
+          "description": "在多个文件中更新链接或路径"
+        }
+      },
+      "proTips": {
+        "regex": "<strong>正则：</strong>使用 \\d 表示数字，\\w 表示单词字符",
+        "global": "<strong>全局：</strong>自动替换所有出现的内容",
+        "caseMatch": "<strong>大小写匹配：</strong>启用区分大小写以进行精确匹配",
+        "testFirst": "<strong>先测试：</strong>在批量替换前先在小样本上试用"
+      },
+      "relatedTools": "🔗 您可能喜欢的相关工具"
     },
     "duplicate-remover": {
       "title": "重复行删除",
-      "description": "删除文本中的重复行和空行"
+      "description": "删除文本中的重复行和空行",
+      "removeDuplicateLines": "删除重复行",
+      "descriptionFull": "从您的文本中删除重复行和空行",
+      "inputPlaceholder": "输入您的文本（每行一项）...",
+      "removeEmptyLines": "删除空行",
+      "caseSensitiveComparison": "区分大小写比较",
+      "removeDuplicates": "删除重复项",
+      "result": "结果",
+      "original": "原始",
+      "removed": "已删除",
+      "final": "最终",
+      "lines": "行",
+      "pleaseEnterText": "请输入一些文本",
+      "removedCount": "已删除 {{count}} 个重复/空行",
+      "copiedToClipboard": "已复制到剪贴板！",
+      "allFieldsCleared": "所有字段已清除",
+      "exampleLoaded": "示例已加载",
+      "whatIs": "什么是重复行删除工具？",
+      "whatIsContent": "此工具通过删除重复行和空行来帮助您清理文本。非常适合清理列表、处理数据和组织内容！🧹",
+      "useCases": {
+        "cleanLists": {
+          "title": "清理列表",
+          "description": "从电子邮件列表、联系人列表或任何文本列表中删除重复项"
+        },
+        "dataProcessing": {
+          "title": "数据处理",
+          "description": "在导入数据库之前清理和去重数据"
+        },
+        "emailLists": {
+          "title": "电子邮件列表",
+          "description": "确保邮件活动的电子邮件地址唯一"
+        },
+        "logCleaning": {
+          "title": "日志清理",
+          "description": "从日志文件中删除重复条目"
+        }
+      },
+      "proTips": {
+        "caseSensitive": "<strong>区分大小写：</strong>\"Apple\"和\"apple\"被视为不同",
+        "cleanLists": "<strong>清理列表：</strong>非常适合清理数据",
+        "emptyLines": "<strong>空行：</strong>可选择保留或删除空白行",
+        "statsDisplay": "<strong>统计显示：</strong>查看删除了多少行"
+      },
+      "relatedTools": "🔗 您可能喜欢的相关工具"
     },
     "json-to-csv": {
       "title": "JSON转CSV",
-      "description": "将JSON数据转换为CSV格式"
+      "description": "将JSON数组转换为CSV格式，用于电子表格应用",
+      "jsonInput": "JSON输入",
+      "csvOutput": "CSV输出",
+      "placeholder": "[{\"name\": \"张三\", \"age\": 30}, ...]",
+      "convert": "转换为CSV",
+      "convertSuccess": "成功转换为CSV！",
+      "downloaded": "CSV已下载！",
+      "exampleJson": "[\n  { \"name\": \"张三\", \"age\": 30, \"city\": \"北京\" },\n  { \"name\": \"李四\", \"age\": 25, \"city\": \"上海\" },\n  { \"name\": \"王五\", \"age\": 35, \"city\": \"深圳\" }\n]",
+      "errors": {
+        "enterJson": "请输入JSON数据",
+        "mustBeArray": "JSON必须是对象数组",
+        "arrayEmpty": "数组为空",
+        "invalidJson": "JSON格式无效",
+        "noCsvToDownload": "没有可下载的CSV"
+      },
+      "whatIs": "什么是JSON转CSV转换器？",
+      "whatIsContent": "此工具将JSON数组转换为CSV格式，非常适合导入Excel、Google Sheets或任何电子表格应用程序。无缝导出您的数据！📊",
+      "useCases": {
+        "excelExport": {
+          "title": "Excel导出",
+          "description": "将API数据导出到Excel电子表格进行分析"
+        },
+        "dataMigration": {
+          "title": "数据迁移",
+          "description": "转换JSON数据用于数据库导入"
+        },
+        "dataAnalysis": {
+          "title": "数据分析",
+          "description": "为统计分析工具准备数据"
+        },
+        "apiResponses": {
+          "title": "API响应",
+          "description": "将API响应转换为电子表格格式"
+        }
+      },
+      "proTips": {
+        "arrayRequired": "<strong>需要数组：</strong>JSON必须是对象数组",
+        "excelCompatible": "<strong>Excel兼容：</strong>可直接在Excel中打开",
+        "autoHeaders": "<strong>自动标题：</strong>自动提取列标题",
+        "download": "<strong>下载：</strong>保存为.csv文件供离线使用"
+      }
     },
     "xml-to-json": {
       "title": "XML转JSON",
-      "description": "将XML转换为JSON格式"
+      "description": "将XML转换为JSON格式",
+      "convertXmlToJson": "将XML转换为JSON",
+      "descriptionFull": "将XML数据转换为JSON格式",
+      "xmlInput": "XML输入",
+      "xmlPlaceholder": "<?xml version=\"1.0\"?><root>...</root>",
+      "convertButton": "转换为JSON",
+      "jsonOutput": "JSON输出",
+      "pleaseEnterXml": "请输入XML数据",
+      "convertedSuccess": "成功转换为JSON！",
+      "invalidXmlFormat": "无效的XML格式",
+      "copiedToClipboard": "已复制到剪贴板！",
+      "allFieldsCleared": "所有字段已清除",
+      "exampleLoaded": "示例已加载",
+      "whatIs": "什么是XML转JSON转换器？",
+      "whatIsContent": "此工具将XML数据转换为JSON格式，使其在现代Web应用程序和API中更易于使用。非常适合数据转换！🔄",
+      "useCases": {
+        "apiMigration": {
+          "title": "API迁移",
+          "description": "将旧式XML API转换为现代JSON格式"
+        },
+        "dataProcessing": {
+          "title": "数据处理",
+          "description": "在JavaScript应用程序中处理XML数据"
+        },
+        "configFiles": {
+          "title": "配置文件",
+          "description": "将XML配置文件转换为JSON格式"
+        },
+        "webDevelopment": {
+          "title": "Web开发",
+          "description": "在现代框架中使用XML数据"
+        }
+      },
+      "proTips": {
+        "attributes": "<strong>属性：</strong>XML属性在JSON中变为@attributes",
+        "arrays": "<strong>数组：</strong>同名的多个元素变为数组",
+        "structure": "<strong>结构：</strong>在JSON中保留XML层次结构",
+        "validation": "<strong>验证：</strong>转换前检查XML是否有效"
+      },
+      "relatedTools": "🔗 您可能喜欢的相关工具"
     },
     "markdown-to-html": {
       "title": "Markdown转HTML",
-      "description": "将Markdown转换为HTML"
+      "description": "将Markdown转换为HTML",
+      "convertMarkdownToHtml": "将Markdown转换为HTML",
+      "descriptionFull": "将Markdown语法转换为HTML标记",
+      "markdownInput": "Markdown输入",
+      "markdownPlaceholder": "# 你好世界",
+      "convertButton": "转换为HTML",
+      "htmlOutput": "HTML输出",
+      "pleaseEnterMarkdown": "请输入Markdown",
+      "convertedSuccess": "成功转换为HTML！",
+      "copiedToClipboard": "已复制到剪贴板！",
+      "allFieldsCleared": "所有字段已清除",
+      "exampleLoaded": "示例已加载",
+      "whatIs": "什么是Markdown转HTML？",
+      "whatIsContent": "此工具将Markdown语法转换为干净的HTML标记。非常适合博主、开发人员和需要快速生成HTML的内容创作者！📝",
+      "useCases": {
+        "blogPosts": {
+          "title": "博客文章",
+          "description": "将Markdown文章转换为HTML以发布"
+        },
+        "documentation": {
+          "title": "文档",
+          "description": "将README文件转换为HTML格式"
+        },
+        "webDevelopment": {
+          "title": "Web开发",
+          "description": "为网站生成HTML代码片段"
+        },
+        "emailTemplates": {
+          "title": "电子邮件模板",
+          "description": "从Markdown创建HTML电子邮件内容"
+        }
+      },
+      "proTips": {
+        "headers": "<strong>标题：</strong>使用 # 表示 h1，## 表示 h2，### 表示 h3",
+        "formatting": "<strong>格式：</strong>**粗体** 表示粗体，*斜体* 表示斜体",
+        "links": "<strong>链接：</strong>[文本](url) 格式表示超链接",
+        "lists": "<strong>列表：</strong>使用 - 或 * 表示项目符号"
+      },
+      "relatedTools": "🔗 您可能喜欢的相关工具"
     },
     "discount-calculator": {
       "title": "折扣计算器",
-      "description": "计算折扣和最终价格"
+      "description": "计算折扣金额和最终价格",
+      "calculateDiscounts": "计算折扣",
+      "originalPrice": "原价 ($)",
+      "discount": "折扣 (%)",
+      "youSave": "您节省",
+      "finalPrice": "最终价格",
+      "whatIs": "什么是折扣计算器？",
+      "whatIsContent": "此工具帮助您快速计算折扣价格和节省金额。非常适合购物、销售分析和预算规划！💰",
+      "useCases": {
+        "onlineShopping": {
+          "title": "在线购物",
+          "description": "在促销活动期间计算最终价格"
+        },
+        "priceComparison": {
+          "title": "价格比较",
+          "description": "比较不同商店的优惠"
+        },
+        "salesAnalysis": {
+          "title": "销售分析",
+          "description": "分析折扣对收入的影响"
+        },
+        "budgetPlanning": {
+          "title": "预算规划",
+          "description": "在折扣季节计划购买"
+        }
+      },
+      "proTips": {
+        "instantResults": "<strong>即时结果：</strong>实时查看节省金额计算",
+        "anyCurrency": "<strong>任何货币：</strong>适用于美元、欧元或任何货币",
+        "stackDiscounts": "<strong>叠加折扣：</strong>分别计算多重折扣",
+        "quickCompare": "<strong>快速比较：</strong>非常适合黑色星期五购物"
+      },
+      "relatedTools": "🔗 您可能喜欢的相关工具"
+    },
+    "tip-calculator": {
+      "title": "小费计算器",
+      "description": "计算小费并在多人之间分账"
     },
     "password-strength-checker": {
       "title": "密码强度检查",
-      "description": "分析密码安全性并获得改进建议"
+      "description": "分析密码安全性并获得改进建议",
+      "checkPasswordStrength": "检查密码强度",
+      "enterPassword": "输入密码",
+      "placeholder": "输入您的密码...",
+      "examplePassword": "MyP@ssw0rd2024!",
+      "passwordStrength": "密码强度",
+      "secure": "安全",
+      "strength": {
+        "veryWeak": "非常弱",
+        "weak": "弱",
+        "medium": "中等",
+        "strong": "强",
+        "veryStrong": "非常强"
+      },
+      "checks": {
+        "length": "12+ 字符",
+        "uppercase": "大写字母 (A-Z)",
+        "lowercase": "小写字母 (a-z)",
+        "numbers": "数字 (0-9)",
+        "special": "特殊字符 (!@#$...)"
+      },
+      "suggestions": {
+        "length": "使用至少12个字符",
+        "uppercase": "添加大写字母 (A-Z)",
+        "lowercase": "添加小写字母 (a-z)",
+        "numbers": "添加数字 (0-9)",
+        "special": "添加特殊字符 (!@#$...)"
+      },
+      "suggestionsTitle": "改进建议",
+      "whatIs": "什么是密码强度检查器？",
+      "whatIsContent": "此工具分析您密码的安全级别并提供实时反馈，帮助创建更强的密码。所有分析都在您的浏览器本地进行！🔒",
+      "useCases": {
+        "accountSecurity": {
+          "title": "账户安全",
+          "description": "检查您的密码是否符合安全标准"
+        },
+        "passwordCreation": {
+          "title": "密码创建",
+          "description": "在创建新密码时获取建议"
+        },
+        "securityAudit": {
+          "title": "安全审计",
+          "description": "审计现有密码的漏洞"
+        },
+        "learnBestPractices": {
+          "title": "学习最佳实践",
+          "description": "了解什么使密码强大"
+        }
+      },
+      "proTips": {
+        "lengthMatters": "<strong>长度很重要：</strong>12+字符显著提高安全性",
+        "mixItUp": "<strong>混合使用：</strong>结合字母、数字和符号",
+        "avoidCommonWords": "<strong>避免常用词：</strong>不要使用字典单词或名字",
+        "privacyFirst": "<strong>隐私优先：</strong>分析仅在您的浏览器中进行"
+      },
+      "relatedTools": "🔗 相关工具"
     },
     "email-validator": {
       "title": "邮箱验证器",
-      "description": "批量验证电子邮件地址（符合RFC 5322标准）"
+      "description": "批量验证电子邮件地址（符合RFC 5322标准）",
+      "validateEmails": "验证电子邮件地址",
+      "descriptionFull": "检查电子邮件地址是否有效（每行一个）",
+      "emailAddresses": "电子邮件地址",
+      "emailPlaceholder": "输入电子邮件地址（每行一个）...",
+      "validateButton": "验证邮箱",
+      "valid": "有效",
+      "invalid": "无效",
+      "exportValid": "导出有效邮箱",
+      "pleaseEnterEmails": "请输入电子邮件地址",
+      "validatedCount": "已验证 {{total}} 个邮箱 - {{valid}} 个有效",
+      "noResultsToExport": "没有结果可导出",
+      "validEmailsExported": "有效邮箱已导出！",
+      "cleared": "已清除",
+      "exampleLoaded": "示例已加载",
+      "errors": {
+        "empty": "邮箱为空",
+        "invalidFormat": "无效的邮箱格式",
+        "localPartTooLong": "本地部分太长（最多64个字符）",
+        "domainTooLong": "域名太长（最多255个字符）",
+        "localPartDotPosition": "本地部分不能以点开头或结尾",
+        "consecutiveDots": "不允许连续的点",
+        "domainNoDot": "域名必须包含点"
+      },
+      "whatIs": "什么是邮箱验证器？",
+      "whatIsContent": "此工具根据RFC 5322标准验证电子邮件地址。非常适合清理电子邮件列表、验证表单输入和数据验证！✉️",
+      "useCases": {
+        "listCleaning": {
+          "title": "邮件列表清理",
+          "description": "从邮件列表中删除无效邮箱"
+        },
+        "formValidation": {
+          "title": "表单验证",
+          "description": "在提交前验证邮箱格式"
+        },
+        "dataImport": {
+          "title": "数据导入",
+          "description": "导入CRM前验证邮箱"
+        },
+        "bulkValidation": {
+          "title": "批量验证",
+          "description": "一次检查数百个邮箱"
+        }
+      },
+      "proTips": {
+        "batchProcessing": "<strong>批量处理：</strong>一次验证多个邮箱",
+        "rfcCompliant": "<strong>符合RFC标准：</strong>严格遵循邮箱标准",
+        "exportValid": "<strong>导出有效邮箱：</strong>仅下载有效邮箱",
+        "instantFeedback": "<strong>即时反馈：</strong>查看详细的错误原因"
+      },
+      "relatedTools": "🔗 您可能喜欢的相关工具"
     },
     "stopwatch-timer": {
       "title": "秒表和计时器",
-      "description": "使用秒表或设置倒计时器来跟踪时间"
+      "description": "使用秒表或设置倒计时器来跟踪时间",
+      "stopwatchAndCountdownTimer": "秒表和倒计时器",
+      "stopwatch": "秒表",
+      "timer": "计时器",
+      "hoursMinutesSecondsMilliseconds": "小时 : 分钟 : 秒 . 毫秒",
+      "hoursMinutesSeconds": "小时 : 分钟 : 秒",
+      "start": "开始",
+      "pause": "暂停",
+      "reset": "重置",
+      "resume": "继续",
+      "minutes": "分钟",
+      "seconds": "秒",
+      "min": "分钟",
+      "startTimer": "开始计时器",
+      "pleaseSetValidTime": "请设置有效时间",
+      "timerComplete": "⏰ 计时完成！",
+      "whatIs": "什么是秒表和计时器？",
+      "whatIsContent": "一个多功能的时间跟踪工具，包含用于测量经过时间的秒表和用于设置时间限制的倒计时器。非常适合锻炼、烹饪、学习和提高生产力！⏱️",
+      "useCases": {
+        "fitness": {
+          "title": "健身",
+          "description": "跟踪锻炼间隔和休息时间"
+        },
+        "cooking": {
+          "title": "烹饪",
+          "description": "为食谱和烘焙设置计时器"
+        },
+        "studying": {
+          "title": "学习",
+          "description": "为学习和休息时间计时"
+        },
+        "productivity": {
+          "title": "生产力",
+          "description": "跟踪任务持续时间和截止日期"
+        }
+      },
+      "proTips": {
+        "stopwatch": "<strong>秒表：</strong>非常适合跟踪运动次数",
+        "timer": "<strong>计时器：</strong>时间到时获得通知",
+        "quickPresets": "<strong>快速预设：</strong>使用5、10、25、30分钟按钮",
+        "precision": "<strong>精度：</strong>秒表显示毫秒"
+      },
+      "relatedTools": "🔗 您可能喜欢的相关工具"
     },
     "pomodoro-timer": {
       "title": "番茄钟",
-      "description": "专注计时器：25分钟工作，5分钟休息"
+      "description": "专注计时器：25分钟工作，5分钟休息",
+      "pomodoroTechnique": "番茄工作法计时器",
+      "descriptionFull": "25分钟专注 + 5分钟休息循环",
+      "focusTime": "🍅 专注时间",
+      "shortBreak": "☕ 短休息",
+      "longBreak": "🌴 长休息",
+      "pomodorosCompleted": "已完成番茄钟：{{count}}",
+      "start": "开始",
+      "pause": "暂停",
+      "reset": "重置",
+      "longBreakTime": "🎉 该长休息了！",
+      "shortBreakTime": "☕ 该短休息了！",
+      "focusTimeNow": "💪 该专注了！",
+      "whatIs": "什么是番茄钟？",
+      "whatIsContent": "一种生产力技巧，使用25分钟的专注工作时段，然后进行短暂休息。完成4个番茄钟后，休息15分钟！🍅",
+      "useCases": {
+        "deepWork": {
+          "title": "深度工作",
+          "description": "专注编码、写作或学习时段"
+        },
+        "productivity": {
+          "title": "提升生产力",
+          "description": "用时间盒方法对抗拖延症"
+        },
+        "timeManagement": {
+          "title": "时间管理",
+          "description": "更好地估计任务完成时间"
+        },
+        "preventBurnout": {
+          "title": "防止疲劳",
+          "description": "定期休息保持精力"
+        }
+      },
+      "proTips": {
+        "focusFully": "<strong>全神贯注：</strong>25分钟工作期间零干扰",
+        "shortBreaks": "<strong>短休息：</strong>站起来、伸展、喝水",
+        "longBreaks": "<strong>长休息：</strong>每4个番茄钟，休息15分钟",
+        "trackProgress": "<strong>跟踪进度：</strong>统计完成的番茄钟数"
+      },
+      "relatedTools": "🔗 您可能喜欢的相关工具"
     },
     "whitespace-remover": {
       "title": "空白符删除",
-      "description": "删除文本中多余的空格、制表符和换行符"
+      "description": "删除文本中多余的空格、制表符和换行符",
+      "removeWhitespace": "删除多余空白符",
+      "cleanupText": "清理空格、制表符和换行符",
+      "inputText": "输入文本",
+      "inputPlaceholder": "输入包含额外空格、制表符或换行符的文本...",
+      "characters": "字符",
+      "options": "选项：",
+      "removeExtraSpaces": "删除多余空格（多个空格→单个空格）",
+      "removeTabs": "删除制表符（转换为空格）",
+      "trimLines": "修剪每行开头/结尾的空格",
+      "removeLineBreaks": "删除所有换行符（变为单行）",
+      "output": "输出",
+      "reducedBy": "减少了",
+      "enterTextFirst": "请先输入一些文本",
+      "whitespaceRemoved": "空白符已删除！",
+      "copiedToClipboard": "已复制到剪贴板！",
+      "allFieldsCleared": "所有字段已清除",
+      "exampleLoaded": "示例已加载",
+      "exampleText": "这    是    一段    有    很多    额外    空格    的    文本。\n\n    \n还有     一些     空行。\n\n\t它也\t有\t制表符。\n  \n  并且在    开头    和    结尾    有空格。  ",
+      "whatIs": "什么是空白符删除器？",
+      "whatIsContent": "此工具可删除文本中的额外空格、制表符和换行符。非常适合清理复制的文本、代码格式化或数据准备！🧹",
+      "useCases": {
+        "code": {
+          "title": "代码清理",
+          "description": "从代码片段中删除额外空格"
+        },
+        "text": {
+          "title": "文本处理",
+          "description": "清理从PDF或网站复制的文本"
+        },
+        "data": {
+          "title": "数据准备",
+          "description": "格式化数据以用于CSV或数据库导入"
+        },
+        "content": {
+          "title": "内容写作",
+          "description": "删除文档中的格式问题"
+        }
+      },
+      "proTips": {
+        "options": "<strong>选项：</strong>使用复选框自定义要删除的内容",
+        "lineBreaks": "<strong>换行符：</strong>保留用于多行，删除用于单行",
+        "trimLines": "<strong>修剪行：</strong>删除每行前后的空格",
+        "preview": "<strong>预览：</strong>处理后查看减少百分比"
+      },
+      "relatedTools": "🔗 您可能喜欢的相关工具"
     },
     "ip-lookup": {
       "title": "IP地址查询",
-      "description": "获取任何IP地址的信息"
+      "description": "获取任何IP地址的信息",
+      "ipAddressInfo": "IP地址信息",
+      "descriptionFull": "获取任何IP的位置和ISP详情",
+      "inputPlaceholder": "输入IP地址（留空查询您的IP）",
+      "lookup": "查询",
+      "loading": "加载中...",
+      "cleared": "已清除",
+      "exampleLoaded": "示例IP已加载（Google DNS）",
+      "invalidIp": "无效的IP地址",
+      "ipInfoRetrieved": "IP信息已获取！",
+      "failedToLookup": "查询IP失败",
+      "ipAddress": "IP地址",
+      "location": "位置",
+      "isp": "ISP",
+      "timezone": "时区",
+      "coordinates": "坐标",
+      "postalCode": "邮政编码",
+      "whatIs": "什么是IP查询？",
+      "whatIsContent": "获取任何IP地址的详细信息，包括位置、ISP、时区等。留空以检查您自己的IP！🌍",
+      "useCases": {
+        "networkSecurity": {
+          "title": "网络安全",
+          "description": "识别可疑的IP地址"
+        },
+        "geolocation": {
+          "title": "地理定位",
+          "description": "查找访问者的地理位置"
+        },
+        "troubleshooting": {
+          "title": "故障排除",
+          "description": "调试网络连接问题"
+        },
+        "analytics": {
+          "title": "网站分析",
+          "description": "了解您的受众人口统计"
+        }
+      },
+      "proTips": {
+        "yourIp": "<strong>您的IP：</strong>留空字段以检查您自己的IP",
+        "privacy": "<strong>隐私：</strong>使用VPN来掩盖您的IP地址",
+        "location": "<strong>位置：</strong>准确性因ISP而异",
+        "ispInfo": "<strong>ISP信息：</strong>识别互联网服务提供商"
+      },
+      "relatedTools": "🔗 您可能喜欢的相关工具"
     },
     "barcode-generator": {
       "title": "条形码生成器",
-      "description": "从文本生成条形码（Code128、EAN、UPC）"
+      "description": "从文本生成条形码（Code128、EAN、UPC）",
+      "generateBarcodes": "生成条形码",
+      "barcodeText": "条形码文本/数字",
+      "barcodeFormat": "条形码格式",
+      "placeholder": "输入文本或数字...",
+      "generateBarcode": "生成条形码",
+      "generatedBarcode": "生成的条形码",
+      "downloadBarcode": "下载条形码",
+      "downloadPng": "下载为PNG",
+      "downloadJpg": "下载为JPG",
+      "pleaseEnterText": "请输入要编码的文本",
+      "barcodeGenerated": "条形码生成成功！",
+      "downloaded": "条形码已下载为{{format}}格式！",
+      "downloadFailed": "下载条形码为{{format}}格式失败",
+      "exampleText": "123456789012",
+      "formats": {
+        "code128": "Code 128（字母数字）",
+        "ean13": "EAN-13（产品）",
+        "upca": "UPC-A（零售）",
+        "code39": "Code 39（工业）"
+      },
+      "whatIs": "什么是条形码生成器？",
+      "whatIsContent": "为产品、库存和资产跟踪创建专业条形码。支持多种格式，包括Code128、EAN-13和UPC！📦",
+      "useCases": {
+        "title": "常见用途",
+        "retailProducts": {
+          "title": "零售产品",
+          "description": "为商店商品生成UPC/EAN"
+        },
+        "inventory": {
+          "title": "库存管理",
+          "description": "跟踪仓库库存水平"
+        },
+        "assetTracking": {
+          "title": "资产跟踪",
+          "description": "标记设备和工具"
+        },
+        "shippingLabels": {
+          "title": "运输标签",
+          "description": "创建包裹跟踪代码"
+        }
+      },
+      "proTips": {
+        "title": "💡 专业提示",
+        "code128": "<strong>Code128：</strong>最适合字母数字数据",
+        "ean13": "<strong>EAN-13：</strong>产品需要13位数字",
+        "highQuality": "<strong>高质量：</strong>下载PNG用于打印",
+        "testScan": "<strong>测试扫描：</strong>打印前用扫描器验证"
+      },
+      "relatedTools": "🔗 相关工具"
     },
     "color-gradient-generator": {
       "title": "渐变色生成器",
-      "description": "创建漂亮的CSS渐变，实时预览"
+      "description": "创建漂亮的CSS渐变，实时预览",
+      "cssGradientGenerator": "CSS渐变生成器",
+      "startColor": "起始颜色",
+      "endColor": "结束颜色",
+      "direction": "方向",
+      "directions": {
+        "leftToRight": "从左到右 →",
+        "rightToLeft": "从右到左 ←",
+        "topToBottom": "从上到下 ↓",
+        "bottomToTop": "从下到上 ↑",
+        "diagonal": "对角线 ↘",
+        "customAngle": "自定义角度"
+      },
+      "angle": "角度：{{angle}}°",
+      "cssCode": "CSS代码",
+      "copyCss": "复制CSS",
+      "cssCopied": "CSS已复制到剪贴板！",
+      "gradientPresets": "渐变预设",
+      "presets": {
+        "sunset": "日落",
+        "ocean": "海洋",
+        "forest": "森林",
+        "purpleDream": "紫色梦境",
+        "fire": "火焰",
+        "sky": "天空"
+      },
+      "whatIs": "什么是颜色渐变生成器？",
+      "whatIsContent": "通过实时预览创建令人惊艳的CSS渐变。选择颜色、方向，并复制即用的CSS代码！🎨",
+      "useCases": {
+        "websiteBackgrounds": {
+          "title": "网站背景",
+          "description": "美丽的主页部分渐变"
+        },
+        "uiComponents": {
+          "title": "UI组件",
+          "description": "按钮、卡片和徽章"
+        },
+        "brandColors": {
+          "title": "品牌色彩",
+          "description": "创建品牌标识渐变"
+        },
+        "socialMedia": {
+          "title": "社交媒体",
+          "description": "引人注目的帖子背景"
+        }
+      },
+      "proTips": {
+        "livePreview": "<strong>实时预览：</strong>实时查看变化",
+        "presets": "<strong>预设：</strong>从漂亮的组合开始",
+        "copyCss": "<strong>复制CSS：</strong>一键即用代码",
+        "customAngles": "<strong>自定义角度：</strong>微调渐变方向"
+      },
+      "relatedTools": "🔗 您可能喜欢的相关工具"
     },
     "jwt-decoder": {
       "title": "JWT解码器",
-      "description": "解码和检查JWT令牌的头部和载荷"
+      "description": "解码和检查JWT令牌的头部和载荷",
+      "decodeJwtToken": "解码JWT令牌",
+      "jwtToken": "JWT令牌",
+      "placeholder": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+      "decodeJwt": "解码JWT",
+      "pleaseEnterToken": "请输入JWT令牌",
+      "invalidJwtFormat": "无效的JWT格式",
+      "invalidJwtToken": "无效的JWT令牌",
+      "decodedSuccessfully": "JWT解码成功！",
+      "copiedToClipboard": "{{label}}已复制到剪贴板！",
+      "validJwtFormat": "有效的JWT格式",
+      "header": "头部",
+      "payload": "载荷",
+      "signature": "签名",
+      "signatureBase64": "签名（Base64）",
+      "signatureWarning": "签名验证需要密钥",
+      "whatIs": "什么是JWT解码器？",
+      "whatIsContent": "此工具解码JWT（JSON Web令牌）以检查头部、载荷和签名。非常适合调试身份验证、测试API和理解令牌结构！🔐",
+      "useCases": {
+        "authentication": {
+          "title": "身份验证",
+          "description": "解码身份验证令牌以检查用户声明和角色"
+        },
+        "debugging": {
+          "title": "调试",
+          "description": "在API身份验证流程中调试JWT问题"
+        },
+        "tokenAnalysis": {
+          "title": "令牌分析",
+          "description": "分析令牌过期时间、发行者和声明"
+        },
+        "apiTesting": {
+          "title": "API测试",
+          "description": "在API开发和测试期间检查令牌"
+        }
+      },
+      "proTips": {
+        "security": "<strong>安全性：</strong>JWT解码是安全的 - 它只是Base64解码",
+        "expiration": "<strong>过期时间：</strong>检查'exp'声明以获取令牌过期时间",
+        "claims": "<strong>声明：</strong>载荷包含用户数据和权限",
+        "verification": "<strong>验证：</strong>签名需要密钥才能验证"
+      },
+      "relatedTools": "🔗 您可能喜欢的相关工具"
     },
     "sql-formatter": {
       "title": "SQL格式化",
-      "description": "格式化和美化SQL查询，提高可读性"
+      "description": "格式化和美化SQL查询，提高可读性",
+      "formatSqlQueries": "格式化SQL查询",
+      "sqlInput": "SQL输入",
+      "placeholder": "SELECT * FROM users WHERE...",
+      "formatSql": "格式化SQL",
+      "formattedSql": "格式化的SQL",
+      "pleaseEnterSql": "请输入SQL查询",
+      "formattedSuccessfully": "SQL格式化成功！",
+      "errorFormatting": "格式化SQL时出错",
+      "exampleSql": "select u.id,u.name,o.order_id from users u inner join orders o on u.id=o.user_id where u.status='active' and o.total>100 order by o.created_at desc limit 10",
+      "whatIs": "什么是SQL格式化？",
+      "whatIsContent": "这个工具通过添加适当的缩进、换行和标准化关键字大写来格式化和美化SQL查询。非常适合提高代码可读性和保持一致的SQL风格！📝",
+      "useCases": {
+        "codeReview": {
+          "title": "代码审查",
+          "description": "格式化复杂查询以便更好地进行代码审查"
+        },
+        "documentation": {
+          "title": "文档编写",
+          "description": "创建清晰易读的SQL用于文档编写"
+        },
+        "debugging": {
+          "title": "调试",
+          "description": "格式化混乱的查询以便轻松识别问题"
+        },
+        "learning": {
+          "title": "学习",
+          "description": "通过适当的格式化理解SQL结构"
+        }
+      },
+      "proTips": {
+        "keywords": "<strong>关键字：</strong>所有SQL关键字自动大写",
+        "indentation": "<strong>缩进：</strong>嵌套子句的适当缩进",
+        "lineBreaks": "<strong>换行：</strong>SQL子句之间的逻辑换行",
+        "consistency": "<strong>一致性：</strong>标准化格式便于团队协作"
+      },
+      "relatedTools": "🔗 您可能喜欢的相关工具"
     },
     "code-minifier": {
       "title": "代码压缩",
-      "description": "压缩HTML、CSS和JavaScript以减小文件大小"
+      "description": "压缩HTML、CSS和JavaScript以减小文件大小",
+      "minifyCode": "压缩代码",
+      "htmlInput": "HTML输入",
+      "cssInput": "CSS输入",
+      "jsInput": "JavaScript输入",
+      "htmlPlaceholder": "<html>...</html>",
+      "cssPlaceholder": ".class { property: value; }",
+      "jsPlaceholder": "function myFunc() { ... }",
+      "minifyHtml": "压缩HTML",
+      "minifyCss": "压缩CSS",
+      "minifyJs": "压缩JavaScript",
+      "minifiedOutput": "压缩输出",
+      "size": "大小",
+      "bytes": "字节",
+      "reduction": "减少",
+      "pleaseEnterHtml": "请输入HTML代码",
+      "pleaseEnterCss": "请输入CSS代码",
+      "pleaseEnterJs": "请输入JavaScript代码",
+      "htmlMinified": "HTML已压缩！{{reduction}}%大小减少",
+      "cssMinified": "CSS已压缩！{{reduction}}%大小减少",
+      "jsMinified": "JavaScript已压缩！{{reduction}}%大小减少",
+      "errorMinifyingHtml": "压缩HTML时出错",
+      "errorMinifyingCss": "压缩CSS时出错",
+      "errorMinifyingJs": "压缩JavaScript时出错",
+      "copiedToClipboard": "已将压缩的{{type}}复制到剪贴板！",
+      "exampleHtml": "<!DOCTYPE html>\n<html lang=\"en\">\n  <head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>示例页面</title>\n  </head>\n  <body>\n    <!-- 主要内容 -->\n    <div class=\"container\">\n      <h1>欢迎访问我的网站</h1>\n      <p>这是一个带有一些内容的示例段落。</p>\n    </div>\n  </body>\n</html>",
+      "exampleCss": "/* 主要样式 */\n.container {\n  max-width: 1200px;\n  margin: 0 auto;\n  padding: 20px;\n}\n\nh1 {\n  color: #333;\n  font-size: 2rem;\n  margin-bottom: 1rem;\n}\n\np {\n  line-height: 1.6;\n  color: #666;\n}",
+      "exampleJs": "// 问候用户的函数\nfunction greetUser(name) {\n  const greeting = \"你好，\" + name + \"！\";\n  console.log(greeting);\n  return greeting;\n}\n\n// 计算总和\nfunction calculateSum(a, b) {\n  return a + b;\n}\n\ngreetUser(\"世界\");",
+      "whatIs": "什么是代码压缩？",
+      "whatIsContent": "这个工具通过删除注释、空白和不必要的字符来压缩HTML、CSS和JavaScript代码。非常适合优化网站性能和减少带宽！⚡",
+      "useCases": {
+        "performance": {
+          "title": "性能",
+          "description": "减小文件大小以提高页面加载速度"
+        },
+        "bandwidth": {
+          "title": "带宽",
+          "description": "通过较小的文件传输节省带宽成本"
+        },
+        "production": {
+          "title": "生产",
+          "description": "为生产部署准备代码"
+        },
+        "seo": {
+          "title": "SEO",
+          "description": "通过更快的页面加载提高SEO排名"
+        }
+      },
+      "proTips": {
+        "development": "<strong>开发：</strong>在开发中使用原始代码",
+        "production": "<strong>生产：</strong>将压缩代码部署到生产环境",
+        "testing": "<strong>测试：</strong>部署前始终测试压缩代码",
+        "backup": "<strong>备份：</strong>保留原始源文件以供更新"
+      },
+      "relatedTools": "🔗 您可能喜欢的相关工具"
     },
     "http-status-codes": {
       "title": "HTTP状态码",
-      "description": "HTTP状态码及其含义的快速参考"
+      "description": "HTTP状态码及其含义的快速参考",
+      "httpStatusCodeReference": "HTTP状态码参考",
+      "descriptionFull": "快速查找HTTP响应状态码",
+      "searchPlaceholder": "按代码、名称或描述搜索...",
+      "searchCleared": "搜索已清除",
+      "exampleLoaded": "示例已加载 - 搜索404未找到",
+      "categories": {
+        "1xx": "1xx 信息",
+        "2xx": "2xx 成功",
+        "3xx": "3xx 重定向",
+        "4xx": "4xx 客户端错误",
+        "5xx": "5xx 服务器错误"
+      },
+      "noResults": "未找到匹配\"{{term}}\"的状态码",
+      "whatIs": "什么是HTTP状态码？",
+      "whatIsContent": "互联网上Web服务器给出的标准响应代码。它们帮助识别网页无法正常加载时的问题原因。🌐",
+      "quickCategoryGuide": "快速分类指南",
+      "categoryGuide": {
+        "2xx": {
+          "title": "✅ 2xx - 成功",
+          "description": "请求已接收、理解并接受"
+        },
+        "3xx": {
+          "title": "🔄 3xx - 重定向",
+          "description": "需要进一步操作以完成请求"
+        },
+        "4xx": {
+          "title": "⚠️ 4xx - 客户端错误",
+          "description": "请求包含错误语法或无法完成"
+        },
+        "5xx": {
+          "title": "❌ 5xx - 服务器错误",
+          "description": "服务器无法完成有效请求"
+        }
+      },
+      "mostCommonCodes": "💡 最常见的代码",
+      "commonCodes": {
+        "200": "<strong>200:</strong> 一切正常",
+        "404": "<strong>404:</strong> 页面或资源未找到",
+        "500": "<strong>500:</strong> 服务器遇到错误",
+        "401": "<strong>401:</strong> 需要身份验证"
+      },
+      "codes": {
+        "100": {
+          "name": "继续",
+          "description": "服务器已接收请求头，客户端应继续发送请求体"
+        },
+        "101": {
+          "name": "切换协议",
+          "description": "请求者已要求服务器切换协议"
+        },
+        "200": {
+          "name": "成功",
+          "description": "请求成功"
+        },
+        "201": {
+          "name": "已创建",
+          "description": "请求成功并已创建资源"
+        },
+        "202": {
+          "name": "已接受",
+          "description": "请求已接受处理，但处理尚未完成"
+        },
+        "204": {
+          "name": "无内容",
+          "description": "服务器成功处理了请求但未返回任何内容"
+        },
+        "301": {
+          "name": "永久移动",
+          "description": "请求资源的URL已永久更改"
+        },
+        "302": {
+          "name": "找到",
+          "description": "请求资源的URI已临时更改"
+        },
+        "304": {
+          "name": "未修改",
+          "description": "客户端可以使用缓存数据"
+        },
+        "307": {
+          "name": "临时重定向",
+          "description": "应使用另一个URI重复请求"
+        },
+        "308": {
+          "name": "永久重定向",
+          "description": "请求和所有未来请求都应使用另一个URI重复"
+        },
+        "400": {
+          "name": "错误请求",
+          "description": "服务器因客户端错误无法处理请求"
+        },
+        "401": {
+          "name": "未授权",
+          "description": "需要身份验证但失败或未提供"
+        },
+        "403": {
+          "name": "禁止",
+          "description": "客户端无权访问内容"
+        },
+        "404": {
+          "name": "未找到",
+          "description": "服务器找不到请求的资源"
+        },
+        "405": {
+          "name": "方法不允许",
+          "description": "请求的资源不支持该请求方法"
+        },
+        "408": {
+          "name": "请求超时",
+          "description": "服务器等待请求超时"
+        },
+        "409": {
+          "name": "冲突",
+          "description": "请求与服务器的当前状态冲突"
+        },
+        "410": {
+          "name": "已删除",
+          "description": "请求的资源不再可用且不会再次可用"
+        },
+        "413": {
+          "name": "负载过大",
+          "description": "请求实体大于服务器定义的限制"
+        },
+        "415": {
+          "name": "不支持的媒体类型",
+          "description": "不支持请求数据的媒体格式"
+        },
+        "429": {
+          "name": "请求过多",
+          "description": "用户在给定时间内发送了太多请求"
+        },
+        "500": {
+          "name": "内部服务器错误",
+          "description": "服务器发生了通用错误"
+        },
+        "501": {
+          "name": "未实现",
+          "description": "服务器不支持实现请求所需的功能"
+        },
+        "502": {
+          "name": "错误网关",
+          "description": "服务器从上游服务器收到无效响应"
+        },
+        "503": {
+          "name": "服务不可用",
+          "description": "服务器当前不可用（过载或停机）"
+        },
+        "504": {
+          "name": "网关超时",
+          "description": "服务器未从上游服务器及时收到响应"
+        }
+      },
+      "relatedTools": "🔗 您可能喜欢的相关工具"
     },
     "api-tester": {
       "title": "API测试器",
-      "description": "通过发送HTTP请求和检查响应来测试REST API"
+      "description": "通过发送HTTP请求和检查响应来测试REST API",
+      "testApiEndpoints": "测试API端点",
+      "descriptionFull": "发送HTTP请求并检查响应",
+      "getExample": "GET示例",
+      "postExample": "POST示例",
+      "urlPlaceholder": "https://api.example.com/endpoint",
+      "sending": "发送中...",
+      "send": "发送",
+      "tabs": {
+        "headers": "请求头",
+        "body": "请求体"
+      },
+      "requestHeaders": "请求头 (JSON)",
+      "requestHeadersPlaceholder": "{\"Authorization\": \"Bearer token\", \"Custom-Header\": \"value\"}",
+      "requestBody": "请求体",
+      "requestBodyPlaceholder": "{\"key\": \"value\"}",
+      "bodyNotAvailable": "请求体不适用于 {{method}} 请求",
+      "status": "状态",
+      "success": "成功",
+      "error": "错误",
+      "info": "信息",
+      "responseTime": "响应时间：{{time}}ms",
+      "response": "响应",
+      "pleaseEnterUrl": "请输入URL",
+      "invalidJsonHeaders": "请求头中的JSON无效",
+      "requestCompleted": "请求完成 ({{status}})",
+      "requestFailed": "请求失败",
+      "responseCopied": "响应已复制到剪贴板！",
+      "allFieldsCleared": "所有字段已清除",
+      "exampleLoaded": "示例已加载 - 点击发送进行测试",
+      "postExampleLoaded": "POST示例已加载 - 点击发送进行测试",
+      "whatIs": "什么是API测试器？",
+      "whatIsContent": "此工具允许您通过发送HTTP请求和检查响应来测试REST API。非常适合API开发、调试和测试端点！🚀",
+      "useCases": {
+        "apiDevelopment": {
+          "title": "API开发",
+          "description": "在开发过程中测试端点"
+        },
+        "debugging": {
+          "title": "调试",
+          "description": "调试API问题并检查响应"
+        },
+        "integration": {
+          "title": "集成",
+          "description": "测试第三方API集成"
+        },
+        "quickTests": {
+          "title": "快速测试",
+          "description": "无需编写代码即可快速测试端点"
+        }
+      },
+      "proTips": {
+        "cors": "<strong>CORS：</strong>某些API可能会阻止浏览器请求",
+        "authentication": "<strong>身份验证：</strong>为受保护的端点添加认证头",
+        "json": "<strong>JSON：</strong>请求体使用有效的JSON",
+        "statusCodes": "<strong>状态码：</strong>2xx = 成功，4xx = 客户端错误，5xx = 服务器错误"
+      },
+      "httpMethods": "📋 HTTP方法",
+      "methods": {
+        "get": "从服务器检索数据",
+        "post": "创建新资源",
+        "put": "更新整个资源",
+        "patch": "部分更新资源",
+        "delete": "删除资源"
+      },
+      "relatedTools": "🔗 您可能喜欢的相关工具"
     }
   },
   "cookiePolicy": {

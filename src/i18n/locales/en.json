@@ -177,7 +177,8 @@
           "Right to non-discrimination for exercising your rights"
         ]
       },
-      "china": "For Users in China: We comply with Chinese data protection laws including the Personal Information Protection Law (PIPL). Your data is processed locally in your browser and not transferred outside of China without consent."
+      "chinaLabel": "For Users in China:",
+      "china": "We comply with Chinese data protection laws including the Personal Information Protection Law (PIPL). Your data is processed locally in your browser and not transferred outside of China without consent."
     },
     "dataRetention": {
       "title": "Data Retention",
@@ -233,7 +234,7 @@
       "content": "To maintain our free services, we may display third-party advertisements:",
       "networks": "• Ads are provided by third-party advertising networks",
       "endorse": "• We do not endorse or take responsibility for advertised products/services",
-      "content": "• Ad content is subject to advertisers' terms and privacy policies",
+      "adContent": "• Ad content is subject to advertisers' terms and privacy policies",
       "transactions": "• We are not liable for any transactions with advertisers"
     },
     "governingLaw": {
@@ -450,199 +451,2471 @@
     },
     "word-counter": {
       "title": "Word Counter",
-      "description": "Count words, characters, sentences, and paragraphs in your text"
+      "description": "Count words, characters, sentences, and paragraphs in your text",
+      "placeholder": "Start typing or paste your text here...",
+      "exampleText": "Welcome to the Word Counter! This is a powerful text analysis tool that helps you quickly understand various statistics about your text.\n\nWhether you're a student, writer, content creator, or professional, this tool provides accurate text analysis data. You can count words, characters, sentences, paragraphs, and even estimate reading time.\n\nThis tool is perfect for academic writing, content creation, social media posting, and translation work. Start using it now and make text analysis simple and efficient!",
+      "stats": {
+        "words": "Words",
+        "characters": "Characters",
+        "charactersNoSpaces": "Characters (no spaces)",
+        "sentences": "Sentences",
+        "paragraphs": "Paragraphs",
+        "readingTime": "Reading time"
+      },
+      "minutes": "minutes",
+      "whatIs": "What is a Word Counter?",
+      "whatIsContent": "This tool provides real-time text analysis including word count, character count, sentences, paragraphs, and estimated reading time. Perfect for writers, students, bloggers, and content creators who need to meet specific length requirements! 📝",
+      "useCases": {
+        "title": "Common Use Cases",
+        "academic": {
+          "title": "Academic Writing",
+          "description": "Precisely meet word count requirements for papers and dissertations"
+        },
+        "content": {
+          "title": "Content Writing",
+          "description": "Optimize blog posts and articles for better SEO performance"
+        },
+        "social": {
+          "title": "Social Media",
+          "description": "Stay within character limits on Twitter, LinkedIn, and other platforms"
+        },
+        "translation": {
+          "title": "Translation Projects",
+          "description": "Track word counts for pricing and project estimation"
+        }
+      },
+      "proTips": {
+        "title": "💡 Pro Tips",
+        "reading": {
+          "label": "Reading Time",
+          "text": "Average reading speed is 200-250 words per minute"
+        },
+        "seo": {
+          "label": "SEO",
+          "text": "Blog posts perform best at 1,500-2,500 words"
+        },
+        "twitter": {
+          "label": "Twitter",
+          "text": "280 character limit (use character count)"
+        },
+        "readability": {
+          "label": "Readability",
+          "text": "Shorter sentences and paragraphs are easier to read"
+        }
+      },
+      "relatedTools": {
+        "title": "🔗 Related Tools",
+        "caseConverter": {
+          "title": "Case Converter",
+          "description": "Convert text between different case formats"
+        },
+        "textSorter": {
+          "title": "Text Sorter",
+          "description": "Sort text lines alphabetically"
+        },
+        "textDiff": {
+          "title": "Text Diff",
+          "description": "Compare differences between two texts"
+        }
+      }
     },
     "json-formatter": {
       "title": "JSON Formatter",
-      "description": "Format and validate JSON data with syntax highlighting"
+      "description": "Format, compress, and validate JSON data with syntax highlighting",
+      "inputLabel": "Input JSON",
+      "outputLabel": "Output Result",
+      "format": "Format",
+      "minify": "Minify",
+      "formatSuccess": "JSON formatted successfully",
+      "minifySuccess": "JSON minified successfully",
+      "invalidJson": "Invalid JSON format",
+      "whatIs": "What is JSON Formatter?",
+      "whatIsContent": "This tool formats, validates, and minifies JSON data with syntax highlighting. Perfect for API development, debugging, and data validation! 🔧",
+      "useCases": {
+        "title": "Common Use Cases",
+        "api": {
+          "title": "API Development",
+          "description": "Format and validate API responses and requests"
+        },
+        "config": {
+          "title": "Configuration Files",
+          "description": "Validate and format application configuration files"
+        },
+        "database": {
+          "title": "Database Exports",
+          "description": "Format database query results and JSON exports"
+        },
+        "debugging": {
+          "title": "Debugging",
+          "description": "Validate syntax and find errors in JSON data"
+        }
+      },
+      "proTips": {
+        "title": "Pro Tips",
+        "format": "<strong>Format:</strong> Use formatting for development and debugging",
+        "minify": "<strong>Minify:</strong> Use minification for production to reduce size",
+        "validation": "<strong>Validation:</strong> Always validate before using in applications",
+        "quotes": "<strong>Quotes:</strong> JSON keys must use double quotes, not single quotes"
+      },
+      "relatedTools": "Related Tools You Might Like"
+    },
+    "base64": {
+      "title": "Base64 Tool",
+      "description": "Encode/decode Base64"
     },
     "base64-encoder": {
       "title": "Base64 Encoder/Decoder",
-      "description": "Encode and decode text to/from Base64 format"
+      "description": "Encode and decode text to/from Base64 format",
+      "encode": "Encode",
+      "decode": "Decode",
+      "inputLabel": "Input Text",
+      "base64Label": "Input Base64 Text",
+      "outputLabel": "Output Result",
+      "placeholder": "Enter your text here...",
+      "base64Placeholder": "Enter Base64 encoded text here...",
+      "encodedPlaceholder": "Encoded result will appear here...",
+      "decodedPlaceholder": "Decoded result will appear here...",
+      "exampleText": "Hello World! This is a Base64 encoding example.",
+      "exampleBase64": "SGVsbG8gV29ybGQhIFRoaXMgaXMgYSBCYXNlNjQgZW5jb2RpbmcgZXhhbXBsZS4=",
+      "encodeSuccess": "Text successfully encoded to Base64!",
+      "decodeSuccess": "Base64 successfully decoded to text!",
+      "encodeError": "Error encoding text",
+      "decodeError": "Error decoding Base64",
+      "whatIs": "What is Base64 Encoding?",
+      "whatIsContent": "Base64 is a method of encoding binary data into ASCII strings. Commonly used for transmitting data in text protocols, such as email attachments and URLs. 🔐",
+      "useCases": {
+        "title": "Common Use Cases",
+        "email": {
+          "title": "Email Attachments",
+          "description": "Encode files and images for email transmission"
+        },
+        "api": {
+          "title": "API Communication",
+          "description": "Transfer binary data in HTTP requests"
+        },
+        "image": {
+          "title": "Image Embedding",
+          "description": "Encode images as Base64 and embed in HTML or CSS"
+        },
+        "dataUrl": {
+          "title": "Data URLs",
+          "description": "Create inline resource links in data: URL format"
+        },
+        "storage": {
+          "title": "Data Storage",
+          "description": "Store binary data in JSON or XML"
+        },
+        "security": {
+          "title": "Basic Authentication",
+          "description": "Encode HTTP basic authentication credentials"
+        }
+      },
+      "proTips": {
+        "title": "💡 Pro Tips",
+        "encoding": "Encoding: Base64 increases data size by approximately 33%",
+        "security": "Security: Base64 is not encryption, don't use it to protect sensitive data",
+        "urls": "URL: Use URL-safe Base64 variant (replace + with -, / with _)",
+        "utf8": "UTF-8: Ensure proper handling of Unicode characters before encoding"
+      }
     },
     "uuid-generator": {
       "title": "UUID Generator",
-      "description": "Generate unique identifiers (UUIDs) in various formats"
+      "description": "Generate unique identifiers (UUIDs) in various formats",
+      "generate": "Generate UUID",
+      "generateMultiple": "Generate Multiple",
+      "quantity": "Quantity",
+      "version": "Version",
+      "uppercase": "Uppercase",
+      "lowercase": "Lowercase",
+      "withHyphens": "With Hyphens",
+      "withoutHyphens": "Without Hyphens",
+      "copied": "UUID copied!",
+      "generated": "Generated {count} UUIDs!",
+      "whatIs": "What is UUID?",
+      "whatIsContent": "UUID (Universally Unique Identifier) is a 128-bit unique identifier. The probability of UUID collision is extremely low, making it ideal for unique identification in distributed systems. 🆔",
+      "useCases": {
+        "title": "Common Use Cases",
+        "database": {
+          "title": "Database Primary Keys",
+          "description": "Generate unique IDs without relying on central sequences"
+        },
+        "api": {
+          "title": "API Request IDs",
+          "description": "Track and trace API requests"
+        },
+        "distributed": {
+          "title": "Distributed Systems",
+          "description": "Generate unique IDs across multiple servers and services"
+        },
+        "session": {
+          "title": "Session Tokens",
+          "description": "Generate unique identifiers for user sessions"
+        },
+        "files": {
+          "title": "File Naming",
+          "description": "Generate unique names for uploaded files"
+        }
+      },
+      "proTips": {
+        "title": "💡 Pro Tips",
+        "v4": "Version 4: Most commonly used, based on random number generation",
+        "collision": "Collision: Probability of UUID collision is extremely low (about 1 in 10^36)",
+        "format": "Format: Standard format is 8-4-4-4-12 (36 characters with hyphens)",
+        "storage": "Storage: Consider using binary format in databases to save space"
+      }
     },
     "password-generator": {
       "title": "Password Generator",
-      "description": "Create strong, secure passwords with customizable options"
+      "description": "Create strong, secure passwords with customizable options",
+      "generate": "Generate Password",
+      "length": "Password Length",
+      "options": "Options",
+      "characterTypes": "Character Types",
+      "uppercase": "Uppercase Letters (A-Z)",
+      "lowercase": "Lowercase Letters (a-z)",
+      "numbers": "Numbers (0-9)",
+      "symbols": "Symbols (!@#$%^&*)",
+      "avoidAmbiguous": "Avoid Ambiguous Characters (0,O,l,1)",
+      "passwordStrength": "Password Strength",
+      "weak": "Weak",
+      "medium": "Medium",
+      "strong": "Strong",
+      "veryStrong": "Very Strong",
+      "copied": "Password copied to clipboard!",
+      "generated": "Password generated!",
+      "cleared": "Password cleared",
+      "placeholder": "Generated password will appear here",
+      "whatIs": "What is Password Generator?",
+      "whatIsContent": "This tool generates cryptographically secure passwords with customizable length and character types. Perfect for creating strong passwords for accounts, APIs, and sensitive systems! 🔐",
+      "errors": {
+        "selectCharacterType": "Please select at least one character type",
+        "generateFirst": "Please generate a password first"
+      },
+      "useCases": {
+        "title": "Common Use Cases",
+        "accountSecurity": {
+          "title": "Account Security",
+          "description": "Create strong passwords for <span class=\"inline-flex items-center px-2 py-0.5 rounded text-xs font-semibold bg-white text-blue-800 mx-1\">email</span> and social media accounts"
+        },
+        "apiKeys": {
+          "title": "API Keys",
+          "description": "Generate secure keys for application APIs and Webhooks"
+        },
+        "databaseCredentials": {
+          "title": "Database Credentials",
+          "description": "Create secure passwords for database users and connections"
+        },
+        "systemAdmin": {
+          "title": "System Administration",
+          "description": "Generate secure passwords for servers and admin accounts"
+        },
+        "accounts": {
+          "title": "Online Accounts",
+          "description": "Create secure passwords for social media, email, etc."
+        },
+        "wifi": {
+          "title": "WiFi Passwords",
+          "description": "Generate strong WiFi network passwords"
+        },
+        "database": {
+          "title": "Database Credentials",
+          "description": "Create secure passwords for database users"
+        },
+        "app": {
+          "title": "Application Keys",
+          "description": "Generate API keys and application secrets"
+        }
+      },
+      "proTips": {
+        "title": "💡 Pro Tips",
+        "length": "<strong>Length:</strong> Use at least 12 characters for strong security",
+        "mixCharacters": "<strong>Mix Characters:</strong> Enable all options (uppercase, lowercase, numbers, symbols)",
+        "passwordManager": "<strong>Password Manager:</strong> Use a manager to store generated passwords",
+        "unique": "<strong>Uniqueness:</strong> Never reuse passwords across different accounts",
+        "manager": "Password Manager: Use a password manager to store your passwords",
+        "2fa": "Two-Factor Authentication: Enable 2FA for an extra layer of security"
+      }
     },
     "color-picker": {
       "title": "Color Picker",
-      "description": "Pick colors and convert between HEX, RGB, HSL formats"
+      "description": "Pick colors and convert between HEX, RGB, HSL formats",
+      "pickColor": "Pick Color",
+      "hex": "HEX",
+      "rgb": "RGB",
+      "hsl": "HSL",
+      "copied": "{{format}} copied to clipboard",
+      "whatIs": "What is Color Picker?",
+      "whatIsContent": "This tool helps you pick colors and convert between HEX, RGB, and HSL formats. Perfect for web development, design, and branding! 🎨",
+      "useCases": {
+        "title": "Common Use Cases",
+        "webDevelopment": {
+          "title": "Web Development",
+          "description": "Get <span class=\"inline-flex items-center px-2 py-0.5 rounded text-xs font-semibold bg-white text-blue-800 mx-1\">HEX/RGB</span> codes for CSS and styling"
+        },
+        "uiuxDesign": {
+          "title": "UI/UX Design",
+          "description": "Choose and match colors for interface design"
+        },
+        "cssStyling": {
+          "title": "CSS Styling",
+          "description": "Convert colors for web styling and themes"
+        },
+        "appDevelopment": {
+          "title": "App Development",
+          "description": "Select colors for mobile and desktop applications"
+        },
+        "webDesign": {
+          "title": "Web Design",
+          "description": "Choose and manage color schemes for websites"
+        },
+        "branding": {
+          "title": "Brand Design",
+          "description": "Create and match brand colors"
+        },
+        "ui": {
+          "title": "UI Development",
+          "description": "Use color codes in CSS and design tools"
+        },
+        "accessibility": {
+          "title": "Accessibility",
+          "description": "Check color contrast and readability"
+        }
+      },
+      "proTips": {
+        "title": "💡 Pro Tips",
+        "hex": "<strong>HEX:</strong> Most commonly used format in web development",
+        "rgb": "<strong>RGB:</strong> Each channel ranges from 0-255",
+        "hsl": "<strong>HSL:</strong> Great for creating color variations",
+        "contrast": "<strong>Accessibility:</strong> Check color contrast ratios"
+      }
     },
     "qr-generator": {
       "title": "QR Code Generator",
-      "description": "Generate QR codes from text, URLs, or other data"
+      "description": "Generate QR codes from text, URLs, or other data",
+      "inputLabel": "Input Text or URL",
+      "placeholder": "https://example.com",
+      "exampleUrl": "https://www.example.com",
+      "generate": "Generate QR Code",
+      "download": "Download QR Code",
+      "downloadPNG": "Download as PNG",
+      "downloadJPG": "Download as JPG",
+      "errorEmpty": "Please enter text or URL",
+      "generated": "QR Code generated",
+      "downloadedPNG": "QR Code downloaded as PNG",
+      "downloadedJPG": "QR Code downloaded as JPG",
+      "downloadError": "Failed to download QR Code",
+      "convertError": "Failed to convert to JPG",
+      "cleared": "Text cleared",
+      "whatIs": "What is QR Code Generator?",
+      "whatIsContent": "This tool generates QR codes from text or URLs. Perfect for business cards, event promotions, WiFi sharing, and marketing campaigns! 📱",
+      "useCases": {
+        "title": "Common Use Cases",
+        "businessCards": {
+          "title": "Business Cards",
+          "description": "Add QR codes on <span class=\"inline-flex items-center px-2 py-0.5 rounded text-xs font-semibold bg-white text-blue-800 mx-1\">business cards</span> for quick contact sharing"
+        },
+        "wifiSharing": {
+          "title": "WiFi Sharing",
+          "description": "Share WiFi credentials without typing passwords"
+        },
+        "eventPromotion": {
+          "title": "Event Promotion",
+          "description": "Create QR codes for event registration and ticket sales"
+        },
+        "contactInfo": {
+          "title": "Contact Information",
+          "description": "Instantly share social media profiles and contact details"
+        },
+        "business": {
+          "title": "Business Cards",
+          "description": "Add QR codes on business cards for quick contact sharing"
+        },
+        "wifi": {
+          "title": "WiFi Sharing",
+          "description": "Share WiFi credentials without typing passwords"
+        },
+        "event": {
+          "title": "Event Promotion",
+          "description": "Create QR codes for event registration and ticket sales"
+        },
+        "contact": {
+          "title": "Contact Information",
+          "description": "Instantly share social media profiles and contact details"
+        }
+      },
+      "proTips": {
+        "title": "💡 Pro Tips",
+        "short": "<strong>Keep it Short:</strong> QR codes work best with shorter text",
+        "test": "Test First: Scan with your phone before printing",
+        "contrast": "Contrast: Use high contrast for better scanning",
+        "instructions": "Instructions: Add scanning prompts near the QR code"
+      }
     },
     "url-encoder": {
       "title": "URL Encoder/Decoder",
-      "description": "Encode and decode URLs and query parameters"
+      "description": "Encode and decode URLs and query parameters",
+      "encode": "Encode",
+      "decode": "Decode",
+      "input": "Input",
+      "output": "Output",
+      "placeholder": "Enter text or URL",
+      "encodeSuccess": "URL encoded successfully",
+      "decodeSuccess": "URL decoded successfully",
+      "encodeError": "Encoding failed",
+      "decodeError": "Decoding failed",
+      "copied": "Copied to clipboard",
+      "cleared": "All fields cleared",
+      "exampleLoaded": "Example loaded",
+      "encodeExample": "Encode Example",
+      "decodeExample": "Decode Example",
+      "exampleText": "Hello World! This is a test URL with spaces & special characters.",
+      "exampleEncoded": "Hello%20World%21%20This%20is%20a%20test%20URL%20with%20spaces%20%26%20special%20characters.",
+      "whatIs": "What is URL Encoder/Decoder?",
+      "whatIsContent": "This tool encodes and decodes URLs (percent encoding). Perfect for handling special characters, query parameters, and secure URL transmission! 🔗",
+      "useCases": {
+        "title": "Common Use Cases",
+        "webDevelopment": {
+          "title": "Web Development",
+          "description": "Encode query parameters for safe URL transmission"
+        },
+        "apiIntegration": {
+          "title": "API Integration",
+          "description": "Handle special characters in API requests and responses"
+        },
+        "socialSharing": {
+          "title": "Social Sharing",
+          "description": "Encode URLs for social media sharing and email links"
+        },
+        "dataStorage": {
+          "title": "Data Storage",
+          "description": "Safely store URLs with special characters in databases"
+        }
+      },
+      "proTips": {
+        "title": "💡 Pro Tips",
+        "spaces": "<strong>Spaces:</strong> Encoded as %20 (or + in query strings)",
+        "specialChars": "<strong>Special Characters:</strong> &, ?, #, = need encoding in URLs",
+        "alwaysEncode": "<strong>Always Encode:</strong> Encode user input before adding to URLs",
+        "decodeFirst": "<strong>Decode First:</strong> Decode received URL parameters"
+      },
+      "relatedTools": "🔗 Related Tools"
     },
     "markdown-preview": {
       "title": "Markdown Preview",
-      "description": "Write and preview Markdown in real-time"
+      "description": "Write and preview Markdown in real-time",
+      "editor": "Editor",
+      "editorDescription": "Write your Markdown here",
+      "preview": "Preview",
+      "previewDescription": "Live Markdown preview",
+      "placeholder": "# Start writing your Markdown here...",
+      "initialText": "# Hello Markdown\n\nStart typing to see the preview...",
+      "words": "Words",
+      "characters": "Characters",
+      "lines": "Lines",
+      "copyMarkdown": "Copy Markdown",
+      "downloadMd": "Download .md",
+      "downloadHtml": "Download .html",
+      "copied": "Markdown copied to clipboard",
+      "downloadedMd": "Markdown file downloaded",
+      "downloadedHtml": "HTML file downloaded",
+      "exampleText": "# Markdown Example\n\nThis is **bold text** and *italic text*.\n\n## Features\n\n- Real-time preview\n- Syntax highlighting\n- Export functionality\n- ~~Old feature~~ (strikethrough)\n\n### Code Example\n\nHere's some `inline code` and a code block:\n\n```javascript\nfunction hello() {\n  console.log(\"Hello, World!\");\n}\n```\n\n### Links and Quotes\n\nCheck out [GitHub](https://github.com) for more examples.\n\n> This is a quote block with important information.\n\n### Ordered List\n\n1. First item\n2. Second item\n3. Third item",
+      "whatIs": "What is Markdown Preview?",
+      "whatIsContent": "This tool provides real-time preview and formatting for Markdown text. Perfect for README files, documentation, and blog posts! 📝",
+      "useCases": {
+        "title": "Common Use Cases",
+        "readme": {
+          "title": "README Files",
+          "description": "Create GitHub READMEs and project documentation"
+        },
+        "blog": {
+          "title": "Blog Posts",
+          "description": "Write and format blog content with Markdown syntax"
+        },
+        "documentation": {
+          "title": "Technical Documentation",
+          "description": "Create technical docs and user guides"
+        },
+        "codeDocs": {
+          "title": "Code Documentation",
+          "description": "Document code with syntax highlighting"
+        }
+      },
+      "proTips": {
+        "title": "💡 Pro Tips",
+        "headers": "<strong>Headers:</strong> Use # for H1, ## for H2, and so on",
+        "formatting": "<strong>Formatting:</strong> **bold**, *italic*, ~~strikethrough~~",
+        "code": "<strong>Code:</strong> Use ``` for code blocks, ` for inline code",
+        "links": "<strong>Links:</strong> Use [text](URL) syntax to create links"
+      },
+      "relatedTools": "🔗 Related Tools"
     },
     "hash-generator": {
       "title": "Hash Generator",
-      "description": "Generate MD5, SHA-1, SHA-256 hashes from text"
+      "description": "Generate MD5, SHA-1, SHA-256 hashes from text",
+      "generateHashes": "Generate Hashes",
+      "inputText": "Input Text",
+      "placeholder": "Enter text to hash",
+      "pleaseEnterText": "Please enter text",
+      "hashesGenerated": "Hashes generated successfully",
+      "copiedToClipboard": "{{type}} copied to clipboard",
+      "md5NotAvailable": "MD5 not available in browser",
+      "exampleText": "Hello, World! This is a sample text for hashing.",
+      "whatIs": "What is Hash Generator?",
+      "whatIsContent": "This tool generates cryptographic hashes (MD5, SHA-1, SHA-256) for data integrity verification and security. Perfect for password hashing, file verification, and API authentication! 🔒",
+      "useCases": {
+        "passwordSecurity": {
+          "title": "Password Security",
+          "description": "Hash passwords for secure storage in databases"
+        },
+        "fileIntegrity": {
+          "title": "File Integrity",
+          "description": "Verify file integrity through checksums"
+        },
+        "apiAuthentication": {
+          "title": "API Authentication",
+          "description": "Generate hash-based authentication tokens"
+        },
+        "dataSecurity": {
+          "title": "Data Security",
+          "description": "Create digital signatures and verify data authenticity"
+        }
+      },
+      "proTips": {
+        "sha256": "<strong>SHA-256:</strong> Most secure choice for modern applications",
+        "oneWay": "<strong>One-Way:</strong> Hash functions cannot be reversed",
+        "avoidMd5": "<strong>Avoid MD5:</strong> Not secure for critical applications",
+        "verification": "<strong>Verification:</strong> Compare hashes to check file integrity"
+      },
+      "relatedTools": "🔗 Related Tools"
     },
     "timestamp-converter": {
       "title": "Timestamp Converter",
-      "description": "Convert between Unix timestamps and human-readable dates"
+      "description": "Convert between Unix timestamps and human-readable dates",
+      "unixTimestamp": "Unix Timestamp",
+      "humanDate": "Human Readable Date",
+      "convertToDate": "Convert to Date",
+      "convertToTimestamp": "Convert to Timestamp",
+      "currentTime": "Current Time",
+      "convertedToDate": "Converted to date",
+      "convertedToTimestamp": "Converted to timestamp",
+      "invalidTimestamp": "Invalid timestamp",
+      "invalidDate": "Invalid date",
+      "currentTimestampSet": "Current timestamp set",
+      "currentDateSet": "Current date set",
+      "allFieldsCleared": "All fields cleared",
+      "exampleLoaded": "Example loaded",
+      "whatIs": "What is Timestamp Converter?",
+      "whatIsContent": "This tool converts between Unix timestamps and human-readable dates. Perfect for database queries, API development, and debugging! ⏰",
+      "useCases": {
+        "database": {
+          "title": "Database Queries",
+          "description": "Convert timestamps for SQL queries and date filters"
+        },
+        "api": {
+          "title": "API Development",
+          "description": "Work with timestamp-based APIs and endpoints"
+        },
+        "logs": {
+          "title": "Log Analysis",
+          "description": "Parse and understand timestamps in server logs"
+        },
+        "data": {
+          "title": "Data Processing",
+          "description": "Convert dates for data migration and ETL processes"
+        }
+      },
+      "proTips": {
+        "startDate": "<strong>Start Date:</strong> Unix epoch starts at Jan 1, 1970 UTC",
+        "units": "<strong>Units:</strong> Unix uses seconds, JavaScript uses milliseconds",
+        "utc": "<strong>UTC:</strong> Timestamps are always in UTC (timezone-free)",
+        "precision": "<strong>Precision:</strong> Use timestamps for accurate date math"
+      },
+      "relatedTools": "🔗 Related Tools You Might Like"
     },
     "regex-tester": {
       "title": "Regex Tester",
-      "description": "Test and debug regular expressions with live matching"
+      "description": "Test and debug regular expressions with live matching",
+      "regexPattern": "Regex Pattern",
+      "flags": "Flags",
+      "testString": "Test String",
+      "matches": "Matches",
+      "noMatches": "No matches found",
+      "copyMatches": "Copy Matches",
+      "matchesCopied": "Matches copied!",
+      "copyTestString": "Copy",
+      "testStringCopied": "Test string copied!",
+      "enterTextPlaceholder": "Enter text to test",
+      "allFieldsCleared": "All fields cleared",
+      "exampleLoaded": "Example loaded",
+      "whatIs": "What is Regex Tester?",
+      "whatIsContent": "This tool tests and debugs regular expressions in real-time. Perfect for text validation, data extraction, and pattern matching! 🔍",
+      "useCases": {
+        "validation": {
+          "title": "Form Validation",
+          "description": "Validate email addresses, phone numbers, and user input"
+        },
+        "extraction": {
+          "title": "Data Extraction",
+          "description": "Extract specific patterns from text and log files"
+        },
+        "searchReplace": {
+          "title": "Search & Replace",
+          "description": "Find and replace text patterns in code and documents"
+        },
+        "programming": {
+          "title": "Programming",
+          "description": "Test regex patterns before using in code"
+        }
+      },
+      "proTips": {
+        "anchors": "<strong>Anchors:</strong> Use ^ for start and $ for end of string",
+        "shortcuts": "<strong>Shortcuts:</strong> \\d (digits), \\w (word chars), \\s (spaces)",
+        "groups": "<strong>Groups:</strong> Use () for capturing and grouping",
+        "testing": "<strong>Testing:</strong> Test with various inputs to ensure accuracy"
+      },
+      "relatedTools": "🔗 Related Tools You Might Like"
     },
     "lorem-ipsum": {
       "title": "Lorem Ipsum Generator",
-      "description": "Generate placeholder text for your designs"
+      "description": "Generate placeholder text for your designs",
+      "numberOfParagraphs": "Number of Paragraphs",
+      "generate": "Generate",
+      "generatedText": "Generated Text",
+      "generated": "Generated {{count}} paragraphs!",
+      "whatIs": "What is Lorem Ipsum Generator?",
+      "whatIsContent": "This tool generates Lorem Ipsum placeholder text for designs and mockups. Perfect for testing layouts, typography, and visualizing content without real text! 🎨",
+      "useCases": {
+        "webDesign": {
+          "title": "Web Design",
+          "description": "Fill mockups and prototypes with placeholder content"
+        },
+        "uiUxDesign": {
+          "title": "UI/UX Design",
+          "description": "Test layouts and spacing without final content"
+        },
+        "typographyTesting": {
+          "title": "Typography Testing",
+          "description": "Test font sizes, line heights, and text formatting"
+        },
+        "clientPresentations": {
+          "title": "Client Presentations",
+          "description": "Showcase design concepts before final content is ready"
+        }
+      },
+      "proTips": {
+        "history": "<strong>History:</strong> Lorem Ipsum has been used since the 1500s",
+        "focus": "<strong>Focus:</strong> Use it to focus on design rather than content",
+        "mockups": "<strong>Mockups:</strong> Perfect for client presentations and demos",
+        "consistency": "<strong>Consistency:</strong> Provides uniform text for layout testing"
+      },
+      "relatedTools": "🔗 Related Tools"
     },
     "percentage-calculator": {
       "title": "Percentage Calculator",
-      "description": "Calculate percentages, discounts, and increases"
+      "description": "Calculate percentages, discounts, and increases",
+      "whatPercentOf": "What Percent Of",
+      "percentOfWhat": "Percent Of What",
+      "calculatePercentage": "Calculate Percentage",
+      "calculateValue": "Calculate Value from Percentage",
+      "value": "Value",
+      "total": "Total",
+      "percentage": "Percentage",
+      "whatIs": "What is Percentage Calculator?",
+      "whatIsContent": "This tool calculates percentages for discounts, taxes, grades, and more. Perfect for financial calculations and everyday math! 📊",
+      "useCases": {
+        "title": "Common Use Cases",
+        "discount": {
+          "title": "Sales Discounts",
+          "description": "Calculate discounted prices and savings instantly"
+        },
+        "tax": {
+          "title": "Tax Calculation",
+          "description": "Calculate sales tax, VAT, and other percentage-based taxes"
+        },
+        "metrics": {
+          "title": "Business Metrics",
+          "description": "Track growth rates, profit margins, and performance percentages"
+        },
+        "budget": {
+          "title": "Budget Planning",
+          "description": "Calculate spending percentages and savings goals"
+        }
+      },
+      "proTips": {
+        "title": "💡 Pro Tips",
+        "definition": "Definition: Percentage means per hundred (50% = 50/100)",
+        "tips": "Tips: Easily calculate tips (15-20% of bill)",
+        "comparison": "Comparison: Great for comparing values and ratios",
+        "decimals": "Decimals: Supports decimals for precision"
+      }
     },
     "bmi-calculator": {
       "title": "BMI Calculator",
-      "description": "Calculate your Body Mass Index and health status"
+      "description": "Calculate your Body Mass Index and health status",
+      "bodyMassIndex": "Body Mass Index Calculator",
+      "height": "Height (cm)",
+      "weight": "Weight (kg)",
+      "calculate": "Calculate BMI",
+      "yourBmi": "Your BMI",
+      "category": "Category",
+      "categories": {
+        "underweight": "Underweight",
+        "normal": "Normal weight",
+        "overweight": "Overweight",
+        "obese": "Obese"
+      },
+      "ranges": {
+        "underweight": "• Underweight: BMI < 18.5",
+        "normal": "• Normal weight: BMI 18.5 - 24.9",
+        "overweight": "• Overweight: BMI 25 - 29.9",
+        "obese": "• Obese: BMI ≥ 30"
+      },
+      "whatIs": "What is BMI Calculator?",
+      "whatIsContent": "This tool calculates your Body Mass Index (BMI) based on height and weight. Perfect for health assessment, fitness tracking, and weight management! 💪",
+      "useCases": {
+        "health": {
+          "title": "Health Assessment",
+          "description": "Monitor your BMI for overall health evaluation"
+        },
+        "weight": {
+          "title": "Weight Management",
+          "description": "Track progress during weight loss or gain journeys"
+        },
+        "fitness": {
+          "title": "Fitness Tracking",
+          "description": "Monitor BMI changes as part of fitness goals"
+        },
+        "diet": {
+          "title": "Diet Planning",
+          "description": "Use BMI as a reference for nutrition goals"
+        }
+      },
+      "proTips": {
+        "screening": "<strong>Screening Tool:</strong> BMI is not a diagnostic measure",
+        "normalRange": "<strong>Normal Range:</strong> 18.5-24.9 is considered healthy",
+        "consultExperts": "<strong>Consult Experts:</strong> Get personalized health advice",
+        "limitations": "<strong>Limitations:</strong> May not suit athletes or elderly"
+      },
+      "relatedTools": "🔗 Related Tools You Might Like"
     },
     "loan-calculator": {
       "title": "Loan Calculator",
-      "description": "Calculate monthly payments and total interest for loans"
+      "description": "Calculate monthly payments and total interest for loans",
+      "calculateYourLoan": "Calculate Your Loan",
+      "descriptionFull": "Calculate monthly payments, total cost, and interest",
+      "loanAmount": "Loan Amount ($)",
+      "interestRate": "Interest Rate (%)",
+      "loanTerm": "Loan Term",
+      "years": "Years",
+      "months": "Months",
+      "calculate": "Calculate",
+      "monthlyPayment": "Monthly Payment",
+      "totalPayment": "Total Payment",
+      "totalInterest": "Total Interest",
+      "loanCalculated": "Loan calculated successfully!",
+      "enterValidValues": "Please enter valid values for all fields",
+      "allFieldsCleared": "All fields cleared",
+      "exampleLoaded": "Example loaded",
+      "whatIs": "What is Loan Calculator?",
+      "whatIsContent": "This tool calculates monthly payments, total interest, and repayment amounts for loans. Perfect for mortgage, auto, and personal loan planning! 🏦",
+      "useCases": {
+        "mortgage": {
+          "title": "Mortgage Planning",
+          "description": "Calculate home loan payments and affordability"
+        },
+        "auto": {
+          "title": "Auto Loans",
+          "description": "Compare car financing options and monthly payments"
+        },
+        "business": {
+          "title": "Business Loans",
+          "description": "Evaluate business financing and repayment schedules"
+        },
+        "refinancing": {
+          "title": "Refinancing",
+          "description": "Compare refinancing options to save on interest"
+        }
+      },
+      "proTips": {
+        "interestRate": "<strong>Interest Rate:</strong> Lower rates reduce total cost significantly",
+        "loanTerm": "<strong>Loan Term:</strong> Shorter terms = higher payments, less interest",
+        "budget": "<strong>Budget:</strong> Ensure monthly payments fit your budget",
+        "compare": "<strong>Compare:</strong> Always shop around for the best rates"
+      },
+      "relatedTools": "🔗 Related Tools You Might Like"
     },
     "interest-calculator": {
       "title": "Interest Calculator",
-      "description": "Calculate simple and compound interest"
+      "description": "Calculate simple and compound interest",
+      "simpleInterest": "Simple Interest",
+      "compoundInterest": "Compound Interest",
+      "simpleFormula": "I = P × R × T",
+      "compoundFormula": "A = P(1 + r/n)^(nt)",
+      "principalAmount": "Principal Amount ($)",
+      "annualRate": "Annual Interest Rate (%)",
+      "timePeriod": "Time Period (years)",
+      "compoundFrequency": "Compound Frequency (times/year)",
+      "frequencyHint": "1=Annually, 4=Quarterly, 12=Monthly, 365=Daily",
+      "calculateSimple": "Calculate Simple Interest",
+      "calculateCompound": "Calculate Compound Interest",
+      "interestEarned": "Interest Earned",
+      "totalAmount": "Total Amount",
+      "finalAmount": "Final Amount",
+      "invalidNumbers": "Please enter valid numbers",
+      "mustBePositive": "All values must be greater than 0",
+      "simpleCalculated": "Simple interest calculated!",
+      "compoundCalculated": "Compound interest calculated!",
+      "fieldsCleared": "Fields cleared",
+      "exampleLoaded": "Example loaded",
+      "whatIs": "What is Interest Calculator?",
+      "whatIsContent": "This tool calculates simple and compound interest for savings and investments. Perfect for financial planning and understanding money growth! 💰",
+      "useCases": {
+        "savings": {
+          "title": "Savings Accounts",
+          "description": "Calculate interest earned on savings over time"
+        },
+        "investment": {
+          "title": "Investment Planning",
+          "description": "Forecast investment returns with compound interest"
+        },
+        "retirement": {
+          "title": "Retirement Planning",
+          "description": "Calculate long-term savings growth for retirement"
+        },
+        "loan": {
+          "title": "Loan Interest",
+          "description": "Calculate interest costs on loans and debts"
+        }
+      },
+      "proTips": {
+        "compound": "<strong>Compound Interest:</strong> Grows faster than simple interest",
+        "frequency": "<strong>Frequency:</strong> More frequent compounding = more growth",
+        "longTerm": "<strong>Long-term:</strong> Use compound for investments over years",
+        "impact": "<strong>Impact:</strong> Higher rates significantly boost returns"
+      },
+      "relatedTools": "🔗 Related Tools You Might Like"
     },
     "investment-calculator": {
       "title": "Investment Calculator",
-      "description": "Estimate investment returns over time"
+      "description": "Estimate investment returns over time",
+      "calculateGrowth": "Calculate Investment Growth",
+      "descriptionFull": "Estimate your investment returns over time",
+      "initialInvestment": "Initial Investment ($)",
+      "monthlyContribution": "Monthly Contribution ($)",
+      "expectedReturn": "Expected Annual Return (%)",
+      "investmentPeriod": "Investment Period (years)",
+      "calculate": "Calculate Investment",
+      "futureValue": "Future Value",
+      "totalContributions": "Total Contributions",
+      "totalEarnings": "Total Earnings",
+      "investmentCalculated": "Investment calculated!",
+      "allFieldsCleared": "All fields cleared",
+      "exampleLoaded": "Example loaded",
+      "whatIs": "What is Investment Calculator?",
+      "whatIsContent": "This tool calculates future investment value with monthly contributions. Perfect for retirement planning, education savings, and wealth building! 📈",
+      "useCases": {
+        "retirement": {
+          "title": "Retirement Planning",
+          "description": "Calculate retirement savings growth over decades"
+        },
+        "education": {
+          "title": "Education Savings",
+          "description": "Plan for college funds and education expenses"
+        },
+        "wealth": {
+          "title": "Wealth Building",
+          "description": "Track long-term portfolio growth and investment returns"
+        },
+        "goals": {
+          "title": "Financial Goals",
+          "description": "Set and achieve specific financial milestones"
+        }
+      },
+      "proTips": {
+        "startEarly": "<strong>Start Early:</strong> Time maximizes compound growth",
+        "regular": "<strong>Regular Contributions:</strong> Monthly savings add up significantly",
+        "returns": "<strong>Returns:</strong> Stock market averages 8-10% annually",
+        "risk": "<strong>Risk:</strong> Consider tolerance when estimating returns"
+      },
+      "relatedTools": "🔗 Related Tools You Might Like"
     },
     "currency-converter": {
       "title": "Currency Converter",
-      "description": "Convert between different currencies with real-time rates"
+      "description": "Convert between currencies with live exchange rates",
+      "convertCurrency": "Convert Currency",
+      "amount": "Amount",
+      "from": "From",
+      "to": "To",
+      "convert": "Convert",
+      "converting": "Converting...",
+      "pleaseEnterValidAmount": "Please enter a valid amount",
+      "conversionSuccessful": "Conversion successful!",
+      "conversionFailed": "Currency conversion failed",
+      "fetchFailed": "Failed to fetch exchange rates",
+      "currencies": {
+        "usd": "US Dollar",
+        "eur": "Euro",
+        "gbp": "British Pound",
+        "jpy": "Japanese Yen",
+        "cny": "Chinese Yuan",
+        "cad": "Canadian Dollar",
+        "aud": "Australian Dollar",
+        "chf": "Swiss Franc",
+        "inr": "Indian Rupee",
+        "krw": "South Korean Won"
+      },
+      "whatIs": "What is Currency Converter?",
+      "whatIsContent": "This tool converts between currencies using live exchange rates. Perfect for travel, shopping, and international business! 💱",
+      "useCases": {
+        "travel": {
+          "title": "International Travel",
+          "description": "Convert currencies for travel abroad"
+        },
+        "shopping": {
+          "title": "Online Shopping",
+          "description": "Calculate prices from international stores"
+        },
+        "business": {
+          "title": "Business Transactions",
+          "description": "Convert currencies for international payments and invoices"
+        },
+        "investment": {
+          "title": "Investment Analysis",
+          "description": "Track foreign investments and returns"
+        }
+      },
+      "proTips": {
+        "realTime": "<strong>Real-Time:</strong> Exchange rates update automatically",
+        "fees": "<strong>Fees:</strong> Consider exchange fees for actual transactions",
+        "variations": "<strong>Variations:</strong> Rates vary between different services",
+        "estimates": "<strong>Estimates:</strong> Use for quick comparisons"
+      },
+      "relatedTools": "🔗 Related Tools"
     },
     "credit-card-calculator": {
       "title": "Credit Card Calculator",
-      "description": "Calculate credit card payoff time and total interest"
+      "description": "Calculate credit card payoff time and total interest",
+      "calculatePayoff": "Calculate Credit Card Payoff",
+      "descriptionFull": "Estimate when you'll be debt-free",
+      "currentBalance": "Current Balance ($)",
+      "annualRate": "Annual Percentage Rate (APR %)",
+      "monthlyPayment": "Monthly Payment ($)",
+      "calculate": "Calculate",
+      "timeToPayOff": "Time to Pay Off",
+      "totalPaid": "Total Paid",
+      "totalInterest": "Total Interest",
+      "never": "Never (payment too low)",
+      "years": "years",
+      "year": "year",
+      "months": "months",
+      "month": "month",
+      "calculationCompleted": "Calculation completed!",
+      "allFieldsCleared": "All fields cleared",
+      "exampleLoaded": "Example loaded",
+      "whatIs": "What is Credit Card Payoff Calculator?",
+      "whatIsContent": "This tool calculates payoff time, total interest, and payments for credit card debt. Perfect for debt management and financial planning! 💳",
+      "useCases": {
+        "debt": {
+          "title": "Debt Management",
+          "description": "Plan debt payoff strategies and timelines"
+        },
+        "interest": {
+          "title": "Interest Analysis",
+          "description": "Calculate total interest costs over the payoff period"
+        },
+        "budget": {
+          "title": "Budget Planning",
+          "description": "Optimize monthly payments within your budget"
+        },
+        "strategy": {
+          "title": "Payment Strategy",
+          "description": "Compare different payment amounts and timelines"
+        }
+      },
+      "proTips": {
+        "higherPayments": "<strong>Higher Payments:</strong> Reduce total interest significantly",
+        "minimumPayments": "<strong>Minimum Payments:</strong> Can take years to pay off debt",
+        "payMore": "<strong>Pay More:</strong> Always pay more than minimum when possible",
+        "lowerAPR": "<strong>Lower APR:</strong> Can save thousands in interest costs"
+      },
+      "relatedTools": "🔗 Related Tools You Might Like"
     },
     "unit-converter": {
       "title": "Unit Converter",
-      "description": "Convert between different units of measurement"
+      "description": "Convert between different units of measurement",
+      "length": "Length",
+      "weight": "Weight",
+      "lengthConverter": "Length Converter",
+      "weightConverter": "Weight Converter",
+      "lengthDescription": "Convert between different length units",
+      "weightDescription": "Convert between different weight units",
+      "cleared": "Cleared",
+      "exampleLoaded": "Example loaded",
+      "units": {
+        "meters": "Meters",
+        "kilometers": "Kilometers",
+        "centimeters": "Centimeters",
+        "millimeters": "Millimeters",
+        "miles": "Miles",
+        "yards": "Yards",
+        "feet": "Feet",
+        "inches": "Inches",
+        "kilograms": "Kilograms",
+        "grams": "Grams",
+        "pounds": "Pounds",
+        "ounces": "Ounces",
+        "tons": "Tons"
+      },
+      "whatIs": "What is Unit Converter?",
+      "whatIsContent": "This tool converts between metric and imperial units for length and weight. Perfect for travel, cooking, and construction! 📏",
+      "useCases": {
+        "travel": {
+          "title": "International Travel",
+          "description": "Convert metric/imperial units across countries"
+        },
+        "cooking": {
+          "title": "Cooking & Baking",
+          "description": "Convert recipe measurements from different regions"
+        },
+        "construction": {
+          "title": "Construction",
+          "description": "Convert measurements for building projects"
+        },
+        "fitness": {
+          "title": "Fitness Tracking",
+          "description": "Track weight and measurements in preferred units"
+        }
+      },
+      "proTips": {
+        "metric": "<strong>Metric:</strong> Used in most countries worldwide",
+        "weight": "<strong>Weight:</strong> 1 kg = 2.20462 lbs",
+        "length": "<strong>Length:</strong> 1 m = 3.28084 ft",
+        "recipes": "<strong>Recipes:</strong> Double-check units from other countries"
+      },
+      "relatedTools": "🔗 Related Tools You Might Like"
     },
     "age-calculator": {
       "title": "Age Calculator",
-      "description": "Calculate your exact age in years, months, and days"
+      "description": "Calculate your exact age in years, months, and days",
+      "calculateYourAge": "Calculate Your Age",
+      "dateOfBirth": "Date of Birth",
+      "calculateAge": "Calculate Age",
+      "ageCalculated": "Age calculated!",
+      "yourAge": "Your Age",
+      "years": "Years",
+      "months": "Months",
+      "days": "Days",
+      "totalDays": "Total Days",
+      "whatIs": "What is Age Calculator?",
+      "whatIsContent": "This tool calculates your exact age in years, months, and days based on your birth date. Perfect for documentation, milestone celebrations, and birthday planning! 🎂",
+      "useCases": {
+        "birthdayPlanning": {
+          "title": "Birthday Planning",
+          "description": "Calculate milestones and plan special celebrations"
+        },
+        "documentation": {
+          "title": "Documentation",
+          "description": "Get exact age for official documents and applications"
+        },
+        "schoolEnrollment": {
+          "title": "School Enrollment",
+          "description": "Verify age requirements for educational enrollment"
+        },
+        "ageVerification": {
+          "title": "Age Verification",
+          "description": "Check eligibility for age-restricted activities"
+        }
+      },
+      "proTips": {
+        "exactAge": "<strong>Exact Age:</strong> Shows years, months, and days precisely",
+        "milestones": "<strong>Milestones:</strong> Perfect for planning special birthdays",
+        "documents": "<strong>Documents:</strong> Use for official age verification",
+        "eligibility": "<strong>Eligibility:</strong> Easily check age requirements"
+      },
+      "relatedTools": "🔗 Related Tools You Might Like"
     },
     "date-calculator": {
       "title": "Date Calculator",
-      "description": "Calculate difference between two dates"
+      "description": "Calculate difference between two dates",
+      "calculateDateDifference": "Calculate Date Difference",
+      "startDate": "Start Date",
+      "endDate": "End Date",
+      "calculateDifference": "Calculate Difference",
+      "dateDifferenceCalculated": "Date difference calculated!",
+      "difference": "Difference",
+      "days": "days",
+      "weeks": "weeks",
+      "months": "months",
+      "years": "years",
+      "or": "or",
+      "whatIs": "What is Date Calculator?",
+      "whatIsContent": "This tool calculates the difference between two dates in days, weeks, months, and years. Perfect for event planning, project management, and deadline tracking! 📅",
+      "useCases": {
+        "eventPlanning": {
+          "title": "Event Planning",
+          "description": "Calculate countdown days for weddings, birthdays, and special events"
+        },
+        "projectManagement": {
+          "title": "Project Management",
+          "description": "Track project timelines and milestone durations"
+        },
+        "anniversaryTracking": {
+          "title": "Anniversary Tracking",
+          "description": "Calculate years and days for special anniversaries"
+        },
+        "deadlineManagement": {
+          "title": "Deadline Management",
+          "description": "Monitor remaining time to important deadlines"
+        }
+      },
+      "proTips": {
+        "planning": "<strong>Planning:</strong> Great for event and project timeline planning",
+        "tracking": "<strong>Tracking:</strong> Monitor countdowns to important dates",
+        "business": "<strong>Business:</strong> Useful for legal and contract calculations"
+      },
+      "relatedTools": "🔗 Related Tools You Might Like"
     },
     "random-picker": {
       "title": "Random Picker",
-      "description": "Pick random names or items from a list"
+      "description": "Randomly select names or items from a list",
+      "randomNameItemPicker": "Random Name/Item Picker",
+      "pickRandomWinner": "Pick Random Winner",
+      "pleaseEnterItem": "Please enter at least one item",
+      "winnerSelected": "Winner selected!",
+      "winner": "Winner",
+      "placeholder": "Alice\nBob\nCharlie\nDiana",
+      "exampleNames": "Alice\nBob\nCharlie\nDiana\nEve\nFrank",
+      "whatIs": "What is Random Picker?",
+      "whatIsContent": "This tool randomly selects a winner from your list of names or items. Perfect for giveaways, raffles, team assignments, and fair decision-making! ",
+      "useCases": {
+        "contestGiveaways": {
+          "title": "Contest Giveaways",
+          "description": "Randomly select winners for social media contests"
+        },
+        "raffleDrawings": {
+          "title": "Raffle Drawings",
+          "description": "Fair and unbiased random selection for prize draws"
+        },
+        "teamAssignments": {
+          "title": "Team Assignments",
+          "description": "Randomly assign people to teams or groups"
+        },
+        "decisionMaking": {
+          "title": "Decision Making",
+          "description": "Let randomness help you make choices between options"
+        }
+      },
+      "proTips": {
+        "onePerLine": "<strong>One Per Line:</strong> Enter each name or item on a new line",
+        "fairSelection": "<strong>Fair Selection:</strong> Uses true randomness for unbiased selection",
+        "screenshot": "<strong>Screenshot:</strong> Capture results for transparency",
+        "socialMedia": "<strong>Social Media:</strong> Perfect for Instagram and Twitter giveaways"
+      },
+      "relatedTools": " Related Tools You Might Like"
     },
     "image-compressor": {
       "title": "Image Compressor",
-      "description": "Compress images to reduce file size"
+      "description": "Compress images to reduce file size",
+      "compressImages": "Compress Images",
+      "descriptionFull": "Reduce image file size while maintaining quality",
+      "uploadImage": "Upload Image",
+      "original": "Original",
+      "compressed": "Compressed",
+      "outputFormat": "Output Format",
+      "quality": "Quality",
+      "lowQuality": "Low (Smaller file)",
+      "highQuality": "High (Better quality)",
+      "compressImageButton": "Compress Image",
+      "download": "Download",
+      "pleaseUploadImage": "Please upload an image file",
+      "imageTooLarge": "Image size should be less than 10MB",
+      "imageLoaded": "Image loaded: {{size}} KB",
+      "failedToRead": "Failed to read file",
+      "uploadImageFirst": "Please upload an image first",
+      "compressedSuccess": "Compressed! {{size}} KB ({{reduction}}% reduction)",
+      "failedToLoad": "Failed to load image",
+      "compressFirst": "Please compress the image first",
+      "imageDownloaded": "Image downloaded!",
+      "allFieldsCleared": "All fields cleared",
+      "exampleImageLoaded": "Example image loaded",
+      "whatIs": "What is Image Compressor?",
+      "whatIsContent": "This tool reduces image file sizes while maintaining quality. Perfect for web optimization, email, and storage management! 🗜️",
+      "useCases": {
+        "webOptimization": {
+          "title": "Web Optimization",
+          "description": "Compress for faster website loading speeds"
+        },
+        "emailAttachments": {
+          "title": "Email Attachments",
+          "description": "Reduce file sizes for email sending limits"
+        },
+        "ecommerce": {
+          "title": "E-commerce",
+          "description": "Optimize product photos for online stores"
+        },
+        "mobileApps": {
+          "title": "Mobile Apps",
+          "description": "Reduce app asset sizes for better performance"
+        }
+      },
+      "proTips": {
+        "webUse": "<strong>Web Use:</strong> 80% quality is often sufficient",
+        "tradeOff": "<strong>Trade-off:</strong> Higher compression = smaller size, lower quality",
+        "testing": "<strong>Testing:</strong> Try different levels for best balance",
+        "performance": "<strong>Performance:</strong> Smaller files load faster"
+      },
+      "relatedTools": "🔗 Related Tools You Might Like"
     },
     "image-resizer": {
       "title": "Image Resizer",
-      "description": "Resize images to any dimension"
+      "description": "Resize images to any dimension",
+      "resizeImages": "Resize Images",
+      "changeDimensions": "Change image dimensions to any size",
+      "uploadImage": "Upload Image",
+      "width": "Width (px)",
+      "height": "Height (px)",
+      "resizeDownload": "Resize & Download",
+      "pleaseUploadImage": "Please upload an image file",
+      "imageTooLarge": "Image size should be less than 10MB",
+      "imageLoaded": "Image loaded: {{width}}x{{height}}px",
+      "failedToLoad": "Failed to load image",
+      "failedToRead": "Failed to read file",
+      "uploadImageFirst": "Please upload an image first",
+      "imageResized": "Image resized and downloaded!",
+      "allFieldsCleared": "All fields cleared",
+      "exampleImageLoaded": "Example image loaded",
+      "whatIs": "What is Image Resizer?",
+      "whatIsContent": "This tool resizes images to custom dimensions for web, social media, and print. Perfect for optimizing graphics for any platform! 🖼️",
+      "useCases": {
+        "social": {
+          "title": "Social Media",
+          "description": "Resize for Instagram/Twitter post dimensions"
+        },
+        "web": {
+          "title": "Web Graphics",
+          "description": "Optimize images for website performance"
+        },
+        "mobile": {
+          "title": "Mobile Apps",
+          "description": "Create icons and assets for app development"
+        },
+        "thumbnails": {
+          "title": "Thumbnails",
+          "description": "Generate preview images for galleries"
+        }
+      },
+      "proTips": {
+        "platformSizes": "<strong>Platform Sizes:</strong> Check required dimensions first",
+        "aspectRatio": "<strong>Aspect Ratio:</strong> Maintain to avoid distortion",
+        "workflow": "<strong>Workflow:</strong> Resize before compressing images",
+        "devices": "<strong>Devices:</strong> Use appropriate sizes for screens"
+      },
+      "relatedTools": "🔗 Related Tools You Might Like"
     },
     "text-diff": {
       "title": "Text Diff Checker",
-      "description": "Compare two texts and find differences"
+      "description": "Compare two texts and find differences",
+      "compareText": "Compare Text",
+      "descriptionFull": "Find differences between two texts",
+      "text1": "Text 1",
+      "text2": "Text 2",
+      "text1Placeholder": "Enter first text...",
+      "text2Placeholder": "Enter second text...",
+      "differencesFound": "Differences Found: {{count}}",
+      "line": "Line {{line}}",
+      "noDifferencesFound": "No differences found!",
+      "allFieldsCleared": "All fields cleared",
+      "exampleLoaded": "Example loaded",
+      "whatIs": "What is Text Diff?",
+      "whatIsContent": "This tool compares two texts line by line and highlights the differences with color coding. Perfect for code review, document comparison, and tracking changes! 🔍",
+      "useCases": {
+        "codeReview": {
+          "title": "Code Review",
+          "description": "Compare code versions to track changes and updates"
+        },
+        "versionControl": {
+          "title": "Version Control",
+          "description": "Compare different versions of documents and files"
+        },
+        "contentEditing": {
+          "title": "Content Editing",
+          "description": "Review edits and modifications in articles or documents"
+        },
+        "legalReview": {
+          "title": "Legal Review",
+          "description": "Compare contract versions to identify clause changes"
+        }
+      },
+      "proTips": {
+        "colorCoding": "<strong>Color Coding:</strong> Red = removed, Green = added, Orange = modified",
+        "lineByLine": "<strong>Line by Line:</strong> Each line is compared separately for precision",
+        "configFiles": "<strong>Config Files:</strong> Perfect for comparing .env, .config files",
+        "copyPaste": "<strong>Copy-Paste:</strong> Works great with clipboard content"
+      },
+      "relatedTools": "🔗 Related Tools You Might Like"
     },
     "text-sorter": {
       "title": "Text Sorter",
-      "description": "Sort text lines alphabetically"
+      "description": "Sort text lines alphabetically",
+      "sortTextLines": "Sort Text Lines",
+      "inputText": "Input Text",
+      "placeholder": "Enter text (one item per line)...",
+      "ascOrder": "A → Z",
+      "descOrder": "Z → A",
+      "sortLines": "Sort Lines",
+      "sortedOutput": "Sorted Output",
+      "linesSorted": "Lines sorted",
+      "exampleText": "Zebra\nApple\nBanana\nCherry\nDate",
+      "whatIs": "What is Text Sorter?",
+      "whatIsContent": "This tool helps you sort text lines alphabetically in ascending (A→Z) or descending (Z→A) order. Perfect for quickly organizing lists, names, data, and any text content! 📋",
+      "useCases": {
+        "listOrganization": {
+          "title": "List Organization",
+          "description": "Sort names, items, or any lists alphabetically for easy reference"
+        },
+        "dataPreparation": {
+          "title": "Data Preparation",
+          "description": "Organize data before importing to spreadsheets"
+        },
+        "contactLists": {
+          "title": "Contact Lists",
+          "description": "Sort names, emails, or phone numbers alphabetically"
+        },
+        "inventoryManagement": {
+          "title": "Inventory Management",
+          "description": "Organize product names or SKU codes for catalogs"
+        }
+      },
+      "proTips": {
+        "onePerLine": "<strong>One Per Line:</strong> Each line is treated as a separate item",
+        "ascOrder": "<strong>A→Z:</strong> Use ascending order for standard alphabetical sorting",
+        "descOrder": "<strong>Z→A:</strong> Use descending order for reverse sorting",
+        "caseSensitive": "<strong>Case Sensitive:</strong> Uppercase letters come before lowercase"
+      },
+      "relatedTools": "🔗 Related Tools You Might Like"
     },
     "html-to-text": {
       "title": "HTML to Text",
-      "description": "Convert HTML to plain text"
+      "description": "Convert HTML to plain text",
+      "convertHtmlToPlainText": "Convert HTML to Plain Text",
+      "htmlInput": "HTML Input",
+      "placeholder": "<p>Hello World</p>",
+      "convertToText": "Convert to Text",
+      "plainTextOutput": "Plain Text Output",
+      "convertedSuccessfully": "Converted successfully!",
+      "exampleHtml": "<div>\n  <h1>Welcome to our website</h1>\n  <p>This is <strong>sample HTML</strong> with <em>various tags</em>.</p>\n  <ul>\n    <li>First item</li>\n    <li>Second item</li>\n    <li>Third item</li>\n  </ul>\n  <a href=\"https://example.com\">Visit our website</a>\n</div>",
+      "whatIs": "What is HTML to Text?",
+      "whatIsContent": "This tool converts HTML markup to plain text by removing tags. Perfect for web scraping, email extraction, and content analysis! 🌍",
+      "useCases": {
+        "emailExtraction": {
+          "title": "Email Extraction",
+          "description": "Extract text from HTML emails for processing"
+        },
+        "webScraping": {
+          "title": "Web Scraping",
+          "description": "Extract content from web pages for analysis"
+        },
+        "dataCleaning": {
+          "title": "Data Cleaning",
+          "description": "Clean HTML content for data processing"
+        },
+        "contentAnalysis": {
+          "title": "Content Analysis",
+          "description": "Prepare text for analysis tools and processing"
+        }
+      },
+      "proTips": {
+        "cleanText": "<strong>Clean Text:</strong> Removes all HTML tags and attributes",
+        "webPages": "<strong>Web Pages:</strong> Extract readable content from websites",
+        "email": "<strong>Email:</strong> Perfect for processing HTML email content",
+        "analysis": "<strong>Analysis:</strong> Prepare content for text analysis tools"
+      },
+      "relatedTools": "🔗 Related Tools You Might Like"
     },
     "csv-to-json": {
       "title": "CSV to JSON",
-      "description": "Convert CSV data to JSON format"
+      "description": "Convert CSV data to JSON format",
+      "convertCsvToJson": "Convert CSV to JSON",
+      "descriptionFull": "Transform CSV (tabular) data into JSON format",
+      "csvInput": "CSV Input",
+      "csvPlaceholder": "name,age,city\nJohn,30,NYC\nJane,25,LA",
+      "convertButton": "Convert to JSON",
+      "jsonOutput": "JSON Output",
+      "csvHeaderRequired": "CSV must have at least a header and one data row",
+      "convertedSuccess": "Converted successfully!",
+      "conversionFailed": "Conversion failed",
+      "copiedToClipboard": "Copied to clipboard!",
+      "allFieldsCleared": "All fields cleared",
+      "exampleLoaded": "Example loaded",
+      "whatIs": "What is CSV to JSON?",
+      "whatIsContent": "This tool converts CSV (tabular) data to JSON format. Perfect for API integration, data migration, and web development! 📊",
+      "useCases": {
+        "apiIntegration": {
+          "title": "API Integration",
+          "description": "Convert CSV to JSON for API requests"
+        },
+        "dataMigration": {
+          "title": "Data Migration",
+          "description": "Import CSV data into databases and applications"
+        },
+        "dataAnalysis": {
+          "title": "Data Analysis",
+          "description": "Convert spreadsheet data for analysis tools"
+        },
+        "webDevelopment": {
+          "title": "Web Development",
+          "description": "Use CSV data in web apps and visualizations"
+        }
+      },
+      "proTips": {
+        "headers": "<strong>Headers:</strong> First row becomes JSON keys",
+        "format": "<strong>Format:</strong> Each row becomes a JSON object",
+        "spreadsheets": "<strong>Spreadsheets:</strong> Perfect for Excel/Sheets exports",
+        "apis": "<strong>APIs:</strong> Prepare data for REST API calls"
+      },
+      "relatedTools": "🔗 Related Tools You Might Like"
     },
     "text-replacer": {
       "title": "Text Replacer",
-      "description": "Find and replace text with support for regex"
+      "description": "Find and replace text with support for regex",
+      "findAndReplace": "Find and Replace Text",
+      "descriptionFull": "Find and replace text with support for regular expressions",
+      "inputText": "Input Text",
+      "inputPlaceholder": "Enter your text here...",
+      "find": "Find",
+      "findPlaceholder": "Text to find",
+      "replaceWith": "Replace With",
+      "replacePlaceholder": "Replacement text",
+      "caseSensitive": "Case Sensitive",
+      "useRegex": "Use Regular Expression",
+      "replace": "Replace",
+      "result": "Result",
+      "pleaseEnterText": "Please enter some text",
+      "pleaseEnterFind": "Please enter text to find",
+      "replacedCount": "Replaced {{count}} occurrence(s)",
+      "invalidRegex": "Invalid regex pattern",
+      "allFieldsCleared": "All fields cleared",
+      "exampleLoaded": "Example loaded",
+      "copiedToClipboard": "Copied to clipboard!",
+      "whatIs": "What is Text Replacer?",
+      "whatIsContent": "This powerful tool allows you to find and replace text with support for regular expressions, case sensitivity, and batch processing. Perfect for developers, writers, and data processors who need quick text transformations! 🔍",
+      "useCases": {
+        "batch": {
+          "title": "Batch Editing",
+          "description": "Replace multiple instances of text across large documents"
+        },
+        "refactoring": {
+          "title": "Code Refactoring",
+          "description": "Rename variables, functions, or classes quickly"
+        },
+        "cleaning": {
+          "title": "Data Cleaning",
+          "description": "Clean and normalize data by replacing patterns"
+        },
+        "urls": {
+          "title": "URL Updates",
+          "description": "Update links or paths across multiple files"
+        }
+      },
+      "proTips": {
+        "regex": "<strong>Regex:</strong> Use \\d for digits, \\w for word characters",
+        "global": "<strong>Global:</strong> All occurrences are replaced automatically",
+        "caseMatch": "<strong>Case Match:</strong> Enable case sensitive for exact matches",
+        "testFirst": "<strong>Test First:</strong> Try on a small sample before bulk replace"
+      },
+      "relatedTools": "🔗 Related Tools You Might Like"
     },
     "duplicate-remover": {
       "title": "Duplicate Line Remover",
-      "description": "Remove duplicate and empty lines from text"
+      "description": "Remove duplicate and empty lines from text",
+      "removeDuplicateLines": "Remove Duplicate Lines",
+      "descriptionFull": "Remove duplicate and empty lines from your text",
+      "inputPlaceholder": "Enter your text (one item per line)...",
+      "removeEmptyLines": "Remove empty lines",
+      "caseSensitiveComparison": "Case sensitive comparison",
+      "removeDuplicates": "Remove Duplicates",
+      "result": "Result",
+      "original": "Original",
+      "removed": "Removed",
+      "final": "Final",
+      "lines": "lines",
+      "pleaseEnterText": "Please enter some text",
+      "removedCount": "Removed {{count}} duplicate/empty line(s)",
+      "copiedToClipboard": "Copied to clipboard!",
+      "allFieldsCleared": "All fields cleared",
+      "exampleLoaded": "Example loaded",
+      "whatIs": "What is Duplicate Line Remover?",
+      "whatIsContent": "This tool helps you clean up text by removing duplicate lines and empty lines. Perfect for cleaning lists, processing data, and organizing content! 🧹",
+      "useCases": {
+        "cleanLists": {
+          "title": "Clean Lists",
+          "description": "Remove duplicates from email lists, contact lists, or any text lists"
+        },
+        "dataProcessing": {
+          "title": "Data Processing",
+          "description": "Clean and deduplicate data before importing into databases"
+        },
+        "emailLists": {
+          "title": "Email Lists",
+          "description": "Ensure unique email addresses for mail campaigns"
+        },
+        "logCleaning": {
+          "title": "Log Cleaning",
+          "description": "Remove duplicate entries from log files"
+        }
+      },
+      "proTips": {
+        "caseSensitive": "<strong>Case Sensitive:</strong> \"Apple\" and \"apple\" treated differently",
+        "cleanLists": "<strong>Clean Lists:</strong> Perfect for cleaning up data",
+        "emptyLines": "<strong>Empty Lines:</strong> Option to keep or remove blank lines",
+        "statsDisplay": "<strong>Stats Display:</strong> See how many lines were removed"
+      },
+      "relatedTools": "🔗 Related Tools You Might Like"
     },
     "json-to-csv": {
       "title": "JSON to CSV",
-      "description": "Convert JSON data to CSV format"
+      "description": "Convert JSON arrays to CSV format for spreadsheet applications",
+      "jsonInput": "JSON Input",
+      "csvOutput": "CSV Output",
+      "placeholder": "[{\"name\": \"John\", \"age\": 30}, ...]",
+      "convert": "Convert to CSV",
+      "convertSuccess": "Successfully converted to CSV!",
+      "downloaded": "CSV downloaded!",
+      "exampleJson": "[\n  { \"name\": \"John\", \"age\": 30, \"city\": \"NYC\" },\n  { \"name\": \"Jane\", \"age\": 25, \"city\": \"LA\" },\n  { \"name\": \"Bob\", \"age\": 35, \"city\": \"Chicago\" }\n]",
+      "errors": {
+        "enterJson": "Please enter JSON data",
+        "mustBeArray": "JSON must be an array of objects",
+        "arrayEmpty": "Array is empty",
+        "invalidJson": "Invalid JSON format",
+        "noCsvToDownload": "No CSV to download"
+      },
+      "whatIs": "What is JSON to CSV Converter?",
+      "whatIsContent": "This tool converts JSON arrays to CSV format, perfect for importing into Excel, Google Sheets, or any spreadsheet application. Export your data seamlessly! 📊",
+      "useCases": {
+        "excelExport": {
+          "title": "Excel Export",
+          "description": "Export API data to Excel spreadsheets for analysis"
+        },
+        "dataMigration": {
+          "title": "Data Migration",
+          "description": "Convert JSON data for database imports"
+        },
+        "dataAnalysis": {
+          "title": "Data Analysis",
+          "description": "Prepare data for statistical analysis tools"
+        },
+        "apiResponses": {
+          "title": "API Responses",
+          "description": "Transform API responses into spreadsheet format"
+        }
+      },
+      "proTips": {
+        "arrayRequired": "<strong>Array Required:</strong> JSON must be an array of objects",
+        "excelCompatible": "<strong>Excel Compatible:</strong> Opens directly in Excel",
+        "autoHeaders": "<strong>Auto Headers:</strong> Automatically extracts column headers",
+        "download": "<strong>Download:</strong> Save as .csv file for offline use"
+      }
     },
     "xml-to-json": {
       "title": "XML to JSON",
-      "description": "Convert XML to JSON format"
+      "description": "Convert XML to JSON format",
+      "convertXmlToJson": "Convert XML to JSON",
+      "descriptionFull": "Convert XML data to JSON format",
+      "xmlInput": "XML Input",
+      "xmlPlaceholder": "<?xml version=\"1.0\"?><root>...</root>",
+      "convertButton": "Convert to JSON",
+      "jsonOutput": "JSON Output",
+      "pleaseEnterXml": "Please enter XML data",
+      "convertedSuccess": "Converted to JSON successfully!",
+      "invalidXmlFormat": "Invalid XML format",
+      "copiedToClipboard": "Copied to clipboard!",
+      "allFieldsCleared": "All fields cleared",
+      "exampleLoaded": "Example loaded",
+      "whatIs": "What is XML to JSON Converter?",
+      "whatIsContent": "This tool converts XML data to JSON format, making it easier to work with in modern web applications and APIs. Perfect for data transformation! 🔄",
+      "useCases": {
+        "apiMigration": {
+          "title": "API Migration",
+          "description": "Convert legacy XML APIs to modern JSON format"
+        },
+        "dataProcessing": {
+          "title": "Data Processing",
+          "description": "Process XML data in JavaScript applications"
+        },
+        "configFiles": {
+          "title": "Config Files",
+          "description": "Convert XML config files to JSON format"
+        },
+        "webDevelopment": {
+          "title": "Web Development",
+          "description": "Work with XML data in modern frameworks"
+        }
+      },
+      "proTips": {
+        "attributes": "<strong>Attributes:</strong> XML attributes become @attributes in JSON",
+        "arrays": "<strong>Arrays:</strong> Multiple elements with same name become arrays",
+        "structure": "<strong>Structure:</strong> Preserves XML hierarchy in JSON",
+        "validation": "<strong>Validation:</strong> Checks for valid XML before conversion"
+      },
+      "relatedTools": "🔗 Related Tools You Might Like"
     },
     "markdown-to-html": {
       "title": "Markdown to HTML",
-      "description": "Convert Markdown to HTML"
+      "description": "Convert Markdown to HTML",
+      "convertMarkdownToHtml": "Convert Markdown to HTML",
+      "descriptionFull": "Convert Markdown syntax to HTML markup",
+      "markdownInput": "Markdown Input",
+      "markdownPlaceholder": "# Hello World",
+      "convertButton": "Convert to HTML",
+      "htmlOutput": "HTML Output",
+      "pleaseEnterMarkdown": "Please enter Markdown",
+      "convertedSuccess": "Converted to HTML successfully!",
+      "copiedToClipboard": "Copied to clipboard!",
+      "allFieldsCleared": "All fields cleared",
+      "exampleLoaded": "Example loaded",
+      "whatIs": "What is Markdown to HTML?",
+      "whatIsContent": "This tool converts Markdown syntax to clean HTML markup. Perfect for bloggers, developers, and content creators who need quick HTML generation! 📝",
+      "useCases": {
+        "blogPosts": {
+          "title": "Blog Posts",
+          "description": "Convert Markdown articles to HTML for publishing"
+        },
+        "documentation": {
+          "title": "Documentation",
+          "description": "Transform README files to HTML format"
+        },
+        "webDevelopment": {
+          "title": "Web Development",
+          "description": "Generate HTML snippets for websites"
+        },
+        "emailTemplates": {
+          "title": "Email Templates",
+          "description": "Create HTML email content from Markdown"
+        }
+      },
+      "proTips": {
+        "headers": "<strong>Headers:</strong> Use # for h1, ## for h2, ### for h3",
+        "formatting": "<strong>Formatting:</strong> **bold** for bold, *italic* for italic",
+        "links": "<strong>Links:</strong> [text](url) format for hyperlinks",
+        "lists": "<strong>Lists:</strong> Use - or * for bullet points"
+      },
+      "relatedTools": "🔗 Related Tools You Might Like"
     },
     "discount-calculator": {
       "title": "Discount Calculator",
-      "description": "Calculate discounts and final prices"
+      "description": "Calculate discount amounts and final prices",
+      "calculateDiscounts": "Calculate Discounts",
+      "originalPrice": "Original Price ($)",
+      "discount": "Discount (%)",
+      "youSave": "You Save",
+      "finalPrice": "Final Price",
+      "whatIs": "What is Discount Calculator?",
+      "whatIsContent": "This tool helps you quickly calculate discounted prices and savings. Perfect for shopping, sales analysis, and budget planning! 💰",
+      "useCases": {
+        "onlineShopping": {
+          "title": "Online Shopping",
+          "description": "Calculate final prices during sales events"
+        },
+        "priceComparison": {
+          "title": "Price Comparison",
+          "description": "Compare deals across different stores"
+        },
+        "salesAnalysis": {
+          "title": "Sales Analysis",
+          "description": "Analyze impact of discounts on revenue"
+        },
+        "budgetPlanning": {
+          "title": "Budget Planning",
+          "description": "Plan purchases during discount seasons"
+        }
+      },
+      "proTips": {
+        "instantResults": "<strong>Instant Results:</strong> See savings calculations in real-time",
+        "anyCurrency": "<strong>Any Currency:</strong> Works with USD, EUR, or any currency",
+        "stackDiscounts": "<strong>Stack Discounts:</strong> Calculate multiple discounts separately",
+        "quickCompare": "<strong>Quick Compare:</strong> Perfect for Black Friday shopping"
+      },
+      "relatedTools": "🔗 Related Tools You Might Like"
+    },
+    "tip-calculator": {
+      "title": "Tip Calculator",
+      "description": "Calculate tips and divide bills among multiple people"
     },
     "password-strength-checker": {
       "title": "Password Strength Checker",
-      "description": "Analyze password security and get improvement suggestions"
+      "description": "Analyze password security and get improvement suggestions",
+      "checkPasswordStrength": "Check Password Strength",
+      "enterPassword": "Enter Password",
+      "placeholder": "Enter your password...",
+      "examplePassword": "MyP@ssw0rd2024!",
+      "passwordStrength": "Password Strength",
+      "secure": "Secure",
+      "strength": {
+        "veryWeak": "Very Weak",
+        "weak": "Weak",
+        "medium": "Medium",
+        "strong": "Strong",
+        "veryStrong": "Very Strong"
+      },
+      "checks": {
+        "length": "12+ characters",
+        "uppercase": "Uppercase (A-Z)",
+        "lowercase": "Lowercase (a-z)",
+        "numbers": "Numbers (0-9)",
+        "special": "Special chars (!@#$...)"
+      },
+      "suggestions": {
+        "length": "Use at least 12 characters",
+        "uppercase": "Add uppercase letters (A-Z)",
+        "lowercase": "Add lowercase letters (a-z)",
+        "numbers": "Add numbers (0-9)",
+        "special": "Add special characters (!@#$...)"
+      },
+      "suggestionsTitle": "Improvement Suggestions",
+      "whatIs": "What is Password Strength Checker?",
+      "whatIsContent": "This tool analyzes your password's security level and provides real-time feedback to help create stronger passwords. All analysis is done locally in your browser! 🔒",
+      "useCases": {
+        "accountSecurity": {
+          "title": "Account Security",
+          "description": "Check if your passwords meet security standards"
+        },
+        "passwordCreation": {
+          "title": "Password Creation",
+          "description": "Get suggestions while creating new passwords"
+        },
+        "securityAudit": {
+          "title": "Security Audit",
+          "description": "Audit existing passwords for vulnerabilities"
+        },
+        "learnBestPractices": {
+          "title": "Learn Best Practices",
+          "description": "Understand what makes passwords strong"
+        }
+      },
+      "proTips": {
+        "lengthMatters": "<strong>Length Matters:</strong> 12+ characters significantly improves security",
+        "mixItUp": "<strong>Mix It Up:</strong> Combine letters, numbers, and symbols",
+        "avoidCommonWords": "<strong>Avoid Common Words:</strong> Don't use dictionary words or names",
+        "privacyFirst": "<strong>Privacy First:</strong> Analysis happens only in your browser"
+      },
+      "relatedTools": "🔗 Related Tools"
     },
     "email-validator": {
       "title": "Email Validator",
-      "description": "Validate email addresses in bulk (RFC 5322 compliant)"
+      "description": "Validate email addresses in bulk (RFC 5322 compliant)",
+      "validateEmails": "Validate Email Addresses",
+      "descriptionFull": "Check if email addresses are valid (one per line)",
+      "emailAddresses": "Email Addresses",
+      "emailPlaceholder": "Enter email addresses (one per line)...",
+      "validateButton": "Validate Emails",
+      "valid": "Valid",
+      "invalid": "Invalid",
+      "exportValid": "Export Valid",
+      "pleaseEnterEmails": "Please enter email addresses",
+      "validatedCount": "Validated {{total}} email(s) - {{valid}} valid",
+      "noResultsToExport": "No results to export",
+      "validEmailsExported": "Valid emails exported!",
+      "cleared": "Cleared",
+      "exampleLoaded": "Example loaded",
+      "errors": {
+        "empty": "Email is empty",
+        "invalidFormat": "Invalid email format",
+        "localPartTooLong": "Local part too long (max 64 characters)",
+        "domainTooLong": "Domain too long (max 255 characters)",
+        "localPartDotPosition": "Local part cannot start or end with a dot",
+        "consecutiveDots": "Consecutive dots not allowed",
+        "domainNoDot": "Domain must contain a dot"
+      },
+      "whatIs": "What is Email Validator?",
+      "whatIsContent": "This tool validates email addresses according to RFC 5322 standards. Perfect for cleaning email lists, verifying form inputs, and data validation! ✉️",
+      "useCases": {
+        "listCleaning": {
+          "title": "Email List Cleaning",
+          "description": "Remove invalid emails from mailing lists"
+        },
+        "formValidation": {
+          "title": "Form Validation",
+          "description": "Verify email format before submission"
+        },
+        "dataImport": {
+          "title": "Data Import",
+          "description": "Validate emails before importing to CRM"
+        },
+        "bulkValidation": {
+          "title": "Bulk Validation",
+          "description": "Check hundreds of emails at once"
+        }
+      },
+      "proTips": {
+        "batchProcessing": "<strong>Batch Processing:</strong> Validate multiple emails at once",
+        "rfcCompliant": "<strong>RFC Compliant:</strong> Follows email standards strictly",
+        "exportValid": "<strong>Export Valid:</strong> Download only valid emails",
+        "instantFeedback": "<strong>Instant Feedback:</strong> See detailed error reasons"
+      },
+      "relatedTools": "🔗 Related Tools You Might Like"
     },
     "stopwatch-timer": {
       "title": "Stopwatch & Timer",
-      "description": "Track time with stopwatch or set countdown timers"
+      "description": "Track time with stopwatch or set countdown timers",
+      "stopwatchAndCountdownTimer": "Stopwatch & Countdown Timer",
+      "stopwatch": "Stopwatch",
+      "timer": "Timer",
+      "hoursMinutesSecondsMilliseconds": "hours : minutes : seconds . milliseconds",
+      "hoursMinutesSeconds": "hours : minutes : seconds",
+      "start": "Start",
+      "pause": "Pause",
+      "reset": "Reset",
+      "resume": "Resume",
+      "minutes": "Minutes",
+      "seconds": "Seconds",
+      "min": "min",
+      "startTimer": "Start Timer",
+      "pleaseSetValidTime": "Please set a valid time",
+      "timerComplete": "⏰ Timer Complete!",
+      "whatIs": "What is Stopwatch & Timer?",
+      "whatIsContent": "A versatile time tracking tool with a stopwatch for measuring elapsed time and a countdown timer for setting time limits. Perfect for workouts, cooking, studying, and productivity! ⏱️",
+      "useCases": {
+        "fitness": {
+          "title": "Fitness",
+          "description": "Track workout intervals and rest periods"
+        },
+        "cooking": {
+          "title": "Cooking",
+          "description": "Set timers for recipes and baking"
+        },
+        "studying": {
+          "title": "Studying",
+          "description": "Time study and break sessions"
+        },
+        "productivity": {
+          "title": "Productivity",
+          "description": "Track task duration and deadlines"
+        }
+      },
+      "proTips": {
+        "stopwatch": "<strong>Stopwatch:</strong> Great for tracking exercise reps",
+        "timer": "<strong>Timer:</strong> Get notified when time is up",
+        "quickPresets": "<strong>Quick Presets:</strong> Use 5, 10, 25, 30 min buttons",
+        "precision": "<strong>Precision:</strong> Stopwatch shows milliseconds"
+      },
+      "relatedTools": "🔗 Related Tools You Might Like"
     },
     "pomodoro-timer": {
       "title": "Pomodoro Timer",
-      "description": "Focus timer with 25-min work and 5-min break intervals"
+      "description": "Focus timer with 25-min work and 5-min break intervals",
+      "pomodoroTechnique": "Pomodoro Technique Timer",
+      "descriptionFull": "25 min focus + 5 min break cycles",
+      "focusTime": "🍅 Focus Time",
+      "shortBreak": "☕ Short Break",
+      "longBreak": "🌴 Long Break",
+      "pomodorosCompleted": "Pomodoros completed: {{count}}",
+      "start": "Start",
+      "pause": "Pause",
+      "reset": "Reset",
+      "longBreakTime": "🎉 Time for a long break!",
+      "shortBreakTime": "☕ Time for a short break!",
+      "focusTimeNow": "💪 Time to focus!",
+      "whatIs": "What is Pomodoro Timer?",
+      "whatIsContent": "A productivity technique using 25-minute focused work sessions followed by short breaks. After 4 pomodoros, take a longer 15-minute break! 🍅",
+      "useCases": {
+        "deepWork": {
+          "title": "Deep Work",
+          "description": "Focused coding, writing, or studying sessions"
+        },
+        "productivity": {
+          "title": "Productivity Boost",
+          "description": "Combat procrastination with time boxing"
+        },
+        "timeManagement": {
+          "title": "Time Management",
+          "description": "Better estimation of task completion time"
+        },
+        "preventBurnout": {
+          "title": "Prevent Burnout",
+          "description": "Regular breaks maintain energy levels"
+        }
+      },
+      "proTips": {
+        "focusFully": "<strong>Focus Fully:</strong> No distractions during 25 min work",
+        "shortBreaks": "<strong>Short Breaks:</strong> Stand up, stretch, hydrate",
+        "longBreaks": "<strong>Long Breaks:</strong> Every 4 pomodoros, take 15 min",
+        "trackProgress": "<strong>Track Progress:</strong> Count completed pomodoros"
+      },
+      "relatedTools": "🔗 Related Tools You Might Like"
     },
     "whitespace-remover": {
       "title": "Whitespace Remover",
-      "description": "Remove extra spaces, tabs, and line breaks from text"
+      "description": "Remove extra spaces, tabs, and line breaks from text",
+      "removeWhitespace": "Remove Extra Whitespace",
+      "cleanupText": "Clean up spaces, tabs, and line breaks from text",
+      "inputText": "Input Text",
+      "inputPlaceholder": "Enter text with extra spaces, tabs, or line breaks...",
+      "characters": "Characters",
+      "options": "Options:",
+      "removeExtraSpaces": "Remove extra spaces (multiple spaces → single space)",
+      "removeTabs": "Remove tabs (convert to spaces)",
+      "trimLines": "Trim spaces from beginning/end of each line",
+      "removeLineBreaks": "Remove all line breaks (make single line)",
+      "output": "Output",
+      "reducedBy": "Reduced by",
+      "enterTextFirst": "Please enter some text first",
+      "whitespaceRemoved": "Whitespace removed!",
+      "copiedToClipboard": "Copied to clipboard!",
+      "allFieldsCleared": "All fields cleared",
+      "exampleLoaded": "Example loaded",
+      "exampleText": "This    text    has    extra    spaces.\n\n    \nAnd     some     empty     lines.\n\n\tIt also\thas\ttabs.\n  \n  And spaces at the   beginning   and   end.  ",
+      "whatIs": "What is Whitespace Remover?",
+      "whatIsContent": "This tool removes extra spaces, tabs, and line breaks from text. Perfect for cleaning up copied text, code formatting, or data preparation! 🧹",
+      "useCases": {
+        "code": {
+          "title": "Code Cleanup",
+          "description": "Remove extra spaces from code snippets"
+        },
+        "text": {
+          "title": "Text Processing",
+          "description": "Clean up copied text from PDFs or websites"
+        },
+        "data": {
+          "title": "Data Preparation",
+          "description": "Format data for CSV or database import"
+        },
+        "content": {
+          "title": "Content Writing",
+          "description": "Remove formatting issues from documents"
+        }
+      },
+      "proTips": {
+        "options": "<strong>Options:</strong> Customize what to remove with checkboxes",
+        "lineBreaks": "<strong>Line Breaks:</strong> Keep for multi-line, remove for single line",
+        "trimLines": "<strong>Trim Lines:</strong> Removes leading/trailing spaces per line",
+        "preview": "<strong>Preview:</strong> See reduction percentage after processing"
+      },
+      "relatedTools": "🔗 Related Tools You Might Like"
     },
     "ip-lookup": {
       "title": "IP Address Lookup",
-      "description": "Get information about any IP address"
+      "description": "Get information about any IP address",
+      "ipAddressInfo": "IP Address Information",
+      "descriptionFull": "Get location and ISP details for any IP",
+      "inputPlaceholder": "Enter IP address (leave empty for your IP)",
+      "lookup": "Lookup",
+      "loading": "Loading...",
+      "cleared": "Cleared",
+      "exampleLoaded": "Example IP loaded (Google DNS)",
+      "invalidIp": "Invalid IP address",
+      "ipInfoRetrieved": "IP information retrieved!",
+      "failedToLookup": "Failed to lookup IP",
+      "ipAddress": "IP Address",
+      "location": "Location",
+      "isp": "ISP",
+      "timezone": "Timezone",
+      "coordinates": "Coordinates",
+      "postalCode": "Postal Code",
+      "whatIs": "What is IP Lookup?",
+      "whatIsContent": "Get detailed information about any IP address including location, ISP, timezone, and more. Leave empty to check your own IP! 🌍",
+      "useCases": {
+        "networkSecurity": {
+          "title": "Network Security",
+          "description": "Identify suspicious IP addresses"
+        },
+        "geolocation": {
+          "title": "Geolocation",
+          "description": "Find geographic location of visitors"
+        },
+        "troubleshooting": {
+          "title": "Troubleshooting",
+          "description": "Debug network connectivity issues"
+        },
+        "analytics": {
+          "title": "Website Analytics",
+          "description": "Understand your audience demographics"
+        }
+      },
+      "proTips": {
+        "yourIp": "<strong>Your IP:</strong> Leave field empty to check your own IP",
+        "privacy": "<strong>Privacy:</strong> Use VPN to mask your IP address",
+        "location": "<strong>Location:</strong> Accuracy varies by ISP",
+        "ispInfo": "<strong>ISP Info:</strong> Identifies internet service provider"
+      },
+      "relatedTools": "🔗 Related Tools You Might Like"
     },
     "barcode-generator": {
       "title": "Barcode Generator",
-      "description": "Generate barcodes (Code128, EAN, UPC) from text"
+      "description": "Generate barcodes (Code128, EAN, UPC) from text",
+      "generateBarcodes": "Generate Barcodes",
+      "barcodeText": "Barcode Text/Numbers",
+      "barcodeFormat": "Barcode Format",
+      "placeholder": "Enter text or numbers...",
+      "generateBarcode": "Generate Barcode",
+      "generatedBarcode": "Generated Barcode",
+      "downloadBarcode": "Download Barcode",
+      "downloadPng": "Download as PNG",
+      "downloadJpg": "Download as JPG",
+      "pleaseEnterText": "Please enter text to encode",
+      "barcodeGenerated": "Barcode generated successfully!",
+      "downloaded": "Barcode downloaded as {{format}}!",
+      "downloadFailed": "Failed to download barcode as {{format}}",
+      "exampleText": "123456789012",
+      "formats": {
+        "code128": "Code 128 (Alphanumeric)",
+        "ean13": "EAN-13 (Products)",
+        "upca": "UPC-A (Retail)",
+        "code39": "Code 39 (Industrial)"
+      },
+      "whatIs": "What is Barcode Generator?",
+      "whatIsContent": "Create professional barcodes for products, inventory, and asset tracking. Supports multiple formats including Code128, EAN-13, and UPC! 📦",
+      "useCases": {
+        "title": "Common Use Cases",
+        "retailProducts": {
+          "title": "Retail Products",
+          "description": "Generate UPC/EAN for store items"
+        },
+        "inventory": {
+          "title": "Inventory Management",
+          "description": "Track warehouse stock levels"
+        },
+        "assetTracking": {
+          "title": "Asset Tracking",
+          "description": "Label equipment and tools"
+        },
+        "shippingLabels": {
+          "title": "Shipping Labels",
+          "description": "Create package tracking codes"
+        }
+      },
+      "proTips": {
+        "title": "💡 Pro Tips",
+        "code128": "<strong>Code128:</strong> Best for alphanumeric data",
+        "ean13": "<strong>EAN-13:</strong> Requires 13 digits for products",
+        "highQuality": "<strong>High Quality:</strong> Download PNG for printing",
+        "testScan": "<strong>Test Scan:</strong> Verify with scanner before printing"
+      },
+      "relatedTools": "🔗 Related Tools"
     },
     "color-gradient-generator": {
       "title": "Color Gradient Generator",
-      "description": "Create beautiful CSS gradients with live preview"
+      "description": "Create beautiful CSS gradients with live preview",
+      "cssGradientGenerator": "CSS Gradient Generator",
+      "startColor": "Start Color",
+      "endColor": "End Color",
+      "direction": "Direction",
+      "directions": {
+        "leftToRight": "Left to Right →",
+        "rightToLeft": "Right to Left ←",
+        "topToBottom": "Top to Bottom ↓",
+        "bottomToTop": "Bottom to Top ↑",
+        "diagonal": "Diagonal ↘",
+        "customAngle": "Custom Angle"
+      },
+      "angle": "Angle: {{angle}}°",
+      "cssCode": "CSS Code",
+      "copyCss": "Copy CSS",
+      "cssCopied": "CSS copied to clipboard!",
+      "gradientPresets": "Gradient Presets",
+      "presets": {
+        "sunset": "Sunset",
+        "ocean": "Ocean",
+        "forest": "Forest",
+        "purpleDream": "Purple Dream",
+        "fire": "Fire",
+        "sky": "Sky"
+      },
+      "whatIs": "What is Color Gradient Generator?",
+      "whatIsContent": "Create stunning CSS gradients with live preview. Choose colors, direction, and copy ready-to-use CSS code! 🎨",
+      "useCases": {
+        "websiteBackgrounds": {
+          "title": "Website Backgrounds",
+          "description": "Beautiful gradients for homepage sections"
+        },
+        "uiComponents": {
+          "title": "UI Components",
+          "description": "Buttons, cards, and badges"
+        },
+        "brandColors": {
+          "title": "Brand Colors",
+          "description": "Create brand identity gradients"
+        },
+        "socialMedia": {
+          "title": "Social Media",
+          "description": "Eye-catching post backgrounds"
+        }
+      },
+      "proTips": {
+        "livePreview": "<strong>Live Preview:</strong> See changes in real-time",
+        "presets": "<strong>Presets:</strong> Start with beautiful combinations",
+        "copyCss": "<strong>Copy CSS:</strong> One-click ready-to-use code",
+        "customAngles": "<strong>Custom Angles:</strong> Fine-tune gradient direction"
+      },
+      "relatedTools": "🔗 Related Tools You Might Like"
     },
     "jwt-decoder": {
       "title": "JWT Decoder",
-      "description": "Decode and inspect JWT tokens header and payload"
+      "description": "Decode and inspect JWT tokens header and payload",
+      "decodeJwtToken": "Decode JWT Token",
+      "jwtToken": "JWT Token",
+      "placeholder": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+      "decodeJwt": "Decode JWT",
+      "pleaseEnterToken": "Please enter JWT token",
+      "invalidJwtFormat": "Invalid JWT format",
+      "invalidJwtToken": "Invalid JWT token",
+      "decodedSuccessfully": "JWT decoded successfully!",
+      "copiedToClipboard": "{{label}} copied to clipboard!",
+      "validJwtFormat": "Valid JWT format",
+      "header": "Header",
+      "payload": "Payload",
+      "signature": "Signature",
+      "signatureBase64": "Signature (Base64)",
+      "signatureWarning": "Signature verification requires secret key",
+      "whatIs": "What is JWT Decoder?",
+      "whatIsContent": "This tool decodes JWT (JSON Web Tokens) to inspect header, payload, and signature. Perfect for debugging authentication, testing APIs, and understanding token structure! 🔐",
+      "useCases": {
+        "authentication": {
+          "title": "Authentication",
+          "description": "Decode auth tokens to check user claims and roles"
+        },
+        "debugging": {
+          "title": "Debugging",
+          "description": "Debug JWT issues in API authentication flows"
+        },
+        "tokenAnalysis": {
+          "title": "Token Analysis",
+          "description": "Analyze token expiration, issuer, and claims"
+        },
+        "apiTesting": {
+          "title": "API Testing",
+          "description": "Inspect tokens during API development and testing"
+        }
+      },
+      "proTips": {
+        "security": "<strong>Security:</strong> JWT decoding is safe - it's just Base64 decoding",
+        "expiration": "<strong>Expiration:</strong> Check 'exp' claim for token expiry time",
+        "claims": "<strong>Claims:</strong> Payload contains user data and permissions",
+        "verification": "<strong>Verification:</strong> Signature requires secret key to verify"
+      },
+      "relatedTools": "🔗 Related Tools You Might Like"
     },
     "sql-formatter": {
       "title": "SQL Formatter",
-      "description": "Format and beautify SQL queries for better readability"
+      "description": "Format and beautify SQL queries for better readability",
+      "formatSqlQueries": "Format SQL Queries",
+      "sqlInput": "SQL Input",
+      "placeholder": "SELECT * FROM users WHERE...",
+      "formatSql": "Format SQL",
+      "formattedSql": "Formatted SQL",
+      "pleaseEnterSql": "Please enter SQL query",
+      "formattedSuccessfully": "SQL formatted successfully!",
+      "errorFormatting": "Error formatting SQL",
+      "exampleSql": "select u.id,u.name,o.order_id from users u inner join orders o on u.id=o.user_id where u.status='active' and o.total>100 order by o.created_at desc limit 10",
+      "whatIs": "What is SQL Formatter?",
+      "whatIsContent": "This tool formats and beautifies SQL queries by adding proper indentation, line breaks, and standardizing keyword capitalization. Perfect for improving code readability and maintaining consistent SQL style! 📝",
+      "useCases": {
+        "codeReview": {
+          "title": "Code Review",
+          "description": "Format complex queries for better code review"
+        },
+        "documentation": {
+          "title": "Documentation",
+          "description": "Create clean, readable SQL for documentation"
+        },
+        "debugging": {
+          "title": "Debugging",
+          "description": "Format messy queries to easily identify issues"
+        },
+        "learning": {
+          "title": "Learning",
+          "description": "Understand SQL structure through proper formatting"
+        }
+      },
+      "proTips": {
+        "keywords": "<strong>Keywords:</strong> All SQL keywords automatically capitalized",
+        "indentation": "<strong>Indentation:</strong> Proper indentation for nested clauses",
+        "lineBreaks": "<strong>Line Breaks:</strong> Logical line breaks between SQL clauses",
+        "consistency": "<strong>Consistency:</strong> Standardized formatting for team collaboration"
+      },
+      "relatedTools": "🔗 Related Tools You Might Like"
     },
     "code-minifier": {
       "title": "Code Minifier",
-      "description": "Compress HTML, CSS, and JavaScript to reduce file size"
+      "description": "Compress HTML, CSS, and JavaScript to reduce file size",
+      "minifyCode": "Minify Code",
+      "htmlInput": "HTML Input",
+      "cssInput": "CSS Input",
+      "jsInput": "JavaScript Input",
+      "htmlPlaceholder": "<html>...</html>",
+      "cssPlaceholder": ".class { property: value; }",
+      "jsPlaceholder": "function myFunc() { ... }",
+      "minifyHtml": "Minify HTML",
+      "minifyCss": "Minify CSS",
+      "minifyJs": "Minify JavaScript",
+      "minifiedOutput": "Minified Output",
+      "size": "Size",
+      "bytes": "bytes",
+      "reduction": "reduction",
+      "pleaseEnterHtml": "Please enter HTML code",
+      "pleaseEnterCss": "Please enter CSS code",
+      "pleaseEnterJs": "Please enter JavaScript code",
+      "htmlMinified": "HTML minified! {{reduction}}% size reduction",
+      "cssMinified": "CSS minified! {{reduction}}% size reduction",
+      "jsMinified": "JavaScript minified! {{reduction}}% size reduction",
+      "errorMinifyingHtml": "Error minifying HTML",
+      "errorMinifyingCss": "Error minifying CSS",
+      "errorMinifyingJs": "Error minifying JavaScript",
+      "copiedToClipboard": "Minified {{type}} copied to clipboard!",
+      "exampleHtml": "<!DOCTYPE html>\\n<html lang=\\\"en\\\">\\n  <head>\\n    <meta charset=\\\"UTF-8\\\">\\n    <meta name=\\\"viewport\\\" content=\\\"width=device-width, initial-scale=1.0\\\">\\n    <title>Example Page</title>\\n  </head>\\n  <body>\\n    <!-- Main content -->\\n    <div class=\\\"container\\\">\\n      <h1>Welcome to My Website</h1>\\n      <p>This is an example paragraph with some content.</p>\\n    </div>\\n  </body>\\n</html>",
+      "exampleCss": "/* Main styles */\\n.container {\\n  max-width: 1200px;\\n  margin: 0 auto;\\n  padding: 20px;\\n}\\n\\nh1 {\\n  color: #333;\\n  font-size: 2rem;\\n  margin-bottom: 1rem;\\n}\\n\\np {\\n  line-height: 1.6;\\n  color: #666;\\n}",
+      "exampleJs": "// Function to greet user\\nfunction greetUser(name) {\\n  const greeting = \\\"Hello, \\\" + name + \\\"!\\\";\\n  console.log(greeting);\\n  return greeting;\\n}\\n\\n// Calculate sum\\nfunction calculateSum(a, b) {\\n  return a + b;\\n}\\n\\ngreetUser(\\\"World\\\");",
+      "whatIs": "What is Code Minifier?",
+      "whatIsContent": "This tool compresses HTML, CSS, and JavaScript code by removing comments, whitespace, and unnecessary characters. Perfect for optimizing website performance and reducing bandwidth! ⚡",
+      "useCases": {
+        "performance": {
+          "title": "Performance",
+          "description": "Reduce file sizes for faster page loading"
+        },
+        "bandwidth": {
+          "title": "Bandwidth",
+          "description": "Save bandwidth costs with smaller file transfers"
+        },
+        "production": {
+          "title": "Production",
+          "description": "Prepare code for production deployment"
+        },
+        "seo": {
+          "title": "SEO",
+          "description": "Improve SEO rankings with faster page loads"
+        }
+      },
+      "proTips": {
+        "development": "<strong>Development:</strong> Use original code in development",
+        "production": "<strong>Production:</strong> Deploy minified code to production",
+        "testing": "<strong>Testing:</strong> Always test minified code before deployment",
+        "backup": "<strong>Backup:</strong> Keep original source files for updates"
+      },
+      "relatedTools": "🔗 Related Tools You Might Like"
     },
     "http-status-codes": {
       "title": "HTTP Status Codes",
-      "description": "Quick reference for HTTP status codes and their meanings"
+      "description": "Quick reference for HTTP status codes and their meanings",
+      "httpStatusCodeReference": "HTTP Status Code Reference",
+      "descriptionFull": "Quick lookup for HTTP response status codes",
+      "searchPlaceholder": "Search by code, name, or description...",
+      "searchCleared": "Search cleared",
+      "exampleLoaded": "Example loaded - searching for 404 Not Found",
+      "categories": {
+        "1xx": "1xx Informational",
+        "2xx": "2xx Success",
+        "3xx": "3xx Redirection",
+        "4xx": "4xx Client Error",
+        "5xx": "5xx Server Error"
+      },
+      "noResults": "No status codes found matching \"{{term}}\"",
+      "whatIs": "What are HTTP Status Codes?",
+      "whatIsContent": "Standard response codes given by web servers on the internet. They help identify the cause of the problem when a webpage doesn't load properly. 🌐",
+      "quickCategoryGuide": "Quick Category Guide",
+      "categoryGuide": {
+        "2xx": {
+          "title": "✅ 2xx - Success",
+          "description": "Request received, understood, and accepted"
+        },
+        "3xx": {
+          "title": "🔄 3xx - Redirection",
+          "description": "Further action needed to complete request"
+        },
+        "4xx": {
+          "title": "⚠️ 4xx - Client Error",
+          "description": "Request contains bad syntax or cannot be fulfilled"
+        },
+        "5xx": {
+          "title": "❌ 5xx - Server Error",
+          "description": "Server failed to fulfill a valid request"
+        }
+      },
+      "mostCommonCodes": "💡 Most Common Codes",
+      "commonCodes": {
+        "200": "<strong>200:</strong> Everything worked perfectly",
+        "404": "<strong>404:</strong> Page or resource not found",
+        "500": "<strong>500:</strong> Server encountered an error",
+        "401": "<strong>401:</strong> Authentication required"
+      },
+      "codes": {
+        "100": {
+          "name": "Continue",
+          "description": "Server has received request headers, client should continue with request body"
+        },
+        "101": {
+          "name": "Switching Protocols",
+          "description": "Requester has asked server to switch protocols"
+        },
+        "200": {
+          "name": "OK",
+          "description": "Request successful"
+        },
+        "201": {
+          "name": "Created",
+          "description": "Request successful and resource created"
+        },
+        "202": {
+          "name": "Accepted",
+          "description": "Request accepted for processing but processing not complete"
+        },
+        "204": {
+          "name": "No Content",
+          "description": "Server successfully processed request but returns no content"
+        },
+        "301": {
+          "name": "Moved Permanently",
+          "description": "Requested resource URL has been changed permanently"
+        },
+        "302": {
+          "name": "Found",
+          "description": "Requested resource URI has been changed temporarily"
+        },
+        "304": {
+          "name": "Not Modified",
+          "description": "Client can use cached data"
+        },
+        "307": {
+          "name": "Temporary Redirect",
+          "description": "Request should be repeated with another URI"
+        },
+        "308": {
+          "name": "Permanent Redirect",
+          "description": "Request and all future requests should be repeated using another URI"
+        },
+        "400": {
+          "name": "Bad Request",
+          "description": "Server cannot process request due to client error"
+        },
+        "401": {
+          "name": "Unauthorized",
+          "description": "Authentication required but failed or not provided"
+        },
+        "403": {
+          "name": "Forbidden",
+          "description": "Client does not have access rights to content"
+        },
+        "404": {
+          "name": "Not Found",
+          "description": "Server cannot find requested resource"
+        },
+        "405": {
+          "name": "Method Not Allowed",
+          "description": "Request method not supported for requested resource"
+        },
+        "408": {
+          "name": "Request Timeout",
+          "description": "Server timed out waiting for request"
+        },
+        "409": {
+          "name": "Conflict",
+          "description": "Request conflicts with current state of server"
+        },
+        "410": {
+          "name": "Gone",
+          "description": "Requested resource no longer available and will not be available again"
+        },
+        "413": {
+          "name": "Payload Too Large",
+          "description": "Request entity larger than server defined limits"
+        },
+        "415": {
+          "name": "Unsupported Media Type",
+          "description": "Media format of requested data not supported"
+        },
+        "429": {
+          "name": "Too Many Requests",
+          "description": "User has sent too many requests in given time"
+        },
+        "500": {
+          "name": "Internal Server Error",
+          "description": "Server has encountered a generic error"
+        },
+        "501": {
+          "name": "Not Implemented",
+          "description": "Server does not support functionality required to fulfill request"
+        },
+        "502": {
+          "name": "Bad Gateway",
+          "description": "Server received invalid response from upstream server"
+        },
+        "503": {
+          "name": "Service Unavailable",
+          "description": "Server is currently unavailable (overloaded or down)"
+        },
+        "504": {
+          "name": "Gateway Timeout",
+          "description": "Server did not receive timely response from upstream server"
+        }
+      },
+      "relatedTools": "🔗 Related Tools You Might Like"
     },
     "api-tester": {
       "title": "API Tester",
-      "description": "Test REST APIs by sending HTTP requests and inspecting responses"
+      "description": "Test REST APIs by sending HTTP requests and inspecting responses",
+      "testApiEndpoints": "Test API Endpoints",
+      "descriptionFull": "Send HTTP requests and inspect responses",
+      "getExample": "GET Example",
+      "postExample": "POST Example",
+      "urlPlaceholder": "https://api.example.com/endpoint",
+      "sending": "Sending...",
+      "send": "Send",
+      "tabs": {
+        "headers": "Headers",
+        "body": "Body"
+      },
+      "requestHeaders": "Request Headers (JSON)",
+      "requestHeadersPlaceholder": "{\"Authorization\": \"Bearer token\", \"Custom-Header\": \"value\"}",
+      "requestBody": "Request Body",
+      "requestBodyPlaceholder": "{\"key\": \"value\"}",
+      "bodyNotAvailable": "Body not available for {{method}} requests",
+      "status": "Status",
+      "success": "Success",
+      "error": "Error",
+      "info": "Info",
+      "responseTime": "Response time: {{time}}ms",
+      "response": "Response",
+      "pleaseEnterUrl": "Please enter a URL",
+      "invalidJsonHeaders": "Invalid JSON in headers",
+      "requestCompleted": "Request completed ({{status}})",
+      "requestFailed": "Request failed",
+      "responseCopied": "Response copied to clipboard!",
+      "allFieldsCleared": "All fields cleared",
+      "exampleLoaded": "Example loaded - click Send to test",
+      "postExampleLoaded": "POST example loaded - click Send to test",
+      "whatIs": "What is API Tester?",
+      "whatIsContent": "This tool lets you test REST APIs by sending HTTP requests and inspecting responses. Perfect for API development, debugging, and testing endpoints! 🚀",
+      "useCases": {
+        "apiDevelopment": {
+          "title": "API Development",
+          "description": "Test endpoints during development"
+        },
+        "debugging": {
+          "title": "Debugging",
+          "description": "Debug API issues and inspect responses"
+        },
+        "integration": {
+          "title": "Integration",
+          "description": "Test third-party API integrations"
+        },
+        "quickTests": {
+          "title": "Quick Tests",
+          "description": "Quickly test endpoints without writing code"
+        }
+      },
+      "proTips": {
+        "cors": "<strong>CORS:</strong> Some APIs may block browser requests",
+        "authentication": "<strong>Authentication:</strong> Add auth headers for protected endpoints",
+        "json": "<strong>JSON:</strong> Use valid JSON for request body",
+        "statusCodes": "<strong>Status Codes:</strong> 2xx = success, 4xx = client error, 5xx = server error"
+      },
+      "httpMethods": "📋 HTTP Methods",
+      "methods": {
+        "get": "Retrieve data from server",
+        "post": "Create new resource",
+        "put": "Update entire resource",
+        "patch": "Partially update resource",
+        "delete": "Remove resource"
+      },
+      "relatedTools": "🔗 Related Tools You Might Like"
     }
   },
   "cookiePolicy": {

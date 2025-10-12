@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { SidebarTrigger } from "@/components/ui/sidebar";
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import {
   Card,
   CardContent,
@@ -31,6 +33,7 @@ import { FavoriteButton } from "@/components/FavoriteButton";
 import { Badge } from "@/components/ui/badge";
 
 const PasswordGenerator = () => {
+  const { t } = useTranslation();
   const [password, setPassword] = useState("");
   const [length, setLength] = useState([16]);
   const navigate = useNavigate();
@@ -49,7 +52,7 @@ const PasswordGenerator = () => {
     if (options.symbols) charset += "!@#$%^&*()_+-=[]{}|;:,.<>?";
 
     if (!charset) {
-      toast.error("Please select at least one character type");
+      toast.error(t('tools.password-generator.errors.selectCharacterType'));
       return;
     }
 
@@ -58,21 +61,21 @@ const PasswordGenerator = () => {
       result += charset.charAt(Math.floor(Math.random() * charset.length));
     }
     setPassword(result);
-    toast.success("Password generated!");
+    toast.success(t('tools.password-generator.generated'));
   };
 
   const copyToClipboard = () => {
     if (!password) {
-      toast.error("Generate a password first");
+      toast.error(t('tools.password-generator.errors.generateFirst'));
       return;
     }
     navigator.clipboard.writeText(password);
-    toast.success("Password copied to clipboard!");
+    toast.success(t('tools.password-generator.copied'));
   };
 
   const clearPassword = () => {
     setPassword("");
-    toast.success("Password cleared");
+    toast.success(t('tools.password-generator.cleared'));
   };
 
   const loadExample = () => {
@@ -83,13 +86,13 @@ const PasswordGenerator = () => {
       numbers: true,
       symbols: false,
     });
-    toast.success("Example settings loaded");
+    toast.success(t('toolPage.messages.exampleLoaded'));
   };
 
   return (
     <div className="min-h-screen">
       <header className="sticky top-0 z-10 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="flex h-16 items-center gap-4 px-6">
+        <div className="flex h-16 items-center gap-2 sm:gap-4 px-2 sm:px-6">
           <Button
             variant="ghost"
             size="icon"
@@ -99,7 +102,10 @@ const PasswordGenerator = () => {
             <ArrowLeft className="h-4 w-4" />
           </Button>
           <SidebarTrigger />
-          <h1 className="text-xl font-semibold">Password Generator</h1>
+          <h1 className="text-xl font-semibold flex-1">{t('tools.password-generator.title')}</h1>
+          <div className="flex-shrink-0">
+            <LanguageSwitcher />
+          </div>
         </div>
       </header>
 
@@ -108,14 +114,14 @@ const PasswordGenerator = () => {
           <CardHeader>
             <div className="flex items-center justify-between">
               <div>
-                <CardTitle>Secure Password Generator</CardTitle>
+                <CardTitle>{t('tools.password-generator.title')}</CardTitle>
                 <CardDescription>
-                  Generate strong, random passwords with customizable options
+                  {t('tools.password-generator.description')}
                 </CardDescription>
               </div>
               <FavoriteButton
                 toolId="password-generator"
-                toolName="Password Generator"
+                toolName={t('tools.password-generator.title')}
               />
             </div>
           </CardHeader>
@@ -123,11 +129,11 @@ const PasswordGenerator = () => {
             <div className="flex gap-2 mb-4">
               <Button onClick={clearPassword} variant="outline" size="sm">
                 <RotateCcw className="h-4 w-4 mr-2" />
-                Clear
+                {t('toolPage.buttons.clear')}
               </Button>
               <Button onClick={loadExample} variant="ghost" size="sm">
                 <Lightbulb className="h-4 w-4 mr-1" />
-                Load Example
+                {t('toolPage.buttons.loadExample')}
               </Button>
             </div>
 
@@ -136,7 +142,7 @@ const PasswordGenerator = () => {
                 <Input
                   value={password}
                   readOnly
-                  placeholder="Generated password will appear here"
+                  placeholder={t('tools.password-generator.placeholder')}
                   className="font-mono"
                 />
                 <Button onClick={copyToClipboard} size="icon" variant="outline">
@@ -148,7 +154,7 @@ const PasswordGenerator = () => {
             <div className="space-y-4">
               <div className="space-y-2">
                 <div className="flex items-center justify-between">
-                  <Label>Password Length: {length[0]}</Label>
+                  <Label>{t('tools.password-generator.length')}: {length[0]}</Label>
                 </div>
                 <Slider
                   value={length}
@@ -160,7 +166,7 @@ const PasswordGenerator = () => {
               </div>
 
               <div className="space-y-3">
-                <Label>Character Types</Label>
+                <Label>{t('tools.password-generator.characterTypes')}</Label>
                 <div className="space-y-2">
                   <div className="flex items-center space-x-2">
                     <Checkbox
@@ -177,7 +183,7 @@ const PasswordGenerator = () => {
                       htmlFor="uppercase"
                       className="text-sm cursor-pointer"
                     >
-                      Uppercase Letters (A-Z)
+                      {t('tools.password-generator.uppercase')}
                     </label>
                   </div>
                   <div className="flex items-center space-x-2">
@@ -195,7 +201,7 @@ const PasswordGenerator = () => {
                       htmlFor="lowercase"
                       className="text-sm cursor-pointer"
                     >
-                      Lowercase Letters (a-z)
+                      {t('tools.password-generator.lowercase')}
                     </label>
                   </div>
                   <div className="flex items-center space-x-2">
@@ -207,7 +213,7 @@ const PasswordGenerator = () => {
                       }
                     />
                     <label htmlFor="numbers" className="text-sm cursor-pointer">
-                      Numbers (0-9)
+                      {t('tools.password-generator.numbers')}
                     </label>
                   </div>
                   <div className="flex items-center space-x-2">
@@ -219,7 +225,7 @@ const PasswordGenerator = () => {
                       }
                     />
                     <label htmlFor="symbols" className="text-sm cursor-pointer">
-                      Symbols (!@#$%^&*)
+                      {t('tools.password-generator.symbols')}
                     </label>
                   </div>
                 </div>
@@ -228,7 +234,7 @@ const PasswordGenerator = () => {
 
             <Button onClick={generatePassword} className="w-full">
               <RefreshCw className="mr-2 h-4 w-4" />
-              Generate Password
+              {t('tools.password-generator.generate')}
             </Button>
           </CardContent>
         </Card>
@@ -238,11 +244,9 @@ const PasswordGenerator = () => {
           <CardContent className="pt-6">
             <p className="text-gray-700 leading-relaxed">
               <strong className="text-gray-900">
-                What is Password Generator?
+                {t('tools.password-generator.whatIs')}
               </strong>{" "}
-              This tool generates cryptographically secure passwords with
-              customizable length and character types. Perfect for creating strong
-              passwords for accounts, APIs, and sensitive systems! 🔐
+              {t('tools.password-generator.whatIsContent')}
             </p>
           </CardContent>
         </Card>
@@ -252,7 +256,7 @@ const PasswordGenerator = () => {
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <Zap className="h-5 w-5 text-primary" />
-              Common Use Cases
+              {t('toolPage.sections.commonUseCases')}
             </CardTitle>
           </CardHeader>
           <CardContent>
@@ -263,15 +267,14 @@ const PasswordGenerator = () => {
                 </div>
                 <div>
                   <div className="font-semibold text-blue-900">
-                    Account Security
+                    {t('tools.password-generator.useCases.accountSecurity.title')}
                   </div>
-                  <p className="text-sm text-blue-700">
-                    Create strong passwords for{" "}
-                    <Badge variant="secondary" className="mx-1">
-                      email
-                    </Badge>
-                    and social media accounts
-                  </p>
+                  <p
+                    className="text-sm text-blue-700"
+                    dangerouslySetInnerHTML={{
+                      __html: t('tools.password-generator.useCases.accountSecurity.description'),
+                    }}
+                  />
                 </div>
               </div>
 
@@ -281,10 +284,10 @@ const PasswordGenerator = () => {
                 </div>
                 <div>
                   <div className="font-semibold text-purple-900">
-                    API Keys
+                    {t('tools.password-generator.useCases.apiKeys.title')}
                   </div>
                   <p className="text-sm text-purple-700">
-                    Generate secure keys for application APIs and webhooks
+                    {t('tools.password-generator.useCases.apiKeys.description')}
                   </p>
                 </div>
               </div>
@@ -295,10 +298,10 @@ const PasswordGenerator = () => {
                 </div>
                 <div>
                   <div className="font-semibold text-green-900">
-                    Database Credentials
+                    {t('tools.password-generator.useCases.databaseCredentials.title')}
                   </div>
                   <p className="text-sm text-green-700">
-                    Create secure passwords for database users and connections
+                    {t('tools.password-generator.useCases.databaseCredentials.description')}
                   </p>
                 </div>
               </div>
@@ -309,10 +312,10 @@ const PasswordGenerator = () => {
                 </div>
                 <div>
                   <div className="font-semibold text-pink-900">
-                    System Admin
+                    {t('tools.password-generator.useCases.systemAdmin.title')}
                   </div>
                   <p className="text-sm text-pink-700">
-                    Generate secure passwords for server and admin accounts
+                    {t('tools.password-generator.useCases.systemAdmin.description')}
                   </p>
                 </div>
               </div>
@@ -325,38 +328,46 @@ const PasswordGenerator = () => {
           <CardHeader>
             <CardTitle className="flex items-center gap-2 text-amber-900">
               <Info className="h-5 w-5 text-amber-600" />
-              💡 Pro Tips
+              💡 {t('toolPage.sections.proTips')}
             </CardTitle>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
               <div className="flex gap-2 items-start">
                 <div className="text-amber-600 font-bold">→</div>
-                <p className="text-sm text-amber-900">
-                  <strong>Length:</strong> Use at least 12 characters for strong
-                  security
-                </p>
+                <p
+                  className="text-sm text-amber-900"
+                  dangerouslySetInnerHTML={{
+                    __html: t('tools.password-generator.proTips.length'),
+                  }}
+                />
               </div>
               <div className="flex gap-2 items-start">
                 <div className="text-amber-600 font-bold">→</div>
-                <p className="text-sm text-amber-900">
-                  <strong>Mix Characters:</strong> Enable all options (upper,
-                  lower, numbers, symbols)
-                </p>
+                <p
+                  className="text-sm text-amber-900"
+                  dangerouslySetInnerHTML={{
+                    __html: t('tools.password-generator.proTips.mixCharacters'),
+                  }}
+                />
               </div>
               <div className="flex gap-2 items-start">
                 <div className="text-amber-600 font-bold">→</div>
-                <p className="text-sm text-amber-900">
-                  <strong>Password Manager:</strong> Use a manager to store
-                  generated passwords
-                </p>
+                <p
+                  className="text-sm text-amber-900"
+                  dangerouslySetInnerHTML={{
+                    __html: t('tools.password-generator.proTips.passwordManager'),
+                  }}
+                />
               </div>
               <div className="flex gap-2 items-start">
                 <div className="text-amber-600 font-bold">→</div>
-                <p className="text-sm text-amber-900">
-                  <strong>Unique:</strong> Never reuse passwords across different
-                  accounts
-                </p>
+                <p
+                  className="text-sm text-amber-900"
+                  dangerouslySetInnerHTML={{
+                    __html: t('tools.password-generator.proTips.unique'),
+                  }}
+                />
               </div>
             </div>
           </CardContent>
@@ -365,7 +376,7 @@ const PasswordGenerator = () => {
         {/* Related Tools */}
         <Card className="mt-6">
           <CardHeader>
-            <CardTitle>🔗 Related Tools You Might Like</CardTitle>
+            <CardTitle>🔗 {t('toolPage.sections.relatedTools')}</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
@@ -374,10 +385,10 @@ const PasswordGenerator = () => {
                 className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
               >
                 <div className="font-semibold text-gray-900 group-hover:text-primary">
-                  UUID Generator
+                  {t('tools.uuid-generator.title')}
                 </div>
                 <div className="text-sm text-gray-600 mt-1">
-                  Generate unique identifiers
+                  {t('tools.uuid-generator.description')}
                 </div>
               </button>
               <button
@@ -385,10 +396,10 @@ const PasswordGenerator = () => {
                 className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
               >
                 <div className="font-semibold text-gray-900 group-hover:text-primary">
-                  Hash Generator
+                  {t('tools.hash-generator.title')}
                 </div>
                 <div className="text-sm text-gray-600 mt-1">
-                  Create secure hashes
+                  {t('tools.hash-generator.description')}
                 </div>
               </button>
               <button
@@ -396,10 +407,10 @@ const PasswordGenerator = () => {
                 className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
               >
                 <div className="font-semibold text-gray-900 group-hover:text-primary">
-                  Base64 Tool
+                  {t('tools.base64-encoder.title')}
                 </div>
                 <div className="text-sm text-gray-600 mt-1">
-                  Encode/decode Base64
+                  {t('tools.base64-encoder.description')}
                 </div>
               </button>
             </div>

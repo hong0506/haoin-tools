@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { SidebarTrigger } from "@/components/ui/sidebar";
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import {
@@ -23,11 +25,13 @@ import {
   FileJson,
   Database,
   Settings,
+  Link,
 } from "lucide-react";
 import { FavoriteButton } from "@/components/FavoriteButton";
 import { Badge } from "@/components/ui/badge";
 
 const JsonFormatter = () => {
+  const { t, i18n } = useTranslation();
   const [input, setInput] = useState("");
   const [output, setOutput] = useState("");
   const navigate = useNavigate();
@@ -37,9 +41,9 @@ const JsonFormatter = () => {
       const parsed = JSON.parse(input);
       const formatted = JSON.stringify(parsed, null, 2);
       setOutput(formatted);
-      toast.success("JSON formatted successfully");
+      toast.success(t("tools.json-formatter.formatSuccess"));
     } catch (error) {
-      toast.error("Invalid JSON");
+      toast.error(t("tools.json-formatter.invalidJson"));
     }
   };
 
@@ -48,25 +52,53 @@ const JsonFormatter = () => {
       const parsed = JSON.parse(input);
       const minified = JSON.stringify(parsed);
       setOutput(minified);
-      toast.success("JSON minified successfully");
+      toast.success(t("tools.json-formatter.minifySuccess"));
     } catch (error) {
-      toast.error("Invalid JSON");
+      toast.error(t("tools.json-formatter.invalidJson"));
     }
   };
 
   const copyOutput = () => {
     navigator.clipboard.writeText(output);
-    toast.success("Copied to clipboard");
+    toast.success(t("common.copied"));
   };
 
   const clearAll = () => {
     setInput("");
     setOutput("");
-    toast.success("Cleared all fields");
+    toast.success(t("toolPage.messages.cleared"));
   };
 
   const loadExample = () => {
-    const exampleJson = `{
+    let exampleJson;
+    if (i18n.language === "zh") {
+      exampleJson = `{
+  "姓名": "张三",
+  "年龄": 30,
+  "邮箱": "zhangsan@example.com",
+  "地址": {
+    "街道": "中山路123号",
+    "城市": "北京",
+    "国家": "中国"
+  },
+  "爱好": ["阅读", "游泳", "编程"],
+  "激活状态": true
+}`;
+    } else if (i18n.language === "es") {
+      exampleJson = `{
+  "nombre": "Juan Pérez",
+  "edad": 30,
+  "correo": "juan@ejemplo.com",
+  "direccion": {
+    "calle": "Calle Mayor 123",
+    "ciudad": "Madrid",
+    "pais": "España"
+  },
+  "pasatiempos": ["lectura", "natación", "programación"],
+  "activo": true
+}`;
+    } else {
+      exampleJson = `{
   "name": "John Doe",
   "age": 30,
   "email": "john@example.com",
@@ -78,9 +110,10 @@ const JsonFormatter = () => {
   "hobbies": ["reading", "swimming", "coding"],
   "isActive": true
 }`;
+    }
     setInput(exampleJson);
     setOutput("");
-    toast.success("Example loaded");
+    toast.success(t("toolPage.messages.exampleLoaded"));
   };
 
   return (
@@ -93,7 +126,9 @@ const JsonFormatter = () => {
           <SidebarTrigger />
           <div className="flex items-center gap-2">
             <Braces className="h-5 w-5 text-primary" />
-            <h1 className="text-xl font-semibold">JSON Formatter</h1>
+            <h1 className="text-xl font-semibold">
+              {t("tools.json-formatter.title")}
+            </h1>
           </div>
         </div>
       </header>
@@ -103,14 +138,14 @@ const JsonFormatter = () => {
           <CardHeader>
             <div className="flex items-center justify-between">
               <div>
-                <CardTitle>Format & Validate JSON</CardTitle>
+                <CardTitle>{t("tools.json-formatter.title")}</CardTitle>
                 <CardDescription>
-                  Format, minify, and validate JSON data
+                  {t("tools.json-formatter.description")}
                 </CardDescription>
               </div>
               <FavoriteButton
                 toolId="json-formatter"
-                toolName="JSON Formatter"
+                toolName={t("tools.json-formatter.title")}
               />
             </div>
           </CardHeader>
@@ -118,17 +153,17 @@ const JsonFormatter = () => {
             <div className="flex gap-2 mb-4">
               <Button onClick={clearAll} variant="outline" size="sm">
                 <RotateCcw className="h-4 w-4 mr-2" />
-                Clear
+                {t("toolPage.buttons.clear")}
               </Button>
               <Button onClick={loadExample} variant="ghost" size="sm">
                 <Lightbulb className="h-4 w-4 mr-1" />
-                Load Example
+                {t("toolPage.buttons.loadExample")}
               </Button>
             </div>
 
             <div>
               <label className="text-sm font-medium mb-2 block">
-                Input JSON
+                {t("tools.json-formatter.inputLabel")}
               </label>
               <Textarea
                 value={input}
@@ -139,19 +174,23 @@ const JsonFormatter = () => {
             </div>
 
             <div className="flex gap-2">
-              <Button onClick={formatJson}>Format</Button>
+              <Button onClick={formatJson}>
+                {t("tools.json-formatter.format")}
+              </Button>
               <Button onClick={minifyJson} variant="outline">
-                Minify
+                {t("tools.json-formatter.minify")}
               </Button>
             </div>
 
             {output && (
               <div>
                 <div className="mb-2 flex items-center justify-between">
-                  <label className="text-sm font-medium">Output</label>
+                  <label className="text-sm font-medium">
+                    {t("tools.json-formatter.outputLabel")}
+                  </label>
                   <Button onClick={copyOutput} size="sm" variant="ghost">
                     <Copy className="mr-2 h-4 w-4" />
-                    Copy
+                    {t("toolPage.buttons.copy")}
                   </Button>
                 </div>
                 <Textarea
@@ -168,10 +207,10 @@ const JsonFormatter = () => {
         <Card className="mt-6 bg-gradient-to-r from-blue-50 via-purple-50 to-pink-50 border-blue-200">
           <CardContent className="pt-6">
             <p className="text-gray-700 leading-relaxed">
-              <strong className="text-gray-900">What is JSON Formatter?</strong>{" "}
-              This tool formats, validates, and minifies JSON data with syntax
-              highlighting. Perfect for API development, debugging, and data
-              validation! 📝
+              <strong className="text-gray-900">
+                {t("tools.json-formatter.whatIs")}
+              </strong>{" "}
+              {t("tools.json-formatter.whatIsContent")}
             </p>
           </CardContent>
         </Card>
@@ -181,7 +220,7 @@ const JsonFormatter = () => {
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <Zap className="h-5 w-5 text-primary" />
-              Common Use Cases
+              {t("tools.json-formatter.useCases.title")}
             </CardTitle>
           </CardHeader>
           <CardContent>
@@ -192,14 +231,10 @@ const JsonFormatter = () => {
                 </div>
                 <div>
                   <div className="font-semibold text-purple-900">
-                    API Development
+                    {t("tools.json-formatter.useCases.api.title")}
                   </div>
                   <p className="text-sm text-purple-700">
-                    Format and validate{" "}
-                    <Badge variant="secondary" className="mx-1">
-                      API responses
-                    </Badge>
-                    and requests
+                    {t("tools.json-formatter.useCases.api.description")}
                   </p>
                 </div>
               </div>
@@ -210,10 +245,10 @@ const JsonFormatter = () => {
                 </div>
                 <div>
                   <div className="font-semibold text-blue-900">
-                    Config Files
+                    {t("tools.json-formatter.useCases.config.title")}
                   </div>
                   <p className="text-sm text-blue-700">
-                    Validate and format configuration files for applications
+                    {t("tools.json-formatter.useCases.config.description")}
                   </p>
                 </div>
               </div>
@@ -224,10 +259,10 @@ const JsonFormatter = () => {
                 </div>
                 <div>
                   <div className="font-semibold text-green-900">
-                    Database Exports
+                    {t("tools.json-formatter.useCases.database.title")}
                   </div>
                   <p className="text-sm text-green-700">
-                    Format database query results and JSON exports
+                    {t("tools.json-formatter.useCases.database.description")}
                   </p>
                 </div>
               </div>
@@ -237,9 +272,11 @@ const JsonFormatter = () => {
                   <FileJson className="h-5 w-5 text-pink-600" />
                 </div>
                 <div>
-                  <div className="font-semibold text-pink-900">Debugging</div>
+                  <div className="font-semibold text-pink-900">
+                    {t("tools.json-formatter.useCases.debugging.title")}
+                  </div>
                   <p className="text-sm text-pink-700">
-                    Validate syntax and find errors in JSON data
+                    {t("tools.json-formatter.useCases.debugging.description")}
                   </p>
                 </div>
               </div>
@@ -252,37 +289,46 @@ const JsonFormatter = () => {
           <CardHeader>
             <CardTitle className="flex items-center gap-2 text-amber-900">
               <Info className="h-5 w-5 text-amber-600" />
-              💡 Pro Tips
+              {t("tools.json-formatter.proTips.title")}
             </CardTitle>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
               <div className="flex gap-2 items-start">
                 <div className="text-amber-600 font-bold">→</div>
-                <p className="text-sm text-amber-900">
-                  <strong>Format:</strong> Use formatting for development and
-                  debugging
-                </p>
+                <p
+                  className="text-sm text-amber-900"
+                  dangerouslySetInnerHTML={{
+                    __html: t("tools.json-formatter.proTips.format"),
+                  }}
+                />
               </div>
               <div className="flex gap-2 items-start">
                 <div className="text-amber-600 font-bold">→</div>
-                <p className="text-sm text-amber-900">
-                  <strong>Minify:</strong> Use minification for production to
-                  reduce size
-                </p>
+                <p
+                  className="text-sm text-amber-900"
+                  dangerouslySetInnerHTML={{
+                    __html: t("tools.json-formatter.proTips.minify"),
+                  }}
+                />
               </div>
               <div className="flex gap-2 items-start">
                 <div className="text-amber-600 font-bold">→</div>
-                <p className="text-sm text-amber-900">
-                  <strong>Validation:</strong> Always validate before using in apps
-                </p>
+                <p
+                  className="text-sm text-amber-900"
+                  dangerouslySetInnerHTML={{
+                    __html: t("tools.json-formatter.proTips.validation"),
+                  }}
+                />
               </div>
               <div className="flex gap-2 items-start">
                 <div className="text-amber-600 font-bold">→</div>
-                <p className="text-sm text-amber-900">
-                  <strong>Quotes:</strong> JSON keys must use double quotes, not
-                  single
-                </p>
+                <p
+                  className="text-sm text-amber-900"
+                  dangerouslySetInnerHTML={{
+                    __html: t("tools.json-formatter.proTips.quotes"),
+                  }}
+                />
               </div>
             </div>
           </CardContent>
@@ -291,39 +337,44 @@ const JsonFormatter = () => {
         {/* Related Tools */}
         <Card className="mt-6">
           <CardHeader>
-            <CardTitle>🔗 Related Tools You Might Like</CardTitle>
+            <CardTitle className="flex items-center gap-2">
+              <Link className="h-5 w-5 text-primary" />
+              {t("tools.json-formatter.relatedTools")}
+            </CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <button
                 onClick={() => navigate("/tools/base64")}
-                className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
+                className="p-4 text-left rounded-xl border border-gray-200 hover:border-primary hover:shadow-md transition-all bg-white"
               >
-                <div className="font-semibold text-gray-900 group-hover:text-primary">
-                  Base64 Tool
+                <div className="font-semibold text-gray-900 mb-2">
+                  {t("tools.base64-encoder.title")}
                 </div>
-                <div className="text-sm text-gray-600 mt-1">
-                  Encode/decode Base64
+                <div className="text-sm text-gray-600">
+                  {t("tools.base64-encoder.description")}
                 </div>
               </button>
               <button
                 onClick={() => navigate("/tools/csv-to-json")}
-                className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
+                className="p-4 text-left rounded-xl border border-gray-200 hover:border-primary hover:shadow-md transition-all bg-white"
               >
-                <div className="font-semibold text-gray-900 group-hover:text-primary">
-                  CSV to JSON
+                <div className="font-semibold text-gray-900 mb-2">
+                  {t("tools.csv-to-json.title")}
                 </div>
-                <div className="text-sm text-gray-600 mt-1">Convert CSV to JSON</div>
+                <div className="text-sm text-gray-600">
+                  {t("tools.csv-to-json.description")}
+                </div>
               </button>
               <button
                 onClick={() => navigate("/tools/url-encoder")}
-                className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
+                className="p-4 text-left rounded-xl border border-gray-200 hover:border-primary hover:shadow-md transition-all bg-white"
               >
-                <div className="font-semibold text-gray-900 group-hover:text-primary">
-                  URL Encoder
+                <div className="font-semibold text-gray-900 mb-2">
+                  {t("tools.url-encoder.title")}
                 </div>
-                <div className="text-sm text-gray-600 mt-1">
-                  Encode/decode URLs
+                <div className="text-sm text-gray-600">
+                  {t("tools.url-encoder.description")}
                 </div>
               </button>
             </div>

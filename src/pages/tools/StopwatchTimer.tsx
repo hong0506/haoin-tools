@@ -1,6 +1,8 @@
 import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { SidebarTrigger } from "@/components/ui/sidebar";
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -30,6 +32,7 @@ import { toast } from "sonner";
 import { FavoriteButton } from "@/components/FavoriteButton";
 
 const StopwatchTimer = () => {
+  const { t } = useTranslation();
   // Stopwatch state
   const [stopwatchTime, setStopwatchTime] = useState(0);
   const [stopwatchRunning, setStopwatchRunning] = useState(false);
@@ -72,7 +75,7 @@ const StopwatchTimer = () => {
     const totalSeconds =
       parseInt(timerMinutes || "0") * 60 + parseInt(timerSeconds || "0");
     if (totalSeconds <= 0) {
-      toast.error("Please set a valid time");
+      toast.error(t("tools.stopwatch-timer.pleaseSetValidTime"));
       return;
     }
     setTimerRemaining(totalSeconds);
@@ -114,9 +117,11 @@ const StopwatchTimer = () => {
               clearInterval(timerInterval.current);
             }
             // Play sound or show notification
-            toast.success("⏰ Timer Complete!");
+            toast.success(t("tools.stopwatch-timer.timerComplete"));
             // Try to play a beep sound
-            const audio = new Audio("data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmwhBTGH0fPTgjMGHm7A7+OZUQ0PVqzn77BYGAdCmNz1xnMlBSuAzvLZiTUIGGa37e2gVhMJT6bg87pqIQQ0hNDy0oI0Bh5uwO/jmVEND1ar5++wWBgHQpjc9cdyJQUrgc7y2Yk1CBhmt+3toFYTCU+m4PO6aiEENITQ8tKCNAYebs");
+            const audio = new Audio(
+              "data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmwhBTGH0fPTgjMGHm7A7+OZUQ0PVqzn77BYGAdCmNz1xnMlBSuAzvLZiTUIGGa37e2gVhMJT6bg87pqIQQ0hNDy0oI0Bh5uwO/jmVEND1ar5++wWBgHQpjc9cdyJQUrgc7y2Yk1CBhmt+3toFYTCU+m4PO6aiEENITQ8tKCNAYebs"
+            );
             audio.play().catch(() => {});
             return 0;
           }
@@ -167,7 +172,7 @@ const StopwatchTimer = () => {
   return (
     <div className="min-h-screen">
       <header className="sticky top-0 z-10 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="flex h-16 items-center gap-4 px-6">
+        <div className="flex h-16 items-center gap-2 sm:gap-4 px-2 sm:px-6">
           <Button
             variant="ghost"
             size="icon"
@@ -177,7 +182,12 @@ const StopwatchTimer = () => {
             <ArrowLeft className="h-4 w-4" />
           </Button>
           <SidebarTrigger />
-          <h1 className="text-xl font-semibold">Stopwatch & Timer</h1>
+          <h1 className="text-xl font-semibold flex-1">
+            {t("tools.stopwatch-timer.title")}
+          </h1>
+          <div className="flex-shrink-0">
+            <LanguageSwitcher />
+          </div>
         </div>
       </header>
 
@@ -186,14 +196,16 @@ const StopwatchTimer = () => {
           <CardHeader>
             <div className="flex items-center justify-between">
               <div>
-                <CardTitle>Stopwatch & Countdown Timer</CardTitle>
+                <CardTitle>
+                  {t("tools.stopwatch-timer.stopwatchAndCountdownTimer")}
+                </CardTitle>
                 <CardDescription>
-                  Track time or set countdown timers
+                  {t("tools.stopwatch-timer.description")}
                 </CardDescription>
               </div>
               <FavoriteButton
                 toolId="stopwatch-timer"
-                toolName="Stopwatch & Timer"
+                toolName={t("tools.stopwatch-timer.title")}
               />
             </div>
           </CardHeader>
@@ -202,11 +214,11 @@ const StopwatchTimer = () => {
               <TabsList className="grid w-full grid-cols-2">
                 <TabsTrigger value="stopwatch">
                   <Clock className="h-4 w-4 mr-2" />
-                  Stopwatch
+                  {t("tools.stopwatch-timer.stopwatch")}
                 </TabsTrigger>
                 <TabsTrigger value="timer">
                   <Timer className="h-4 w-4 mr-2" />
-                  Timer
+                  {t("tools.stopwatch-timer.timer")}
                 </TabsTrigger>
               </TabsList>
 
@@ -220,7 +232,7 @@ const StopwatchTimer = () => {
                     </span>
                   </div>
                   <div className="text-sm text-muted-foreground">
-                    Hours : Minutes : Seconds . Milliseconds
+                    {t("tools.stopwatch-timer.hoursMinutesSecondsMilliseconds")}
                   </div>
                 </div>
 
@@ -228,7 +240,7 @@ const StopwatchTimer = () => {
                   {!stopwatchRunning ? (
                     <Button onClick={startStopwatch} size="lg" className="w-32">
                       <Play className="h-4 w-4 mr-2" />
-                      Start
+                      {t("tools.stopwatch-timer.start")}
                     </Button>
                   ) : (
                     <Button
@@ -238,7 +250,7 @@ const StopwatchTimer = () => {
                       className="w-32"
                     >
                       <Pause className="h-4 w-4 mr-2" />
-                      Pause
+                      {t("tools.stopwatch-timer.pause")}
                     </Button>
                   )}
                   <Button
@@ -248,7 +260,7 @@ const StopwatchTimer = () => {
                     className="w-32"
                   >
                     <RotateCcw className="h-4 w-4 mr-2" />
-                    Reset
+                    {t("tools.stopwatch-timer.reset")}
                   </Button>
                 </div>
               </TabsContent>
@@ -258,7 +270,7 @@ const StopwatchTimer = () => {
                   <>
                     <div className="grid grid-cols-2 gap-4">
                       <div>
-                        <Label>Minutes</Label>
+                        <Label>{t("tools.stopwatch-timer.minutes")}</Label>
                         <Input
                           type="number"
                           min="0"
@@ -269,7 +281,7 @@ const StopwatchTimer = () => {
                         />
                       </div>
                       <div>
-                        <Label>Seconds</Label>
+                        <Label>{t("tools.stopwatch-timer.seconds")}</Label>
                         <Input
                           type="number"
                           min="0"
@@ -290,7 +302,7 @@ const StopwatchTimer = () => {
                         variant="outline"
                         size="sm"
                       >
-                        5 min
+                        5 {t("tools.stopwatch-timer.min")}
                       </Button>
                       <Button
                         onClick={() => {
@@ -300,7 +312,7 @@ const StopwatchTimer = () => {
                         variant="outline"
                         size="sm"
                       >
-                        10 min
+                        10 {t("tools.stopwatch-timer.min")}
                       </Button>
                       <Button
                         onClick={() => {
@@ -310,7 +322,7 @@ const StopwatchTimer = () => {
                         variant="outline"
                         size="sm"
                       >
-                        25 min
+                        25 {t("tools.stopwatch-timer.min")}
                       </Button>
                       <Button
                         onClick={() => {
@@ -320,13 +332,13 @@ const StopwatchTimer = () => {
                         variant="outline"
                         size="sm"
                       >
-                        30 min
+                        30 {t("tools.stopwatch-timer.min")}
                       </Button>
                     </div>
 
                     <Button onClick={startTimer} size="lg" className="w-full">
                       <Play className="h-4 w-4 mr-2" />
-                      Start Timer
+                      {t("tools.stopwatch-timer.startTimer")}
                     </Button>
                   </>
                 ) : (
@@ -337,7 +349,7 @@ const StopwatchTimer = () => {
                         {timerDisplay.seconds}
                       </div>
                       <div className="text-sm text-muted-foreground">
-                        Hours : Minutes : Seconds
+                        {t("tools.stopwatch-timer.hoursMinutesSeconds")}
                       </div>
                     </div>
 
@@ -349,7 +361,7 @@ const StopwatchTimer = () => {
                           className="w-32"
                         >
                           <Play className="h-4 w-4 mr-2" />
-                          Resume
+                          {t("tools.stopwatch-timer.resume")}
                         </Button>
                       ) : (
                         <Button
@@ -359,7 +371,7 @@ const StopwatchTimer = () => {
                           className="w-32"
                         >
                           <Pause className="h-4 w-4 mr-2" />
-                          Pause
+                          {t("tools.stopwatch-timer.pause")}
                         </Button>
                       )}
                       <Button
@@ -369,7 +381,7 @@ const StopwatchTimer = () => {
                         className="w-32"
                       >
                         <RotateCcw className="h-4 w-4 mr-2" />
-                        Reset
+                        {t("tools.stopwatch-timer.reset")}
                       </Button>
                     </div>
                   </>
@@ -383,9 +395,9 @@ const StopwatchTimer = () => {
           <CardContent className="pt-6">
             <p className="text-gray-700 leading-relaxed">
               <strong className="text-gray-900">
-                What is Stopwatch & Timer?
+                {t("tools.stopwatch-timer.whatIs")}
               </strong>{" "}
-              A versatile time tracking tool with stopwatch for measuring elapsed time and countdown timer for setting time limits. Perfect for workouts, cooking, studying, and productivity! ⏱️
+              {t("tools.stopwatch-timer.whatIsContent")}
             </p>
           </CardContent>
         </Card>
@@ -394,7 +406,7 @@ const StopwatchTimer = () => {
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <Zap className="h-5 w-5 text-primary" />
-              Common Use Cases
+              {t("toolPage.sections.commonUseCases")}
             </CardTitle>
           </CardHeader>
           <CardContent>
@@ -404,9 +416,11 @@ const StopwatchTimer = () => {
                   <Dumbbell className="h-5 w-5 text-blue-600" />
                 </div>
                 <div>
-                  <div className="font-semibold text-blue-900">Fitness</div>
+                  <div className="font-semibold text-blue-900">
+                    {t("tools.stopwatch-timer.useCases.fitness.title")}
+                  </div>
                   <p className="text-sm text-blue-700">
-                    Track workout intervals and rest periods
+                    {t("tools.stopwatch-timer.useCases.fitness.description")}
                   </p>
                 </div>
               </div>
@@ -416,9 +430,11 @@ const StopwatchTimer = () => {
                   <Coffee className="h-5 w-5 text-purple-600" />
                 </div>
                 <div>
-                  <div className="font-semibold text-purple-900">Cooking</div>
+                  <div className="font-semibold text-purple-900">
+                    {t("tools.stopwatch-timer.useCases.cooking.title")}
+                  </div>
                   <p className="text-sm text-purple-700">
-                    Set timers for recipes and baking
+                    {t("tools.stopwatch-timer.useCases.cooking.description")}
                   </p>
                 </div>
               </div>
@@ -428,9 +444,11 @@ const StopwatchTimer = () => {
                   <BookOpen className="h-5 w-5 text-green-600" />
                 </div>
                 <div>
-                  <div className="font-semibold text-green-900">Studying</div>
+                  <div className="font-semibold text-green-900">
+                    {t("tools.stopwatch-timer.useCases.studying.title")}
+                  </div>
                   <p className="text-sm text-green-700">
-                    Time study sessions and breaks
+                    {t("tools.stopwatch-timer.useCases.studying.description")}
                   </p>
                 </div>
               </div>
@@ -440,9 +458,13 @@ const StopwatchTimer = () => {
                   <Calendar className="h-5 w-5 text-pink-600" />
                 </div>
                 <div>
-                  <div className="font-semibold text-pink-900">Productivity</div>
+                  <div className="font-semibold text-pink-900">
+                    {t("tools.stopwatch-timer.useCases.productivity.title")}
+                  </div>
                   <p className="text-sm text-pink-700">
-                    Track task duration and deadlines
+                    {t(
+                      "tools.stopwatch-timer.useCases.productivity.description"
+                    )}
                   </p>
                 </div>
               </div>
@@ -454,34 +476,46 @@ const StopwatchTimer = () => {
           <CardHeader>
             <CardTitle className="flex items-center gap-2 text-amber-900">
               <Info className="h-5 w-5 text-amber-600" />
-              💡 Pro Tips
+              💡 {t("toolPage.sections.proTips")}
             </CardTitle>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
               <div className="flex gap-2 items-start">
                 <div className="text-amber-600 font-bold">→</div>
-                <p className="text-sm text-amber-900">
-                  <strong>Stopwatch:</strong> Perfect for tracking exercise reps
-                </p>
+                <p
+                  className="text-sm text-amber-900"
+                  dangerouslySetInnerHTML={{
+                    __html: t("tools.stopwatch-timer.proTips.stopwatch"),
+                  }}
+                />
               </div>
               <div className="flex gap-2 items-start">
                 <div className="text-amber-600 font-bold">→</div>
-                <p className="text-sm text-amber-900">
-                  <strong>Timer:</strong> Get notifications when time's up
-                </p>
+                <p
+                  className="text-sm text-amber-900"
+                  dangerouslySetInnerHTML={{
+                    __html: t("tools.stopwatch-timer.proTips.timer"),
+                  }}
+                />
               </div>
               <div className="flex gap-2 items-start">
                 <div className="text-amber-600 font-bold">→</div>
-                <p className="text-sm text-amber-900">
-                  <strong>Quick Presets:</strong> Use 5, 10, 25, 30 min buttons
-                </p>
+                <p
+                  className="text-sm text-amber-900"
+                  dangerouslySetInnerHTML={{
+                    __html: t("tools.stopwatch-timer.proTips.quickPresets"),
+                  }}
+                />
               </div>
               <div className="flex gap-2 items-start">
                 <div className="text-amber-600 font-bold">→</div>
-                <p className="text-sm text-amber-900">
-                  <strong>Precision:</strong> Stopwatch shows milliseconds
-                </p>
+                <p
+                  className="text-sm text-amber-900"
+                  dangerouslySetInnerHTML={{
+                    __html: t("tools.stopwatch-timer.proTips.precision"),
+                  }}
+                />
               </div>
             </div>
           </CardContent>
@@ -489,7 +523,7 @@ const StopwatchTimer = () => {
 
         <Card className="mt-6">
           <CardHeader>
-            <CardTitle>🔗 Related Tools You Might Like</CardTitle>
+            <CardTitle>{t("tools.stopwatch-timer.relatedTools")}</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
@@ -498,10 +532,10 @@ const StopwatchTimer = () => {
                 className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
               >
                 <div className="font-semibold text-gray-900 group-hover:text-primary">
-                  Pomodoro Timer
+                  {t("tools.pomodoro-timer.title")}
                 </div>
                 <div className="text-sm text-gray-600 mt-1">
-                  Productivity timer
+                  {t("tools.pomodoro-timer.description")}
                 </div>
               </button>
               <button
@@ -509,10 +543,10 @@ const StopwatchTimer = () => {
                 className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
               >
                 <div className="font-semibold text-gray-900 group-hover:text-primary">
-                  Date Calculator
+                  {t("tools.date-calculator.title")}
                 </div>
                 <div className="text-sm text-gray-600 mt-1">
-                  Calculate date differences
+                  {t("tools.date-calculator.description")}
                 </div>
               </button>
               <button
@@ -520,10 +554,10 @@ const StopwatchTimer = () => {
                 className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
               >
                 <div className="font-semibold text-gray-900 group-hover:text-primary">
-                  Timestamp Converter
+                  {t("tools.timestamp-converter.title")}
                 </div>
                 <div className="text-sm text-gray-600 mt-1">
-                  Convert timestamps
+                  {t("tools.timestamp-converter.description")}
                 </div>
               </button>
             </div>

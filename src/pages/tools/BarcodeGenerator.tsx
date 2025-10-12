@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { SidebarTrigger } from "@/components/ui/sidebar";
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -42,6 +44,7 @@ import { toast } from "sonner";
 import { FavoriteButton } from "@/components/FavoriteButton";
 
 const BarcodeGenerator = () => {
+  const { t } = useTranslation();
   const [text, setText] = useState("");
   const [format, setFormat] = useState("CODE128");
   const [barcodeUrl, setBarcodeUrl] = useState("");
@@ -50,7 +53,7 @@ const BarcodeGenerator = () => {
 
   const generateBarcode = () => {
     if (!text.trim()) {
-      toast.error("Please enter text to encode");
+      toast.error(t("tools.barcode-generator.pleaseEnterText"));
       return;
     }
 
@@ -59,7 +62,7 @@ const BarcodeGenerator = () => {
       text
     )}`;
     setBarcodeUrl(url);
-    toast.success("Barcode generated!");
+    toast.success(t("tools.barcode-generator.barcodeGenerated"));
   };
 
   const downloadBarcode = async (format: string) => {
@@ -132,16 +135,24 @@ const BarcodeGenerator = () => {
       // Clean up
       window.URL.revokeObjectURL(url);
 
-      toast.success(`Barcode downloaded as ${format.toUpperCase()}!`);
+      toast.success(
+        t("tools.barcode-generator.downloaded", {
+          format: format.toUpperCase(),
+        })
+      );
     } catch (error) {
-      toast.error(`Failed to download barcode as ${format.toUpperCase()}`);
+      toast.error(
+        t("tools.barcode-generator.downloadFailed", {
+          format: format.toUpperCase(),
+        })
+      );
     }
   };
 
   return (
     <div className="min-h-screen">
       <header className="sticky top-0 z-10 border-b bg-background/95 backdrop-blur">
-        <div className="flex h-16 items-center gap-4 px-6">
+        <div className="flex h-16 items-center gap-2 sm:gap-4 px-2 sm:px-6">
           <Button
             variant="ghost"
             size="icon"
@@ -151,7 +162,12 @@ const BarcodeGenerator = () => {
             <ArrowLeft className="h-4 w-4" />
           </Button>
           <SidebarTrigger />
-          <h1 className="text-xl font-semibold">Barcode Generator</h1>
+          <h1 className="text-xl font-semibold flex-1">
+            {t("tools.barcode-generator.title")}
+          </h1>
+          <div className="flex-shrink-0">
+            <LanguageSwitcher />
+          </div>
         </div>
       </header>
 
@@ -160,14 +176,16 @@ const BarcodeGenerator = () => {
           <CardHeader>
             <div className="flex items-center justify-between">
               <div>
-                <CardTitle>Generate Barcodes</CardTitle>
+                <CardTitle>
+                  {t("tools.barcode-generator.generateBarcodes")}
+                </CardTitle>
                 <CardDescription>
-                  Create Code128, EAN, UPC barcodes
+                  {t("tools.barcode-generator.description")}
                 </CardDescription>
               </div>
               <FavoriteButton
                 toolId="barcode-generator"
-                toolName="Barcode Generator"
+                toolName={t("tools.barcode-generator.title")}
               />
             </div>
           </CardHeader>
@@ -177,52 +195,58 @@ const BarcodeGenerator = () => {
                 onClick={() => {
                   setText("");
                   setBarcodeUrl("");
-                  toast.success("Cleared");
+                  toast.success(t("toolPage.messages.cleared"));
                 }}
                 variant="outline"
                 size="sm"
               >
                 <RotateCcw className="h-4 w-4 mr-2" />
-                Clear
+                {t("toolPage.buttons.clear")}
               </Button>
               <Button
                 onClick={() => {
-                  setText("123456789012");
+                  setText(t("tools.barcode-generator.exampleText"));
                   setFormat("CODE128");
-                  toast.success("Example loaded");
+                  toast.success(t("toolPage.messages.exampleLoaded"));
                 }}
                 variant="ghost"
                 size="sm"
               >
                 <Lightbulb className="h-4 w-4 mr-1" />
-                Example
+                {t("toolPage.buttons.loadExample")}
               </Button>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
-                <Label>Barcode Text/Number</Label>
+                <Label>{t("tools.barcode-generator.barcodeText")}</Label>
                 <Input
                   type="text"
-                  placeholder="Enter text or numbers..."
+                  placeholder={t("tools.barcode-generator.placeholder")}
                   value={text}
                   onChange={(e) => setText(e.target.value)}
                   className="mt-2"
                 />
               </div>
               <div>
-                <Label>Barcode Format</Label>
+                <Label>{t("tools.barcode-generator.barcodeFormat")}</Label>
                 <Select value={format} onValueChange={setFormat}>
                   <SelectTrigger className="mt-2">
                     <SelectValue />
                   </SelectTrigger>
                   <SelectContent>
                     <SelectItem value="CODE128">
-                      Code 128 (alphanumeric)
+                      {t("tools.barcode-generator.formats.code128")}
                     </SelectItem>
-                    <SelectItem value="EAN13">EAN-13 (products)</SelectItem>
-                    <SelectItem value="UPCA">UPC-A (retail)</SelectItem>
-                    <SelectItem value="CODE39">Code 39 (industry)</SelectItem>
+                    <SelectItem value="EAN13">
+                      {t("tools.barcode-generator.formats.ean13")}
+                    </SelectItem>
+                    <SelectItem value="UPCA">
+                      {t("tools.barcode-generator.formats.upca")}
+                    </SelectItem>
+                    <SelectItem value="CODE39">
+                      {t("tools.barcode-generator.formats.code39")}
+                    </SelectItem>
                   </SelectContent>
                 </Select>
               </div>
@@ -230,29 +254,31 @@ const BarcodeGenerator = () => {
 
             <Button onClick={generateBarcode} className="w-full">
               <BarcodeIcon className="h-4 w-4 mr-2" />
-              Generate Barcode
+              {t("tools.barcode-generator.generateBarcode")}
             </Button>
 
             {barcodeUrl && (
               <div className="space-y-4 pt-4">
                 <div className="flex items-center justify-between">
-                  <div className="text-sm font-medium">Generated Barcode</div>
+                  <div className="text-sm font-medium">
+                    {t("tools.barcode-generator.generatedBarcode")}
+                  </div>
                   <DropdownMenu>
                     <DropdownMenuTrigger asChild>
                       <Button variant="outline" size="sm">
                         <Download className="h-4 w-4 mr-2" />
-                        Download Barcode
+                        {t("tools.barcode-generator.downloadBarcode")}
                         <ChevronDown className="h-4 w-4 ml-2" />
                       </Button>
                     </DropdownMenuTrigger>
                     <DropdownMenuContent align="end">
                       <DropdownMenuItem onClick={() => downloadBarcode("png")}>
                         <FileImage className="h-4 w-4 mr-2" />
-                        Download as PNG
+                        {t("tools.barcode-generator.downloadPng")}
                       </DropdownMenuItem>
                       <DropdownMenuItem onClick={() => downloadBarcode("jpg")}>
                         <File className="h-4 w-4 mr-2" />
-                        Download as JPG
+                        {t("tools.barcode-generator.downloadJpg")}
                       </DropdownMenuItem>
                     </DropdownMenuContent>
                   </DropdownMenu>
@@ -273,11 +299,9 @@ const BarcodeGenerator = () => {
           <CardContent className="pt-6">
             <p className="text-gray-700 leading-relaxed">
               <strong className="text-gray-900">
-                What is Barcode Generator?
+                {t("tools.barcode-generator.whatIs")}
               </strong>{" "}
-              Create professional barcodes for products, inventory, and asset
-              tracking. Supports multiple formats including Code128, EAN-13, and
-              UPC! 📦
+              {t("tools.barcode-generator.whatIsContent")}
             </p>
           </CardContent>
         </Card>
@@ -286,7 +310,7 @@ const BarcodeGenerator = () => {
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <Zap className="h-5 w-5 text-primary" />
-              Common Use Cases
+              {t("toolPage.sections.commonUseCases")}
             </CardTitle>
           </CardHeader>
           <CardContent>
@@ -297,10 +321,12 @@ const BarcodeGenerator = () => {
                 </div>
                 <div>
                   <div className="font-semibold text-blue-900">
-                    Retail Products
+                    {t("tools.barcode-generator.useCases.retailProducts.title")}
                   </div>
                   <p className="text-sm text-blue-700">
-                    Generate UPC/EAN for store items
+                    {t(
+                      "tools.barcode-generator.useCases.retailProducts.description"
+                    )}
                   </p>
                 </div>
               </div>
@@ -310,9 +336,13 @@ const BarcodeGenerator = () => {
                   <Package className="h-5 w-5 text-purple-600" />
                 </div>
                 <div>
-                  <div className="font-semibold text-purple-900">Inventory</div>
+                  <div className="font-semibold text-purple-900">
+                    {t("tools.barcode-generator.useCases.inventory.title")}
+                  </div>
                   <p className="text-sm text-purple-700">
-                    Track warehouse stock levels
+                    {t(
+                      "tools.barcode-generator.useCases.inventory.description"
+                    )}
                   </p>
                 </div>
               </div>
@@ -323,10 +353,12 @@ const BarcodeGenerator = () => {
                 </div>
                 <div>
                   <div className="font-semibold text-green-900">
-                    Asset Tracking
+                    {t("tools.barcode-generator.useCases.assetTracking.title")}
                   </div>
                   <p className="text-sm text-green-700">
-                    Label equipment and tools
+                    {t(
+                      "tools.barcode-generator.useCases.assetTracking.description"
+                    )}
                   </p>
                 </div>
               </div>
@@ -337,10 +369,12 @@ const BarcodeGenerator = () => {
                 </div>
                 <div>
                   <div className="font-semibold text-pink-900">
-                    Shipping Labels
+                    {t("tools.barcode-generator.useCases.shippingLabels.title")}
                   </div>
                   <p className="text-sm text-pink-700">
-                    Create package tracking codes
+                    {t(
+                      "tools.barcode-generator.useCases.shippingLabels.description"
+                    )}
                   </p>
                 </div>
               </div>
@@ -352,35 +386,46 @@ const BarcodeGenerator = () => {
           <CardHeader>
             <CardTitle className="flex items-center gap-2 text-amber-900">
               <Info className="h-5 w-5 text-amber-600" />
-              💡 Pro Tips
+              💡 {t("toolPage.sections.proTips")}
             </CardTitle>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
               <div className="flex gap-2 items-start">
                 <div className="text-amber-600 font-bold">→</div>
-                <p className="text-sm text-amber-900">
-                  <strong>Code128:</strong> Best for alphanumeric data
-                </p>
+                <p
+                  className="text-sm text-amber-900"
+                  dangerouslySetInnerHTML={{
+                    __html: t("tools.barcode-generator.proTips.code128"),
+                  }}
+                />
               </div>
               <div className="flex gap-2 items-start">
                 <div className="text-amber-600 font-bold">→</div>
-                <p className="text-sm text-amber-900">
-                  <strong>EAN-13:</strong> Required 13 digits for products
-                </p>
+                <p
+                  className="text-sm text-amber-900"
+                  dangerouslySetInnerHTML={{
+                    __html: t("tools.barcode-generator.proTips.ean13"),
+                  }}
+                />
               </div>
               <div className="flex gap-2 items-start">
                 <div className="text-amber-600 font-bold">→</div>
-                <p className="text-sm text-amber-900">
-                  <strong>High Quality:</strong> Download PNG for printing
-                </p>
+                <p
+                  className="text-sm text-amber-900"
+                  dangerouslySetInnerHTML={{
+                    __html: t("tools.barcode-generator.proTips.highQuality"),
+                  }}
+                />
               </div>
               <div className="flex gap-2 items-start">
                 <div className="text-amber-600 font-bold">→</div>
-                <p className="text-sm text-amber-900">
-                  <strong>Test Scan:</strong> Verify with scanner before
-                  printing
-                </p>
+                <p
+                  className="text-sm text-amber-900"
+                  dangerouslySetInnerHTML={{
+                    __html: t("tools.barcode-generator.proTips.testScan"),
+                  }}
+                />
               </div>
             </div>
           </CardContent>
@@ -388,7 +433,7 @@ const BarcodeGenerator = () => {
 
         <Card className="mt-6">
           <CardHeader>
-            <CardTitle>🔗 Related Tools You Might Like</CardTitle>
+            <CardTitle>{t("tools.barcode-generator.relatedTools")}</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
@@ -397,10 +442,10 @@ const BarcodeGenerator = () => {
                 className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
               >
                 <div className="font-semibold text-gray-900 group-hover:text-primary">
-                  QR Code Generator
+                  {t("tools.qr-generator.title")}
                 </div>
                 <div className="text-sm text-gray-600 mt-1">
-                  Create QR codes
+                  {t("tools.qr-generator.description")}
                 </div>
               </button>
               <button
@@ -408,10 +453,10 @@ const BarcodeGenerator = () => {
                 className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
               >
                 <div className="font-semibold text-gray-900 group-hover:text-primary">
-                  UUID Generator
+                  {t("tools.uuid-generator.title")}
                 </div>
                 <div className="text-sm text-gray-600 mt-1">
-                  Generate unique IDs
+                  {t("tools.uuid-generator.description")}
                 </div>
               </button>
               <button
@@ -419,10 +464,10 @@ const BarcodeGenerator = () => {
                 className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
               >
                 <div className="font-semibold text-gray-900 group-hover:text-primary">
-                  Random Picker
+                  {t("tools.random-picker.title")}
                 </div>
                 <div className="text-sm text-gray-600 mt-1">
-                  Generate random items
+                  {t("tools.random-picker.description")}
                 </div>
               </button>
             </div>

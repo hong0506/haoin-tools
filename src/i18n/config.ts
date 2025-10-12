@@ -6,39 +6,42 @@ import LanguageDetector from "i18next-browser-languagedetector";
 import enTranslations from "./locales/en.json";
 import zhTranslations from "./locales/zh.json";
 import esTranslations from "./locales/es.json";
-import ptTranslations from "./locales/pt.json";
-import idTranslations from "./locales/id.json";
-import viTranslations from "./locales/vi.json";
-import frTranslations from "./locales/fr.json";
-import deTranslations from "./locales/de.json";
-import jaTranslations from "./locales/ja.json";
-import koTranslations from "./locales/ko.json";
+// Commented out languages - can be re-enabled in the future
+// import ptTranslations from "./locales/pt.json";
+// import idTranslations from "./locales/id.json";
+// import viTranslations from "./locales/vi.json";
+// import frTranslations from "./locales/fr.json";
+// import deTranslations from "./locales/de.json";
+// import jaTranslations from "./locales/ja.json";
+// import koTranslations from "./locales/ko.json";
 
 // Language configurations
 export const languages = [
   { code: "en", name: "English", nativeName: "English" },
   { code: "zh", name: "Chinese", nativeName: "中文" },
   { code: "es", name: "Spanish", nativeName: "Español" },
-  { code: "pt", name: "Portuguese", nativeName: "Português (Brasil)" },
-  { code: "id", name: "Indonesian", nativeName: "Bahasa Indonesia" },
-  { code: "vi", name: "Vietnamese", nativeName: "Tiếng Việt" },
-  { code: "fr", name: "French", nativeName: "Français" },
-  { code: "de", name: "German", nativeName: "Deutsch" },
-  { code: "ja", name: "Japanese", nativeName: "日本語" },
-  { code: "ko", name: "Korean", nativeName: "한국어" },
+  // Commented out languages - can be re-enabled in the future
+  // { code: "pt", name: "Portuguese", nativeName: "Português (Brasil)" },
+  // { code: "id", name: "Indonesian", nativeName: "Bahasa Indonesia" },
+  // { code: "vi", name: "Vietnamese", nativeName: "Tiếng Việt" },
+  // { code: "fr", name: "French", nativeName: "Français" },
+  // { code: "de", name: "German", nativeName: "Deutsch" },
+  // { code: "ja", name: "Japanese", nativeName: "日本語" },
+  // { code: "ko", name: "Korean", nativeName: "한국어" },
 ];
 
 const resources = {
   en: { translation: enTranslations },
   zh: { translation: zhTranslations },
   es: { translation: esTranslations },
-  pt: { translation: ptTranslations },
-  id: { translation: idTranslations },
-  vi: { translation: viTranslations },
-  fr: { translation: frTranslations },
-  de: { translation: deTranslations },
-  ja: { translation: jaTranslations },
-  ko: { translation: koTranslations },
+  // Commented out languages - can be re-enabled in the future
+  // pt: { translation: ptTranslations },
+  // id: { translation: idTranslations },
+  // vi: { translation: viTranslations },
+  // fr: { translation: frTranslations },
+  // de: { translation: deTranslations },
+  // ja: { translation: jaTranslations },
+  // ko: { translation: koTranslations },
 };
 
 i18n

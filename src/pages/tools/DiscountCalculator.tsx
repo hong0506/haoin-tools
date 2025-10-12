@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { SidebarTrigger } from "@/components/ui/sidebar";
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -27,6 +29,7 @@ import { toast } from "sonner";
 import { FavoriteButton } from "@/components/FavoriteButton";
 
 const DiscountCalculator = () => {
+  const { t } = useTranslation();
   const [originalPrice, setOriginalPrice] = useState("");
   const [discountPercent, setDiscountPercent] = useState("");
   const navigate = useNavigate();
@@ -46,19 +49,19 @@ const DiscountCalculator = () => {
   const clearAll = () => {
     setOriginalPrice("");
     setDiscountPercent("");
-    toast.success("All fields cleared");
+    toast.success(t("toolPage.messages.cleared"));
   };
 
   const loadExample = () => {
     setOriginalPrice("199.99");
     setDiscountPercent("25");
-    toast.success("Example loaded");
+    toast.success(t("toolPage.messages.exampleLoaded"));
   };
 
   return (
     <div className="min-h-screen">
       <header className="sticky top-0 z-10 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="flex h-16 items-center gap-4 px-6">
+        <div className="flex h-16 items-center gap-2 sm:gap-4 px-2 sm:px-6">
           <Button
             variant="ghost"
             size="icon"
@@ -68,7 +71,12 @@ const DiscountCalculator = () => {
             <ArrowLeft className="h-4 w-4" />
           </Button>
           <SidebarTrigger />
-          <h1 className="text-xl font-semibold">Discount Calculator</h1>
+          <h1 className="text-xl font-semibold flex-1">
+            {t("tools.discount-calculator.title")}
+          </h1>
+          <div className="flex-shrink-0">
+            <LanguageSwitcher />
+          </div>
         </div>
       </header>
 
@@ -77,14 +85,16 @@ const DiscountCalculator = () => {
           <CardHeader>
             <div className="flex items-center justify-between">
               <div>
-                <CardTitle>Calculate Discounts</CardTitle>
+                <CardTitle>
+                  {t("tools.discount-calculator.calculateDiscounts")}
+                </CardTitle>
                 <CardDescription>
-                  Calculate discount amount and final price
+                  {t("tools.discount-calculator.description")}
                 </CardDescription>
               </div>
               <FavoriteButton
                 toolId="discount-calculator"
-                toolName="Discount Calculator"
+                toolName={t("tools.discount-calculator.title")}
               />
             </div>
           </CardHeader>
@@ -92,16 +102,16 @@ const DiscountCalculator = () => {
             <div className="flex gap-2 mb-4">
               <Button onClick={clearAll} variant="outline" size="sm">
                 <RotateCcw className="h-4 w-4 mr-2" />
-                Clear
+                {t("toolPage.buttons.clear")}
               </Button>
               <Button onClick={loadExample} variant="ghost" size="sm">
                 <Lightbulb className="h-4 w-4 mr-1" />
-                Load Example
+                {t("toolPage.buttons.loadExample")}
               </Button>
             </div>
 
             <div>
-              <Label>Original Price ($)</Label>
+              <Label>{t("tools.discount-calculator.originalPrice")}</Label>
               <Input
                 type="number"
                 placeholder="0.00"
@@ -112,7 +122,7 @@ const DiscountCalculator = () => {
             </div>
 
             <div>
-              <Label>Discount (%)</Label>
+              <Label>{t("tools.discount-calculator.discount")}</Label>
               <Input
                 type="number"
                 placeholder="0"
@@ -126,13 +136,17 @@ const DiscountCalculator = () => {
 
             <div className="bg-gradient-to-r from-blue-50 to-cyan-50 dark:from-blue-950/20 dark:to-cyan-950/20 p-6 rounded-lg space-y-4">
               <div className="flex justify-between items-center">
-                <span className="text-sm font-medium">You Save:</span>
+                <span className="text-sm font-medium">
+                  {t("tools.discount-calculator.youSave")}:
+                </span>
                 <span className="text-2xl font-bold text-green-600">
                   ${result.saved}
                 </span>
               </div>
               <div className="flex justify-between items-center border-t pt-4">
-                <span className="text-sm font-medium">Final Price:</span>
+                <span className="text-sm font-medium">
+                  {t("tools.discount-calculator.finalPrice")}:
+                </span>
                 <span className="text-3xl font-bold text-primary">
                   ${result.final}
                 </span>
@@ -145,9 +159,9 @@ const DiscountCalculator = () => {
           <CardContent className="pt-6">
             <p className="text-gray-700 leading-relaxed">
               <strong className="text-gray-900">
-                What is Discount Calculator?
+                {t("tools.discount-calculator.whatIs")}
               </strong>{" "}
-              This tool helps you quickly calculate discounted prices and savings. Perfect for shopping, sales analysis, and budgeting! 💰
+              {t("tools.discount-calculator.whatIsContent")}
             </p>
           </CardContent>
         </Card>
@@ -156,7 +170,7 @@ const DiscountCalculator = () => {
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <Zap className="h-5 w-5 text-primary" />
-              Common Use Cases
+              {t("toolPage.sections.commonUseCases")}
             </CardTitle>
           </CardHeader>
           <CardContent>
@@ -167,10 +181,12 @@ const DiscountCalculator = () => {
                 </div>
                 <div>
                   <div className="font-semibold text-blue-900">
-                    Online Shopping
+                    {t("tools.discount-calculator.useCases.onlineShopping.title")}
                   </div>
                   <p className="text-sm text-blue-700">
-                    Calculate final price during sales and promotions
+                    {t(
+                      "tools.discount-calculator.useCases.onlineShopping.description"
+                    )}
                   </p>
                 </div>
               </div>
@@ -181,10 +197,12 @@ const DiscountCalculator = () => {
                 </div>
                 <div>
                   <div className="font-semibold text-purple-900">
-                    Price Comparison
+                    {t("tools.discount-calculator.useCases.priceComparison.title")}
                   </div>
                   <p className="text-sm text-purple-700">
-                    Compare deals across different stores
+                    {t(
+                      "tools.discount-calculator.useCases.priceComparison.description"
+                    )}
                   </p>
                 </div>
               </div>
@@ -195,10 +213,12 @@ const DiscountCalculator = () => {
                 </div>
                 <div>
                   <div className="font-semibold text-green-900">
-                    Sales Analysis
+                    {t("tools.discount-calculator.useCases.salesAnalysis.title")}
                   </div>
                   <p className="text-sm text-green-700">
-                    Analyze discount impact on revenue
+                    {t(
+                      "tools.discount-calculator.useCases.salesAnalysis.description"
+                    )}
                   </p>
                 </div>
               </div>
@@ -209,10 +229,12 @@ const DiscountCalculator = () => {
                 </div>
                 <div>
                   <div className="font-semibold text-pink-900">
-                    Budget Planning
+                    {t("tools.discount-calculator.useCases.budgetPlanning.title")}
                   </div>
                   <p className="text-sm text-pink-700">
-                    Plan purchases during discount seasons
+                    {t(
+                      "tools.discount-calculator.useCases.budgetPlanning.description"
+                    )}
                   </p>
                 </div>
               </div>
@@ -224,34 +246,46 @@ const DiscountCalculator = () => {
           <CardHeader>
             <CardTitle className="flex items-center gap-2 text-amber-900">
               <Info className="h-5 w-5 text-amber-600" />
-              💡 Pro Tips
+              💡 {t("toolPage.sections.proTips")}
             </CardTitle>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
               <div className="flex gap-2 items-start">
                 <div className="text-amber-600 font-bold">→</div>
-                <p className="text-sm text-amber-900">
-                  <strong>Instant Results:</strong> See savings calculated in real-time
-                </p>
+                <p
+                  className="text-sm text-amber-900"
+                  dangerouslySetInnerHTML={{
+                    __html: t("tools.discount-calculator.proTips.instantResults"),
+                  }}
+                />
               </div>
               <div className="flex gap-2 items-start">
                 <div className="text-amber-600 font-bold">→</div>
-                <p className="text-sm text-amber-900">
-                  <strong>Any Currency:</strong> Works with dollars, euros, or any currency
-                </p>
+                <p
+                  className="text-sm text-amber-900"
+                  dangerouslySetInnerHTML={{
+                    __html: t("tools.discount-calculator.proTips.anyCurrency"),
+                  }}
+                />
               </div>
               <div className="flex gap-2 items-start">
                 <div className="text-amber-600 font-bold">→</div>
-                <p className="text-sm text-amber-900">
-                  <strong>Stack Discounts:</strong> Calculate multiple discounts separately
-                </p>
+                <p
+                  className="text-sm text-amber-900"
+                  dangerouslySetInnerHTML={{
+                    __html: t("tools.discount-calculator.proTips.stackDiscounts"),
+                  }}
+                />
               </div>
               <div className="flex gap-2 items-start">
                 <div className="text-amber-600 font-bold">→</div>
-                <p className="text-sm text-amber-900">
-                  <strong>Quick Compare:</strong> Perfect for Black Friday shopping
-                </p>
+                <p
+                  className="text-sm text-amber-900"
+                  dangerouslySetInnerHTML={{
+                    __html: t("tools.discount-calculator.proTips.quickCompare"),
+                  }}
+                />
               </div>
             </div>
           </CardContent>
@@ -259,7 +293,7 @@ const DiscountCalculator = () => {
 
         <Card className="mt-6">
           <CardHeader>
-            <CardTitle>🔗 Related Tools You Might Like</CardTitle>
+            <CardTitle>{t("tools.discount-calculator.relatedTools")}</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
@@ -268,10 +302,10 @@ const DiscountCalculator = () => {
                 className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
               >
                 <div className="font-semibold text-gray-900 group-hover:text-primary">
-                  Percentage Calculator
+                  {t("tools.percentage-calculator.title")}
                 </div>
                 <div className="text-sm text-gray-600 mt-1">
-                  Calculate percentages
+                  {t("tools.percentage-calculator.description")}
                 </div>
               </button>
               <button
@@ -279,10 +313,10 @@ const DiscountCalculator = () => {
                 className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
               >
                 <div className="font-semibold text-gray-900 group-hover:text-primary">
-                  Tip Calculator
+                  {t("tools.tip-calculator.title")}
                 </div>
                 <div className="text-sm text-gray-600 mt-1">
-                  Calculate tips easily
+                  {t("tools.tip-calculator.description")}
                 </div>
               </button>
               <button
@@ -290,10 +324,10 @@ const DiscountCalculator = () => {
                 className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
               >
                 <div className="font-semibold text-gray-900 group-hover:text-primary">
-                  Currency Converter
+                  {t("tools.currency-converter.title")}
                 </div>
                 <div className="text-sm text-gray-600 mt-1">
-                  Convert currencies
+                  {t("tools.currency-converter.description")}
                 </div>
               </button>
             </div>

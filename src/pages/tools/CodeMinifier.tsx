@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { SidebarTrigger } from "@/components/ui/sidebar";
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import {
@@ -29,6 +31,7 @@ import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const CodeMinifier = () => {
+  const { t } = useTranslation();
   const [htmlInput, setHtmlInput] = useState("");
   const [htmlOutput, setHtmlOutput] = useState("");
   const [cssInput, setCssInput] = useState("");
@@ -40,7 +43,7 @@ const CodeMinifier = () => {
 
   const minifyHtml = () => {
     if (!htmlInput.trim()) {
-      toast.error("Please enter HTML code");
+      toast.error(t("tools.code-minifier.pleaseEnterHtml"));
       return;
     }
     try {
@@ -55,15 +58,15 @@ const CodeMinifier = () => {
         ((htmlInput.length - minified.length) / htmlInput.length) *
         100
       ).toFixed(1);
-      toast.success(`HTML minified! ${reduction}% size reduction`);
+      toast.success(t("tools.code-minifier.htmlMinified", { reduction }));
     } catch (error) {
-      toast.error("Error minifying HTML");
+      toast.error(t("tools.code-minifier.errorMinifyingHtml"));
     }
   };
 
   const minifyCss = () => {
     if (!cssInput.trim()) {
-      toast.error("Please enter CSS code");
+      toast.error(t("tools.code-minifier.pleaseEnterCss"));
       return;
     }
     try {
@@ -81,15 +84,15 @@ const CodeMinifier = () => {
         ((cssInput.length - minified.length) / cssInput.length) *
         100
       ).toFixed(1);
-      toast.success(`CSS minified! ${reduction}% size reduction`);
+      toast.success(t("tools.code-minifier.cssMinified", { reduction }));
     } catch (error) {
-      toast.error("Error minifying CSS");
+      toast.error(t("tools.code-minifier.errorMinifyingCss"));
     }
   };
 
   const minifyJs = () => {
     if (!jsInput.trim()) {
-      toast.error("Please enter JavaScript code");
+      toast.error(t("tools.code-minifier.pleaseEnterJs"));
       return;
     }
     try {
@@ -104,15 +107,15 @@ const CodeMinifier = () => {
         ((jsInput.length - minified.length) / jsInput.length) *
         100
       ).toFixed(1);
-      toast.success(`JavaScript minified! ${reduction}% size reduction`);
+      toast.success(t("tools.code-minifier.jsMinified", { reduction }));
     } catch (error) {
-      toast.error("Error minifying JavaScript");
+      toast.error(t("tools.code-minifier.errorMinifyingJs"));
     }
   };
 
   const copyOutput = (output: string, type: string) => {
     navigator.clipboard.writeText(output);
-    toast.success(`Minified ${type} copied to clipboard!`);
+    toast.success(t("tools.code-minifier.copiedToClipboard", { type }));
   };
 
   const clearAll = () => {
@@ -122,61 +125,19 @@ const CodeMinifier = () => {
     setCssOutput("");
     setJsInput("");
     setJsOutput("");
-    toast.success("All fields cleared");
+    toast.success(t("toolPage.messages.cleared"));
   };
 
   const loadExample = () => {
     if (activeTab === "html") {
-      setHtmlInput(`<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Example Page</title>
-  </head>
-  <body>
-    <!-- Main content -->
-    <div class="container">
-      <h1>Welcome to My Website</h1>
-      <p>This is a sample paragraph with some content.</p>
-    </div>
-  </body>
-</html>`);
-      toast.success("HTML example loaded");
+      setHtmlInput(t("tools.code-minifier.exampleHtml"));
+      toast.success(t("toolPage.messages.exampleLoaded"));
     } else if (activeTab === "css") {
-      setCssInput(`/* Main styles */
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-}
-
-h1 {
-  color: #333;
-  font-size: 2rem;
-  margin-bottom: 1rem;
-}
-
-p {
-  line-height: 1.6;
-  color: #666;
-}`);
-      toast.success("CSS example loaded");
+      setCssInput(t("tools.code-minifier.exampleCss"));
+      toast.success(t("toolPage.messages.exampleLoaded"));
     } else if (activeTab === "javascript") {
-      setJsInput(`// Function to greet user
-function greetUser(name) {
-  const greeting = "Hello, " + name + "!";
-  console.log(greeting);
-  return greeting;
-}
-
-// Calculate sum
-function calculateSum(a, b) {
-  return a + b;
-}
-
-greetUser("World");`);
-      toast.success("JavaScript example loaded");
+      setJsInput(t("tools.code-minifier.exampleJs"));
+      toast.success(t("toolPage.messages.exampleLoaded"));
     }
   };
 
@@ -195,7 +156,9 @@ greetUser("World");`);
           <SidebarTrigger />
           <div className="flex items-center gap-2">
             <Minimize2 className="h-5 w-5 text-primary" />
-            <h1 className="text-xl font-semibold">Code Minifier</h1>
+            <h1 className="text-xl font-semibold">
+              {t("tools.code-minifier.title")}
+            </h1>
           </div>
         </div>
       </header>
@@ -205,23 +168,26 @@ greetUser("World");`);
           <CardHeader>
             <div className="flex items-center justify-between">
               <div>
-                <CardTitle>Minify Code</CardTitle>
+                <CardTitle>{t("tools.code-minifier.minifyCode")}</CardTitle>
                 <CardDescription>
-                  Compress HTML, CSS, and JavaScript to reduce file size
+                  {t("tools.code-minifier.description")}
                 </CardDescription>
               </div>
-              <FavoriteButton toolId="code-minifier" toolName="Code Minifier" />
+              <FavoriteButton
+                toolId="code-minifier"
+                toolName={t("tools.code-minifier.title")}
+              />
             </div>
           </CardHeader>
           <CardContent className="space-y-4">
             <div className="flex gap-2 mb-4">
               <Button onClick={clearAll} variant="outline" size="sm">
                 <RotateCcw className="h-4 w-4 mr-2" />
-                Clear
+                {t("toolPage.buttons.clear")}
               </Button>
               <Button onClick={loadExample} variant="ghost" size="sm">
                 <Lightbulb className="h-4 w-4 mr-1" />
-                Load Example
+                {t("toolPage.buttons.loadExample")}
               </Button>
             </div>
 
@@ -239,29 +205,29 @@ greetUser("World");`);
               <TabsContent value="html" className="space-y-4">
                 <div>
                   <label className="mb-2 block text-sm font-medium">
-                    HTML Input
+                    {t("tools.code-minifier.htmlInput")}
                   </label>
                   <Textarea
                     value={htmlInput}
                     onChange={(e) => setHtmlInput(e.target.value)}
-                    placeholder="<html>...</html>"
+                    placeholder={t("tools.code-minifier.htmlPlaceholder")}
                     className="min-h-[200px] font-mono text-sm"
                   />
                   <div className="text-xs text-muted-foreground mt-1">
-                    Size: {htmlInput.length} bytes
+                    {t("tools.code-minifier.size")}: {htmlInput.length} {t("tools.code-minifier.bytes")}
                   </div>
                 </div>
 
                 <Button onClick={minifyHtml} className="w-full">
                   <Minimize2 className="h-4 w-4 mr-2" />
-                  Minify HTML
+                  {t("tools.code-minifier.minifyHtml")}
                 </Button>
 
                 {htmlOutput && (
                   <div>
                     <div className="mb-2 flex items-center justify-between">
                       <label className="text-sm font-medium">
-                        Minified Output
+                        {t("tools.code-minifier.minifiedOutput")}
                       </label>
                       <Button
                         onClick={() => copyOutput(htmlOutput, "HTML")}
@@ -269,7 +235,7 @@ greetUser("World");`);
                         variant="ghost"
                       >
                         <Copy className="mr-2 h-4 w-4" />
-                        Copy
+                        {t("toolPage.buttons.copy")}
                       </Button>
                     </div>
                     <Textarea
@@ -278,13 +244,13 @@ greetUser("World");`);
                       className="min-h-[150px] font-mono text-sm bg-green-50/50"
                     />
                     <div className="text-xs text-muted-foreground mt-1">
-                      Size: {htmlOutput.length} bytes (
+                      {t("tools.code-minifier.size")}: {htmlOutput.length} {t("tools.code-minifier.bytes")} (
                       {(
                         ((htmlInput.length - htmlOutput.length) /
                           htmlInput.length) *
                         100
                       ).toFixed(1)}
-                      % reduction)
+                      % {t("tools.code-minifier.reduction")})
                     </div>
                   </div>
                 )}
@@ -293,29 +259,29 @@ greetUser("World");`);
               <TabsContent value="css" className="space-y-4">
                 <div>
                   <label className="mb-2 block text-sm font-medium">
-                    CSS Input
+                    {t("tools.code-minifier.cssInput")}
                   </label>
                   <Textarea
                     value={cssInput}
                     onChange={(e) => setCssInput(e.target.value)}
-                    placeholder=".class { property: value; }"
+                    placeholder={t("tools.code-minifier.cssPlaceholder")}
                     className="min-h-[200px] font-mono text-sm"
                   />
                   <div className="text-xs text-muted-foreground mt-1">
-                    Size: {cssInput.length} bytes
+                    {t("tools.code-minifier.size")}: {cssInput.length} {t("tools.code-minifier.bytes")}
                   </div>
                 </div>
 
                 <Button onClick={minifyCss} className="w-full">
                   <Minimize2 className="h-4 w-4 mr-2" />
-                  Minify CSS
+                  {t("tools.code-minifier.minifyCss")}
                 </Button>
 
                 {cssOutput && (
                   <div>
                     <div className="mb-2 flex items-center justify-between">
                       <label className="text-sm font-medium">
-                        Minified Output
+                        {t("tools.code-minifier.minifiedOutput")}
                       </label>
                       <Button
                         onClick={() => copyOutput(cssOutput, "CSS")}
@@ -323,7 +289,7 @@ greetUser("World");`);
                         variant="ghost"
                       >
                         <Copy className="mr-2 h-4 w-4" />
-                        Copy
+                        {t("toolPage.buttons.copy")}
                       </Button>
                     </div>
                     <Textarea
@@ -332,13 +298,13 @@ greetUser("World");`);
                       className="min-h-[150px] font-mono text-sm bg-blue-50/50"
                     />
                     <div className="text-xs text-muted-foreground mt-1">
-                      Size: {cssOutput.length} bytes (
+                      {t("tools.code-minifier.size")}: {cssOutput.length} {t("tools.code-minifier.bytes")} (
                       {(
                         ((cssInput.length - cssOutput.length) /
                           cssInput.length) *
                         100
                       ).toFixed(1)}
-                      % reduction)
+                      % {t("tools.code-minifier.reduction")})
                     </div>
                   </div>
                 )}
@@ -347,29 +313,29 @@ greetUser("World");`);
               <TabsContent value="javascript" className="space-y-4">
                 <div>
                   <label className="mb-2 block text-sm font-medium">
-                    JavaScript Input
+                    {t("tools.code-minifier.jsInput")}
                   </label>
                   <Textarea
                     value={jsInput}
                     onChange={(e) => setJsInput(e.target.value)}
-                    placeholder="function myFunc() { ... }"
+                    placeholder={t("tools.code-minifier.jsPlaceholder")}
                     className="min-h-[200px] font-mono text-sm"
                   />
                   <div className="text-xs text-muted-foreground mt-1">
-                    Size: {jsInput.length} bytes
+                    {t("tools.code-minifier.size")}: {jsInput.length} {t("tools.code-minifier.bytes")}
                   </div>
                 </div>
 
                 <Button onClick={minifyJs} className="w-full">
                   <Minimize2 className="h-4 w-4 mr-2" />
-                  Minify JavaScript
+                  {t("tools.code-minifier.minifyJs")}
                 </Button>
 
                 {jsOutput && (
                   <div>
                     <div className="mb-2 flex items-center justify-between">
                       <label className="text-sm font-medium">
-                        Minified Output
+                        {t("tools.code-minifier.minifiedOutput")}
                       </label>
                       <Button
                         onClick={() => copyOutput(jsOutput, "JavaScript")}
@@ -377,7 +343,7 @@ greetUser("World");`);
                         variant="ghost"
                       >
                         <Copy className="mr-2 h-4 w-4" />
-                        Copy
+                        {t("toolPage.buttons.copy")}
                       </Button>
                     </div>
                     <Textarea
@@ -386,12 +352,12 @@ greetUser("World");`);
                       className="min-h-[150px] font-mono text-sm bg-purple-50/50"
                     />
                     <div className="text-xs text-muted-foreground mt-1">
-                      Size: {jsOutput.length} bytes (
+                      {t("tools.code-minifier.size")}: {jsOutput.length} {t("tools.code-minifier.bytes")} (
                       {(
                         ((jsInput.length - jsOutput.length) / jsInput.length) *
                         100
                       ).toFixed(1)}
-                      % reduction)
+                      % {t("tools.code-minifier.reduction")})
                     </div>
                   </div>
                 )}
@@ -404,10 +370,10 @@ greetUser("World");`);
         <Card className="mt-6 bg-gradient-to-r from-blue-50 via-purple-50 to-pink-50 border-blue-200">
           <CardContent className="pt-6">
             <p className="text-gray-700 leading-relaxed">
-              <strong className="text-gray-900">What is Code Minifier?</strong>{" "}
-              This tool compresses HTML, CSS, and JavaScript code by removing
-              comments, whitespace, and unnecessary characters. Perfect for
-              optimizing website performance and reducing bandwidth! ⚡
+              <strong className="text-gray-900">
+                {t("tools.code-minifier.whatIs")}
+              </strong>{" "}
+              {t("tools.code-minifier.whatIsContent")}
             </p>
           </CardContent>
         </Card>
@@ -417,7 +383,7 @@ greetUser("World");`);
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <Zap className="h-5 w-5 text-primary" />
-              Common Use Cases
+              {t("toolPage.sections.commonUseCases")}
             </CardTitle>
           </CardHeader>
           <CardContent>
@@ -428,14 +394,10 @@ greetUser("World");`);
                 </div>
                 <div>
                   <div className="font-semibold text-purple-900">
-                    Performance
+                    {t("tools.code-minifier.useCases.performance.title")}
                   </div>
                   <p className="text-sm text-purple-700">
-                    Reduce{" "}
-                    <Badge variant="secondary" className="mx-1">
-                      file size
-                    </Badge>{" "}
-                    to improve page load speed
+                    {t("tools.code-minifier.useCases.performance.description")}
                   </p>
                 </div>
               </div>
@@ -445,9 +407,11 @@ greetUser("World");`);
                   <Gauge className="h-5 w-5 text-blue-600" />
                 </div>
                 <div>
-                  <div className="font-semibold text-blue-900">Bandwidth</div>
+                  <div className="font-semibold text-blue-900">
+                    {t("tools.code-minifier.useCases.bandwidth.title")}
+                  </div>
                   <p className="text-sm text-blue-700">
-                    Save bandwidth costs with smaller file transfers
+                    {t("tools.code-minifier.useCases.bandwidth.description")}
                   </p>
                 </div>
               </div>
@@ -457,9 +421,11 @@ greetUser("World");`);
                   <Code2 className="h-5 w-5 text-green-600" />
                 </div>
                 <div>
-                  <div className="font-semibold text-green-900">Production</div>
+                  <div className="font-semibold text-green-900">
+                    {t("tools.code-minifier.useCases.production.title")}
+                  </div>
                   <p className="text-sm text-green-700">
-                    Prepare code for production deployment
+                    {t("tools.code-minifier.useCases.production.description")}
                   </p>
                 </div>
               </div>
@@ -469,9 +435,11 @@ greetUser("World");`);
                   <FileCode className="h-5 w-5 text-pink-600" />
                 </div>
                 <div>
-                  <div className="font-semibold text-pink-900">SEO</div>
+                  <div className="font-semibold text-pink-900">
+                    {t("tools.code-minifier.useCases.seo.title")}
+                  </div>
                   <p className="text-sm text-pink-700">
-                    Improve SEO rankings with faster page loads
+                    {t("tools.code-minifier.useCases.seo.description")}
                   </p>
                 </div>
               </div>
@@ -484,38 +452,46 @@ greetUser("World");`);
           <CardHeader>
             <CardTitle className="flex items-center gap-2 text-amber-900">
               <Info className="h-5 w-5 text-amber-600" />
-              💡 Pro Tips
+              💡 {t("toolPage.sections.proTips")}
             </CardTitle>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
               <div className="flex gap-2 items-start">
                 <div className="text-amber-600 font-bold">→</div>
-                <p className="text-sm text-amber-900">
-                  <strong>Development:</strong> Use original code for
-                  development
-                </p>
+                <p
+                  className="text-sm text-amber-900"
+                  dangerouslySetInnerHTML={{
+                    __html: t("tools.code-minifier.proTips.development"),
+                  }}
+                />
               </div>
               <div className="flex gap-2 items-start">
                 <div className="text-amber-600 font-bold">→</div>
-                <p className="text-sm text-amber-900">
-                  <strong>Production:</strong> Deploy minified code to
-                  production
-                </p>
+                <p
+                  className="text-sm text-amber-900"
+                  dangerouslySetInnerHTML={{
+                    __html: t("tools.code-minifier.proTips.production"),
+                  }}
+                />
               </div>
               <div className="flex gap-2 items-start">
                 <div className="text-amber-600 font-bold">→</div>
-                <p className="text-sm text-amber-900">
-                  <strong>Testing:</strong> Always test minified code before
-                  deployment
-                </p>
+                <p
+                  className="text-sm text-amber-900"
+                  dangerouslySetInnerHTML={{
+                    __html: t("tools.code-minifier.proTips.testing"),
+                  }}
+                />
               </div>
               <div className="flex gap-2 items-start">
                 <div className="text-amber-600 font-bold">→</div>
-                <p className="text-sm text-amber-900">
-                  <strong>Backup:</strong> Keep original source files for
-                  updates
-                </p>
+                <p
+                  className="text-sm text-amber-900"
+                  dangerouslySetInnerHTML={{
+                    __html: t("tools.code-minifier.proTips.backup"),
+                  }}
+                />
               </div>
             </div>
           </CardContent>
@@ -524,7 +500,7 @@ greetUser("World");`);
         {/* Related Tools */}
         <Card className="mt-6">
           <CardHeader>
-            <CardTitle>🔗 Related Tools You Might Like</CardTitle>
+            <CardTitle>{t("tools.code-minifier.relatedTools")}</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
@@ -533,10 +509,10 @@ greetUser("World");`);
                 className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
               >
                 <div className="font-semibold text-gray-900 group-hover:text-primary">
-                  JSON Formatter
+                  {t("tools.json-formatter.title")}
                 </div>
                 <div className="text-sm text-gray-600 mt-1">
-                  Format JSON data
+                  {t("tools.json-formatter.description")}
                 </div>
               </button>
               <button
@@ -544,10 +520,10 @@ greetUser("World");`);
                 className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
               >
                 <div className="font-semibold text-gray-900 group-hover:text-primary">
-                  HTML to Text
+                  {t("tools.html-to-text.title")}
                 </div>
                 <div className="text-sm text-gray-600 mt-1">
-                  Convert HTML to plain text
+                  {t("tools.html-to-text.description")}
                 </div>
               </button>
               <button
@@ -555,10 +531,10 @@ greetUser("World");`);
                 className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
               >
                 <div className="font-semibold text-gray-900 group-hover:text-primary">
-                  Base64 Encoder
+                  {t("tools.base64-encoder.title")}
                 </div>
                 <div className="text-sm text-gray-600 mt-1">
-                  Encode/decode Base64
+                  {t("tools.base64-encoder.description")}
                 </div>
               </button>
             </div>

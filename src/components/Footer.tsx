@@ -21,6 +21,14 @@ export const Footer = () => {
   const [modalData, setModalData] = useState<SocialModal | null>(null);
   const { t } = useTranslation();
 
+  // Scroll to top when clicking footer links and clear saved position
+  const handleLinkClick = (path: string) => {
+    // Clear the saved scroll position for the target page
+    sessionStorage.removeItem(`scroll_${path}`);
+    // Scroll current page to top immediately
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  };
+
   const socialLinks = [
     {
       name: "wechat",
@@ -78,6 +86,7 @@ export const Footer = () => {
                 <li>
                   <Link
                     to="/"
+                    onClick={() => handleLinkClick('/')}
                     className="hover:text-primary transition-colors flex items-center gap-2"
                   >
                     🏠 {t("footer.home")}
@@ -86,6 +95,7 @@ export const Footer = () => {
                 <li>
                   <Link
                     to="/category/favorites"
+                    onClick={() => handleLinkClick('/category/favorites')}
                     className="hover:text-primary transition-colors flex items-center gap-2"
                   >
                     ⭐ {t("footer.favorites")}
@@ -94,6 +104,7 @@ export const Footer = () => {
                 <li>
                   <Link
                     to="/category/recent"
+                    onClick={() => handleLinkClick('/category/recent')}
                     className="hover:text-primary transition-colors flex items-center gap-2"
                   >
                     🕒 {t("footer.recentlyUsed")}
@@ -102,6 +113,7 @@ export const Footer = () => {
                 <li>
                   <Link
                     to="/category/generator"
+                    onClick={() => handleLinkClick('/category/generator')}
                     className="hover:text-primary transition-colors flex items-center gap-2"
                   >
                     ⚡ {t("footer.generators")}
@@ -110,6 +122,7 @@ export const Footer = () => {
                 <li>
                   <Link
                     to="/category/developer"
+                    onClick={() => handleLinkClick('/category/developer')}
                     className="hover:text-primary transition-colors flex items-center gap-2"
                   >
                     💻 {t("footer.devTools")}
@@ -127,6 +140,7 @@ export const Footer = () => {
                 <li>
                   <Link
                     to="/privacy"
+                    onClick={() => handleLinkClick('/privacy')}
                     className="hover:text-primary transition-colors"
                   >
                     {t("footer.privacyPolicy")}
@@ -135,6 +149,7 @@ export const Footer = () => {
                 <li>
                   <Link
                     to="/terms"
+                    onClick={() => handleLinkClick('/terms')}
                     className="hover:text-primary transition-colors"
                   >
                     {t("footer.termsOfService")}
@@ -143,6 +158,7 @@ export const Footer = () => {
                 <li>
                   <Link
                     to="/cookies"
+                    onClick={() => handleLinkClick('/cookies')}
                     className="hover:text-primary transition-colors"
                   >
                     {t("footer.cookiePolicy")}
@@ -151,6 +167,7 @@ export const Footer = () => {
                 <li>
                   <Link
                     to="/legal"
+                    onClick={() => handleLinkClick('/legal')}
                     className="hover:text-primary transition-colors"
                   >
                     {t("footer.copyright")}
@@ -159,6 +176,7 @@ export const Footer = () => {
                 <li>
                   <Link
                     to="/about"
+                    onClick={() => handleLinkClick('/about')}
                     className="hover:text-primary transition-colors"
                   >
                     {t("footer.aboutUs")}

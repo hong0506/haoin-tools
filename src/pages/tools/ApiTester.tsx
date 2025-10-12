@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { SidebarTrigger } from "@/components/ui/sidebar";
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -38,6 +40,7 @@ import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const ApiTester = () => {
+  const { t } = useTranslation();
   const [url, setUrl] = useState("");
   const [method, setMethod] = useState("GET");
   const [headers, setHeaders] = useState("{}");
@@ -50,7 +53,7 @@ const ApiTester = () => {
 
   const sendRequest = async () => {
     if (!url.trim()) {
-      toast.error("Please enter a URL");
+      toast.error(t("tools.api-tester.pleaseEnterUrl"));
       return;
     }
 
@@ -62,7 +65,7 @@ const ApiTester = () => {
       try {
         parsedHeaders = JSON.parse(headers);
       } catch {
-        toast.error("Invalid JSON in headers");
+        toast.error(t("tools.api-tester.invalidJsonHeaders"));
         setLoading(false);
         return;
       }
@@ -96,13 +99,13 @@ const ApiTester = () => {
         setResponse(responseData);
       }
 
-      toast.success(`Request completed (${res.status})`);
+      toast.success(t("tools.api-tester.requestCompleted", { status: res.status }));
     } catch (error) {
       setStatusCode(null);
       setResponse(
         `Error: ${error instanceof Error ? error.message : "Request failed"}`
       );
-      toast.error("Request failed");
+      toast.error(t("tools.api-tester.requestFailed"));
     } finally {
       setLoading(false);
     }
@@ -110,7 +113,7 @@ const ApiTester = () => {
 
   const copyResponse = () => {
     navigator.clipboard.writeText(response);
-    toast.success("Response copied to clipboard!");
+    toast.success(t("tools.api-tester.responseCopied"));
   };
 
   const clearAll = () => {
@@ -121,7 +124,7 @@ const ApiTester = () => {
     setResponse("");
     setStatusCode(null);
     setResponseTime(null);
-    toast.success("All fields cleared");
+    toast.success(t("tools.api-tester.allFieldsCleared"));
   };
 
   const loadExample = () => {
@@ -132,7 +135,7 @@ const ApiTester = () => {
     setResponse("");
     setStatusCode(null);
     setResponseTime(null);
-    toast.success("Example loaded - click Send to test");
+    toast.success(t("tools.api-tester.exampleLoaded"));
   };
 
   const loadPostExample = () => {
@@ -153,7 +156,7 @@ const ApiTester = () => {
     setResponse("");
     setStatusCode(null);
     setResponseTime(null);
-    toast.success("POST example loaded - click Send to test");
+    toast.success(t("tools.api-tester.postExampleLoaded"));
   };
 
   return (
@@ -171,7 +174,7 @@ const ApiTester = () => {
           <SidebarTrigger />
           <div className="flex items-center gap-2">
             <Globe className="h-5 w-5 text-primary" />
-            <h1 className="text-xl font-semibold">API Tester</h1>
+            <h1 className="text-xl font-semibold">{t("tools.api-tester.title")}</h1>
           </div>
         </div>
       </header>
@@ -181,27 +184,27 @@ const ApiTester = () => {
           <CardHeader>
             <div className="flex items-center justify-between">
               <div>
-                <CardTitle>Test API Endpoints</CardTitle>
+                <CardTitle>{t("tools.api-tester.testApiEndpoints")}</CardTitle>
                 <CardDescription>
-                  Send HTTP requests and inspect responses
+                  {t("tools.api-tester.descriptionFull")}
                 </CardDescription>
               </div>
-              <FavoriteButton toolId="api-tester" toolName="API Tester" />
+              <FavoriteButton toolId="api-tester" toolName={t("tools.api-tester.title")} />
             </div>
           </CardHeader>
           <CardContent className="space-y-4">
             <div className="flex gap-2 mb-4">
               <Button onClick={clearAll} variant="outline" size="sm">
                 <RotateCcw className="h-4 w-4 mr-2" />
-                Clear
+                {t("toolPage.buttons.clear")}
               </Button>
               <Button onClick={loadExample} variant="ghost" size="sm">
                 <Lightbulb className="h-4 w-4 mr-1" />
-                GET Example
+                {t("tools.api-tester.getExample")}
               </Button>
               <Button onClick={loadPostExample} variant="ghost" size="sm">
                 <Lightbulb className="h-4 w-4 mr-1" />
-                POST Example
+                {t("tools.api-tester.postExample")}
               </Button>
             </div>
 
@@ -224,7 +227,7 @@ const ApiTester = () => {
               <Input
                 value={url}
                 onChange={(e) => setUrl(e.target.value)}
-                placeholder="https://api.example.com/endpoint"
+                placeholder={t("tools.api-tester.urlPlaceholder")}
                 className="flex-1"
               />
 
@@ -232,12 +235,12 @@ const ApiTester = () => {
                 {loading ? (
                   <>
                     <Loader2 className="h-4 w-4 mr-2 animate-spin" />
-                    Sending...
+                    {t("tools.api-tester.sending")}
                   </>
                 ) : (
                   <>
                     <Send className="h-4 w-4 mr-2" />
-                    Send
+                    {t("tools.api-tester.send")}
                   </>
                 )}
               </Button>
@@ -245,34 +248,34 @@ const ApiTester = () => {
 
             <Tabs defaultValue="headers" className="w-full">
               <TabsList>
-                <TabsTrigger value="headers">Headers</TabsTrigger>
-                <TabsTrigger value="body">Body</TabsTrigger>
+                <TabsTrigger value="headers">{t("tools.api-tester.tabs.headers")}</TabsTrigger>
+                <TabsTrigger value="body">{t("tools.api-tester.tabs.body")}</TabsTrigger>
               </TabsList>
 
               <TabsContent value="headers" className="space-y-2">
                 <label className="text-sm font-medium">
-                  Request Headers (JSON)
+                  {t("tools.api-tester.requestHeaders")}
                 </label>
                 <Textarea
                   value={headers}
                   onChange={(e) => setHeaders(e.target.value)}
-                  placeholder='{"Authorization": "Bearer token", "Custom-Header": "value"}'
+                  placeholder={t("tools.api-tester.requestHeadersPlaceholder")}
                   className="min-h-[100px] font-mono text-sm"
                 />
               </TabsContent>
 
               <TabsContent value="body" className="space-y-2">
-                <label className="text-sm font-medium">Request Body</label>
+                <label className="text-sm font-medium">{t("tools.api-tester.requestBody")}</label>
                 <Textarea
                   value={body}
                   onChange={(e) => setBody(e.target.value)}
-                  placeholder='{"key": "value"}'
+                  placeholder={t("tools.api-tester.requestBodyPlaceholder")}
                   className="min-h-[150px] font-mono text-sm"
                   disabled={method === "GET" || method === "HEAD"}
                 />
                 {(method === "GET" || method === "HEAD") && (
                   <p className="text-xs text-muted-foreground">
-                    Body not available for {method} requests
+                    {t("tools.api-tester.bodyNotAvailable", { method })}
                   </p>
                 )}
               </TabsContent>
@@ -282,29 +285,29 @@ const ApiTester = () => {
               <div
                 className={`flex items-center gap-3 p-4 rounded-lg border ${
                   statusCode >= 200 && statusCode < 300
-                    ? "bg-green-50 border-green-200"
+                    ? "bg-green-50 dark:bg-green-950/30 border-green-200 dark:border-green-800"
                     : statusCode >= 400
-                    ? "bg-red-50 border-red-200"
-                    : "bg-blue-50 border-blue-200"
+                    ? "bg-red-50 dark:bg-red-950/30 border-red-200 dark:border-red-800"
+                    : "bg-blue-50 dark:bg-blue-950/30 border-blue-200 dark:border-blue-800"
                 }`}
               >
                 {statusCode >= 200 && statusCode < 300 ? (
-                  <CheckCircle className="h-5 w-5 text-green-600" />
+                  <CheckCircle className="h-5 w-5 text-green-600 dark:text-green-400" />
                 ) : (
-                  <XCircle className="h-5 w-5 text-red-600" />
+                  <XCircle className="h-5 w-5 text-red-600 dark:text-red-400" />
                 )}
                 <div className="flex-1">
-                  <div className="font-semibold">
-                    Status: {statusCode}{" "}
+                  <div className="font-semibold dark:text-gray-200">
+                    {t("tools.api-tester.status")}: {statusCode}{" "}
                     {statusCode >= 200 && statusCode < 300
-                      ? "Success"
+                      ? t("tools.api-tester.success")
                       : statusCode >= 400
-                      ? "Error"
-                      : "Info"}
+                      ? t("tools.api-tester.error")
+                      : t("tools.api-tester.info")}
                   </div>
                   {responseTime && (
                     <div className="text-sm text-muted-foreground">
-                      Response time: {responseTime}ms
+                      {t("tools.api-tester.responseTime", { time: responseTime })}
                     </div>
                   )}
                 </div>
@@ -314,16 +317,16 @@ const ApiTester = () => {
             {response && (
               <div>
                 <div className="mb-2 flex items-center justify-between">
-                  <label className="text-sm font-medium">Response</label>
+                  <label className="text-sm font-medium">{t("tools.api-tester.response")}</label>
                   <Button onClick={copyResponse} size="sm" variant="ghost">
                     <Copy className="mr-2 h-4 w-4" />
-                    Copy
+                    {t("toolPage.buttons.copy")}
                   </Button>
                 </div>
                 <Textarea
                   value={response}
                   readOnly
-                  className="min-h-[250px] font-mono text-sm bg-gray-50"
+                  className="min-h-[250px] font-mono text-sm bg-gray-50 dark:bg-gray-900"
                 />
               </div>
             )}
@@ -331,13 +334,11 @@ const ApiTester = () => {
         </Card>
 
         {/* Tool Introduction */}
-        <Card className="mt-6 bg-gradient-to-r from-blue-50 via-purple-50 to-pink-50 border-blue-200">
+        <Card className="mt-6 bg-gradient-to-r from-blue-50 via-purple-50 to-pink-50 dark:from-blue-950/30 dark:via-purple-950/30 dark:to-pink-950/30 border-blue-200 dark:border-blue-800">
           <CardContent className="pt-6">
-            <p className="text-gray-700 leading-relaxed">
-              <strong className="text-gray-900">What is API Tester?</strong>{" "}
-              This tool lets you test REST APIs by sending HTTP requests and
-              inspecting responses. Perfect for API development, debugging, and
-              testing endpoints! 🚀
+            <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+              <strong className="text-gray-900 dark:text-gray-100">{t("tools.api-tester.whatIs")}</strong>{" "}
+              {t("tools.api-tester.whatIsContent")}
             </p>
           </CardContent>
         </Card>
@@ -347,63 +348,59 @@ const ApiTester = () => {
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <Zap className="h-5 w-5 text-primary" />
-              Common Use Cases
+              {t("toolPage.sections.commonUseCases")}
             </CardTitle>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-purple-50 to-purple-100/50 border border-purple-200">
-                <div className="p-2 bg-white rounded-lg h-fit">
-                  <Code2 className="h-5 w-5 text-purple-600" />
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-purple-50 to-purple-100/50 dark:from-purple-950/30 dark:to-purple-900/30 border border-purple-200 dark:border-purple-800">
+                <div className="p-2 bg-white dark:bg-gray-800 rounded-lg h-fit">
+                  <Code2 className="h-5 w-5 text-purple-600 dark:text-purple-400" />
                 </div>
                 <div>
-                  <div className="font-semibold text-purple-900">
-                    API Development
+                  <div className="font-semibold text-purple-900 dark:text-purple-300">
+                    {t("tools.api-tester.useCases.apiDevelopment.title")}
                   </div>
-                  <p className="text-sm text-purple-700">
-                    Test{" "}
-                    <Badge variant="secondary" className="mx-1">
-                      endpoints
-                    </Badge>{" "}
-                    during development
+                  <p className="text-sm text-purple-700 dark:text-purple-400">
+                    {t("tools.api-tester.useCases.apiDevelopment.description")}
                   </p>
                 </div>
               </div>
 
-              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-blue-50 to-blue-100/50 border border-blue-200">
-                <div className="p-2 bg-white rounded-lg h-fit">
-                  <CheckCircle className="h-5 w-5 text-blue-600" />
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-blue-50 to-blue-100/50 dark:from-blue-950/30 dark:to-blue-900/30 border border-blue-200 dark:border-blue-800">
+                <div className="p-2 bg-white dark:bg-gray-800 rounded-lg h-fit">
+                  <CheckCircle className="h-5 w-5 text-blue-600 dark:text-blue-400" />
                 </div>
                 <div>
-                  <div className="font-semibold text-blue-900">Debugging</div>
-                  <p className="text-sm text-blue-700">
-                    Debug API issues and inspect responses
+                  <div className="font-semibold text-blue-900 dark:text-blue-300">{t("tools.api-tester.useCases.debugging.title")}</div>
+                  <p className="text-sm text-blue-700 dark:text-blue-400">
+                    {t("tools.api-tester.useCases.debugging.description")}
                   </p>
                 </div>
               </div>
 
-              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-green-50 to-green-100/50 border border-green-200">
-                <div className="p-2 bg-white rounded-lg h-fit">
-                  <Globe className="h-5 w-5 text-green-600" />
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-green-50 to-green-100/50 dark:from-green-950/30 dark:to-green-900/30 border border-green-200 dark:border-green-800">
+                <div className="p-2 bg-white dark:bg-gray-800 rounded-lg h-fit">
+                  <Globe className="h-5 w-5 text-green-600 dark:text-green-400" />
                 </div>
                 <div>
-                  <div className="font-semibold text-green-900">
-                    Integration
+                  <div className="font-semibold text-green-900 dark:text-green-300">
+                    {t("tools.api-tester.useCases.integration.title")}
                   </div>
-                  <p className="text-sm text-green-700">
-                    Test third-party API integrations
+                  <p className="text-sm text-green-700 dark:text-green-400">
+                    {t("tools.api-tester.useCases.integration.description")}
                   </p>
                 </div>
               </div>
 
-              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-pink-50 to-pink-100/50 border border-pink-200">
-                <div className="p-2 bg-white rounded-lg h-fit">
-                  <Send className="h-5 w-5 text-pink-600" />
+              <div className="flex gap-3 p-4 rounded-lg bg-gradient-to-r from-pink-50 to-pink-100/50 dark:from-pink-950/30 dark:to-pink-900/30 border border-pink-200 dark:border-pink-800">
+                <div className="p-2 bg-white dark:bg-gray-800 rounded-lg h-fit">
+                  <Send className="h-5 w-5 text-pink-600 dark:text-pink-400" />
                 </div>
                 <div>
-                  <div className="font-semibold text-pink-900">Quick Tests</div>
-                  <p className="text-sm text-pink-700">
-                    Quickly test endpoints without writing code
+                  <div className="font-semibold text-pink-900 dark:text-pink-300">{t("tools.api-tester.useCases.quickTests.title")}</div>
+                  <p className="text-sm text-pink-700 dark:text-pink-400">
+                    {t("tools.api-tester.useCases.quickTests.description")}
                   </p>
                 </div>
               </div>
@@ -412,40 +409,38 @@ const ApiTester = () => {
         </Card>
 
         {/* Quick Tips */}
-        <Card className="mt-6 bg-gradient-to-br from-amber-50 via-orange-50 to-amber-50 border-amber-200">
+        <Card className="mt-6 bg-gradient-to-br from-amber-50 via-orange-50 to-amber-50 dark:from-amber-950/30 dark:via-orange-950/30 dark:to-amber-950/30 border-amber-200 dark:border-amber-800">
           <CardHeader>
-            <CardTitle className="flex items-center gap-2 text-amber-900">
-              <Info className="h-5 w-5 text-amber-600" />
-              💡 Pro Tips
+            <CardTitle className="flex items-center gap-2 text-amber-900 dark:text-amber-300">
+              <Info className="h-5 w-5 text-amber-600 dark:text-amber-400" />
+              {t("toolPage.sections.proTips")}
             </CardTitle>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
               <div className="flex gap-2 items-start">
-                <div className="text-amber-600 font-bold">→</div>
-                <p className="text-sm text-amber-900">
-                  <strong>CORS:</strong> Some APIs may block browser requests
-                </p>
+                <div className="text-amber-600 dark:text-amber-400 font-bold">→</div>
+                <p className="text-sm text-amber-900 dark:text-amber-300" dangerouslySetInnerHTML={{
+                  __html: t("tools.api-tester.proTips.cors")
+                }} />
               </div>
               <div className="flex gap-2 items-start">
-                <div className="text-amber-600 font-bold">→</div>
-                <p className="text-sm text-amber-900">
-                  <strong>Authentication:</strong> Add auth headers for
-                  protected endpoints
-                </p>
+                <div className="text-amber-600 dark:text-amber-400 font-bold">→</div>
+                <p className="text-sm text-amber-900 dark:text-amber-300" dangerouslySetInnerHTML={{
+                  __html: t("tools.api-tester.proTips.authentication")
+                }} />
               </div>
               <div className="flex gap-2 items-start">
-                <div className="text-amber-600 font-bold">→</div>
-                <p className="text-sm text-amber-900">
-                  <strong>JSON:</strong> Use valid JSON for request body
-                </p>
+                <div className="text-amber-600 dark:text-amber-400 font-bold">→</div>
+                <p className="text-sm text-amber-900 dark:text-amber-300" dangerouslySetInnerHTML={{
+                  __html: t("tools.api-tester.proTips.json")
+                }} />
               </div>
               <div className="flex gap-2 items-start">
-                <div className="text-amber-600 font-bold">→</div>
-                <p className="text-sm text-amber-900">
-                  <strong>Status Codes:</strong> 2xx = success, 4xx = client
-                  error, 5xx = server error
-                </p>
+                <div className="text-amber-600 dark:text-amber-400 font-bold">→</div>
+                <p className="text-sm text-amber-900 dark:text-amber-300" dangerouslySetInnerHTML={{
+                  __html: t("tools.api-tester.proTips.statusCodes")
+                }} />
               </div>
             </div>
           </CardContent>
@@ -454,29 +449,29 @@ const ApiTester = () => {
         {/* HTTP Methods */}
         <Card className="mt-6">
           <CardHeader>
-            <CardTitle>📋 HTTP Methods</CardTitle>
+            <CardTitle>{t("tools.api-tester.httpMethods")}</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="space-y-2">
-              <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
+              <div className="flex items-center gap-3 p-3 bg-gray-50 dark:bg-gray-900 rounded-lg">
                 <Badge>GET</Badge>
-                <span className="text-sm">Retrieve data from server</span>
+                <span className="text-sm dark:text-gray-300">{t("tools.api-tester.methods.get")}</span>
               </div>
-              <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
+              <div className="flex items-center gap-3 p-3 bg-gray-50 dark:bg-gray-900 rounded-lg">
                 <Badge>POST</Badge>
-                <span className="text-sm">Create new resource</span>
+                <span className="text-sm dark:text-gray-300">{t("tools.api-tester.methods.post")}</span>
               </div>
-              <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
+              <div className="flex items-center gap-3 p-3 bg-gray-50 dark:bg-gray-900 rounded-lg">
                 <Badge>PUT</Badge>
-                <span className="text-sm">Update entire resource</span>
+                <span className="text-sm dark:text-gray-300">{t("tools.api-tester.methods.put")}</span>
               </div>
-              <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
+              <div className="flex items-center gap-3 p-3 bg-gray-50 dark:bg-gray-900 rounded-lg">
                 <Badge>PATCH</Badge>
-                <span className="text-sm">Partially update resource</span>
+                <span className="text-sm dark:text-gray-300">{t("tools.api-tester.methods.patch")}</span>
               </div>
-              <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
+              <div className="flex items-center gap-3 p-3 bg-gray-50 dark:bg-gray-900 rounded-lg">
                 <Badge>DELETE</Badge>
-                <span className="text-sm">Remove resource</span>
+                <span className="text-sm dark:text-gray-300">{t("tools.api-tester.methods.delete")}</span>
               </div>
             </div>
           </CardContent>
@@ -485,7 +480,7 @@ const ApiTester = () => {
         {/* Related Tools */}
         <Card className="mt-6">
           <CardHeader>
-            <CardTitle>🔗 Related Tools You Might Like</CardTitle>
+            <CardTitle>{t("tools.api-tester.relatedTools")}</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
@@ -494,10 +489,10 @@ const ApiTester = () => {
                 className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
               >
                 <div className="font-semibold text-gray-900 group-hover:text-primary">
-                  JSON Formatter
+                  {t("tools.json-formatter.title")}
                 </div>
                 <div className="text-sm text-gray-600 mt-1">
-                  Format JSON responses
+                  {t("tools.json-formatter.description")}
                 </div>
               </button>
               <button
@@ -505,10 +500,10 @@ const ApiTester = () => {
                 className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
               >
                 <div className="font-semibold text-gray-900 group-hover:text-primary">
-                  JWT Decoder
+                  {t("tools.jwt-decoder.title")}
                 </div>
                 <div className="text-sm text-gray-600 mt-1">
-                  Decode JWT tokens
+                  {t("tools.jwt-decoder.description")}
                 </div>
               </button>
               <button
@@ -516,10 +511,10 @@ const ApiTester = () => {
                 className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
               >
                 <div className="font-semibold text-gray-900 group-hover:text-primary">
-                  Base64 Tool
+                  {t("tools.base64.title")}
                 </div>
                 <div className="text-sm text-gray-600 mt-1">
-                  Encode/decode Base64
+                  {t("tools.base64.description")}
                 </div>
               </button>
             </div>

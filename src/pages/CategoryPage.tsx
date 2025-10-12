@@ -12,6 +12,7 @@ import { useFavorites } from "@/contexts/FavoritesContext";
 import { AnimatedBackground } from "@/components/AnimatedBackground";
 import { useTranslation } from "react-i18next";
 import * as Icons from "lucide-react";
+import { multiLanguageSearch } from "@/lib/searchUtils";
 
 const CategoryPage = () => {
   const { categoryId } = useParams();
@@ -59,11 +60,8 @@ const CategoryPage = () => {
         })
       : categoryTools;
 
-  const filteredTools = sortedTools.filter(
-    (tool) =>
-      tool.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      tool.description.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+  // Use multi-language search to support all languages (en, zh, es)
+  const filteredTools = multiLanguageSearch(sortedTools, searchQuery);
 
   if (!category) {
     return (
@@ -78,14 +76,16 @@ const CategoryPage = () => {
       {/* Animated Background */}
       <AnimatedBackground />
 
-      {/* Language Switcher - Fixed position in top-right corner */}
-      <LanguageSwitcher />
-
       {/* Header */}
       <header className="sticky top-0 z-10 border-b glass">
-        <div className="flex h-16 items-center gap-4 px-6">
+        <div className="flex h-16 items-center gap-2 sm:gap-4 px-2 sm:px-6">
           <SidebarTrigger />
-          <SearchBar value={searchQuery} onChange={setSearchQuery} />
+          <div className="flex-1 min-w-0">
+            <SearchBar value={searchQuery} onChange={setSearchQuery} />
+          </div>
+          <div className="flex-shrink-0">
+            <LanguageSwitcher />
+          </div>
         </div>
       </header>
 
@@ -101,7 +101,9 @@ const CategoryPage = () => {
             </div>
             <div className="flex-1">
               <h1 className="text-5xl font-black mb-2">
-                <span className="gradient-text">{t(`categories.${category.id}`)}</span>
+                <span className="gradient-text">
+                  {t(`categories.${category.id}`)}
+                </span>
               </h1>
               <p className="text-lg text-foreground/70 font-medium">
                 🎯 {t("common.toolsAvailable", { count: filteredTools.length })}
