@@ -1,0 +1,73 @@
+{
+  "common": {
+    "search": "ツールを検索...",
+    "clear": "クリア",
+    "copy": "コピー",
+    "copied": "コピーしました！",
+    "download": "ダウンロード",
+    "loadExample": "例を読み込む",
+    "favorites": "お気に入り",
+    "recentlyUsed": "最近使用",
+    "allTools": "すべてのツール"
+  },
+  "nav": {
+    "home": "ホーム",
+    "tools": "ツール",
+    "about": "私たちについて",
+    "privacy": "プライバシーポリシー",
+    "terms": "利用規約",
+    "cookies": "Cookieポリシー",
+    "legal": "法的情報"
+  },
+  "categories": {
+    "recent": "最近使用",
+    "favorites": "お気に入り",
+    "text": "テキストツール",
+    "converter": "コンバーター",
+    "generator": "ジェネレーター",
+    "calculator": "計算機",
+    "finance": "金融",
+    "developer": "開発者",
+    "design": "デザイン",
+    "security": "セキュリティ",
+    "productivity": "生産性"
+  },
+  "hero": {
+    "badge": "無料オンラインツールコレクション",
+    "title": "Haoin無料オンラインツール",
+    "subtitle": "50以上の無料Webツール",
+    "description": "テキスト処理、画像編集、コンバーター、ジェネレーター、計算機などの{{count}}個の無料オンラインツールにアクセスできます。",
+    "noRegistration": "登録不要。すべてのツールに即座にアクセス！",
+    "features": {
+      "beautifulUI": "美しいUI",
+      "lightningFast": "超高速",
+      "privacyFirst": "プライバシー第一"
+    }
+  },
+  "footer": {
+    "description": "開発者、デザイナー、すべての人のための無料オンラインツール。登録不要、永久に100％無料。",
+    "quickLinks": "クイックリンク",
+    "tools": "ツール",
+    "legal": "法的情報",
+    "followUs": "フォローする",
+    "language": "言語",
+    "copyright": "© 2024 Haoin Tools. すべての権利を保有します。",
+    "madeWith": "で作成",
+    "by": "作成者"
+  },
+  "toolCard": {
+    "addedToFavorites": "お気に入りに追加されました！",
+    "removedFromFavorites": "お気に入りから削除されました！"
+  },
+  "tools": {
+    "caseConverter": {
+      "title": "大文字小文字変換ツール",
+      "description": "大文字、小文字、タイトルケースなどの間でテキストを変換",
+      "intro": "テキストの大文字小文字を簡単に変換",
+      "useCases": "一般的な使用例",
+      "proTips": "プロのヒント",
+      "relatedTools": "おすすめの関連ツール"
+    }
+  }
+}
+

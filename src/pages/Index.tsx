@@ -5,14 +5,17 @@ import { ToolCard } from "@/components/ToolCard";
 import { Footer } from "@/components/Footer";
 import { AdBanner } from "@/components/ads/AdBanner";
 import { SidebarAd } from "@/components/ads/SidebarAd";
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { tools } from "@/data/tools";
 import { AnimatedBackground } from "@/components/AnimatedBackground";
 import { Sparkles, Zap, Heart } from "lucide-react";
 import { shouldShowAd } from "@/config/ads";
 import { useSearch } from "@/contexts/SearchContext";
+import { useTranslation } from "react-i18next";
 
 const Index = () => {
   const { searchQuery, setSearchQuery } = useSearch();
+  const { t } = useTranslation();
 
   const filteredTools = tools.filter(
     (tool) =>
@@ -41,6 +44,7 @@ const Index = () => {
         <div className="flex h-16 items-center gap-4 px-6">
           <SidebarTrigger />
           <SearchBar value={searchQuery} onChange={setSearchQuery} />
+          <LanguageSwitcher />
         </div>
       </header>
 
@@ -66,28 +70,23 @@ const Index = () => {
 
             <div className="inline-block mb-4 px-4 py-2 bg-gradient-to-r from-pink-500/20 to-purple-500/20 rounded-full border border-pink-300/30 backdrop-blur-sm">
               <span className="text-sm font-semibold bg-gradient-to-r from-pink-500 to-purple-600 bg-clip-text text-transparent">
-                ✨ Free Online Tools Collection
+                ✨ {t("hero.badge")}
               </span>
             </div>
 
             <h1 className="mb-6 text-5xl font-black md:text-7xl leading-tight">
-              <span className="gradient-text">Haoin Free Online Tools</span>
+              <span className="gradient-text">{t("hero.title")}</span>
               <br />
               <span className="gradient-text-accent">
-                50+ Free Web Tools 🚀
+                {t("hero.subtitle")} 🚀
               </span>
             </h1>
 
             <p className="mx-auto max-w-3xl text-xl text-foreground/70 font-medium leading-relaxed mb-8">
-              Access{" "}
-              <span className="font-bold text-primary">
-                {tools.length} free online tools
-              </span>{" "}
-              for text processing, image editing, converters, generators,
-              calculators and more.
+              {t("hero.description", { count: tools.length })}
               <br />
               <span className="text-lg">
-                No registration required. Instant access to all tools! ⚡
+                {t("hero.noRegistration")} ⚡
               </span>
             </p>
 
@@ -95,17 +94,17 @@ const Index = () => {
             <div className="flex flex-wrap justify-center gap-3 mb-8">
               <div className="px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 backdrop-blur-sm">
                 <span className="text-sm font-semibold text-blue-600">
-                  🎨 Beautiful UI
+                  🎨 {t("hero.features.beautifulUI")}
                 </span>
               </div>
               <div className="px-4 py-2 rounded-full bg-green-500/10 border border-green-500/20 backdrop-blur-sm">
                 <span className="text-sm font-semibold text-green-600">
-                  ⚡ Lightning Fast
+                  ⚡ {t("hero.features.lightningFast")}
                 </span>
               </div>
               <div className="px-4 py-2 rounded-full bg-purple-500/10 border border-purple-500/20 backdrop-blur-sm">
                 <span className="text-sm font-semibold text-purple-600">
-                  🔒 Privacy First
+                  🔒 {t("hero.features.privacyFirst")}
                 </span>
               </div>
               <div className="px-4 py-2 rounded-full bg-orange-500/10 border border-orange-500/20 backdrop-blur-sm">

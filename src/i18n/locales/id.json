@@ -1,0 +1,73 @@
+{
+  "common": {
+    "search": "Cari alat...",
+    "clear": "Hapus",
+    "copy": "Salin",
+    "copied": "Tersalin!",
+    "download": "Unduh",
+    "loadExample": "Muat Contoh",
+    "favorites": "Favorit",
+    "recentlyUsed": "Baru Digunakan",
+    "allTools": "Semua Alat"
+  },
+  "nav": {
+    "home": "Beranda",
+    "tools": "Alat",
+    "about": "Tentang Kami",
+    "privacy": "Kebijakan Privasi",
+    "terms": "Ketentuan Layanan",
+    "cookies": "Kebijakan Cookie",
+    "legal": "Legal"
+  },
+  "categories": {
+    "recent": "Baru Digunakan",
+    "favorites": "Favorit",
+    "text": "Alat Teks",
+    "converter": "Konverter",
+    "generator": "Generator",
+    "calculator": "Kalkulator",
+    "finance": "Keuangan",
+    "developer": "Pengembang",
+    "design": "Desain",
+    "security": "Keamanan",
+    "productivity": "Produktivitas"
+  },
+  "hero": {
+    "badge": "Koleksi Alat Online Gratis",
+    "title": "Haoin Alat Online Gratis",
+    "subtitle": "50+ Alat Web Gratis",
+    "description": "Akses {{count}} alat online gratis untuk pemrosesan teks, pengeditan gambar, konverter, generator, kalkulator, dan lainnya.",
+    "noRegistration": "Tidak perlu registrasi. Akses instan ke semua alat!",
+    "features": {
+      "beautifulUI": "Antarmuka Cantik",
+      "lightningFast": "Sangat Cepat",
+      "privacyFirst": "Privasi Utama"
+    }
+  },
+  "footer": {
+    "description": "Alat online gratis untuk pengembang, desainer, dan semua orang. Tidak perlu registrasi, 100% gratis selamanya.",
+    "quickLinks": "Tautan Cepat",
+    "tools": "Alat",
+    "legal": "Legal",
+    "followUs": "Ikuti Kami",
+    "language": "Bahasa",
+    "copyright": "© 2024 Haoin Tools. Hak cipta dilindungi.",
+    "madeWith": "Dibuat dengan",
+    "by": "oleh"
+  },
+  "toolCard": {
+    "addedToFavorites": "ditambahkan ke favorit!",
+    "removedFromFavorites": "dihapus dari favorit!"
+  },
+  "tools": {
+    "caseConverter": {
+      "title": "Konverter Huruf Besar/Kecil",
+      "description": "Konversi teks antara huruf besar, huruf kecil, huruf kapital judul, dan lainnya",
+      "intro": "Ubah format huruf teks Anda dengan mudah",
+      "useCases": "Kasus Penggunaan Umum",
+      "proTips": "Tips Profesional",
+      "relatedTools": "Alat Terkait yang Mungkin Anda Suka"
+    }
+  }
+}
+

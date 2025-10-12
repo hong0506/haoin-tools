@@ -1,0 +1,73 @@
+{
+  "common": {
+    "search": "Search tools...",
+    "clear": "Clear",
+    "copy": "Copy",
+    "copied": "Copied!",
+    "download": "Download",
+    "loadExample": "Load Example",
+    "favorites": "Favorites",
+    "recentlyUsed": "Recently Used",
+    "allTools": "All Tools"
+  },
+  "nav": {
+    "home": "Home",
+    "tools": "Tools",
+    "about": "About Us",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "cookies": "Cookie Policy",
+    "legal": "Legal"
+  },
+  "categories": {
+    "recent": "Recently Used",
+    "favorites": "Favorites",
+    "text": "Text Tools",
+    "converter": "Converters",
+    "generator": "Generators",
+    "calculator": "Calculators",
+    "finance": "Finance",
+    "developer": "Developer",
+    "design": "Design",
+    "security": "Security",
+    "productivity": "Productivity"
+  },
+  "hero": {
+    "badge": "Free Online Tools Collection",
+    "title": "Haoin Free Online Tools",
+    "subtitle": "50+ Free Web Tools",
+    "description": "Access {{count}} free online tools for text processing, image editing, converters, generators, calculators and more.",
+    "noRegistration": "No registration required. Instant access to all tools!",
+    "features": {
+      "beautifulUI": "Beautiful UI",
+      "lightningFast": "Lightning Fast",
+      "privacyFirst": "Privacy First"
+    }
+  },
+  "footer": {
+    "description": "Free online tools for developers, designers, and everyone. No registration required, 100% free forever.",
+    "quickLinks": "Quick Links",
+    "tools": "Tools",
+    "legal": "Legal",
+    "followUs": "Follow Us",
+    "language": "Language",
+    "copyright": "© 2024 Haoin Tools. All rights reserved.",
+    "madeWith": "Made with",
+    "by": "by"
+  },
+  "toolCard": {
+    "addedToFavorites": "added to favorites!",
+    "removedFromFavorites": "removed from favorites!"
+  },
+  "tools": {
+    "caseConverter": {
+      "title": "Case Converter",
+      "description": "Convert text between uppercase, lowercase, title case, and more",
+      "intro": "Transform your text case easily",
+      "useCases": "Common Use Cases",
+      "proTips": "Pro Tips",
+      "relatedTools": "Related Tools You Might Like"
+    }
+  }
+}
+

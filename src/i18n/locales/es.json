@@ -1,0 +1,73 @@
+{
+  "common": {
+    "search": "Buscar herramientas...",
+    "clear": "Limpiar",
+    "copy": "Copiar",
+    "copied": "¡Copiado!",
+    "download": "Descargar",
+    "loadExample": "Cargar Ejemplo",
+    "favorites": "Favoritos",
+    "recentlyUsed": "Usados Recientemente",
+    "allTools": "Todas las Herramientas"
+  },
+  "nav": {
+    "home": "Inicio",
+    "tools": "Herramientas",
+    "about": "Sobre Nosotros",
+    "privacy": "Política de Privacidad",
+    "terms": "Términos de Servicio",
+    "cookies": "Política de Cookies",
+    "legal": "Legal"
+  },
+  "categories": {
+    "recent": "Usados Recientemente",
+    "favorites": "Favoritos",
+    "text": "Herramientas de Texto",
+    "converter": "Convertidores",
+    "generator": "Generadores",
+    "calculator": "Calculadoras",
+    "finance": "Finanzas",
+    "developer": "Desarrollador",
+    "design": "Diseño",
+    "security": "Seguridad",
+    "productivity": "Productividad"
+  },
+  "hero": {
+    "badge": "Colección de Herramientas en Línea Gratis",
+    "title": "Haoin Herramientas en Línea Gratis",
+    "subtitle": "Más de 50 Herramientas Web Gratis",
+    "description": "Accede a {{count}} herramientas en línea gratuitas para procesamiento de texto, edición de imágenes, convertidores, generadores, calculadoras y más.",
+    "noRegistration": "No se requiere registro. ¡Acceso instantáneo a todas las herramientas!",
+    "features": {
+      "beautifulUI": "Interfaz Hermosa",
+      "lightningFast": "Ultrarrápido",
+      "privacyFirst": "Privacidad Primero"
+    }
+  },
+  "footer": {
+    "description": "Herramientas en línea gratuitas para desarrolladores, diseñadores y todos. No se requiere registro, 100% gratis para siempre.",
+    "quickLinks": "Enlaces Rápidos",
+    "tools": "Herramientas",
+    "legal": "Legal",
+    "followUs": "Síguenos",
+    "language": "Idioma",
+    "copyright": "© 2024 Haoin Tools. Todos los derechos reservados.",
+    "madeWith": "Hecho con",
+    "by": "por"
+  },
+  "toolCard": {
+    "addedToFavorites": "¡agregado a favoritos!",
+    "removedFromFavorites": "¡eliminado de favoritos!"
+  },
+  "tools": {
+    "caseConverter": {
+      "title": "Convertidor de Mayúsculas/Minúsculas",
+      "description": "Convierte texto entre mayúsculas, minúsculas, mayúsculas de título y más",
+      "intro": "Transforma el caso de tu texto fácilmente",
+      "useCases": "Casos de Uso Comunes",
+      "proTips": "Consejos Profesionales",
+      "relatedTools": "Herramientas Relacionadas que Podrían Gustarte"
+    }
+  }
+}
+

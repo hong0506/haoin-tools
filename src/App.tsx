@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, lazy, Suspense } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -10,64 +10,72 @@ import { RecentToolsProvider } from "@/contexts/RecentToolsContext";
 import { FavoritesProvider } from "@/contexts/FavoritesContext";
 import { SearchProvider } from "@/contexts/SearchContext";
 import { CookieConsent } from "@/components/CookieConsent";
+import { RouteLoader } from "@/components/RouteLoader";
+import "@/i18n/config"; // Initialize i18n
+
+// 核心页面直接导入（用户首次访问）
 import Index from "./pages/Index";
 import CategoryPage from "./pages/CategoryPage";
-import CaseConverter from "./pages/tools/CaseConverter";
-import WordCounter from "./pages/tools/WordCounter";
-import PasswordGenerator from "./pages/tools/PasswordGenerator";
-import Base64Tool from "./pages/tools/Base64Tool";
-import JsonFormatter from "./pages/tools/JsonFormatter";
-import UuidGenerator from "./pages/tools/UuidGenerator";
-import ColorPicker from "./pages/tools/ColorPicker";
-import QrGenerator from "./pages/tools/QrGenerator";
-import UrlEncoder from "./pages/tools/UrlEncoder";
-import MarkdownPreview from "./pages/tools/MarkdownPreview";
-import HashGenerator from "./pages/tools/HashGenerator";
-import TimestampConverter from "./pages/tools/TimestampConverter";
-import RegexTester from "./pages/tools/RegexTester";
-import LoremIpsum from "./pages/tools/LoremIpsum";
-import PercentageCalculator from "./pages/tools/PercentageCalculator";
-import BmiCalculator from "./pages/tools/BmiCalculator";
-import LoanCalculator from "./pages/tools/LoanCalculator";
-import InterestCalculator from "./pages/tools/InterestCalculator";
-import InvestmentCalculator from "./pages/tools/InvestmentCalculator";
-import CurrencyConverter from "./pages/tools/CurrencyConverter";
-import CreditCardCalculator from "./pages/tools/CreditCardCalculator";
-import UnitConverter from "./pages/tools/UnitConverter";
-import AgeCalculator from "./pages/tools/AgeCalculator";
-import DateCalculator from "./pages/tools/DateCalculator";
-import RandomPicker from "./pages/tools/RandomPicker";
-import ImageCompressor from "./pages/tools/ImageCompressor";
-import ImageResizer from "./pages/tools/ImageResizer";
-import TextDiff from "./pages/tools/TextDiff";
-import TextSorter from "./pages/tools/TextSorter";
-import HtmlToText from "./pages/tools/HtmlToText";
-import CsvToJson from "./pages/tools/CsvToJson";
-import TextReplacer from "./pages/tools/TextReplacer";
-import DuplicateRemover from "./pages/tools/DuplicateRemover";
-import JsonToCsv from "./pages/tools/JsonToCsv";
-import XmlToJson from "./pages/tools/XmlToJson";
-import MarkdownToHtml from "./pages/tools/MarkdownToHtml";
-import DiscountCalculator from "./pages/tools/DiscountCalculator";
-import PasswordStrengthChecker from "./pages/tools/PasswordStrengthChecker";
-import EmailValidator from "./pages/tools/EmailValidator";
-import StopwatchTimer from "./pages/tools/StopwatchTimer";
-import JwtDecoder from "./pages/tools/JwtDecoder";
-import SqlFormatter from "./pages/tools/SqlFormatter";
-import CodeMinifier from "./pages/tools/CodeMinifier";
-import HttpStatusCodes from "./pages/tools/HttpStatusCodes";
-import ApiTester from "./pages/tools/ApiTester";
-import WhitespaceRemover from "./pages/tools/WhitespaceRemover";
-import PomodoroTimer from "./pages/tools/PomodoroTimer";
-import IpLookup from "./pages/tools/IpLookup";
-import BarcodeGenerator from "./pages/tools/BarcodeGenerator";
-import ColorGradientGenerator from "./pages/tools/ColorGradientGenerator";
-import PrivacyPolicy from "./pages/PrivacyPolicy";
-import CookiePolicy from "./pages/CookiePolicy";
-import TermsOfService from "./pages/TermsOfService";
-import AboutUs from "./pages/AboutUs";
-import Legal from "./pages/Legal";
-import NotFound from "./pages/NotFound";
+
+// 懒加载所有工具页面（按需加载，减少初始包大小）
+const CaseConverter = lazy(() => import("./pages/tools/CaseConverter"));
+const WordCounter = lazy(() => import("./pages/tools/WordCounter"));
+const PasswordGenerator = lazy(() => import("./pages/tools/PasswordGenerator"));
+const Base64Tool = lazy(() => import("./pages/tools/Base64Tool"));
+const JsonFormatter = lazy(() => import("./pages/tools/JsonFormatter"));
+const UuidGenerator = lazy(() => import("./pages/tools/UuidGenerator"));
+const ColorPicker = lazy(() => import("./pages/tools/ColorPicker"));
+const QrGenerator = lazy(() => import("./pages/tools/QrGenerator"));
+const UrlEncoder = lazy(() => import("./pages/tools/UrlEncoder"));
+const MarkdownPreview = lazy(() => import("./pages/tools/MarkdownPreview"));
+const HashGenerator = lazy(() => import("./pages/tools/HashGenerator"));
+const TimestampConverter = lazy(() => import("./pages/tools/TimestampConverter"));
+const RegexTester = lazy(() => import("./pages/tools/RegexTester"));
+const LoremIpsum = lazy(() => import("./pages/tools/LoremIpsum"));
+const PercentageCalculator = lazy(() => import("./pages/tools/PercentageCalculator"));
+const BmiCalculator = lazy(() => import("./pages/tools/BmiCalculator"));
+const LoanCalculator = lazy(() => import("./pages/tools/LoanCalculator"));
+const InterestCalculator = lazy(() => import("./pages/tools/InterestCalculator"));
+const InvestmentCalculator = lazy(() => import("./pages/tools/InvestmentCalculator"));
+const CurrencyConverter = lazy(() => import("./pages/tools/CurrencyConverter"));
+const CreditCardCalculator = lazy(() => import("./pages/tools/CreditCardCalculator"));
+const UnitConverter = lazy(() => import("./pages/tools/UnitConverter"));
+const AgeCalculator = lazy(() => import("./pages/tools/AgeCalculator"));
+const DateCalculator = lazy(() => import("./pages/tools/DateCalculator"));
+const RandomPicker = lazy(() => import("./pages/tools/RandomPicker"));
+const ImageCompressor = lazy(() => import("./pages/tools/ImageCompressor"));
+const ImageResizer = lazy(() => import("./pages/tools/ImageResizer"));
+const TextDiff = lazy(() => import("./pages/tools/TextDiff"));
+const TextSorter = lazy(() => import("./pages/tools/TextSorter"));
+const HtmlToText = lazy(() => import("./pages/tools/HtmlToText"));
+const CsvToJson = lazy(() => import("./pages/tools/CsvToJson"));
+const TextReplacer = lazy(() => import("./pages/tools/TextReplacer"));
+const DuplicateRemover = lazy(() => import("./pages/tools/DuplicateRemover"));
+const JsonToCsv = lazy(() => import("./pages/tools/JsonToCsv"));
+const XmlToJson = lazy(() => import("./pages/tools/XmlToJson"));
+const MarkdownToHtml = lazy(() => import("./pages/tools/MarkdownToHtml"));
+const DiscountCalculator = lazy(() => import("./pages/tools/DiscountCalculator"));
+const PasswordStrengthChecker = lazy(() => import("./pages/tools/PasswordStrengthChecker"));
+const EmailValidator = lazy(() => import("./pages/tools/EmailValidator"));
+const StopwatchTimer = lazy(() => import("./pages/tools/StopwatchTimer"));
+const JwtDecoder = lazy(() => import("./pages/tools/JwtDecoder"));
+const SqlFormatter = lazy(() => import("./pages/tools/SqlFormatter"));
+const CodeMinifier = lazy(() => import("./pages/tools/CodeMinifier"));
+const HttpStatusCodes = lazy(() => import("./pages/tools/HttpStatusCodes"));
+const ApiTester = lazy(() => import("./pages/tools/ApiTester"));
+const WhitespaceRemover = lazy(() => import("./pages/tools/WhitespaceRemover"));
+const PomodoroTimer = lazy(() => import("./pages/tools/PomodoroTimer"));
+const IpLookup = lazy(() => import("./pages/tools/IpLookup"));
+const BarcodeGenerator = lazy(() => import("./pages/tools/BarcodeGenerator"));
+const ColorGradientGenerator = lazy(() => import("./pages/tools/ColorGradientGenerator"));
+
+// 法律页面懒加载
+const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
+const CookiePolicy = lazy(() => import("./pages/CookiePolicy"));
+const TermsOfService = lazy(() => import("./pages/TermsOfService"));
+const AboutUs = lazy(() => import("./pages/AboutUs"));
+const Legal = lazy(() => import("./pages/Legal"));
+const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
 
@@ -101,7 +109,8 @@ const App = () => (
                 <div className="flex min-h-screen w-full">
                   <AppSidebar />
                   <main className="flex-1">
-                    <Routes>
+                    <Suspense fallback={<RouteLoader />}>
+                      <Routes>
                       <Route path="/" element={<Index />} />
                       <Route
                         path="/category/:categoryId"
@@ -303,6 +312,7 @@ const App = () => (
                       {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                       <Route path="*" element={<NotFound />} />
                     </Routes>
+                    </Suspense>
                   </main>
                 </div>
               </SidebarProvider>

@@ -1,0 +1,73 @@
+{
+  "common": {
+    "search": "Werkzeuge suchen...",
+    "clear": "Löschen",
+    "copy": "Kopieren",
+    "copied": "Kopiert!",
+    "download": "Herunterladen",
+    "loadExample": "Beispiel Laden",
+    "favorites": "Favoriten",
+    "recentlyUsed": "Kürzlich Verwendet",
+    "allTools": "Alle Werkzeuge"
+  },
+  "nav": {
+    "home": "Startseite",
+    "tools": "Werkzeuge",
+    "about": "Über Uns",
+    "privacy": "Datenschutz",
+    "terms": "Nutzungsbedingungen",
+    "cookies": "Cookie-Richtlinie",
+    "legal": "Rechtliches"
+  },
+  "categories": {
+    "recent": "Kürzlich Verwendet",
+    "favorites": "Favoriten",
+    "text": "Text-Werkzeuge",
+    "converter": "Konverter",
+    "generator": "Generatoren",
+    "calculator": "Rechner",
+    "finance": "Finanzen",
+    "developer": "Entwickler",
+    "design": "Design",
+    "security": "Sicherheit",
+    "productivity": "Produktivität"
+  },
+  "hero": {
+    "badge": "Kostenlose Online-Tools Sammlung",
+    "title": "Haoin Kostenlose Online-Tools",
+    "subtitle": "Über 50 Kostenlose Web-Tools",
+    "description": "Greifen Sie auf {{count}} kostenlose Online-Tools für Textverarbeitung, Bildbearbeitung, Konverter, Generatoren, Rechner und mehr zu.",
+    "noRegistration": "Keine Registrierung erforderlich. Sofortiger Zugriff auf alle Tools!",
+    "features": {
+      "beautifulUI": "Schöne Oberfläche",
+      "lightningFast": "Blitzschnell",
+      "privacyFirst": "Datenschutz Zuerst"
+    }
+  },
+  "footer": {
+    "description": "Kostenlose Online-Tools für Entwickler, Designer und alle. Keine Registrierung erforderlich, 100% kostenlos für immer.",
+    "quickLinks": "Schnellzugriffe",
+    "tools": "Werkzeuge",
+    "legal": "Rechtliches",
+    "followUs": "Folgen Sie Uns",
+    "language": "Sprache",
+    "copyright": "© 2024 Haoin Tools. Alle Rechte vorbehalten.",
+    "madeWith": "Erstellt mit",
+    "by": "von"
+  },
+  "toolCard": {
+    "addedToFavorites": "zu Favoriten hinzugefügt!",
+    "removedFromFavorites": "aus Favoriten entfernt!"
+  },
+  "tools": {
+    "caseConverter": {
+      "title": "Groß-/Kleinschreibung Konverter",
+      "description": "Text zwischen Groß-, Kleinbuchstaben, Titelschreibung und mehr konvertieren",
+      "intro": "Transformieren Sie die Schreibweise Ihres Textes einfach",
+      "useCases": "Häufige Anwendungsfälle",
+      "proTips": "Profi-Tipps",
+      "relatedTools": "Verwandte Werkzeuge, die Ihnen Gefallen Könnten"
+    }
+  }
+}
+

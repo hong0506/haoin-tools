@@ -1,0 +1,73 @@
+{
+  "common": {
+    "search": "Rechercher des outils...",
+    "clear": "Effacer",
+    "copy": "Copier",
+    "copied": "Copié !",
+    "download": "Télécharger",
+    "loadExample": "Charger l'Exemple",
+    "favorites": "Favoris",
+    "recentlyUsed": "Récemment Utilisés",
+    "allTools": "Tous les Outils"
+  },
+  "nav": {
+    "home": "Accueil",
+    "tools": "Outils",
+    "about": "À Propos",
+    "privacy": "Politique de Confidentialité",
+    "terms": "Conditions d'Utilisation",
+    "cookies": "Politique des Cookies",
+    "legal": "Mentions Légales"
+  },
+  "categories": {
+    "recent": "Récemment Utilisés",
+    "favorites": "Favoris",
+    "text": "Outils de Texte",
+    "converter": "Convertisseurs",
+    "generator": "Générateurs",
+    "calculator": "Calculatrices",
+    "finance": "Finance",
+    "developer": "Développeur",
+    "design": "Design",
+    "security": "Sécurité",
+    "productivity": "Productivité"
+  },
+  "hero": {
+    "badge": "Collection d'Outils en Ligne Gratuits",
+    "title": "Haoin Outils en Ligne Gratuits",
+    "subtitle": "Plus de 50 Outils Web Gratuits",
+    "description": "Accédez à {{count}} outils en ligne gratuits pour le traitement de texte, l'édition d'images, les convertisseurs, les générateurs, les calculatrices et plus encore.",
+    "noRegistration": "Aucune inscription requise. Accès instantané à tous les outils !",
+    "features": {
+      "beautifulUI": "Belle Interface",
+      "lightningFast": "Ultra Rapide",
+      "privacyFirst": "Confidentialité d'Abord"
+    }
+  },
+  "footer": {
+    "description": "Outils en ligne gratuits pour développeurs, designers et tout le monde. Aucune inscription requise, 100% gratuit pour toujours.",
+    "quickLinks": "Liens Rapides",
+    "tools": "Outils",
+    "legal": "Légal",
+    "followUs": "Suivez-nous",
+    "language": "Langue",
+    "copyright": "© 2024 Haoin Tools. Tous droits réservés.",
+    "madeWith": "Fait avec",
+    "by": "par"
+  },
+  "toolCard": {
+    "addedToFavorites": "ajouté aux favoris !",
+    "removedFromFavorites": "retiré des favoris !"
+  },
+  "tools": {
+    "caseConverter": {
+      "title": "Convertisseur de Casse",
+      "description": "Convertir le texte entre majuscules, minuscules, casse de titre et plus",
+      "intro": "Transformez la casse de votre texte facilement",
+      "useCases": "Cas d'Usage Courants",
+      "proTips": "Conseils Professionnels",
+      "relatedTools": "Outils Connexes qui Pourraient Vous Plaire"
+    }
+  }
+}
+

@@ -1,0 +1,73 @@
+{
+  "common": {
+    "search": "Tìm kiếm công cụ...",
+    "clear": "Xóa",
+    "copy": "Sao chép",
+    "copied": "Đã sao chép!",
+    "download": "Tải xuống",
+    "loadExample": "Tải Ví dụ",
+    "favorites": "Yêu thích",
+    "recentlyUsed": "Đã Dùng Gần Đây",
+    "allTools": "Tất cả Công cụ"
+  },
+  "nav": {
+    "home": "Trang chủ",
+    "tools": "Công cụ",
+    "about": "Về Chúng tôi",
+    "privacy": "Chính sách Bảo mật",
+    "terms": "Điều khoản Dịch vụ",
+    "cookies": "Chính sách Cookie",
+    "legal": "Pháp lý"
+  },
+  "categories": {
+    "recent": "Đã Dùng Gần Đây",
+    "favorites": "Yêu thích",
+    "text": "Công cụ Văn bản",
+    "converter": "Chuyển đổi",
+    "generator": "Tạo",
+    "calculator": "Máy tính",
+    "finance": "Tài chính",
+    "developer": "Nhà phát triển",
+    "design": "Thiết kế",
+    "security": "Bảo mật",
+    "productivity": "Năng suất"
+  },
+  "hero": {
+    "badge": "Bộ Sưu Tập Công cụ Trực tuyến Miễn phí",
+    "title": "Haoin Công cụ Trực tuyến Miễn phí",
+    "subtitle": "Hơn 50 Công cụ Web Miễn phí",
+    "description": "Truy cập {{count}} công cụ trực tuyến miễn phí để xử lý văn bản, chỉnh sửa hình ảnh, chuyển đổi, tạo, máy tính và nhiều hơn nữa.",
+    "noRegistration": "Không cần đăng ký. Truy cập ngay lập tức vào tất cả các công cụ!",
+    "features": {
+      "beautifulUI": "Giao diện Đẹp",
+      "lightningFast": "Cực Kỳ Nhanh",
+      "privacyFirst": "Ưu Tiên Bảo Mật"
+    }
+  },
+  "footer": {
+    "description": "Công cụ trực tuyến miễn phí cho nhà phát triển, nhà thiết kế và mọi người. Không cần đăng ký, 100% miễn phí mãi mãi.",
+    "quickLinks": "Liên kết Nhanh",
+    "tools": "Công cụ",
+    "legal": "Pháp lý",
+    "followUs": "Theo dõi Chúng tôi",
+    "language": "Ngôn ngữ",
+    "copyright": "© 2024 Haoin Tools. Bảo lưu mọi quyền.",
+    "madeWith": "Được tạo với",
+    "by": "bởi"
+  },
+  "toolCard": {
+    "addedToFavorites": "đã thêm vào yêu thích!",
+    "removedFromFavorites": "đã xóa khỏi yêu thích!"
+  },
+  "tools": {
+    "caseConverter": {
+      "title": "Chuyển đổi Chữ hoa/thường",
+      "description": "Chuyển đổi văn bản giữa chữ hoa, chữ thường, chữ hoa đầu từ và nhiều hơn nữa",
+      "intro": "Chuyển đổi định dạng chữ của văn bản dễ dàng",
+      "useCases": "Trường hợp Sử dụng Phổ biến",
+      "proTips": "Mẹo Chuyên nghiệp",
+      "relatedTools": "Công cụ Liên quan Bạn Có thể Thích"
+    }
+  }
+}
+
