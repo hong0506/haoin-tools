@@ -39,12 +39,14 @@ const Index = () => {
       {/* Animated Background */}
       <AnimatedBackground />
 
+      {/* Language Switcher - Fixed position in top-right corner */}
+      <LanguageSwitcher />
+
       {/* Header */}
       <header className="sticky top-0 z-10 border-b glass">
         <div className="flex h-16 items-center gap-4 px-6">
           <SidebarTrigger />
           <SearchBar value={searchQuery} onChange={setSearchQuery} />
-          <LanguageSwitcher />
         </div>
       </header>
 
@@ -85,9 +87,7 @@ const Index = () => {
             <p className="mx-auto max-w-3xl text-xl text-foreground/70 font-medium leading-relaxed mb-8">
               {t("hero.description", { count: tools.length })}
               <br />
-              <span className="text-lg">
-                {t("hero.noRegistration")} ⚡
-              </span>
+              <span className="text-lg">{t("hero.noRegistration")} ⚡</span>
             </p>
 
             {/* Feature badges */}

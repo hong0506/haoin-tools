@@ -5,6 +5,7 @@ import { SearchBar } from "@/components/SearchBar";
 import { ToolCard } from "@/components/ToolCard";
 import { Button } from "@/components/ui/button";
 import { Footer } from "@/components/Footer";
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { tools, categories } from "@/data/tools";
 import { useRecentTools } from "@/contexts/RecentToolsContext";
 import { useFavorites } from "@/contexts/FavoritesContext";
@@ -74,6 +75,9 @@ const CategoryPage = () => {
     <div className="min-h-screen relative">
       {/* Animated Background */}
       <AnimatedBackground />
+
+      {/* Language Switcher - Fixed position in top-right corner */}
+      <LanguageSwitcher />
 
       {/* Header */}
       <header className="sticky top-0 z-10 border-b glass">
