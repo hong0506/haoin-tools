@@ -10,6 +10,7 @@ import { tools, categories } from "@/data/tools";
 import { useRecentTools } from "@/contexts/RecentToolsContext";
 import { useFavorites } from "@/contexts/FavoritesContext";
 import { AnimatedBackground } from "@/components/AnimatedBackground";
+import { useTranslation } from "react-i18next";
 import * as Icons from "lucide-react";
 
 const CategoryPage = () => {
@@ -17,6 +18,7 @@ const CategoryPage = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const { recentTools, clearRecentTools } = useRecentTools();
   const { favorites, clearAllFavorites } = useFavorites();
+  const { t } = useTranslation();
 
   const category = categories.find((c) => c.id === categoryId);
   const IconComponent = category
@@ -99,11 +101,10 @@ const CategoryPage = () => {
             </div>
             <div className="flex-1">
               <h1 className="text-5xl font-black mb-2">
-                <span className="gradient-text">{category.name}</span>
+                <span className="gradient-text">{t(`categories.${category.id}`)}</span>
               </h1>
               <p className="text-lg text-foreground/70 font-medium">
-                🎯 {filteredTools.length} amazing tool
-                {filteredTools.length !== 1 ? "s" : ""} available
+                🎯 {t("common.toolsAvailable", { count: filteredTools.length })}
               </p>
               {categoryId === "recent" && recentTools.length > 0 && (
                 <Button
@@ -112,7 +113,7 @@ const CategoryPage = () => {
                   size="sm"
                   className="mt-4 border-2 hover:bg-destructive hover:text-white hover:border-destructive transition-all"
                 >
-                  🗑️ Clear Recent Tools
+                  🗑️ {t("common.clearRecentTools")}
                 </Button>
               )}
               {categoryId === "favorites" && favorites.length > 0 && (
@@ -122,7 +123,7 @@ const CategoryPage = () => {
                   size="sm"
                   className="mt-4 border-2 hover:bg-destructive hover:text-white hover:border-destructive transition-all"
                 >
-                  🗑️ Clear Favorites
+                  🗑️ {t("common.clearFavorites")}
                 </Button>
               )}
             </div>
@@ -163,9 +164,7 @@ const CategoryPage = () => {
                     </p>
                   ) : (
                     <p className="text-muted-foreground max-w-md">
-                      Start exploring and using tools to see them appear here.
-                      Your recently accessed tools will be shown in this
-                      section.
+                      {t("common.startExploringTools")}
                     </p>
                   )}
                 </>

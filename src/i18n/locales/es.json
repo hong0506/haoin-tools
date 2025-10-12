@@ -1,6 +1,7 @@
 {
   "common": {
     "search": "Buscar herramientas...",
+    "searchPlaceholder": "Buscar herramientas increíbles... (ej., JSON, contraseña, calculadora)",
     "clear": "Limpiar",
     "copy": "Copiar",
     "copied": "¡Copiado!",
@@ -8,7 +9,19 @@
     "loadExample": "Cargar Ejemplo",
     "favorites": "Favoritos",
     "recentlyUsed": "Usados Recientemente",
-    "allTools": "Todas las Herramientas"
+    "allTools": "Todas las Herramientas",
+    "searchResults": "Resultados de Búsqueda",
+    "exploreAllTools": "Explorar Todas las Herramientas",
+    "chooseThePerfectTool": "Elige la herramienta perfecta para tus necesidades",
+    "noToolsFound": "No se encontraron herramientas",
+    "tryDifferentKeywords": "Intenta buscar con diferentes palabras clave o explora nuestras categorías",
+    "clearAll": "Limpiar Todo",
+    "toolsAvailable": "{{count}} herramienta increíble disponible",
+    "toolsAvailable_plural": "{{count}} herramientas increíbles disponibles",
+    "clearRecentTools": "Limpiar Herramientas Recientes",
+    "clearFavorites": "Limpiar Favoritos",
+    "noToolsInCategory": "Aún no hay herramientas en esta categoría",
+    "startExploringTools": "Comienza a explorar nuestras herramientas para verlas aquí"
   },
   "nav": {
     "home": "Inicio",
@@ -41,7 +54,8 @@
     "features": {
       "beautifulUI": "Interfaz Hermosa",
       "lightningFast": "Ultrarrápido",
-      "privacyFirst": "Privacidad Primero"
+      "privacyFirst": "Privacidad Primero",
+      "easyToUse": "Fácil de Usar"
     }
   },
   "footer": {

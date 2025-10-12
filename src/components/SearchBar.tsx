@@ -1,5 +1,6 @@
 import { Input } from "@/components/ui/input";
 import { Search, Sparkles } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 interface SearchBarProps {
   value: string;
@@ -7,6 +8,8 @@ interface SearchBarProps {
 }
 
 export const SearchBar = ({ value, onChange }: SearchBarProps) => {
+  const { t } = useTranslation();
+  
   return (
     <div className="relative w-full max-w-2xl group">
       {/* Floating bubbles decoration - more cute bubbles! */}
@@ -75,10 +78,10 @@ export const SearchBar = ({ value, onChange }: SearchBarProps) => {
           {/* Input field */}
           <Input
             type="search"
-            placeholder="Search for amazing tools... (e.g., JSON, password, calculator)"
+            placeholder={t("common.searchPlaceholder")}
             value={value}
             onChange={(e) => onChange(e.target.value)}
-            className="pl-14 pr-14 h-14 text-base border-0 rounded-[18px] focus-visible:ring-0 focus-visible:ring-offset-0 bg-transparent shadow-none transition-all"
+            className="pl-12 pr-12 sm:pl-14 sm:pr-14 h-12 sm:h-14 text-sm sm:text-base border-0 rounded-[18px] focus-visible:ring-0 focus-visible:ring-offset-0 bg-transparent shadow-none transition-all"
             style={{
               fontWeight: "500",
             }}
@@ -89,11 +92,11 @@ export const SearchBar = ({ value, onChange }: SearchBarProps) => {
         </div>
       </div>
 
-      {/* Floating cute emoji decorations */}
-      <div className="absolute -right-8 top-1/2 -translate-y-1/2 text-2xl animate-float pointer-events-none opacity-40 group-focus-within:opacity-70 transition-opacity">
+      {/* Floating cute emoji decorations - hidden on mobile */}
+      <div className="hidden sm:block absolute -right-8 top-1/2 -translate-y-1/2 text-2xl animate-float pointer-events-none opacity-40 group-focus-within:opacity-70 transition-opacity">
         🎨
       </div>
-      <div className="absolute -left-8 top-1/2 -translate-y-1/2 text-2xl animate-float-slow pointer-events-none opacity-40 group-focus-within:opacity-70 transition-opacity">
+      <div className="hidden sm:block absolute -left-8 top-1/2 -translate-y-1/2 text-2xl animate-float-slow pointer-events-none opacity-40 group-focus-within:opacity-70 transition-opacity">
         ✨
       </div>
     </div>

@@ -1,6 +1,7 @@
 {
   "common": {
     "search": "ツールを検索...",
+    "searchPlaceholder": "素晴らしいツールを検索... (例: JSON、パスワード、計算機)",
     "clear": "クリア",
     "copy": "コピー",
     "copied": "コピーしました！",
@@ -8,7 +9,19 @@
     "loadExample": "例を読み込む",
     "favorites": "お気に入り",
     "recentlyUsed": "最近使用",
-    "allTools": "すべてのツール"
+    "allTools": "すべてのツール",
+    "searchResults": "検索結果",
+    "exploreAllTools": "すべてのツールを探索",
+    "chooseThePerfectTool": "ニーズに合った完璧なツールを選択",
+    "noToolsFound": "ツールが見つかりません",
+    "tryDifferentKeywords": "別のキーワードで検索するか、カテゴリを参照してください",
+    "clearAll": "すべてクリア",
+    "toolsAvailable": "{{count}}個の素晴らしいツールが利用可能",
+    "toolsAvailable_plural": "{{count}}個の素晴らしいツールが利用可能",
+    "clearRecentTools": "最近のツールをクリア",
+    "clearFavorites": "お気に入りをクリア",
+    "noToolsInCategory": "このカテゴリにはまだツールがありません",
+    "startExploringTools": "ツールを探索して、ここに表示させましょう"
   },
   "nav": {
     "home": "ホーム",

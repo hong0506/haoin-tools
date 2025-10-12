@@ -14,9 +14,11 @@ import {
 import { categories } from "@/data/tools";
 import { Logo } from "@/components/Logo";
 import { useSearch } from "@/contexts/SearchContext";
+import { useTranslation } from "react-i18next";
 
 export function AppSidebar() {
   const { clearSearch } = useSearch();
+  const { t } = useTranslation();
 
   const handleAllToolsClick = () => {
     clearSearch();
@@ -48,7 +50,7 @@ export function AppSidebar() {
       <SidebarContent className="px-3 py-4">
         <SidebarGroup>
           <SidebarGroupLabel className="text-xs font-bold text-muted-foreground uppercase tracking-wider mb-2">
-            📂 Categories
+            📂 {t("nav.tools")}
           </SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu className="space-y-1">
@@ -65,7 +67,7 @@ export function AppSidebar() {
                     }
                   >
                     <Icons.Home className="h-5 w-5" />
-                    <span className="text-[15px]">All Tools</span>
+                    <span className="text-[15px]">{t("common.allTools")}</span>
                   </NavLink>
                 </SidebarMenuButton>
               </SidebarMenuItem>
@@ -87,7 +89,7 @@ export function AppSidebar() {
                         }
                       >
                         {IconComponent && <IconComponent className="h-5 w-5" />}
-                        <span className="text-[15px]">{category.name}</span>
+                        <span className="text-[15px]">{t(`categories.${category.id}`)}</span>
                       </NavLink>
                     </SidebarMenuButton>
                   </SidebarMenuItem>

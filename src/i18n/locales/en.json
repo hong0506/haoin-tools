@@ -1,6 +1,7 @@
 {
   "common": {
     "search": "Search tools...",
+    "searchPlaceholder": "Search for amazing tools... (e.g., JSON, password, calculator)",
     "clear": "Clear",
     "copy": "Copy",
     "copied": "Copied!",
@@ -8,7 +9,19 @@
     "loadExample": "Load Example",
     "favorites": "Favorites",
     "recentlyUsed": "Recently Used",
-    "allTools": "All Tools"
+    "allTools": "All Tools",
+    "searchResults": "Search Results",
+    "exploreAllTools": "Explore All Tools",
+    "chooseThePerfectTool": "Choose the perfect tool for your needs",
+    "noToolsFound": "No tools found",
+    "tryDifferentKeywords": "Try searching with different keywords or browse our categories",
+    "clearAll": "Clear All",
+    "toolsAvailable": "{{count}} amazing tool available",
+    "toolsAvailable_plural": "{{count}} amazing tools available",
+    "clearRecentTools": "Clear Recent Tools",
+    "clearFavorites": "Clear Favorites",
+    "noToolsInCategory": "No tools in this category yet",
+    "startExploringTools": "Start exploring our tools to see them here"
   },
   "nav": {
     "home": "Home",
@@ -41,7 +54,8 @@
     "features": {
       "beautifulUI": "Beautiful UI",
       "lightningFast": "Lightning Fast",
-      "privacyFirst": "Privacy First"
+      "privacyFirst": "Privacy First",
+      "easyToUse": "Easy to Use"
     }
   },
   "footer": {
@@ -60,13 +74,69 @@
     "removedFromFavorites": "removed from favorites!"
   },
   "tools": {
-    "caseConverter": {
+    "case-converter": {
       "title": "Case Converter",
-      "description": "Convert text between uppercase, lowercase, title case, and more",
-      "intro": "Transform your text case easily",
-      "useCases": "Common Use Cases",
-      "proTips": "Pro Tips",
-      "relatedTools": "Related Tools You Might Like"
+      "description": "Convert text between uppercase, lowercase, title case, and more"
+    },
+    "word-counter": {
+      "title": "Word Counter",
+      "description": "Count words, characters, sentences, and paragraphs in your text"
+    },
+    "json-formatter": {
+      "title": "JSON Formatter",
+      "description": "Format and validate JSON data with syntax highlighting"
+    },
+    "base64-encoder": {
+      "title": "Base64 Encoder/Decoder",
+      "description": "Encode and decode text to/from Base64 format"
+    },
+    "uuid-generator": {
+      "title": "UUID Generator",
+      "description": "Generate unique identifiers (UUIDs) in various formats"
+    },
+    "password-generator": {
+      "title": "Password Generator",
+      "description": "Create strong, secure passwords with customizable options"
+    },
+    "color-picker": {
+      "title": "Color Picker",
+      "description": "Pick colors and convert between HEX, RGB, HSL formats"
+    },
+    "qr-generator": {
+      "title": "QR Code Generator",
+      "description": "Generate QR codes from text, URLs, or other data"
+    },
+    "url-encoder": {
+      "title": "URL Encoder/Decoder",
+      "description": "Encode and decode URLs and query parameters"
+    },
+    "markdown-preview": {
+      "title": "Markdown Preview",
+      "description": "Write and preview Markdown in real-time"
+    },
+    "hash-generator": {
+      "title": "Hash Generator",
+      "description": "Generate MD5, SHA-1, SHA-256 hashes from text"
+    },
+    "timestamp-converter": {
+      "title": "Timestamp Converter",
+      "description": "Convert between Unix timestamps and human-readable dates"
+    },
+    "regex-tester": {
+      "title": "Regex Tester",
+      "description": "Test and debug regular expressions with live matching"
+    },
+    "lorem-ipsum": {
+      "title": "Lorem Ipsum Generator",
+      "description": "Generate placeholder text for your designs"
+    },
+    "percentage-calculator": {
+      "title": "Percentage Calculator",
+      "description": "Calculate percentages, discounts, and increases"
+    },
+    "bmi-calculator": {
+      "title": "BMI Calculator",
+      "description": "Calculate your Body Mass Index and health status"
     }
   }
 }

@@ -1,6 +1,7 @@
 {
   "common": {
     "search": "搜索工具...",
+    "searchPlaceholder": "搜索精彩工具...（例如：JSON、密码、计算器）",
     "clear": "清空",
     "copy": "复制",
     "copied": "已复制！",
@@ -8,7 +9,19 @@
     "loadExample": "加载示例",
     "favorites": "收藏夹",
     "recentlyUsed": "最近使用",
-    "allTools": "所有工具"
+    "allTools": "所有工具",
+    "searchResults": "搜索结果",
+    "exploreAllTools": "探索所有工具",
+    "chooseThePerfectTool": "选择最适合您需求的工具",
+    "noToolsFound": "未找到工具",
+    "tryDifferentKeywords": "尝试使用不同的关键词搜索或浏览我们的分类",
+    "clearAll": "全部清除",
+    "toolsAvailable": "{{count}}个精彩工具可用",
+    "toolsAvailable_plural": "{{count}}个精彩工具可用",
+    "clearRecentTools": "清除最近工具",
+    "clearFavorites": "清除收藏",
+    "noToolsInCategory": "此分类暂无工具",
+    "startExploringTools": "开始探索我们的工具，它们将出现在这里"
   },
   "nav": {
     "home": "首页",
@@ -41,7 +54,8 @@
     "features": {
       "beautifulUI": "精美界面",
       "lightningFast": "闪电般快速",
-      "privacyFirst": "隐私优先"
+      "privacyFirst": "隐私优先",
+      "easyToUse": "简单易用"
     }
   },
   "footer": {
@@ -60,13 +74,69 @@
     "removedFromFavorites": "已从收藏夹移除！"
   },
   "tools": {
-    "caseConverter": {
+    "case-converter": {
       "title": "大小写转换器",
-      "description": "在大写、小写、标题大小写等之间转换文本",
-      "intro": "轻松转换文本大小写",
-      "useCases": "常见用例",
-      "proTips": "专业提示",
-      "relatedTools": "您可能喜欢的相关工具"
+      "description": "在大写、小写、标题大小写等之间转换文本"
+    },
+    "word-counter": {
+      "title": "字数统计器",
+      "description": "统计文本中的字数、字符、句子和段落"
+    },
+    "json-formatter": {
+      "title": "JSON格式化器",
+      "description": "格式化和验证JSON数据，带语法高亮"
+    },
+    "base64-encoder": {
+      "title": "Base64编码/解码器",
+      "description": "编码和解码Base64格式的文本"
+    },
+    "uuid-generator": {
+      "title": "UUID生成器",
+      "description": "生成各种格式的唯一标识符(UUID)"
+    },
+    "password-generator": {
+      "title": "密码生成器",
+      "description": "创建强大、安全的密码，可自定义选项"
+    },
+    "color-picker": {
+      "title": "颜色选择器",
+      "description": "选择颜色并在HEX、RGB、HSL格式之间转换"
+    },
+    "qr-generator": {
+      "title": "二维码生成器",
+      "description": "从文本、URL或其他数据生成二维码"
+    },
+    "url-encoder": {
+      "title": "URL编码/解码器",
+      "description": "编码和解码URL及查询参数"
+    },
+    "markdown-preview": {
+      "title": "Markdown预览",
+      "description": "实时编写和预览Markdown"
+    },
+    "hash-generator": {
+      "title": "哈希生成器",
+      "description": "从文本生成MD5、SHA-1、SHA-256哈希值"
+    },
+    "timestamp-converter": {
+      "title": "时间戳转换器",
+      "description": "在Unix时间戳和人类可读日期之间转换"
+    },
+    "regex-tester": {
+      "title": "正则表达式测试器",
+      "description": "实时测试和调试正则表达式"
+    },
+    "lorem-ipsum": {
+      "title": "Lorem Ipsum生成器",
+      "description": "为您的设计生成占位文本"
+    },
+    "percentage-calculator": {
+      "title": "百分比计算器",
+      "description": "计算百分比、折扣和增长"
+    },
+    "bmi-calculator": {
+      "title": "BMI计算器",
+      "description": "计算您的身体质量指数和健康状况"
     }
   }
 }

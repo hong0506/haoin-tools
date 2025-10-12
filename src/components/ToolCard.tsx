@@ -15,6 +15,7 @@ import { useFavorites } from "@/contexts/FavoritesContext";
 import * as Icons from "lucide-react";
 import { Sparkles, Star } from "lucide-react";
 import { toast } from "sonner";
+import { useTranslation } from "react-i18next";
 
 interface ToolCardProps {
   tool: Tool;
@@ -24,13 +25,19 @@ export const ToolCard = ({ tool }: ToolCardProps) => {
   const { addRecentTool } = useRecentTools();
   const { isFavorited, toggleFavorite } = useFavorites();
   const [isHovered, setIsHovered] = useState(false);
+  const { t } = useTranslation();
   const favorited = isFavorited(tool.id);
   const IconComponent = Icons[
     tool.icon as keyof typeof Icons
   ] as React.ComponentType<{ className?: string }>;
 
+  // Get translated tool info
+  const toolTitle = t(`tools.${tool.id}.title`, { defaultValue: tool.title });
+  const toolDescription = t(`tools.${tool.id}.description`, { defaultValue: tool.description });
+  const badgeText = t(`categories.${tool.category}`, { defaultValue: tool.badge });
+
   const handleClick = () => {
-    addRecentTool(tool.id, tool.title);
+    addRecentTool(tool.id, toolTitle);
   };
 
   const handleFavoriteClick = (e: React.MouseEvent) => {
@@ -38,9 +45,9 @@ export const ToolCard = ({ tool }: ToolCardProps) => {
     e.stopPropagation(); // Stop event bubbling
     toggleFavorite(tool.id);
     if (favorited) {
-      toast.success(`${tool.title} removed from favorites!`);
+      toast.success(`${toolTitle} ${t("toolCard.removedFromFavorites")}`);
     } else {
-      toast.success(`⭐ ${tool.title} added to favorites!`);
+      toast.success(`⭐ ${toolTitle} ${t("toolCard.addedToFavorites")}`);
     }
   };
 
@@ -106,16 +113,16 @@ export const ToolCard = ({ tool }: ToolCardProps) => {
               variant={tool.badgeVariant}
               className="shadow-sm transition-transform duration-300 group-hover:scale-110"
             >
-              {tool.badge}
+              {badgeText}
             </Badge>
           </div>
           <CardTitle className="text-lg font-bold group-hover:text-primary transition-colors duration-200">
-            {tool.title}
+            {toolTitle}
           </CardTitle>
         </CardHeader>
         <CardContent className="relative">
           <CardDescription className="text-sm leading-relaxed">
-            {tool.description}
+            {toolDescription}
           </CardDescription>
         </CardContent>
 

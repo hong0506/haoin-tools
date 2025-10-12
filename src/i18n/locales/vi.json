@@ -1,6 +1,7 @@
 {
   "common": {
     "search": "Tìm kiếm công cụ...",
+    "searchPlaceholder": "Tìm kiếm công cụ tuyệt vời... (ví dụ: JSON, mật khẩu, máy tính)",
     "clear": "Xóa",
     "copy": "Sao chép",
     "copied": "Đã sao chép!",
@@ -8,7 +9,19 @@
     "loadExample": "Tải Ví dụ",
     "favorites": "Yêu thích",
     "recentlyUsed": "Đã Dùng Gần Đây",
-    "allTools": "Tất cả Công cụ"
+    "allTools": "Tất cả Công cụ",
+    "searchResults": "Kết Quả Tìm Kiếm",
+    "exploreAllTools": "Khám Phá Tất Cả Công Cụ",
+    "chooseThePerfectTool": "Chọn công cụ hoàn hảo cho nhu cầu của bạn",
+    "noToolsFound": "Không tìm thấy công cụ",
+    "tryDifferentKeywords": "Thử tìm kiếm với từ khóa khác hoặc duyệt các danh mục của chúng tôi",
+    "clearAll": "Xóa Tất Cả",
+    "toolsAvailable": "{{count}} công cụ tuyệt vời có sẵn",
+    "toolsAvailable_plural": "{{count}} công cụ tuyệt vời có sẵn",
+    "clearRecentTools": "Xóa Công Cụ Gần Đây",
+    "clearFavorites": "Xóa Yêu Thích",
+    "noToolsInCategory": "Chưa có công cụ trong danh mục này",
+    "startExploringTools": "Bắt đầu khám phá các công cụ của chúng tôi để xem chúng ở đây"
   },
   "nav": {
     "home": "Trang chủ",
@@ -41,7 +54,8 @@
     "features": {
       "beautifulUI": "Giao diện Đẹp",
       "lightningFast": "Cực Kỳ Nhanh",
-      "privacyFirst": "Ưu Tiên Bảo Mật"
+      "privacyFirst": "Ưu Tiên Bảo Mật",
+      "easyToUse": "Dễ Sử Dụng"
     }
   },
   "footer": {

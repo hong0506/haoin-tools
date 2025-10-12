@@ -1,6 +1,7 @@
 {
   "common": {
     "search": "Cari alat...",
+    "searchPlaceholder": "Cari alat yang luar biasa... (mis., JSON, kata sandi, kalkulator)",
     "clear": "Hapus",
     "copy": "Salin",
     "copied": "Tersalin!",
@@ -8,7 +9,19 @@
     "loadExample": "Muat Contoh",
     "favorites": "Favorit",
     "recentlyUsed": "Baru Digunakan",
-    "allTools": "Semua Alat"
+    "allTools": "Semua Alat",
+    "searchResults": "Hasil Pencarian",
+    "exploreAllTools": "Jelajahi Semua Alat",
+    "chooseThePerfectTool": "Pilih alat yang sempurna untuk kebutuhan Anda",
+    "noToolsFound": "Tidak ada alat yang ditemukan",
+    "tryDifferentKeywords": "Coba cari dengan kata kunci berbeda atau jelajahi kategori kami",
+    "clearAll": "Hapus Semua",
+    "toolsAvailable": "{{count}} alat luar biasa tersedia",
+    "toolsAvailable_plural": "{{count}} alat luar biasa tersedia",
+    "clearRecentTools": "Hapus Alat Terbaru",
+    "clearFavorites": "Hapus Favorit",
+    "noToolsInCategory": "Belum ada alat dalam kategori ini",
+    "startExploringTools": "Mulai jelajahi alat kami untuk melihatnya di sini"
   },
   "nav": {
     "home": "Beranda",
@@ -41,7 +54,8 @@
     "features": {
       "beautifulUI": "Antarmuka Cantik",
       "lightningFast": "Sangat Cepat",
-      "privacyFirst": "Privasi Utama"
+      "privacyFirst": "Privasi Utama",
+      "easyToUse": "Mudah Digunakan"
     }
   },
   "footer": {

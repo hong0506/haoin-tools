@@ -39,14 +39,16 @@ const Index = () => {
       {/* Animated Background */}
       <AnimatedBackground />
 
-      {/* Language Switcher - Fixed position in top-right corner */}
-      <LanguageSwitcher />
-
-      {/* Header */}
+      {/* Header with Search and Language Switcher */}
       <header className="sticky top-0 z-10 border-b glass">
-        <div className="flex h-16 items-center gap-4 px-6">
+        <div className="flex h-16 items-center gap-2 sm:gap-4 px-2 sm:px-6">
           <SidebarTrigger />
-          <SearchBar value={searchQuery} onChange={setSearchQuery} />
+          <div className="flex-1 min-w-0">
+            <SearchBar value={searchQuery} onChange={setSearchQuery} />
+          </div>
+          <div className="flex-shrink-0">
+            <LanguageSwitcher />
+          </div>
         </div>
       </header>
 
@@ -109,7 +111,7 @@ const Index = () => {
               </div>
               <div className="px-4 py-2 rounded-full bg-orange-500/10 border border-orange-500/20 backdrop-blur-sm">
                 <span className="text-sm font-semibold text-orange-600">
-                  🎯 Easy to Use
+                  🎯 {t("hero.features.easyToUse")}
                 </span>
               </div>
             </div>
@@ -136,18 +138,18 @@ const Index = () => {
               <h2 className="text-3xl font-bold mb-2">
                 {searchQuery ? (
                   <>
-                    <span className="gradient-text">Search Results</span>
+                    <span className="gradient-text">{t("common.searchResults")}</span>
                     <span className="ml-3 text-2xl text-muted-foreground">
                       ({filteredTools.length})
                     </span>
                   </>
                 ) : (
-                  <span className="gradient-text">Explore All Tools</span>
+                  <span className="gradient-text">{t("common.exploreAllTools")}</span>
                 )}
               </h2>
               {!searchQuery && (
                 <p className="text-muted-foreground">
-                  Choose the perfect tool for your needs
+                  {t("common.chooseThePerfectTool")}
                 </p>
               )}
             </div>
@@ -170,17 +172,10 @@ const Index = () => {
               <div className="text-center p-12 rounded-3xl glass">
                 <div className="mb-4 text-6xl">🔍</div>
                 <p className="text-xl font-semibold text-foreground mb-2">
-                  No tools found
+                  {t("common.noToolsFound")}
                 </p>
                 <p className="text-muted-foreground">
-                  Can't find anything matching "
-                  <span className="font-semibold text-primary">
-                    {searchQuery}
-                  </span>
-                  "
-                </p>
-                <p className="mt-2 text-sm text-muted-foreground">
-                  Try a different search term
+                  {t("common.tryDifferentKeywords")}
                 </p>
               </div>
             </div>
