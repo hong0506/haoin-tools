@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import JsBarcode from "jsbarcode";
 import { SidebarTrigger } from "@/components/ui/sidebar";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { Button } from "@/components/ui/button";
@@ -39,6 +40,7 @@ import {
   ChevronDown,
   FileImage,
   File,
+  Link,
 } from "lucide-react";
 import { toast } from "sonner";
 import { FavoriteButton } from "@/components/FavoriteButton";
@@ -49,6 +51,7 @@ const BarcodeGenerator = () => {
   const [format, setFormat] = useState("CODE128");
   const [barcodeUrl, setBarcodeUrl] = useState("");
   const [downloadFormat, setDownloadFormat] = useState("png");
+  const canvasRef = useRef<HTMLCanvasElement>(null);
   const navigate = useNavigate();
 
   const generateBarcode = () => {
@@ -57,93 +60,78 @@ const BarcodeGenerator = () => {
       return;
     }
 
-    // Using a free barcode API
-    const url = `https://barcodeapi.org/api/${format}/${encodeURIComponent(
-      text
-    )}`;
-    setBarcodeUrl(url);
-    toast.success(t("tools.barcode-generator.barcodeGenerated"));
+    try {
+      // Create a temporary canvas for barcode generation
+      const canvas = document.createElement("canvas");
+
+      // Generate barcode locally using JsBarcode
+      JsBarcode(canvas, text, {
+        format: format,
+        width: 3, // thicker bars
+        height: 160, // taller barcode
+        displayValue: true,
+        fontSize: 18, // larger label text
+        margin: 12,
+      });
+
+      // Convert canvas to data URL
+      const dataUrl = canvas.toDataURL("image/png");
+      setBarcodeUrl(dataUrl);
+      toast.success(t("tools.barcode-generator.barcodeGenerated"));
+    } catch (error) {
+      toast.error(t("tools.barcode-generator.pleaseEnterText"));
+      console.error("Barcode generation error:", error);
+    }
   };
 
-  const downloadBarcode = async (format: string) => {
+  const downloadBarcode = async (downloadFormat: string) => {
     if (!barcodeUrl) return;
 
     try {
-      // Fetch the image
-      const response = await fetch(barcodeUrl);
-      const blob = await response.blob();
+      // Create download link directly from data URL
+      const link = document.createElement("a");
 
-      let finalBlob = blob;
-
-      // Convert to JPG if requested
-      if (format === "jpg") {
-        const canvas = document.createElement("canvas");
-        const ctx = canvas.getContext("2d");
+      if (downloadFormat === "jpg") {
+        // Convert PNG data URL to JPG
         const img = new Image();
+        img.src = barcodeUrl;
 
-        // Set CORS to avoid issues
-        img.crossOrigin = "anonymous";
-
-        await new Promise((resolve, reject) => {
+        await new Promise((resolve) => {
           img.onload = () => {
-            try {
-              canvas.width = img.width;
-              canvas.height = img.height;
+            const canvas = document.createElement("canvas");
+            const ctx = canvas.getContext("2d");
+            canvas.width = img.width;
+            canvas.height = img.height;
 
-              // Fill with white background for JPG
+            // Fill with white background for JPG
+            if (ctx) {
               ctx.fillStyle = "white";
               ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-              // Draw the barcode
               ctx.drawImage(img, 0, 0);
-
-              // Convert to JPG
-              canvas.toBlob(
-                (jpgBlob) => {
-                  if (jpgBlob) {
-                    finalBlob = jpgBlob;
-                    resolve(jpgBlob);
-                  } else {
-                    reject(new Error("Failed to convert to JPG"));
-                  }
-                },
-                "image/jpeg",
-                0.95
-              );
-            } catch (error) {
-              reject(error);
             }
+
+            link.href = canvas.toDataURL("image/jpeg", 0.95);
+            link.download = `barcode-${text}.jpg`;
+            link.click();
+            resolve(true);
           };
-          img.onerror = (error) => {
-            reject(error);
-          };
-          img.src = barcodeUrl;
         });
+      } else {
+        // Direct PNG download from data URL
+        link.href = barcodeUrl;
+        link.download = `barcode-${text}.png`;
+        link.click();
       }
-
-      // Create download link
-      const link = document.createElement("a");
-      const url = window.URL.createObjectURL(finalBlob);
-      link.href = url;
-      link.download = `barcode-${text}.${format}`;
-
-      // Trigger download
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-
-      // Clean up
-      window.URL.revokeObjectURL(url);
 
       toast.success(
         t("tools.barcode-generator.downloaded", {
-          format: format.toUpperCase(),
+          format: downloadFormat.toUpperCase(),
         })
       );
     } catch (error) {
       toast.error(
         t("tools.barcode-generator.downloadFailed", {
-          format: format.toUpperCase(),
+          format: downloadFormat.toUpperCase(),
         })
       );
     }
@@ -435,7 +423,7 @@ const BarcodeGenerator = () => {
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <Link className="h-5 w-5 text-muted-foreground" />
-              Related Tools
+              {t('toolPage.sections.relatedTools')}
             </CardTitle>
           </CardHeader>
           <CardContent>

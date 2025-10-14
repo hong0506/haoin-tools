@@ -9,6 +9,7 @@ import {
   FileText,
   AlertCircle,
   Users,
+  Copyright,
 } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
@@ -50,8 +51,8 @@ const Legal = () => {
         <div className="prose prose-lg max-w-none">
           {/* Copyright Notice */}
           <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-lg mb-6">
-            <h2 className="text-2xl font-bold mb-4 gradient-text flex items-center gap-2">
-              <Shield className="h-6 w-6" />
+            <h2 className="text-2xl font-bold mb-4 gradient-text flex items-center gap-3">
+              <Copyright className="h-6 w-6 text-blue-500" />
               {t("legal.copyright.title")}
             </h2>
             <p className="text-foreground/80 leading-relaxed mb-4">
@@ -86,8 +87,8 @@ const Legal = () => {
 
           {/* Technology Stack */}
           <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-lg mb-6">
-            <h2 className="text-2xl font-bold mb-4 gradient-text flex items-center gap-2">
-              <Code className="h-6 w-6" />
+            <h2 className="text-2xl font-bold mb-4 gradient-text flex items-center gap-3">
+              <Code className="h-6 w-6 text-purple-500" />
               {t("legal.technologyStack.title")}
             </h2>
             <p className="text-foreground/80 leading-relaxed mb-4">
@@ -108,8 +109,8 @@ const Legal = () => {
 
           {/* Usage Terms & Disclaimer */}
           <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-lg mb-6">
-            <h2 className="text-2xl font-bold mb-4 gradient-text flex items-center gap-2">
-              <FileText className="h-6 w-6" />
+            <h2 className="text-2xl font-bold mb-4 gradient-text flex items-center gap-3">
+              <AlertCircle className="h-6 w-6 text-amber-500" />
               {t("legal.usageTerms.title")}
             </h2>
 
@@ -149,8 +150,8 @@ const Legal = () => {
 
           {/* Third-party Content */}
           <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-lg mb-6">
-            <h2 className="text-2xl font-bold mb-4 gradient-text flex items-center gap-2">
-              <Users className="h-6 w-6" />
+            <h2 className="text-2xl font-bold mb-4 gradient-text flex items-center gap-3">
+              <Users className="h-6 w-6 text-orange-500" />
               {t("legal.thirdPartyContent.title")}
             </h2>
             <p className="text-foreground/80 leading-relaxed mb-4">
@@ -171,8 +172,8 @@ const Legal = () => {
 
           {/* DMCA Notice */}
           <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-lg mb-6">
-            <h2 className="text-2xl font-bold mb-4 gradient-text flex items-center gap-2">
-              <AlertCircle className="h-6 w-6" />
+            <h2 className="text-2xl font-bold mb-4 gradient-text flex items-center gap-3">
+              <Shield className="h-6 w-6 text-red-500" />
               {t("legal.dmca.title")}
             </h2>
             <p className="text-foreground/80 leading-relaxed mb-4">
@@ -215,8 +216,8 @@ const Legal = () => {
 
           {/* User Content Responsibility */}
           <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-lg mb-6">
-            <h2 className="text-2xl font-bold mb-4 gradient-text flex items-center gap-2">
-              <Users className="h-6 w-6" />
+            <h2 className="text-2xl font-bold mb-4 gradient-text flex items-center gap-3">
+              <FileText className="h-6 w-6 text-indigo-500" />
               {t("legal.userContent.title")}
             </h2>
             <p className="text-foreground/80 leading-relaxed mb-4">

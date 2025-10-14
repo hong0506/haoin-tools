@@ -2,7 +2,8 @@ import { SidebarTrigger } from "@/components/ui/sidebar";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { AnimatedBackground } from "@/components/AnimatedBackground";
 import { Footer } from "@/components/Footer";
-import { Heart, Zap, Users, Target } from "lucide-react";
+import { Zap, Users, Target } from "lucide-react";
+import { Logo } from "@/components/Logo";
 import { useTranslation } from "react-i18next";
 
 const AboutUs = () => {
@@ -24,8 +25,8 @@ const AboutUs = () => {
 
       <div className="container mx-auto px-6 py-12 relative z-0 max-w-4xl">
         <div className="mb-12 text-center animate-fade-in">
-          <div className="inline-block p-4 bg-gradient-to-br from-pink-500 to-purple-500 rounded-2xl shadow-lg mb-4">
-            <Heart className="h-12 w-12 text-white" />
+          <div className="inline-block p-4 rounded-2xl shadow-none mb-4">
+            <Logo size="xl" variant="badge" className="h-20 w-20" />
           </div>
           <h1 className="text-5xl font-black mb-4">
             <span className="gradient-text">{t("aboutUs.pageTitle")}</span>

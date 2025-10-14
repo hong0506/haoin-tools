@@ -175,22 +175,16 @@ const CategoryPage = () => {
                   <div className="mb-4 text-6xl">⭐</div>
                   <p className="text-xl font-semibold text-foreground mb-2">
                     {searchQuery
-                      ? "No matching favorites"
-                      : "No favorite tools yet"}
+                      ? t("common.noMatchingFavorites")
+                      : t("common.noFavoriteToolsYet")}
                   </p>
                   {searchQuery ? (
                     <p className="text-muted-foreground">
-                      Can't find "
-                      <span className="font-semibold text-primary">
-                        {searchQuery}
-                      </span>
-                      " in favorites
+                      {t("common.cantFindInFavorites", { searchQuery })}
                     </p>
                   ) : (
                     <p className="text-muted-foreground max-w-md">
-                      Click the ⭐ star icon on any tool to add it to your
-                      favorites. Your favorite tools will appear here for quick
-                      access!
+                      {t("common.clickStarToAddFavorites")}
                     </p>
                   )}
                 </>

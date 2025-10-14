@@ -25,6 +25,7 @@ import {
   Code2,
   Calendar,
   Server,
+  Link,
 } from "lucide-react";
 import { FavoriteButton } from "@/components/FavoriteButton";
 import { Badge } from "@/components/ui/badge";
@@ -99,7 +100,9 @@ const TimestampConverter = () => {
           </Button>
           <SidebarTrigger />
           <div className="flex items-center gap-2">
-            <h1 className="text-xl font-semibold">{t("tools.timestamp-converter.title")}</h1>
+            <h1 className="text-xl font-semibold">
+              {t("tools.timestamp-converter.title")}
+            </h1>
           </div>
         </div>
       </header>
@@ -215,7 +218,9 @@ const TimestampConverter = () => {
                     {t("tools.timestamp-converter.useCases.database.title")}
                   </div>
                   <p className="text-sm text-blue-700 dark:text-blue-400">
-                    {t("tools.timestamp-converter.useCases.database.description")}{" "}
+                    {t(
+                      "tools.timestamp-converter.useCases.database.description"
+                    )}{" "}
                     <Badge variant="secondary" className="mx-1">
                       SQL
                     </Badge>
@@ -279,28 +284,48 @@ const TimestampConverter = () => {
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
               <div className="flex gap-2 items-start">
-                <div className="text-amber-600 dark:text-amber-400 font-bold">→</div>
-                <p className="text-sm text-amber-900 dark:text-amber-300" dangerouslySetInnerHTML={{
-                  __html: t("tools.timestamp-converter.proTips.startDate")
-                }} />
+                <div className="text-amber-600 dark:text-amber-400 font-bold">
+                  →
+                </div>
+                <p
+                  className="text-sm text-amber-900 dark:text-amber-300"
+                  dangerouslySetInnerHTML={{
+                    __html: t("tools.timestamp-converter.proTips.startDate"),
+                  }}
+                />
               </div>
               <div className="flex gap-2 items-start">
-                <div className="text-amber-600 dark:text-amber-400 font-bold">→</div>
-                <p className="text-sm text-amber-900 dark:text-amber-300" dangerouslySetInnerHTML={{
-                  __html: t("tools.timestamp-converter.proTips.units")
-                }} />
+                <div className="text-amber-600 dark:text-amber-400 font-bold">
+                  →
+                </div>
+                <p
+                  className="text-sm text-amber-900 dark:text-amber-300"
+                  dangerouslySetInnerHTML={{
+                    __html: t("tools.timestamp-converter.proTips.units"),
+                  }}
+                />
               </div>
               <div className="flex gap-2 items-start">
-                <div className="text-amber-600 dark:text-amber-400 font-bold">→</div>
-                <p className="text-sm text-amber-900 dark:text-amber-300" dangerouslySetInnerHTML={{
-                  __html: t("tools.timestamp-converter.proTips.utc")
-                }} />
+                <div className="text-amber-600 dark:text-amber-400 font-bold">
+                  →
+                </div>
+                <p
+                  className="text-sm text-amber-900 dark:text-amber-300"
+                  dangerouslySetInnerHTML={{
+                    __html: t("tools.timestamp-converter.proTips.utc"),
+                  }}
+                />
               </div>
               <div className="flex gap-2 items-start">
-                <div className="text-amber-600 dark:text-amber-400 font-bold">→</div>
-                <p className="text-sm text-amber-900 dark:text-amber-300" dangerouslySetInnerHTML={{
-                  __html: t("tools.timestamp-converter.proTips.precision")
-                }} />
+                <div className="text-amber-600 dark:text-amber-400 font-bold">
+                  →
+                </div>
+                <p
+                  className="text-sm text-amber-900 dark:text-amber-300"
+                  dangerouslySetInnerHTML={{
+                    __html: t("tools.timestamp-converter.proTips.precision"),
+                  }}
+                />
               </div>
             </div>
           </CardContent>
@@ -311,7 +336,7 @@ const TimestampConverter = () => {
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <Link className="h-5 w-5 text-muted-foreground" />
-              Related Tools
+              {t("toolPage.sections.relatedTools")}
             </CardTitle>
           </CardHeader>
           <CardContent>
@@ -334,7 +359,9 @@ const TimestampConverter = () => {
                 <div className="font-semibold text-gray-900 group-hover:text-primary">
                   {t("tools.age-calculator.title")}
                 </div>
-                <div className="text-sm text-gray-600 mt-1">{t("tools.age-calculator.description")}</div>
+                <div className="text-sm text-gray-600 mt-1">
+                  {t("tools.age-calculator.description")}
+                </div>
               </button>
               <button
                 onClick={() => navigate("/tools/json-formatter")}

@@ -34,6 +34,7 @@ import {
   XCircle,
   Loader2,
   Code2,
+  Link
 } from "lucide-react";
 import { FavoriteButton } from "@/components/FavoriteButton";
 import { Badge } from "@/components/ui/badge";
@@ -482,7 +483,7 @@ const ApiTester = () => {
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <Link className="h-5 w-5 text-muted-foreground" />
-              Related Tools
+              {t('toolPage.sections.relatedTools')}
             </CardTitle>
           </CardHeader>
           <CardContent>

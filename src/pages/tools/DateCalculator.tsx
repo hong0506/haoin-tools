@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { SidebarTrigger } from "@/components/ui/sidebar";
@@ -23,13 +23,14 @@ import {
   Clock,
   Briefcase,
   PartyPopper,
+  Link,
 } from "lucide-react";
 import { toast } from "sonner";
 import { FavoriteButton } from "@/components/FavoriteButton";
 import { Badge } from "@/components/ui/badge";
 
 const DateCalculator = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
   const [result, setResult] = useState<{
@@ -39,6 +40,28 @@ const DateCalculator = () => {
     years: number;
   } | null>(null);
   const navigate = useNavigate();
+
+  // Ensure missing English translations for Pro Tips exist
+  useEffect(() => {
+    if (!i18n.exists("tools.date-calculator.proTips.multipleUnits")) {
+      i18n.addResources("en", "translation", {
+        tools: {
+          "date-calculator": {
+            proTips: {
+              multipleUnits:
+                "<strong>Multiple Units:</strong> Shows days, weeks, months, and years",
+              leapYears:
+                "<strong>Leap Years:</strong> Accounts for leap days automatically",
+              planning:
+                "<strong>Planning:</strong> Great for event and project timeline planning",
+              business:
+                "<strong>Business:</strong> Useful for legal and contract calculations",
+            },
+          },
+        },
+      });
+    }
+  }, [i18n]);
 
   const calculateDifference = () => {
     const start = new Date(startDate);
@@ -185,7 +208,9 @@ const DateCalculator = () => {
                     {t("tools.date-calculator.useCases.eventPlanning.title")}
                   </div>
                   <p className="text-sm text-blue-700">
-                    {t("tools.date-calculator.useCases.eventPlanning.description")}
+                    {t(
+                      "tools.date-calculator.useCases.eventPlanning.description"
+                    )}
                   </p>
                 </div>
               </div>
@@ -196,7 +221,9 @@ const DateCalculator = () => {
                 </div>
                 <div>
                   <div className="font-semibold text-purple-900">
-                    {t("tools.date-calculator.useCases.projectManagement.title")}
+                    {t(
+                      "tools.date-calculator.useCases.projectManagement.title"
+                    )}
                   </div>
                   <p className="text-sm text-purple-700">
                     {t(
@@ -212,7 +239,9 @@ const DateCalculator = () => {
                 </div>
                 <div>
                   <div className="font-semibold text-green-900">
-                    {t("tools.date-calculator.useCases.anniversaryTracking.title")}
+                    {t(
+                      "tools.date-calculator.useCases.anniversaryTracking.title"
+                    )}
                   </div>
                   <p className="text-sm text-green-700">
                     {t(
@@ -228,7 +257,9 @@ const DateCalculator = () => {
                 </div>
                 <div>
                   <div className="font-semibold text-pink-900">
-                    {t("tools.date-calculator.useCases.deadlineManagement.title")}
+                    {t(
+                      "tools.date-calculator.useCases.deadlineManagement.title"
+                    )}
                   </div>
                   <p className="text-sm text-pink-700">
                     {t(
@@ -296,7 +327,7 @@ const DateCalculator = () => {
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <Link className="h-5 w-5 text-muted-foreground" />
-              Related Tools
+              {t('toolPage.sections.relatedTools')}
             </CardTitle>
           </CardHeader>
           <CardContent>

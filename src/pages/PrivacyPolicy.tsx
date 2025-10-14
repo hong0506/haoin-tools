@@ -2,7 +2,17 @@ import { SidebarTrigger } from "@/components/ui/sidebar";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { AnimatedBackground } from "@/components/AnimatedBackground";
 import { Footer } from "@/components/Footer";
-import { Shield } from "lucide-react";
+import { 
+  Shield, 
+  Info, 
+  Database, 
+  Lock, 
+  Radio, 
+  Cookie, 
+  Scale, 
+  Clock, 
+  Mail 
+} from "lucide-react";
 import { useTranslation } from "react-i18next";
 
 const PrivacyPolicy = () => {
@@ -37,7 +47,8 @@ const PrivacyPolicy = () => {
 
         <div className="prose prose-lg max-w-none">
           <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-lg mb-6">
-            <h2 className="text-2xl font-bold mb-4 gradient-text">
+            <h2 className="text-2xl font-bold mb-4 gradient-text flex items-center gap-3">
+              <Info className="h-6 w-6 text-blue-500" />
               {t("privacy.introduction.title")}
             </h2>
             <p className="text-foreground/80 leading-relaxed mb-4">
@@ -50,7 +61,8 @@ const PrivacyPolicy = () => {
           </div>
 
           <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-lg mb-6">
-            <h2 className="text-2xl font-bold mb-4 gradient-text">
+            <h2 className="text-2xl font-bold mb-4 gradient-text flex items-center gap-3">
+              <Database className="h-6 w-6 text-purple-500" />
               {t("privacy.dataCollection.title")}
             </h2>
             <p className="text-foreground/80 leading-relaxed mb-4">
@@ -64,7 +76,8 @@ const PrivacyPolicy = () => {
           </div>
 
           <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-lg mb-6">
-            <h2 className="text-2xl font-bold mb-4 gradient-text">
+            <h2 className="text-2xl font-bold mb-4 gradient-text flex items-center gap-3">
+              <Lock className="h-6 w-6 text-green-500" />
               {t("privacy.dataProtection.title")}
             </h2>
             <p className="text-foreground/80 leading-relaxed mb-4">
@@ -79,7 +92,8 @@ const PrivacyPolicy = () => {
           </div>
 
           <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-lg mb-6">
-            <h2 className="text-2xl font-bold mb-4 gradient-text">
+            <h2 className="text-2xl font-bold mb-4 gradient-text flex items-center gap-3">
+              <Radio className="h-6 w-6 text-orange-500" />
               {t("privacy.advertising.title")}
             </h2>
             <p className="text-foreground/80 leading-relaxed mb-4">
@@ -97,7 +111,8 @@ const PrivacyPolicy = () => {
           </div>
 
           <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-lg mb-6">
-            <h2 className="text-2xl font-bold mb-4 gradient-text">
+            <h2 className="text-2xl font-bold mb-4 gradient-text flex items-center gap-3">
+              <Cookie className="h-6 w-6 text-amber-500" />
               {t("privacy.cookies.title")}
             </h2>
             <p className="text-foreground/80 leading-relaxed">
@@ -106,14 +121,15 @@ const PrivacyPolicy = () => {
           </div>
 
           <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-lg mb-6">
-            <h2 className="text-2xl font-bold mb-4 gradient-text">
+            <h2 className="text-2xl font-bold mb-4 gradient-text flex items-center gap-3">
+              <Scale className="h-6 w-6 text-indigo-500" />
               {t("privacy.dataRights.title")}
             </h2>
             <p className="text-foreground/80 leading-relaxed mb-4">
               <strong>{t("privacy.dataRights.gdpr.title")}</strong>
             </p>
             <ul className="space-y-2 text-foreground/80 mb-4">
-              {t("privacy.dataRights.gdpr.rights", { returnObjects: true }).map(
+              {(t("privacy.dataRights.gdpr.rights", { returnObjects: true }) as string[]).map(
                 (right: string, index: number) => (
                   <li key={index}>{right}</li>
                 )
@@ -123,7 +139,7 @@ const PrivacyPolicy = () => {
               <strong>{t("privacy.dataRights.ccpa.title")}</strong>
             </p>
             <ul className="space-y-2 text-foreground/80 mb-4">
-              {t("privacy.dataRights.ccpa.rights", { returnObjects: true }).map(
+              {(t("privacy.dataRights.ccpa.rights", { returnObjects: true }) as string[]).map(
                 (right: string, index: number) => (
                   <li key={index}>{right}</li>
                 )
@@ -136,7 +152,8 @@ const PrivacyPolicy = () => {
           </div>
 
           <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-lg mb-6">
-            <h2 className="text-2xl font-bold mb-4 gradient-text">
+            <h2 className="text-2xl font-bold mb-4 gradient-text flex items-center gap-3">
+              <Clock className="h-6 w-6 text-cyan-500" />
               {t("privacy.dataRetention.title")}
             </h2>
             <p className="text-foreground/80 leading-relaxed">
@@ -145,7 +162,8 @@ const PrivacyPolicy = () => {
           </div>
 
           <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-lg mb-6">
-            <h2 className="text-2xl font-bold mb-4 gradient-text">
+            <h2 className="text-2xl font-bold mb-4 gradient-text flex items-center gap-3">
+              <Mail className="h-6 w-6 text-pink-500" />
               {t("privacy.contact.title")}
             </h2>
             <p className="text-foreground/80 leading-relaxed">

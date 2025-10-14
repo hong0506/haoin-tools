@@ -25,6 +25,7 @@ import {
   FileCode,
   Gauge,
   Rocket,
+  Link,
 } from "lucide-react";
 import { FavoriteButton } from "@/components/FavoriteButton";
 import { Badge } from "@/components/ui/badge";
@@ -39,6 +40,9 @@ const CodeMinifier = () => {
   const [jsInput, setJsInput] = useState("");
   const [jsOutput, setJsOutput] = useState("");
   const [activeTab, setActiveTab] = useState("html");
+  const [htmlMinified, setHtmlMinified] = useState(false);
+  const [cssMinified, setCssMinified] = useState(false);
+  const [jsMinified, setJsMinified] = useState(false);
   const navigate = useNavigate();
 
   const minifyHtml = () => {
@@ -47,13 +51,14 @@ const CodeMinifier = () => {
       return;
     }
     try {
-      let minified = htmlInput
+      const minified = htmlInput
         .replace(/<!--[\s\S]*?-->/g, "") // Remove comments
         .replace(/\s+/g, " ") // Replace multiple spaces with single space
         .replace(/>\s+</g, "><") // Remove spaces between tags
         .replace(/\s+(\/?>)/g, "$1") // Remove spaces before closing brackets
         .trim();
       setHtmlOutput(minified);
+      setHtmlMinified(true);
       const reduction = (
         ((htmlInput.length - minified.length) / htmlInput.length) *
         100
@@ -70,7 +75,7 @@ const CodeMinifier = () => {
       return;
     }
     try {
-      let minified = cssInput
+      const minified = cssInput
         .replace(/\/\*[\s\S]*?\*\//g, "") // Remove comments
         .replace(/\s+/g, " ") // Replace multiple spaces with single space
         .replace(/\s*{\s*/g, "{") // Remove spaces around {
@@ -80,6 +85,7 @@ const CodeMinifier = () => {
         .replace(/;\s*}/g, "}") // Remove last semicolon
         .trim();
       setCssOutput(minified);
+      setCssMinified(true);
       const reduction = (
         ((cssInput.length - minified.length) / cssInput.length) *
         100
@@ -96,20 +102,36 @@ const CodeMinifier = () => {
       return;
     }
     try {
-      let minified = jsInput
-        .replace(/\/\/.*$/gm, "") // Remove single-line comments
+      // Normalize escaped sequences: convert literal "\\n" and "\\t" to real characters
+      const normalized = jsInput
+        .replace(/\\r\\n/g, "\n")
+        .replace(/\\n/g, "\n")
+        .replace(/\\t/g, "\t")
+        .replace(/\r?\n/g, "\n");
+
+      console.log("Starting JS minification, input length:", normalized.length);
+      const minified = normalized
         .replace(/\/\*[\s\S]*?\*\//g, "") // Remove multi-line comments
+        .replace(/\/\/.*$/gm, "") // Remove single-line comments
         .replace(/\s+/g, " ") // Replace multiple spaces with single space
-        .replace(/\s*([=+\-*/<>!&|,;:{}()\[\]])\s*/g, "$1") // Remove spaces around operators
+        .replace(/\s*([{}();,:])\s*/g, "$1") // Remove spaces around special chars
+        .replace(/\s*=\s*/g, "=") // Remove spaces around =
+        .replace(/\s*\+\s*/g, "+") // Remove spaces around +
+        .replace(/\s*-\s*/g, "-") // Remove spaces around -
+        .replace(/\s*\*\s*/g, "*") // Remove spaces around *
         .trim();
+      console.log("Minified result length:", minified.length);
+      console.log("Minified output:", minified);
       setJsOutput(minified);
+      setJsMinified(true);
       const reduction = (
-        ((jsInput.length - minified.length) / jsInput.length) *
+        ((normalized.length - minified.length) / normalized.length) *
         100
       ).toFixed(1);
       toast.success(t("tools.code-minifier.jsMinified", { reduction }));
     } catch (error) {
       toast.error(t("tools.code-minifier.errorMinifyingJs"));
+      console.error("Minify error:", error);
     }
   };
 
@@ -125,6 +147,9 @@ const CodeMinifier = () => {
     setCssOutput("");
     setJsInput("");
     setJsOutput("");
+    setHtmlMinified(false);
+    setCssMinified(false);
+    setJsMinified(false);
     toast.success(t("toolPage.messages.cleared"));
   };
 
@@ -214,7 +239,8 @@ const CodeMinifier = () => {
                     className="min-h-[200px] font-mono text-sm"
                   />
                   <div className="text-xs text-muted-foreground mt-1">
-                    {t("tools.code-minifier.size")}: {htmlInput.length} {t("tools.code-minifier.bytes")}
+                    {t("tools.code-minifier.size")}: {htmlInput.length}{" "}
+                    {t("tools.code-minifier.bytes")}
                   </div>
                 </div>
 
@@ -223,7 +249,7 @@ const CodeMinifier = () => {
                   {t("tools.code-minifier.minifyHtml")}
                 </Button>
 
-                {htmlOutput && (
+                {(htmlMinified || htmlOutput) && (
                   <div>
                     <div className="mb-2 flex items-center justify-between">
                       <label className="text-sm font-medium">
@@ -244,7 +270,8 @@ const CodeMinifier = () => {
                       className="min-h-[150px] font-mono text-sm bg-green-50/50"
                     />
                     <div className="text-xs text-muted-foreground mt-1">
-                      {t("tools.code-minifier.size")}: {htmlOutput.length} {t("tools.code-minifier.bytes")} (
+                      {t("tools.code-minifier.size")}: {htmlOutput.length}{" "}
+                      {t("tools.code-minifier.bytes")} (
                       {(
                         ((htmlInput.length - htmlOutput.length) /
                           htmlInput.length) *
@@ -268,7 +295,8 @@ const CodeMinifier = () => {
                     className="min-h-[200px] font-mono text-sm"
                   />
                   <div className="text-xs text-muted-foreground mt-1">
-                    {t("tools.code-minifier.size")}: {cssInput.length} {t("tools.code-minifier.bytes")}
+                    {t("tools.code-minifier.size")}: {cssInput.length}{" "}
+                    {t("tools.code-minifier.bytes")}
                   </div>
                 </div>
 
@@ -277,7 +305,7 @@ const CodeMinifier = () => {
                   {t("tools.code-minifier.minifyCss")}
                 </Button>
 
-                {cssOutput && (
+                {(cssMinified || cssOutput) && (
                   <div>
                     <div className="mb-2 flex items-center justify-between">
                       <label className="text-sm font-medium">
@@ -298,7 +326,8 @@ const CodeMinifier = () => {
                       className="min-h-[150px] font-mono text-sm bg-blue-50/50"
                     />
                     <div className="text-xs text-muted-foreground mt-1">
-                      {t("tools.code-minifier.size")}: {cssOutput.length} {t("tools.code-minifier.bytes")} (
+                      {t("tools.code-minifier.size")}: {cssOutput.length}{" "}
+                      {t("tools.code-minifier.bytes")} (
                       {(
                         ((cssInput.length - cssOutput.length) /
                           cssInput.length) *
@@ -322,7 +351,8 @@ const CodeMinifier = () => {
                     className="min-h-[200px] font-mono text-sm"
                   />
                   <div className="text-xs text-muted-foreground mt-1">
-                    {t("tools.code-minifier.size")}: {jsInput.length} {t("tools.code-minifier.bytes")}
+                    {t("tools.code-minifier.size")}: {jsInput.length}{" "}
+                    {t("tools.code-minifier.bytes")}
                   </div>
                 </div>
 
@@ -331,7 +361,7 @@ const CodeMinifier = () => {
                   {t("tools.code-minifier.minifyJs")}
                 </Button>
 
-                {jsOutput && (
+                {(jsMinified || jsOutput) && (
                   <div>
                     <div className="mb-2 flex items-center justify-between">
                       <label className="text-sm font-medium">
@@ -352,7 +382,8 @@ const CodeMinifier = () => {
                       className="min-h-[150px] font-mono text-sm bg-purple-50/50"
                     />
                     <div className="text-xs text-muted-foreground mt-1">
-                      {t("tools.code-minifier.size")}: {jsOutput.length} {t("tools.code-minifier.bytes")} (
+                      {t("tools.code-minifier.size")}: {jsOutput.length}{" "}
+                      {t("tools.code-minifier.bytes")} (
                       {(
                         ((jsInput.length - jsOutput.length) / jsInput.length) *
                         100
@@ -502,7 +533,7 @@ const CodeMinifier = () => {
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <Link className="h-5 w-5 text-muted-foreground" />
-              Related Tools
+              {t('toolPage.sections.relatedTools')}
             </CardTitle>
           </CardHeader>
           <CardContent>

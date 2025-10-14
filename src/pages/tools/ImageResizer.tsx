@@ -6,6 +6,13 @@ import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import {
   Card,
   CardContent,
   CardDescription,
@@ -23,6 +30,7 @@ import {
   Monitor,
   Smartphone,
   Image as ImageIcon,
+  Link,
 } from "lucide-react";
 import { toast } from "sonner";
 import { FavoriteButton } from "@/components/FavoriteButton";
@@ -33,26 +41,29 @@ const ImageResizer = () => {
   const [image, setImage] = useState<string | null>(null);
   const [width, setWidth] = useState("");
   const [height, setHeight] = useState("");
+  const [format, setFormat] = useState<"png" | "jpg" | "webp">("png");
   const [fileInputRef, setFileInputRef] = useState<HTMLInputElement | null>(
     null
   );
+  const [selectedFileName, setSelectedFileName] = useState<string>("");
   const navigate = useNavigate();
 
   const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file) {
+      setSelectedFileName(file.name);
       // Validate file type
-      if (!file.type.startsWith('image/')) {
+      if (!file.type.startsWith("image/")) {
         toast.error(t("tools.image-resizer.pleaseUploadImage"));
         return;
       }
-      
+
       // Validate file size (max 10MB)
       if (file.size > 10 * 1024 * 1024) {
         toast.error(t("tools.image-resizer.imageTooLarge"));
         return;
       }
-      
+
       const reader = new FileReader();
       reader.onload = (event) => {
         const result = event.target?.result as string;
@@ -62,7 +73,12 @@ const ImageResizer = () => {
             setWidth(img.width.toString());
             setHeight(img.height.toString());
             setImage(result);
-            toast.success(t("tools.image-resizer.imageLoaded", { width: img.width, height: img.height }));
+            toast.success(
+              t("tools.image-resizer.imageLoaded", {
+                width: img.width,
+                height: img.height,
+              })
+            );
           };
           img.onerror = () => {
             toast.error(t("tools.image-resizer.failedToLoad"));
@@ -89,17 +105,32 @@ const ImageResizer = () => {
       canvas.width = parseInt(width);
       canvas.height = parseInt(height);
       const ctx = canvas.getContext("2d");
+      if (format === "jpg") {
+        // Fill background white for JPG to avoid black transparency
+        ctx!.fillStyle = "#ffffff";
+        ctx!.fillRect(0, 0, canvas.width, canvas.height);
+      }
       ctx?.drawImage(img, 0, 0, canvas.width, canvas.height);
-      canvas.toBlob((blob) => {
-        if (blob) {
-          const url = URL.createObjectURL(blob);
-          const a = document.createElement("a");
-          a.href = url;
-          a.download = `resized-${width}x${height}.png`;
-          a.click();
-          toast.success(t("tools.image-resizer.imageResized"));
-        }
-      });
+      const mime =
+        format === "jpg"
+          ? "image/jpeg"
+          : format === "webp"
+          ? "image/webp"
+          : "image/png";
+      canvas.toBlob(
+        (blob) => {
+          if (blob) {
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement("a");
+            a.href = url;
+            a.download = `resized-${width}x${height}.${format}`;
+            a.click();
+            toast.success(t("tools.image-resizer.imageResized"));
+          }
+        },
+        mime,
+        format === "jpg" || format === "webp" ? 0.92 : undefined
+      );
     };
     img.src = image;
   };
@@ -108,6 +139,7 @@ const ImageResizer = () => {
     setImage(null);
     setWidth("");
     setHeight("");
+    setSelectedFileName("");
     // Clear the file input value
     if (fileInputRef) {
       fileInputRef.value = "";
@@ -166,7 +198,9 @@ const ImageResizer = () => {
           </Button>
           <SidebarTrigger />
           <div className="flex items-center gap-2">
-            <h1 className="text-xl font-semibold">{t("tools.image-resizer.title")}</h1>
+            <h1 className="text-xl font-semibold">
+              {t("tools.image-resizer.title")}
+            </h1>
           </div>
         </div>
       </header>
@@ -180,7 +214,10 @@ const ImageResizer = () => {
                   {t("tools.image-resizer.changeDimensions")}
                 </CardDescription>
               </div>
-              <FavoriteButton toolId="image-resizer" toolName={t("tools.image-resizer.title")} />
+              <FavoriteButton
+                toolId="image-resizer"
+                toolName={t("tools.image-resizer.title")}
+              />
             </div>
           </CardHeader>
           <CardContent className="space-y-4">
@@ -204,8 +241,21 @@ const ImageResizer = () => {
                 type="file"
                 accept="image/*"
                 onChange={handleImageUpload}
-                className="w-full"
+                className="hidden"
               />
+              <div className="flex items-center gap-3">
+                <Button
+                  type="button"
+                  variant="outline"
+                  size="sm"
+                  onClick={() => fileInputRef?.click()}
+                >
+                  {t("tools.image-compressor.chooseFile")}
+                </Button>
+                <span className="text-sm text-muted-foreground">
+                  {selectedFileName || t("tools.image-compressor.noFileChosen")}
+                </span>
+              </div>
             </div>
             {image && (
               <>
@@ -238,6 +288,24 @@ const ImageResizer = () => {
                     />
                   </div>
                 </div>
+                <div>
+                  <label className="mb-2 block text-sm font-medium">
+                    Format
+                  </label>
+                  <Select
+                    value={format}
+                    onValueChange={(v: "png" | "jpg" | "webp") => setFormat(v)}
+                  >
+                    <SelectTrigger className="w-full">
+                      <SelectValue placeholder="PNG" />
+                    </SelectTrigger>
+                    <SelectContent align="start">
+                      <SelectItem value="png">PNG</SelectItem>
+                      <SelectItem value="jpg">JPG</SelectItem>
+                      <SelectItem value="webp">WebP</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
                 <Button onClick={resizeImage} className="w-full">
                   {t("tools.image-resizer.resizeDownload")}
                 </Button>
@@ -250,7 +318,9 @@ const ImageResizer = () => {
         <Card className="mt-6 bg-gradient-to-r from-blue-50 via-purple-50 to-pink-50 dark:from-blue-950/30 dark:via-purple-950/30 dark:to-pink-950/30 border-blue-200 dark:border-blue-800">
           <CardContent className="pt-6">
             <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-              <strong className="text-gray-900 dark:text-gray-100">{t("tools.image-resizer.whatIs")}</strong>{" "}
+              <strong className="text-gray-900 dark:text-gray-100">
+                {t("tools.image-resizer.whatIs")}
+              </strong>{" "}
               {t("tools.image-resizer.whatIsContent")}
             </p>
           </CardContent>
@@ -271,7 +341,9 @@ const ImageResizer = () => {
                   <Instagram className="h-5 w-5 text-blue-600 dark:text-blue-400" />
                 </div>
                 <div>
-                  <div className="font-semibold text-blue-900 dark:text-blue-300">{t("tools.image-resizer.useCases.social.title")}</div>
+                  <div className="font-semibold text-blue-900 dark:text-blue-300">
+                    {t("tools.image-resizer.useCases.social.title")}
+                  </div>
                   <p className="text-sm text-blue-700 dark:text-blue-400">
                     {t("tools.image-resizer.useCases.social.description")}{" "}
                     <Badge variant="secondary" className="mx-1">
@@ -286,7 +358,9 @@ const ImageResizer = () => {
                   <Monitor className="h-5 w-5 text-purple-600 dark:text-purple-400" />
                 </div>
                 <div>
-                  <div className="font-semibold text-purple-900 dark:text-purple-300">{t("tools.image-resizer.useCases.web.title")}</div>
+                  <div className="font-semibold text-purple-900 dark:text-purple-300">
+                    {t("tools.image-resizer.useCases.web.title")}
+                  </div>
                   <p className="text-sm text-purple-700 dark:text-purple-400">
                     {t("tools.image-resizer.useCases.web.description")}
                   </p>
@@ -298,7 +372,9 @@ const ImageResizer = () => {
                   <Smartphone className="h-5 w-5 text-green-600 dark:text-green-400" />
                 </div>
                 <div>
-                  <div className="font-semibold text-green-900 dark:text-green-300">{t("tools.image-resizer.useCases.mobile.title")}</div>
+                  <div className="font-semibold text-green-900 dark:text-green-300">
+                    {t("tools.image-resizer.useCases.mobile.title")}
+                  </div>
                   <p className="text-sm text-green-700 dark:text-green-400">
                     {t("tools.image-resizer.useCases.mobile.description")}
                   </p>
@@ -310,7 +386,9 @@ const ImageResizer = () => {
                   <ImageIcon className="h-5 w-5 text-pink-600 dark:text-pink-400" />
                 </div>
                 <div>
-                  <div className="font-semibold text-pink-900 dark:text-pink-300">{t("tools.image-resizer.useCases.thumbnails.title")}</div>
+                  <div className="font-semibold text-pink-900 dark:text-pink-300">
+                    {t("tools.image-resizer.useCases.thumbnails.title")}
+                  </div>
                   <p className="text-sm text-pink-700 dark:text-pink-400">
                     {t("tools.image-resizer.useCases.thumbnails.description")}
                   </p>
@@ -331,28 +409,48 @@ const ImageResizer = () => {
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
               <div className="flex gap-2 items-start">
-                <div className="text-amber-600 dark:text-amber-400 font-bold">→</div>
-                <p className="text-sm text-amber-900 dark:text-amber-300" dangerouslySetInnerHTML={{
-                  __html: t("tools.image-resizer.proTips.platformSizes")
-                }} />
+                <div className="text-amber-600 dark:text-amber-400 font-bold">
+                  →
+                </div>
+                <p
+                  className="text-sm text-amber-900 dark:text-amber-300"
+                  dangerouslySetInnerHTML={{
+                    __html: t("tools.image-resizer.proTips.platformSizes"),
+                  }}
+                />
               </div>
               <div className="flex gap-2 items-start">
-                <div className="text-amber-600 dark:text-amber-400 font-bold">→</div>
-                <p className="text-sm text-amber-900 dark:text-amber-300" dangerouslySetInnerHTML={{
-                  __html: t("tools.image-resizer.proTips.aspectRatio")
-                }} />
+                <div className="text-amber-600 dark:text-amber-400 font-bold">
+                  →
+                </div>
+                <p
+                  className="text-sm text-amber-900 dark:text-amber-300"
+                  dangerouslySetInnerHTML={{
+                    __html: t("tools.image-resizer.proTips.aspectRatio"),
+                  }}
+                />
               </div>
               <div className="flex gap-2 items-start">
-                <div className="text-amber-600 dark:text-amber-400 font-bold">→</div>
-                <p className="text-sm text-amber-900 dark:text-amber-300" dangerouslySetInnerHTML={{
-                  __html: t("tools.image-resizer.proTips.workflow")
-                }} />
+                <div className="text-amber-600 dark:text-amber-400 font-bold">
+                  →
+                </div>
+                <p
+                  className="text-sm text-amber-900 dark:text-amber-300"
+                  dangerouslySetInnerHTML={{
+                    __html: t("tools.image-resizer.proTips.workflow"),
+                  }}
+                />
               </div>
               <div className="flex gap-2 items-start">
-                <div className="text-amber-600 dark:text-amber-400 font-bold">→</div>
-                <p className="text-sm text-amber-900 dark:text-amber-300" dangerouslySetInnerHTML={{
-                  __html: t("tools.image-resizer.proTips.devices")
-                }} />
+                <div className="text-amber-600 dark:text-amber-400 font-bold">
+                  →
+                </div>
+                <p
+                  className="text-sm text-amber-900 dark:text-amber-300"
+                  dangerouslySetInnerHTML={{
+                    __html: t("tools.image-resizer.proTips.devices"),
+                  }}
+                />
               </div>
             </div>
           </CardContent>
@@ -363,7 +461,7 @@ const ImageResizer = () => {
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <Link className="h-5 w-5 text-muted-foreground" />
-              Related Tools
+              {t("toolPage.sections.relatedTools")}
             </CardTitle>
           </CardHeader>
           <CardContent>
@@ -375,7 +473,9 @@ const ImageResizer = () => {
                 <div className="font-semibold text-gray-900 group-hover:text-primary">
                   {t("tools.image-compressor.title")}
                 </div>
-                <div className="text-sm text-gray-600 mt-1">{t("tools.image-compressor.description")}</div>
+                <div className="text-sm text-gray-600 mt-1">
+                  {t("tools.image-compressor.description")}
+                </div>
               </button>
               <button
                 onClick={() => navigate("/tools/color-picker")}
@@ -384,7 +484,9 @@ const ImageResizer = () => {
                 <div className="font-semibold text-gray-900 group-hover:text-primary">
                   {t("tools.color-picker.title")}
                 </div>
-                <div className="text-sm text-gray-600 mt-1">{t("tools.color-picker.description")}</div>
+                <div className="text-sm text-gray-600 mt-1">
+                  {t("tools.color-picker.description")}
+                </div>
               </button>
               <button
                 onClick={() => navigate("/tools/base64")}
@@ -393,7 +495,9 @@ const ImageResizer = () => {
                 <div className="font-semibold text-gray-900 group-hover:text-primary">
                   {t("tools.base64.title")}
                 </div>
-                <div className="text-sm text-gray-600 mt-1">{t("tools.base64.description")}</div>
+                <div className="text-sm text-gray-600 mt-1">
+                  {t("tools.base64.description")}
+                </div>
               </button>
             </div>
           </CardContent>

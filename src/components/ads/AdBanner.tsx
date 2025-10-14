@@ -20,7 +20,7 @@ export const AdBanner: React.FC<AdBannerProps> = ({
 
   const positionClasses = {
     top: "mb-6",
-    bottom: "mt-6",
+    bottom: "mt-12",
     sidebar: "mb-4",
   };
 
@@ -88,41 +88,66 @@ export const AdBanner: React.FC<AdBannerProps> = ({
 };
 
 // Sidebar Ad Stack - Multiple small ads stacked vertically
-export const AdSidebarStack = ({ 
-  side = "right", 
+export const AdSidebarStack = ({
+  side = "right",
   count = 2,
-  className = "" 
-}: { 
-  side?: "left" | "right"; 
+  className = "",
+}: {
+  side?: "left" | "right";
   count?: number;
-  className?: string 
+  className?: string;
 }) => {
   const allAds = [
-    { size: "160x160", color: "from-purple-50 to-pink-50 dark:from-purple-950/20 dark:to-pink-950/20", border: "border-purple-200 dark:border-purple-800" },
-    { size: "160x160", color: "from-blue-50 to-cyan-50 dark:from-blue-950/20 dark:to-cyan-950/20", border: "border-blue-200 dark:border-blue-800" },
-    { size: "160x160", color: "from-green-50 to-emerald-50 dark:from-green-950/20 dark:to-emerald-950/20", border: "border-green-200 dark:border-green-800" },
-    { size: "160x160", color: "from-orange-50 to-amber-50 dark:from-orange-950/20 dark:to-amber-950/20", border: "border-orange-200 dark:border-orange-800" },
+    {
+      size: "160x160",
+      color:
+        "from-purple-50 to-pink-50 dark:from-purple-950/20 dark:to-pink-950/20",
+      border: "border-purple-200 dark:border-purple-800",
+    },
+    {
+      size: "160x160",
+      color:
+        "from-blue-50 to-cyan-50 dark:from-blue-950/20 dark:to-cyan-950/20",
+      border: "border-blue-200 dark:border-blue-800",
+    },
+    {
+      size: "160x160",
+      color:
+        "from-green-50 to-emerald-50 dark:from-green-950/20 dark:to-emerald-950/20",
+      border: "border-green-200 dark:border-green-800",
+    },
+    {
+      size: "160x160",
+      color:
+        "from-orange-50 to-amber-50 dark:from-orange-950/20 dark:to-amber-950/20",
+      border: "border-orange-200 dark:border-orange-800",
+    },
   ];
-  
+
   const ads = allAds.slice(0, count);
 
   return (
-    <div 
-      className={`hidden xl:block fixed top-24 ${side === "right" ? "right-4" : "left-[280px]"} w-[160px] space-y-4 ${className}`}
-      style={{ maxHeight: 'calc(100vh - 120px)', overflowY: 'auto' }}
+    <div
+      className={`hidden xl:block fixed top-24 ${
+        side === "right" ? "right-4" : "left-[280px]"
+      } w-[160px] space-y-4 ${className}`}
+      style={{ maxHeight: "calc(100vh - 120px)", overflowY: "auto" }}
     >
       {ads.map((ad, index) => (
-        <div key={index} className={`bg-gradient-to-br ${ad.color} rounded-lg border ${ad.border} p-2`}>
+        <div
+          key={index}
+          className={`bg-gradient-to-br ${ad.color} rounded-lg border ${ad.border} p-2`}
+        >
           <div className="flex items-center gap-1 mb-2">
             <div className="px-1.5 py-0.5 bg-purple-500 text-white text-[10px] font-semibold rounded">
               AD
             </div>
           </div>
-          <div className={`aspect-square bg-white dark:bg-gray-800 rounded border border-dashed ${ad.border} flex items-center justify-center`}>
+          <div
+            className={`aspect-square bg-white dark:bg-gray-800 rounded border border-dashed ${ad.border} flex items-center justify-center`}
+          >
             <div className="text-center">
-              <p className="text-[10px] text-muted-foreground">
-                {ad.size}
-              </p>
+              <p className="text-[10px] text-muted-foreground">{ad.size}</p>
             </div>
           </div>
         </div>
@@ -143,9 +168,7 @@ export const AdMediumRectangle = ({ className = "" }: AdBannerProps) => {
           <p className="text-xs text-muted-foreground">Advertisement</p>
         </div>
         <div className="p-8 bg-white dark:bg-gray-800 rounded border border-dashed border-green-200 dark:border-green-700 text-center">
-          <p className="text-sm text-muted-foreground">
-            300x250 Ad Space
-          </p>
+          <p className="text-sm text-muted-foreground">300x250 Ad Space</p>
           <p className="text-xs text-muted-foreground/60 mt-1">
             Medium Rectangle
           </p>

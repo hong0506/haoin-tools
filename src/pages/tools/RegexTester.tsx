@@ -27,6 +27,7 @@ import {
   FileSearch,
   Terminal,
   Copy,
+  Link,
 } from "lucide-react";
 import { FavoriteButton } from "@/components/FavoriteButton";
 
@@ -79,7 +80,9 @@ const RegexTester = () => {
           </Button>
           <SidebarTrigger />
           <div className="flex items-center gap-2">
-            <h1 className="text-xl font-semibold">{t("tools.regex-tester.title")}</h1>
+            <h1 className="text-xl font-semibold">
+              {t("tools.regex-tester.title")}
+            </h1>
           </div>
         </div>
       </header>
@@ -90,9 +93,14 @@ const RegexTester = () => {
             <div className="flex items-center justify-between">
               <div>
                 <CardTitle>{t("tools.regex-tester.title")}</CardTitle>
-                <CardDescription>{t("tools.regex-tester.description")}</CardDescription>
+                <CardDescription>
+                  {t("tools.regex-tester.description")}
+                </CardDescription>
               </div>
-              <FavoriteButton toolId="regex-tester" toolName={t("tools.regex-tester.title")} />
+              <FavoriteButton
+                toolId="regex-tester"
+                toolName={t("tools.regex-tester.title")}
+              />
             </div>
           </CardHeader>
           <CardContent className="space-y-4">
@@ -123,7 +131,9 @@ const RegexTester = () => {
             </div>
 
             <div>
-              <label className="mb-2 block text-sm font-medium">{t("tools.regex-tester.flags")}</label>
+              <label className="mb-2 block text-sm font-medium">
+                {t("tools.regex-tester.flags")}
+              </label>
               <Input
                 value={flags}
                 onChange={(e) => {
@@ -141,12 +151,12 @@ const RegexTester = () => {
                   {t("tools.regex-tester.testString")}
                 </label>
                 {testString && (
-                  <Button 
+                  <Button
                     onClick={() => {
                       navigator.clipboard.writeText(testString);
                       toast.success(t("tools.regex-tester.testStringCopied"));
-                    }} 
-                    size="sm" 
+                    }}
+                    size="sm"
                     variant="ghost"
                   >
                     <Copy className="mr-2 h-4 w-4" />
@@ -171,12 +181,12 @@ const RegexTester = () => {
                   <label className="text-sm font-medium">
                     {t("tools.regex-tester.matches")} ({matches.length})
                   </label>
-                  <Button 
+                  <Button
                     onClick={() => {
-                      navigator.clipboard.writeText(matches.join('\n'));
+                      navigator.clipboard.writeText(matches.join("\n"));
                       toast.success(t("tools.regex-tester.matchesCopied"));
-                    }} 
-                    size="sm" 
+                    }}
+                    size="sm"
                     variant="ghost"
                   >
                     <Copy className="mr-2 h-4 w-4" />
@@ -194,7 +204,9 @@ const RegexTester = () => {
             )}
 
             {pattern && testString && (!matches || matches.length === 0) && (
-              <p className="text-sm text-muted-foreground">{t("tools.regex-tester.noMatches")}</p>
+              <p className="text-sm text-muted-foreground">
+                {t("tools.regex-tester.noMatches")}
+              </p>
             )}
           </CardContent>
         </Card>
@@ -203,7 +215,9 @@ const RegexTester = () => {
         <Card className="mt-6 bg-gradient-to-r from-blue-50 via-purple-50 to-pink-50 dark:from-blue-950/30 dark:via-purple-950/30 dark:to-pink-950/30 border-blue-200 dark:border-blue-800">
           <CardContent className="pt-6">
             <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-              <strong className="text-gray-900 dark:text-gray-100">{t("tools.regex-tester.whatIs")}</strong>{" "}
+              <strong className="text-gray-900 dark:text-gray-100">
+                {t("tools.regex-tester.whatIs")}
+              </strong>{" "}
               {t("tools.regex-tester.whatIsContent")}
             </p>
           </CardContent>
@@ -292,28 +306,48 @@ const RegexTester = () => {
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
               <div className="flex gap-2 items-start">
-                <div className="text-amber-600 dark:text-amber-400 font-bold">→</div>
-                <p className="text-sm text-amber-900 dark:text-amber-300" dangerouslySetInnerHTML={{
-                  __html: t("tools.regex-tester.proTips.anchors")
-                }} />
+                <div className="text-amber-600 dark:text-amber-400 font-bold">
+                  →
+                </div>
+                <p
+                  className="text-sm text-amber-900 dark:text-amber-300"
+                  dangerouslySetInnerHTML={{
+                    __html: t("tools.regex-tester.proTips.anchors"),
+                  }}
+                />
               </div>
               <div className="flex gap-2 items-start">
-                <div className="text-amber-600 dark:text-amber-400 font-bold">→</div>
-                <p className="text-sm text-amber-900 dark:text-amber-300" dangerouslySetInnerHTML={{
-                  __html: t("tools.regex-tester.proTips.shortcuts")
-                }} />
+                <div className="text-amber-600 dark:text-amber-400 font-bold">
+                  →
+                </div>
+                <p
+                  className="text-sm text-amber-900 dark:text-amber-300"
+                  dangerouslySetInnerHTML={{
+                    __html: t("tools.regex-tester.proTips.shortcuts"),
+                  }}
+                />
               </div>
               <div className="flex gap-2 items-start">
-                <div className="text-amber-600 dark:text-amber-400 font-bold">→</div>
-                <p className="text-sm text-amber-900 dark:text-amber-300" dangerouslySetInnerHTML={{
-                  __html: t("tools.regex-tester.proTips.groups")
-                }} />
+                <div className="text-amber-600 dark:text-amber-400 font-bold">
+                  →
+                </div>
+                <p
+                  className="text-sm text-amber-900 dark:text-amber-300"
+                  dangerouslySetInnerHTML={{
+                    __html: t("tools.regex-tester.proTips.groups"),
+                  }}
+                />
               </div>
               <div className="flex gap-2 items-start">
-                <div className="text-amber-600 dark:text-amber-400 font-bold">→</div>
-                <p className="text-sm text-amber-900 dark:text-amber-300" dangerouslySetInnerHTML={{
-                  __html: t("tools.regex-tester.proTips.testing")
-                }} />
+                <div className="text-amber-600 dark:text-amber-400 font-bold">
+                  →
+                </div>
+                <p
+                  className="text-sm text-amber-900 dark:text-amber-300"
+                  dangerouslySetInnerHTML={{
+                    __html: t("tools.regex-tester.proTips.testing"),
+                  }}
+                />
               </div>
             </div>
           </CardContent>
@@ -324,7 +358,7 @@ const RegexTester = () => {
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <Link className="h-5 w-5 text-muted-foreground" />
-              Related Tools
+              {t("toolPage.sections.relatedTools")}
             </CardTitle>
           </CardHeader>
           <CardContent>

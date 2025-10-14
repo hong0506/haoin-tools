@@ -21,7 +21,11 @@
     "clearRecentTools": "Limpiar Herramientas Recientes",
     "clearFavorites": "Limpiar Favoritos",
     "noToolsInCategory": "Aún no hay herramientas en esta categoría",
-    "startExploringTools": "Comienza a explorar nuestras herramientas para verlas aquí"
+    "startExploringTools": "Comienza a explorar nuestras herramientas para verlas aquí",
+    "noFavoriteToolsYet": "Aún no hay herramientas favoritas",
+    "noMatchingFavorites": "No hay favoritos que coincidan",
+    "cantFindInFavorites": "No se puede encontrar \"{{searchQuery}}\" en favoritos",
+    "clickStarToAddFavorites": "Haz clic en el icono ⭐ de estrella en cualquier herramienta para agregarla a tus favoritos. ¡Tus herramientas favoritas aparecerán aquí para un acceso rápido!"
   },
   "nav": {
     "home": "Inicio",
@@ -97,6 +101,7 @@
     "buttons": {
       "clear": "Limpiar",
       "copy": "Copiar",
+      "download": "Descargar",
       "loadExample": "Cargar Ejemplo",
       "back": "Volver"
     },

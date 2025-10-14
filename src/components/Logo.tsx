@@ -2,14 +2,21 @@ import React from "react";
 
 interface LogoProps {
   className?: string;
-  size?: "sm" | "md" | "lg";
+  size?: "sm" | "md" | "lg" | "xl" | "xxl";
+  variant?: "badge" | "glyph"; // badge: with rounded gradient square; glyph: H only
 }
 
-export const Logo: React.FC<LogoProps> = ({ className = "", size = "md" }) => {
+export const Logo: React.FC<LogoProps> = ({
+  className = "",
+  size = "md",
+  variant = "badge",
+}) => {
   const sizeClasses = {
     sm: "h-6 w-6",
     md: "h-8 w-8",
     lg: "h-10 w-10",
+    xl: "h-16 w-16",
+    xxl: "h-24 w-24",
   };
 
   return (
@@ -30,25 +37,45 @@ export const Logo: React.FC<LogoProps> = ({ className = "", size = "md" }) => {
             <stop offset="100%" stopColor="#B565D8" />
           </linearGradient>
           <filter id="glow">
-            <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+            <feGaussianBlur stdDeviation="2" result="coloredBlur" />
             <feMerge>
-              <feMergeNode in="coloredBlur"/>
-              <feMergeNode in="SourceGraphic"/>
+              <feMergeNode in="coloredBlur" />
+              <feMergeNode in="SourceGraphic" />
             </feMerge>
           </filter>
         </defs>
-        
-        {/* Rounded square background with gradient */}
-        <rect x="0" y="0" width="64" height="64" rx="16" fill="url(#logo-gradient)" filter="url(#glow)" />
-        
-        {/* Cute sparkle/star decorations */}
-        <circle cx="50" cy="14" r="2" fill="#FFF" opacity="0.8">
-          <animate attributeName="opacity" values="0.3;1;0.3" dur="2s" repeatCount="indefinite" />
-        </circle>
-        <circle cx="14" cy="50" r="1.5" fill="#FFF" opacity="0.8">
-          <animate attributeName="opacity" values="0.5;1;0.5" dur="3s" repeatCount="indefinite" />
-        </circle>
-        
+        {variant === "badge" && (
+          <>
+            {/* Rounded square background with gradient */}
+            <rect
+              x="0"
+              y="0"
+              width="64"
+              height="64"
+              rx="16"
+              fill="url(#logo-gradient)"
+              filter="url(#glow)"
+            />
+            {/* Cute sparkle/star decorations */}
+            <circle cx="50" cy="14" r="2" fill="#FFF" opacity="0.8">
+              <animate
+                attributeName="opacity"
+                values="0.3;1;0.3"
+                dur="2s"
+                repeatCount="indefinite"
+              />
+            </circle>
+            <circle cx="14" cy="50" r="1.5" fill="#FFF" opacity="0.8">
+              <animate
+                attributeName="opacity"
+                values="0.5;1;0.5"
+                dur="3s"
+                repeatCount="indefinite"
+              />
+            </circle>
+          </>
+        )}
+
         {/* Main icon - stylized "H" with modern twist */}
         <g fill="#ffffff" transform="translate(16,16)">
           {/* Left vertical bar */}

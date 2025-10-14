@@ -23,10 +23,17 @@ import {
   Mail,
   ShoppingCart,
   Smartphone,
+  Link,
 } from "lucide-react";
 import { toast } from "sonner";
 import { FavoriteButton } from "@/components/FavoriteButton";
 import { Badge } from "@/components/ui/badge";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 const ImageCompressor = () => {
   const { t } = useTranslation();
@@ -40,11 +47,13 @@ const ImageCompressor = () => {
   const [fileInputRef, setFileInputRef] = useState<HTMLInputElement | null>(
     null
   );
+  const [selectedFileName, setSelectedFileName] = useState<string>("");
   const navigate = useNavigate();
 
   const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file) {
+      setSelectedFileName(file.name);
       // Validate file type
       if (!file.type.startsWith("image/")) {
         toast.error(t("tools.image-compressor.pleaseUploadImage"));
@@ -124,14 +133,15 @@ const ImageCompressor = () => {
     img.src = image;
   };
 
-  const downloadCompressed = () => {
+  const downloadCompressed = (overrideFormat?: "jpeg" | "png" | "webp") => {
     if (!compressedImage) {
       toast.error(t("tools.image-compressor.compressFirst"));
       return;
     }
+    const chosen = overrideFormat ?? format;
     const a = document.createElement("a");
     a.href = compressedImage;
-    a.download = `compressed-${Date.now()}.${format}`;
+    a.download = `compressed-${Date.now()}.${chosen}`;
     a.click();
     toast.success(t("tools.image-compressor.imageDownloaded"));
   };
@@ -144,6 +154,7 @@ const ImageCompressor = () => {
     setCompressedSize(0);
     setFormat("jpeg");
     setOriginalFormat("");
+    setSelectedFileName("");
     // Clear the file input value
     if (fileInputRef) {
       fileInputRef.value = "";
@@ -234,8 +245,21 @@ const ImageCompressor = () => {
                 type="file"
                 accept="image/*"
                 onChange={handleImageUpload}
-                className="w-full"
+                className="hidden"
               />
+              <div className="flex items-center gap-3">
+                <Button
+                  type="button"
+                  variant="outline"
+                  size="sm"
+                  onClick={() => fileInputRef?.click()}
+                >
+                  {t("tools.image-compressor.chooseFile")}
+                </Button>
+                <span className="text-sm text-muted-foreground">
+                  {selectedFileName || t("tools.image-compressor.noFileChosen")}
+                </span>
+              </div>
             </div>
             {image && (
               <>
@@ -349,13 +373,30 @@ const ImageCompressor = () => {
                     {t("tools.image-compressor.compressImageButton")}
                   </Button>
                   {compressedImage && (
-                    <Button
-                      onClick={downloadCompressed}
-                      variant="default"
-                      className="flex-1"
-                    >
-                      {t("tools.image-compressor.download")}
-                    </Button>
+                    <DropdownMenu>
+                      <DropdownMenuTrigger asChild>
+                        <Button variant="default" className="flex-1">
+                          {t("tools.image-compressor.download")}
+                        </Button>
+                      </DropdownMenuTrigger>
+                      <DropdownMenuContent align="center">
+                        <DropdownMenuItem
+                          onClick={() => downloadCompressed("jpeg")}
+                        >
+                          JPEG
+                        </DropdownMenuItem>
+                        <DropdownMenuItem
+                          onClick={() => downloadCompressed("png")}
+                        >
+                          PNG
+                        </DropdownMenuItem>
+                        <DropdownMenuItem
+                          onClick={() => downloadCompressed("webp")}
+                        >
+                          WebP
+                        </DropdownMenuItem>
+                      </DropdownMenuContent>
+                    </DropdownMenu>
                   )}
                 </div>
               </>
@@ -515,7 +556,7 @@ const ImageCompressor = () => {
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <Link className="h-5 w-5 text-muted-foreground" />
-              Related Tools
+              {t("toolPage.sections.relatedTools")}
             </CardTitle>
           </CardHeader>
           <CardContent>

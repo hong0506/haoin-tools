@@ -22,6 +22,7 @@ import {
   Calculator,
   Receipt,
   PiggyBank,
+  Link,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { FavoriteButton } from "@/components/FavoriteButton";
@@ -75,7 +76,9 @@ const PercentageCalculator = () => {
           </Button>
           <SidebarTrigger />
           <div className="flex items-center gap-2">
-            <h1 className="text-xl font-semibold">{t('tools.percentage-calculator.title')}</h1>
+            <h1 className="text-xl font-semibold">
+              {t("tools.percentage-calculator.title")}
+            </h1>
           </div>
         </div>
       </header>
@@ -85,9 +88,9 @@ const PercentageCalculator = () => {
           <CardHeader>
             <div className="flex items-center justify-between">
               <div>
-                <CardTitle>{t('tools.percentage-calculator.title')}</CardTitle>
+                <CardTitle>{t("tools.percentage-calculator.title")}</CardTitle>
                 <CardDescription>
-                  {t('tools.percentage-calculator.description')}
+                  {t("tools.percentage-calculator.description")}
                 </CardDescription>
               </div>
               <FavoriteButton
@@ -99,11 +102,11 @@ const PercentageCalculator = () => {
           <CardContent>
             <div className="flex gap-2">
               <Button onClick={clearAll} variant="outline" size="sm">
-                {t('toolPage.buttons.clear')}
+                {t("toolPage.buttons.clear")}
               </Button>
               <Button onClick={loadExample} variant="ghost" size="sm">
                 <Lightbulb className="h-4 w-4 mr-1" />
-                {t('toolPage.buttons.loadExample')}
+                {t("toolPage.buttons.loadExample")}
               </Button>
             </div>
           </CardContent>
@@ -112,12 +115,18 @@ const PercentageCalculator = () => {
         <div className="grid gap-6 md:grid-cols-2">
           <Card>
             <CardHeader>
-              <CardTitle>{t('tools.percentage-calculator.whatPercentOf')}</CardTitle>
-              <CardDescription>{t('tools.percentage-calculator.calculatePercentage')}</CardDescription>
+              <CardTitle>
+                {t("tools.percentage-calculator.whatPercentOf")}
+              </CardTitle>
+              <CardDescription>
+                {t("tools.percentage-calculator.calculatePercentage")}
+              </CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
               <div>
-                <label className="mb-2 block text-sm font-medium">{t('tools.percentage-calculator.value')}</label>
+                <label className="mb-2 block text-sm font-medium">
+                  {t("tools.percentage-calculator.value")}
+                </label>
                 <Input
                   type="number"
                   value={value}
@@ -154,13 +163,17 @@ const PercentageCalculator = () => {
 
           <Card>
             <CardHeader>
-              <CardTitle>{t('tools.percentage-calculator.percentOfWhat')}</CardTitle>
-              <CardDescription>{t('tools.percentage-calculator.calculateValue')}</CardDescription>
+              <CardTitle>
+                {t("tools.percentage-calculator.percentOfWhat")}
+              </CardTitle>
+              <CardDescription>
+                {t("tools.percentage-calculator.calculateValue")}
+              </CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
               <div>
                 <label className="mb-2 block text-sm font-medium">
-                  {t('tools.percentage-calculator.percentage')}
+                  {t("tools.percentage-calculator.percentage")}
                 </label>
                 <Input
                   type="number"
@@ -174,7 +187,9 @@ const PercentageCalculator = () => {
               </div>
 
               <div>
-                <label className="mb-2 block text-sm font-medium">{t('tools.percentage-calculator.total')}</label>
+                <label className="mb-2 block text-sm font-medium">
+                  {t("tools.percentage-calculator.total")}
+                </label>
                 <Input
                   type="number"
                   value={total}
@@ -200,9 +215,9 @@ const PercentageCalculator = () => {
           <CardContent className="pt-6">
             <p className="text-gray-700 leading-relaxed">
               <strong className="text-gray-900">
-                {t('tools.percentage-calculator.whatIs')}
+                {t("tools.percentage-calculator.whatIs")}
               </strong>{" "}
-              {t('tools.percentage-calculator.whatIsContent')}
+              {t("tools.percentage-calculator.whatIsContent")}
             </p>
           </CardContent>
         </Card>
@@ -212,7 +227,7 @@ const PercentageCalculator = () => {
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <Zap className="h-5 w-5 text-primary" />
-              {t('tools.percentage-calculator.useCases.title')}
+              {t("tools.percentage-calculator.useCases.title")}
             </CardTitle>
           </CardHeader>
           <CardContent>
@@ -222,9 +237,13 @@ const PercentageCalculator = () => {
                   <Receipt className="h-5 w-5 text-blue-600" />
                 </div>
                 <div>
-                  <div className="font-semibold text-blue-900">{t('tools.percentage-calculator.useCases.discount.title')}</div>
+                  <div className="font-semibold text-blue-900">
+                    {t("tools.percentage-calculator.useCases.discount.title")}
+                  </div>
                   <p className="text-sm text-blue-700">
-                    {t('tools.percentage-calculator.useCases.discount.description')}
+                    {t(
+                      "tools.percentage-calculator.useCases.discount.description"
+                    )}
                   </p>
                 </div>
               </div>
@@ -234,9 +253,11 @@ const PercentageCalculator = () => {
                   <Calculator className="h-5 w-5 text-purple-600" />
                 </div>
                 <div>
-                  <div className="font-semibold text-purple-900">{t('tools.percentage-calculator.useCases.tax.title')}</div>
+                  <div className="font-semibold text-purple-900">
+                    {t("tools.percentage-calculator.useCases.tax.title")}
+                  </div>
                   <p className="text-sm text-purple-700">
-                    {t('tools.percentage-calculator.useCases.tax.description')}
+                    {t("tools.percentage-calculator.useCases.tax.description")}
                   </p>
                 </div>
               </div>
@@ -246,9 +267,13 @@ const PercentageCalculator = () => {
                   <TrendingUp className="h-5 w-5 text-green-600" />
                 </div>
                 <div>
-                  <div className="font-semibold text-green-900">{t('tools.percentage-calculator.useCases.metrics.title')}</div>
+                  <div className="font-semibold text-green-900">
+                    {t("tools.percentage-calculator.useCases.metrics.title")}
+                  </div>
                   <p className="text-sm text-green-700">
-                    {t('tools.percentage-calculator.useCases.metrics.description')}
+                    {t(
+                      "tools.percentage-calculator.useCases.metrics.description"
+                    )}
                   </p>
                 </div>
               </div>
@@ -258,9 +283,13 @@ const PercentageCalculator = () => {
                   <PiggyBank className="h-5 w-5 text-pink-600" />
                 </div>
                 <div>
-                  <div className="font-semibold text-pink-900">{t('tools.percentage-calculator.useCases.budget.title')}</div>
+                  <div className="font-semibold text-pink-900">
+                    {t("tools.percentage-calculator.useCases.budget.title")}
+                  </div>
                   <p className="text-sm text-pink-700">
-                    {t('tools.percentage-calculator.useCases.budget.description')}
+                    {t(
+                      "tools.percentage-calculator.useCases.budget.description"
+                    )}
                   </p>
                 </div>
               </div>
@@ -273,7 +302,7 @@ const PercentageCalculator = () => {
           <CardHeader>
             <CardTitle className="flex items-center gap-2 text-amber-900">
               <Info className="h-5 w-5 text-amber-600" />
-              {t('tools.percentage-calculator.proTips.title')}
+              {t("tools.percentage-calculator.proTips.title")}
             </CardTitle>
           </CardHeader>
           <CardContent>
@@ -281,25 +310,25 @@ const PercentageCalculator = () => {
               <div className="flex gap-2 items-start">
                 <div className="text-amber-600 font-bold">→</div>
                 <p className="text-sm text-amber-900">
-                  {t('tools.percentage-calculator.proTips.definition')}
+                  {t("tools.percentage-calculator.proTips.definition")}
                 </p>
               </div>
               <div className="flex gap-2 items-start">
                 <div className="text-amber-600 font-bold">→</div>
                 <p className="text-sm text-amber-900">
-                  {t('tools.percentage-calculator.proTips.tips')}
+                  {t("tools.percentage-calculator.proTips.tips")}
                 </p>
               </div>
               <div className="flex gap-2 items-start">
                 <div className="text-amber-600 font-bold">→</div>
                 <p className="text-sm text-amber-900">
-                  {t('tools.percentage-calculator.proTips.comparison')}
+                  {t("tools.percentage-calculator.proTips.comparison")}
                 </p>
               </div>
               <div className="flex gap-2 items-start">
                 <div className="text-amber-600 font-bold">→</div>
                 <p className="text-sm text-amber-900">
-                  {t('tools.percentage-calculator.proTips.decimals')}
+                  {t("tools.percentage-calculator.proTips.decimals")}
                 </p>
               </div>
             </div>
@@ -311,7 +340,7 @@ const PercentageCalculator = () => {
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <Link className="h-5 w-5 text-muted-foreground" />
-              Related Tools
+              {t("toolPage.sections.relatedTools")}
             </CardTitle>
           </CardHeader>
           <CardContent>
@@ -321,10 +350,10 @@ const PercentageCalculator = () => {
                 className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
               >
                 <div className="font-semibold text-gray-900 group-hover:text-primary">
-                  {t('tools.interest-calculator.title')}
+                  {t("tools.interest-calculator.title")}
                 </div>
                 <div className="text-sm text-gray-600 mt-1">
-                  {t('tools.interest-calculator.description')}
+                  {t("tools.interest-calculator.description")}
                 </div>
               </button>
               <button
@@ -332,10 +361,10 @@ const PercentageCalculator = () => {
                 className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
               >
                 <div className="font-semibold text-gray-900 group-hover:text-primary">
-                  {t('tools.loan-calculator.title')}
+                  {t("tools.loan-calculator.title")}
                 </div>
                 <div className="text-sm text-gray-600 mt-1">
-                  {t('tools.loan-calculator.description')}
+                  {t("tools.loan-calculator.description")}
                 </div>
               </button>
               <button
@@ -343,9 +372,11 @@ const PercentageCalculator = () => {
                 className="p-4 text-left rounded-lg border-2 border-gray-200 hover:border-primary hover:bg-primary/5 transition-all group"
               >
                 <div className="font-semibold text-gray-900 group-hover:text-primary">
-                  {t('tools.bmi-calculator.title')}
+                  {t("tools.bmi-calculator.title")}
                 </div>
-                <div className="text-sm text-gray-600 mt-1">{t('tools.bmi-calculator.description')}</div>
+                <div className="text-sm text-gray-600 mt-1">
+                  {t("tools.bmi-calculator.description")}
+                </div>
               </button>
             </div>
           </CardContent>

@@ -338,8 +338,8 @@ const JsonFormatter = () => {
         <Card className="mt-6">
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
-              <Link className="h-5 w-5 text-primary" />
-              {t("tools.json-formatter.relatedTools")}
+              <Link className="h-5 w-5 text-muted-foreground" />
+              {t('toolPage.sections.relatedTools')}
             </CardTitle>
           </CardHeader>
           <CardContent>

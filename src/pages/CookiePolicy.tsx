@@ -2,7 +2,15 @@ import { SidebarTrigger } from "@/components/ui/sidebar";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { AnimatedBackground } from "@/components/AnimatedBackground";
 import { Footer } from "@/components/Footer";
-import { Cookie } from "lucide-react";
+import {
+  Cookie,
+  Mail,
+  Info,
+  Settings,
+  Table,
+  Sliders,
+  Shield,
+} from "lucide-react";
 import { useTranslation } from "react-i18next";
 
 const CookiePolicy = () => {
@@ -42,7 +50,8 @@ const CookiePolicy = () => {
 
         <div className="prose prose-lg max-w-none">
           <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-lg mb-6">
-            <h2 className="text-2xl font-bold mb-4 gradient-text">
+            <h2 className="text-2xl font-bold mb-4 gradient-text flex items-center gap-3">
+              <Info className="h-6 w-6 text-blue-500" />
               {t("cookiePolicy.whatAreCookies.title")}
             </h2>
             <p className="text-foreground/80 leading-relaxed">
@@ -51,7 +60,8 @@ const CookiePolicy = () => {
           </div>
 
           <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-lg mb-6">
-            <h2 className="text-2xl font-bold mb-4 gradient-text">
+            <h2 className="text-2xl font-bold mb-4 gradient-text flex items-center gap-3">
+              <Settings className="h-6 w-6 text-purple-500" />
               {t("cookiePolicy.howWeUseCookies.title")}
             </h2>
             <p className="text-foreground/80 leading-relaxed mb-4">
@@ -105,7 +115,8 @@ const CookiePolicy = () => {
           </div>
 
           <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-lg mb-6">
-            <h2 className="text-2xl font-bold mb-4 gradient-text">
+            <h2 className="text-2xl font-bold mb-4 gradient-text flex items-center gap-3">
+              <Table className="h-6 w-6 text-green-500" />
               {t("cookiePolicy.typesOfCookies.title")}
             </h2>
             <div className="overflow-x-auto">
@@ -181,7 +192,8 @@ const CookiePolicy = () => {
           </div>
 
           <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-lg mb-6">
-            <h2 className="text-2xl font-bold mb-4 gradient-text">
+            <h2 className="text-2xl font-bold mb-4 gradient-text flex items-center gap-3">
+              <Sliders className="h-6 w-6 text-orange-500" />
               {t("cookiePolicy.managingCookies.title")}
             </h2>
             <p className="text-foreground/80 leading-relaxed mb-4">
@@ -211,7 +223,8 @@ const CookiePolicy = () => {
           </div>
 
           <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-lg mb-6">
-            <h2 className="text-2xl font-bold mb-4 gradient-text">
+            <h2 className="text-2xl font-bold mb-4 gradient-text flex items-center gap-3">
+              <Shield className="h-6 w-6 text-indigo-500" />
               {t("cookiePolicy.privacyPriority.title")}
             </h2>
             <p className="text-foreground/80 leading-relaxed">
@@ -220,7 +233,8 @@ const CookiePolicy = () => {
           </div>
 
           <div className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-lg mb-6">
-            <h2 className="text-2xl font-bold mb-4 gradient-text">
+            <h2 className="text-2xl font-bold mb-4 gradient-text flex items-center gap-3">
+              <Mail className="h-6 w-6 text-pink-500" />
               {t("cookiePolicy.contact.title")}
             </h2>
             <p className="text-foreground/80 leading-relaxed">

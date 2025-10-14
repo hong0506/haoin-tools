@@ -23,6 +23,7 @@ import {
   GraduationCap,
   Wallet,
   Target,
+  Link,
 } from "lucide-react";
 import { toast } from "sonner";
 import { FavoriteButton } from "@/components/FavoriteButton";
@@ -88,7 +89,9 @@ const InvestmentCalculator = () => {
           </Button>
           <SidebarTrigger />
           <div className="flex items-center gap-2">
-            <h1 className="text-xl font-semibold">{t("tools.investment-calculator.title")}</h1>
+            <h1 className="text-xl font-semibold">
+              {t("tools.investment-calculator.title")}
+            </h1>
           </div>
         </div>
       </header>
@@ -97,7 +100,9 @@ const InvestmentCalculator = () => {
           <CardHeader>
             <div className="flex items-center justify-between">
               <div>
-                <CardTitle>{t("tools.investment-calculator.calculateGrowth")}</CardTitle>
+                <CardTitle>
+                  {t("tools.investment-calculator.calculateGrowth")}
+                </CardTitle>
                 <CardDescription>
                   {t("tools.investment-calculator.descriptionFull")}
                 </CardDescription>
@@ -171,7 +176,9 @@ const InvestmentCalculator = () => {
             {result && (
               <div className="space-y-4 rounded-lg bg-gradient-to-br from-primary/10 to-accent/10 p-6">
                 <div className="text-center border-b pb-4">
-                  <p className="text-sm text-muted-foreground">{t("tools.investment-calculator.futureValue")}</p>
+                  <p className="text-sm text-muted-foreground">
+                    {t("tools.investment-calculator.futureValue")}
+                  </p>
                   <p className="text-5xl font-bold text-primary">
                     ${result.futureValue.toLocaleString()}
                   </p>
@@ -230,7 +237,9 @@ const InvestmentCalculator = () => {
                     {t("tools.investment-calculator.useCases.retirement.title")}
                   </div>
                   <p className="text-sm text-blue-700 dark:text-blue-400">
-                    {t("tools.investment-calculator.useCases.retirement.description")}{" "}
+                    {t(
+                      "tools.investment-calculator.useCases.retirement.description"
+                    )}{" "}
                     <Badge variant="secondary" className="mx-1">
                       retirement
                     </Badge>
@@ -247,7 +256,9 @@ const InvestmentCalculator = () => {
                     {t("tools.investment-calculator.useCases.education.title")}
                   </div>
                   <p className="text-sm text-purple-700 dark:text-purple-400">
-                    {t("tools.investment-calculator.useCases.education.description")}
+                    {t(
+                      "tools.investment-calculator.useCases.education.description"
+                    )}
                   </p>
                 </div>
               </div>
@@ -261,7 +272,9 @@ const InvestmentCalculator = () => {
                     {t("tools.investment-calculator.useCases.wealth.title")}
                   </div>
                   <p className="text-sm text-green-700 dark:text-green-400">
-                    {t("tools.investment-calculator.useCases.wealth.description")}
+                    {t(
+                      "tools.investment-calculator.useCases.wealth.description"
+                    )}
                   </p>
                 </div>
               </div>
@@ -275,7 +288,9 @@ const InvestmentCalculator = () => {
                     {t("tools.investment-calculator.useCases.goals.title")}
                   </div>
                   <p className="text-sm text-pink-700 dark:text-pink-400">
-                    {t("tools.investment-calculator.useCases.goals.description")}
+                    {t(
+                      "tools.investment-calculator.useCases.goals.description"
+                    )}
                   </p>
                 </div>
               </div>
@@ -294,28 +309,48 @@ const InvestmentCalculator = () => {
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
               <div className="flex gap-2 items-start">
-                <div className="text-amber-600 dark:text-amber-400 font-bold">→</div>
-                <p className="text-sm text-amber-900 dark:text-amber-300" dangerouslySetInnerHTML={{
-                  __html: t("tools.investment-calculator.proTips.startEarly")
-                }} />
+                <div className="text-amber-600 dark:text-amber-400 font-bold">
+                  →
+                </div>
+                <p
+                  className="text-sm text-amber-900 dark:text-amber-300"
+                  dangerouslySetInnerHTML={{
+                    __html: t("tools.investment-calculator.proTips.startEarly"),
+                  }}
+                />
               </div>
               <div className="flex gap-2 items-start">
-                <div className="text-amber-600 dark:text-amber-400 font-bold">→</div>
-                <p className="text-sm text-amber-900 dark:text-amber-300" dangerouslySetInnerHTML={{
-                  __html: t("tools.investment-calculator.proTips.regular")
-                }} />
+                <div className="text-amber-600 dark:text-amber-400 font-bold">
+                  →
+                </div>
+                <p
+                  className="text-sm text-amber-900 dark:text-amber-300"
+                  dangerouslySetInnerHTML={{
+                    __html: t("tools.investment-calculator.proTips.regular"),
+                  }}
+                />
               </div>
               <div className="flex gap-2 items-start">
-                <div className="text-amber-600 dark:text-amber-400 font-bold">→</div>
-                <p className="text-sm text-amber-900 dark:text-amber-300" dangerouslySetInnerHTML={{
-                  __html: t("tools.investment-calculator.proTips.returns")
-                }} />
+                <div className="text-amber-600 dark:text-amber-400 font-bold">
+                  →
+                </div>
+                <p
+                  className="text-sm text-amber-900 dark:text-amber-300"
+                  dangerouslySetInnerHTML={{
+                    __html: t("tools.investment-calculator.proTips.returns"),
+                  }}
+                />
               </div>
               <div className="flex gap-2 items-start">
-                <div className="text-amber-600 dark:text-amber-400 font-bold">→</div>
-                <p className="text-sm text-amber-900 dark:text-amber-300" dangerouslySetInnerHTML={{
-                  __html: t("tools.investment-calculator.proTips.risk")
-                }} />
+                <div className="text-amber-600 dark:text-amber-400 font-bold">
+                  →
+                </div>
+                <p
+                  className="text-sm text-amber-900 dark:text-amber-300"
+                  dangerouslySetInnerHTML={{
+                    __html: t("tools.investment-calculator.proTips.risk"),
+                  }}
+                />
               </div>
             </div>
           </CardContent>
@@ -326,7 +361,7 @@ const InvestmentCalculator = () => {
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <Link className="h-5 w-5 text-muted-foreground" />
-              Related Tools
+              {t("toolPage.sections.relatedTools")}
             </CardTitle>
           </CardHeader>
           <CardContent>

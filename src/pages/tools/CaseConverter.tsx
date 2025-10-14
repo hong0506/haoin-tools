@@ -405,7 +405,7 @@ const CaseConverter = () => {
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <LinkIcon className="h-5 w-5 text-muted-foreground" />
-              Related Tools
+              {t('toolPage.sections.relatedTools')}
             </CardTitle>
           </CardHeader>
           <CardContent>

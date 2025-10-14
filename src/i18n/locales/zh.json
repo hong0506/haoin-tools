@@ -21,7 +21,11 @@
     "clearRecentTools": "清除最近工具",
     "clearFavorites": "清除收藏",
     "noToolsInCategory": "此分类暂无工具",
-    "startExploringTools": "开始探索我们的工具，它们将出现在这里"
+    "startExploringTools": "开始探索我们的工具，它们将出现在这里",
+    "noFavoriteToolsYet": "暂无收藏的工具",
+    "noMatchingFavorites": "没有匹配的收藏",
+    "cantFindInFavorites": "在收藏中找不到\"{{searchQuery}}\"",
+    "clickStarToAddFavorites": "点击工具上的⭐星标图标将其添加到收藏夹。您收藏的工具将显示在这里，方便快速访问！"
   },
   "nav": {
     "home": "首页",
@@ -97,6 +101,7 @@
     "buttons": {
       "clear": "清除",
       "copy": "复制",
+      "download": "下载",
       "loadExample": "加载示例",
       "back": "返回"
     },
@@ -195,11 +200,11 @@
     "title": "服务条款",
     "lastUpdated": "最后更新：",
     "agreement": {
-      "title": "📜 条款协议",
+      "title": "条款协议",
       "content": "通过访问和使用皓萤工具，您接受并同意受本协议条款和规定的约束。如果您不同意遵守这些条款，请不要使用本服务。"
     },
     "useOfService": {
-      "title": "✨ 服务使用",
+      "title": "服务使用",
       "content": "皓萤工具为每个人提供免费的在线工具：",
       "freeAccess": "🎯 免费访问：所有工具都是免费使用的",
       "noRegistration": "🚀 无需注册：无需账户",
@@ -207,7 +212,7 @@
       "unlimitedUsage": "⚡ 无限制使用：无使用限制或约束"
     },
     "prohibited": {
-      "title": "⚠️ 禁止活动",
+      "title": "禁止活动",
       "content": "您同意不得：",
       "illegal": "❌ 将服务用于任何非法目的",
       "harm": "❌ 试图伤害或破坏服务",
@@ -217,7 +222,7 @@
       "violate": "❌ 违反您所在司法管辖区的任何适用法律或法规"
     },
     "disclaimer": {
-      "title": "🛡️ 免责声明和责任限制",
+      "title": "免责声明和责任限制",
       "content": "服务按现状和可用提供，不提供任何保证。我们努力确保准确性和可靠性，但我们不能保证工具总是无错误或不受干扰。",
       "important": "重要免责声明：",
       "financial": "• 财务计算器仅用于信息目的，不构成财务建议",
@@ -226,11 +231,11 @@
       "maximum": "• 最大责任仅限于您为服务支付的金额（免费工具为零）"
     },
     "intellectualProperty": {
-      "title": "📝 知识产权",
+      "title": "知识产权",
       "content": "皓萤工具上的所有内容、功能和特性均由我们拥有，并受到国际版权、商标和其他知识产权法律的保护。"
     },
     "advertising": {
-      "title": "📺 广告",
+      "title": "广告",
       "content": "为了维持我们的免费服务，我们可能会显示第三方广告：",
       "networks": "• 广告由第三方广告网络提供",
       "endorse": "• 我们不认可或对广告产品/服务承担责任",
@@ -238,16 +243,16 @@
       "transactions": "• 我们不对与广告商的任何交易承担责任"
     },
     "governingLaw": {
-      "title": "⚖️ 管辖法律和争议解决",
+      "title": "管辖法律和争议解决",
       "content": "这些条款受中华人民共和国法律管辖。对于国际用户，当地消费者保护法也可能适用。",
       "disputes": "任何争议应首先通过友好协商解决。如果协商失败，争议应提交给中国浙江省杭州市有管辖权的法院。"
     },
     "changes": {
-      "title": "🔄 条款变更",
+      "title": "条款变更",
       "content": "我们保留随时修改这些条款的权利。我们将通过更新本页面顶部的最后更新日期来通知用户任何重大变更。变更后继续使用服务即表示接受新条款。"
     },
     "contact": {
-      "title": "📧 联系我们",
+      "title": "联系我们",
       "content": "对我们的服务条款有疑问？请联系我们："
     },
     "fairUse": "⚖️ 合理使用：我们相信为每个人提供免费、可访问的工具，同时维护安全可靠的服务。"
@@ -256,7 +261,7 @@
     "title": "法律声明与版权",
     "lastUpdated": "最后更新：",
     "copyright": {
-      "title": "📋 版权声明",
+      "title": "版权声明",
       "content": "本网站（皓萤工具）提供的所有工具和服务均为独立开发。我们尊重并保护知识产权，所有内容使用均符合相关法律法规。",
       "originalContent": {
         "title": "原创内容声明",
@@ -279,7 +284,7 @@
       }
     },
     "technologyStack": {
-      "title": "💻 技术栈",
+      "title": "技术栈",
       "content": "本网站基于以下开源技术构建：",
       "points": [
         "前端框架：React 18 + TypeScript",
@@ -292,7 +297,7 @@
       "note": "所有使用的开源库均符合其相应的开源许可证（MIT、Apache 2.0等）。我们对这些优秀的开源项目表示诚挚的感谢。"
     },
     "usageTerms": {
-      "title": "📜 使用条款与免责声明",
+      "title": "使用条款与免责声明",
       "usageLicense": {
         "title": "使用许可",
         "content": "本网站提供的所有工具均免费供个人和商业使用。我们不收集、存储或传输您在工具中输入的任何数据；所有处理均在您的浏览器中本地完成。"
@@ -316,7 +321,7 @@
       }
     },
     "thirdPartyContent": {
-      "title": "🤝 第三方内容",
+      "title": "第三方内容",
       "content": "本网站的某些功能可能使用第三方API或数据：",
       "points": [
         "货币汇率：使用第三方汇率API获取实时数据",
@@ -327,7 +332,7 @@
       "note": "我们致力于确保所有第三方内容的合法使用。如果您发现任何侵权内容，请立即通过contact@haoin.tech联系我们，我们将在24小时内处理。"
     },
     "dmca": {
-      "title": "⚠️ DMCA版权侵权通知",
+      "title": "DMCA版权侵权通知",
       "content": "皓萤工具尊重知识产权，遵守美国数字千年版权法案（DMCA）的规定。如果您认为本网站的内容侵犯了您的版权，请按照以下程序通知我们。",
       "requirements": {
         "title": "DMCA下架通知要求",
@@ -349,7 +354,7 @@
       "note": "请注意：根据DMCA规定，故意提供虚假侵权声明可能导致法律责任。我们将在收到有效通知后及时处理。"
     },
     "userContent": {
-      "title": "👤 用户内容责任",
+      "title": "用户内容责任",
       "content": "本网站的所有工具仅提供处理功能，不存储用户数据。用户负责：",
       "points": [
         "确保上传或处理的内容不侵犯他人的知识产权",
@@ -370,7 +375,7 @@
       "title": "大小写转换器",
       "description": "在大写、小写、标题大小写等之间转换文本",
       "intro": "此工具可帮助您即时在不同格式之间转换文本，如大写（UPPERCASE）、小写（lowercase）、标题大小写（Title Case）、驼峰命名（camelCase）、蛇形命名（snake_case）和短横线命名（kebab-case）。非常适合需要快速文本格式化的开发人员、作者和内容创作者！🚀",
-      "exampleText": "你好世界！这是一个用于大小写转换的示例文本。",
+      "exampleText": "Hello world! This is a sample text for case conversion.",
       "useCases": {
         "programming": {
           "title": "编程",
@@ -1568,6 +1573,8 @@
       "compressImages": "压缩图片",
       "descriptionFull": "在保持质量的同时减小图片文件大小",
       "uploadImage": "上传图片",
+      "noFileChosen": "未选择文件",
+      "chooseFile": "选择文件",
       "original": "原始",
       "compressed": "已压缩",
       "outputFormat": "输出格式",
@@ -2871,11 +2878,11 @@
     "title": "Cookie政策",
     "lastUpdated": "最后更新：",
     "whatAreCookies": {
-      "title": "🍪 什么是Cookie？",
+      "title": "什么是Cookie？",
       "description": "Cookie是您访问网站时存储在您设备上的小型文本文件。它们帮助网站记住您的偏好设置并改善您的浏览体验。"
     },
     "howWeUseCookies": {
-      "title": "📝 我们如何使用Cookie",
+      "title": "我们如何使用Cookie",
       "description": "在皓萤工具，我们尽量减少和负责任地使用Cookie：",
       "essential": {
         "title": "必要Cookie",
@@ -2895,7 +2902,7 @@
       }
     },
     "typesOfCookies": {
-      "title": "🎯 我们使用的Cookie类型",
+      "title": "我们使用的Cookie类型",
       "table": {
         "cookieName": "Cookie名称",
         "purpose": "用途",
@@ -2920,7 +2927,7 @@
       }
     },
     "managingCookies": {
-      "title": "🔧 管理Cookie",
+      "title": "管理Cookie",
       "description": "您对Cookie拥有完全控制权：",
       "browserSettings": {
         "title": "浏览器设置",
@@ -2936,11 +2943,11 @@
       }
     },
     "privacyPriority": {
-      "title": "🔒 您的隐私是我们的首要任务",
+      "title": "您的隐私是我们的首要任务",
       "description": "与许多网站不同，我们不使用Cookie来跟踪您的行为、建立用户档案或提供定向广告。我们的Cookie严格用于改善您在我们网站上的用户体验。所有数据处理都在您的浏览器中本地进行，我们从不向我们的服务器发送您的文件或个人数据。"
     },
     "contact": {
-      "title": "📞 联系我们",
+      "title": "联系我们",
       "description": "如果您对我们使用Cookie有任何疑问，请通过以下方式联系我们："
     },
     "footer": {
@@ -3010,7 +3017,7 @@
       }
     },
     "joinCommunity": {
-      "title": "💖 加入我们的社区",
+      "title": "加入我们的社区",
       "description": "在社交媒体上关注我们，了解新工具、新功能和使用技巧！",
       "feedback": "我们喜欢听取用户的意见。有功能请求或反馈？随时联系我们！"
     }

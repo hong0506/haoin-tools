@@ -23,6 +23,7 @@ import {
   Users,
   Trophy,
   Dice5,
+  Link,
 } from "lucide-react";
 import { toast } from "sonner";
 import { FavoriteButton } from "@/components/FavoriteButton";
@@ -160,7 +161,9 @@ const RandomPicker = () => {
                     {t("tools.random-picker.useCases.contestGiveaways.title")}
                   </div>
                   <p className="text-sm text-pink-700">
-                    {t("tools.random-picker.useCases.contestGiveaways.description")}
+                    {t(
+                      "tools.random-picker.useCases.contestGiveaways.description"
+                    )}
                   </p>
                 </div>
               </div>
@@ -174,7 +177,9 @@ const RandomPicker = () => {
                     {t("tools.random-picker.useCases.raffleDrawings.title")}
                   </div>
                   <p className="text-sm text-purple-700">
-                    {t("tools.random-picker.useCases.raffleDrawings.description")}
+                    {t(
+                      "tools.random-picker.useCases.raffleDrawings.description"
+                    )}
                   </p>
                 </div>
               </div>
@@ -188,7 +193,9 @@ const RandomPicker = () => {
                     {t("tools.random-picker.useCases.teamAssignments.title")}
                   </div>
                   <p className="text-sm text-blue-700">
-                    {t("tools.random-picker.useCases.teamAssignments.description")}
+                    {t(
+                      "tools.random-picker.useCases.teamAssignments.description"
+                    )}
                   </p>
                 </div>
               </div>
@@ -202,7 +209,9 @@ const RandomPicker = () => {
                     {t("tools.random-picker.useCases.decisionMaking.title")}
                   </div>
                   <p className="text-sm text-green-700">
-                    {t("tools.random-picker.useCases.decisionMaking.description")}
+                    {t(
+                      "tools.random-picker.useCases.decisionMaking.description"
+                    )}
                   </p>
                 </div>
               </div>
@@ -265,7 +274,7 @@ const RandomPicker = () => {
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <Link className="h-5 w-5 text-muted-foreground" />
-              Related Tools
+              {t("toolPage.sections.relatedTools")}
             </CardTitle>
           </CardHeader>
           <CardContent>

@@ -49,7 +49,7 @@ export const InlineAd: React.FC<InlineAdProps> = ({ className = "" }) => {
   const selectedAd = ads[Math.floor(Math.random() * ads.length)];
 
   return (
-    <div className={`w-full my-8 ${className}`}>
+    <div className={`w-full my-12 ${className}`}>
       <div className="relative">
         {/* 广告标签 */}
         <div className="absolute -top-2 -right-2 z-10">
@@ -85,7 +85,7 @@ export const InlineAd: React.FC<InlineAdProps> = ({ className = "" }) => {
                 </button>
               </div>
             </div>
-            
+
             <div className="text-right">
               <span className="text-xs text-white/80">
                 {selectedAd.sponsor}

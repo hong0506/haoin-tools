@@ -26,13 +26,14 @@ import {
   Layout,
   FileText,
   Presentation,
+  Link,
 } from "lucide-react";
 import { FavoriteButton } from "@/components/FavoriteButton";
 import { Badge } from "@/components/ui/badge";
 
 const LoremIpsum = () => {
   const { t } = useTranslation();
-  const [paragraphs, setParagraphs] = useState(3);
+  const [paragraphs, setParagraphs] = useState(1);
   const [output, setOutput] = useState("");
   const navigate = useNavigate();
 
@@ -67,7 +68,7 @@ const LoremIpsum = () => {
 
   const clearAll = () => {
     setOutput("");
-    setParagraphs(3);
+    setParagraphs(1);
     toast.success(t("toolPage.messages.cleared"));
   };
 
@@ -299,7 +300,7 @@ const LoremIpsum = () => {
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <Link className="h-5 w-5 text-muted-foreground" />
-              Related Tools
+              {t("toolPage.sections.relatedTools")}
             </CardTitle>
           </CardHeader>
           <CardContent>
