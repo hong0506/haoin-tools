@@ -23,7 +23,6 @@ import {
   Code2,
   FileText,
   Settings,
-
 } from "lucide-react";
 import { toast } from "sonner";
 import { FavoriteButton } from "@/components/FavoriteButton";

@@ -24,7 +24,6 @@ import {
   XCircle,
   RotateCcw,
   Lightbulb,
-
 } from "lucide-react";
 import { FavoriteButton } from "@/components/FavoriteButton";
 import { toast } from "sonner";

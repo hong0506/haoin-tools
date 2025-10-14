@@ -27,7 +27,6 @@ import {
   Dumbbell,
   Coffee,
   BookOpen,
-
 } from "lucide-react";
 import { toast } from "sonner";
 import { FavoriteButton } from "@/components/FavoriteButton";

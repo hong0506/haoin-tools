@@ -19,7 +19,6 @@ import {
   Coffee,
   Zap,
   Info,
-
 } from "lucide-react";
 import { toast } from "sonner";
 import { FavoriteButton } from "@/components/FavoriteButton";

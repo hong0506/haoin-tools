@@ -24,7 +24,6 @@ import {
   TrendingDown,
   Wallet,
   LineChart,
-
 } from "lucide-react";
 import { toast } from "sonner";
 import { FavoriteButton } from "@/components/FavoriteButton";

@@ -25,7 +25,6 @@ import {
   Code2,
   Calendar,
   Server,
-
 } from "lucide-react";
 import { FavoriteButton } from "@/components/FavoriteButton";
 import { Badge } from "@/components/ui/badge";

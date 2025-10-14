@@ -24,7 +24,6 @@ import {
   FileCode,
   Database,
   Settings,
-
 } from "lucide-react";
 import { toast } from "sonner";
 import { FavoriteButton } from "@/components/FavoriteButton";

@@ -25,7 +25,6 @@ import {
   RotateCcw,
   Lightbulb,
   ArrowLeft,
-
 } from "lucide-react";
 import { toast } from "sonner";
 import { FavoriteButton } from "@/components/FavoriteButton";

@@ -20,7 +20,6 @@ import {
   Lightbulb,
   Download,
   ChevronDown,
-
 } from "lucide-react";
 import {
   DropdownMenu,

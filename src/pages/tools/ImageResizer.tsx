@@ -23,7 +23,6 @@ import {
   Monitor,
   Smartphone,
   Image as ImageIcon,
-
 } from "lucide-react";
 import { toast } from "sonner";
 import { FavoriteButton } from "@/components/FavoriteButton";

@@ -27,7 +27,6 @@ import {
   FileSearch,
   Terminal,
   Copy,
-
 } from "lucide-react";
 import { FavoriteButton } from "@/components/FavoriteButton";
 

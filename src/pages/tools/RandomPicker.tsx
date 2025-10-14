@@ -23,7 +23,6 @@ import {
   Users,
   Trophy,
   Dice5,
-
 } from "lucide-react";
 import { toast } from "sonner";
 import { FavoriteButton } from "@/components/FavoriteButton";

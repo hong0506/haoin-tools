@@ -23,7 +23,6 @@ import {
   TrendingUp,
   Apple,
   Scale,
-
 } from "lucide-react";
 import { FavoriteButton } from "@/components/FavoriteButton";
 import { Badge } from "@/components/ui/badge";

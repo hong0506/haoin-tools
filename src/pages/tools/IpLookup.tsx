@@ -21,7 +21,6 @@ import {
   Info,
   Zap,
   Lightbulb,
-
 } from "lucide-react";
 import { toast } from "sonner";
 import { FavoriteButton } from "@/components/FavoriteButton";

@@ -22,7 +22,6 @@ import {
   Calculator,
   Receipt,
   PiggyBank,
-
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { FavoriteButton } from "@/components/FavoriteButton";
