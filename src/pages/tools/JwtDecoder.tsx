@@ -25,6 +25,7 @@ import {
   Lock,
   CheckCircle,
   AlertTriangle,
+
 } from "lucide-react";
 import { FavoriteButton } from "@/components/FavoriteButton";
 import { Badge } from "@/components/ui/badge";
@@ -413,7 +414,10 @@ const JwtDecoder = () => {
         {/* Related Tools */}
         <Card className="mt-6">
           <CardHeader>
-            <CardTitle>{t("tools.jwt-decoder.relatedTools")}</CardTitle>
+            <CardTitle className="flex items-center gap-2">
+              <Link className="h-5 w-5 text-muted-foreground" />
+              Related Tools
+            </CardTitle>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-3">

@@ -22,6 +22,7 @@ import {
   Calculator,
   Receipt,
   PiggyBank,
+
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { FavoriteButton } from "@/components/FavoriteButton";
@@ -309,7 +310,10 @@ const PercentageCalculator = () => {
         {/* Related Tools */}
         <Card className="mt-6">
           <CardHeader>
-            <CardTitle>{t('tools.percentage-calculator.relatedTools')}</CardTitle>
+            <CardTitle className="flex items-center gap-2">
+              <Link className="h-5 w-5 text-muted-foreground" />
+              Related Tools
+            </CardTitle>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-3">

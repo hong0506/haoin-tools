@@ -23,6 +23,7 @@ import {
   Users,
   Trophy,
   Dice5,
+
 } from "lucide-react";
 import { toast } from "sonner";
 import { FavoriteButton } from "@/components/FavoriteButton";
@@ -263,7 +264,10 @@ const RandomPicker = () => {
         {/* Related Tools */}
         <Card className="mt-6">
           <CardHeader>
-            <CardTitle>{t("tools.random-picker.relatedTools")}</CardTitle>
+            <CardTitle className="flex items-center gap-2">
+              <Link className="h-5 w-5 text-muted-foreground" />
+              Related Tools
+            </CardTitle>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
