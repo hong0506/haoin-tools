@@ -30,7 +30,7 @@ import {
   AdBanner,
   AdSidebarStack,
   AdMediumRectangle,
-} from "@/components/AdBanner";
+} from "@/components/ads/AdBanner";
 
 const WordCounter = () => {
   const [text, setText] = useState("");

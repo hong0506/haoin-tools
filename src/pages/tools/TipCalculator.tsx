@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { SidebarTrigger } from "@/components/ui/sidebar";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { Button } from "@/components/ui/button";
@@ -29,6 +30,7 @@ import { toast } from "sonner";
 import { FavoriteButton } from "@/components/FavoriteButton";
 
 const TipCalculator = () => {
+  const { t } = useTranslation();
   const [billAmount, setBillAmount] = useState("");
   const [tipPercent, setTipPercent] = useState([15]);
   const [numPeople, setNumPeople] = useState("1");
@@ -296,7 +298,7 @@ const TipCalculator = () => {
 
         <Card className="mt-6">
           <CardHeader>
-            <CardTitle>🔗 Related Tools You Might Like</CardTitle>
+            <CardTitle>{t('tools.tip-calculator.relatedTools')}</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-3">

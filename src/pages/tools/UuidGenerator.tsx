@@ -298,7 +298,7 @@ const UuidGenerator = () => {
         {/* Related Tools */}
         <Card className="mt-6">
           <CardHeader>
-            <CardTitle>🔗 {t('tools.word-counter.relatedTools.title')}</CardTitle>
+            <CardTitle>{t('tools.uuid-generator.relatedTools')}</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-3">

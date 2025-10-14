@@ -375,7 +375,7 @@ const Base64Tool = () => {
         {/* Related Tools */}
         <Card className="mt-6">
           <CardHeader>
-            <CardTitle>🔗 {t('toolPage.sections.relatedTools')}</CardTitle>
+            <CardTitle>{t('toolPage.sections.relatedTools')}</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-3">

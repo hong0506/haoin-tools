@@ -79,7 +79,7 @@
     "followUs": "Síguenos",
     "followUsForUpdates": "¡Síguenos para actualizaciones!",
     "language": "Idioma",
-    "allRightsReserved": "© 2025 Haoin Technology Co., Ltd. Todos los derechos reservados.",
+    "allRightsReserved": "© 2025 Haoin Tech. Todos los derechos reservados.",
     "email": "Correo:",
     "privacyFirst": "Privacidad Primero",
     "privacyDescription": "Todas las herramientas procesan datos localmente en tu navegador. No almacenamos tus archivos ni datos personales.",
@@ -361,7 +361,7 @@
     },
     "footer": {
       "rightsReserved": "© 2025 Haoin Tools. Todos los derechos reservados.",
-      "company": "Haoin Technology Co., Ltd.",
+      "company": "Haoin Tech",
       "compliance": "Este sitio web cumple con las leyes y regulaciones pertinentes."
     }
   },
