@@ -49,15 +49,28 @@ i18n
   .use(initReactI18next) // Pass i18n instance to react-i18next
   .init({
     resources,
-    fallbackLng: "en", // Fallback language
+    fallbackLng: "en", // Fallback language if user's language is not supported
     lng: undefined, // Let the language detector decide
+    
+    // Supported languages - will match these first
+    supportedLngs: ["en", "zh", "es"],
+    
+    // Load only the detected language, not all languages
+    load: "languageOnly", // "zh-CN" -> "zh", "es-MX" -> "es", "en-US" -> "en"
+    
     interpolation: {
       escapeValue: false, // React already escapes values
     },
+    
     detection: {
       // Order of language detection methods
+      // 1. Check if user manually selected a language (localStorage)
+      // 2. Detect browser/system language (navigator) - Auto detect based on location
+      // 3. Check HTML lang attribute
       order: ["localStorage", "navigator", "htmlTag"],
-      caches: ["localStorage"], // Cache user language preference
+      
+      // Cache user's language preference when they manually change it
+      caches: ["localStorage"],
       lookupLocalStorage: "i18nextLng",
     },
   });

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- English Sitemap -->
+  <sitemap>
+    <loc>https://www.haointools.com/sitemap-en.xml</loc>
+    <lastmod>2025-01-27</lastmod>
+  </sitemap>
+  
+  <!-- Chinese Sitemap -->
+  <sitemap>
+    <loc>https://www.haointools.com/sitemap-zh.xml</loc>
+    <lastmod>2025-01-27</lastmod>
+  </sitemap>
+  
+  <!-- Spanish Sitemap -->
+  <sitemap>
+    <loc>https://www.haointools.com/sitemap-es.xml</loc>
+    <lastmod>2025-01-27</lastmod>
+  </sitemap>
+</sitemapindex>

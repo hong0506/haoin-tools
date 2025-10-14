@@ -1,33 +1,113 @@
 # robots.txt for Haoin Tools
+# Multi-language support for global SEO
 # Allow all search engines to crawl the site
 
 User-agent: *
 Allow: /
 
-# Sitemap location
+# Sitemap locations - Multi-language support
+Sitemap: https://www.haointools.com/sitemap-index.xml
+Sitemap: https://www.haointools.com/sitemap-en.xml
+Sitemap: https://www.haointools.com/sitemap-zh.xml
+Sitemap: https://www.haointools.com/sitemap-es.xml
 Sitemap: https://www.haointools.com/sitemap.xml
 
-# Crawl delay (optional, in seconds)
-Crawl-delay: 1
-
-# Specific rules for major search engines
+# Google Search Engine (Global - All Languages)
 User-agent: Googlebot
 Allow: /
 Crawl-delay: 0
 
+# Google Image Search
+User-agent: Googlebot-Image
+Allow: /
+
+# Google Mobile
+User-agent: Googlebot-Mobile
+Allow: /
+
+# Bing Search Engine (Global)
 User-agent: Bingbot
 Allow: /
 Crawl-delay: 1
 
+# Yahoo Search (Global)
 User-agent: Slurp
 Allow: /
 
+# DuckDuckGo
 User-agent: DuckDuckBot
 Allow: /
 
+# Baidu (China - 百度)
 User-agent: Baiduspider
+Allow: /
+Crawl-delay: 1
+
+# Baidu Image
+User-agent: Baiduspider-image
+Allow: /
+
+# Baidu Mobile
+User-agent: Baiduspider-mobile
+Allow: /
+
+# Sogou (China - 搜狗)
+User-agent: Sogou web spider
+Allow: /
+Crawl-delay: 1
+
+# Sogou News
+User-agent: Sogou News Spider
+Allow: /
+
+# 360 Search (China - 360搜索)
+User-agent: 360Spider
+Allow: /
+Crawl-delay: 1
+
+# Yandex (Russia - for potential expansion)
+User-agent: Yandex
+Allow: /
+
+# Yandex Images
+User-agent: YandexImages
+Allow: /
+
+# Naver (South Korea - 네이버)
+User-agent: Yeti
+Allow: /
+
+# Yahoo Japan
+User-agent: Yahoo! Slurp
+Allow: /
+
+# Ask.com
+User-agent: Teoma
+Allow: /
+
+# Archive.org
+User-agent: ia_archiver
+Allow: /
+
+# Pinterest
+User-agent: Pinterest
+Allow: /
+
+# Facebook
+User-agent: Facebot
+Allow: /
+
+# Twitter
+User-agent: Twitterbot
+Allow: /
+
+# LinkedIn
+User-agent: LinkedInBot
 Allow: /
 
 # Disallow certain paths (if needed)
 # Disallow: /api/
 # Disallow: /admin/
+
+# Crawl delay (default for unspecified bots)
+Crawl-delay: 1

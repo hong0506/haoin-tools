@@ -1,0 +1,535 @@
+{
+  "timestamp": "2025-10-14T13:08:56.596Z",
+  "sourceLocale": "en",
+  "totalSourceKeys": 1987,
+  "results": [
+    {
+      "locale": "zh",
+      "totalKeys": 1987,
+      "errors": [],
+      "warnings": [
+        {
+          "key": "footer.instagram",
+          "type": "identical",
+          "severity": "warning",
+          "message": "Translation identical to source (possibly untranslated)",
+          "sourceValue": "Instagram",
+          "targetValue": "Instagram"
+        },
+        {
+          "key": "cookies.types.cookieConsent.name",
+          "type": "identical",
+          "severity": "warning",
+          "message": "Translation identical to source (possibly untranslated)",
+          "sourceValue": "cookieConsent",
+          "targetValue": "cookieConsent"
+        },
+        {
+          "key": "cookies.types.theme.name",
+          "type": "identical",
+          "severity": "warning",
+          "message": "Translation identical to source (possibly untranslated)",
+          "sourceValue": "theme",
+          "targetValue": "theme"
+        },
+        {
+          "key": "cookies.types.recentTools.name",
+          "type": "identical",
+          "severity": "warning",
+          "message": "Translation identical to source (possibly untranslated)",
+          "sourceValue": "recentTools",
+          "targetValue": "recentTools"
+        },
+        {
+          "key": "tools.word-counter.proTips.seo.label",
+          "type": "identical",
+          "severity": "warning",
+          "message": "Translation identical to source (possibly untranslated)",
+          "sourceValue": "SEO",
+          "targetValue": "SEO"
+        },
+        {
+          "key": "tools.word-counter.proTips.twitter.label",
+          "type": "identical",
+          "severity": "warning",
+          "message": "Translation identical to source (possibly untranslated)",
+          "sourceValue": "Twitter",
+          "targetValue": "Twitter"
+        },
+        {
+          "key": "tools.color-picker.hex",
+          "type": "identical",
+          "severity": "warning",
+          "message": "Translation identical to source (possibly untranslated)",
+          "sourceValue": "HEX",
+          "targetValue": "HEX"
+        },
+        {
+          "key": "tools.color-picker.rgb",
+          "type": "identical",
+          "severity": "warning",
+          "message": "Translation identical to source (possibly untranslated)",
+          "sourceValue": "RGB",
+          "targetValue": "RGB"
+        },
+        {
+          "key": "tools.color-picker.hsl",
+          "type": "identical",
+          "severity": "warning",
+          "message": "Translation identical to source (possibly untranslated)",
+          "sourceValue": "HSL",
+          "targetValue": "HSL"
+        },
+        {
+          "key": "tools.url-encoder.exampleEncoded",
+          "type": "identical",
+          "severity": "warning",
+          "message": "Translation identical to source (possibly untranslated)",
+          "sourceValue": "Hello%20World%21%20This%20is%20a%20test%20URL%20with%20spaces%20%26%20special%20characters.",
+          "targetValue": "Hello%20World%21%20This%20is%20a%20test%20URL%20with%20spaces%20%26%20special%20characters."
+        },
+        {
+          "key": "tools.interest-calculator.simpleFormula",
+          "type": "identical",
+          "severity": "warning",
+          "message": "Translation identical to source (possibly untranslated)",
+          "sourceValue": "I = P × R × T",
+          "targetValue": "I = P × R × T"
+        },
+        {
+          "key": "tools.interest-calculator.compoundFormula",
+          "type": "identical",
+          "severity": "warning",
+          "message": "Translation identical to source (possibly untranslated)",
+          "sourceValue": "A = P(1 + r/n)^(nt)",
+          "targetValue": "A = P(1 + r/n)^(nt)"
+        },
+        {
+          "key": "tools.text-sorter.ascOrder",
+          "type": "identical",
+          "severity": "warning",
+          "message": "Translation identical to source (possibly untranslated)",
+          "sourceValue": "A → Z",
+          "targetValue": "A → Z"
+        },
+        {
+          "key": "tools.text-sorter.descOrder",
+          "type": "identical",
+          "severity": "warning",
+          "message": "Translation identical to source (possibly untranslated)",
+          "sourceValue": "Z → A",
+          "targetValue": "Z → A"
+        },
+        {
+          "key": "tools.password-strength-checker.examplePassword",
+          "type": "identical",
+          "severity": "warning",
+          "message": "Translation identical to source (possibly untranslated)",
+          "sourceValue": "MyP@ssw0rd2024!",
+          "targetValue": "MyP@ssw0rd2024!"
+        },
+        {
+          "key": "tools.ip-lookup.isp",
+          "type": "identical",
+          "severity": "warning",
+          "message": "Translation identical to source (possibly untranslated)",
+          "sourceValue": "ISP",
+          "targetValue": "ISP"
+        },
+        {
+          "key": "tools.barcode-generator.exampleText",
+          "type": "identical",
+          "severity": "warning",
+          "message": "Translation identical to source (possibly untranslated)",
+          "sourceValue": "123456789012",
+          "targetValue": "123456789012"
+        },
+        {
+          "key": "tools.jwt-decoder.placeholder",
+          "type": "identical",
+          "severity": "warning",
+          "message": "Translation identical to source (possibly untranslated)",
+          "sourceValue": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+          "targetValue": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+        },
+        {
+          "key": "tools.sql-formatter.placeholder",
+          "type": "identical",
+          "severity": "warning",
+          "message": "Translation identical to source (possibly untranslated)",
+          "sourceValue": "SELECT * FROM users WHERE...",
+          "targetValue": "SELECT * FROM users WHERE..."
+        },
+        {
+          "key": "tools.sql-formatter.exampleSql",
+          "type": "identical",
+          "severity": "warning",
+          "message": "Translation identical to source (possibly untranslated)",
+          "sourceValue": "select u.id,u.name,o.order_id from users u inner join orders o on u.id=o.user_id where u.status='active' and o.total>100 order by o.created_at desc limit 10",
+          "targetValue": "select u.id,u.name,o.order_id from users u inner join orders o on u.id=o.user_id where u.status='active' and o.total>100 order by o.created_at desc limit 10"
+        },
+        {
+          "key": "tools.code-minifier.cssPlaceholder",
+          "type": "identical",
+          "severity": "warning",
+          "message": "Translation identical to source (possibly untranslated)",
+          "sourceValue": ".class { property: value; }",
+          "targetValue": ".class { property: value; }"
+        },
+        {
+          "key": "tools.code-minifier.jsPlaceholder",
+          "type": "identical",
+          "severity": "warning",
+          "message": "Translation identical to source (possibly untranslated)",
+          "sourceValue": "function myFunc() { ... }",
+          "targetValue": "function myFunc() { ... }"
+        },
+        {
+          "key": "tools.code-minifier.useCases.seo.title",
+          "type": "identical",
+          "severity": "warning",
+          "message": "Translation identical to source (possibly untranslated)",
+          "sourceValue": "SEO",
+          "targetValue": "SEO"
+        },
+        {
+          "key": "tools.api-tester.requestHeadersPlaceholder",
+          "type": "identical",
+          "severity": "warning",
+          "message": "Translation identical to source (possibly untranslated)",
+          "sourceValue": "{\"Authorization\": \"Bearer token\", \"Custom-Header\": \"value\"}",
+          "targetValue": "{\"Authorization\": \"Bearer token\", \"Custom-Header\": \"value\"}"
+        },
+        {
+          "key": "tools.api-tester.requestBodyPlaceholder",
+          "type": "identical",
+          "severity": "warning",
+          "message": "Translation identical to source (possibly untranslated)",
+          "sourceValue": "{\"key\": \"value\"}",
+          "targetValue": "{\"key\": \"value\"}"
+        },
+        {
+          "key": "cookiePolicy.typesOfCookies.table.cookies.cookieConsent.name",
+          "type": "identical",
+          "severity": "warning",
+          "message": "Translation identical to source (possibly untranslated)",
+          "sourceValue": "cookieConsent",
+          "targetValue": "cookieConsent"
+        },
+        {
+          "key": "cookiePolicy.typesOfCookies.table.cookies.theme.name",
+          "type": "identical",
+          "severity": "warning",
+          "message": "Translation identical to source (possibly untranslated)",
+          "sourceValue": "theme",
+          "targetValue": "theme"
+        },
+        {
+          "key": "cookiePolicy.typesOfCookies.table.cookies.recentTools.name",
+          "type": "identical",
+          "severity": "warning",
+          "message": "Translation identical to source (possibly untranslated)",
+          "sourceValue": "recentTools",
+          "targetValue": "recentTools"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "locale": "es",
+      "totalKeys": 1987,
+      "errors": [],
+      "warnings": [
+        {
+          "key": "nav.legal",
+          "type": "identical",
+          "severity": "warning",
+          "message": "Translation identical to source (possibly untranslated)",
+          "sourceValue": "Legal",
+          "targetValue": "Legal"
+        },
+        {
+          "key": "footer.wechat",
+          "type": "identical",
+          "severity": "warning",
+          "message": "Translation identical to source (possibly untranslated)",
+          "sourceValue": "WeChat",
+          "targetValue": "WeChat"
+        },
+        {
+          "key": "footer.instagram",
+          "type": "identical",
+          "severity": "warning",
+          "message": "Translation identical to source (possibly untranslated)",
+          "sourceValue": "Instagram",
+          "targetValue": "Instagram"
+        },
+        {
+          "key": "footer.legal",
+          "type": "identical",
+          "severity": "warning",
+          "message": "Translation identical to source (possibly untranslated)",
+          "sourceValue": "Legal",
+          "targetValue": "Legal"
+        },
+        {
+          "key": "privacy.cookies.title",
+          "type": "identical",
+          "severity": "warning",
+          "message": "Translation identical to source (possibly untranslated)",
+          "sourceValue": "Cookies",
+          "targetValue": "Cookies"
+        },
+        {
+          "key": "cookies.types.cookieConsent.name",
+          "type": "identical",
+          "severity": "warning",
+          "message": "Translation identical to source (possibly untranslated)",
+          "sourceValue": "cookieConsent",
+          "targetValue": "cookieConsent"
+        },
+        {
+          "key": "cookies.types.theme.name",
+          "type": "identical",
+          "severity": "warning",
+          "message": "Translation identical to source (possibly untranslated)",
+          "sourceValue": "theme",
+          "targetValue": "theme"
+        },
+        {
+          "key": "cookies.types.recentTools.name",
+          "type": "identical",
+          "severity": "warning",
+          "message": "Translation identical to source (possibly untranslated)",
+          "sourceValue": "recentTools",
+          "targetValue": "recentTools"
+        },
+        {
+          "key": "tools.word-counter.proTips.seo.label",
+          "type": "identical",
+          "severity": "warning",
+          "message": "Translation identical to source (possibly untranslated)",
+          "sourceValue": "SEO",
+          "targetValue": "SEO"
+        },
+        {
+          "key": "tools.word-counter.proTips.twitter.label",
+          "type": "identical",
+          "severity": "warning",
+          "message": "Translation identical to source (possibly untranslated)",
+          "sourceValue": "Twitter",
+          "targetValue": "Twitter"
+        },
+        {
+          "key": "tools.color-picker.hex",
+          "type": "identical",
+          "severity": "warning",
+          "message": "Translation identical to source (possibly untranslated)",
+          "sourceValue": "HEX",
+          "targetValue": "HEX"
+        },
+        {
+          "key": "tools.color-picker.rgb",
+          "type": "identical",
+          "severity": "warning",
+          "message": "Translation identical to source (possibly untranslated)",
+          "sourceValue": "RGB",
+          "targetValue": "RGB"
+        },
+        {
+          "key": "tools.color-picker.hsl",
+          "type": "identical",
+          "severity": "warning",
+          "message": "Translation identical to source (possibly untranslated)",
+          "sourceValue": "HSL",
+          "targetValue": "HSL"
+        },
+        {
+          "key": "tools.markdown-preview.editor",
+          "type": "identical",
+          "severity": "warning",
+          "message": "Translation identical to source (possibly untranslated)",
+          "sourceValue": "Editor",
+          "targetValue": "Editor"
+        },
+        {
+          "key": "tools.percentage-calculator.total",
+          "type": "identical",
+          "severity": "warning",
+          "message": "Translation identical to source (possibly untranslated)",
+          "sourceValue": "Total",
+          "targetValue": "Total"
+        },
+        {
+          "key": "tools.interest-calculator.simpleFormula",
+          "type": "identical",
+          "severity": "warning",
+          "message": "Translation identical to source (possibly untranslated)",
+          "sourceValue": "I = P × R × T",
+          "targetValue": "I = P × R × T"
+        },
+        {
+          "key": "tools.interest-calculator.compoundFormula",
+          "type": "identical",
+          "severity": "warning",
+          "message": "Translation identical to source (possibly untranslated)",
+          "sourceValue": "A = P(1 + r/n)^(nt)",
+          "targetValue": "A = P(1 + r/n)^(nt)"
+        },
+        {
+          "key": "tools.currency-converter.currencies.eur",
+          "type": "identical",
+          "severity": "warning",
+          "message": "Translation identical to source (possibly untranslated)",
+          "sourceValue": "Euro",
+          "targetValue": "Euro"
+        },
+        {
+          "key": "tools.image-compressor.original",
+          "type": "identical",
+          "severity": "warning",
+          "message": "Translation identical to source (possibly untranslated)",
+          "sourceValue": "Original",
+          "targetValue": "Original"
+        },
+        {
+          "key": "tools.text-sorter.ascOrder",
+          "type": "identical",
+          "severity": "warning",
+          "message": "Translation identical to source (possibly untranslated)",
+          "sourceValue": "A → Z",
+          "targetValue": "A → Z"
+        },
+        {
+          "key": "tools.text-sorter.descOrder",
+          "type": "identical",
+          "severity": "warning",
+          "message": "Translation identical to source (possibly untranslated)",
+          "sourceValue": "Z → A",
+          "targetValue": "Z → A"
+        },
+        {
+          "key": "tools.duplicate-remover.original",
+          "type": "identical",
+          "severity": "warning",
+          "message": "Translation identical to source (possibly untranslated)",
+          "sourceValue": "Original",
+          "targetValue": "Original"
+        },
+        {
+          "key": "tools.duplicate-remover.final",
+          "type": "identical",
+          "severity": "warning",
+          "message": "Translation identical to source (possibly untranslated)",
+          "sourceValue": "Final",
+          "targetValue": "Final"
+        },
+        {
+          "key": "tools.stopwatch-timer.min",
+          "type": "identical",
+          "severity": "warning",
+          "message": "Translation identical to source (possibly untranslated)",
+          "sourceValue": "min",
+          "targetValue": "min"
+        },
+        {
+          "key": "tools.ip-lookup.isp",
+          "type": "identical",
+          "severity": "warning",
+          "message": "Translation identical to source (possibly untranslated)",
+          "sourceValue": "ISP",
+          "targetValue": "ISP"
+        },
+        {
+          "key": "tools.color-gradient-generator.directions.diagonal",
+          "type": "identical",
+          "severity": "warning",
+          "message": "Translation identical to source (possibly untranslated)",
+          "sourceValue": "Diagonal ↘",
+          "targetValue": "Diagonal ↘"
+        },
+        {
+          "key": "tools.jwt-decoder.placeholder",
+          "type": "identical",
+          "severity": "warning",
+          "message": "Translation identical to source (possibly untranslated)",
+          "sourceValue": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...",
+          "targetValue": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+        },
+        {
+          "key": "tools.sql-formatter.placeholder",
+          "type": "identical",
+          "severity": "warning",
+          "message": "Translation identical to source (possibly untranslated)",
+          "sourceValue": "SELECT * FROM users WHERE...",
+          "targetValue": "SELECT * FROM users WHERE..."
+        },
+        {
+          "key": "tools.sql-formatter.exampleSql",
+          "type": "identical",
+          "severity": "warning",
+          "message": "Translation identical to source (possibly untranslated)",
+          "sourceValue": "select u.id,u.name,o.order_id from users u inner join orders o on u.id=o.user_id where u.status='active' and o.total>100 order by o.created_at desc limit 10",
+          "targetValue": "select u.id,u.name,o.order_id from users u inner join orders o on u.id=o.user_id where u.status='active' and o.total>100 order by o.created_at desc limit 10"
+        },
+        {
+          "key": "tools.code-minifier.bytes",
+          "type": "identical",
+          "severity": "warning",
+          "message": "Translation identical to source (possibly untranslated)",
+          "sourceValue": "bytes",
+          "targetValue": "bytes"
+        },
+        {
+          "key": "tools.api-tester.error",
+          "type": "identical",
+          "severity": "warning",
+          "message": "Translation identical to source (possibly untranslated)",
+          "sourceValue": "Error",
+          "targetValue": "Error"
+        },
+        {
+          "key": "tools.api-tester.info",
+          "type": "identical",
+          "severity": "warning",
+          "message": "Translation identical to source (possibly untranslated)",
+          "sourceValue": "Info",
+          "targetValue": "Info"
+        },
+        {
+          "key": "cookiePolicy.typesOfCookies.table.cookies.cookieConsent.name",
+          "type": "identical",
+          "severity": "warning",
+          "message": "Translation identical to source (possibly untranslated)",
+          "sourceValue": "cookieConsent",
+          "targetValue": "cookieConsent"
+        },
+        {
+          "key": "cookiePolicy.typesOfCookies.table.cookies.theme.name",
+          "type": "identical",
+          "severity": "warning",
+          "message": "Translation identical to source (possibly untranslated)",
+          "sourceValue": "theme",
+          "targetValue": "theme"
+        },
+        {
+          "key": "cookiePolicy.typesOfCookies.table.cookies.recentTools.name",
+          "type": "identical",
+          "severity": "warning",
+          "message": "Translation identical to source (possibly untranslated)",
+          "sourceValue": "recentTools",
+          "targetValue": "recentTools"
+        }
+      ],
+      "passed": true
+    }
+  ],
+  "overallPassed": true,
+  "summary": {
+    "totalLocales": 2,
+    "passedLocales": 2,
+    "failedLocales": 0,
+    "totalErrors": 0,
+    "totalWarnings": 63
+  }
+}

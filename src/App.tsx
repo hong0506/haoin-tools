@@ -4,6 +4,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { HelmetProvider } from "react-helmet-async";
 import { SidebarProvider } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/AppSidebar";
 import { RecentToolsProvider } from "@/contexts/RecentToolsContext";
@@ -11,6 +12,8 @@ import { FavoritesProvider } from "@/contexts/FavoritesContext";
 import { SearchProvider } from "@/contexts/SearchContext";
 import { CookieConsent } from "@/components/CookieConsent";
 import { RouteLoader } from "@/components/RouteLoader";
+import { BaiduPush } from "@/components/BaiduPush";
+import { BaiduAnalytics } from "@/components/BaiduAnalytics";
 import "@/i18n/config"; // Initialize i18n
 
 // 核心页面直接导入（用户首次访问）
@@ -145,25 +148,28 @@ const SmartScrollRestoration = () => {
 };
 
 const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter
-        future={{
-          v7_startTransition: true,
-          v7_relativeSplatPath: true,
-        }}
-      >
-        <SmartScrollRestoration />
-        <RecentToolsProvider>
-          <FavoritesProvider>
-            <SearchProvider>
-              <SidebarProvider>
-                <div className="flex min-h-screen w-full">
-                  <AppSidebar />
-                  <main className="flex-1">
-                    <Suspense fallback={<RouteLoader />}>
+  <HelmetProvider>
+    <QueryClientProvider client={queryClient}>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter
+          future={{
+            v7_startTransition: true,
+            v7_relativeSplatPath: true,
+          }}
+        >
+          <SmartScrollRestoration />
+          <BaiduPush />
+          <BaiduAnalytics />
+          <RecentToolsProvider>
+            <FavoritesProvider>
+              <SearchProvider>
+                <SidebarProvider>
+                  <div className="flex min-h-screen w-full">
+                    <AppSidebar />
+                    <main className="flex-1">
+                      <Suspense fallback={<RouteLoader />}>
                       <Routes>
                       <Route path="/" element={<Index />} />
                       <Route
@@ -366,17 +372,18 @@ const App = () => (
                       {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                       <Route path="*" element={<NotFound />} />
                     </Routes>
-                    </Suspense>
-                  </main>
-                </div>
-              </SidebarProvider>
-            </SearchProvider>
-          </FavoritesProvider>
-        </RecentToolsProvider>
-      </BrowserRouter>
-      <CookieConsent />
-    </TooltipProvider>
-  </QueryClientProvider>
+                      </Suspense>
+                    </main>
+                  </div>
+                </SidebarProvider>
+              </SearchProvider>
+            </FavoritesProvider>
+          </RecentToolsProvider>
+        </BrowserRouter>
+        <CookieConsent />
+      </TooltipProvider>
+    </QueryClientProvider>
+  </HelmetProvider>
 );
 
 export default App;

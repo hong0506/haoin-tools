@@ -6,6 +6,7 @@ import { Footer } from "@/components/Footer";
 import { AdBanner } from "@/components/ads/AdBanner";
 import { SidebarAd } from "@/components/ads/SidebarAd";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
+import { SEOHead } from "@/components/SEOHead";
 import { tools } from "@/data/tools";
 import { AnimatedBackground } from "@/components/AnimatedBackground";
 import { Sparkles, Zap, Heart } from "lucide-react";
@@ -33,6 +34,9 @@ const Index = () => {
 
   return (
     <div className="min-h-screen relative">
+      {/* SEO Meta Tags for Multi-language Support */}
+      <SEOHead />
+      
       {/* Animated Background */}
       <AnimatedBackground />
 
