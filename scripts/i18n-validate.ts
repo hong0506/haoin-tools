@@ -12,11 +12,16 @@
 
 import * as fs from 'fs';
 import * as path from 'path';
+import { fileURLToPath } from 'url';
+
+// ES module compatibility
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // Configuration
 const LOCALES_DIR = path.join(__dirname, '../src/i18n/locales');
 const SOURCE_LOCALE = 'en';
-const TARGET_LOCALES = ['zh', 'es', 'pt', 'id', 'vi', 'fr', 'de', 'ja', 'ko'];
+const TARGET_LOCALES = ['zh', 'es']; // Only validate locales that exist
 
 // Terms that are allowed to be identical to English
 const DO_NOT_TRANSLATE = [

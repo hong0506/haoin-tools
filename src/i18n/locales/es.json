@@ -257,6 +257,59 @@
     },
     "fairUse": "⚖️ Uso Justo: Creemos en proporcionar herramientas gratuitas y accesibles para todos mientras mantenemos un servicio seguro y confiable."
   },
+  "cookies": {
+    "title": "Política de Cookies",
+    "lastUpdated": "Última actualización:",
+    "whatAre": {
+      "title": "¿Qué son las Cookies?",
+      "content": "Las cookies son pequeños archivos de texto que se almacenan en tu dispositivo cuando visitas un sitio web. Ayudan al sitio web a recordar tus preferencias y mejorar tu experiencia de navegación."
+    },
+    "howWeUse": {
+      "title": "Cómo Utilizamos las Cookies",
+      "content": "En Haoin Tools, utilizamos cookies de manera mínima y responsable:",
+      "essential": "Cookies Esenciales: Estas son necesarias para que el sitio web funcione correctamente, como recordar tu preferencia de tema (modo oscuro/claro) y configuración de idioma.",
+      "functionality": "Cookies de Funcionalidad: Estas recuerdan tus herramientas utilizadas recientemente para proporcionar acceso rápido en tu próxima visita.",
+      "advertising": "Cookies Publicitarias: NO utilizamos cookies publicitarias o de seguimiento.",
+      "tracking": "Seguimiento de Terceros: NO compartimos tus datos con anunciantes de terceros."
+    },
+    "types": {
+      "title": "Tipos de Cookies que Utilizamos",
+      "cookieName": "Nombre de Cookie",
+      "purpose": "Propósito",
+      "duration": "Duración",
+      "cookieConsent": {
+        "name": "cookieConsent",
+        "purpose": "Recordar tu preferencia de cookies",
+        "duration": "1 año"
+      },
+      "theme": {
+        "name": "theme",
+        "purpose": "Recordar preferencia de modo oscuro/claro",
+        "duration": "Permanente"
+      },
+      "recentTools": {
+        "name": "recentTools",
+        "purpose": "Almacenar tus herramientas utilizadas recientemente",
+        "duration": "30 días"
+      }
+    },
+    "managing": {
+      "title": "Gestión de Cookies",
+      "content": "Tienes control total sobre las cookies:",
+      "browserSettings": "Configuración del Navegador: Puedes bloquear o eliminar cookies a través de la configuración de tu navegador en cualquier momento.",
+      "optOut": "Optar por No Participar: Puedes rechazar cookies cuando visitas nuestro sitio web por primera vez usando el banner de consentimiento de cookies.",
+      "impact": "Impacto: Bloquear cookies puede afectar algunas funciones del sitio web, pero todas las herramientas seguirán funcionando."
+    },
+    "privacy": {
+      "title": "Tu Privacidad es Nuestra Prioridad",
+      "content": "A diferencia de muchos sitios web, no utilizamos cookies para rastrear tu comportamiento, crear perfiles de usuario o servir anuncios dirigidos. Nuestras cookies son estrictamente para mejorar tu experiencia de usuario en nuestro sitio. Todo el procesamiento de datos ocurre localmente en tu navegador, y nunca enviamos tus archivos o datos personales a nuestros servidores."
+    },
+    "contact": {
+      "title": "Contáctanos",
+      "content": "Si tienes alguna pregunta sobre nuestro uso de cookies, contáctanos en:"
+    },
+    "simple": "Simple y Transparente: Creemos en ser francos sobre cómo usamos cookies. Sin rastreadores ocultos, sin sorpresas."
+  },
   "legal": {
     "title": "Aviso Legal y Derechos de Autor",
     "lastUpdated": "Última actualización:",
@@ -481,6 +534,8 @@
         }
       },
       "proTips": {
+        "title": "💡 Consejos Profesionales",
+        "headers": "<strong>Encabezados:</strong> Usar # para H1, ## para H2, etc.",
         "headings": "<strong>Encabezados:</strong> Usar # para H1, ## para H2, etc.",
         "formatting": "<strong>Formato:</strong> **negrita** para negrita, *cursiva* para cursiva",
         "links": "<strong>Enlaces:</strong> Formato [texto](url) para hipervínculos",
@@ -871,22 +926,38 @@
       "password": "Contraseña",
       "length": "Longitud",
       "options": "Opciones",
+      "characterTypes": "Tipos de Caracteres",
+      "uppercase": "Letras Mayúsculas (A-Z)",
+      "lowercase": "Letras Minúsculas (a-z)",
+      "numbers": "Números (0-9)",
+      "symbols": "Símbolos (!@#$%^&*)",
+      "avoidAmbiguous": "Evitar Caracteres Ambiguos (0,O,l,1)",
       "includeUppercase": "Incluir Mayúsculas (A-Z)",
       "includeLowercase": "Incluir Minúsculas (a-z)",
       "includeNumbers": "Incluir Números (0-9)",
       "includeSymbols": "Incluir Símbolos (!@#$%)",
       "generate": "Generar",
+      "passwordStrength": "Fortaleza de la Contraseña",
       "strength": "Fortaleza",
       "weak": "Débil",
       "medium": "Media",
       "strong": "Fuerte",
       "veryStrong": "Muy Fuerte",
+      "copied": "¡Contraseña copiada al portapapeles!",
+      "generated": "¡Contraseña generada!",
+      "cleared": "Contraseña borrada",
+      "placeholder": "La contraseña generada aparecerá aquí",
       "passwordGenerated": "¡Contraseña generada!",
       "copiedToClipboard": "¡Contraseña copiada!",
       "selectAtLeastOne": "Por favor seleccione al menos una opción",
+      "errors": {
+        "selectCharacterType": "Por favor seleccione al menos un tipo de carácter",
+        "generateFirst": "Por favor genere primero una contraseña"
+      },
       "whatIs": "¿Qué es el Generador de Contraseñas?",
       "whatIsContent": "Esta herramienta genera contraseñas seguras, aleatorias y criptográficamente fuertes con opciones personalizables. ¡Perfecta para crear contraseñas robustas para cuentas, servicios y mantener tu seguridad en línea! 🔐",
       "useCases": {
+        "title": "Casos de Uso Comunes",
         "accountSecurity": {
           "title": "Seguridad de Cuenta",
           "description": "Crear contraseñas fuertes para cuentas de <span class=\"inline-flex items-center px-2 py-0.5 rounded text-xs font-semibold bg-white text-blue-800 mx-1\">correo</span> y redes sociales"
@@ -902,6 +973,22 @@
         "systemAdmin": {
           "title": "Administración de Sistema",
           "description": "Generar contraseñas seguras para servidores y cuentas de administrador"
+        },
+        "accounts": {
+          "title": "Cuentas en Línea",
+          "description": "Crear contraseñas seguras para redes sociales, correo, etc."
+        },
+        "wifi": {
+          "title": "Contraseñas WiFi",
+          "description": "Generar contraseñas seguras para redes WiFi"
+        },
+        "database": {
+          "title": "Credenciales de Base de Datos",
+          "description": "Crear contraseñas seguras para usuarios de base de datos"
+        },
+        "app": {
+          "title": "Claves de Aplicación",
+          "description": "Generar claves API y secretos de aplicación"
         }
       },
       "proTips": {
@@ -953,6 +1040,10 @@
       },
       "proTips": {
         "title": "💡 Consejos Profesionales",
+        "readability": {
+          "label": "Legibilidad",
+          "text": "Oraciones y párrafos más cortos son más fáciles de leer"
+        },
         "reading": {
           "label": "Tiempo de Lectura",
           "text": "Velocidad de lectura promedio es 200-250 palabras por minuto"
@@ -1045,6 +1136,7 @@
       "hex": "HEX",
       "rgb": "RGB",
       "hsl": "HSL",
+      "copied": "{{format}} copiado al portapapeles",
       "colorCopied": "¡Color copiado!",
       "whatIs": "¿Qué es el Selector de Color?",
       "whatIsContent": "Esta herramienta te permite seleccionar colores visualmente y obtener los códigos en varios formatos (HEX, RGB, HSL). ¡Perfecta para diseñadores y desarrolladores web! 🎨",
@@ -1065,6 +1157,22 @@
         "appDevelopment": {
           "title": "Desarrollo de Aplicaciones",
           "description": "Seleccionar colores para aplicaciones móviles y de escritorio"
+        },
+        "webDesign": {
+          "title": "Diseño Web",
+          "description": "Elegir y gestionar esquemas de color para sitios web"
+        },
+        "branding": {
+          "title": "Diseño de Marca",
+          "description": "Crear y combinar colores de marca"
+        },
+        "ui": {
+          "title": "Desarrollo UI",
+          "description": "Usar códigos de color en CSS y herramientas de diseño"
+        },
+        "accessibility": {
+          "title": "Accesibilidad",
+          "description": "Comprobar el contraste de color y la legibilidad"
         }
       },
       "proTips": {
@@ -1112,6 +1220,22 @@
         "contactInfo": {
           "title": "Información de Contacto",
           "description": "Compartir perfiles de redes sociales e información de contacto instantáneamente"
+        },
+        "business": {
+          "title": "Tarjetas de Negocio",
+          "description": "Compartir información de contacto al instante"
+        },
+        "wifi": {
+          "title": "Acceso WiFi",
+          "description": "Permitir a los invitados conectarse fácilmente a tu red"
+        },
+        "event": {
+          "title": "Entradas de Eventos",
+          "description": "Crear entradas digitales y códigos de registro"
+        },
+        "contact": {
+          "title": "Información de Contacto",
+          "description": "Compartir detalles de contacto rápidamente"
         }
       },
       "proTips": {
@@ -1128,11 +1252,21 @@
       "description": "Codificar y decodificar componentes URL",
       "encodeDecodeUrl": "Codificar/Decodificar URL",
       "descriptionFull": "Codificar y decodificar componentes URL",
+      "input": "Entrada",
       "urlInput": "Entrada URL",
+      "placeholder": "Ingrese URL o texto...",
       "urlPlaceholder": "Ingrese URL o texto...",
       "encode": "Codificar",
       "decode": "Decodificar",
       "output": "Salida",
+      "encodeSuccess": "¡URL codificada exitosamente!",
+      "decodeSuccess": "¡URL decodificada exitosamente!",
+      "encodeError": "Error al codificar URL",
+      "decodeError": "Error al decodificar URL",
+      "copied": "¡Copiado al portapapeles!",
+      "cleared": "Todos los campos limpiados",
+      "exampleText": "¡Hola Mundo! ¿Cómo estás?",
+      "exampleEncoded": "%C2%A1Hola%20Mundo!%20%C2%BFC%C3%B3mo%20est%C3%A1s%3F",
       "pleaseEnterUrl": "Por favor ingrese URL o texto",
       "urlEncoded": "¡URL codificada!",
       "urlDecoded": "¡URL decodificada!",
@@ -2423,6 +2557,7 @@
       "reset": "Reiniciar",
       "resume": "Reanudar",
       "startTimer": "Iniciar Temporizador",
+      "min": "min",
       "minutes": "Minutos",
       "seconds": "Segundos",
       "hoursMinutesSecondsMilliseconds": "horas : minutos : segundos . milisegundos",
@@ -2786,6 +2921,7 @@
         }
       },
       "proTips": {
+        "title": "💡 Consejos Profesionales",
         "code128": "<strong>CODE128:</strong> Mejor para uso general, soporta todos los caracteres ASCII",
         "ean13": "<strong>EAN-13:</strong> Requiere exactamente 13 dígitos, usado globalmente en productos minoristas",
         "highQuality": "<strong>Alta Calidad:</strong> Descargue como PNG para mejor calidad de impresión",

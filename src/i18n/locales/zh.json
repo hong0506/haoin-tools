@@ -257,6 +257,59 @@
     },
     "fairUse": "⚖️ 合理使用：我们相信为每个人提供免费、可访问的工具，同时维护安全可靠的服务。"
   },
+  "cookies": {
+    "title": "Cookie政策",
+    "lastUpdated": "最后更新：",
+    "whatAre": {
+      "title": "什么是Cookie？",
+      "content": "Cookie是您访问网站时存储在您设备上的小型文本文件。它们帮助网站记住您的偏好并改善您的浏览体验。"
+    },
+    "howWeUse": {
+      "title": "我们如何使用Cookie",
+      "content": "在皓萤工具中，我们最低限度且负责任地使用Cookie：",
+      "essential": "必要Cookie：这些是网站正常运行所必需的，例如记住您的主题偏好（深色/浅色模式）和语言设置。",
+      "functionality": "功能性Cookie：这些记住您最近使用的工具，以便在下次访问时提供快速访问。",
+      "advertising": "广告Cookie：我们不使用广告或跟踪Cookie。",
+      "tracking": "第三方跟踪：我们不与第三方广告商共享您的数据。"
+    },
+    "types": {
+      "title": "我们使用的Cookie类型",
+      "cookieName": "Cookie名称",
+      "purpose": "用途",
+      "duration": "有效期",
+      "cookieConsent": {
+        "name": "cookieConsent",
+        "purpose": "记住您的Cookie偏好",
+        "duration": "1年"
+      },
+      "theme": {
+        "name": "theme",
+        "purpose": "记住深色/浅色模式偏好",
+        "duration": "永久"
+      },
+      "recentTools": {
+        "name": "recentTools",
+        "purpose": "存储您最近使用的工具",
+        "duration": "30天"
+      }
+    },
+    "managing": {
+      "title": "管理Cookie",
+      "content": "您可以完全控制Cookie：",
+      "browserSettings": "浏览器设置：您可以随时通过浏览器设置阻止或删除Cookie。",
+      "optOut": "选择退出：您可以在首次访问我们的网站时使用Cookie同意横幅拒绝Cookie。",
+      "impact": "影响：阻止Cookie可能会影响某些网站功能，但所有工具将继续工作。"
+    },
+    "privacy": {
+      "title": "您的隐私是我们的首要任务",
+      "content": "与许多网站不同，我们不使用Cookie来跟踪您的行为、建立用户档案或提供定向广告。我们的Cookie严格用于改善您在我们网站上的用户体验。所有数据处理都在您的浏览器本地进行，我们从不将您的文件或个人数据发送到我们的服务器。"
+    },
+    "contact": {
+      "title": "联系我们",
+      "content": "如果您对我们使用Cookie有任何疑问，请联系我们："
+    },
+    "simple": "简单透明：我们相信坦率地说明我们如何使用Cookie。没有隐藏的跟踪器，没有意外。"
+  },
   "legal": {
     "title": "法律声明与版权",
     "lastUpdated": "最后更新：",
