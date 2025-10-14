@@ -104,10 +104,11 @@ const CreditCardCalculator = () => {
             <ArrowLeft className="h-4 w-4" />
           </Button>
           <SidebarTrigger />
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 flex-1">
             <CreditCard className="h-5 w-5 text-primary" />
             <h1 className="text-xl font-semibold">{t("tools.credit-card-calculator.title")}</h1>
           </div>
+          <LanguageSwitcher />
         </div>
       </header>
       <div className="container mx-auto max-w-4xl px-6 py-8">

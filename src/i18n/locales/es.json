@@ -122,7 +122,7 @@
       "whatIs": "¿Qué es",
       "commonUseCases": "Casos de Uso Comunes",
       "proTips": "Consejos Profesionales",
-      "relatedTools": "🔗 Herramientas Relacionadas que Podrían Gustarte"
+      "relatedTools": "Herramientas Relacionadas que Podrían Gustarte"
     }
   },
   "privacy": {
@@ -200,11 +200,11 @@
     "title": "Términos de Servicio",
     "lastUpdated": "Última actualización:",
     "agreement": {
-      "title": "📜 Acuerdo de Términos",
+      "title": "Acuerdo de Términos",
       "content": "Al acceder y usar Haoin Tools, acepta y está de acuerdo en estar obligado por los términos y condiciones de este acuerdo. Si no está de acuerdo en cumplir con estos términos, no utilice este servicio."
     },
     "useOfService": {
-      "title": "✨ Uso del Servicio",
+      "title": "Uso del Servicio",
       "content": "Haoin Tools proporciona herramientas en línea gratuitas para todos:",
       "freeAccess": "🎯 Acceso Gratuito: Todas las herramientas son de uso gratuito",
       "noRegistration": "🚀 Sin Registro: No se requiere cuenta",
@@ -212,7 +212,7 @@
       "unlimitedUsage": "⚡ Uso Ilimitado: Sin límites ni restricciones de uso"
     },
     "prohibited": {
-      "title": "⚠️ Actividades Prohibidas",
+      "title": "Actividades Prohibidas",
       "content": "Usted acepta no:",
       "illegal": "❌ Usar el servicio para cualquier propósito ilegal",
       "harm": "❌ Intentar dañar o interrumpir el servicio",
@@ -222,7 +222,7 @@
       "violate": "❌ Violar cualquier ley o regulación aplicable en su jurisdicción"
     },
     "disclaimer": {
-      "title": "🛡️ Descargo de Responsabilidad y Limitación de Responsabilidad",
+      "title": "Descargo de Responsabilidad y Limitación de Responsabilidad",
       "content": "El servicio se proporciona tal cual y según disponibilidad sin ninguna garantía. Nos esforzamos por garantizar la precisión y confiabilidad, pero no podemos garantizar que las herramientas estén siempre libres de errores o ininterrumpidas.",
       "important": "Descargos Importantes:",
       "financial": "• Las calculadoras financieras son solo para fines informativos y no constituyen asesoramiento financiero",
@@ -231,11 +231,11 @@
       "maximum": "• La responsabilidad máxima se limita a la cantidad que pagó por el servicio (cero para herramientas gratuitas)"
     },
     "intellectualProperty": {
-      "title": "📝 Propiedad Intelectual",
+      "title": "Propiedad Intelectual",
       "content": "Todo el contenido, funciones y características en Haoin Tools son propiedad nuestra y están protegidos por leyes internacionales de derechos de autor, marcas comerciales y otras leyes de propiedad intelectual."
     },
     "advertising": {
-      "title": "📺 Publicidad",
+      "title": "Publicidad",
       "content": "Para mantener nuestro servicio gratuito, podemos mostrar anuncios de terceros:",
       "networks": "• Los anuncios son proporcionados por redes publicitarias de terceros",
       "endorse": "• No respaldamos ni somos responsables de los productos/servicios anunciados",
@@ -243,16 +243,16 @@
       "transactions": "• No somos responsables de ninguna transacción con anunciantes"
     },
     "governingLaw": {
-      "title": "⚖️ Ley Aplicable y Resolución de Disputas",
+      "title": "Ley Aplicable y Resolución de Disputas",
       "content": "Estos términos se rigen por las leyes de la República Popular China. Para usuarios internacionales, también pueden aplicarse las leyes locales de protección al consumidor.",
       "disputes": "Cualquier disputa debe resolverse primero mediante negociación amistosa. Si la negociación falla, la disputa se someterá a un tribunal competente en Hangzhou, provincia de Zhejiang, China."
     },
     "changes": {
-      "title": "🔄 Cambios en los Términos",
+      "title": "Cambios en los Términos",
       "content": "Nos reservamos el derecho de modificar estos términos en cualquier momento. Notificaremos a los usuarios sobre cualquier cambio significativo actualizando la fecha de última actualización en la parte superior de esta página. El uso continuado del servicio después de los cambios constituye la aceptación de los nuevos términos."
     },
     "contact": {
-      "title": "📧 Contáctenos",
+      "title": "Contáctenos",
       "content": "¿Tiene preguntas sobre nuestros Términos de Servicio? Contáctenos en:"
     },
     "fairUse": "⚖️ Uso Justo: Creemos en proporcionar herramientas gratuitas y accesibles para todos mientras mantenemos un servicio seguro y confiable."
@@ -261,7 +261,7 @@
     "title": "Aviso Legal y Derechos de Autor",
     "lastUpdated": "Última actualización:",
     "copyright": {
-      "title": "📋 Aviso de Derechos de Autor",
+      "title": "Aviso de Derechos de Autor",
       "content": "Todas las herramientas y servicios proporcionados en este sitio web (Haoin Tools) han sido desarrollados de forma independiente. Respetamos y protegemos los derechos de propiedad intelectual, y todo el uso de contenido cumple con las leyes y regulaciones pertinentes.",
       "originalContent": {
         "title": "Declaración de Contenido Original",
@@ -284,7 +284,7 @@
       }
     },
     "technologyStack": {
-      "title": "💻 Stack Tecnológico",
+      "title": "Stack Tecnológico",
       "content": "Este sitio web está construido sobre las siguientes tecnologías de código abierto:",
       "points": [
         "Framework Frontend: React 18 + TypeScript",
@@ -297,7 +297,7 @@
       "note": "Todas las bibliotecas de código abierto utilizadas cumplen con sus respectivas licencias de código abierto (MIT, Apache 2.0, etc.). Expresamos nuestro sincero agradecimiento a estos excelentes proyectos de código abierto."
     },
     "usageTerms": {
-      "title": "📜 Términos de Uso y Descargo de Responsabilidad",
+      "title": "Términos de Uso y Descargo de Responsabilidad",
       "usageLicense": {
         "title": "Licencia de Uso",
         "content": "Todas las herramientas proporcionadas en este sitio web son de uso gratuito tanto para uso personal como comercial. No recopilamos, almacenamos ni transmitimos ningún dato que ingrese en las herramientas; todo el procesamiento se realiza localmente en su navegador."
@@ -321,7 +321,7 @@
       }
     },
     "thirdPartyContent": {
-      "title": "🤝 Contenido de Terceros",
+      "title": "Contenido de Terceros",
       "content": "Algunas funciones de este sitio web pueden usar APIs o datos de terceros:",
       "points": [
         "Tasas de cambio de moneda: Usando API de tasas de cambio de terceros para obtener datos en tiempo real",
@@ -332,7 +332,7 @@
       "note": "Estamos comprometidos a garantizar el uso legal de todo el contenido de terceros. Si encuentra algún contenido infractor, contáctenos inmediatamente en contact@haoin.tech y lo gestionaremos en 24 horas."
     },
     "dmca": {
-      "title": "⚠️ Aviso de Infracción de Derechos de Autor DMCA",
+      "title": "Aviso de Infracción de Derechos de Autor DMCA",
       "content": "Haoin Tools respeta los derechos de propiedad intelectual y cumple con las disposiciones de la Ley de Derechos de Autor del Milenio Digital (DMCA) de EE. UU. Si cree que el contenido de este sitio web infringe sus derechos de autor, notifíquenos siguiendo este procedimiento.",
       "requirements": {
         "title": "Requisitos de Notificación de Retiro DMCA",
@@ -354,7 +354,7 @@
       "note": "Tenga en cuenta: Según la DMCA, proporcionar intencionalmente declaraciones falsas de infracción puede resultar en responsabilidad legal. Procesaremos notificaciones válidas de manera oportuna al recibirlas."
     },
     "userContent": {
-      "title": "👤 Responsabilidad del Contenido del Usuario",
+      "title": "Responsabilidad del Contenido del Usuario",
       "content": "Todas las herramientas de este sitio web solo proporcionan funciones de procesamiento y no almacenan datos del usuario. Los usuarios son responsables de:",
       "points": [
         "Asegurarse de que el contenido cargado o procesado no infrinja los derechos de propiedad intelectual de otros",
@@ -400,7 +400,7 @@
         "urls": "<strong>URLs:</strong> Usar kebab-case para mejor SEO (my-page-url)",
         "headings": "<strong>Encabezados:</strong> Usar Title Case para formato apropiado"
       },
-      "relatedTools": "🔗 Herramientas Relacionadas que Podrían Gustarte"
+      "relatedTools": "Herramientas Relacionadas que Podrían Gustarte"
     },
     "text-diff": {
       "title": "Comparador de Texto",
@@ -443,7 +443,7 @@
         "configFiles": "<strong>Archivos de Configuración:</strong> Perfecto para comparar archivos de configuración y scripts",
         "copyPaste": "<strong>Copiar y Pegar:</strong> Simplemente pegue ambas versiones y vea las diferencias al instante"
       },
-      "relatedTools": "🔗 Herramientas Relacionadas que Podrían Gustarte"
+      "relatedTools": "Herramientas Relacionadas que Podrían Gustarte"
     },
     "markdown-to-html": {
       "title": "Markdown a HTML",
@@ -529,7 +529,7 @@
         "spreadsheets": "<strong>Hojas de Cálculo:</strong> Perfecto para exportaciones de Excel/Sheets",
         "apis": "<strong>APIs:</strong> Preparar datos para llamadas API REST"
       },
-      "relatedTools": "🔗 Herramientas Relacionadas que Podrían Gustarte"
+      "relatedTools": "Herramientas Relacionadas que Podrían Gustarte"
     },
     "http-status-codes": {
       "title": "Códigos de Estado HTTP",
@@ -685,7 +685,7 @@
           "description": "El servidor no recibió una respuesta a tiempo del servidor upstream"
         }
       },
-      "relatedTools": "🔗 Herramientas Relacionadas que Podrían Gustarte"
+      "relatedTools": "Herramientas Relacionadas que Podrían Gustarte"
     },
     "api-tester": {
       "title": "Probador de API",
@@ -754,7 +754,7 @@
         "patch": "Actualizar parcialmente recurso",
         "delete": "Eliminar recurso"
       },
-      "relatedTools": "🔗 Herramientas Relacionadas que Podrían Gustarte"
+      "relatedTools": "Herramientas Relacionadas que Podrían Gustarte"
     },
     "tip-calculator": {
       "title": "Calculadora de Propinas",
@@ -861,7 +861,7 @@
         "urls": "URLs: Usar variante Base64 segura para URL (+ reemplazado por -, / reemplazado por _)",
         "utf8": "UTF-8: Asegurar manejo correcto de caracteres Unicode antes de codificar"
       },
-      "relatedTools": "🔗 Herramientas Relacionadas que Podrían Gustarte"
+      "relatedTools": "Herramientas Relacionadas que Podrían Gustarte"
     },
     "password-generator": {
       "title": "Generador de Contraseñas",
@@ -913,7 +913,7 @@
         "passwordManager": "<strong>Gestor de Contraseñas:</strong> Usar un gestor para almacenar contraseñas generadas",
         "2fa": "Autenticación de Dos Factores: Habilitar 2FA para una capa adicional de seguridad"
       },
-      "relatedTools": "🔗 Herramientas Relacionadas que Podrían Gustarte"
+      "relatedTools": "Herramientas Relacionadas que Podrían Gustarte"
     },
     "word-counter": {
       "title": "Contador de Palabras",
@@ -973,7 +973,7 @@
       "allFieldsCleared": "Texto limpiado",
       "exampleLoaded": "Ejemplo cargado",
       "relatedTools": {
-        "title": "🔗 Herramientas Relacionadas que Podrían Gustarte",
+        "title": "Herramientas Relacionadas que Podrían Gustarte",
         "caseConverter": {
           "title": "Convertidor de Mayúsculas/Minúsculas",
           "description": "Convertir formatos de texto entre mayúsculas y minúsculas"
@@ -1033,7 +1033,7 @@
         "format": "Formato: El formato estándar es 8-4-4-4-12 (36 caracteres con guiones)",
         "storage": "Almacenamiento: Considerar usar formato binario en base de datos para ahorrar espacio"
       },
-      "relatedTools": "🔗 Herramientas Relacionadas que Podrían Gustarte"
+      "relatedTools": "Herramientas Relacionadas que Podrían Gustarte"
     },
     "color-picker": {
       "title": "Selector de Color",
@@ -1074,7 +1074,7 @@
         "hsl": "<strong>HSL:</strong> Más intuitivo para ajustar tonalidad, saturación y luminosidad",
         "contrast": "<strong>Contraste:</strong> Asegurar suficiente contraste para accesibilidad (WCAG)"
       },
-      "relatedTools": "🔗 Herramientas Relacionadas que Podrían Gustarte"
+      "relatedTools": "Herramientas Relacionadas que Podrían Gustarte"
     },
     "qr-generator": {
       "title": "Generador QR",
@@ -1121,7 +1121,7 @@
         "contrast": "Contraste: Usar alto contraste para mejor escaneo",
         "instructions": "Instrucciones: Agregar texto de indicación cerca del código QR"
       },
-      "relatedTools": "🔗 Herramientas Relacionadas que Podrían Gustarte"
+      "relatedTools": "Herramientas Relacionadas que Podrían Gustarte"
     },
     "url-encoder": {
       "title": "Codificador URL",
@@ -1169,7 +1169,7 @@
         "alwaysEncode": "<strong>Siempre Codificar:</strong> Codifique entradas de usuario antes de agregar a URLs",
         "decodeFirst": "<strong>Decodificar Primero:</strong> Decodifique parámetros URL recibidos"
       },
-      "relatedTools": "🔗 Herramientas Relacionadas que Podrían Gustarte"
+      "relatedTools": "Herramientas Relacionadas que Podrían Gustarte"
     },
     "markdown-preview": {
       "title": "Vista Previa Markdown",
@@ -1222,7 +1222,7 @@
         "code": "<strong>Código:</strong> Use ``` para bloques de código, ` para código en línea",
         "links": "<strong>Enlaces:</strong> Use sintaxis [texto](URL) para crear enlaces"
       },
-      "relatedTools": "🔗 Herramientas Relacionadas que Podrían Gustarte"
+      "relatedTools": "Herramientas Relacionadas que Podrían Gustarte"
     },
     "hash-generator": {
       "title": "Generador de Hash",
@@ -1265,16 +1265,46 @@
     },
     "timestamp-converter": {
       "title": "Convertidor de Marca de Tiempo",
-      "description": "Convertir entre fecha legible y marca de tiempo Unix",
-      "convertTimestamp": "Convertir Marca de Tiempo",
-      "descriptionFull": "Convertir entre fecha legible y marca de tiempo Unix",
-      "currentTimestamp": "Marca de Tiempo Actual",
-      "timestamp": "Marca de Tiempo",
-      "timestampPlaceholder": "Ingrese marca de tiempo Unix...",
-      "humanReadableDate": "Fecha Legible",
-      "convert": "Convertir",
-      "whatIs": "¿Qué es una Marca de Tiempo Unix?",
-      "whatIsContent": "Una marca de tiempo Unix es el número de segundos desde el 1 de enero de 1970. ¡Perfecta para programación y bases de datos! ⏰",
+      "description": "Convertir entre marca de tiempo Unix y fecha legible",
+      "unixTimestamp": "Marca de Tiempo Unix",
+      "humanDate": "Fecha Legible",
+      "convertToDate": "Convertir a Fecha",
+      "convertToTimestamp": "Convertir a Marca de Tiempo",
+      "currentTime": "Tiempo Actual",
+      "convertedToDate": "Convertido a fecha",
+      "convertedToTimestamp": "Convertido a marca de tiempo",
+      "invalidTimestamp": "Marca de tiempo inválida",
+      "invalidDate": "Fecha inválida",
+      "currentTimestampSet": "Marca de tiempo actual establecida",
+      "currentDateSet": "Fecha actual establecida",
+      "allFieldsCleared": "Todos los campos limpiados",
+      "exampleLoaded": "Ejemplo cargado",
+      "whatIs": "¿Qué es el Convertidor de Marca de Tiempo?",
+      "whatIsContent": "Esta herramienta convierte entre marcas de tiempo Unix y fechas legibles. ¡Perfecta para consultas de bases de datos, desarrollo de API y depuración! ⏰",
+      "useCases": {
+        "database": {
+          "title": "Consultas de Base de Datos",
+          "description": "Convertir marcas de tiempo para consultas SQL y filtros de fecha"
+        },
+        "api": {
+          "title": "Desarrollo de API",
+          "description": "Trabajar con APIs y endpoints basados en marcas de tiempo"
+        },
+        "logs": {
+          "title": "Análisis de Registros",
+          "description": "Analizar y comprender marcas de tiempo en registros de servidor"
+        },
+        "data": {
+          "title": "Procesamiento de Datos",
+          "description": "Convertir fechas para migración de datos y procesos ETL"
+        }
+      },
+      "proTips": {
+        "startDate": "<strong>Fecha de Inicio:</strong> La época Unix comienza el 1 de enero de 1970 UTC",
+        "units": "<strong>Unidades:</strong> Unix usa segundos, JavaScript usa milisegundos",
+        "utc": "<strong>UTC:</strong> Las marcas de tiempo siempre están en UTC (sin zona horaria)",
+        "precision": "<strong>Precisión:</strong> Use marcas de tiempo para cálculos de fecha precisos"
+      },
       "relatedTools": "🔗 Herramientas Relacionadas que Podrían Gustarte"
     },
     "regex-tester": {
@@ -1318,7 +1348,7 @@
         "groups": "<strong>Grupos:</strong> Use () para captura y agrupación",
         "testing": "<strong>Pruebas:</strong> Pruebe con varias entradas para garantizar precisión"
       },
-      "relatedTools": "🔗 Herramientas Relacionadas que Podrían Gustarte"
+      "relatedTools": "Herramientas Relacionadas que Podrían Gustarte"
     },
     "lorem-ipsum": {
       "title": "Generador Lorem Ipsum",
@@ -1361,7 +1391,7 @@
         "mockups": "<strong>Mockups:</strong> Perfecto para prototipos rápidos y maquetas de diseño",
         "consistency": "<strong>Consistencia:</strong> Proporciona texto uniforme para pruebas de disposición"
       },
-      "relatedTools": "🔗 Herramientas Relacionadas que Podrían Gustarte"
+      "relatedTools": "Herramientas Relacionadas que Podrían Gustarte"
     },
     "percentage-calculator": {
       "title": "Calculadora de Porcentajes",
@@ -1401,7 +1431,7 @@
         "comparison": "Comparación: Ideal para comparar valores y proporciones",
         "decimals": "Decimales: Admite decimales para mayor precisión"
       },
-      "relatedTools": "🔗 Herramientas Relacionadas que Podrían Gustarte"
+      "relatedTools": "Herramientas Relacionadas que Podrían Gustarte"
     },
     "bmi-calculator": {
       "title": "Calculadora de IMC",
@@ -1450,7 +1480,7 @@
         "consultExperts": "<strong>Consulte Expertos:</strong> Obtenga asesoramiento de salud personalizado",
         "limitations": "<strong>Limitaciones:</strong> Puede no ser preciso para atletas o ancianos"
       },
-      "relatedTools": "🔗 Herramientas Relacionadas que Podrían Gustarte"
+      "relatedTools": "Herramientas Relacionadas que Podrían Gustarte"
     },
     "loan-calculator": {
       "title": "Calculadora de Préstamos",
@@ -1496,7 +1526,7 @@
         "budget": "<strong>Presupuesto:</strong> Asegúrese de que los pagos mensuales se ajusten a su presupuesto",
         "compare": "<strong>Comparar:</strong> Compare diferentes opciones para encontrar las mejores tasas"
       },
-      "relatedTools": "🔗 Herramientas Relacionadas que Podrían Gustarte"
+      "relatedTools": "Herramientas Relacionadas que Podrían Gustarte"
     },
     "interest-calculator": {
       "title": "Calculadora de Interés",
@@ -1547,7 +1577,7 @@
         "longTerm": "<strong>Largo Plazo:</strong> Use interés compuesto para inversiones de varios años",
         "impact": "<strong>Impacto:</strong> Tasas de interés más altas aumentan significativamente los retornos"
       },
-      "relatedTools": "🔗 Herramientas Relacionadas que Podrían Gustarte"
+      "relatedTools": "Herramientas Relacionadas que Podrían Gustarte"
     },
     "investment-calculator": {
       "title": "Calculadora de Inversión",
@@ -1591,7 +1621,7 @@
         "returns": "<strong>Retornos:</strong> El mercado de valores promedia 8-10% anualmente",
         "risk": "<strong>Riesgo:</strong> Considere su tolerancia al riesgo al estimar retornos"
       },
-      "relatedTools": "🔗 Herramientas Relacionadas que Podrían Gustarte"
+      "relatedTools": "Herramientas Relacionadas que Podrían Gustarte"
     },
     "currency-converter": {
       "title": "Convertidor de Divisas",
@@ -1692,7 +1722,7 @@
         "payMore": "<strong>Pague Más:</strong> Incluso $50 extra al mes pueden ahorrar miles en intereses",
         "lowerAPR": "<strong>TAE Más Baja:</strong> Considere transferir saldo a tarjetas con menor TAE para ahorrar en intereses"
       },
-      "relatedTools": "🔗 Herramientas Relacionadas que Podrían Gustarte"
+      "relatedTools": "Herramientas Relacionadas que Podrían Gustarte"
     },
     "unit-converter": {
       "title": "Convertidor de Unidades",
@@ -1746,7 +1776,7 @@
         "length": "<strong>Longitud:</strong> 1 metro = 3.28084 pies",
         "recipes": "<strong>Recetas:</strong> Siempre verifique las unidades de recetas de otros países"
       },
-      "relatedTools": "🔗 Herramientas Relacionadas que Podrían Gustarte"
+      "relatedTools": "Herramientas Relacionadas que Podrían Gustarte"
     },
     "age-calculator": {
       "title": "Calculadora de Edad",
@@ -1786,7 +1816,7 @@
         "documents": "<strong>Documentos:</strong> Usar para verificación oficial de edad",
         "eligibility": "<strong>Elegibilidad:</strong> Verifique fácilmente requisitos de edad"
       },
-      "relatedTools": "🔗 Herramientas Relacionadas que Podrían Gustarte"
+      "relatedTools": "Herramientas Relacionadas que Podrían Gustarte"
     },
     "date-calculator": {
       "title": "Calculadora de Fechas",
@@ -1828,7 +1858,7 @@
         "planning": "<strong>Planificación:</strong> Perfecto para cronogramas de eventos y proyectos",
         "business": "<strong>Negocios:</strong> Útil para cálculos legales y contractuales"
       },
-      "relatedTools": "🔗 Herramientas Relacionadas que Podrían Gustarte"
+      "relatedTools": "Herramientas Relacionadas que Podrían Gustarte"
     },
     "random-picker": {
       "title": "Selector Aleatorio",
@@ -1867,7 +1897,7 @@
         "screenshot": "<strong>Captura de Pantalla:</strong> Capturar el resultado para fines de registro",
         "socialMedia": "<strong>Redes Sociales:</strong> Ideal para sorteos de Instagram, Facebook y Twitter"
       },
-      "relatedTools": "🔗 Herramientas Relacionadas que Podrían Gustarte"
+      "relatedTools": "Herramientas Relacionadas que Podrían Gustarte"
     },
     "image-compressor": {
       "title": "Compresor de Imágenes",
@@ -1875,6 +1905,8 @@
       "compressImages": "Comprimir Imágenes",
       "descriptionFull": "Reducir tamaño de archivo de imágenes sin perder mucha calidad",
       "uploadImage": "Subir Imagen",
+      "chooseFile": "Elegir archivo",
+      "noFileChosen": "Ningún archivo seleccionado",
       "original": "Original",
       "compressed": "Comprimida",
       "outputFormat": "Formato de Salida",
@@ -1920,7 +1952,7 @@
         "testing": "<strong>Pruebas:</strong> Compare calidades diferentes para encontrar el equilibrio perfecto",
         "performance": "<strong>Rendimiento:</strong> WebP ofrece mejor compresión que JPEG/PNG"
       },
-      "relatedTools": "🔗 Herramientas Relacionadas que Podrían Gustarte"
+      "relatedTools": "Herramientas Relacionadas que Podrían Gustarte"
     },
     "image-resizer": {
       "title": "Redimensionador de Imágenes",
@@ -1966,7 +1998,7 @@
         "workflow": "<strong>Flujo de Trabajo:</strong> Redimensione primero, luego comprima para mejores resultados",
         "devices": "<strong>Dispositivos:</strong> Considere múltiples tamaños de pantalla al redimensionar"
       },
-      "relatedTools": "🔗 Herramientas Relacionadas que Podrían Gustarte"
+      "relatedTools": "Herramientas Relacionadas que Podrían Gustarte"
     },
     "text-sorter": {
       "title": "Ordenador de Texto",
@@ -2006,7 +2038,7 @@
         "descOrder": "<strong>Z→A:</strong> Use orden descendente para ordenamiento inverso",
         "caseSensitive": "<strong>Sensible a Mayúsculas:</strong> Las letras mayúsculas aparecen antes que las minúsculas"
       },
-      "relatedTools": "🔗 Herramientas Relacionadas que Podrían Gustarte"
+      "relatedTools": "Herramientas Relacionadas que Podrían Gustarte"
     },
     "html-to-text": {
       "title": "HTML a Texto",
@@ -2044,7 +2076,7 @@
         "email": "<strong>Correos HTML:</strong> Convierte correos HTML a formato de texto plano",
         "analysis": "<strong>Análisis:</strong> Úsalo antes del análisis de texto o conteo de palabras"
       },
-      "relatedTools": "🔗 Herramientas Relacionadas que Podrían Gustarte"
+      "relatedTools": "Herramientas Relacionadas que Podrían Gustarte"
     },
     "text-replacer": {
       "title": "Reemplazador de Texto",
@@ -2094,7 +2126,7 @@
         "caseMatch": "<strong>Sensible a Mayúsculas:</strong> Active para coincidencias exactas de mayúsculas/minúsculas",
         "testFirst": "<strong>Pruebe Primero:</strong> Pruebe con texto pequeño antes de reemplazos grandes"
       },
-      "relatedTools": "🔗 Herramientas Relacionadas que Podrían Gustarte"
+      "relatedTools": "Herramientas Relacionadas que Podrían Gustarte"
     },
     "duplicate-remover": {
       "title": "Eliminador de Duplicados",
@@ -2141,7 +2173,7 @@
         "emptyLines": "<strong>Líneas Vacías:</strong> Opcionalmente mantener o eliminar líneas en blanco",
         "statsDisplay": "<strong>Mostrar Estadísticas:</strong> Ver cuántas líneas fueron eliminadas"
       },
-      "relatedTools": "🔗 Herramientas Relacionadas que Podrían Gustarte"
+      "relatedTools": "Herramientas Relacionadas que Podrían Gustarte"
     },
     "json-to-csv": {
       "title": "JSON a CSV",
@@ -2229,7 +2261,7 @@
         "structure": "<strong>Estructura:</strong> La jerarquía XML se preserva en JSON",
         "validation": "<strong>Validación:</strong> Verifique que el XML sea válido antes de convertir"
       },
-      "relatedTools": "🔗 Herramientas Relacionadas que Podrían Gustarte"
+      "relatedTools": "Herramientas Relacionadas que Podrían Gustarte"
     },
     "discount-calculator": {
       "title": "Calculadora de Descuentos",
@@ -2265,7 +2297,7 @@
         "stackDiscounts": "<strong>Descuentos Apilados:</strong> Para múltiples descuentos, calcule cada uno secuencialmente",
         "quickCompare": "<strong>Comparación Rápida:</strong> Use el ejemplo para ver cómo un descuento del 25% en $199.99 ahorra $50"
       },
-      "relatedTools": "🔗 Herramientas Relacionadas que Podrían Gustarte"
+      "relatedTools": "Herramientas Relacionadas que Podrían Gustarte"
     },
     "password-strength-checker": {
       "title": "Verificador de Fortaleza de Contraseña",
@@ -2324,7 +2356,7 @@
         "avoidCommonWords": "<strong>Evite Palabras Comunes:</strong> No use palabras del diccionario o patrones predecibles",
         "privacyFirst": "<strong>Privacidad Primero:</strong> Su contraseña se procesa localmente, nunca se envía a servidores"
       },
-      "relatedTools": "🔗 Herramientas Relacionadas que Podrían Gustarte"
+      "relatedTools": "Herramientas Relacionadas que Podrían Gustarte"
     },
     "email-validator": {
       "title": "Validador de Correo Electrónico",
@@ -2378,7 +2410,7 @@
         "exportValid": "<strong>Exportar Válidos:</strong> Descargue solo los correos válidos",
         "instantFeedback": "<strong>Retroalimentación Instantánea:</strong> Vea razones de error detalladas"
       },
-      "relatedTools": "🔗 Herramientas Relacionadas que Podrían Gustarte"
+      "relatedTools": "Herramientas Relacionadas que Podrían Gustarte"
     },
     "stopwatch-timer": {
       "title": "Cronómetro y Temporizador",
@@ -2423,7 +2455,7 @@
         "quickPresets": "<strong>Ajustes Rápidos:</strong> Use los botones de minutos preestablecidos para configuración rápida del temporizador",
         "precision": "<strong>Precisión:</strong> El cronómetro rastrea hasta centésimas de segundo"
       },
-      "relatedTools": "🔗 Herramientas Relacionadas que Podrían Gustarte"
+      "relatedTools": "Herramientas Relacionadas que Podrían Gustarte"
     },
     "jwt-decoder": {
       "title": "Decodificador JWT",
@@ -2470,7 +2502,7 @@
         "claims": "<strong>Claims:</strong> La carga útil contiene datos de usuario y permisos",
         "verification": "<strong>Verificación:</strong> La firma requiere una clave secreta para verificar"
       },
-      "relatedTools": "🔗 Herramientas Relacionadas que Podrían Gustarte"
+      "relatedTools": "Herramientas Relacionadas que Podrían Gustarte"
     },
     "sql-formatter": {
       "title": "Formateador SQL",
@@ -2510,7 +2542,7 @@
         "lineBreaks": "<strong>Saltos de Línea:</strong> Saltos de línea lógicos entre cláusulas SQL",
         "consistency": "<strong>Consistencia:</strong> Formato estandarizado para mejor colaboración en equipo"
       },
-      "relatedTools": "🔗 Herramientas Relacionadas que Podrían Gustarte"
+      "relatedTools": "Herramientas Relacionadas que Podrían Gustarte"
     },
     "code-minifier": {
       "title": "Minificador de Código",
@@ -2568,7 +2600,7 @@
         "testing": "<strong>Pruebas:</strong> Pruebe código minificado antes de implementar en producción",
         "backup": "<strong>Respaldo:</strong> Siempre mantenga copias del código original"
       },
-      "relatedTools": "🔗 Herramientas Relacionadas que Podrían Gustarte"
+      "relatedTools": "Herramientas Relacionadas que Podrían Gustarte"
     },
     "whitespace-remover": {
       "title": "Eliminador de Espacios en Blanco",
@@ -2617,7 +2649,7 @@
         "trimLines": "<strong>Recortar Líneas:</strong> Mantiene líneas pero elimina espacios al inicio/final",
         "preview": "<strong>Vista Previa:</strong> Vea la reducción de caracteres en tiempo real"
       },
-      "relatedTools": "🔗 Herramientas Relacionadas que Podrían Gustarte"
+      "relatedTools": "Herramientas Relacionadas que Podrían Gustarte"
     },
     "pomodoro-timer": {
       "title": "Temporizador Pomodoro",
@@ -2660,7 +2692,7 @@
         "longBreaks": "<strong>Descansos Largos:</strong> Después de 4 pomodoros, toma 15-30 minutos para recargar",
         "trackProgress": "<strong>Rastrea el Progreso:</strong> Cuenta los pomodoros completados para medir la productividad"
       },
-      "relatedTools": "🔗 Herramientas Relacionadas que Podrían Gustarte"
+      "relatedTools": "Herramientas Relacionadas que Podrían Gustarte"
     },
     "ip-lookup": {
       "title": "Búsqueda de IP",
@@ -2707,7 +2739,7 @@
         "location": "<strong>Ubicación:</strong> La precisión varía según el ISP",
         "ispInfo": "<strong>Información ISP:</strong> Identifique el proveedor de servicios de Internet"
       },
-      "relatedTools": "🔗 Herramientas Relacionadas que Podrían Gustarte"
+      "relatedTools": "Herramientas Relacionadas que Podrían Gustarte"
     },
     "barcode-generator": {
       "title": "Generador de Código de Barras",
@@ -2759,7 +2791,7 @@
         "highQuality": "<strong>Alta Calidad:</strong> Descargue como PNG para mejor calidad de impresión",
         "testScan": "<strong>Pruebe el Escaneo:</strong> Siempre pruebe los códigos de barras impresos con un escáner antes de uso en producción"
       },
-      "relatedTools": "🔗 Herramientas Relacionadas que Podrían Gustarte"
+      "relatedTools": "Herramientas Relacionadas que Podrían Gustarte"
     },
     "color-gradient-generator": {
       "title": "Generador de Degradado de Color",
@@ -2815,18 +2847,18 @@
         "copyCss": "<strong>Copiar CSS:</strong> Código listo para pegar en sus archivos de estilos",
         "customAngles": "<strong>Ángulos Personalizados:</strong> Experimente con direcciones únicas para efectos creativos"
       },
-      "relatedTools": "🔗 Herramientas Relacionadas que Podrían Gustarte"
+      "relatedTools": "Herramientas Relacionadas que Podrían Gustarte"
     }
   },
   "cookiePolicy": {
     "title": "Política de Cookies",
     "lastUpdated": "Última actualización: ",
     "whatAreCookies": {
-      "title": "🍪 ¿Qué son las Cookies?",
+      "title": "¿Qué son las Cookies?",
       "description": "Las cookies son pequeños archivos de texto que se almacenan en tu dispositivo cuando visitas un sitio web. Ayudan al sitio web a recordar tus preferencias y mejorar tu experiencia de navegación."
     },
     "howWeUseCookies": {
-      "title": "📝 Cómo Utilizamos las Cookies",
+      "title": "Cómo Utilizamos las Cookies",
       "description": "En Haoin Tools, utilizamos cookies de manera mínima y responsable:",
       "essential": {
         "title": "Cookies Esenciales",
@@ -2846,7 +2878,7 @@
       }
     },
     "typesOfCookies": {
-      "title": "🎯 Tipos de Cookies que Utilizamos",
+      "title": "Tipos de Cookies que Utilizamos",
       "table": {
         "cookieName": "Nombre de Cookie",
         "purpose": "Propósito",
@@ -2871,7 +2903,7 @@
       }
     },
     "managingCookies": {
-      "title": "🔧 Gestión de Cookies",
+      "title": "Gestión de Cookies",
       "description": "Tienes control total sobre las cookies:",
       "browserSettings": {
         "title": "Configuración del Navegador",
@@ -2887,11 +2919,11 @@
       }
     },
     "privacyPriority": {
-      "title": "🔒 Tu Privacidad es Nuestra Prioridad",
+      "title": "Tu Privacidad es Nuestra Prioridad",
       "description": "A diferencia de muchos sitios web, no utilizamos cookies para rastrear tu comportamiento, crear perfiles de usuario o servir anuncios dirigidos. Nuestras cookies son estrictamente para mejorar tu experiencia de usuario en nuestro sitio. Todo el procesamiento de datos ocurre localmente en tu navegador, y nunca enviamos tus archivos o datos personales a nuestros servidores."
     },
     "contact": {
-      "title": "📞 Contáctanos",
+      "title": "Contáctanos",
       "description": "Si tienes alguna pregunta sobre nuestro uso de cookies, contáctanos en:"
     },
     "footer": {
@@ -2961,7 +2993,7 @@
       }
     },
     "joinCommunity": {
-      "title": "💖 Únete a Nuestra Comunidad",
+      "title": "Únete a Nuestra Comunidad",
       "description": "¡Síguenos en las redes sociales para mantenerte actualizado con nuevas herramientas, funciones y consejos!",
       "feedback": "Nos encanta escuchar a nuestros usuarios. ¿Tienes una solicitud de función o comentarios? ¡Contáctanos en cualquier momento!"
     }

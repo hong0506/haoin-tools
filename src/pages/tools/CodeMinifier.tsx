@@ -179,12 +179,13 @@ const CodeMinifier = () => {
             <ArrowLeft className="h-4 w-4" />
           </Button>
           <SidebarTrigger />
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 flex-1">
             <Minimize2 className="h-5 w-5 text-primary" />
             <h1 className="text-xl font-semibold">
               {t("tools.code-minifier.title")}
             </h1>
           </div>
+          <LanguageSwitcher />
         </div>
       </header>
 

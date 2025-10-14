@@ -122,7 +122,7 @@
       "whatIs": "What is",
       "commonUseCases": "Common Use Cases",
       "proTips": "Pro Tips",
-      "relatedTools": "Related Tools"
+      "relatedTools": "Related Tools You Might Like"
     }
   },
   "privacy": {
@@ -419,7 +419,7 @@
     },
     "footer": {
       "rightsReserved": "© 2025 Haoin Tools. All Rights Reserved.",
-      "company": "Haoin Tech Co., Ltd.",
+      "company": "Haoin Tech ",
       "compliance": "This website complies with applicable laws and regulations."
     }
   },
@@ -562,7 +562,7 @@
         "validation": "<strong>Validation:</strong> Always validate before using in applications",
         "quotes": "<strong>Quotes:</strong> JSON keys must use double quotes, not single quotes"
       },
-      "relatedTools": "Related Tools"
+      "relatedTools": "🔗 Related Tools You Might Like"
     },
     "base64": {
       "title": "Base64 Tool",
@@ -903,7 +903,7 @@
         "alwaysEncode": "<strong>Always Encode:</strong> Encode user input before adding to URLs",
         "decodeFirst": "<strong>Decode First:</strong> Decode received URL parameters"
       },
-      "relatedTools": "🔗 Related Tools"
+      "relatedTools": "🔗 Related Tools You Might Like"
     },
     "markdown-preview": {
       "title": "Markdown Preview",
@@ -952,7 +952,7 @@
         "code": "<strong>Code:</strong> Use ``` for code blocks, ` for inline code",
         "links": "<strong>Links:</strong> Use [text](URL) syntax to create links"
       },
-      "relatedTools": "🔗 Related Tools"
+      "relatedTools": "🔗 Related Tools You Might Like"
     },
     "hash-generator": {
       "title": "Hash Generator",
@@ -991,13 +991,13 @@
         "avoidMd5": "<strong>Avoid MD5:</strong> Not secure for critical applications",
         "verification": "<strong>Verification:</strong> Compare hashes to check file integrity"
       },
-      "relatedTools": "🔗 Related Tools"
+      "relatedTools": "🔗 Related Tools You Might Like"
     },
     "timestamp-converter": {
       "title": "Timestamp Converter",
       "description": "Convert between Unix timestamps and human-readable dates",
       "unixTimestamp": "Unix Timestamp",
-      "humanDate": "Human Readable Date",
+      "humanDate": "Readable Date",
       "convertToDate": "Convert to Date",
       "convertToTimestamp": "Convert to Timestamp",
       "currentTime": "Current Time",
@@ -1113,7 +1113,7 @@
         "mockups": "<strong>Mockups:</strong> Perfect for client presentations and demos",
         "consistency": "<strong>Consistency:</strong> Provides uniform text for layout testing"
       },
-      "relatedTools": "🔗 Related Tools"
+      "relatedTools": "🔗 Related Tools You Might Like"
     },
     "percentage-calculator": {
       "title": "Percentage Calculator",
@@ -1395,7 +1395,7 @@
         "variations": "<strong>Variations:</strong> Rates vary between different services",
         "estimates": "<strong>Estimates:</strong> Use for quick comparisons"
       },
-      "relatedTools": "🔗 Related Tools"
+      "relatedTools": "🔗 Related Tools You Might Like"
     },
     "credit-card-calculator": {
       "title": "Credit Card Calculator",
@@ -1617,7 +1617,7 @@
         "screenshot": "<strong>Screenshot:</strong> Capture results for transparency",
         "socialMedia": "<strong>Social Media:</strong> Perfect for Instagram and Twitter giveaways"
       },
-      "relatedTools": " Related Tools You Might Like"
+      "relatedTools": "🔗 Related Tools You Might Like"
     },
     "image-compressor": {
       "title": "Image Compressor",
@@ -2206,7 +2206,7 @@
         "avoidCommonWords": "<strong>Avoid Common Words:</strong> Don't use dictionary words or names",
         "privacyFirst": "<strong>Privacy First:</strong> Analysis happens only in your browser"
       },
-      "relatedTools": "🔗 Related Tools"
+      "relatedTools": "🔗 Related Tools You Might Like"
     },
     "email-validator": {
       "title": "Email Validator",
@@ -2498,7 +2498,7 @@
         "highQuality": "<strong>High Quality:</strong> Download PNG for printing",
         "testScan": "<strong>Test Scan:</strong> Verify with scanner before printing"
       },
-      "relatedTools": "🔗 Related Tools"
+      "relatedTools": "🔗 Related Tools You Might Like"
     },
     "color-gradient-generator": {
       "title": "Color Gradient Generator",

@@ -15,23 +15,66 @@ import { categories } from "@/data/tools";
 import { Logo } from "@/components/Logo";
 import { useSearch } from "@/contexts/SearchContext";
 import { useTranslation } from "react-i18next";
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
+import React from "react";
+
+function ConditionalTooltipLabel({ text }: { text: string }) {
+  const { i18n } = useTranslation();
+  const isSpanish = i18n.language?.startsWith("es");
+  const spanRef = React.useRef<HTMLSpanElement>(null);
+  const [truncated, setTruncated] = React.useState(false);
+
+  React.useEffect(() => {
+    const check = () => {
+      const el = spanRef.current;
+      if (!el) return;
+      setTruncated(el.scrollWidth > el.clientWidth + 1);
+    };
+    check();
+    const ro = new ResizeObserver(check);
+    if (spanRef.current) ro.observe(spanRef.current);
+    window.addEventListener("resize", check);
+    return () => {
+      ro.disconnect();
+      window.removeEventListener("resize", check);
+    };
+  }, [text, i18n.language]);
+
+  const label = (
+    <span ref={spanRef} className="text-[15px] truncate">
+      {text}
+    </span>
+  );
+
+  if (isSpanish && truncated) {
+    return (
+      <Tooltip>
+        <TooltipTrigger asChild>{label}</TooltipTrigger>
+        <TooltipContent side="right" align="start">
+          {text}
+        </TooltipContent>
+      </Tooltip>
+    );
+  }
+  return label;
+}
 
 export function AppSidebar() {
   const { clearSearch } = useSearch();
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   const handleAllToolsClick = () => {
     clearSearch();
     // Clear saved scroll position and scroll to top
-    sessionStorage.removeItem('scroll_/');
-    window.scrollTo({ top: 0, behavior: 'instant' });
+    sessionStorage.removeItem("scroll_/");
+    window.scrollTo({ top: 0, behavior: "instant" });
   };
 
   const handleCategoryClick = (path: string) => {
     clearSearch();
     // Clear saved scroll position and scroll to top
     sessionStorage.removeItem(`scroll_${path}`);
-    window.scrollTo({ top: 0, behavior: 'instant' });
+    window.scrollTo({ top: 0, behavior: "instant" });
   };
 
   return (
@@ -72,7 +115,7 @@ export function AppSidebar() {
                     }
                   >
                     <Icons.Home className="h-5 w-5" />
-                    <span className="text-[15px]">{t("common.allTools")}</span>
+                    <ConditionalTooltipLabel text={t("common.allTools")} />
                   </NavLink>
                 </SidebarMenuButton>
               </SidebarMenuItem>
@@ -95,9 +138,7 @@ export function AppSidebar() {
                         }
                       >
                         {IconComponent && <IconComponent className="h-5 w-5" />}
-                        <span className="text-[15px]">
-                          {t(`categories.${category.id}`)}
-                        </span>
+                        <ConditionalTooltipLabel text={t(`categories.${category.id}`)} />
                       </NavLink>
                     </SidebarMenuButton>
                   </SidebarMenuItem>

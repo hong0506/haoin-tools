@@ -101,10 +101,10 @@ const DateCalculator = () => {
             <ArrowLeft className="h-4 w-4" />
           </Button>
           <SidebarTrigger />
-          <div className="flex items-center gap-2"></div>
-          <h1 className="text-xl font-semibold">
+          <h1 className="text-xl font-semibold flex-1">
             {t("tools.date-calculator.title")}
           </h1>
+          <LanguageSwitcher />
         </div>
       </header>
       <div className="container mx-auto max-w-4xl px-6 py-8">

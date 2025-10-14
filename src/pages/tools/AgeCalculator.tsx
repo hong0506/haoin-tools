@@ -89,9 +89,10 @@ const AgeCalculator = () => {
             <ArrowLeft className="h-4 w-4" />
           </Button>
           <SidebarTrigger />
-          <h1 className="text-xl font-semibold">
+          <h1 className="text-xl font-semibold flex-1">
             {t("tools.age-calculator.title")}
           </h1>
+          <LanguageSwitcher />
         </div>
       </header>
       <div className="container mx-auto max-w-4xl px-6 py-8">

@@ -86,11 +86,12 @@ const LoremIpsum = () => {
             <ArrowLeft className="h-4 w-4" />
           </Button>
           <SidebarTrigger />
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 flex-1">
             <h1 className="text-xl font-semibold">
               {t("tools.lorem-ipsum.title")}
             </h1>
           </div>
+          <LanguageSwitcher />
         </div>
       </header>
 

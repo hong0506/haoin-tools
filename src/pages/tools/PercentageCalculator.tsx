@@ -75,11 +75,10 @@ const PercentageCalculator = () => {
             <ArrowLeft className="h-4 w-4" />
           </Button>
           <SidebarTrigger />
-          <div className="flex items-center gap-2">
-            <h1 className="text-xl font-semibold">
-              {t("tools.percentage-calculator.title")}
-            </h1>
-          </div>
+          <h1 className="text-xl font-semibold flex-1">
+            {t("tools.percentage-calculator.title")}
+          </h1>
+          <LanguageSwitcher />
         </div>
       </header>
 

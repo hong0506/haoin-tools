@@ -366,7 +366,7 @@
     },
     "footer": {
       "rightsReserved": "© 2025 皓萤工具。保留所有权利。",
-      "company": "皓萤科技有限公司",
+      "company": "皓萤科技",
       "compliance": "本网站符合相关法律法规。"
     }
   },
@@ -945,7 +945,7 @@
       "title": "时间戳转换器",
       "description": "在Unix时间戳和人类可读日期之间转换",
       "unixTimestamp": "Unix时间戳",
-      "humanDate": "人类可读日期",
+      "humanDate": "可读日期",
       "convertToDate": "转换为日期",
       "convertToTimestamp": "转换为时间戳",
       "currentTime": "当前时间",
