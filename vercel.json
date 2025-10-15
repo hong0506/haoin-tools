@@ -5,6 +5,46 @@
       "destination": "/ads.txt"
     },
     {
+      "source": "/robots.txt",
+      "destination": "/robots.txt"
+    },
+    {
+      "source": "/sitemap.xml",
+      "destination": "/sitemap.xml"
+    },
+    {
+      "source": "/sitemap-index.xml",
+      "destination": "/sitemap-index.xml"
+    },
+    {
+      "source": "/sitemap-en.xml",
+      "destination": "/sitemap-en.xml"
+    },
+    {
+      "source": "/sitemap-zh.xml",
+      "destination": "/sitemap-zh.xml"
+    },
+    {
+      "source": "/sitemap-es.xml",
+      "destination": "/sitemap-es.xml"
+    },
+    {
+      "source": "/baidu_verify_codeva-EGeTfL6myA.html",
+      "destination": "/baidu_verify_codeva-EGeTfL6myA.html"
+    },
+    {
+      "source": "/ByteDanceVerify.html",
+      "destination": "/ByteDanceVerify.html"
+    },
+    {
+      "source": "/shenma-site-verification.txt",
+      "destination": "/shenma-site-verification.txt"
+    },
+    {
+      "source": "/67855a060c022dca88b173b717d65f3f.txt",
+      "destination": "/67855a060c022dca88b173b717d65f3f.txt"
+    },
+    {
       "source": "/(.*)",
       "destination": "/index.html"
     }
