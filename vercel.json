@@ -51,6 +51,19 @@
   ],
   "headers": [
     {
+      "source": "/baidu_verify_codeva-a7ugi4ALhq.html",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400"
+        },
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        }
+      ]
+    },
+    {
       "source": "/assets/:path*",
       "headers": [
         {
