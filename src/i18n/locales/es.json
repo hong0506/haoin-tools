@@ -811,6 +811,76 @@
       },
       "relatedTools": "Herramientas Relacionadas que Podrían Gustarte"
     },
+    "prompt-generator": {
+      "title": "Generador de Prompts",
+      "description": "Generar prompts efectivos para ChatGPT y otras herramientas de IA",
+      "topicLabel": "Tema/Tarea",
+      "topicPlaceholder": "p. ej., Escribir un correo de marketing, Explicar física cuántica...",
+      "roleLabel": "Rol de IA",
+      "toneLabel": "Tono",
+      "contextLabel": "Contexto Adicional (Opcional)",
+      "contextPlaceholder": "Añadir requisitos específicos, restricciones o información de contexto...",
+      "outputLabel": "Prompt Generado",
+      "generate": "Generar Prompt",
+      "topicRequired": "Por favor ingrese un tema o tarea",
+      "generateSuccess": "¡Prompt generado exitosamente!",
+      "aiEnhancement": "🤖 Mejora con IA (Opcional)",
+      "enabled": "Habilitado",
+      "aiEnhancementDesc": "Habilita la generación impulsada por IA para prompts verdaderamente personalizados y profesionales adaptados a tu tarea específica. Cada generación será única y optimizada para tus necesidades.",
+      "localMode": "Plantilla Inteligente",
+      "apiMode": "Potenciado por IA",
+      "localModeDesc": "Generar prompts profesionales usando plantillas avanzadas (Gratis, sin clave API necesaria)",
+      "apiModeDesc": "Usar ChatGPT para crear prompts altamente personalizados (Requiere clave API de OpenAI)",
+      "apiKeyLabel": "Clave API de OpenAI",
+      "apiKeyPlaceholder": "sk-...",
+      "apiKeyNote": "Tu clave API solo se usa localmente y nunca se almacena",
+      "apiKeyRequired": "Por favor ingrese su clave API de OpenAI",
+      "generateWithAI": "Generar con IA",
+      "generating": "Generando...",
+      "apiError": "Error al generar prompt. Por favor verifica tu clave API e intenta nuevamente.",
+      "roles": {
+        "expert": "Experto",
+        "teacher": "Profesor",
+        "consultant": "Consultor",
+        "analyst": "Analista",
+        "developer": "Desarrollador"
+      },
+      "tones": {
+        "professional": "Profesional",
+        "friendly": "Amigable",
+        "creative": "Creativo",
+        "detailed": "Detallado",
+        "concise": "Conciso"
+      },
+      "whatIs": "¿Qué es el Generador de Prompts?",
+      "whatIsContent": "Esta herramienta te ayuda a crear prompts efectivos para asistentes de IA como ChatGPT, Claude y otros modelos de lenguaje. ¡Obtén mejores resultados estructurando tus prompts profesionalmente! 🤖",
+      "useCases": {
+        "title": "Casos de Uso Comunes",
+        "chatbot": {
+          "title": "Sesiones de Chat con IA",
+          "description": "Crear prompts efectivos para ChatGPT y otros asistentes de IA"
+        },
+        "content": {
+          "title": "Creación de Contenido",
+          "description": "Generar prompts para escribir artículos, correos y textos de marketing"
+        },
+        "research": {
+          "title": "Investigación y Análisis",
+          "description": "Estructurar prompts para análisis de datos y tareas de investigación"
+        },
+        "training": {
+          "title": "Entrenamiento de IA",
+          "description": "Crear prompts de entrenamiento para ajustar modelos de IA"
+        }
+      },
+      "proTips": {
+        "title": "Consejos Profesionales",
+        "specific": "<strong>Sé Específico:</strong> Cuanto más detallado sea tu tema, mejores serán los resultados",
+        "role": "<strong>Elige un Rol:</strong> Diferentes roles proporcionan diferentes perspectivas",
+        "context": "<strong>Añade Contexto:</strong> Incluye información relevante de fondo para mejores respuestas",
+        "iterate": "<strong>Itera:</strong> Prueba y refina prompts basándote en las respuestas de IA"
+      }
+    },
     "tip-calculator": {
       "title": "Calculadora de Propinas",
       "description": "Calcular propinas y dividir cuentas entre varias personas"

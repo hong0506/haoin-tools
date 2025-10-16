@@ -2924,6 +2924,76 @@
         "delete": "Remove resource"
       },
       "relatedTools": "🔗 Related Tools You Might Like"
+    },
+    "prompt-generator": {
+      "title": "Prompt Generator",
+      "description": "Generate effective AI prompts for ChatGPT and other AI tools",
+      "topicLabel": "Topic/Task",
+      "topicPlaceholder": "e.g., Write a marketing email, Explain quantum physics...",
+      "roleLabel": "AI Role",
+      "toneLabel": "Tone",
+      "contextLabel": "Additional Context (Optional)",
+      "contextPlaceholder": "Add any specific requirements, constraints, or background information...",
+      "outputLabel": "Generated Prompt",
+      "generate": "Generate Prompt",
+      "topicRequired": "Please enter a topic or task",
+      "generateSuccess": "Prompt generated successfully!",
+      "aiEnhancement": "🤖 AI Enhancement (Optional)",
+      "enabled": "Enabled",
+      "aiEnhancementDesc": "Enable AI-powered generation for truly customized, professional prompts tailored to your specific task. Each generation will be unique and optimized for your needs.",
+      "localMode": "Smart Template",
+      "apiMode": "AI Powered",
+      "localModeDesc": "Generate professional prompts using advanced templates (Free, No API key needed)",
+      "apiModeDesc": "Use ChatGPT to create highly customized prompts (Requires OpenAI API key)",
+      "apiKeyLabel": "OpenAI API Key",
+      "apiKeyPlaceholder": "sk-...",
+      "apiKeyNote": "Your API key is only used locally and never stored",
+      "apiKeyRequired": "Please enter your OpenAI API key",
+      "generateWithAI": "Generate with AI",
+      "generating": "Generating...",
+      "apiError": "Failed to generate prompt. Please check your API key and try again.",
+      "roles": {
+        "expert": "Expert",
+        "teacher": "Teacher",
+        "consultant": "Consultant",
+        "analyst": "Analyst",
+        "developer": "Developer"
+      },
+      "tones": {
+        "professional": "Professional",
+        "friendly": "Friendly",
+        "creative": "Creative",
+        "detailed": "Detailed",
+        "concise": "Concise"
+      },
+      "whatIs": "What is Prompt Generator?",
+      "whatIsContent": "This tool helps you create effective prompts for AI assistants like ChatGPT, Claude, and other language models. Get better results by structuring your prompts professionally! 🤖",
+      "useCases": {
+        "title": "Common Use Cases",
+        "chatbot": {
+          "title": "AI Chat Sessions",
+          "description": "Create effective prompts for ChatGPT and other AI assistants"
+        },
+        "content": {
+          "title": "Content Creation",
+          "description": "Generate prompts for writing articles, emails, and marketing copy"
+        },
+        "research": {
+          "title": "Research & Analysis",
+          "description": "Structure prompts for data analysis and research tasks"
+        },
+        "training": {
+          "title": "AI Training",
+          "description": "Create training prompts for fine-tuning AI models"
+        }
+      },
+      "proTips": {
+        "title": "Pro Tips",
+        "specific": "<strong>Be Specific:</strong> The more detailed your topic, the better the results",
+        "role": "<strong>Choose Role:</strong> Different roles provide different perspectives",
+        "context": "<strong>Add Context:</strong> Include relevant background information for better responses",
+        "iterate": "<strong>Iterate:</strong> Test and refine prompts based on AI responses"
+      }
     }
   },
   "cookiePolicy": {

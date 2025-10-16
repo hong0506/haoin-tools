@@ -574,4 +574,14 @@ export const tools: Tool[] = [
     path: "/tools/api-tester",
     icon: "Globe",
   },
+  // {
+  //   id: "prompt-generator",
+  //   title: "Prompt Generator",
+  //   description: "Generate effective AI prompts for ChatGPT and other AI tools",
+  //   category: "developer",
+  //   badge: "Developer",
+  //   badgeVariant: "purple",
+  //   path: "/tools/prompt-generator",
+  //   icon: "Wand2",
+  // },
 ];

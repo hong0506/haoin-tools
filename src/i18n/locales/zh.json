@@ -2925,6 +2925,76 @@
         "delete": "删除资源"
       },
       "relatedTools": "🔗 您可能喜欢的相关工具"
+    },
+    "prompt-generator": {
+      "title": "提示词生成器",
+      "description": "为ChatGPT和其他AI工具生成有效的提示词",
+      "topicLabel": "主题/任务",
+      "topicPlaceholder": "例如：撰写营销邮件、解释量子物理...",
+      "roleLabel": "AI角色",
+      "toneLabel": "语气",
+      "contextLabel": "附加上下文（可选）",
+      "contextPlaceholder": "添加任何具体要求、限制条件或背景信息...",
+      "outputLabel": "生成的提示词",
+      "generate": "生成提示词",
+      "topicRequired": "请输入主题或任务",
+      "generateSuccess": "提示词生成成功！",
+      "aiEnhancement": "🤖 AI增强（可选）",
+      "enabled": "已启用",
+      "aiEnhancementDesc": "启用AI驱动生成，为您的具体任务创建真正定制化、专业的提示词。每次生成都独一无二，针对您的需求优化。",
+      "localMode": "智能模板",
+      "apiMode": "AI增强",
+      "localModeDesc": "使用高级模板生成专业提示词（免费，无需API密钥）",
+      "apiModeDesc": "使用ChatGPT创建高度定制化的提示词（需要OpenAI API密钥）",
+      "apiKeyLabel": "OpenAI API密钥",
+      "apiKeyPlaceholder": "sk-...",
+      "apiKeyNote": "您的API密钥仅在本地使用，绝不会被存储",
+      "apiKeyRequired": "请输入您的OpenAI API密钥",
+      "generateWithAI": "使用AI生成",
+      "generating": "生成中...",
+      "apiError": "生成失败，请检查您的API密钥后重试",
+      "roles": {
+        "expert": "专家",
+        "teacher": "老师",
+        "consultant": "顾问",
+        "analyst": "分析师",
+        "developer": "开发者"
+      },
+      "tones": {
+        "professional": "专业",
+        "friendly": "友好",
+        "creative": "创意",
+        "detailed": "详细",
+        "concise": "简洁"
+      },
+      "whatIs": "什么是提示词生成器？",
+      "whatIsContent": "这个工具帮助您为ChatGPT、Claude等AI助手创建有效的提示词。通过专业的结构化提示获得更好的结果！🤖",
+      "useCases": {
+        "title": "常见使用场景",
+        "chatbot": {
+          "title": "AI对话会话",
+          "description": "为ChatGPT和其他AI助手创建有效的提示词"
+        },
+        "content": {
+          "title": "内容创作",
+          "description": "生成用于撰写文章、邮件和营销文案的提示词"
+        },
+        "research": {
+          "title": "研究与分析",
+          "description": "为数据分析和研究任务构建提示词"
+        },
+        "training": {
+          "title": "AI训练",
+          "description": "创建用于微调AI模型的训练提示词"
+        }
+      },
+      "proTips": {
+        "title": "专业提示",
+        "specific": "<strong>具体明确：</strong>主题越详细，结果越好",
+        "role": "<strong>选择角色：</strong>不同角色提供不同的视角",
+        "context": "<strong>添加上下文：</strong>包含相关背景信息以获得更好的回应",
+        "iterate": "<strong>迭代优化：</strong>根据AI响应测试和改进提示词"
+      }
     }
   },
   "cookiePolicy": {

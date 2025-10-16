@@ -66,12 +66,12 @@ export const ToolCard = ({ tool }: ToolCardProps) => {
   return (
     <Link
       to={tool.path}
-      className="block group"
+      className="block group touch-manipulation"
       onClick={handleClick}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <Card className="h-full cursor-pointer overflow-hidden relative border-2 transition-all duration-300 hover:border-primary/50 hover:shadow-xl hover:-translate-y-2 bg-white/80 backdrop-blur-sm">
+      <Card className="h-full cursor-pointer overflow-hidden relative border-2 transition-all duration-300 hover:border-primary/50 hover:shadow-xl hover:-translate-y-2 bg-white/80 backdrop-blur-sm active:scale-[0.98]">
         {/* Animated gradient background on hover */}
         <div
           className={`absolute inset-0 bg-gradient-to-br ${gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-300`}
@@ -85,7 +85,7 @@ export const ToolCard = ({ tool }: ToolCardProps) => {
           className={`absolute top-2 right-2 z-20 h-8 w-8 rounded-full transition-all duration-200 ${
             favorited
               ? "bg-gradient-to-r from-yellow-400 to-orange-500 hover:from-yellow-500 hover:to-orange-600 shadow-lg"
-              : "hover:bg-yellow-50 opacity-0 group-hover:opacity-100"
+              : "hover:bg-yellow-50 opacity-60 md:opacity-0 md:group-hover:opacity-100"
           }`}
         >
           <Star
