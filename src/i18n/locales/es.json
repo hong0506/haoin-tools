@@ -30,6 +30,10 @@
   "nav": {
     "home": "Inicio",
     "tools": "Herramientas",
+    "resources": "Recursos",
+    "blog": "Blog",
+    "userGuide": "Guía de Usuario",
+    "helpCenter": "Centro de Ayuda",
     "about": "Sobre Nosotros",
     "privacy": "Política de Privacidad",
     "terms": "Términos de Servicio",
@@ -69,6 +73,9 @@
     "wechat": "WeChat",
     "instagram": "Instagram",
     "home": "Inicio",
+    "blog": "Blog",
+    "userGuide": "Guía de Usuario",
+    "helpCenter": "Centro de Ayuda",
     "favorites": "Favoritos",
     "recentlyUsed": "Usados Recientemente",
     "generators": "Generadores",
@@ -3202,6 +3209,57 @@
       "title": "Únete a Nuestra Comunidad",
       "description": "¡Síguenos en las redes sociales para mantenerte actualizado con nuevas herramientas, funciones y consejos!",
       "feedback": "Nos encanta escuchar a nuestros usuarios. ¿Tienes una solicitud de función o comentarios? ¡Contáctanos en cualquier momento!"
+    }
+  },
+  "blog": {
+    "title": "Blog",
+    "description": "Consejos, tutoriales y mejores prácticas",
+    "pageTitle": "Blog y Tutoriales",
+    "subtitle": "Aprende consejos, trucos y mejores prácticas para usar herramientas en línea de manera efectiva",
+    "allCategories": "Todas",
+    "minRead": "min de lectura",
+    "noPosts": "No se encontraron publicaciones",
+    "postNotFound": "Publicación no encontrada",
+    "backToBlog": "Volver al Blog",
+    "share": "Compartir",
+    "linkCopied": "¡Enlace copiado al portapapeles!",
+    "relatedTools": "Herramientas Relacionadas",
+    "relatedPosts": "Publicaciones Relacionadas"
+  },
+  "helpCenter": {
+    "title": "Centro de Ayuda",
+    "description": "Encuentra respuestas a preguntas comunes",
+    "pageTitle": "Centro de Ayuda",
+    "subtitle": "Encuentra respuestas a tus preguntas sobre el uso de HaoinTools",
+    "searchPlaceholder": "Buscar ayuda...",
+    "noResults": "No se encontraron resultados para tu búsqueda",
+    "stillNeedHelp": "¿Aún Necesitas Ayuda?",
+    "contactMessage": "¿No encuentras lo que buscas? ¡Estamos aquí para ayudarte!",
+    "emailUs": "Envíanos un Correo"
+  },
+  "userGuide": {
+    "title": "Guía de Usuario",
+    "description": "Aprende cómo usar HaoinTools",
+    "pageTitle": "Guía de Usuario",
+    "subtitle": "Todo lo que necesitas saber para comenzar con HaoinTools",
+    "quickStart": "Guía de Inicio Rápido",
+    "toolCategories": "Categorías de Herramientas",
+    "proTips": "Consejos Profesionales",
+    "tip1": {
+      "title": "Marca tus Favoritos",
+      "description": "Usa el ícono de estrella para guardar herramientas de uso frecuente para acceso rápido"
+    },
+    "tip2": {
+      "title": "Atajos de Teclado",
+      "description": "Muchas herramientas admiten atajos de teclado como Ctrl+Enter para procesar"
+    },
+    "tip3": {
+      "title": "Funciona Sin Conexión",
+      "description": "La mayoría de las herramientas funcionan sin conexión una vez cargada la página"
+    },
+    "tip4": {
+      "title": "Compartir Herramientas",
+      "description": "Comparte enlaces directos a herramientas específicas con tu equipo"
     }
   }
 }

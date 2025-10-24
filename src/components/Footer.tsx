@@ -94,38 +94,38 @@ export const Footer = () => {
                 </li>
                 <li>
                   <Link
+                    to="/blog"
+                    onClick={() => handleLinkClick('/blog')}
+                    className="hover:text-primary transition-colors flex items-center gap-2"
+                  >
+                    📝 {t("footer.blog")}
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/guide"
+                    onClick={() => handleLinkClick('/guide')}
+                    className="hover:text-primary transition-colors flex items-center gap-2"
+                  >
+                    📖 {t("footer.userGuide")}
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/help"
+                    onClick={() => handleLinkClick('/help')}
+                    className="hover:text-primary transition-colors flex items-center gap-2"
+                  >
+                    ❓ {t("footer.helpCenter")}
+                  </Link>
+                </li>
+                <li>
+                  <Link
                     to="/category/favorites"
                     onClick={() => handleLinkClick('/category/favorites')}
                     className="hover:text-primary transition-colors flex items-center gap-2"
                   >
                     ⭐ {t("footer.favorites")}
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/category/recent"
-                    onClick={() => handleLinkClick('/category/recent')}
-                    className="hover:text-primary transition-colors flex items-center gap-2"
-                  >
-                    🕒 {t("footer.recentlyUsed")}
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/category/generator"
-                    onClick={() => handleLinkClick('/category/generator')}
-                    className="hover:text-primary transition-colors flex items-center gap-2"
-                  >
-                    ⚡ {t("footer.generators")}
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/category/developer"
-                    onClick={() => handleLinkClick('/category/developer')}
-                    className="hover:text-primary transition-colors flex items-center gap-2"
-                  >
-                    💻 {t("footer.devTools")}
                   </Link>
                 </li>
               </ul>

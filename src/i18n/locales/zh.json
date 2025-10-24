@@ -30,6 +30,10 @@
   "nav": {
     "home": "首页",
     "tools": "工具",
+    "resources": "资源",
+    "blog": "博客",
+    "userGuide": "用户指南",
+    "helpCenter": "帮助中心",
     "about": "关于我们",
     "privacy": "隐私政策",
     "terms": "服务条款",
@@ -69,6 +73,9 @@
     "wechat": "微信",
     "instagram": "Instagram",
     "home": "首页",
+    "blog": "博客",
+    "userGuide": "用户指南",
+    "helpCenter": "帮助中心",
     "favorites": "收藏夹",
     "recentlyUsed": "最近使用",
     "generators": "生成器",
@@ -3143,6 +3150,57 @@
       "title": "加入我们的社区",
       "description": "在社交媒体上关注我们，了解新工具、新功能和使用技巧！",
       "feedback": "我们喜欢听取用户的意见。有功能请求或反馈？随时联系我们！"
+    }
+  },
+  "blog": {
+    "title": "博客",
+    "description": "技巧、教程和最佳实践",
+    "pageTitle": "博客与教程",
+    "subtitle": "学习有效使用在线工具的技巧、窍门和最佳实践",
+    "allCategories": "全部",
+    "minRead": "分钟阅读",
+    "noPosts": "未找到文章",
+    "postNotFound": "文章未找到",
+    "backToBlog": "返回博客",
+    "share": "分享",
+    "linkCopied": "链接已复制到剪贴板！",
+    "relatedTools": "相关工具",
+    "relatedPosts": "相关文章"
+  },
+  "helpCenter": {
+    "title": "帮助中心",
+    "description": "查找常见问题的答案",
+    "pageTitle": "帮助中心",
+    "subtitle": "查找关于使用HaoinTools的问题答案",
+    "searchPlaceholder": "搜索帮助...",
+    "noResults": "未找到搜索结果",
+    "stillNeedHelp": "仍需帮助？",
+    "contactMessage": "找不到您要找的内容？我们随时为您提供帮助！",
+    "emailUs": "发送邮件"
+  },
+  "userGuide": {
+    "title": "用户指南",
+    "description": "了解如何使用HaoinTools",
+    "pageTitle": "用户指南",
+    "subtitle": "开始使用HaoinTools所需了解的一切",
+    "quickStart": "快速入门指南",
+    "toolCategories": "工具分类",
+    "proTips": "专业提示",
+    "tip1": {
+      "title": "收藏您的常用工具",
+      "description": "使用星标图标保存常用工具以便快速访问"
+    },
+    "tip2": {
+      "title": "键盘快捷键",
+      "description": "许多工具支持键盘快捷键，如Ctrl+Enter进行处理"
+    },
+    "tip3": {
+      "title": "离线工作",
+      "description": "大多数工具在页面加载后可离线工作"
+    },
+    "tip4": {
+      "title": "分享工具",
+      "description": "与您的团队分享特定工具的直接链接"
     }
   }
 }

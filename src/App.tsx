@@ -97,6 +97,12 @@ const AboutUs = lazy(() => import("./pages/AboutUs"));
 const Legal = lazy(() => import("./pages/Legal"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
+// 内容页面懒加载
+const Blog = lazy(() => import("./pages/Blog"));
+const BlogPost = lazy(() => import("./pages/BlogPost"));
+const HelpCenter = lazy(() => import("./pages/HelpCenter"));
+const UserGuide = lazy(() => import("./pages/UserGuide"));
+
 const queryClient = new QueryClient();
 
 // Smart scroll restoration - save position on navigation, restore on back
@@ -403,6 +409,10 @@ const App = () => (
                           <Route path="/terms" element={<TermsOfService />} />
                           <Route path="/about" element={<AboutUs />} />
                           <Route path="/legal" element={<Legal />} />
+                          <Route path="/blog" element={<Blog />} />
+                          <Route path="/blog/:slug" element={<BlogPost />} />
+                          <Route path="/help" element={<HelpCenter />} />
+                          <Route path="/guide" element={<UserGuide />} />
                           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                           <Route path="*" element={<NotFound />} />
                         </Routes>

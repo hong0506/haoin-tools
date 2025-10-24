@@ -1,11 +1,11 @@
 {
-  "timestamp": "2025-10-14T13:08:56.596Z",
+  "timestamp": "2025-10-16T08:21:04.750Z",
   "sourceLocale": "en",
-  "totalSourceKeys": 1987,
+  "totalSourceKeys": 2039,
   "results": [
     {
       "locale": "zh",
-      "totalKeys": 1987,
+      "totalKeys": 2039,
       "errors": [],
       "warnings": [
         {
@@ -209,6 +209,14 @@
           "targetValue": "{\"key\": \"value\"}"
         },
         {
+          "key": "tools.prompt-generator.apiKeyPlaceholder",
+          "type": "identical",
+          "severity": "warning",
+          "message": "Translation identical to source (possibly untranslated)",
+          "sourceValue": "sk-...",
+          "targetValue": "sk-..."
+        },
+        {
           "key": "cookiePolicy.typesOfCookies.table.cookies.cookieConsent.name",
           "type": "identical",
           "severity": "warning",
@@ -237,7 +245,7 @@
     },
     {
       "locale": "es",
-      "totalKeys": 1987,
+      "totalKeys": 2039,
       "errors": [],
       "warnings": [
         {
@@ -497,6 +505,14 @@
           "targetValue": "Info"
         },
         {
+          "key": "tools.prompt-generator.apiKeyPlaceholder",
+          "type": "identical",
+          "severity": "warning",
+          "message": "Translation identical to source (possibly untranslated)",
+          "sourceValue": "sk-...",
+          "targetValue": "sk-..."
+        },
+        {
           "key": "cookiePolicy.typesOfCookies.table.cookies.cookieConsent.name",
           "type": "identical",
           "severity": "warning",
@@ -530,6 +546,6 @@
     "passedLocales": 2,
     "failedLocales": 0,
     "totalErrors": 0,
-    "totalWarnings": 63
+    "totalWarnings": 65
   }
 }

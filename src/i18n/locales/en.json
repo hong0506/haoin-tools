@@ -30,6 +30,10 @@
   "nav": {
     "home": "Home",
     "tools": "Tools",
+    "resources": "Resources",
+    "blog": "Blog",
+    "userGuide": "User Guide",
+    "helpCenter": "Help Center",
     "about": "About Us",
     "privacy": "Privacy Policy",
     "terms": "Terms of Service",
@@ -69,6 +73,9 @@
     "wechat": "WeChat",
     "instagram": "Instagram",
     "home": "Home",
+    "blog": "Blog",
+    "userGuide": "User Guide",
+    "helpCenter": "Help Center",
     "favorites": "Favorites",
     "recentlyUsed": "Recently Used",
     "generators": "Generators",
@@ -3142,6 +3149,57 @@
       "title": "Join Our Community",
       "description": "Follow us on social media to stay updated with new tools, features, and tips!",
       "feedback": "We love hearing from our users. Have a feature request or feedback? Reach out to us anytime!"
+    }
+  },
+  "blog": {
+    "title": "Blog",
+    "description": "Tips, tutorials and best practices",
+    "pageTitle": "Blog & Tutorials",
+    "subtitle": "Learn tips, tricks, and best practices for using online tools effectively",
+    "allCategories": "All",
+    "minRead": "min read",
+    "noPosts": "No posts found",
+    "postNotFound": "Post not found",
+    "backToBlog": "Back to Blog",
+    "share": "Share",
+    "linkCopied": "Link copied to clipboard!",
+    "relatedTools": "Related Tools",
+    "relatedPosts": "Related Posts"
+  },
+  "helpCenter": {
+    "title": "Help Center",
+    "description": "Find answers to common questions",
+    "pageTitle": "Help Center",
+    "subtitle": "Find answers to your questions about using HaoinTools",
+    "searchPlaceholder": "Search for help...",
+    "noResults": "No results found for your search",
+    "stillNeedHelp": "Still Need Help?",
+    "contactMessage": "Can't find what you're looking for? We're here to help!",
+    "emailUs": "Email Us"
+  },
+  "userGuide": {
+    "title": "User Guide",
+    "description": "Learn how to use HaoinTools",
+    "pageTitle": "User Guide",
+    "subtitle": "Everything you need to know to get started with HaoinTools",
+    "quickStart": "Quick Start Guide",
+    "toolCategories": "Tool Categories",
+    "proTips": "Pro Tips",
+    "tip1": {
+      "title": "Bookmark Your Favorites",
+      "description": "Use the star icon to save frequently used tools for quick access"
+    },
+    "tip2": {
+      "title": "Keyboard Shortcuts",
+      "description": "Many tools support keyboard shortcuts like Ctrl+Enter to process"
+    },
+    "tip3": {
+      "title": "Works Offline",
+      "description": "Most tools work offline once the page is loaded"
+    },
+    "tip4": {
+      "title": "Share Tools",
+      "description": "Share direct links to specific tools with your team"
     }
   }
 }

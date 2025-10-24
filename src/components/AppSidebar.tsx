@@ -147,6 +147,62 @@ export function AppSidebar() {
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
+
+        {/* Resources Section */}
+        <SidebarGroup className="mt-6">
+          <SidebarGroupLabel className="text-xs font-bold text-muted-foreground uppercase tracking-wider mb-2">
+            📚 {t("nav.resources")}
+          </SidebarGroupLabel>
+          <SidebarGroupContent>
+            <SidebarMenu className="space-y-1">
+              <SidebarMenuItem>
+                <SidebarMenuButton asChild>
+                  <NavLink
+                    to="/blog"
+                    className={({ isActive }) =>
+                      isActive
+                        ? "flex items-center gap-3 rounded-xl bg-gradient-to-r from-pink-500 to-purple-500 px-4 py-3 text-white font-semibold shadow-lg transition-all"
+                        : "flex items-center gap-3 rounded-xl px-4 py-3 text-sidebar-foreground hover:bg-sidebar-accent transition-all font-medium hover:translate-x-1"
+                    }
+                  >
+                    <Icons.BookOpen className="h-5 w-5" />
+                    <ConditionalTooltipLabel text={t("nav.blog")} />
+                  </NavLink>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+              <SidebarMenuItem>
+                <SidebarMenuButton asChild>
+                  <NavLink
+                    to="/guide"
+                    className={({ isActive }) =>
+                      isActive
+                        ? "flex items-center gap-3 rounded-xl bg-gradient-to-r from-pink-500 to-purple-500 px-4 py-3 text-white font-semibold shadow-lg transition-all"
+                        : "flex items-center gap-3 rounded-xl px-4 py-3 text-sidebar-foreground hover:bg-sidebar-accent transition-all font-medium hover:translate-x-1"
+                    }
+                  >
+                    <Icons.Lightbulb className="h-5 w-5" />
+                    <ConditionalTooltipLabel text={t("nav.userGuide")} />
+                  </NavLink>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+              <SidebarMenuItem>
+                <SidebarMenuButton asChild>
+                  <NavLink
+                    to="/help"
+                    className={({ isActive }) =>
+                      isActive
+                        ? "flex items-center gap-3 rounded-xl bg-gradient-to-r from-pink-500 to-purple-500 px-4 py-3 text-white font-semibold shadow-lg transition-all"
+                        : "flex items-center gap-3 rounded-xl px-4 py-3 text-sidebar-foreground hover:bg-sidebar-accent transition-all font-medium hover:translate-x-1"
+                    }
+                  >
+                    <Icons.HelpCircle className="h-5 w-5" />
+                    <ConditionalTooltipLabel text={t("nav.helpCenter")} />
+                  </NavLink>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+            </SidebarMenu>
+          </SidebarGroupContent>
+        </SidebarGroup>
       </SidebarContent>
     </Sidebar>
   );
