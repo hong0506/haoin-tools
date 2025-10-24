@@ -1,11 +1,11 @@
 {
-  "timestamp": "2025-10-16T08:21:04.750Z",
+  "timestamp": "2025-10-24T11:08:46.731Z",
   "sourceLocale": "en",
-  "totalSourceKeys": 2039,
+  "totalSourceKeys": 2083,
   "results": [
     {
       "locale": "zh",
-      "totalKeys": 2039,
+      "totalKeys": 2083,
       "errors": [],
       "warnings": [
         {
@@ -245,9 +245,17 @@
     },
     {
       "locale": "es",
-      "totalKeys": 2039,
+      "totalKeys": 2083,
       "errors": [],
       "warnings": [
+        {
+          "key": "nav.blog",
+          "type": "identical",
+          "severity": "warning",
+          "message": "Translation identical to source (possibly untranslated)",
+          "sourceValue": "Blog",
+          "targetValue": "Blog"
+        },
         {
           "key": "nav.legal",
           "type": "identical",
@@ -271,6 +279,14 @@
           "message": "Translation identical to source (possibly untranslated)",
           "sourceValue": "Instagram",
           "targetValue": "Instagram"
+        },
+        {
+          "key": "footer.blog",
+          "type": "identical",
+          "severity": "warning",
+          "message": "Translation identical to source (possibly untranslated)",
+          "sourceValue": "Blog",
+          "targetValue": "Blog"
         },
         {
           "key": "footer.legal",
@@ -535,6 +551,14 @@
           "message": "Translation identical to source (possibly untranslated)",
           "sourceValue": "recentTools",
           "targetValue": "recentTools"
+        },
+        {
+          "key": "blog.title",
+          "type": "identical",
+          "severity": "warning",
+          "message": "Translation identical to source (possibly untranslated)",
+          "sourceValue": "Blog",
+          "targetValue": "Blog"
         }
       ],
       "passed": true
@@ -546,6 +570,6 @@
     "passedLocales": 2,
     "failedLocales": 0,
     "totalErrors": 0,
-    "totalWarnings": 65
+    "totalWarnings": 68
   }
 }
